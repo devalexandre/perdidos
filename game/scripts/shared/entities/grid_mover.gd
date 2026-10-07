@@ -124,8 +124,13 @@ func move_to(target: Vector3, stop_within: float = 0.0) -> bool:
 	if points.size() < 2:
 		# Já está no destino (ou nada a fazer) e parado: nenhum movimento.
 		return false
-	_set_path(MovePath.create(points, prefix_start, ms_per_cell, grid.cell_size,
-			Balance.cfg.diagonal_cost))
+	var next: MovePath = MovePath.create(points, prefix_start, ms_per_cell, grid.cell_size, Balance.cfg.diagonal_cost)
+	if not prefix.is_empty():
+		var k: int = _path.segment_at(float(now))
+		var correction: int = (_path.times[k + 1] - _path.times[k]) - next.times[1]
+		for i: int in range(1, next.times.size()):
+			next.times[i] += correction
+	_set_path(next)
 	return true
 
 

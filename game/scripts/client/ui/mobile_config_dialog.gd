@@ -108,7 +108,7 @@ func _populate_catalog(known_skills: Array, inventory_items: Array) -> void:
 	for sk_id in known_skills:
 		var sid := StringName(str(sk_id))
 		var def: SkillDef = Content.skill(sid)
-		if def == null:
+		if def == null or def.passive:
 			continue
 		var btn := Button.new()
 		btn.custom_minimum_size = Vector2(item_size, item_size)

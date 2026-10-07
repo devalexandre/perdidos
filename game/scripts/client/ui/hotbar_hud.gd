@@ -43,6 +43,7 @@ var ui_scale: float = 1.0
 var hotbar: Hotbar
 var skills_window: SkillsWindow
 var attributes_window: AttributesWindow
+var followers_window: FollowersWindow
 var quest_log: QuestLogWindow
 var tracker: QuestTracker
 var aim: HotbarAim
@@ -79,13 +80,14 @@ func _ready() -> void:
 	skills_window.title_requested.connect(NetProgress.send_set_title)
 	attributes_window = AttributesWindow.new(ui_scale)
 	attributes_window.allocate_requested.connect(NetProgress.send_allocate_stats)
+	followers_window = FollowersWindow.new(ui_scale)
 	quest_log = QuestLogWindow.new(ui_scale)
 	quest_log.abandon_requested.connect(NetProgress.send_quest_abandon)
 	skills_window.default_anchor = SKILLS_ANCHOR
 	attributes_window.default_anchor = ATTRIBUTES_ANCHOR
 	quest_log.default_anchor = QUESTS_ANCHOR
 	var layer: Control = game_ui.windows_layer if game_ui.windows_layer != null else self
-	for w: GameWindow in [skills_window, attributes_window, quest_log]:
+	for w: GameWindow in [skills_window, attributes_window, quest_log, followers_window]:
 		layer.add_child(w)
 	_add_hud_buttons()
 	NetProgress.progress_changed.connect(_on_progress_changed)
@@ -110,13 +112,13 @@ func _ready() -> void:
 	skills_window.place(SKILLS_ANCHOR)
 	attributes_window.place(ATTRIBUTES_ANCHOR)
 	quest_log.place(QUESTS_ANCHOR)
-	for w: GameWindow in [skills_window, attributes_window, quest_log]:
+	for w: GameWindow in [skills_window, attributes_window, quest_log, followers_window]:
 		if _reopen.get(w.name, false):
 			w.visible = true
 
 
 func _exit_tree() -> void:
-	for w: GameWindow in [skills_window, attributes_window, quest_log]:
+	for w: GameWindow in [skills_window, attributes_window, quest_log, followers_window]:
 		if w != null and is_instance_valid(w):
 			_reopen[w.name] = w.visible
 	if aim != null and is_instance_valid(aim):
@@ -146,7 +148,8 @@ func _add_hud_buttons() -> void:
 	var specs: Array[Array] = [
 		["UI_SKILLS", "K", MenuIcons.SKILLS, func() -> void: skills_window.toggle()],
 		["UI_ATTRIBUTES_WINDOW", "A", MenuIcons.ATTRIBUTES, func() -> void: attributes_window.toggle()],
-		["UI_QUEST_LOG", "L", MenuIcons.QUESTS, func() -> void: quest_log.toggle()]]
+		["UI_QUEST_LOG", "L", MenuIcons.QUESTS, func() -> void: quest_log.toggle()],
+		["UI_FOLLOWERS", "P", MenuIcons.SKILLS, func() -> void: followers_window.toggle()]]
 	for i: int in specs.size():
 		game_ui.add_menu_entry(specs[i][0], specs[i][1], specs[i][2], specs[i][3], i)
 
@@ -194,6 +197,7 @@ func _refresh() -> void:
 	skills_window.set_progress(_progress)
 	attributes_window.set_points(int(_progress.get("attribute_points", 0)))
 	attributes_window.set_stats(Net.client_stats)
+	followers_window.set_progress(_progress)
 	quest_log.set_progress(_progress)
 	tracker.set_progress(_progress)
 	var minimap: Minimap = _view.find_child("Minimap", true, false) as Minimap if _view != null else null
@@ -238,6 +242,8 @@ func use_slot(index: int, mobile_drag: bool = false) -> void:
 	match def.target_type:
 		SkillDef.TargetType.SINGLE:
 			var t: int = _pick_target(def, me)
+			if t == 0 and def.id == &"bow_companion_guara_track" and me != null:
+				t = int(me.get(&"entity_id"))
 			if t == 0:
 				game_ui.show_system_message(MSG_NO_TARGET)
 				return
@@ -393,7 +399,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	var key: InputEventKey = event as InputEventKey
 	if key.keycode == KEY_ESCAPE:
-		for w: GameWindow in [quest_log, attributes_window, skills_window]:
+		for w: GameWindow in [followers_window, quest_log, attributes_window, skills_window]:
 			if w.visible and not game_ui.dialogue.visible:
 				w.close()
 				get_viewport().set_input_as_handled()
@@ -405,7 +411,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				use_slot(i)
 				get_viewport().set_input_as_handled()
 				return
-	if event.is_action_pressed(ACTION_SKILLS, false, true):
+	if key.keycode == KEY_P:
+		followers_window.toggle()
+	elif event.is_action_pressed(ACTION_SKILLS, false, true):
 		skills_window.toggle()
 	elif event.is_action_pressed(ACTION_ATTRIBUTES, false, true):
 		attributes_window.toggle()

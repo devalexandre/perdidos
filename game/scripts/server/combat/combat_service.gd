@@ -241,6 +241,8 @@ func deal_damage(attacker: NetEntity, target: NetEntity, kind: StringName, multi
 			world.mounts.dismount(victim, amount > 0)
 			if world.companions != null:
 				world.companions.cancel(victim)
+			if amount > 0:
+				world.progression.quests.interrupt_wait(victim.peer_id)
 			world.refresh_appearance(victim)
 	_mark_combat_entity(attacker)
 	_mark_combat_entity(target)

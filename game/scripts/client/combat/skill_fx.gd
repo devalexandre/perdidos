@@ -661,7 +661,7 @@ func _process(delta: float) -> void:
 			continue
 		var v: Node = e.get_node_or_null(^"Visual")
 		if v != null and v.has_method(&"set_tint"):
-			v.call(&"set_tint", STEALTH_TINT)
+			v.call(&"set_tint", Color(1.25,1.1,0.7) if NetFollowers.is_revealed(eid) else STEALTH_TINT)
 	if not _queue.is_empty():
 		var due: Array[Dictionary] = []
 		var keep: Array[Dictionary] = []

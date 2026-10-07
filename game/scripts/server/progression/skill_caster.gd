@@ -443,6 +443,10 @@ func _resolve_target(session: PlayerSession, def: SkillDef, target_entity_id: in
 		ground_pos: Vector3, pc: PendingCast) -> String:
 	var me: NetEntity = session.entity
 	var facing := Vector3(-sin(me.facing_yaw), 0.0, -cos(me.facing_yaw))
+	if def.id == &"bow_companion_guara_track" and target_entity_id == me.entity_id and not bridge.is_in_combat(session.peer_id):
+		pc.target_id = 0
+		pc.point = me.net_position
+		return ""
 	match def.target_type:
 		SkillDef.TargetType.SINGLE:
 			var t: NetEntity = world.get_entity(target_entity_id)

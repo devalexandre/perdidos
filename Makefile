@@ -33,7 +33,7 @@ RELEASE_DIR   := $(BUILD)/release
 
 .DEFAULT_GOAL := help
 .PHONY: launcher launcher-windows launcher-frontend launcher-test auth release serve-ngrok run-ngrok-client serve-playit run-playit-client client-config clients check-names help godot import run run-dev run-server run-client run-duo stop test build build-windows \
-        build-linux build-server build-apk apk templates up down logs ps db-shell db-reset clean
+        build-linux build-server build-apk apk templates up down logs ps db-shell db-reset clean site site-deploy
 
 help: ## Lista os comandos
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36mmake %-14s\033[0m %s\n", $$1, $$2}'
@@ -220,6 +220,22 @@ release: ## Publica uma versão: make release VERSION=0.1.3 [NOTES="o que mudou"
 	@$(MAKE) --no-print-directory build-windows build-linux build-apk
 	@VERSION=$(VERSION) NOTES="$(NOTES)" SERVER_URL="$(SERVER_URL)" BUILD="$(BUILD)" \
 	   DRIVE_URL="https://drive.google.com/drive/folders/178ylieiRtCYsOtrr-8wTmd2hB3oymsNW" $(LAUNCHER)/release.sh
+
+# ---------------------------------------------------------------- site (GitHub Pages)
+# Todo push no master que muda site/** já publica sozinho (.github/workflows/site-pages.yml).
+SITE_PORT     ?= 8000
+
+site: ## Abre o site localmente em http://localhost:8000 (SITE_PORT=...)
+	@echo ">> site em http://localhost:$(SITE_PORT)  (Ctrl+C para parar)"
+	@cd site && python3 -m http.server $(SITE_PORT) --bind 127.0.0.1
+
+site-deploy: ## Publica o site no GitHub Pages agora (usa o que já está no master do GitHub)
+	@command -v gh >/dev/null || { echo "instale o GitHub CLI (gh) e rode: gh auth login"; exit 1; }
+	@git fetch -q origin master && [ -z "$$(git diff --name-only origin/master -- site; git ls-files -o --exclude-standard site)" ] || \
+	   echo ">> aviso: site/ local difere do origin/master — faça commit e push antes, senão publica a versão antiga"
+	@gh workflow run site-pages.yml --ref master
+	@sleep 3; gh run watch $$(gh run list --workflow=site-pages.yml --limit 1 --json databaseId -q '.[0].databaseId') --exit-status
+	@echo ">> publicado: https://devalexandre.github.io/perdidos/"
 
 # ---------------------------------------------------------------- docker (servidor + PostgreSQL)
 infra/.env:

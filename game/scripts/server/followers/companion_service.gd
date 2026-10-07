@@ -188,7 +188,8 @@ func use_active(session: PlayerSession, skill: StringName, target: int) -> void:
 			_reveal[session.peer_id] = {"ids": ids, "end": Time.get_ticks_msec() + 8000, "crit": true}
 		&"bow_companion_guara_track":
 			duration = 15
-			ids.append(target)
+			if target > 0:
+				ids.append(target)
 			_reveal[session.peer_id] = {"ids": ids, "end": Time.get_ticks_msec() + 15000}
 			gathering = not world.progression.bridge.is_in_combat(session.peer_id)
 		&"arcane_companion_lume_guide":

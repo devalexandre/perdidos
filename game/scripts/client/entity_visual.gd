@@ -385,6 +385,10 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	# Bandos não empilham dezenas de nomes. Chefes, raros e o alvo continuam identificados.
 	var entity := get_parent() as NetEntity
+	if entity != null and NetFollowers.is_revealed(entity.entity_id):
+		set_tint(Color(1.25, 1.1, 0.7))
+	elif not _hovered:
+		set_tint(Color.WHITE)
 	if entity != null and entity.kind == NetEntity.KIND_MONSTER:
 		_nameplate.visible = not _nameplate.text.is_empty() and (_hovered \
 				or NetCombat.client_attack_target == entity.entity_id \

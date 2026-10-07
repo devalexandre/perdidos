@@ -238,6 +238,10 @@ func _draw_map_view() -> void:
 	for icon: Dictionary in data.icons:
 		var at: Vector2 = origin + (data.world_to_texel(icon[&"pos"]) * s).rotated(rot)
 		draw_icon(_map_view, icon[&"icon"], at.round(), icon_px, ui_scale)
+	for entity: Node3D in NetCombat.all_entities():
+		if entity is NetEntity and NetFollowers.is_revealed((entity as NetEntity).entity_id):
+			var marked: Vector2 = origin + (data.world_to_texel(Vector2(entity.global_position.x, entity.global_position.z)) * s).rotated(rot)
+			_map_view.draw_circle(marked, 4, Color(1, 0.82, 0.2))
 	draw_arrow(_map_view, c.round(), rot - float(p.get(&"facing_yaw")), UIKit.px(ARROW_PX, ui_scale), ui_scale)
 
 

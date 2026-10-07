@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="def"]
 
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ancient_shell_shard.png" id="icon"]
+
 [resource]
 script = ExtResource("def")
+icon = ExtResource("icon")
 id = &"donkey_grass"
 name_key = "ITEM_DONKEY_GRASS"
 desc_key = "ITEM_DONKEY_GRASS_DESC"

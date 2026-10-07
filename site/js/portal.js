@@ -55,4 +55,42 @@
       if (section) observer.observe(section);
     });
   }
+  const form = document.getElementById('waitlist-form');
+  if (form) {
+    const status = document.getElementById('waitlist-status');
+    const button = form.querySelector('button[type="submit"]');
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      if (!form.reportValidity() || button.disabled) return;
+      const data = new FormData(form);
+      const controller = new AbortController();
+      const timeout = setTimeout(function () { controller.abort(); }, 15000);
+      button.disabled = true;
+      form.setAttribute('aria-busy', 'true');
+      status.dataset.error = 'false';
+      status.textContent = 'Enviando sua inscrição…';
+      try {
+        const response = await fetch(form.dataset.endpoint, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'ngrok-skip-browser-warning': '1'},
+          body: JSON.stringify({email: data.get('email').trim(), name: data.get('name').trim(), platform: data.get('platform'), consent: data.get('consent') === 'on', website: data.get('website') || ''}),
+          signal: controller.signal
+        });
+        const result = await response.json();
+        if (!response.ok || result.ok !== true) throw new Error(result.message || 'Não conseguimos salvar sua inscrição. Tente novamente em instantes.');
+        form.reset();
+        status.textContent = 'Inscrição recebida! Você está na lista de espera de Perdidos. Até a próxima viagem.';
+      } catch (error) {
+        status.dataset.error = 'true';
+        status.textContent = error.name === 'AbortError' || error instanceof TypeError || error instanceof SyntaxError
+          ? 'Não conseguimos conectar à lista de espera. Confira sua conexão ou tente novamente mais tarde.'
+          : error.message;
+      } finally {
+        clearTimeout(timeout);
+        button.disabled = false;
+        form.removeAttribute('aria-busy');
+        status.focus({preventScroll: true});
+      }
+    });
+  }
 })();

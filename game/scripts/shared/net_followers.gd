@@ -25,7 +25,8 @@ func push_strike(peers: Array[int], owner: int, target: int, companion: StringNa
 		_cli_strike.rpc_id(peer, owner, target, String(companion))
 
 func push_reveal(peer: int, ids: Array, duration: float, gathering: bool = false) -> void:
-	_cli_reveal.rpc_id(peer, ids, duration, gathering)
+	if Net.is_server and multiplayer.has_multiplayer_peer():
+		_cli_reveal.rpc_id(peer, ids, duration, gathering)
 
 @rpc("authority", "call_remote", "reliable")
 func _cli_strike(owner: int, target: int, companion: String) -> void:
@@ -33,5 +34,30 @@ func _cli_strike(owner: int, target: int, companion: String) -> void:
 
 @rpc("authority", "call_remote", "reliable")
 func _cli_reveal(ids: Array, duration: float, gathering: bool) -> void:
+	_reveal_ids = ids
+	_reveal_until = Time.get_ticks_msec() + roundi(duration * 1000)
+	_gathering = gathering
+	_gather_radius = 10 if duration == 15 else 15
 	revealed.emit(ids, duration, gathering)
 
+
+var _reveal_ids: Array = []
+var _reveal_until: int = 0
+var _gathering: bool = false
+var _gather_radius: float = 15.0
+
+func is_revealed(entity_id: int) -> bool:
+	return Time.get_ticks_msec() < _reveal_until and entity_id in _reveal_ids
+
+func highlights_gather(point: Vector3) -> bool:
+	if not _gathering or Time.get_ticks_msec() >= _reveal_until:
+		return false
+	for entity: Node3D in NetCombat.all_entities():
+		if entity is NetEntity and (entity as NetEntity).is_local_player():
+			return entity.global_position.distance_to(point) <= _gather_radius * Balance.cfg.cell_size
+	return false
+
+func clear_client() -> void:
+	_reveal_ids.clear()
+	_reveal_until = 0
+	_gathering = false

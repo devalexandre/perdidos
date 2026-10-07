@@ -525,6 +525,7 @@ func _on_peer_instance_ready(peer_id: int, instance_id: StringName) -> void:
 	var old_instance: StringName = Net.get_peer_instance(peer_id)
 	Net.set_peer_instance(peer_id, instance_id)
 	var session: PlayerSession = _sessions.get(peer_id)
+	var logging_in: bool = session == null
 	if session != null:
 		# Troca de instância (MapTransfer, Agente N): a entidade antiga some da instância velha e uma
 		# nova nasce na nova (mover um nó replicado entre MultiplayerSpawners não é suportado).
@@ -567,7 +568,7 @@ func _on_peer_instance_ready(peer_id: int, instance_id: StringName) -> void:
 	_update_instance_visibility_for(instance_id, peer_id)
 	map_transfer.on_player_placed(session)
 	progression.on_player_ready(session)
-	if companions != null:
+	if companions != null and logging_in:
 		companions.restore(session)
 	party.on_player_ready(session)
 	Net.log_line("player_spawned", {"peer": peer_id, "name": session.entity.display_name,

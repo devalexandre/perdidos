@@ -29,6 +29,7 @@ const (
 
 // Config of the API + gatekeeper.
 type Config struct {
+	Waitlist           WaitlistConfig
 	Secret             []byte
 	TokenTTL           time.Duration
 	LatestPath         string   // latest.json served at /api/latest ("" or missing file = 404)
@@ -49,6 +50,7 @@ type Server struct {
 	log   *slog.Logger
 	now   func() time.Time
 
+	waitlistLimit *RateLimiter
 	ipLimit       *RateLimiter // any auth call, per IP
 	registerLimit *RateLimiter // account creation, per IP
 	emailFail     *RateLimiter // failed logins, per e-mail
@@ -75,6 +77,7 @@ func NewServer(cfg Config, store Store, log *slog.Logger) *Server {
 	}, store, log)
 	return &Server{
 		cfg: cfg, store: store, log: log, now: time.Now,
+		waitlistLimit: NewRateLimiter(5, time.Hour),
 		ipLimit:       NewRateLimiter(30, time.Minute),
 		registerLimit: NewRateLimiter(5, time.Hour),
 		emailFail:     NewRateLimiter(8, 15*time.Minute),
@@ -94,6 +97,8 @@ func (s *Server) Handler() http.Handler {
 	if s.admin != nil {
 		s.admin.RegisterRoutes(mux)
 	}
+	mux.HandleFunc("POST /api/waitlist", s.handleWaitlist)
+	mux.HandleFunc("OPTIONS /api/waitlist", s.handleWaitlist)
 	mux.HandleFunc("POST /api/register", s.handleRegister)
 	mux.HandleFunc("POST /api/login", s.handleLogin)
 	mux.HandleFunc("GET /api/google/config", s.handleGoogleConfig)

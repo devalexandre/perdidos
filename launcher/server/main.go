@@ -71,6 +71,7 @@ func main() {
 		return
 	}
 
+	waitlistEnv := flag.String("waitlist-env", ".run/waitlist.env", "private waitlist PostgreSQL configuration")
 	addr := flag.String("addr", ":8080", "listen address (API + gatekeeper)")
 	game := flag.String("game", "127.0.0.1:7777", "Godot WebSocket server (host:port); empty disables the proxy")
 	dbPath := flag.String("db", ".run/accounts.db", "SQLite database file")
@@ -103,12 +104,30 @@ func main() {
 	cfg := Config{Secret: []byte(secret), TokenTTL: *ttl, LatestPath: *latest,
 		GoogleClientID: *googleClientID, PublicBaseURL: *publicURL,
 		AdminUserDataDir: *adminData, AdminServerLog: *serverLog, AdminAuthLog: *authLog}
+	waitlistEnvCfg, err := LoadWaitlistEnvironment(*waitlistEnv)
+	if err != nil {
+		log.Error("waitlist_config_failed")
+		os.Exit(1)
+	}
+	if waitlistEnvCfg.DatabaseURL != "" {
+		initCtx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+		waitlistStore, openErr := OpenWaitlist(initCtx, waitlistEnvCfg.DatabaseURL)
+		cancel()
+		if openErr != nil {
+			log.Error("waitlist_database_failed")
+			os.Exit(1)
+		}
+		defer waitlistStore.Close()
+		cfg.Waitlist = WaitlistConfig{Store: waitlistStore, Origin: waitlistEnvCfg.Origin}
+		log.Info("waitlist_ready")
+	}
 	if *game != "" {
 		cfg.GameURL = &url.URL{Scheme: "http", Host: *game}
 	}
+	api := NewServer(cfg, store, log)
 	srv := &http.Server{
 		Addr:              *addr,
-		Handler:           NewServer(cfg, store, log).Handler(),
+		Handler:           api.Handler(),
 		ReadHeaderTimeout: 10 * time.Second,
 	}
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)

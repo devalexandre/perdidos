@@ -16,7 +16,7 @@
     <a class="brand" href="#inicio" aria-label="Perdidos, início"><span class="brand-mark" aria-hidden="true">✧</span> Perdidos<small>UM MUNDO DE HISTÓRIAS</small></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">☰</span></button>
     <nav aria-label="Navegação principal"><ul class="nav-links" id="nav-links">
-      <li><a href="#novidades">Novidades</a></li><li><a href="#mundo">O mundo</a></li><li><a href="#titulos">Títulos</a></li><li><a href="#galeria">Galeria</a></li><li><a href="guia.html">Guia do Viajante <span aria-hidden="true">↗</span></a></li>
+      <li><a href="#novidades">Novidades</a></li><li><a href="#mundo">O mundo</a></li><li><a href="#titulos">Títulos</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#lista">Lista de espera</a></li><li><a href="guia.html">Guia do Viajante <span aria-hidden="true">↗</span></a></li>
     </ul></nav>
     <a class="btn nav-cta" href="#baixar">Começar a jogar <span aria-hidden="true">→</span></a>
   </div>
@@ -84,6 +84,20 @@
     </div>
     <details class="download-help"><summary>É minha primeira viagem. Por onde começo?</summary><p>Abra a pasta de versões e escolha o arquivo da sua plataforma. No Windows, use o launcher quando disponível. Depois de instalar e entrar no jogo, crie seu Viajante e conheça os comandos no <a href="guia.html#combate">guia de combate</a>. Os arquivos da pasta podem mudar conforme novas versões são publicadas.</p></details>
   </section>
+  <section id="lista" class="waitlist-section"><div class="wrap waitlist-layout">
+    <div class="waitlist-copy"><span class="eyebrow">RESERVE UM LUGAR NA VIAGEM</span><h2>O próximo capítulo<br>pode começar <em>com você.</em></h2><p>Entre na lista de espera para saber dos próximos testes e das novidades de Perdidos.</p><span class="waitlist-note">Uma inscrição por e-mail. Sem criar uma conta no jogo.</span></div>
+    <form id="waitlist-form" class="waitlist-form" data-endpoint="https://poetic-calculably-nayeli.ngrok-free.dev/api/waitlist">
+      <div class="waitlist-field"><label for="waitlist-name">Como podemos chamar você? <span>(opcional)</span></label><input id="waitlist-name" name="name" type="text" maxlength="80" autocomplete="given-name" placeholder="Seu nome de Viajante"></div>
+      <div class="waitlist-field"><label for="waitlist-email">Seu e-mail</label><input id="waitlist-email" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="voce@exemplo.com"></div>
+      <div class="waitlist-field"><label for="waitlist-platform">Onde você quer jogar?</label><select id="waitlist-platform" name="platform"><option value="indeciso">Ainda vou escolher</option><option value="windows">Windows</option><option value="linux">Linux</option><option value="android">Android</option></select></div>
+      <div class="waitlist-honeypot" aria-hidden="true"><label for="waitlist-website">Seu site</label><input id="waitlist-website" name="website" tabindex="-1" autocomplete="off"></div>
+      <label class="waitlist-consent"><input name="consent" type="checkbox" required><span>Quero receber novidades e convites de teste de Perdidos por e-mail.</span></label>
+      <p class="waitlist-privacy">Usaremos seu nome, e-mail e plataforma para organizar os testes e entrar em contato sobre o jogo.</p>
+      <button class="btn" type="submit">Entrar na lista de espera <span aria-hidden="true">→</span></button>
+      <p id="waitlist-status" class="waitlist-status" role="status" aria-live="polite" tabindex="-1"></p>
+      <noscript><p>Ative o JavaScript para enviar sua inscrição pelo formulário.</p></noscript>
+    </form>
+  </div></section>
   <section class="faq-section"><div class="wrap faq-layout"><div><span class="eyebrow">ANTES DA VIAGEM</span><h2>Vamos tirar<br>suas dúvidas.</h2><a class="text-link" href="guia.html">Consultar o guia completo →</a></div><div class="faq-list">
     <details><summary>O que é Perdidos?</summary><p>Um MMORPG de fantasia em pixel art 2.5D. Você explora um mundo inspirado nas lendas de muitos povos, encontra outros Viajantes e aprende habilidades através de quests.</p></details>
     <details><summary>Como funcionam as classes?</summary><p>Seu Viajante não fica preso a uma classe escolhida na criação. Você aprende com mestres e conquista títulos, podendo se especializar ou combinar caminhos.</p></details>
@@ -91,7 +105,7 @@
     <details><summary>Posso conhecer o mundo antes de jogar?</summary><p>Sim. O <a href="guia.html#mundo">Guia do Viajante</a> reúne regiões, títulos, habilidades, criaturas e músicas do próprio jogo.</p></details>
   </div></div></section>
 </main>
-<footer class="site-footer"><div class="wrap footer-top"><div><a class="brand" href="#inicio">✧ Perdidos</a><p>Há mundos esperando por você.</p></div><nav aria-label="Links do rodapé"><a href="guia.html">Guia do Viajante</a><a href="guia.html#trilha">Trilha sonora</a><a href="guia.html#roteiro">Desenvolvimento</a><a href="#baixar">Jogar agora</a></nav></div><div class="wrap footer-bottom"><span>© 2026 Perdidos · Um mundo em construção.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+<footer class="site-footer"><div class="wrap footer-top"><div><a class="brand" href="#inicio">✧ Perdidos</a><p>Há mundos esperando por você.</p></div><nav aria-label="Links do rodapé"><a href="guia.html">Guia do Viajante</a><a href="#lista">Lista de espera</a><a href="guia.html#trilha">Trilha sonora</a><a href="guia.html#roteiro">Desenvolvimento</a><a href="#baixar">Jogar agora</a></nav></div><div class="wrap footer-bottom"><span>© 2026 Perdidos · Um mundo em construção.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
 <dialog class="viewer" aria-label="Captura ampliada"><button class="close" type="button" autofocus>Fechar <span aria-hidden="true">×</span></button><img alt=""><p></p></dialog>
 <script src="js/main.js"></script><script src="js/portal.js"></script>
 </body></html>

@@ -38,8 +38,9 @@ const M_HEAL_RECEIVED: StringName = &"heal_received_pct"
 const M_CC_IMMUNE: StringName = &"cc_immune"
 const M_DEATH_WARD: StringName = &"death_ward"
 const M_IMBUE_MATK: StringName = &"imbue_matk"
+const M_MOVE_SPEED: StringName = &"move_speed_pct"
 const MOD_KEYS: Array[StringName] = [M_ATK_PCT, M_MATK_PCT, M_DEF_PCT, M_CRIT, M_EVADE, M_RANGE,
-		M_DMG_TAKEN, M_LIFESTEAL, M_HEAL_RECEIVED, M_CC_IMMUNE, M_DEATH_WARD, M_IMBUE_MATK]
+		M_DMG_TAKEN, M_LIFESTEAL, M_HEAL_RECEIVED, M_CC_IMMUNE, M_DEATH_WARD, M_IMBUE_MATK, M_MOVE_SPEED]
 ## Efeitos negativos (Emplastro remove; Aguentar Firme bloqueia os de controle).
 const NEGATIVE_KINDS: Array[int] = [Kind.SLOW, Kind.STUN, Kind.DOT, Kind.ROOT, Kind.DEBUFF]
 const CONTROL_KINDS: Array[int] = [Kind.STUN, Kind.ROOT]
@@ -282,7 +283,7 @@ func heal_multiplier(entity: NetEntity) -> float:
 
 ## 1,0 = normal; 0,65 = 35% mais lento (o ms_per_cell fica ms / mult).
 func move_speed_multiplier(entity: NetEntity) -> float:
-	var m: float = NEUTRAL_MULTIPLIER
+	var m: float = maxf(MIN_SPEED_MULTIPLIER, NEUTRAL_MULTIPLIER + mod(entity, M_MOVE_SPEED))
 	for e: Effect in _effects.get(entity.entity_id, []):
 		if e.kind == Kind.SLOW:
 			m *= NEUTRAL_MULTIPLIER - e.value

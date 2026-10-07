@@ -1381,3 +1381,9 @@ func _show(session: PlayerSession, node_id: String, text_key: String,
 	n.text_key = text_key
 	n.options = options
 	world.dialogue.show_node(session, n)
+
+
+func interrupt_wait(peer: int) -> void:
+	for key: String in _waits.keys():
+		if key.begins_with(str(peer) + ":"):
+			_waits.erase(key)
