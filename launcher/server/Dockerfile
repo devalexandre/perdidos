@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.24-alpine AS builder
+FROM golang:1.26-alpine AS builder
 
 WORKDIR /app
 COPY go.mod go.sum ./
@@ -19,4 +19,3 @@ ENV PORT=8080
 ENV PERDIDOS_GAME_ADDR=""
 
 CMD ["/app/authgate", "-game="]
-
