@@ -19,7 +19,8 @@ type WaitlistConfig struct {
 
 func (s *Server) handleWaitlist(w http.ResponseWriter, r *http.Request) {
 	origin := r.Header.Get("Origin")
-	if origin != "" && !isAllowedOrigin(origin, s.cfg.Waitlist.Origin) {
+	sameOrigin := origin == "https://"+r.Host || origin == "http://"+r.Host
+	if origin != "" && !sameOrigin && !isAllowedOrigin(origin, s.cfg.Waitlist.Origin) {
 		writeError(w, http.StatusForbidden, "origin_denied", "Origem não permitida.")
 		return
 	}

@@ -95,6 +95,7 @@ func main() {
 	adminData := flag.String("admin-user-data", "", "Godot user data directory used by the admin panel")
 	serverLog := flag.String("server-log", ".run/server.log", "Godot server log shown in the admin panel")
 	authLog := flag.String("auth-log", ".run/auth.log", "API log shown in the admin panel")
+	siteDir := flag.String("site", os.Getenv("PERDIDOS_SITE_DIR"), "static site directory served at / when -game is empty")
 	flag.Parse()
 
 	log := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelInfo}))
@@ -115,7 +116,7 @@ func main() {
 
 	cfg := Config{Secret: []byte(secret), TokenTTL: *ttl, LatestPath: *latest,
 		GoogleClientID: *googleClientID, PublicBaseURL: *publicURL,
-		AdminUserDataDir: *adminData, AdminServerLog: *serverLog, AdminAuthLog: *authLog}
+		AdminUserDataDir: *adminData, AdminServerLog: *serverLog, AdminAuthLog: *authLog, SiteDir: *siteDir}
 	waitlistEnvCfg, err := LoadWaitlistEnvironment(*waitlistEnv)
 	if err != nil {
 		log.Error("waitlist_config_failed")
@@ -150,7 +151,7 @@ func main() {
 		defer cancel()
 		_ = srv.Shutdown(shut)
 	}()
-	log.Info("auth_started", "addr", *addr, "game", *game, "db", *dbPath, "latest", *latest)
+	log.Info("auth_started", "addr", *addr, "game", *game, "site", *siteDir, "db", *dbPath, "latest", *latest)
 	if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 		log.Error("listen_failed", "err", err.Error())
 		os.Exit(1)

@@ -48,17 +48,12 @@ Este guia ensina como colocar a API da **Lista de Espera** rodando 24/7 no [Rend
 
 ---
 
-## 3. Atualizar o formulário no site
+## 3. Site + API no mesmo serviço
 
-Assim que o deploy for concluído, o Render fornecerá uma URL pública HTTPS, por exemplo:
-`https://perdidos-waitlist.onrender.com`
+O mesmo serviço serve o site (`site/`) em `/` e a API em `/api/*`: **https://perdidos.onrender.com**
 
-Abra o arquivo [site/index.html](file:///home/devalexandre/projects/devalexandre/game-mmo/site/index.html) e atualize a linha 91:
-
-```html
-<form id="waitlist-form" class="waitlist-form" data-endpoint="https://SEU-SERVICO.onrender.com/api/waitlist">
-```
-
-Substitua `https://SEU-SERVICO.onrender.com` pela URL gerada pelo Render.
-Faça o commit e push para o GitHub: o GitHub Pages atualizará o site automaticamente!
-
+- **Docker** (`Dockerfile` da raiz): copia `site/` para `/app/site` e define `PERDIDOS_SITE_DIR=/app/site`.
+- **Runtime Go** (`render.yaml`): `PERDIDOS_SITE_DIR=../../site` (relativo a `launcher/server`).
+- O formulário usa `data-endpoint="/api/waitlist"` (mesma origem, sem CORS). O servidor aceita
+  automaticamente a própria origem; `PERDIDOS_SITE_ORIGIN` só importa para sites em outro domínio.
+- O site só é servido quando `-game` está vazio (sem proxy para o Godot).

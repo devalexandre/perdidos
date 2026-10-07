@@ -13,9 +13,12 @@ FROM alpine:3.21
 RUN apk --no-cache add ca-certificates tzdata
 WORKDIR /app
 COPY --from=builder /app/authgate /app/authgate
+COPY site/ /app/site/
+RUN rm -f /app/site/README.md
 
 EXPOSE 8080
 ENV PORT=8080
 ENV PERDIDOS_GAME_ADDR=""
+ENV PERDIDOS_SITE_DIR=/app/site
 
 CMD ["/app/authgate", "-game="]

@@ -12,9 +12,11 @@ services:
       - key: PERDIDOS_WAITLIST_DATABASE_URL
         sync: false
       - key: PERDIDOS_SITE_ORIGIN
-        value: https://devalexandre.github.io
+        value: https://perdidos.onrender.com,https://devalexandre.github.io
       - key: PERDIDOS_JWT_SECRET
         generateValue: true
       - key: PERDIDOS_GAME_ADDR
         value: ""
+      - key: PERDIDOS_SITE_DIR
+        value: ../../site
 

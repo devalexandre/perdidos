@@ -41,6 +41,7 @@ type Config struct {
 	AdminUserDataDir   string
 	AdminServerLog     string
 	AdminAuthLog       string
+	SiteDir            string // static site served at / when the game proxy is disabled ("" = off)
 }
 
 // Server holds the HTTP handlers.
@@ -113,6 +114,8 @@ func (s *Server) Handler() http.Handler {
 	})
 	if s.cfg.GameURL != nil {
 		mux.Handle("/", s.gameProxy())
+	} else if s.cfg.SiteDir != "" {
+		mux.Handle("/", http.FileServer(http.Dir(s.cfg.SiteDir)))
 	}
 	return mux
 }
