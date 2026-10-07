@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Perdidos"
+config/version="0.2.4"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7")
+boot_splash/bg_color=Color(0.055, 0.075, 0.09, 1)
+boot_splash/image="res://assets/branding/splash.png"
+config/icon="res://assets/branding/icon.png"
+config/windows_native_icon="res://assets/branding/icon.ico"
+
+[autoload]
+
+Balance="*res://scripts/shared/balance.gd"
+Content="*res://scripts/shared/content.gd"
+Net="*res://scripts/shared/net.gd"
+NetCombat="*res://scripts/shared/net_combat.gd"
+NetProgress="*res://scripts/shared/net_progress.gd"
+NetFollowers="*res://scripts/shared/net_followers.gd"
+NetWorld="*res://scripts/shared/net_world.gd"
+NetParty="*res://scripts/shared/net_party.gd"
+NetTrade="*res://scripts/shared/net_trade.gd"
+DayNight="*res://scripts/shared/day_night.gd"
+NetCrendice="*res://scripts/shared/net_crendice.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/handheld/orientation=4
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/strings.pt_BR.translation", "res://localization/content.pt_BR.translation", "res://localization/cutscene.pt_BR.translation", "res://localization/cutscene.en.translation", "res://localization/cutscene.es.translation", "res://localization/cutscene.fr.translation", "res://localization/cutscene.de.translation", "res://localization/cutscene.ja.translation", "res://localization/customization.pt_BR.translation", "res://localization/world.pt_BR.translation", "res://localization/world_atlas.pt_BR.translation", "res://localization/moderation.pt_BR.translation", "res://localization/progression.pt_BR.translation", "res://localization/combat.pt_BR.translation", "res://localization/rules.pt_BR.translation", "res://localization/monsters.pt_BR.translation", "res://localization/party.pt_BR.translation", "res://localization/trade.pt_BR.translation", "res://localization/return.pt_BR.translation", "res://localization/gamepad.pt_BR.translation", "res://localization/followers.pt_BR.translation")
+locale/fallback="pt_BR"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true

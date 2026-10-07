@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perdidos</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <audio id="launcher-music" src="/mus_title.ogg" loop preload="auto"></audio>
+  <button type="button" class="music-toggle" id="music-toggle" aria-label="Desativar música" title="Desativar música">♫</button>
+  <main class="shell">
+    <!-- Entrar / Criar conta -->
+    <section class="panel" id="auth">
+      <header class="brand">
+        <span class="arc-mark">Arco I <i aria-hidden="true"></i> O Lobisomem</span>
+        <h1>Perdidos</h1>
+        <p>A Mata guarda um causo antigo.</p>
+      </header>
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" data-mode="login" class="tab active" aria-selected="true">Entrar</button>
+        <button type="button" role="tab" data-mode="register" class="tab" aria-selected="false">Criar conta</button>
+      </div>
+      <form id="auth-form" novalidate>
+        <label class="field">
+          <span>E-mail</span>
+          <input type="email" id="email" autocomplete="email" spellcheck="false" maxlength="254" />
+        </label>
+        <label class="field">
+          <span>Senha</span>
+          <input type="password" id="password" autocomplete="current-password" maxlength="128" />
+        </label>
+        <label class="field only-register">
+          <span>Confirmar senha</span>
+          <input type="password" id="confirm" autocomplete="new-password" maxlength="128" />
+        </label>
+        <p class="hint only-register">A senha precisa ter pelo menos 8 caracteres.</p>
+        <label class="check">
+          <input type="checkbox" id="remember" />
+          <span>Lembrar e-mail</span>
+        </label>
+        <p class="error" id="auth-error" role="alert"></p>
+        <button type="submit" class="primary" id="auth-submit">Entrar</button>
+      </form>
+      <div class="auth-divider"><span>ou</span></div>
+      <button type="button" class="google-button" id="google-login">
+        <span class="google-mark" aria-hidden="true">G</span>
+        <span>Usar conta Google</span>
+      </button>
+    </section>
+
+    <!-- Principal -->
+    <section class="panel" id="home" hidden>
+      <header class="brand small">
+        <h1>Perdidos</h1>
+      </header>
+      <div class="who">
+        <span>Conectado como <b id="who-email"></b></span>
+        <button type="button" class="link" id="logout">Sair da conta</button>
+      </div>
+      <div class="versions">
+        <div class="ver"><span>Instalada</span><b id="v-installed">—</b></div>
+        <div class="ver"><span>Disponível</span><b id="v-latest">—</b></div>
+      </div>
+      <p class="status" id="status" role="status">Verificando atualizações…</p>
+      <div class="progress" id="progress" hidden>
+        <div class="bar"><div class="fill" id="fill"></div></div>
+        <div class="pinfo"><span id="p-left"></span><span id="p-right"></span></div>
+      </div>
+      <div class="server-badge" id="server-badge">
+        <span class="status-dot"></span>
+        <span class="server-status-text">Servidor: <b>Online</b></span>
+        <span class="server-realm">Porto do Despertar</span>
+        <span class="server-ping">32 ms</span>
+      </div>
+      <div class="actions">
+        <button type="button" class="primary big" id="main-btn" disabled>Jogar</button>
+        <button type="button" class="ghost" id="cancel-btn" hidden>Cancelar</button>
+        <button type="button" class="ghost square" id="refresh-btn" title="Verificar atualizações de novo" aria-label="Verificar de novo">↻</button>
+      </div>
+    </section>
+
+    <div class="side-column">
+      <aside class="news" id="news">
+        <h2>Notas de atualização</h2>
+        <div id="notes">Consultando novidades…</div>
+      </aside>
+    </div>
+  </main>
+  <footer class="foot">
+    <span id="foot-version"></span>
+    <span id="foot-dir"></span>
+  </footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

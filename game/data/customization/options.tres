@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CustomizationOptions" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/customization_options.gd" id="1_opt"]
+[ext_resource type="Resource" path="res://data/customization/palettes.tres" id="2_pal"]
+
+[resource]
+script = ExtResource("1_opt")
+palettes = ExtResource("2_pal")
+hair_styles_male = Array[StringName]([&"spiky", &"neat", &"ponytail", &"curly", &"buzz"])
+hair_styles_female = Array[StringName]([&"ponytail", &"bob", &"waves", &"braid", &"buzz"])
+earrings = Array[StringName]([&"hoop", &"seed", &"feather"])
+style_keys = Dictionary[StringName, String]({&"bob": "CUSTOM_HAIR_BOB", &"braid": "CUSTOM_HAIR_BRAID", &"buzz": "CUSTOM_HAIR_BUZZ", &"curly": "CUSTOM_HAIR_CURLY", &"neat": "CUSTOM_HAIR_NEAT", &"ponytail": "CUSTOM_HAIR_PONYTAIL", &"spiky": "CUSTOM_HAIR_SPIKY", &"waves": "CUSTOM_HAIR_WAVES"})
+earring_keys = Dictionary[StringName, String]({&"": "CUSTOM_EARRING_NONE", &"hoop": "CUSTOM_EARRING_HOOP", &"seed": "CUSTOM_EARRING_SEED", &"feather": "CUSTOM_EARRING_FEATHER"})
+nationalities = Array[StringName]([&"sabia", &"mouras", &"sol", &"fiordes", &"colunas", &"areias", &"brumas", &"estepe", &"jade", &"obsidiana"])
+nationality_keys = Dictionary[StringName, String]({&"sabia": "WA_R_SABIA", &"mouras": "WA_R_MOURAS", &"sol": "WA_R_SOL", &"fiordes": "WA_R_FIORDES", &"colunas": "WA_R_COLUNAS", &"areias": "WA_R_AREIAS", &"brumas": "WA_R_BRUMAS", &"estepe": "WA_R_ESTEPE", &"jade": "WA_R_JADE", &"obsidiana": "WA_R_OBSIDIANA"})
+nationality_outfits = Dictionary[StringName, StringName]({})
+default_nationality = &"sabia"
+nationality_colors = Dictionary[StringName, PackedColorArray]({&"mouras": PackedColorArray(0.1686, 0.2902, 0.6039, 1, 0.8510, 0.6431, 0.2549, 1), &"sol": PackedColorArray(0.6118, 0.1647, 0.1647, 1, 0.9098, 0.8431, 0.6588, 1), &"fiordes": PackedColorArray(0.3569, 0.4353, 0.4902, 1, 0.5412, 0.4157, 0.2706, 1), &"colunas": PackedColorArray(0.8471, 0.8157, 0.7216, 1, 0.7098, 0.3333, 0.1765, 1), &"areias": PackedColorArray(0.7882, 0.6549, 0.4000, 1, 0.1765, 0.3529, 0.6588, 1), &"brumas": PackedColorArray(0.1843, 0.4196, 0.2275, 1, 0.5608, 0.1686, 0.1686, 1), &"estepe": PackedColorArray(0.4784, 0.1255, 0.1255, 1, 0.8392, 0.6471, 0.2275, 1), &"jade": PackedColorArray(0.1843, 0.5608, 0.4157, 1, 0.7608, 0.2314, 0.1686, 1), &"obsidiana": PackedColorArray(0.4196, 0.2275, 0.1647, 1, 0.1843, 0.6902, 0.6588, 1)})
+default_skin = 0
+default_hair_color = 0
+default_eye_color = 0
+default_earrings = &""

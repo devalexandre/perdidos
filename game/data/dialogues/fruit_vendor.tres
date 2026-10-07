@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_pidk6"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_00d25"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_teivg"]
+
+[sub_resource type="Resource" id="Resource_tsq81"]
+script = ExtResource("2_00d25")
+text_key = "DLG_FRUIT_VENDOR_START_OPT0"
+next_node = &"legend_1"
+
+[sub_resource type="Resource" id="Resource_l1e1r"]
+script = ExtResource("2_00d25")
+text_key = "DLG_FRUIT_VENDOR_START_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_wolf_clue"]
+script = ExtResource("2_00d25")
+text_key = "DLG_LOBISOMEM_MARKET_OPT"
+next_node = &"wolf_clue"
+
+[sub_resource type="Resource" id="Resource_mom0q"]
+script = ExtResource("1_pidk6")
+id = &"start"
+text_key = "DLG_FRUIT_VENDOR_START"
+options = Array[ExtResource("2_00d25")]([SubResource("Resource_tsq81"), SubResource("Resource_wolf_clue"), SubResource("Resource_l1e1r")])
+
+[sub_resource type="Resource" id="Resource_wolf_clue_report"]
+script = ExtResource("2_00d25")
+text_key = "DLG_LOBISOMEM_CLUE_KEEP"
+action = &"collect_story_clue"
+action_args = Dictionary[StringName, Variant]({
+&"story_id": "lobisomem_arc",
+&"clue_id": "market_shadow",
+&"clue_name_key": "STORY_CLUE_MARKET"
+})
+
+[sub_resource type="Resource" id="Resource_wolf_clue_node"]
+script = ExtResource("1_pidk6")
+id = &"wolf_clue"
+text_key = "DLG_LOBISOMEM_MARKET_CLUE"
+options = Array[ExtResource("2_00d25")]([SubResource("Resource_wolf_clue_report")])
+
+[sub_resource type="Resource" id="Resource_3krs2"]
+script = ExtResource("2_00d25")
+text_key = "DLG_FRUIT_VENDOR_LEGEND_1_OPT0"
+next_node = &"legend_2"
+
+[sub_resource type="Resource" id="Resource_4lbea"]
+script = ExtResource("2_00d25")
+text_key = "DLG_FRUIT_VENDOR_LEGEND_1_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_nb2r3"]
+script = ExtResource("1_pidk6")
+id = &"legend_1"
+text_key = "DLG_FRUIT_VENDOR_LEGEND_1"
+options = Array[ExtResource("2_00d25")]([SubResource("Resource_3krs2"), SubResource("Resource_4lbea")])
+
+[sub_resource type="Resource" id="Resource_4fyqg"]
+script = ExtResource("2_00d25")
+text_key = "DLG_FRUIT_VENDOR_LEGEND_2_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_bsq1n"]
+script = ExtResource("1_pidk6")
+id = &"legend_2"
+text_key = "DLG_FRUIT_VENDOR_LEGEND_2"
+options = Array[ExtResource("2_00d25")]([SubResource("Resource_4fyqg")])
+
+[resource]
+script = ExtResource("3_teivg")
+id = &"fruit_vendor"
+nodes = Array[ExtResource("1_pidk6")]([SubResource("Resource_mom0q"), SubResource("Resource_wolf_clue_node"), SubResource("Resource_nb2r3"), SubResource("Resource_bsq1n")])

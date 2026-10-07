@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_re3d8"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_svcbc"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_scrs1"]
+
+[sub_resource type="Resource" id="Resource_62jia"]
+script = ExtResource("2_svcbc")
+text_key = "DLG_BOATMAN_START_OPT0"
+next_node = &"where"
+
+[sub_resource type="Resource" id="Resource_1we18"]
+script = ExtResource("2_svcbc")
+text_key = "DLG_BOATMAN_START_OPT1"
+next_node = &"traveler"
+
+[sub_resource type="Resource" id="Resource_ox6fh"]
+script = ExtResource("2_svcbc")
+text_key = "DLG_BOATMAN_START_OPT2"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_pelr7"]
+script = ExtResource("1_re3d8")
+id = &"start"
+text_key = "DLG_BOATMAN_START"
+options = Array[ExtResource("2_svcbc")]([SubResource("Resource_62jia"), SubResource("Resource_1we18"), SubResource("Resource_ox6fh")])
+
+[sub_resource type="Resource" id="Resource_e23md"]
+script = ExtResource("2_svcbc")
+text_key = "DLG_BOATMAN_WHERE_OPT0"
+next_node = &"traveler"
+
+[sub_resource type="Resource" id="Resource_bbejy"]
+script = ExtResource("2_svcbc")
+text_key = "DLG_BOATMAN_WHERE_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_4137i"]
+script = ExtResource("1_re3d8")
+id = &"where"
+text_key = "DLG_BOATMAN_WHERE"
+options = Array[ExtResource("2_svcbc")]([SubResource("Resource_e23md"), SubResource("Resource_bbejy")])
+
+[sub_resource type="Resource" id="Resource_i3rhc"]
+script = ExtResource("2_svcbc")
+text_key = "DLG_BOATMAN_TRAVELER_OPT0"
+next_node = &"where"
+
+[sub_resource type="Resource" id="Resource_h70h7"]
+script = ExtResource("2_svcbc")
+text_key = "DLG_BOATMAN_TRAVELER_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_d0blm"]
+script = ExtResource("1_re3d8")
+id = &"traveler"
+text_key = "DLG_BOATMAN_TRAVELER"
+options = Array[ExtResource("2_svcbc")]([SubResource("Resource_i3rhc"), SubResource("Resource_h70h7")])
+
+[resource]
+script = ExtResource("3_scrs1")
+id = &"boatman"
+nodes = Array[ExtResource("1_re3d8")]([SubResource("Resource_pelr7"), SubResource("Resource_4137i"), SubResource("Resource_d0blm")])

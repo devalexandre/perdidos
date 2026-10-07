@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AudioZoneDef" format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/amb_wind_tree.ogg" id="1"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/mus_city_akarimachi.ogg" id="2"]
+[ext_resource type="Script" path="res://scripts/shared/data/audio_zone_def.gd" id="3"]
+
+[resource]
+script = ExtResource("3")
+id = &"training_field_japao"
+music = ExtResource("2")
+ambience = Array[AudioStream]([ExtResource("1")])
+music_volume_db = -5.0
+priority = 2

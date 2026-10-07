@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"tank_shell_salve"
+name_key = "SKILL_TANK_SHELL_SALVE_NAME"
+desc_key = "SKILL_TANK_SHELL_SALVE_DESC"
+school = &"tank"
+region_id = &"brasil"
+target_type = 5
+effect = 23
+mana_cost = 4
+cooldown_sec = 2.0
+cast_time_sec = 1.5
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+vfx = &"craft"
+icon_text = "UC"
+extra = Dictionary[StringName, Variant]({
+&"craft_item": &"shell_salve",
+&"craft_qty": 1.0,
+&"craft_qty_per_level": 0.334,
+&"materials": {
+&"armadillo_shell": 2,
+&"thick_leather": 1
+}
+})

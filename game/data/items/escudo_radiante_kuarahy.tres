@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_leather_shield.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"escudo_radiante_kuarahy"
+name_key = "ITEM_ESCUDO_RADIANTE_KUARAHY_NAME"
+desc_key = "ITEM_ESCUDO_RADIANTE_KUARAHY_DESC"
+icon = ExtResource("icon")
+type = 2
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 380
+tradeable = true
+exclusive_drop_zone = &"city_of_z"
+stats = Dictionary[StringName, int]({
+&"def": 28,
+&"mdef": 22
+})

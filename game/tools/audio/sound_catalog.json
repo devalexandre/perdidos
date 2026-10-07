@@ -1,0 +1,997 @@
+{
+ "_doc": "Catálogo de áudio gerado com ElevenLabs. Nomes de arquivo seguem docs/contracts-city-walk.md. Estilo: fantasia medieval com alma brasileira (proximos-passos.md §3.3).",
+ "music": [
+  {
+   "name": "mus_title",
+   "length_ms": 120000,
+   "prompt": "Mysterious and wondrous title theme for a fantasy MMORPG: moonlit night, a distant world calling. Soft celesta and harp arpeggios, a lonely bamboo flute melody, warm strings swelling slowly, a viola caipira motif appearing in the middle like a memory of home, gentle wordless choir pad, subtle shimmering bells like falling golden petals. Melancholic but hopeful. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_day",
+   "length_ms": 150000,
+   "prompt": "Instrumental cozy town theme for a fantasy MMORPG riverside port town with Brazilian colonial flavor. Viola caipira and acoustic guitar strumming in a relaxed baião-inspired groove, pífano and bamboo flute trading a cheerful modal melody, rabeca countermelody, soft zabumba, triangle and pandeiro, light harp. Warm late afternoon, market bustle, friendly and calm, never intense. No vocals. Loopable, ends on the tonic."
+  },
+  {
+   "name": "mus_city_docks",
+   "length_ms": 120000,
+   "prompt": "Instrumental gentle variation of a cozy fantasy port town theme with Brazilian soul, by the river docks. Sparse fingerpicked viola caipira, soft bamboo flute, airy harp, distant rabeca, very light shaker like water ripples, no drums or only a soft pulse. Peaceful, breezy, reflective, golden sunset over the river. No vocals. Loopable, ends on the tonic."
+  },
+  {
+   "name": "mus_arrival",
+   "length_ms": 60000,
+   "prompt": "Cinematic 55-second opening for a fantasy game: quiet everyday city dusk with soft piano, a single chime as a golden petal falls, time stops (sustained strings), a swelling orchestral fall through the stars with harp glissandi and wordless choir pad, bright reveal of a lush new world with viola caipira and flute, ends softly like a calm river. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_training_field",
+   "length_ms": 120000,
+   "prompt": "Adventurous yet friendly theme for a training field where travelers from many lands learn to fight: light snare and hand drums, pizzicato strings, bamboo flute and fiddle trading a cheerful heroic melody, brass hints, positive energy, not intense. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_fiandouro",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Portuguese-inspired medieval port town: Portuguese-guitar-like plucked strings, accordion-like reed pad, gentle saudade melody, sea breeze, warm and nostalgic. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_heptastila",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Ancient-Greek-inspired coastal city of seven columns: lyre and aulos-like double reed, frame drum, sunny Aegean modes, noble and serene. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_seshares",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Ancient-Egyptian-inspired desert city of scribes along a great river: harp, oud-like lute, reed flute, soft frame drum, mysterious modes, golden and calm. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_mil_degraus",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Chinese-inspired misty mountain city of a thousand steps: guzheng and erhu, bamboo flute, soft wind chimes, tranquil and elegant. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_akarimachi",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Japanese-inspired lantern-lit town: koto and shakuhachi, soft taiko, gentle pentatonic melody, peaceful evening feel. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_lumefiorde",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Nordic-inspired fjord town under northern lights: hardanger-fiddle-like strings, drone, deep frame drum, cold air, majestic and cozy by the fire. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_zharogrado",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Slavic-inspired town among birch forests: balalaika and gusli-like plucked strings, accordion, lively folk dance rhythm slowing into a warm melody. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_dunbruma",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Celtic-inspired misty green hills town: celtic harp, tin whistle, fiddle, bodhran, lilting jig feel, cozy tavern warmth. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  },
+  {
+   "name": "mus_city_itzcalli",
+   "length_ms": 90000,
+   "prompt": "Instrumental town theme for a fantasy MMORPG capital city. Mesoamerican-inspired jungle city of obsidian and jade: clay ocarina, wooden slit drum, marimba-like mallets, bright and rhythmic. Instrumental only, no vocals, loopable, ends on the tonic. Original composition in the spirit of classic 2000s fantasy MMORPG town themes (warm, melodic, memorable), not imitating any existing game."
+  }
+ ],
+ "sfx": [
+  {
+   "name": "amb_river",
+   "seconds": 22,
+   "loop": true,
+   "prompt": "Ambience loop of a wide calm river flowing past wooden docks, gentle water lapping against wooden posts, soft and steady, no birds, no voices",
+   "phase": "city"
+  },
+  {
+   "name": "amb_wind_tree",
+   "seconds": 22,
+   "loop": true,
+   "prompt": "Ambience loop of a warm gentle breeze through the leaves and flowers of a large tropical tree, soft rustling, occasional light gust, calm afternoon",
+   "phase": "city"
+  },
+  {
+   "name": "amb_market",
+   "seconds": 25,
+   "loop": true,
+   "prompt": "Ambience loop of a small medieval open-air fruit market, distant indistinct friendly crowd murmur, wooden crates, baskets, footsteps on cobblestones, no clear words, cozy and lively but soft",
+   "phase": "city"
+  },
+  {
+   "name": "amb_gulls_bells",
+   "seconds": 22,
+   "loop": true,
+   "prompt": "Ambience loop at a riverside harbor, distant seabirds calling occasionally, small wooden sailboats creaking, a soft ship bell ringing now and then, calm",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_crystal_hum",
+   "seconds": 8,
+   "loop": true,
+   "prompt": "Soft magical humming of a glowing blue crystal, gentle shimmering resonance, warm and calm, subtle sparkles, seamless loop",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_buy",
+   "seconds": 1.0,
+   "prompt": "Short pleasant sound of a few small metal coins dropping into a leather pouch, fantasy shop purchase",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_sell",
+   "seconds": 1.0,
+   "prompt": "Short pleasant sound of small coins being counted onto a wooden market counter, fantasy shop sale",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_equip",
+   "seconds": 0.8,
+   "prompt": "Short sound of equipping gear in a fantasy game: a leather strap tightening and a light metal clink",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_pickup",
+   "seconds": 0.6,
+   "prompt": "Short light pleasant pickup sound for a fantasy game item, soft cloth rustle with a tiny sparkle",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_chat",
+   "seconds": 0.5,
+   "prompt": "Very short soft notification blip for a chat message in a cozy fantasy game, like a tiny wooden chime",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_emote",
+   "seconds": 0.6,
+   "prompt": "Very short cute pop sound for a speech bubble emote appearing above a character in a cozy game",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_sit",
+   "seconds": 0.8,
+   "prompt": "Short sound of a person sitting down on a wooden bench, soft cloth and a light wood creak",
+   "phase": "city"
+  },
+  {
+   "name": "sfx_login",
+   "seconds": 2.5,
+   "phase": "city",
+   "prompt": "Gentle magical welcome chime when entering a fantasy world: soft ascending harp glissando with small bells and a warm shimmer, hopeful, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_level_up",
+   "seconds": 2.5,
+   "phase": "f4",
+   "prompt": "Triumphant level up jingle: fast ascending bright bell arpeggio ending on a sparkling major chord with a soft magical whoosh of light, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_skill_learned",
+   "seconds": 3.0,
+   "phase": "f4",
+   "prompt": "Solemn but warm sound of learning a new technique from a master: a single deep temple bell, then a rising shimmer of wooden chimes and flute breath, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_quest_accept",
+   "seconds": 1.2,
+   "phase": "f4",
+   "prompt": "Quick pleasant quest accepted sound: parchment unfurl followed by two soft ascending wooden chime notes, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_quest_complete",
+   "seconds": 2.5,
+   "phase": "f4",
+   "prompt": "Joyful quest complete fanfare: short festive pífano and pandeiro flourish ending with bright bells, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_boss_defeated",
+   "seconds": 5.0,
+   "phase": "f4",
+   "prompt": "Epic victory fanfare after defeating a giant boss: bold brass-like horns and big drums rising to a radiant bell chord, short and heroic, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_upgrade_success",
+   "seconds": 1.8,
+   "phase": "f4",
+   "prompt": "Item enhancement success: metallic ringing hammer strike on an anvil followed by a bright crystal sparkle, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_upgrade_fail",
+   "seconds": 1.8,
+   "phase": "f4",
+   "prompt": "Item enhancement failure: metallic hammer strike that cracks and shatters with a dull falling tone, disappointing but not harsh, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_respawn",
+   "seconds": 2.5,
+   "phase": "f3",
+   "prompt": "Soul returning to the crystal after death: soft airy whoosh converging into a gentle blue crystal chime, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_grave_appear",
+   "seconds": 2.5,
+   "phase": "f3",
+   "prompt": "A soul mark tombstone appearing: low hollow wind, faint ghostly choir-like pad without words, a soft stone thud, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_heal",
+   "seconds": 1.5,
+   "phase": "f3",
+   "prompt": "Healing potion or healing magic: soft rising sparkle, warm gentle chimes, soothing, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_hit_blade",
+   "seconds": 0.6,
+   "phase": "f3",
+   "prompt": "Short punchy slash of a machete hitting a creature, crisp swoosh and soft impact thud, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_hit_blunt",
+   "seconds": 0.6,
+   "phase": "f3",
+   "prompt": "Short punchy blunt impact of a wooden club hit, dry thump, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_hit_critical",
+   "seconds": 0.9,
+   "phase": "f3",
+   "prompt": "Critical hit: sharp heavy slash impact with a bright metallic ring and a small burst, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_swing_miss",
+   "seconds": 0.5,
+   "phase": "f3",
+   "prompt": "Quick whoosh of a weapon swing through the air, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_cast_begin",
+   "seconds": 1.0,
+   "phase": "f3",
+   "prompt": "Starting to cast a spell: soft magical breath and gentle rising shimmer, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_status_stun",
+   "seconds": 1.0,
+   "phase": "f3",
+   "prompt": "Character stunned: cartoonish dizzy ringing with little tweeting stars, short, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_status_slow",
+   "seconds": 1.0,
+   "phase": "f3",
+   "prompt": "Movement slowed by frost: descending icy tone and crackle, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_status_burn",
+   "seconds": 1.0,
+   "phase": "f3",
+   "prompt": "Character catching fire: quick flame flare whoosh, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_whirlwind_hop",
+   "seconds": 0.8,
+   "phase": "f3",
+   "prompt": "Tiny mischievous whirlwind spirit hopping: playful swirling wind puff with a soft giggle-like whistle, no words, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_whirlwind_hurt",
+   "seconds": 0.7,
+   "phase": "f3",
+   "prompt": "Tiny whirlwind spirit hit: short squeaky wind burst, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_firefly_idle",
+   "seconds": 1.5,
+   "phase": "f3",
+   "prompt": "Magical firefly the size of a cat: soft buzzing wings with a warm glowing hum, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_armadillo_roll",
+   "seconds": 1.2,
+   "phase": "f3",
+   "prompt": "Stone-shelled armadillo curling up and rolling: grinding pebbles and a heavy rolling rumble, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_armadillo_hurt",
+   "seconds": 0.6,
+   "phase": "f3",
+   "prompt": "Grumpy chubby armadillo hurt: short cute grunt and stone clack, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_werewolf_growl",
+   "seconds": 1.2,
+   "phase": "f3",
+   "prompt": "Young clumsy werewolf growl: raspy yappy growl, more scary-cute than terrifying, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_werewolf_die",
+   "seconds": 1.2,
+   "phase": "f3",
+   "prompt": "Young werewolf defeated: short whimper and fall, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_dry_corpse_moan",
+   "seconds": 1.8,
+   "phase": "f3",
+   "prompt": "Dried tree-bark creature with blue will-o-wisp embers: creaking wood groan and eerie crackling ember hiss, no words, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_mon_harpy_screech",
+   "seconds": 1.2,
+   "phase": "f3",
+   "prompt": "Storm harpy eagle screech with an electric crackle, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_boss_boitata_roar",
+   "seconds": 3.0,
+   "phase": "f4",
+   "prompt": "Giant fire serpent spirit roar: deep hissing roar mixed with roaring flames and crackling sparks, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_boss_boitata_breath",
+   "seconds": 2.5,
+   "phase": "f4",
+   "prompt": "Giant serpent breathing a cone of fire: long roaring flame blast, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice"
+  },
+  {
+   "name": "sfx_event_chime",
+   "seconds": 4,
+   "loop": false,
+   "phase": "cutscene",
+   "prompt": "A single magical crystalline chime that rings and hangs in the air, soft golden shimmer, like time stopping, gentle reverse swell into the strike, long airy tail, no melody"
+  },
+  {
+   "name": "sfx_fall_whoosh",
+   "seconds": 6,
+   "loop": false,
+   "phase": "cutscene",
+   "prompt": "Long dreamy falling whoosh through a starry sky, soft rushing wind rising and passing, faint sparkling twinkles and distant warm chimes, airy and wondrous, not scary"
+  },
+  {
+   "name": "sfx_wake_river",
+   "seconds": 8,
+   "loop": false,
+   "phase": "cutscene",
+   "prompt": "Gentle dawn by a wide calm river: soft water lapping on sand, a wooden boat pole dipping into water, a distant morning bird call, fading in from silence, peaceful"
+  },
+  {
+   "name": "sfx_mon_prank_whirlwind_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a tiny mischievous whirlwind spirit wearing a red cap, swirling leaves and dust: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_prank_whirlwind_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a tiny mischievous whirlwind spirit wearing a red cap, swirling leaves and dust: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_prank_whirlwind_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a tiny mischievous whirlwind spirit wearing a red cap, swirling leaves and dust: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_enchanted_firefly_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a magical firefly the size of a cat with a warm glowing belly: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_enchanted_firefly_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a magical firefly the size of a cat with a warm glowing belly: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_enchanted_firefly_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a magical firefly the size of a cat with a warm glowing belly: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_stone_armadillo_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a chubby armadillo with shell plates of smooth reddish stone: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_stone_armadillo_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a chubby armadillo with shell plates of smooth reddish stone: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_stone_armadillo_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a chubby armadillo with shell plates of smooth reddish stone: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_fountain_serpent_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a small serpent spirit of a stone fountain, watery: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_fountain_serpent_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a small serpent spirit of a stone fountain, watery: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_fountain_serpent_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a small serpent spirit of a stone fountain, watery: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_trasgo_imp_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a small mischievous household imp, cheeky: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_trasgo_imp_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a small mischievous household imp, cheeky: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_trasgo_imp_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a small mischievous household imp, cheeky: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_kasa_obake_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a hopping one-legged paper umbrella spirit: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_kasa_obake_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a hopping one-legged paper umbrella spirit: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_kasa_obake_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a hopping one-legged paper umbrella spirit: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_trickster_tanuki_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a playful trickster raccoon dog: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_trickster_tanuki_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a playful trickster raccoon dog: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_trickster_tanuki_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a playful trickster raccoon dog: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_moss_troll_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a slow mossy forest troll, heavy and earthy: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_moss_troll_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a slow mossy forest troll, heavy and earthy: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_moss_troll_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a slow mossy forest troll, heavy and earthy: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_lindworm_hatchling_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a young wingless dragon serpent hatchling: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_lindworm_hatchling_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a young wingless dragon serpent hatchling: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_lindworm_hatchling_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a young wingless dragon serpent hatchling: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_griffin_chick_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a fluffy baby griffin, eagle and lion: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_griffin_chick_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a fluffy baby griffin, eagle and lion: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_griffin_chick_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a fluffy baby griffin, eagle and lion: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_little_chimera_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a small three-headed chimera cub: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_little_chimera_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a small three-headed chimera cub: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_little_chimera_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a small three-headed chimera cub: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_dune_scorpion_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a desert scorpion with a clicking stinger: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_dune_scorpion_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a desert scorpion with a clicking stinger: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_dune_scorpion_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a desert scorpion with a clicking stinger: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_sphinx_cub_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a small lion-bodied sphinx cub: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_sphinx_cub_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a small lion-bodied sphinx cub: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_sphinx_cub_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a small lion-bodied sphinx cub: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_puca_trickster_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a shape-shifting goat-like trickster spirit: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_puca_trickster_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a shape-shifting goat-like trickster spirit: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_puca_trickster_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a shape-shifting goat-like trickster spirit: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_lake_kelpie_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a water horse spirit dripping with lake water: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_lake_kelpie_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a water horse spirit dripping with lake water: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_lake_kelpie_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a water horse spirit dripping with lake water: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_zmey_hatchling_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a small three-headed dragon hatchling: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_zmey_hatchling_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a small three-headed dragon hatchling: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_zmey_hatchling_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a small three-headed dragon hatchling: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_walking_hut_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a small wooden hut walking on chicken legs, creaking: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_walking_hut_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a small wooden hut walking on chicken legs, creaking: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_walking_hut_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a small wooden hut walking on chicken legs, creaking: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_hopping_jiangshi_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a stiff hopping ghost, thumping hops: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_hopping_jiangshi_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a stiff hopping ghost, thumping hops: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_hopping_jiangshi_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a stiff hopping ghost, thumping hops: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_spirit_fox_cub_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a small glowing spirit fox cub: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_spirit_fox_cub_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a small glowing spirit fox cub: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_spirit_fox_cub_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a small glowing spirit fox cub: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_obsidian_iguana_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of an iguana with obsidian scales, clacking: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_obsidian_iguana_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of an iguana with obsidian scales, clacking: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_obsidian_iguana_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of an iguana with obsidian scales, clacking: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_jaguar_cub_attack",
+   "seconds": 0.8,
+   "phase": "combat",
+   "prompt": "Attack sound of a young jaguar cub: a quick aggressive strike, snap or lunge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_jaguar_cub_hurt",
+   "seconds": 0.6,
+   "phase": "combat",
+   "prompt": "Hurt sound of a young jaguar cub: a short pained reaction, cute but clear, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_jaguar_cub_death",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Defeat sound of a young jaguar cub: a short fading collapse, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_attack_generic",
+   "seconds": 0.7,
+   "phase": "combat",
+   "prompt": "Generic small creature attack: quick bite or claw swipe, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_hurt_generic",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Generic small creature hurt squeak, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_mon_death_generic",
+   "seconds": 1.0,
+   "phase": "combat",
+   "prompt": "Generic small creature defeated: soft poof and fading sparkle, not gory, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_hit_unarmed",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Punch or kick landing on a creature, soft thump, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_swing_unarmed",
+   "seconds": 0.4,
+   "phase": "combat",
+   "prompt": "Quick whoosh of a punch through the air, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_swing_blade",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Quick metallic whoosh of a machete swing, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_swing_staff",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Quick wooden whoosh of a staff swing with a tiny magic sparkle, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_hit_staff",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Wooden staff striking a creature with a small magic crackle, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_player_hurt",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Adventurer takes a hit: short soft grunt-like impact without words, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_player_down",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Adventurer knocked out: soft collapse thud and a fading magical chime, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_miss",
+   "seconds": 0.4,
+   "phase": "combat",
+   "prompt": "Attack misses: quick whiff of air, light and playful, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_weapon_machete_swing",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Swing of a short heavy machete: a quick heavy chop whoosh, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_weapon_machete_hit",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Hit of a short heavy machete: a meaty chop impact with a bright metal edge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_weapon_short_sword_swing",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Swing of a light short sword: a fast thin steel whoosh, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_weapon_short_sword_hit",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Hit of a light short sword: a clean slicing impact with a thin metallic ring, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_weapon_wooden_staff_swing",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Swing of a wooden staff with a blue crystal: a deep wooden whoosh with a faint crystal hum, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_weapon_wooden_staff_hit",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Hit of a wooden staff with a blue crystal: a solid wooden knock with a small blue magic crackle, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_weapon_ipe_wand_swing",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Swing of a slender wand of ipe wood with golden blossoms: a light airy flick with tiny chimes, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_weapon_ipe_wand_hit",
+   "seconds": 0.5,
+   "phase": "combat",
+   "prompt": "Hit of a slender wand of ipe wood with golden blossoms: a soft sparkling magical tap with golden petals, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_firm_strike_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Firm Strike, a powerful single sword strike: short focused windup breath of steel, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_firm_strike_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Firm Strike, a powerful single sword strike: heavy crisp sword impact, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_charge_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Charge, a fast dash across the ground: rushing dash whoosh with quick steps, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_charge_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Charge, a fast dash across the ground: heavy body slam impact with a dizzy ringing, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_steel_spin_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Steel Spin, a spinning blade attack around the body: circular metallic whirl of blades, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_steel_spin_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Steel Spin, a spinning blade attack around the body: several quick slicing hits around, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_iron_stance_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Iron Stance, a defensive buff: deep metallic clang of armor locking with a low resonant hum, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_horizon_cut_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Horizon Cut, an ultimate long horizontal sword slash: rising metallic shimmer charging up, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_horizon_cut_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Horizon Cut, an ultimate long horizontal sword slash: huge cutting wind blast sweeping across a line, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_clearing_sweep_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Clearing Sweep, a wide machete sweep that pushes enemies back like clearing brush: wide rustling sweep through tall grass, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_blade_clearing_sweep_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Clearing Sweep, a wide machete sweep that pushes enemies back like clearing brush: strong push impact with flying leaves, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_spark_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Spark, a small arcane spark spell: short crackling magic charge, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_spark_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Spark, a small arcane spark spell: zippy spark hitting with a small electric pop, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_frost_burst_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Frost Burst, a cone of freezing wind magic: icy intake of breath and frost crystals forming, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_frost_burst_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Frost Burst, a cone of freezing wind magic: cone of icy wind with tinkling ice shards, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_creeping_flame_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Creeping Flame, magical fire spreading on the ground: soft fire spell ignition whoosh, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_creeping_flame_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Creeping Flame, magical fire spreading on the ground: flames catching and crackling along the ground, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_barrier_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Arcane Barrier, a protective shield bubble: shimmering glassy chime rising, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_barrier_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Arcane Barrier, a protective shield bubble: soft humming dome settling around, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_star_fall_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Starfall, meteors of starlight falling from the sky: rising magical whistle from the sky, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_star_fall_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Starfall, meteors of starlight falling from the sky: heavy sparkling meteor impacts and a deep boom, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_will_o_wisp_cast",
+   "seconds": 1.2,
+   "phase": "combat",
+   "prompt": "Casting the skill Will-o-Wisp, floating bluish ember lights that chase enemies: eerie soft whoosh of little blue flames appearing, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  },
+  {
+   "name": "sfx_skill_arcane_will_o_wisp_impact",
+   "seconds": 1.5,
+   "phase": "combat",
+   "prompt": "Impact of the skill Will-o-Wisp, floating bluish ember lights that chase enemies: small ghostly ember bursts, short crisp sound effect for a cozy 2000s-style fantasy MMORPG, clean, no voice, no music"
+  }
+ ],
+ "footsteps": {
+  "surfaces": {
+   "stone": "a single footstep of a light sneaker on dry cobblestone street",
+   "wood": "a single footstep of a light sneaker on old wooden dock planks, slight hollow creak",
+   "grass": "a single footstep of a light sneaker on short soft grass",
+   "sand": "a single footstep of a light sneaker on dry sand"
+  },
+  "variants": 4,
+  "seconds": 0.5,
+  "prompt_suffix": ", isolated, close, dry, no reverb, no other sounds"
+ },
+ "_style": "Referência de SENSAÇÃO (nunca copiar, nunca citar jogos nos prompts): efeitos curtos, nítidos e luminosos, estilo MMORPG clássico dos anos 2000 — sinos e carrilhões para recompensas, golpes secos e estalados para combate, monstros com vozes curtas e fofas ou ameaçadoras. Personagens andam em silêncio (passos, se houver, bem discretos). Cada efeito tem 'phase': city (marco atual), f3 (combate), f4 (progressão). Menus e interface NÃO têm som (decisão do dono, 27/09/2026). Cada arma e cada skill têm o próprio som (sfx_weapon_<item>_swing/_hit, sfx_skill_<skill>_cast/_impact); cada monstro tem ataque/dano/morte próprios (sfx_mon_<id>_*)."
+}

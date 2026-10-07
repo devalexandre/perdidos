@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/instructor_bento.tres" id="1_dialogue"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_npc"]
+
+[resource]
+script = ExtResource("2_npc")
+id = &"instructor_bento"
+name_key = "NPC_INSTRUCTOR_BENTO_NAME"
+sprite_base = "res://assets/npcs/npc_elder_tiao"
+map_id = &"training_field"
+spawn_marker = &"instructor_bento"
+move_speed = 0.8
+dialogue = ExtResource("1_dialogue")
+fallback_sprite_base = "res://assets/npcs/npc_fisherman"

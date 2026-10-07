@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_r4eqw"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_4fboo"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_rdy4h"]
+
+[sub_resource type="Resource" id="Resource_16357"]
+script = ExtResource("1_r4eqw")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_oiqf4"]
+script = ExtResource("3_rdy4h")
+name_key = "MON_TRASGO_IMP_S1_NAME"
+sprite_base = "res://assets/monsters/trasgo_imp/mon_trasgo_imp_s1"
+baked_life = true
+level = 5
+max_hp = 90
+atk = 11
+def = 3
+mdef = 3
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 38
+stars_min = 2
+stars_max = 6
+drops = Array[ExtResource("1_r4eqw")]([SubResource("Resource_16357")])
+behaviors = Array[StringName]([&"hop_teleport"])
+
+[sub_resource type="Resource" id="Resource_0m4n3"]
+script = ExtResource("1_r4eqw")
+item_id = &"potion_hp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_7fqdi"]
+script = ExtResource("3_rdy4h")
+stage = 2
+name_key = "MON_TRASGO_IMP_S2_NAME"
+sprite_base = "res://assets/monsters/trasgo_imp/mon_trasgo_imp_s2"
+baked_life = true
+level = 9
+max_hp = 300
+atk = 23
+def = 8
+mdef = 8
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 120
+stars_min = 5
+stars_max = 12
+drops = Array[ExtResource("1_r4eqw")]([SubResource("Resource_0m4n3")])
+behaviors = Array[StringName]([&"hop_teleport"])
+
+[resource]
+script = ExtResource("2_4fboo")
+id = &"trasgo_imp"
+region_id = &"portugal"
+stages = Array[ExtResource("3_rdy4h")]([SubResource("Resource_oiqf4"), SubResource("Resource_7fqdi")])

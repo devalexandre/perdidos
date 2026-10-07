@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="step"]
+
+[sub_resource type="Resource" id="s0"]
+script = ExtResource("step")
+type = 1
+target_id = &"firefly_light"
+count = 10
+scale_with_titles = false
+text_key = "QUEST_BOND_LUME_STEP_0"
+requires_night = true
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("step")
+type = 1
+target_id = &"glass_jar"
+count = 1
+scale_with_titles = false
+text_key = "QUEST_BOND_LUME_STEP_1"
+allow_purchased = true
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("step")
+type = 3
+target_id = &"elder_ze_ferreiro"
+count = 1
+scale_with_titles = false
+text_key = "QUEST_BOND_LUME_STEP_2"
+lore_text_key = "BOND_LUME_LORE"
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("step")
+type = 3
+target_id = &"master_orvalho"
+count = 1
+scale_with_titles = false
+text_key = "QUEST_BOND_LUME_STEP_3"
+
+[resource]
+script = ExtResource("quest")
+id = &"quest_bond_lume"
+name_key = "QUEST_BOND_LUME"
+giver_npc = &"master_orvalho"
+required_causos = 2
+requires_left_training = true
+required_titles = Array[StringName]([&"sabia_arcane_firefly"])
+steps = Array[ExtResource("step")]([SubResource("s0"), SubResource("s1"), SubResource("s2"), SubResource("s3")])
+reward_companion = &"sabia_companion_lume"
+desc_key = "QUEST_BOND_LUME_DESC_KEY"
+offer_text_key = "QUEST_BOND_LUME_OFFER_TEXT_KEY"
+progress_text_key = "QUEST_BOND_LUME_PROGRESS_TEXT_KEY"
+complete_text_key = "QUEST_BOND_LUME_COMPLETE_TEXT_KEY"
+option_text_key = "QUEST_BOND_LUME_OPTION_TEXT_KEY"

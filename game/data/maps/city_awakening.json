@@ -1,0 +1,75 @@
+{
+  "map_id": "city_awakening",
+  "display_name_key": "MAP_CITY_AWAKENING",
+  "type": "city",
+  "region": "brasil",
+  "scene": "res://scenes/maps/city_awakening.tscn",
+  "size_units": [
+    120,
+    120
+  ],
+  "origin": "center",
+  "floor_y": 0.0,
+  "recommended_level": null,
+  "combat_allowed": false,
+  "spawn_marker": "SpawnPoint",
+  "respawn_marker": "PointsOfInterest/RespawnCrystal",
+  "viewpoints": [
+    "Viewpoint1",
+    "Viewpoint2",
+    "Viewpoint3"
+  ],
+  "exits": [
+    {
+      "marker": "PointsOfInterest/GateNorth",
+      "target_map": "fields_sabia",
+      "note": "Campos do Sabia (nivel 1-10)"
+    },
+    {
+      "marker": "PointsOfInterest/GateSouth",
+      "target_map": "fields_sabia",
+      "note": "Mata Encantada / Chapada do Ceu Partido"
+    },
+    {
+      "marker": "PointsOfInterest/GateWest",
+      "target_map": "arena_burning",
+      "note": "Arena da Queimada (PVP)"
+    }
+  ],
+  "navigation": {
+    "baked": true,
+    "cell_size": 0.2,
+    "cell_height": 0.2,
+    "agent_radius": 0.4,
+    "agent_height": 1.6,
+    "agent_max_climb": 0.4
+  },
+  "click_collision_layer": 1,
+  "music_mood": "choro/seresta calma com violao de 7 cordas, flauta e cavaquinho (ver data/regions/brasil.md)",
+  "npc_points": "NpcPoints/<npc_id> (Marker3D, rotation.y = meta facing_yaw) + gate_guard_patrol_1/2",
+  "interactables": {
+    "node": "Interactables",
+    "layer": 2,
+    "sit": [
+      "bench_pier",
+      "bench_plaza",
+      "bench_beach"
+    ],
+    "portal": [
+      "gate_north",
+      "gate_south",
+      "gate_west"
+    ]
+  },
+  "audio_zones": {
+    "node": "AudioZones",
+    "zones": [
+      "default",
+      "docks",
+      "market"
+    ],
+    "defs": "data/audio/city_awakening_<zone_id>.tres"
+  },
+  "ground_surfaces": "Ground/Ground{Stone,Sand,Grass,Wood}: StaticBody3D camada 1 com meta surface",
+  "props": "Props/ (Sprite3D billboard, assets/environment/props/prop_*.png)"
+}

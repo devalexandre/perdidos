@@ -1,0 +1,45 @@
+keys,pt_BR
+TRADE_HELP,"Troca: /troca <nome> pede (os dois perto, no mesmo mapa, fora de combate) · /troca aceitar · /troca recusar · /troca cancelar. Também pelo clique no jogador → Propor troca."
+TRADE_REQUEST_SENT,Pedido de troca enviado para %s.
+TRADE_REQUESTED,%s quer trocar com você. Use /troca aceitar ou /troca recusar.
+TRADE_OPENED,Troca aberta com %s.
+TRADE_DECLINED,%s recusou a troca.
+TRADE_YOU_DECLINED,Você recusou a troca de %s.
+TRADE_REQUEST_EXPIRED,O pedido de troca para %s expirou.
+TRADE_CANCELLED,Troca cancelada por %s.
+TRADE_CANCELLED_FAR,Troca cancelada: vocês se afastaram.
+TRADE_CANCELLED_COMBAT,Troca cancelada: alguém entrou em combate.
+TRADE_CANCELLED_DEAD,Troca cancelada: alguém caiu.
+TRADE_CANCELLED_LEFT,Troca cancelada: %s saiu.
+TRADE_DONE,Troca feita!
+TRADE_FAILED,A troca não saiu: algo mudou na oferta. Nada foi trocado.
+TRADE_ERR_NOT_FOUND,Jogador não encontrado: %s (precisa estar conectado).
+TRADE_ERR_SELF,Você não pode trocar com você mesmo.
+TRADE_ERR_BUSY,%s já está numa troca ou tem um pedido esperando resposta.
+TRADE_ERR_BUSY_SELF,Você já está numa troca.
+TRADE_ERR_FAR,"Chegue mais perto de %s para trocar (mesmo mapa, poucos passos)."
+TRADE_ERR_COMBAT,Não dá para trocar em combate.
+TRADE_ERR_DEAD,Não dá para trocar caído.
+TRADE_ERR_TOO_FAST,Calma: espere um pouco antes de pedir troca de novo.
+TRADE_ERR_NO_REQUEST,Você não tem pedido de troca pendente.
+TRADE_ERR_NO_TRADE,Você não está numa troca.
+TRADE_ERR_NOT_OWNED,Você não tem esse item (ou essa quantidade) no inventário. Item equipado não entra na troca.
+TRADE_ERR_NOT_TRADEABLE,%s não pode ser trocado.
+TRADE_ERR_TOO_MANY,No máximo %d itens diferentes por troca.
+TRADE_ERR_NO_STARS,Você não tem essas Estrelas.
+TRADE_ERR_NOT_CONFIRMED,Os dois precisam confirmar antes de trocar.
+TRADE_ERR_NO_SPACE,Não cabe no inventário de %s. Nada foi trocado.
+UI_TRADE_TITLE,Troca com %s
+UI_TRADE_PROPOSE,Propor troca
+UI_TRADE_REQUEST_TITLE,Pedido de troca
+UI_TRADE_REQUEST_TEXT,%s quer trocar com você.
+UI_TRADE_YOU,Você
+UI_TRADE_DROP_HINT,Arraste itens do inventário para cá (botão direito também põe).
+UI_TRADE_STARS,Estrelas
+UI_TRADE_CONFIRM,Confirmar
+UI_TRADE_UNCONFIRM,Mudar
+UI_TRADE_COMMIT,Trocar
+UI_TRADE_CANCEL,Cancelar
+UI_TRADE_CONFIRMED,confirmou
+UI_TRADE_WAITING,ainda escolhendo
+UI_TRADE_COMMITTED,apertou Trocar

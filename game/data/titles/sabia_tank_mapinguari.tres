@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_title"]
+
+[resource]
+script = ExtResource("1_title")
+id = &"sabia_tank_mapinguari"
+name_key = "TITLE_SABIA_TANK_MAPINGUARI_NAME"
+archetype = &"tank"
+tier = 2
+parent_title = &"sabia_tank_jabuti"
+branch = &"b"
+required_skills = Array[StringName]([&"tank_fury"])
+required_titles = Array[StringName]([&"sabia_tank_jabuti"])
+color = Color(0.5568628, 0.4, 0.76862746, 1)
+desc_key = "TITLE_SABIA_TANK_MAPINGUARI_DESC"
+sort_order = 62
+outfit_id = &"title_mapinguari"
+cloth_colors = PackedColorArray(0.2745, 0.1843, 0.1294, 1, 0.6588, 0.1843, 0.1412, 1)
+master_npc = &"elder_tiao"

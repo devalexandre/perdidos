@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3]
+[ext_resource type="Shader" path="res://assets/shaders/forest_floor.gdshader" id="1"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_dry_grass.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_jungle_floor.png" id="3"]
+[resource]
+shader = ExtResource("1")
+shader_parameter/grass = ExtResource("2")
+shader_parameter/litter = ExtResource("3")

@@ -1,0 +1,49 @@
+# Profanity — English. Format: <severity> <mode><term> (see docs/moderacao.md)
+2 *fuck
+2 fuk
+2 =fck
+2 =fcuk
+2 =fuq
+2 shit
+2 bullshit
+2 horseshit
+2 dipshit
+2 bitch
+2 asshole
+2 dumbass
+2 jackass
+2 =arse
+2 arsehole
+2 dickhead
+2 *cunt
+2 cock
+2 =prick
+2 pussy
+2 bastard
+2 wanker
+2 twat
+2 bollocks
+2 slut
+2 whore
+2 blowjob
+2 handjob
+2 dildo
+2 jizz
+2 =tits
+2 titties
+2 =stfu
+2 =gtfo
+2 =mofo
+2 piss
+2 son of a bitch
+
+1 =ass
+1 =dick
+1 =damn
+1 goddamn
+1 =crap
+1 =wtf
+1 =douche
+1 douchebag
+1 =boobs
+1 =bloody hell

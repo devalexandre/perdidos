@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AudioZoneDef" format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/amb_wind_tree.ogg" id="1_u5mwp"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/mus_city_day.ogg" id="2_raget"]
+[ext_resource type="Script" path="res://scripts/shared/data/audio_zone_def.gd" id="3_mcy4p"]
+
+[resource]
+script = ExtResource("3_mcy4p")
+id = &"city_awakening_default"
+music = ExtResource("2_raget")
+ambience = Array[AudioStream]([ExtResource("1_u5mwp")])
+music_volume_db = -4.0

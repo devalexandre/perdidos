@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AudioZoneDef" format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/amb_river.ogg" id="1_rag5l"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/amb_gulls_bells.ogg" id="2_n5mo7"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/mus_city_docks.ogg" id="3_e7yqt"]
+[ext_resource type="Script" path="res://scripts/shared/data/audio_zone_def.gd" id="4_ehwcg"]
+
+[resource]
+script = ExtResource("4_ehwcg")
+id = &"city_awakening_docks"
+music = ExtResource("3_e7yqt")
+ambience = Array[AudioStream]([ExtResource("1_rag5l"), ExtResource("2_n5mo7")])
+music_volume_db = -5.0
+priority = 2

@@ -1,0 +1,133 @@
+{
+ "_doc": "Mestra Brisa Ferrenha (cidade, Lâmina). Guerreira de meia-idade, cabelo grisalho preso, lenço vermelho no pescoço, gibão de couro com ombreiras de metal, facão longo na cintura, postura firme (GDD §17.7).",
+ "body": "female",
+ "props": {
+  "q": {
+   "height": 0.99,
+   "head": 1.0
+  }
+ },
+ "pose": {
+  "chest": [
+   0.04,
+   0,
+   0
+  ]
+ },
+ "parts": [
+  {
+   "type": "hair",
+   "style": "bun",
+   "at": [
+    0.0,
+    0.11,
+    1.63
+   ]
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Body",
+   "cmap": {
+    "*": "linen"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Arms",
+   "cmap": {
+    "*": "linen"
+   }
+  },
+  {
+   "type": "vest",
+   "mat": "leather",
+   "edge": "strap_dark",
+   "gap": 0.14,
+   "bottom": 0.92,
+   "grow": 0.036
+  },
+  {
+   "type": "neckerchief",
+   "mat": "sash"
+  },
+  {
+   "type": "pauldrons",
+   "mat": "iron",
+   "side": "both",
+   "plates": 2
+  },
+  {
+   "type": "bracers",
+   "mat": "leather"
+  },
+  {
+   "type": "belt",
+   "mat": "strap_dark",
+   "buckle": "brass",
+   "grow": 0.044
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Legs",
+   "cmap": {
+    "*": "brown_pants"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Ranger_Feet_Boots",
+   "cmap": {
+    "metal": "brass",
+    "*": "boot"
+   }
+  },
+  {
+   "type": "weapon_hip",
+   "mat": "strap_dark",
+   "hilt": "wood",
+   "side": 1
+  }
+ ],
+ "colors": {
+  "skin": [
+   "9a5c40",
+   "b87858",
+   "d49a74",
+   "ecbc94"
+  ],
+  "hair": [
+   "3e3a44",
+   "5a5662",
+   "7a7682",
+   "9c98a4",
+   "c0bcc6"
+  ],
+  "eyes": [
+   "22140e",
+   "4a2c1a",
+   "764828",
+   "a8703e"
+  ],
+  "mats": {
+   "linen": [
+    "8a7c68",
+    "b0a28a",
+    "cec2aa",
+    "e6dcc6",
+    "3e362e"
+   ],
+   "brown_pants": [
+    "2e2018",
+    "443024",
+    "5a4232",
+    "725644",
+    "140c08"
+   ]
+  }
+ },
+ "anims": [
+  "idle:8",
+  "walk:8"
+ ],
+ "base": "q"
+}

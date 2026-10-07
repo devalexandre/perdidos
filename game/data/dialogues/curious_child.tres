@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_ye754"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_qh1ho"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_ii3h4"]
+
+[sub_resource type="Resource" id="Resource_g8x4u"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_START_OPT0"
+next_node = &"crystal"
+
+[sub_resource type="Resource" id="Resource_mpnjb"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_START_OPT1"
+next_node = &"play"
+
+[sub_resource type="Resource" id="Resource_f46gs"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_START_OPT2"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_fo4pw"]
+script = ExtResource("1_ye754")
+id = &"start"
+text_key = "DLG_CURIOUS_CHILD_START"
+options = Array[ExtResource("2_qh1ho")]([SubResource("Resource_g8x4u"), SubResource("Resource_mpnjb"), SubResource("Resource_f46gs")])
+
+[sub_resource type="Resource" id="Resource_wndio"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_CRYSTAL_OPT0"
+next_node = &"play"
+
+[sub_resource type="Resource" id="Resource_i7jb5"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_CRYSTAL_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_ge5ox"]
+script = ExtResource("1_ye754")
+id = &"crystal"
+text_key = "DLG_CURIOUS_CHILD_CRYSTAL"
+options = Array[ExtResource("2_qh1ho")]([SubResource("Resource_wndio"), SubResource("Resource_i7jb5")])
+
+[sub_resource type="Resource" id="Resource_70syu"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_PLAY_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_0ux33"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_PLAY_OPT1"
+next_node = &"gift"
+
+[sub_resource type="Resource" id="Resource_v5xsh"]
+script = ExtResource("1_ye754")
+id = &"play"
+text_key = "DLG_CURIOUS_CHILD_PLAY"
+options = Array[ExtResource("2_qh1ho")]([SubResource("Resource_70syu"), SubResource("Resource_0ux33")])
+
+[sub_resource type="Resource" id="Resource_bqwfj"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_GIFT_OPT0"
+action = &"give_item"
+action_args = Dictionary[StringName, Variant]({
+&"item_id": &"ipe_flower_crown",
+&"once": true,
+&"qty": 1
+})
+
+[sub_resource type="Resource" id="Resource_stmpe"]
+script = ExtResource("2_qh1ho")
+text_key = "DLG_CURIOUS_CHILD_GIFT_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_y6e6k"]
+script = ExtResource("1_ye754")
+id = &"gift"
+text_key = "DLG_CURIOUS_CHILD_GIFT"
+options = Array[ExtResource("2_qh1ho")]([SubResource("Resource_bqwfj"), SubResource("Resource_stmpe")])
+
+[resource]
+script = ExtResource("3_ii3h4")
+id = &"curious_child"
+nodes = Array[ExtResource("1_ye754")]([SubResource("Resource_fo4pw"), SubResource("Resource_ge5ox"), SubResource("Resource_v5xsh"), SubResource("Resource_y6e6k")])

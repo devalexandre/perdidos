@@ -1,0 +1,98 @@
+# Palavrões e ofensas — português do Brasil (inclui gírias regionais e abreviações).
+# Formato: <severidade> <modo><termo>      (guia completo: docs/moderacao.md)
+#   severidade: 1 leve (só censura), 2 palavrão (conta para a sanção), 3 ofensa/ódio (sanção imediata)
+#   modo: (nada) começo de palavra | = palavra inteira | * em qualquer lugar da palavra
+# Não precisa escrever variações com acento, leet, letras repetidas ou separadores: o filtro
+# já cobre ("porra" pega "p0rr4", "p.o.r.r.a", "pôrrraaa"). Escreva só a forma base.
+# Palavras legítimas que contêm um termo vão em whitelist.txt.
+
+# --- palavrões comuns
+2 porra
+2 *caralho
+2 caraio
+2 carai
+2 caraleo
+2 caralio
+2 merda
+2 bosta
+2 foda
+2 fode
+2 fodid
+2 fuder
+2 fudid
+2 fudeu
+2 *buceta
+2 boceta
+2 xoxota
+2 xereca
+2 =xota
+2 piroca
+2 punheta
+2 siririca
+2 boquete
+2 cuzao
+2 cuzinho
+2 arrombado
+2 arrombada
+2 vadia
+2 puta
+2 =putas
+2 quenga
+2 =xibiu
+1 =cu
+1 cacete
+1 =puto
+1 corno
+1 otario
+1 babaca
+1 imbecil
+1 idiota
+1 vagabund
+1 desgracad
+1 escroto
+1 lazarento
+1 =merdinha
+
+# --- expressões (qualquer separador entre as palavras)
+2 filho da puta
+2 filha da puta
+2 fio da puta
+2 fi da puta
+2 fela da puta
+2 fi de rapariga
+2 fidirapariga
+2 puta que pariu
+2 puta merda
+2 vai se foder
+2 vai se fuder
+2 vai te foder
+2 vai tomar no cu
+2 vai toma no cu
+2 toma no cu
+2 tomar no cu
+2 pau no cu
+2 enfia no cu
+2 chupa meu pau
+1 fi duma egua
+
+# --- abreviações conhecidas (palavra inteira)
+2 =fdp
+2 =fdps
+2 =pqp
+2 =vsf
+2 =vsfd
+2 =vtnc
+2 =vtmnc
+2 =tnc
+2 =tmnc
+2 =tnm
+2 =pnc
+2 =krl
+2 =crl
+2 =bct
+1 =kct
+1 =pprt
+
+# --- capacitismo (ofensivo; severidade 2)
+2 retardad
+2 mongoloide

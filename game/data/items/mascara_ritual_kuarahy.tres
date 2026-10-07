@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_red_cap.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"mascara_ritual_kuarahy"
+name_key = "ITEM_MASCARA_RITUAL_KUARAHY_NAME"
+desc_key = "ITEM_MASCARA_RITUAL_KUARAHY_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 1300
+tradeable = true
+buy_price = 0
+exclusive_drop_zone = &"city_of_z"
+crendice_id = &"mascara_ritual_kuarahy"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"str": 5,
+&"int": 5,
+&"matk": 15
+})

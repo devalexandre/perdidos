@@ -1,0 +1,189 @@
+{
+ "_doc": "Descricoes dos monstros do Campo de Treino (GDD 10.3, 17.7). stages.<n>.desc = texto (geracao); stages.<n>.evolve = instrucao de EDICAO a partir do estagio anterior. attack = pose de ataque (edicao por direcao).",
+ "prank_whirlwind": {
+  "attack": "spinning faster and lunging forward, leaves and dust flying outward, mischievous angry eyes",
+  "stages": {
+   "1": {
+    "desc": "a small mischievous whirlwind spirit made of swirling dry orange and brown leaves and golden dust, a tiny red knitted cap spinning on top, two bright playful eyes peeking out of the swirl, no arms, no legs, the swirl tapers into a thin twist of wind touching the ground"
+   },
+   "2": {
+    "evolve": "Make this creature evolve into a bigger, wilder and more menacing whirlwind: a taller spiraling column of dry leaves, twigs and small red pebbles, a bigger red cap with a little tassel, sly narrowed eyes, a few small stones orbiting it. Still charming, but clearly stronger."
+   },
+   "3": {
+    "evolve": "Make this creature evolve into a towering giant whirlwind boss: a huge spiraling tornado of golden leaves, red earth dust and broken branches, a large red cap flapping on top, fierce glowing eyes, a curl of grey smoke puffing from one side like pipe smoke, many leaves orbiting it. Epic, powerful and menacing, but with the same playful face design."
+   }
+  }
+ },
+ "enchanted_firefly": {
+  "attack": "shooting a burst of glowing yellow light forward from its tail, wings spread wide",
+  "stages": {
+   "1": {
+    "desc": "an enchanted firefly insect, round dark green body, big shiny friendly eyes, four translucent pale wings, small antennae, its round abdomen glowing warm yellow light, hovering in the air"
+   },
+   "2": {
+    "evolve": "Make this creature evolve into a bigger lantern-bearer firefly: larger body, a much brighter glowing golden abdomen shaped like a paper lantern, longer wings with golden veins, glowing tips on the antennae, small glowing motes orbiting it, a slightly stern look. Clearly stronger but still charming."
+   },
+   "3": {
+    "evolve": "Make this creature evolve into a majestic queen firefly boss: a large regal firefly with a crown-shaped crest on its head, four big wings with glowing golden patterns, a huge radiant golden-orange glowing abdomen, a trail of floating blue and yellow will-o-wisp lights around her. Epic and powerful, same face design."
+   }
+  }
+ },
+ "stone_armadillo": {
+  "attack": "curled into a rolling ball of stone plates, charging forward",
+  "stages": {
+   "1": {
+    "desc": "a chubby armadillo with shell plates made of smooth reddish stone, small moss patches on the shell, big round shiny eyes, cute but slightly grumpy"
+   },
+   "2": {
+    "evolve": "Make this creature evolve into a bigger rock armadillo: shell plates of rough reddish boulders with glowing amber crystal shards growing from them, thicker moss, fierce frowning eyes, sturdy dark claws. Clearly stronger and more menacing, same face design."
+   },
+   "3": {
+    "evolve": "Make this creature evolve into a gigantic mountain armadillo boss: its shell is like a small red rock mountain with grass and a small flowering yellow ipe tree growing on top, glowing amber eyes, huge claws, ancient and powerful. Epic, same face design."
+   }
+  }
+ },
+ "fountain_serpent": {
+  "attack": "striking forward with its mouth open, water droplets splashing",
+  "stages": {
+   "1": {
+    "desc": "a small cute serpent with teal scales and golden spots, coiled like a spring, big shiny eyes, a tiny golden crest on its head, a few droplets of fountain water around it"
+   }
+  }
+ },
+ "trasgo_imp": {
+  "attack": "jumping forward with a playful kick, grinning",
+  "stages": {
+   "1": {
+    "desc": "a tiny mischievous goblin imp with a floppy red pointed cap, big pointy ears, a patched brown tunic, bare feet, a wide grin with a missing tooth"
+   }
+  }
+ },
+ "kasa_obake": {
+  "attack": "hopping forward and lashing out its long tongue",
+  "stages": {
+   "1": {
+    "desc": "a haunted old paper umbrella creature with one big eye in the middle of the canopy and a long red tongue, faded red and cream oiled paper, standing and hopping on a single wooden leg"
+   }
+  }
+ },
+ "trickster_tanuki": {
+  "attack": "swinging a big green leaf forward like a fan, mischievous grin",
+  "stages": {
+   "1": {
+    "desc": "a chubby raccoon dog trickster with brown and dark mask fur, a green leaf on its head, a round belly, a bushy striped tail, a mischievous grin"
+   }
+  }
+ },
+ "moss_troll": {
+  "attack": "swinging a heavy stone fist forward",
+  "stages": {
+   "1": {
+    "desc": "a small stout troll made of grey stone covered with green moss, a big round nose, tiny eyes, little mushrooms growing on its shoulders, grumpy expression, long arms"
+   }
+  }
+ },
+ "lindworm_hatchling": {
+  "attack": "lunging forward with jaws open and frosty breath",
+  "stages": {
+   "1": {
+    "desc": "a baby wingless dragon serpent with pale ice blue scales, two small front legs, small frosty spikes along its back, big curious eyes"
+   }
+  }
+ },
+ "griffin_chick": {
+  "attack": "pouncing forward with small talons out and beak open",
+  "stages": {
+   "1": {
+    "desc": "a baby griffin with an eagle head covered in fluffy cream and golden feathers, a small tawny lion cub body, tiny wings, big eyes"
+   }
+  }
+ },
+ "little_chimera": {
+  "attack": "pouncing forward with a tiny roar",
+  "stages": {
+   "1": {
+    "desc": "a small cute chimera: a tawny lion cub body, a little white goat head with small horns on its back, a green snake tail with a tiny snake head, playful expression"
+   }
+  }
+ },
+ "dune_scorpion": {
+  "attack": "striking forward with its curled stinger and raised pincers",
+  "stages": {
+   "1": {
+    "desc": "a sand colored scorpion the size of a dog with ochre armor plates, a curled stinger tail with a turquoise tip, raised pincers, big shiny eyes"
+   }
+  }
+ },
+ "sphinx_cub": {
+  "attack": "pouncing forward with a small roar, wings spread",
+  "stages": {
+   "1": {
+    "desc": "a sphinx cub: a small tawny winged lion cub wearing a striped blue and gold cloth headdress, calm wise eyes, folded feathered wings"
+   }
+  }
+ },
+ "puca_trickster": {
+  "attack": "headbutting forward with its curly horns",
+  "stages": {
+   "1": {
+    "desc": "a mischievous small black shaggy goat creature with curly horns and glowing golden eyes, long fur, a sly smile"
+   }
+  }
+ },
+ "lake_kelpie": {
+  "attack": "rearing up and kicking forward, water splashing",
+  "stages": {
+   "1": {
+    "desc": "a small water horse made of dark teal water, a flowing green seaweed mane, glowing green eyes, dripping water droplets"
+   }
+  }
+ },
+ "zmey_hatchling": {
+  "attack": "all three heads lunging forward, one breathing a small puff of fire",
+  "stages": {
+   "1": {
+    "desc": "a baby three-headed green dragon, each small head with a different expression, stubby little wings, a round belly, short tail"
+   }
+  }
+ },
+ "walking_hut": {
+  "attack": "kicking forward with one big chicken leg",
+  "stages": {
+   "1": {
+    "desc": "a tiny wooden log cabin with a thatched roof walking on two big yellow chicken legs, a glowing round window like an eye, a little smoke from its chimney"
+   }
+  }
+ },
+ "hopping_jiangshi": {
+  "attack": "hopping forward with both arms stretched out stiffly",
+  "stages": {
+   "1": {
+    "desc": "a comical stiff hopping undead creature from old folk tales, wearing a long dark teal robe with wide sleeves and a round flat black hat with a short brim, pale blue-green skin, arms stretched straight forward, a plain cloth strip hanging from the hat brim in front of its face, eyes closed, silly rather than scary"
+   }
+  }
+ },
+ "spirit_fox_cub": {
+  "attack": "pouncing forward with blue spirit fire flaring on its tails",
+  "stages": {
+   "1": {
+    "desc": "a small white fox cub with two fluffy tails tipped with soft blue spirit flames, big bright eyes"
+   }
+  }
+ },
+ "obsidian_iguana": {
+  "attack": "lunging forward with its mouth open, spikes raised",
+  "stages": {
+   "1": {
+    "desc": "an iguana made of glossy black obsidian stone with turquoise spikes along its back, glowing orange eyes"
+   }
+  }
+ },
+ "jaguar_cub": {
+  "attack": "pouncing forward with claws out and a playful snarl",
+  "stages": {
+   "1": {
+    "desc": "a jaguar cub with golden fur covered in black rosette spots, big paws, a playful snarl"
+   }
+  }
+ }
+}

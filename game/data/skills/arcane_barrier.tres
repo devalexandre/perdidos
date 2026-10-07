@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_qflkt"]
+
+[resource]
+script = ExtResource("1_qflkt")
+id = &"arcane_barrier"
+name_key = "SKILL_ARCANE_BARRIER_NAME"
+desc_key = "SKILL_ARCANE_BARRIER_DESC"
+school = &"arcane"
+target_type = 6
+effect = 3
+mana_cost = 28
+cooldown_sec = 25.0
+range_cells = 8.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 8.0
+extra = Dictionary[StringName, Variant]({
+&"shield_base": 50.0,
+&"shield_matk_ratio": 1.5,
+&"shield_per_level": 0.1
+})
+vfx = &"shield"
+icon_text = "BA"
+tree_title = &"sabia_arcane_crystal"
+tree_order = 1
+exclusive_to_title = &"sabia_arcane_firefly"

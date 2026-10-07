@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/entities/net_entity.gd" id="1_entity"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_entity"]
+properties/0/path = NodePath(".:entity_id")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath(".:kind")
+properties/1/spawn = true
+properties/1/replication_mode = 0
+properties/2/path = NodePath(".:display_name")
+properties/2/spawn = true
+properties/2/replication_mode = 0
+properties/3/path = NodePath(".:def_id")
+properties/3/spawn = true
+properties/3/replication_mode = 0
+properties/4/path = NodePath(".:instance_id")
+properties/4/spawn = true
+properties/4/replication_mode = 2
+properties/5/path = NodePath(".:appearance")
+properties/5/spawn = true
+properties/5/replication_mode = 2
+properties/6/path = NodePath(".:facing_yaw")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+properties/7/path = NodePath(".:anim")
+properties/7/spawn = true
+properties/7/replication_mode = 1
+properties/8/path = NodePath(".:net_position")
+properties/8/spawn = true
+properties/8/replication_mode = 0
+properties/9/path = NodePath(".:move_state")
+properties/9/spawn = true
+properties/9/replication_mode = 2
+properties/10/path = NodePath(".:stage")
+properties/10/spawn = true
+properties/10/replication_mode = 2
+properties/11/path = NodePath(".:hp_ratio")
+properties/11/spawn = true
+properties/11/replication_mode = 2
+properties/12/path = NodePath(".:target_id")
+properties/12/spawn = true
+properties/12/replication_mode = 2
+properties/13/path = NodePath(".:level")
+properties/13/spawn = true
+properties/13/replication_mode = 2
+properties/14/path = NodePath(".:title_id")
+properties/14/spawn = true
+properties/14/replication_mode = 2
+
+[node name="NetEntity" type="Node3D"]
+script = ExtResource("1_entity")
+
+[node name="Sync" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath("..")
+replication_interval = 0.05
+delta_interval = 0.05
+public_visibility = false
+visibility_update_mode = 2
+replication_config = SubResource("SceneReplicationConfig_entity")

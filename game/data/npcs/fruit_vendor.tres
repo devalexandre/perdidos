@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/fruit_vendor.tres" id="1_7mwwb"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_1iuue"]
+
+[resource]
+script = ExtResource("2_1iuue")
+id = &"fruit_vendor"
+name_key = "NPC_FRUIT_VENDOR_NAME"
+sprite_base = "res://assets/npcs/npc_fruit_vendor"
+map_id = &"city_awakening"
+spawn_marker = &"fruit_vendor"
+routine = 1
+wander_radius = 3.5
+move_speed = 1.2
+dialogue = ExtResource("1_7mwwb")

@@ -1,0 +1,171 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_mat_1"]
+script = ExtResource("drop")
+item_id = &"guara_pelt"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_1"]
+script = ExtResource("drop")
+item_id = &"potion_hp_small"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_MANED_WOLF_S1_NAME"
+sprite_base = "res://assets/monsters/maned_wolf/mon_maned_wolf_s1"
+baked_life = true
+visual_scale = 1.1
+level = 17
+max_hp = 386
+atk = 44
+matk = 0
+def = 8
+mdef = 5
+walk_ms_per_cell = 360
+attack_range_cells = 1.5
+attack_interval_ms = 1500
+aggressive = false
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 238
+stars_min = 8
+stars_max = 22
+behaviors = Array[StringName]([&"roll_charge"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_1"), SubResource("drop_pot_1")])
+
+[sub_resource type="Resource" id="drop_mat_2"]
+script = ExtResource("drop")
+item_id = &"guara_pelt"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_2"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage2"]
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_MANED_WOLF_S2_NAME"
+sprite_base = "res://assets/monsters/maned_wolf/mon_maned_wolf_s2"
+baked_life = true
+visual_scale = 1.3
+level = 25
+max_hp = 848
+atk = 60
+matk = 0
+def = 12
+mdef = 8
+walk_ms_per_cell = 360
+attack_range_cells = 1.5
+attack_interval_ms = 1500
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 350
+stars_min = 12
+stars_max = 30
+behaviors = Array[StringName]([&"roll_charge"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_2"), SubResource("drop_pot_2")])
+
+[sub_resource type="Resource" id="drop_mat_3"]
+script = ExtResource("drop")
+item_id = &"guara_pelt"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_pot_3"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage3"]
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_MANED_WOLF_S3_NAME"
+sprite_base = "res://assets/monsters/maned_wolf/mon_maned_wolf_s3"
+baked_life = true
+visual_scale = 1.6
+level = 34
+max_hp = 7900
+atk = 61
+matk = 0
+def = 32
+mdef = 20
+walk_ms_per_cell = 400
+attack_range_cells = 2.2
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 2020
+stars_min = 70
+stars_max = 140
+behaviors = Array[StringName]([&"roll_charge", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_3"), SubResource("drop_pot_3")])
+
+[sub_resource type="Resource" id="drop_mat_4"]
+script = ExtResource("drop")
+item_id = &"guara_pelt"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_pot_4"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage4"]
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_MANED_WOLF_S4_NAME"
+sprite_base = "res://assets/monsters/maned_wolf/mon_maned_wolf_s4"
+baked_life = true
+visual_scale = 1.9
+level = 40
+max_hp = 11400
+atk = 76
+matk = 0
+def = 40
+mdef = 26
+walk_ms_per_cell = 320
+attack_range_cells = 2.2
+attack_interval_ms = 1250
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 20
+xp_reward = 4040
+stars_min = 140
+stars_max = 280
+behaviors = Array[StringName]([&"roll_charge", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_4"), SubResource("drop_pot_4")])
+
+[resource]
+
+script = ExtResource("monster")
+id = &"maned_wolf"
+region_id = &"sabia"
+creature_type = &"beast"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

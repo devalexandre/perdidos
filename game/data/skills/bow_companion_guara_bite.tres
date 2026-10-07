@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="def"]
+
+[resource]
+script = ExtResource("def")
+id = &"bow_companion_guara_bite"
+name_key = "SK_BOW_COMPANION_GUARA_BITE"
+desc_key = "SK_BOW_COMPANION_GUARA_BITE_DESC"
+school = &"bow"
+companion_id = &"sabia_companion_guara"
+passive = true
+max_level = 1
+counts_for_titles = false
+tree_title = &"sabia_bow_brejo"
+tree_order = 10
+target_type = 5
+effect = 10
+mana_cost = 0
+cooldown_sec = 0
+duration_sec = 15
+range_cells = 12.0
+icon_text = "Mor"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AudioZoneDef" format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/amb_market.ogg" id="1_obth8"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/amb_wind_tree.ogg" id="2_jqsy7"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/mus_city_day.ogg" id="3_p04ck"]
+[ext_resource type="Script" path="res://scripts/shared/data/audio_zone_def.gd" id="4_u60qo"]
+
+[resource]
+script = ExtResource("4_u60qo")
+id = &"city_awakening_market"
+music = ExtResource("3_p04ck")
+ambience = Array[AudioStream]([ExtResource("1_obth8"), ExtResource("2_jqsy7")])
+music_volume_db = -4.0
+priority = 1

@@ -1,0 +1,184 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_mboit"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_13vb8"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_4kj0e"]
+
+[sub_resource type="Resource" id="Resource_6kuji"]
+script = ExtResource("1_mboit")
+item_id = &"armadillo_shell"
+chance = 0.45
+
+[sub_resource type="Resource" id="Resource_86vqr"]
+script = ExtResource("1_mboit")
+item_id = &"thick_leather"
+chance = 0.25
+
+[sub_resource type="Resource" id="Resource_0sgwx"]
+script = ExtResource("1_mboit")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_16ako"]
+script = ExtResource("3_4kj0e")
+name_key = "MON_HIGHLAND_STONE_ARMADILLO_S1_NAME"
+sprite_base = "res://assets/monsters/stone_armadillo/mon_stone_armadillo_s1"
+baked_life = true
+level = 16
+max_hp = 466
+atk = 25
+def = 21
+mdef = 5
+walk_ms_per_cell = 450
+attack_interval_ms = 1700
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 149
+stars_min = 3
+stars_max = 8
+drops = Array[ExtResource("1_mboit")]([SubResource("Resource_6kuji"), SubResource("Resource_86vqr"), SubResource("Resource_0sgwx")])
+behaviors = Array[StringName]([&"roll_charge"])
+
+aggressive = true
+[sub_resource type="Resource" id="Resource_wdbtt"]
+script = ExtResource("1_mboit")
+item_id = &"armadillo_shell"
+chance = 0.9
+max_qty = 3
+
+[sub_resource type="Resource" id="Resource_8sba2"]
+script = ExtResource("1_mboit")
+item_id = &"thick_leather"
+chance = 0.5
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_62fej"]
+script = ExtResource("1_mboit")
+item_id = &"potion_hp_medium"
+
+[sub_resource type="Resource" id="Resource_fmr6f"]
+script = ExtResource("3_4kj0e")
+stage = 2
+name_key = "MON_HIGHLAND_STONE_ARMADILLO_S2_NAME"
+sprite_base = "res://assets/monsters/stone_armadillo/mon_stone_armadillo_s2"
+baked_life = true
+level = 20
+max_hp = 1154
+atk = 42
+def = 38
+mdef = 13
+walk_ms_per_cell = 420
+attack_range_cells = 1.8
+attack_interval_ms = 1600
+aggressive = true
+xp_reward = 386
+stars_min = 8
+stars_max = 16
+drops = Array[ExtResource("1_mboit")]([SubResource("Resource_wdbtt"), SubResource("Resource_8sba2"), SubResource("Resource_62fej")])
+behaviors = Array[StringName]([&"roll_charge"])
+
+[sub_resource type="Resource" id="Resource_f0rci"]
+script = ExtResource("1_mboit")
+item_id = &"armadillo_shell"
+chance = 1.0
+min_qty = 4
+max_qty = 8
+
+[sub_resource type="Resource" id="Resource_o0o0v"]
+script = ExtResource("1_mboit")
+item_id = &"thick_leather"
+chance = 1.0
+min_qty = 2
+max_qty = 4
+
+[sub_resource type="Resource" id="Resource_pcqcv"]
+script = ExtResource("1_mboit")
+item_id = &"potion_hp_medium"
+chance = 0.5
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_stone__boss_rare"]
+script = ExtResource("1_mboit")
+item_id = &"ancient_shell_shard"
+chance = 0.35
+
+[sub_resource type="Resource" id="Resource_stone__rare_rare"]
+script = ExtResource("1_mboit")
+item_id = &"ancient_shell_shard"
+chance = 0.12
+
+[sub_resource type="Resource" id="Resource_stone__atroz_d0"]
+script = ExtResource("1_mboit")
+item_id = &"armadillo_shell"
+chance = 1.0
+min_qty = 6
+max_qty = 12
+
+[sub_resource type="Resource" id="Resource_stone__atroz_d1"]
+script = ExtResource("1_mboit")
+item_id = &"thick_leather"
+chance = 1.0
+min_qty = 3
+max_qty = 6
+
+[sub_resource type="Resource" id="Resource_stone__atroz_d2"]
+script = ExtResource("1_mboit")
+item_id = &"potion_hp_medium"
+chance = 0.75
+min_qty = 2
+max_qty = 3
+
+[sub_resource type="Resource" id="Resource_stone__atroz_rare"]
+script = ExtResource("1_mboit")
+item_id = &"ancient_shell_shard"
+chance = 0.85
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_w05vy"]
+script = ExtResource("3_4kj0e")
+stage = 3
+name_key = "MON_STONE_ARMADILLO_S3_NAME"
+sprite_base = "res://assets/monsters/stone_armadillo/mon_stone_armadillo_s3"
+baked_life = true
+level = 22
+max_hp = 6500
+atk = 80
+def = 45
+mdef = 20
+walk_ms_per_cell = 480
+attack_range_cells = 2.5
+attack_interval_ms = 1900
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 1600
+stars_min = 70
+stars_max = 140
+drops = Array[ExtResource("1_mboit")]([SubResource("Resource_f0rci"), SubResource("Resource_o0o0v"), SubResource("Resource_pcqcv"), SubResource("Resource_stone__boss_rare")])
+behaviors = Array[StringName]([&"roll_charge", &"boss"])
+
+[sub_resource type="Resource" id="Resource_stone__atroz"]
+script = ExtResource("3_4kj0e")
+stage = 4
+name_key = "MON_STONE_ARMADILLO_S4_NAME"
+sprite_base = "res://assets/monsters/stone_armadillo/mon_stone_armadillo_s4"
+baked_life = true
+level = 28
+walk_ms_per_cell = 384
+attack_range_cells = 2.5
+attack_interval_ms = 1235
+aggressive = true
+aggro_range_cells = 11
+leash_cells = 26
+xp_reward = 4000
+stars_min = 140
+stars_max = 280
+drops = Array[ExtResource("1_mboit")]([SubResource("Resource_stone__atroz_d0"), SubResource("Resource_stone__atroz_d1"), SubResource("Resource_stone__atroz_d2"), SubResource("Resource_stone__atroz_rare")])
+behaviors = Array[StringName]([&"roll_charge", &"boss"])
+
+[resource]
+script = ExtResource("2_13vb8")
+id = &"highland_stone_armadillo"
+base_species = &"stone_armadillo"
+stages = Array[ExtResource("3_4kj0e")]([SubResource("Resource_16ako"), SubResource("Resource_fmr6f"), SubResource("Resource_w05vy"), SubResource("Resource_stone__atroz")])
+rare_extra_drops = Array[ExtResource("1_mboit")]([SubResource("Resource_stone__rare_rare")])

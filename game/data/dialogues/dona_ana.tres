@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="1_opt"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="2_node"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_dlg"]
+
+[sub_resource type="Resource" id="opt_save"]
+script = ExtResource("1_opt")
+text_key = "DLG_DONA_ANA_OPT_SAVE"
+action = &"waystone_save"
+
+[sub_resource type="Resource" id="opt_travel"]
+script = ExtResource("1_opt")
+text_key = "DLG_DONA_ANA_OPT_TRAVEL"
+action = &"waystone_travel"
+
+[sub_resource type="Resource" id="opt_bye"]
+script = ExtResource("1_opt")
+text_key = "DLG_DONA_ANA_OPT_BYE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_start"]
+script = ExtResource("2_node")
+id = &"start"
+text_key = "DLG_DONA_ANA_START"
+options = Array[ExtResource("1_opt")]([SubResource("opt_save"), SubResource("opt_travel"), SubResource("opt_bye")])
+
+[resource]
+script = ExtResource("3_dlg")
+id = &"dona_ana"
+nodes = Array[ExtResource("2_node")]([SubResource("node_start")])

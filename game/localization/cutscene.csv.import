@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://8acp5iixtx10"
+
+[deps]
+
+files=["res://localization/cutscene.pt_BR.translation", "res://localization/cutscene.en.translation", "res://localization/cutscene.es.translation", "res://localization/cutscene.fr.translation", "res://localization/cutscene.de.translation", "res://localization/cutscene.ja.translation"]
+
+source_file="res://localization/cutscene.csv"
+dest_files=["res://localization/cutscene.pt_BR.translation", "res://localization/cutscene.en.translation", "res://localization/cutscene.es.translation", "res://localization/cutscene.fr.translation", "res://localization/cutscene.de.translation", "res://localization/cutscene.ja.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

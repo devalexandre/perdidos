@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SanctionConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/server/moderation/sanction_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+window_sec = 600
+filtered_msgs_per_strike = 3
+count_min_severity = 2
+immediate_strike_severity = 3
+ladder_mute_sec = PackedInt64Array(0, 3600, 21600, 86400, 604800, 2592000, -1)
+review_from_level = 6
+decay_clean_sec = 2592000
+log_retention_days = 365

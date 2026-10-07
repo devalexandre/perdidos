@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+target_id = &"stone_armadillo"
+count = 8
+text_key = "QUEST_LESSON_TANK_MAPINGUARI_HOWL_STEP1"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"lesson_tank_mapinguari_howl"
+name_key = "QUEST_LESSON_TANK_MAPINGUARI_HOWL_NAME"
+giver_npc = &"elder_tiao"
+region_id = &"brasil"
+steps = Array[ExtResource("2_step")]([SubResource("step_1")])
+reward_skill = &"tank_mapinguari_howl"
+reward_xp = 100
+offer_text_key = "QUEST_LESSON_TANK_MAPINGUARI_HOWL_OFFER"
+progress_text_key = "QUEST_LESSON_TANK_MAPINGUARI_HOWL_PROGRESS"
+complete_text_key = "QUEST_LESSON_TANK_MAPINGUARI_HOWL_COMPLETE"
+option_text_key = "QUEST_LESSON_TANK_MAPINGUARI_HOWL_OPTION"
+desc_key = "QUEST_LESSON_TANK_MAPINGUARI_HOWL_DESC"

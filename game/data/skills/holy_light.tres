@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_holy"]
+
+[resource]
+script = ExtResource("1_holy")
+id = &"holy_light"
+name_key = "SKILL_HOLY_LIGHT_NAME"
+desc_key = "SKILL_HOLY_LIGHT_DESC"
+school = &"arcane"
+element = &"holy"
+region_id = &"brasil"
+target_type = 0
+effect = 1
+mana_cost = 14
+cooldown_sec = 4.0
+cast_time_sec = 0.5
+range_cells = 10.0
+base_multiplier = 1.6
+multiplier_per_level = 0.15
+vfx = &"spark"
+icon_text = "LS"
+extra = Dictionary[StringName, Variant]({
+&"element": &"holy"
+})

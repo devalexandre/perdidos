@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_straw_hat.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"capuz_da_bruma_espectral"
+name_key = "ITEM_CAPUZ_BRUMA_ESPECTRAL_NAME"
+desc_key = "ITEM_CAPUZ_BRUMA_ESPECTRAL_DESC"
+icon = ExtResource("icon")
+type = 3
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 380
+tradeable = true
+crendice_id = &""
+crendice_sockets = 0
+exclusive_drop_zone = &"hoer_verde"
+stats = Dictionary[StringName, int]({
+  &"def": 16,
+  &"mdef": 22,
+  &"spi": 6
+})

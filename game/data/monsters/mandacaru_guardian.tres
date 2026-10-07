@@ -1,0 +1,171 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_mat_1"]
+script = ExtResource("drop")
+item_id = &"mandacaru_thorn"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_1"]
+script = ExtResource("drop")
+item_id = &"potion_hp_small"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_MANDACARU_GUARDIAN_S1_NAME"
+sprite_base = "res://assets/monsters/mandacaru_guardian/mon_mandacaru_guardian_s1"
+baked_life = true
+visual_scale = 1.0
+level = 15
+max_hp = 350
+atk = 40
+matk = 40
+def = 7
+mdef = 5
+walk_ms_per_cell = 360
+attack_range_cells = 4.5
+attack_interval_ms = 1500
+aggressive = false
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 210
+stars_min = 7
+stars_max = 20
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_1"), SubResource("drop_pot_1")])
+
+[sub_resource type="Resource" id="drop_mat_2"]
+script = ExtResource("drop")
+item_id = &"mandacaru_thorn"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_2"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage2"]
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_MANDACARU_GUARDIAN_S2_NAME"
+sprite_base = "res://assets/monsters/mandacaru_guardian/mon_mandacaru_guardian_s2"
+baked_life = true
+visual_scale = 1.2
+level = 23
+max_hp = 790
+atk = 56
+matk = 56
+def = 11
+mdef = 7
+walk_ms_per_cell = 360
+attack_range_cells = 4.5
+attack_interval_ms = 1500
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 322
+stars_min = 11
+stars_max = 28
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_2"), SubResource("drop_pot_2")])
+
+[sub_resource type="Resource" id="drop_mat_3"]
+script = ExtResource("drop")
+item_id = &"mandacaru_thorn"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_pot_3"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage3"]
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_MANDACARU_GUARDIAN_S3_NAME"
+sprite_base = "res://assets/monsters/mandacaru_guardian/mon_mandacaru_guardian_s3"
+baked_life = true
+visual_scale = 1.5
+level = 31
+max_hp = 9100
+atk = 69
+matk = 69
+def = 32
+mdef = 22
+walk_ms_per_cell = 400
+attack_range_cells = 4.5
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 2580
+stars_min = 70
+stars_max = 140
+behaviors = Array[StringName]([&"ranged", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_3"), SubResource("drop_pot_3")])
+
+[sub_resource type="Resource" id="drop_mat_4"]
+script = ExtResource("drop")
+item_id = &"mandacaru_thorn"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_pot_4"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage4"]
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_MANDACARU_GUARDIAN_S4_NAME"
+sprite_base = "res://assets/monsters/mandacaru_guardian/mon_mandacaru_guardian_s4"
+baked_life = true
+visual_scale = 1.8
+level = 37
+max_hp = 12600
+atk = 84
+matk = 84
+def = 40
+mdef = 28
+walk_ms_per_cell = 320
+attack_range_cells = 4.5
+attack_interval_ms = 1250
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 20
+xp_reward = 5160
+stars_min = 140
+stars_max = 280
+behaviors = Array[StringName]([&"ranged", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_4"), SubResource("drop_pot_4")])
+
+[resource]
+
+script = ExtResource("monster")
+id = &"mandacaru_guardian"
+region_id = &"sabia"
+creature_type = &"beast"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

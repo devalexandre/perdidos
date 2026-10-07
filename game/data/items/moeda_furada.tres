@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ribbon_bracelet.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"moeda_furada"
+name_key = "ITEM_MOEDA_FURADA_NAME"
+desc_key = "ITEM_MOEDA_FURADA_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 1
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 250
+tradeable = true
+crendice_id = &"moeda_furada"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"dex": 3
+})

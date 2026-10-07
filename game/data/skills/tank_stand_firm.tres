@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"tank_stand_firm"
+name_key = "SKILL_TANK_STAND_FIRM_NAME"
+desc_key = "SKILL_TANK_STAND_FIRM_DESC"
+school = &"tank"
+region_id = &"brasil"
+target_type = 5
+effect = 9
+mana_cost = 20
+cooldown_sec = 40.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 6.0
+extra = Dictionary[StringName, Variant]({
+&"cc_immune": 1,
+&"duration_per_level": 0.3
+})
+vfx = &"guard"
+exclusive_to_title = &"sabia_tank_anta"
+icon_text = "AE"
+tree_title = &"sabia_tank_anta"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"tank_living_wall": 3
+})

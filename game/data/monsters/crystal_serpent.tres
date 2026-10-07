@@ -1,0 +1,224 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_1_0"]
+script = ExtResource("drop")
+item_id = &"crystal_scale"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_1_1"]
+script = ExtResource("drop")
+item_id = &"serpent_fang"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_1_2"]
+script = ExtResource("drop")
+item_id = &"lasca_cristal_ratanaba"
+chance = 0.05
+min_qty = 1
+max_qty = 1
+
+[sub_resource type="Resource" id="drop_1_3"]
+script = ExtResource("drop")
+item_id = &"prisma_da_serpente"
+chance = 0.04
+min_qty = 1
+max_qty = 1
+
+[sub_resource type="Resource" id="drop_2_0"]
+script = ExtResource("drop")
+item_id = &"crystal_scale"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_2_1"]
+script = ExtResource("drop")
+item_id = &"serpent_fang"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_2_2"]
+script = ExtResource("drop")
+item_id = &"lasca_cristal_ratanaba"
+chance = 0.05
+min_qty = 1
+max_qty = 1
+
+[sub_resource type="Resource" id="drop_2_3"]
+script = ExtResource("drop")
+item_id = &"prisma_da_serpente"
+chance = 0.04
+min_qty = 1
+max_qty = 1
+
+[sub_resource type="Resource" id="drop_3_0"]
+script = ExtResource("drop")
+item_id = &"crystal_scale"
+chance = 1.0
+min_qty = 2
+max_qty = 4
+
+[sub_resource type="Resource" id="drop_3_1"]
+script = ExtResource("drop")
+item_id = &"serpent_fang"
+chance = 0.8
+min_qty = 2
+max_qty = 4
+
+[sub_resource type="Resource" id="drop_3_2"]
+script = ExtResource("drop")
+item_id = &"lasca_cristal_ratanaba"
+chance = 0.1
+min_qty = 2
+max_qty = 3
+
+[sub_resource type="Resource" id="drop_3_3"]
+script = ExtResource("drop")
+item_id = &"prisma_da_serpente"
+chance = 0.08
+min_qty = 2
+max_qty = 3
+
+[sub_resource type="Resource" id="drop_4_0"]
+script = ExtResource("drop")
+item_id = &"crystal_scale"
+chance = 1.0
+min_qty = 2
+max_qty = 4
+
+[sub_resource type="Resource" id="drop_4_1"]
+script = ExtResource("drop")
+item_id = &"serpent_fang"
+chance = 0.8
+min_qty = 2
+max_qty = 4
+
+[sub_resource type="Resource" id="drop_4_2"]
+script = ExtResource("drop")
+item_id = &"lasca_cristal_ratanaba"
+chance = 0.1
+min_qty = 2
+max_qty = 3
+
+[sub_resource type="Resource" id="drop_4_3"]
+script = ExtResource("drop")
+item_id = &"prisma_da_serpente"
+chance = 0.08
+min_qty = 2
+max_qty = 3
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_CRYSTAL_SERPENT_S1_NAME"
+sprite_base = "res://assets/monsters/crystal_serpent/mon_crystal_serpent_s1"
+baked_life = true
+visual_scale = 1.0
+level = 21
+max_hp = 698
+atk = 48
+matk = 64
+def = 12
+mdef = 26
+walk_ms_per_cell = 350
+attack_range_cells = 4.5
+attack_interval_ms = 1450
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 14
+xp_reward = 232
+stars_min = 5
+stars_max = 18
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_1_0"), SubResource("drop_1_1"), SubResource("drop_1_2"), SubResource("drop_1_3")])
+
+[sub_resource type="Resource" id="stage2"]
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_CRYSTAL_SERPENT_S2_NAME"
+sprite_base = "res://assets/monsters/crystal_serpent/mon_crystal_serpent_s2"
+baked_life = true
+visual_scale = 1.25
+level = 26
+max_hp = 1382
+atk = 56
+matk = 78
+def = 16
+mdef = 34
+walk_ms_per_cell = 350
+attack_range_cells = 4.5
+attack_interval_ms = 1450
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 14
+xp_reward = 460
+stars_min = 5
+stars_max = 18
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_2_0"), SubResource("drop_2_1"), SubResource("drop_2_2"), SubResource("drop_2_3")])
+
+[sub_resource type="Resource" id="stage3"]
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_CRYSTAL_SERPENT_S3_NAME"
+sprite_base = "res://assets/monsters/crystal_serpent/mon_crystal_serpent_s3"
+baked_life = true
+visual_scale = 1.55
+level = 33
+max_hp = 8800
+atk = 75
+matk = 125
+def = 26
+mdef = 52
+walk_ms_per_cell = 380
+attack_range_cells = 4.5
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 18
+xp_reward = 2933
+stars_min = 15
+stars_max = 50
+behaviors = Array[StringName]([&"ranged", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_3_0"), SubResource("drop_3_1"), SubResource("drop_3_2"), SubResource("drop_3_3")])
+
+[sub_resource type="Resource" id="stage4"]
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_CRYSTAL_SERPENT_S4_NAME"
+sprite_base = "res://assets/monsters/crystal_serpent/mon_crystal_serpent_s4"
+baked_life = true
+visual_scale = 1.85
+level = 39
+max_hp = 10800
+atk = 90
+matk = 145
+def = 32
+mdef = 60
+walk_ms_per_cell = 300
+attack_range_cells = 4.5
+attack_interval_ms = 1300
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 18
+xp_reward = 3600
+stars_min = 15
+stars_max = 50
+behaviors = Array[StringName]([&"ranged", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_4_0"), SubResource("drop_4_1"), SubResource("drop_4_2"), SubResource("drop_4_3")])
+
+[resource]
+script = ExtResource("monster")
+id = &"crystal_serpent"
+creature_type = &"beast"
+primary_element = &"arcane"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

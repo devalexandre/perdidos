@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_abyym"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_1m241"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_wmyso"]
+
+[sub_resource type="Resource" id="Resource_jb2fc"]
+script = ExtResource("2_1m241")
+text_key = "DLG_FISHERMAN_START_OPT0"
+next_node = &"viewpoint"
+
+[sub_resource type="Resource" id="Resource_30e58"]
+script = ExtResource("2_1m241")
+text_key = "DLG_FISHERMAN_START_OPT1"
+next_node = &"fish"
+
+[sub_resource type="Resource" id="Resource_hrb8e"]
+script = ExtResource("2_1m241")
+text_key = "DLG_FISHERMAN_START_OPT2"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_wolf_clue"]
+script = ExtResource("2_1m241")
+text_key = "DLG_LOBISOMEM_FISHER_OPT"
+next_node = &"wolf_clue"
+
+[sub_resource type="Resource" id="Resource_uxuau"]
+script = ExtResource("1_abyym")
+id = &"start"
+text_key = "DLG_FISHERMAN_START"
+options = Array[ExtResource("2_1m241")]([SubResource("Resource_jb2fc"), SubResource("Resource_30e58"), SubResource("Resource_wolf_clue"), SubResource("Resource_hrb8e")])
+
+[sub_resource type="Resource" id="Resource_wolf_clue_report"]
+script = ExtResource("2_1m241")
+text_key = "DLG_LOBISOMEM_CLUE_KEEP"
+action = &"collect_story_clue"
+action_args = Dictionary[StringName, Variant]({
+&"story_id": "lobisomem_arc",
+&"clue_id": "fisherman_howl",
+&"clue_name_key": "STORY_CLUE_FISHERMAN"
+})
+
+[sub_resource type="Resource" id="Resource_wolf_clue_node"]
+script = ExtResource("1_abyym")
+id = &"wolf_clue"
+text_key = "DLG_LOBISOMEM_FISHER_CLUE"
+options = Array[ExtResource("2_1m241")]([SubResource("Resource_wolf_clue_report")])
+
+[sub_resource type="Resource" id="Resource_3dwd2"]
+script = ExtResource("2_1m241")
+text_key = "DLG_FISHERMAN_VIEWPOINT_OPT0"
+next_node = &"fish"
+
+[sub_resource type="Resource" id="Resource_4d5ss"]
+script = ExtResource("2_1m241")
+text_key = "DLG_FISHERMAN_VIEWPOINT_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_jg63u"]
+script = ExtResource("1_abyym")
+id = &"viewpoint"
+text_key = "DLG_FISHERMAN_VIEWPOINT"
+options = Array[ExtResource("2_1m241")]([SubResource("Resource_3dwd2"), SubResource("Resource_4d5ss")])
+
+[sub_resource type="Resource" id="Resource_jgtpi"]
+script = ExtResource("2_1m241")
+text_key = "DLG_FISHERMAN_FISH_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_aksbh"]
+script = ExtResource("1_abyym")
+id = &"fish"
+text_key = "DLG_FISHERMAN_FISH"
+options = Array[ExtResource("2_1m241")]([SubResource("Resource_jgtpi")])
+
+[resource]
+script = ExtResource("3_wmyso")
+id = &"fisherman"
+nodes = Array[ExtResource("1_abyym")]([SubResource("Resource_uxuau"), SubResource("Resource_wolf_clue_node"), SubResource("Resource_jg63u"), SubResource("Resource_aksbh")])

@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="1_option"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="2_node"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_dialogue"]
+
+[sub_resource type="Resource" id="option_hunter"]
+script = ExtResource("1_option")
+text_key = "DLG_MARCELINA_OPT_HUNTER"
+next_node = &"hunter"
+action = &"choose_story_route"
+action_args = Dictionary[StringName, Variant]({
+&"story_id": "lobisomem_arc",
+&"route_id": "hunter"
+})
+
+[sub_resource type="Resource" id="option_healer"]
+script = ExtResource("1_option")
+text_key = "DLG_MARCELINA_OPT_HEALER"
+next_node = &"healer"
+action = &"choose_story_route"
+action_args = Dictionary[StringName, Variant]({
+&"story_id": "lobisomem_arc",
+&"route_id": "healer"
+})
+
+[sub_resource type="Resource" id="option_pact"]
+script = ExtResource("1_option")
+text_key = "DLG_MARCELINA_OPT_PACT"
+next_node = &"pact"
+action = &"choose_story_route"
+action_args = Dictionary[StringName, Variant]({
+&"story_id": "lobisomem_arc",
+&"route_id": "pact"
+})
+
+[sub_resource type="Resource" id="option_bye"]
+script = ExtResource("1_option")
+text_key = "DLG_MARCELINA_OPT_BYE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_start"]
+script = ExtResource("2_node")
+id = &"start"
+text_key = "DLG_MARCELINA_START"
+options = Array[ExtResource("1_option")]([SubResource("option_hunter"), SubResource("option_healer"), SubResource("option_pact"), SubResource("option_bye")])
+
+[sub_resource type="Resource" id="option_close_hunter"]
+script = ExtResource("1_option")
+text_key = "DLG_MARCELINA_OPT_BYE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_hunter"]
+script = ExtResource("2_node")
+id = &"hunter"
+text_key = "DLG_MARCELINA_SELECTED_HUNTER"
+options = Array[ExtResource("1_option")]([SubResource("option_close_hunter")])
+
+[sub_resource type="Resource" id="option_close_healer"]
+script = ExtResource("1_option")
+text_key = "DLG_MARCELINA_OPT_BYE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_healer"]
+script = ExtResource("2_node")
+id = &"healer"
+text_key = "DLG_MARCELINA_SELECTED_HEALER"
+options = Array[ExtResource("1_option")]([SubResource("option_close_healer")])
+
+[sub_resource type="Resource" id="option_close_pact"]
+script = ExtResource("1_option")
+text_key = "DLG_MARCELINA_OPT_BYE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_pact"]
+script = ExtResource("2_node")
+id = &"pact"
+text_key = "DLG_MARCELINA_SELECTED_PACT"
+options = Array[ExtResource("1_option")]([SubResource("option_close_pact")])
+
+[resource]
+script = ExtResource("3_dialogue")
+id = &"marcelina"
+nodes = Array[ExtResource("2_node")]([SubResource("node_start"), SubResource("node_hunter"), SubResource("node_healer"), SubResource("node_pact")])

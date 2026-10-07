@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"blade_thick_bark"
+name_key = "SKILL_BLADE_THICK_BARK_NAME"
+desc_key = "SKILL_BLADE_THICK_BARK_DESC"
+school = &"blade"
+region_id = &"brasil"
+target_type = 5
+effect = 9
+mana_cost = 14
+cooldown_sec = 20.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 6.0
+extra = Dictionary[StringName, Variant]({
+&"dmg_taken_pct": -0.3,
+&"dmg_taken_pct_per_level": -0.02,
+&"duration_per_level": 0.3
+})
+vfx = &"guard"
+exclusive_to_title = &"sabia_blade_aroeira"
+icon_text = "CG"
+tree_title = &"sabia_blade_aroeira"
+tree_order = 4
+required_skill_levels = Dictionary[StringName, int]({
+&"blade_aroeira_reply": 3
+})

@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_w0k7g"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_go8j5"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_iy66a"]
+
+[sub_resource type="Resource" id="Resource_8t24w"]
+script = ExtResource("1_w0k7g")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_ekm4p"]
+script = ExtResource("3_iy66a")
+name_key = "MON_LAKE_KELPIE_S1_NAME"
+sprite_base = "res://assets/monsters/lake_kelpie/mon_lake_kelpie_s1"
+baked_life = true
+level = 6
+max_hp = 115
+atk = 13
+def = 4
+mdef = 4
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 48
+stars_min = 2
+stars_max = 7
+drops = Array[ExtResource("1_w0k7g")]([SubResource("Resource_8t24w")])
+
+[sub_resource type="Resource" id="Resource_7gcg4"]
+script = ExtResource("1_w0k7g")
+item_id = &"potion_hp_medium"
+
+[sub_resource type="Resource" id="Resource_kbj8k"]
+script = ExtResource("3_iy66a")
+stage = 2
+name_key = "MON_LAKE_KELPIE_S2_NAME"
+sprite_base = "res://assets/monsters/lake_kelpie/mon_lake_kelpie_s2"
+baked_life = true
+level = 10
+max_hp = 360
+atk = 25
+def = 10
+mdef = 10
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 140
+stars_min = 6
+stars_max = 13
+drops = Array[ExtResource("1_w0k7g")]([SubResource("Resource_7gcg4")])
+
+[resource]
+script = ExtResource("2_go8j5")
+id = &"lake_kelpie"
+region_id = &"celta"
+stages = Array[ExtResource("3_iy66a")]([SubResource("Resource_ekm4p"), SubResource("Resource_kbj8k")])

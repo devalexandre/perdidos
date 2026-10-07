@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CompanionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/companion_def.gd" id="def"]
+
+[resource]
+script = ExtResource("def")
+id = &"sabia_companion_harpy"
+name_key = "COMPANION_HARPY"
+title_id = &"sabia_bow_gaviao"
+bond_quest_id = &"quest_bond_harpy"
+sprite_base = "res://assets/monsters/harpy_eagle/mon_harpy_eagle_s1"
+visual_scale = 0.7
+flies = true
+bond_skills = Array[StringName]([&"bow_companion_hawk_strike", &"bow_companion_sky_eye"])

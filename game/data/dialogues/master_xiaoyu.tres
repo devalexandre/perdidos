@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_y4xko"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_kmq3a"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_shuta"]
+
+[sub_resource type="Resource" id="Resource_1ov64"]
+script = ExtResource("2_kmq3a")
+text_key = "DLG_MASTER_XIAOYU_START_OPT0"
+next_node = &"lore"
+
+[sub_resource type="Resource" id="Resource_m74j1"]
+script = ExtResource("2_kmq3a")
+text_key = "DLG_MASTER_XIAOYU_START_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_cbn8j"]
+script = ExtResource("1_y4xko")
+id = &"start"
+text_key = "DLG_MASTER_XIAOYU_START"
+options = Array[ExtResource("2_kmq3a")]([SubResource("Resource_1ov64"), SubResource("Resource_m74j1")])
+
+[sub_resource type="Resource" id="Resource_lxo8x"]
+script = ExtResource("2_kmq3a")
+text_key = "DLG_MASTER_XIAOYU_LORE_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_vk0nq"]
+script = ExtResource("1_y4xko")
+id = &"lore"
+text_key = "DLG_MASTER_XIAOYU_LORE"
+options = Array[ExtResource("2_kmq3a")]([SubResource("Resource_lxo8x")])
+
+[resource]
+script = ExtResource("3_shuta")
+id = &"master_xiaoyu"
+nodes = Array[ExtResource("1_y4xko")]([SubResource("Resource_cbn8j"), SubResource("Resource_vk0nq")])

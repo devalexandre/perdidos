@@ -1,0 +1,77 @@
+{
+  "_doc": "Roupas de titulo/cosmetico. id = outfit_id (TitleDef.outfit_id / cosmetico de corpo). prompt = descricao da roupa (ingles, vai para a IA). seeds = sementes tentadas por pose-chave (a melhor silhueta vence).",
+  "title_machete": {
+    "title": "sabia_blade_machete",
+    "prompt": "a sword apprentice outfit: a short sleeveless tunic of rough steel-gray canvas with a small hood folded on the shoulders, worn over a light cream linen shirt with short sleeves, a wide dark brown leather belt with an amber-orange brass buckle and a sheathed machete in a leather scabbard on the left hip, a cloth bandage wrapped around one forearm, dark gray trousers and brown leather boots, fingerless brown leather gloves. No backpack."
+  },
+  "title_firefly": {
+    "title": "sabia_arcane_firefly",
+    "prompt": "an arcane apprentice outfit: a short deep indigo cape with the hood lowered on the shoulders, over a knee-length indigo tunic with lime-green trim, three small glowing yellow-green firefly pendants hanging from the cape collar, a thin rope belt with a small leather herb pouch with green leaves, dark gray trousers and soft brown boots, bare hands. No backpack."
+  },
+  "title_aroeira": {
+    "title": "sabia_blade_aroeira",
+    "prompt": "a defender outfit: a thick quilted padded gambeson jacket in bark brown with vertical stitching, rounded wooden shoulder guards strapped on both shoulders, a moss-green cloth sash tied around the waist, dark brown trousers, sturdy leather boots and brown leather gloves. No backpack."
+  },
+  "title_jaguar": {
+    "title": "sabia_blade_jaguar",
+    "prompt": "a fierce hunter outfit: a sleeveless ochre-yellow leather vest with small scattered dark brown jaguar rosette spots, over a dark brown short-sleeved shirt, leather bracers on both forearms, a black cloth sash knotted at the waist with hanging ends, dark trousers and brown boots. No backpack."
+  },
+  "title_crystal": {
+    "title": "sabia_arcane_crystal",
+    "prompt": "a crystal guardian outfit: a knee-length pale ice-blue overcoat with a tall stiff high collar and silver-gray trim, small faceted pale violet crystal plates on both shoulders, a violet belt, dark gray trousers and gray boots, light gray gloves. No backpack."
+  },
+  "title_boitata": {
+    "title": "sabia_arcane_boitata",
+    "prompt": "a fire mage outfit: a long midnight-blue mantle coat reaching below the knees, its lower hem decorated with bright orange flame shapes, an orange waist sash with a round stylized orange eye emblem, dark blue trousers and black boots, bare hands. No backpack."
+  },
+  "title_ember": {
+    "title": "sabia_hybrid_ember",
+    "prompt": "a battle mage outfit: a charcoal-gray canvas coat reaching mid-thigh with glowing ember-orange stitching and trim, a short half cape of dark red cloth over one shoulder, a leather belt with a sheathed machete on the hip, dark trousers and brown boots, dark leather gloves. No backpack."
+  },
+  "title_cerrado": {
+    "title": "sabia_bow_cerrado",
+    "name": "Flecha do Cerrado",
+    "prompt": "an archer outfit: a short sleeveless jerkin of raw undyed light tan leather with visible stitching, worn over a faded olive-green short-sleeved shirt, a sash of woven golden straw wrapped around the waist, a tall cylindrical quiver made of bamboo cane holding a few fletched arrows strapped diagonally on the back with a leather strap across the chest, a leather bracer on each forearm, khaki knee trousers with cloth wraps on the calves and brown boots. No backpack."
+  },
+  "title_brejo": {
+    "title": "sabia_bow_brejo",
+    "name": "Tocaia do Brejo",
+    "prompt": "a swamp ambusher outfit: a ragged cape of layered dark green leaves and flakes of dried gray-brown mud draped over the shoulders and hanging to mid-thigh with a jagged hem, a lowered hood of woven dry straw resting on the upper back and shoulders, a mud-brown tunic with moss-green patches, dark olive trousers wrapped with strips of cloth, mud-stained brown boots, dark green cloth wraps on the hands. No backpack."
+  },
+  "title_gaviao": {
+    "title": "sabia_bow_gaviao",
+    "name": "Gavião-Real",
+    "prompt": "a falconer marksman outfit: a fitted cream-white coat reaching mid-thigh with dark slate-gray trim, big layered pauldrons of gray and white hawk feathers on both shoulders, a sash of small striped gray and white feathers across the chest, a thick long brown leather falconry gauntlet up to the elbow on one arm, a slate-gray belt, gray trousers and tall dark gray boots. No backpack."
+  },
+  "title_root": {
+    "title": "sabia_support_root",
+    "name": "Raiz do Cerrado",
+    "prompt": "a folk herbalist outfit: a long dark brown canvas apron reaching below the knees over a mustard-yellow long-sleeved blouse, the apron has several front pockets stuffed with green herb sprigs, a knitted terracotta-red shawl draped over both shoulders, two long necklaces of big round red and black seeds, a small corked glass bottle of green liquid hanging from the belt at the waist, brown trousers and simple brown shoes. No backpack."
+  },
+  "title_buriti": {
+    "title": "sabia_support_buriti",
+    "name": "Seiva do Buriti",
+    "prompt": "a healer outfit: a knee-length light straw-beige tunic woven from palm fiber with a visible basket-weave texture, a wide bright leaf-green sash at the waist, the hem of the tunic trimmed with a row of small green palm leaf blades, short sleeves over a light cream undershirt, beige trousers and light woven straw sandals with ankle wraps. No backpack."
+  },
+  "title_matinta": {
+    "title": "sabia_support_matinta",
+    "name": "Assobio da Matinta",
+    "prompt": "a dark night trickster outfit: a long ragged charcoal-black mantle reaching the ankles with a fringed tattered hem, a mantle collar of layered brown and cream owl feathers covering the shoulders, a lowered dark hood resting on the upper back, long hanging fringes on the sleeves, a dark plum-purple tunic underneath, black trousers and soft black boots. No backpack."
+  },
+  "title_jabuti": {
+    "title": "sabia_tank_jabuti",
+    "name": "Casco de Jabuti",
+    "prompt": "a tortoise tank outfit: a thick rounded breastplate made of hexagonal shell plates in a tortoise shell pattern, dark brown plates with yellow-ochre borders, a matching rounded back plate like a tortoise carapace, big rounded dome-shaped shell pauldrons on both shoulders, a thick dark green padded undershirt, olive trousers, heavy brown boots and brown leather gloves. No backpack."
+  },
+  "title_anta": {
+    "title": "sabia_tank_anta",
+    "name": "Couro de Anta",
+    "prompt": "a heavy warrior outfit: bulky armor of thick dark gray-brown leather in overlapping horizontal layered bands covering the torso, layered leather shoulder guards, a very wide leather belt with a big square iron buckle, a short skirt of layered leather tassets over the thighs, thick leather greaves on the shins, heavy dark boots and thick leather gloves. No backpack."
+  },
+  "title_mapinguari": {
+    "title": "sabia_tank_mapinguari",
+    "name": "Fúria do Mapinguari",
+    "prompt": "a berserker outfit: an open sleeveless vest of thick shaggy dark reddish-brown fur with messy tufts, bare chest and bare arms with no shirt underneath, three red claw-scratch stripes painted on each arm and on the chest, bone claws strapped to both forearms with leather bands, a fur-trimmed belt, torn dark brown trousers and fur-wrapped dark boots. No backpack.",
+    "skin": "free"
+  }
+}

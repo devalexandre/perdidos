@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/master_guiomar.tres" id="1_wfdko"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_0p7vq"]
+
+[resource]
+script = ExtResource("2_0p7vq")
+id = &"master_guiomar"
+name_key = "NPC_MASTER_GUIOMAR_NAME"
+sprite_base = "res://assets/npcs/npc_master_guiomar"
+map_id = &"training_field"
+spawn_marker = &"master_guiomar"
+move_speed = 1.6
+dialogue = ExtResource("1_wfdko")

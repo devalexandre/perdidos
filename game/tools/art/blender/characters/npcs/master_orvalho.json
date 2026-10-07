@@ -1,0 +1,178 @@
+{
+ "_doc": "Mestre Orvalho (cidade, Arcano). Homem gordinho e alegre, óculos redondos, barba, túnica verde-água cheia de bolsos com frascos, chapéu de palha pontudo, luzinhas flutuando ao redor (GDD §17.7).",
+ "body": "male",
+ "props": {
+  "q": {
+   "height": 0.95,
+   "head": 1.0,
+   "thin": {
+    "spine_01": [
+     1.39,
+     1.47
+    ],
+    "spine_02": [
+     1.29,
+     1.39
+    ],
+    "pelvis": [
+     1.22,
+     1.29
+    ],
+    "spine_03": [
+     1.08,
+     1.12
+    ],
+    "upperarm_l": 1.01,
+    "upperarm_r": 1.01
+   }
+  }
+ },
+ "parts": [
+  {
+   "type": "hair",
+   "style": "neat"
+  },
+  {
+   "type": "beard",
+   "style": "full",
+   "mat": "hair",
+   "grow": 0.012
+  },
+  {
+   "type": "glasses",
+   "mat": "brass"
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Body",
+   "cmap": {
+    "*": "teal_tunic"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Arms",
+   "cmap": {
+    "*": "teal_tunic"
+   }
+  },
+  {
+   "type": "coat",
+   "mat": "teal_tunic",
+   "gap": 0.0,
+   "z_bot": 0.56,
+   "r_top": 0.2,
+   "r_bot": 0.235,
+   "trim": "strap_dark",
+   "grow": 0.04,
+   "sleeves": false
+  },
+  {
+   "type": "belt",
+   "mat": "strap_dark",
+   "buckle": "brass",
+   "grow": 0.05,
+   "pouches": [
+    [
+     0.13,
+     -0.13,
+     0.96
+    ],
+    [
+     -0.15,
+     -0.11,
+     0.96
+    ]
+   ],
+   "pouch_mat": "leather"
+  },
+  {
+   "type": "pockets",
+   "mat": "leather",
+   "at": [
+    [
+     0.07,
+     -0.17,
+     1.22
+    ],
+    [
+     -0.07,
+     -0.17,
+     1.22
+    ],
+    [
+     0.09,
+     -0.2,
+     0.8
+    ]
+   ]
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Legs",
+   "cmap": {
+    "*": "brown_pants"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Feet",
+   "cmap": {
+    "*": "leather"
+   }
+  },
+  {
+   "type": "hat_wide",
+   "mat": "straw",
+   "band": "hat_band",
+   "pointy": true,
+   "r": 0.235,
+   "z": 1.72
+  },
+  {
+   "type": "lights"
+  }
+ ],
+ "colors": {
+  "skin": [
+   "a86a4c",
+   "c88a66",
+   "e4ac84",
+   "f4c8a0"
+  ],
+  "hair": [
+   "2e1a14",
+   "4a2a1c",
+   "683e28",
+   "885838",
+   "a8784e"
+  ],
+  "eyes": [
+   "1e1a24",
+   "3a3444",
+   "5e5670",
+   "8a82a0"
+  ],
+  "mats": {
+   "teal_tunic": [
+    "1a4a4a",
+    "26666a",
+    "35868a",
+    "56a6a4",
+    "102c2e"
+   ],
+   "brown_pants": [
+    "3e2a1c",
+    "56402a",
+    "6e5438",
+    "886c4a",
+    "1c120c"
+   ]
+  }
+ },
+ "anims": [
+  "idle:8",
+  "walk:8"
+ ],
+ "base": "q"
+}

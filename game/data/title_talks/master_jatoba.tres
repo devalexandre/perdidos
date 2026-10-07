@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TitleTalkDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_talk_def.gd" id="1_tt"]
+
+[resource]
+script = ExtResource("1_tt")
+id = &"master_jatoba"
+npc_id = &"master_jatoba"
+title_id = &"sabia_blade_machete"
+region_id = &"brasil"
+style_key = "RULES_TT_BLADE_SABIA_STYLE"

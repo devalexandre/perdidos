@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_walking_boots.png" id="1_e02v1"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_pwvaw"]
+
+[resource]
+script = ExtResource("2_pwvaw")
+id = &"walking_boots"
+name_key = "ITEM_WALKING_BOOTS_NAME"
+desc_key = "ITEM_WALKING_BOOTS_DESC"
+icon = ExtResource("1_e02v1")
+type = 5
+buy_price = 60
+sell_price = 20
+stats = Dictionary[StringName, int]({
+&"def": 2
+})

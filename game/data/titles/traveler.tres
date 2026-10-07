@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_penbn"]
+
+[resource]
+script = ExtResource("1_penbn")
+id = &"traveler"
+name_key = "TITLE_TRAVELER_NAME"
+tier = 0
+color = Color(0.7882353, 0.6901961, 0.5411765, 1)
+desc_key = "TITLE_TRAVELER_DESC"

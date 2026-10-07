@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/dona_ana.tres" id="1_dlg"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_npc"]
+
+[resource]
+script = ExtResource("2_npc")
+id = &"dona_ana_sumidouro"
+name_key = "NPC_DONA_ANA_NAME"
+sprite_base = "res://assets/npcs/npc_dona_ana"
+map_id = &"city_sumidouro"
+spawn_marker = &"dona_ana"
+move_speed = 1.0
+dialogue = ExtResource("1_dlg")
+fallback_sprite_base = "res://assets/npcs/npc_elder_aninha"

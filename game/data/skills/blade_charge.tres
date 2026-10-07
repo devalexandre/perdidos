@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_d0y7s"]
+
+[resource]
+script = ExtResource("1_d0y7s")
+id = &"blade_charge"
+name_key = "SKILL_BLADE_CHARGE_NAME"
+desc_key = "SKILL_BLADE_CHARGE_DESC"
+school = &"blade"
+effect = 5
+mana_cost = 14
+cooldown_sec = 10.0
+range_cells = 8.0
+base_multiplier = 1.2
+multiplier_per_level = 0.08
+extra = Dictionary[StringName, Variant]({
+&"stun_per_level": 0.05,
+&"stun_sec": 0.8
+})
+requires_melee_weapon = true
+vfx = &"slash"
+icon_text = "IN"
+tree_title = &"sabia_blade_machete"
+tree_order = 2
+exclusive_to_title = &"sabia_blade_machete"
+required_skill_levels = Dictionary[StringName, int]({
+&"blade_firm_strike": 3
+})

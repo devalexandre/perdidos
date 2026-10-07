@@ -1,0 +1,88 @@
+keys,pt_BR
+ZONE_ELDER_TRIAL_ARENA_NAME,Clareira das Provações
+SYS_WORLD_PORTAL_NEED_TITLE,A travessia só se abre para quem já conquistou um título com um Mestre.
+SYS_WORLD_TRANSFER_FAILED,Não foi possível chegar a esse lugar agora.
+WORLD_TRAINING_LEFT,Você deixou o Campo de Treino. Os itens do treino se desfizeram (%s).
+WORLD_RESPAWNED,"Você despertou de novo, um pouco zonzo."
+MAP_TRAINING_FIELD,Campo de Treino dos Viajantes
+WORLD_MAP_LEGEND_MASTER,Mestre
+WORLD_MAP_LEGEND_SHOP,Loja
+WORLD_MAP_LEGEND_PORTAL,Portal
+WORLD_MAP_LEGEND_QUEST,Objetivo de missão
+HUD_MOON_PHASE,Lua: %s
+HUD_MOON_NEW,Nova
+HUD_MOON_WAXING,Crescente
+HUD_MOON_FULL,Cheia
+HUD_MOON_WANING,Minguante
+HUD_MOON_TOOLTIP,Fase lunar compartilhada do mundo. A fera só aparece em noite de lua cheia.
+WORLD_MAP_HINT,M: mapa-múndi · Shift+M ou Esc: fechar mapa local
+WORLD_MAP_UNAVAILABLE,Mapa ainda não disponível
+UI_MINIMAP_MODE,Minimapa
+UI_MINIMAP_NORTH_UP,Norte fixo
+UI_MINIMAP_ROTATE,Gira com a câmera
+WA_CAVE_REINO_ENCOBERTO_2,Mata Encantada · Caverna do Reino Encoberto · Profundezas I
+WA_CAVE_REINO_ENCOBERTO_3,Mata Encantada · Caverna do Reino Encoberto · Profundezas II
+WA_CAVE_REINO_ENCOBERTO_4,Mata Encantada · Caverna do Reino Encoberto · Covil da Fera
+WA_FIELDS_ENTRANCE,Campos do Sabiá · Estrada dos Viajantes
+WA_FIELDS_BURITI,Campos do Sabiá · Veredas do Buriti
+WA_FIELDS_CROSSROADS,Campos do Sabiá · Passo dos Ipês
+WA_HIGHLANDS_ASCENT,Chapada do Céu Partido · Subida Vermelha
+WA_HIGHLANDS_RIDGES,Chapada do Céu Partido · Cristas do Vento
+WA_HIGHLANDS_SUMMIT,Chapada do Céu Partido · Alto das Brasas
+WA_FOREST_ENTRANCE,Mata Encantada · Entrada da Mata
+WA_FOREST_GLADE,Mata Encantada · Clareira dos Vaga-lumes
+WA_FOREST_ROOTS,Mata Encantada · Bosque das Raízes
+WA_FOREST_HEART,Mata Encantada · Coração da Mata
+WA_CAVE_REINO_ENCOBERTO,Mata Encantada · Caverna do Reino Encoberto
+SYS_CAVE_BOSS_GATE,A Fenda de Luz só se abre após derrotar o chefe deste covil.
+SYS_CAVE_SURFACE_OPEN,O Lobisomem foi derrotado. A Fenda de Luz para a superfície está aberta!
+WA_RUINS_RATANABA,Ruínas de Ratanabá
+WA_SABARABUCU,"Sabarabuçu, a Serra Resplandecente"
+WA_JUNGLE_RATANABA_TRAIL,Trilha das Pirâmides
+WA_JUNGLE_RATANABA_WATERFALL,Igarapé dos Glifos
+WA_JUNGLE_RATANABA_GATE,Escadaria Submersa
+WA_RUINS_RATANABA_1,Ruínas de Ratanabá F1
+WA_RUINS_RATANABA_2,Ruínas de Ratanabá F2
+WA_RUINS_RATANABA_3,Ruínas de Ratanabá F3
+WA_RUINS_RATANABA_4,Ruínas de Ratanabá F4
+WA_SERRA_DOURADA,"Serra Dourada, a Serra Resplandecente"
+WA_JUNGLE_Z_TRAIL,Picada dos Bandeirantes
+WA_JUNGLE_Z_RIVER,Rio das Sombras
+WA_JUNGLE_Z_GATE,Portal dos Murais
+WA_CITY_OF_Z_1,Cidade Perdida de Z F1
+WA_CITY_OF_Z_2,Cidade Perdida de Z F2
+WA_CITY_OF_Z_3,Cidade Perdida de Z F3
+WA_CITY_OF_Z_4,Cidade Perdida de Z F4
+ZONE_SUMIDOURO_NAME,Arraial do Sumidouro
+ZONE_FOG_MOOR_TRAIL_NAME,Charneca da Névoa - Trilha dos Lamentos
+ZONE_FOG_MOOR_SWAMP_NAME,Pântano das Brumas
+ZONE_FOG_MOOR_GATE_NAME,Portal do Vilarejo Esquecido
+ZONE_HOER_VERDE_1_NAME,Vilarejo de Hoer Verde - Casas em Ruínas (F1)
+ZONE_HOER_VERDE_2_NAME,Vilarejo de Hoer Verde - Vielas dos Sussurros (F2)
+ZONE_HOER_VERDE_3_NAME,Vilarejo de Hoer Verde - Claustro dos Desesperados (F3)
+ZONE_HOER_VERDE_4_NAME,Vilarejo de Hoer Verde - Praça do Silêncio (F4)
+ZONE_HOLLOW_MOUNTAIN_TRAIL_NAME,Serra do Sumidouro - Trilha dos Cristais
+ZONE_HOLLOW_MOUNTAIN_GORGE_NAME,Garganta do Abismo
+ZONE_HOLLOW_MOUNTAIN_GATE_NAME,Boca do Sumidouro
+ZONE_HOLLOW_EARTH_1_NAME,Túneis da Terra Oca - Galerias de Cristal (F1)
+ZONE_HOLLOW_EARTH_2_NAME,Túneis da Terra Oca - Fenda dos Ecos (F2)
+ZONE_HOLLOW_EARTH_3_NAME,Túneis da Terra Oca - Labirinto de Obsidiana (F3)
+ZONE_HOLLOW_EARTH_4_NAME,Túneis da Terra Oca - Ninho das Tecelãs (F4)
+ZONE_HOLLOW_EARTH_5_NAME,Túneis da Terra Oca - Câmara do Titã (F5)
+ZONE_CITY_OF_Z_F1_NAME,Cidade Perdida de Z · Mirante Ancestral [F1]
+ZONE_CITY_OF_Z_F2_NAME,Cidade Perdida de Z · Alameda das Onças [F2]
+ZONE_CITY_OF_Z_F3_NAME,Cidade Perdida de Z · Terraço dos Murais [F3]
+ZONE_CITY_OF_Z_F4_NAME,Cidade Perdida de Z · Santuário de Kuarahy [F4]
+ZONE_JUNGLE_RATANABA_GATE_NAME,Selva de Ratanabá · Escadaria Submersa
+ZONE_JUNGLE_RATANABA_TRAIL_NAME,Selva de Ratanabá · Trilha das Pirâmides
+ZONE_JUNGLE_RATANABA_WATERFALL_NAME,Selva de Ratanabá · Igarapé dos Glifos
+ZONE_JUNGLE_Z_GATE_NAME,Dossel de Z · Portal dos Murais
+ZONE_JUNGLE_Z_RIVER_NAME,Dossel de Z · Rio das Sombras
+ZONE_JUNGLE_Z_TRAIL_NAME,Dossel de Z · Picada dos Bandeirantes
+ZONE_RUINS_RATANABA_F1_NAME,Ruínas de Ratanabá · Vestíbulo dos Glifos [F1]
+ZONE_RUINS_RATANABA_F2_NAME,Ruínas de Ratanabá · Salão dos Sentinelas [F2]
+ZONE_RUINS_RATANABA_F3_NAME,Ruínas de Ratanabá · Câmara das Serpentes [F3]
+ZONE_RUINS_RATANABA_F4_NAME,Ruínas de Ratanabá · Sanctum do Arquiteto [F4]
+ZONE_SERRA_DOURADA_NAME,"Serra Dourada, a Serra Resplandecente"
+SYS_BOSS_ESCAPE_GATE,A saída rápida para a superfície só se abre após derrotar o chefe deste covil.
+SYS_BOSS_ESCAPE_OPEN,O chefe do covil foi derrotado. A saída rápida para a superfície está aberta!

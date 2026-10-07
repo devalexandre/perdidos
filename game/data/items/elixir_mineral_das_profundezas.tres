@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_potion_hp_medium.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"elixir_mineral_das_profundezas"
+name_key = "ITEM_ELIXIR_MINERAL_NAME"
+desc_key = "ITEM_ELIXIR_MINERAL_DESC"
+icon = ExtResource("icon")
+type = 0
+rarity = 1
+stackable = true
+max_stack = 99
+buy_price = 0
+sell_price = 100
+tradeable = true
+crendice_id = &""
+crendice_sockets = 0
+exclusive_drop_zone = &"hollow_earth"
+use_effect = Dictionary[StringName, int]({
+  &"heal_hp": 650,
+  &"heal_mp": 260
+})
+stats = Dictionary[StringName, int]({})

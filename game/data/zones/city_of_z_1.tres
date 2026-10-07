@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+
+[resource]
+script = ExtResource("zone")
+map_id = &"city_of_z_1"
+kind = 2
+name_key = "ZONE_CITY_OF_Z_F1_NAME"
+region_id = &"sabia"
+recommended_level_min = 35
+recommended_level_max = 38
+combat_allowed = true
+grave_on_death = true
+monster_stage_cap = 2
+bosses_allowed = false
+connected_maps = Array[StringName]([&"jungle_z_gate", &"city_of_z_2"])

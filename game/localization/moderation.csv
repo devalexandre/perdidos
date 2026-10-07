@@ -1,0 +1,10 @@
+keys,pt_BR
+SYS_MOD_FILTERED,Palavras ofensivas foram censuradas (%d de %d antes de uma advertência).
+SYS_MOD_WARNING,Advertência da moderação: insistir em palavrões ou ofensas bloqueia o seu chat.
+SYS_MOD_MUTED_NOW,Chat bloqueado por %s por insistir em palavrões ou ofensas.
+SYS_MOD_MUTED,Seu chat está bloqueado. Tempo restante: %s
+SYS_MOD_PENDING_REVIEW,Seu chat está bloqueado até a revisão da moderação.
+SYS_MOD_CHARACTER_LOST,Este personagem foi bloqueado pela moderação após revisão humana. Para contestar, fale com o suporte.
+SYS_MOD_MUTED_LOCAL,Seu chat está bloqueado (o tempo restante aparece acima do chat).
+UI_MOD_BANNER,Chat bloqueado — %s
+UI_MOD_BANNER_REVIEW,Chat bloqueado — aguardando revisão

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/minimap/minimap_city_awakening.png" id="1_0810i"]
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="2_ub3an"]
+
+[resource]
+script = ExtResource("2_ub3an")
+map_id = &"city_awakening"
+name_key = "ZONE_CITY_AWAKENING_NAME"
+combat_allowed = false
+grave_on_death = false
+minimap_texture = ExtResource("1_0810i")
+minimap_world_rect = Rect2(-80, -80, 160, 160)
+
+region_id = &"sabia"
+connected_maps = Array[StringName]([&"fields_sabia"])

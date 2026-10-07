@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_simple_tome.png" id="1_ka887"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_st38j"]
+
+[resource]
+script = ExtResource("2_st38j")
+id = &"simple_tome"
+name_key = "ITEM_SIMPLE_TOME_NAME"
+desc_key = "ITEM_SIMPLE_TOME_DESC"
+icon = ExtResource("1_ka887")
+type = 2
+scaling_attribute = &"int"
+buy_price = 70
+sell_price = 22
+stats = Dictionary[StringName, int]({
+&"cast_reduction": 10,
+&"matk": 3,
+&"mdef": 2
+})

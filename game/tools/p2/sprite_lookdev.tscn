@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://tools/p2/sprite_lookdev.gd" id="1"]
+
+[node name="SpriteLookdev" type="Node"]
+script = ExtResource("1")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/minimap/minimap_training_field.png" id="1_vbtxs"]
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="2_urc1r"]
+
+[resource]
+script = ExtResource("2_urc1r")
+map_id = &"training_field"
+kind = 1
+name_key = "ZONE_TRAINING_FIELD_NAME"
+xp_level_cap = 10
+items_bound_to_zone = true
+grave_on_death = false
+respawn_marker = &"CampRespawn"
+minimap_texture = ExtResource("1_vbtxs")
+minimap_world_rect = Rect2(-100, -100, 200, 200)
+mount_allowed = false
+pets_allowed = false

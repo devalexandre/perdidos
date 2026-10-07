@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ribbon_bracelet.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"manoplas_do_construtor"
+name_key = "ITEM_MANOPLAS_CONSTRUTOR_NAME"
+desc_key = "ITEM_MANOPLAS_CONSTRUTOR_DESC"
+icon = ExtResource("icon")
+type = 8
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 220
+tradeable = true
+exclusive_drop_zone = &"ruins_ratanaba"
+stats = Dictionary[StringName, int]({
+&"def": 10,
+&"atk": 8,
+&"str": 3
+})

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_machete.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"obsidian_machete"
+name_key = "ITEM_OBSIDIAN_MACHETE_NAME"
+desc_key = "ITEM_OBSIDIAN_MACHETE_DESC"
+icon = ExtResource("icon")
+type = 1
+weapon_kind = 1
+scaling_attribute = &"str"
+rarity = 2
+sell_price = 220
+tradeable = true
+buy_price = 0
+exclusive_drop_zone = &"ruins_ratanaba"
+stats = Dictionary[StringName, int]({
+&"atk": 38,
+&"str": 4,
+&"def": 2
+})

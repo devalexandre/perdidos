@@ -1,0 +1,234 @@
+[gd_resource type="Resource" script_class="WorldAtlasDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_atlas_def.gd" id="atlas"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+[ext_resource type="Texture2D" path="res://assets/worldmap/world_map.png" id="map"]
+[ext_resource type="Resource" path="res://data/world/regions/sabia.tres" id="r_sabia"]
+[ext_resource type="Resource" path="res://data/world/regions/mouras.tres" id="r_mouras"]
+[ext_resource type="Resource" path="res://data/world/regions/colunas.tres" id="r_colunas"]
+[ext_resource type="Resource" path="res://data/world/regions/areias.tres" id="r_areias"]
+[ext_resource type="Resource" path="res://data/world/regions/jade.tres" id="r_jade"]
+[ext_resource type="Resource" path="res://data/world/regions/sol.tres" id="r_sol"]
+[ext_resource type="Resource" path="res://data/world/regions/fiordes.tres" id="r_fiordes"]
+[ext_resource type="Resource" path="res://data/world/regions/estepe.tres" id="r_estepe"]
+[ext_resource type="Resource" path="res://data/world/regions/brumas.tres" id="r_brumas"]
+[ext_resource type="Resource" path="res://data/world/regions/obsidiana.tres" id="r_obsidiana"]
+
+[sub_resource type="Resource" id="f0"]
+script = ExtResource("place")
+id = &"mar_meio"
+region_id = &""
+kind = 10
+status = 2
+name_key = "WA_P_MAR_MEIO"
+hook_key = "WA_P_MAR_MEIO_HOOK"
+pos = Vector2(0.6, 0.765)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="f1"]
+script = ExtResource("place")
+id = &"mar_brumas"
+region_id = &""
+kind = 10
+status = 2
+name_key = "WA_P_MAR_BRUMAS"
+hook_key = "WA_P_MAR_BRUMAS_HOOK"
+pos = Vector2(0.06, 0.33)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="f2"]
+script = ExtResource("place")
+id = &"mar_petalas"
+region_id = &""
+kind = 10
+status = 2
+name_key = "WA_P_MAR_PETALAS"
+hook_key = "WA_P_MAR_PETALAS_HOOK"
+pos = Vector2(0.2, 0.835)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="f3"]
+script = ExtResource("place")
+id = &"mar_sol"
+region_id = &""
+kind = 10
+status = 2
+name_key = "WA_P_MAR_SOL"
+hook_key = "WA_P_MAR_SOL_HOOK"
+pos = Vector2(0.815, 0.675)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="f4"]
+script = ExtResource("place")
+id = &"mil_recifes"
+region_id = &""
+kind = 11
+status = 2
+name_key = "WA_P_MIL_RECIFES"
+hook_key = "WA_P_MIL_RECIFES_HOOK"
+pos = Vector2(0.54, 0.77)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="f5"]
+script = ExtResource("place")
+id = &"ilha_farol_torto"
+region_id = &""
+kind = 11
+status = 2
+name_key = "WA_P_ILHA_FAROL_TORTO"
+hook_key = "WA_P_ILHA_FAROL_TORTO_HOOK"
+pos = Vector2(0.245, 0.922)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="f6"]
+script = ExtResource("place")
+id = &"baleia_ilha"
+region_id = &""
+kind = 12
+status = 2
+name_key = "WA_P_BALEIA_ILHA"
+hook_key = "WA_P_BALEIA_ILHA_HOOK"
+pos = Vector2(0.142, 0.79)
+level_min = 0
+level_max = 0
+always_label = false
+
+[sub_resource type="Resource" id="f7"]
+script = ExtResource("place")
+id = &"serpente_pato"
+region_id = &""
+kind = 12
+status = 2
+name_key = "WA_P_SERPENTE_PATO"
+hook_key = "WA_P_SERPENTE_PATO_HOOK"
+pos = Vector2(0.085, 0.565)
+level_min = 0
+level_max = 0
+always_label = false
+
+[sub_resource type="Resource" id="f8"]
+script = ExtResource("place")
+id = &"sapo_marinho"
+region_id = &""
+kind = 12
+status = 2
+name_key = "WA_P_SAPO_MARINHO"
+hook_key = "WA_P_SAPO_MARINHO_HOOK"
+pos = Vector2(0.16, 0.88)
+level_min = 0
+level_max = 0
+always_label = false
+
+[sub_resource type="Resource" id="f9"]
+script = ExtResource("place")
+id = &"enguia_tinta"
+region_id = &""
+kind = 12
+status = 2
+name_key = "WA_P_ENGUIA_TINTA"
+hook_key = "WA_P_ENGUIA_TINTA_HOOK"
+pos = Vector2(0.64, 0.805)
+level_min = 0
+level_max = 0
+always_label = false
+
+[sub_resource type="Resource" id="f10"]
+script = ExtResource("place")
+id = &"serpente_brumas"
+region_id = &""
+kind = 12
+status = 2
+name_key = "WA_P_SERPENTE_BRUMAS"
+hook_key = "WA_P_SERPENTE_BRUMAS_HOOK"
+pos = Vector2(0.112, 0.37)
+level_min = 0
+level_max = 0
+always_label = false
+
+[sub_resource type="Resource" id="f11"]
+script = ExtResource("place")
+id = &"fera_charneca"
+region_id = &""
+kind = 12
+status = 2
+name_key = "WA_P_FERA_CHARNECA"
+hook_key = "WA_P_FERA_CHARNECA_HOOK"
+pos = Vector2(0.415, 0.47)
+level_min = 0
+level_max = 0
+always_label = false
+
+[sub_resource type="Resource" id="f12"]
+script = ExtResource("place")
+id = &"galeao_errante"
+region_id = &""
+kind = 12
+status = 2
+name_key = "WA_P_GALEAO_ERRANTE"
+hook_key = "WA_P_GALEAO_ERRANTE_HOOK"
+pos = Vector2(0.463, 0.855)
+level_min = 0
+level_max = 0
+always_label = false
+
+[sub_resource type="Resource" id="f13"]
+script = ExtResource("place")
+id = &"revoada_corvos"
+region_id = &""
+kind = 12
+status = 2
+name_key = "WA_P_REVOADA_CORVOS"
+hook_key = "WA_P_REVOADA_CORVOS_HOOK"
+pos = Vector2(0.925, 0.13)
+level_min = 0
+level_max = 0
+always_label = false
+
+[sub_resource type="Resource" id="f14"]
+script = ExtResource("place")
+id = &"norte_nublado"
+region_id = &""
+kind = 13
+status = 2
+name_key = "WA_P_NORTE_NUBLADO"
+hook_key = "WA_P_NORTE_NUBLADO_HOOK"
+pos = Vector2(0.5, 0.075)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="f15"]
+script = ExtResource("place")
+id = &"leste_alem"
+region_id = &""
+kind = 13
+status = 2
+name_key = "WA_P_LESTE_ALEM"
+hook_key = "WA_P_LESTE_ALEM_HOOK"
+pos = Vector2(0.935, 0.595)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="f16"]
+script = ExtResource("place")
+id = &"sul_sem_fim"
+region_id = &""
+kind = 13
+status = 2
+name_key = "WA_P_SUL_SEM_FIM"
+hook_key = "WA_P_SUL_SEM_FIM_HOOK"
+pos = Vector2(0.6, 0.935)
+level_min = 0
+level_max = 0
+
+[resource]
+script = ExtResource("atlas")
+map_texture = ExtResource("map")
+regions = Array[ExtResource("region")]([ExtResource("r_sabia"), ExtResource("r_mouras"), ExtResource("r_colunas"), ExtResource("r_areias"), ExtResource("r_jade"), ExtResource("r_sol"), ExtResource("r_fiordes"), ExtResource("r_estepe"), ExtResource("r_brumas"), ExtResource("r_obsidiana")])
+features = Array[ExtResource("place")]([SubResource("f0"), SubResource("f1"), SubResource("f2"), SubResource("f3"), SubResource("f4"), SubResource("f5"), SubResource("f6"), SubResource("f7"), SubResource("f8"), SubResource("f9"), SubResource("f10"), SubResource("f11"), SubResource("f12"), SubResource("f13"), SubResource("f14"), SubResource("f15"), SubResource("f16")])

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"bow_still_eye"
+name_key = "SKILL_BOW_STILL_EYE_NAME"
+desc_key = "SKILL_BOW_STILL_EYE_DESC"
+school = &"bow"
+region_id = &"brasil"
+target_type = 5
+effect = 9
+mana_cost = 12
+cooldown_sec = 25.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 10.0
+extra = Dictionary[StringName, Variant]({
+&"crit": 0.2,
+&"crit_per_level": 0.01,
+&"duration_per_level": 0.5,
+&"range_cells": 2
+})
+requires_bow = true
+vfx = &"buff"
+exclusive_to_title = &"sabia_bow_cerrado"
+icon_text = "OP"
+tree_title = &"sabia_bow_gaviao"
+tree_order = 1

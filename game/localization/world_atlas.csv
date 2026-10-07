@@ -1,0 +1,278 @@
+keys,pt_BR
+WA_TITLE,Mapa-múndi
+WA_WORLD_NAME,O mundo dos Viajantes
+WA_HINT,Arrastar ou setas: mover · Roda ou +/-: zoom · 0: centralizar
+WA_LEGEND,Legenda
+WA_EXPLORE,Terras e lendas
+WA_INDEX_HINT,"Escolha uma região para explorar.
+Arraste para mover • Roda para ampliar
+M ou Esc para voltar"
+WA_ZOOM_IN,Ampliar (+)
+WA_ZOOM_OUT,Afastar (−)
+WA_OVERVIEW,Ver o mundo inteiro (0)
+WA_CLOSE,Fechar
+WA_LEG_CAPITAL,Capital
+WA_LEG_TOWN,Vila
+WA_LEG_FIELD,Campo
+WA_LEG_DUNGEON,Masmorra
+WA_LEG_MYSTERY,Mistério
+WA_LEG_BOSS,Chefe
+WA_LEG_PORT,Porto
+WA_LEG_LANDMARK,Marco
+WA_LEG_UNREACHED,Não alcançada
+WA_YOU_ARE_HERE,Você está aqui
+WA_STATUS_OPEN,Aberto
+WA_STATUS_SOON,Em breve
+WA_STATUS_UNREACHED,Terra ainda não alcançada
+WA_LEVELS,Nível recomendado: %d a %d
+WA_LEVEL_ONE,Nível recomendado: %d
+WA_LEVELS_ANY,Qualquer nível
+WA_REGION_OF,Região: %s
+WA_KIND_CAPITAL,Capital
+WA_KIND_TOWN,Vila
+WA_KIND_FIELD,Campo de caça
+WA_KIND_DUNGEON,Masmorra
+WA_KIND_MYSTERY,Masmorra de mistério
+WA_KIND_BOSS,Chefe
+WA_KIND_LANDMARK,Marco
+WA_KIND_PORT,Porto
+WA_KIND_PVP,Arena (combate entre jogadores)
+WA_KIND_TRAINING,Área inicial
+WA_KIND_SEA,Mar
+WA_KIND_ISLAND,Ilha
+WA_KIND_DOODLE,Desenho de monstro (lenda de marinheiro)
+WA_KIND_FRONTIER,Terra além do mapa
+WA_R_SABIA,Terra do Sabiá
+WA_R_SABIA_HOOK,"Rios largos, cerrado de ipês e chapadas acima das nuvens: onde os Viajantes acordam."
+WA_P_PORTO_DESPERTAR,Porto do Despertar
+WA_P_PORTO_DESPERTAR_HOOK,"Cidade do rio onde os Viajantes acordam, sob o ipê amarelo gigante e o cristal azul."
+WA_P_CAMPO_TREINO,Campo de Treino dos Viajantes
+WA_P_CAMPO_TREINO_HOOK,Planalto sobre o Mar do Meio onde Mestres de todas as nações recebem os recém-chegados.
+WA_P_CAMPOS_SABIA,Campos do Sabiá
+WA_P_CAMPOS_SABIA_HOOK,"Cerrado de ipês em flor, buritis e cupinzeiros: os primeiros passos longe da cidade."
+WA_P_MATA_ENCANTADA,Mata Encantada
+WA_P_MATA_ENCANTADA_HOOK,"Mata fechada de cipós e igarapés, com um velho forte engolido pelo musgo."
+WA_P_CHAPADA_CEU_PARTIDO,Chapada do Céu Partido
+WA_P_CHAPADA_CEU_PARTIDO_HOOK,Chapadas vermelhas sobre um mar de nuvens; cachoeiras caem no vazio.
+WA_P_NINHO_BOITATA,Ninho do Boitatá
+WA_P_NINHO_BOITATA_HOOK,"A serpente de fogo, enfurecida pela fumaça das queimadas, guarda o alto da chapada."
+WA_P_ARENA_QUEIMADA,Arena da Queimada
+WA_P_ARENA_QUEIMADA_HOOK,Clareira de cerrado queimado onde os Viajantes se enfrentam.
+WA_P_VILA_BURITI,Vila do Buriti
+WA_P_VILA_BURITI_HOOK,"Casas de palafita entre buritis, na foz do grande rio."
+WA_P_MIRANTE_IPE,Mirante do Ipê Solitário
+WA_P_MIRANTE_IPE_HOOK,Um ipê roxo no topo das chapadas: dizem que dele se vê o mundo inteiro.
+WA_P_CAVERNA_REINO_ENCOBERTO,Caverna do Reino Encoberto
+WA_P_CAVERNA_REINO_ENCOBERTO_HOOK,"Sob as raízes da Mata, pegadas fundas levam a uma câmara de pedra de onde vem um uivo."
+WA_P_SERRA_DOURADA,Serra Dourada
+WA_P_SERRA_DOURADA_HOOK,"A Serra Resplandecente: casario de pedra no pico mais alto, acima do mar de nuvens da Chapada."
+WA_P_SELVA_RATANABA,Selva de Ratanabá
+WA_P_SELVA_RATANABA_HOOK,Trilhas de pirâmides engolidas pela selva e igarapés cheios de glifos que brilham.
+WA_P_RUINAS_RATANABA,Ruínas de Ratanabá
+WA_P_RUINAS_RATANABA_HOOK,"Uma escadaria submersa desce à cidade de pedra polida, onde sentinelas de obsidiana ainda montam guarda."
+WA_P_DOSSEL_Z,Dossel de Z
+WA_P_DOSSEL_Z_HOOK,Mata tão fechada que a luz quase não chega ao chão; olhos acompanham cada passo na picada.
+WA_P_CIDADE_PERDIDA_Z,Cidade Perdida de Z
+WA_P_CIDADE_PERDIDA_Z_HOOK,"Terraços de murais cobertos de musgo, guardados por onças de sombra, até o santuário de Kuarahy."
+WA_P_ARRAIAL_SUMIDOURO,Arraial do Sumidouro
+WA_P_ARRAIAL_SUMIDOURO_HOOK,"Último arraial antes da névoa, no alto da serra; dali partem as trilhas para a Charneca e para a Boca do Sumidouro."
+WA_P_VILAREJO_HOER_VERDE,Vilarejo de Hoer Verde
+WA_P_VILAREJO_HOER_VERDE_HOOK,"Uma vila abandonada na névoa, de sinos que dobram sozinhos. Na entrada: “Não há salvação”."
+WA_P_CHARNECA_NEVOA,Charneca da Névoa
+WA_P_CHARNECA_NEVOA_HOOK,Brejos e urzes cobertos de névoa leitosa; a Trilha dos Lamentos leva ao vilarejo esquecido.
+WA_P_SERRA_SUMIDOURO,Serra do Sumidouro
+WA_P_SERRA_SUMIDOURO_HOOK,"Trilhas de cristal à beira da Garganta do Abismo, até a boca que engole a montanha."
+WA_P_TERRA_OCA,Túneis da Terra Oca
+WA_P_TERRA_OCA_HOOK,"Galerias titânicas de cristal sob a serra, onde tecelãs de sombra fiam no escuro e um titã dorme."
+WA_P_BREJO_CORPO_SECO,Brejo do Corpo-Seco
+WA_P_BREJO_CORPO_SECO_HOOK,Charco de árvores mortas onde brasas frias vagam à noite.
+WA_P_REMANSO_IARA,Remanso da Iara
+WA_P_REMANSO_IARA_HOOK,Um palácio afogado no fundo do rio; o canto que sobe dele confunde os barqueiros.
+WA_P_TOCA_MAPINGUARI,Toca do Mapinguari
+WA_P_TOCA_MAPINGUARI_HOOK,Pegadas enormes levam a uma gruta no coração da mata. O cheiro chega antes do dono.
+WA_P_VAGAO_ADORMECIDO,Vagão Adormecido
+WA_P_VAGAO_ADORMECIDO_HOOK,"Um vagão de trem do Outro Lado, coberto de raízes, com o relógio parado nas 18h40."
+WA_R_MOURAS,Reino das Mouras
+WA_R_MOURAS_HOOK,"Muralhas caiadas, azulejos e fontes onde mouras encantadas fiam ouro ao luar."
+WA_P_FIANDOURO,Fiandouro
+WA_P_FIANDOURO_HOOK,Cidade de muralhas brancas e azulejos azuis; o fio de ouro das mouras é o seu brasão.
+WA_P_VILA_ANDORINHAS,Vila das Andorinhas
+WA_P_VILA_ANDORINHAS_HOOK,Aldeia de pescadores com barcos pintados de olhos na proa.
+WA_P_CAIS_NAUS,Cais das Naus
+WA_P_CAIS_NAUS_HOOK,Estaleiros de onde saem as naus que cruzam o Mar do Meio.
+WA_P_OLIVAL_VENTOS,Olival dos Ventos
+WA_P_OLIVAL_VENTOS_HOOK,Olivais retorcidos e moinhos de vento; bichos pequenos e travessos.
+WA_P_SERRA_CARDOS,Serra dos Cardos
+WA_P_SERRA_CARDOS_HOOK,"Encostas secas de cardos e pedras soltas, com lobos nas cristas."
+WA_P_COVA_MOURA,Cova da Moura Encantada
+WA_P_COVA_MOURA_HOOK,Uma fonte guardada por uma moura que fia ouro; quem cobiça o tesouro fica preso ao fio.
+WA_P_TOCA_COCA,Toca da Coca
+WA_P_TOCA_COCA_HOOK,"O ninho da dragoa das lendas do reino, cheio de cascas de ovo e escamas verdes."
+WA_P_CABO_GIGANTE,Cabo do Gigante
+WA_P_CABO_GIGANTE_HOOK,"Adamastor, o gigante de pedra do cabo, ergue tempestades contra os navios."
+WA_R_COLUNAS,Costa das Colunas
+WA_R_COLUNAS_HOOK,"Colunas brancas, teatros voltados para o mar e ilhas cheias de monstros de lenda."
+WA_P_HEPTASTILA,Heptástila
+WA_P_HEPTASTILA_HOOK,"A cidade das sete colunas brancas, com teatros de pedra voltados para o Mar do Meio."
+WA_P_ILHA_FIGOS,Ilha dos Figos
+WA_P_ILHA_FIGOS_HOOK,Casinhas brancas e figueiras: parada obrigatória dos barcos do Mar do Meio.
+WA_P_OLIVAIS_PROMONTORIO,Olivais do Promontório
+WA_P_OLIVAIS_PROMONTORIO_HOOK,Terraços de oliveiras onde pastam cabras de chifres de bronze.
+WA_P_RECIFES_SEREIAS,Recifes das Sereias
+WA_P_RECIFES_SEREIAS_HOOK,Ilhotas de pedra onde cantos trazidos pelo vento desviam os barcos.
+WA_P_LABIRINTO_MINOTAURO,Labirinto do Minotauro
+WA_P_LABIRINTO_MINOTAURO_HOOK,Corredores que mudam de lugar; só sai quem leva um fio.
+WA_P_GRUTA_ESTATUAS,Gruta das Estátuas
+WA_P_GRUTA_ESTATUAS_HOOK,Estátuas de rostos assustados demais para serem obra de escultor. Não olhe nos olhos dela.
+WA_P_PANTANO_HIDRA,Pântano da Hidra
+WA_P_PANTANO_HIDRA_HOOK,"Numa ilha de juncos, a serpente de muitas cabeças renasce a cada golpe descuidado."
+WA_R_AREIAS,Areias do Nilo
+WA_R_AREIAS_HOOK,"Dunas douradas, um rio verde e as pirâmides que o povo do rio ergueu pedra por pedra."
+WA_P_SESHARIS,Sesháris
+WA_P_SESHARIS_HOOK,"A cidade dos escribas, à beira de um rio verde no meio das dunas."
+WA_P_OASIS_TAMAREIRAS,Oásis das Tamareiras
+WA_P_OASIS_TAMAREIRAS_HOOK,Poços frescos e caravanas descansando à sombra das tamareiras.
+WA_P_VALE_PIRAMIDES,Vale das Pirâmides
+WA_P_VALE_PIRAMIDES_HOOK,As pirâmides erguidas pelos construtores de Sesháris; suas paredes contam a história do povo do rio.
+WA_P_DELTA_JUNCOS,Delta dos Juncos
+WA_P_DELTA_JUNCOS_HOOK,"Canais de papiro, íbis e hipopótamos mal-humorados."
+WA_P_DUNAS_ESCORPIAO,Dunas do Escorpião
+WA_P_DUNAS_ESCORPIAO_HOOK,Dunas altas onde escorpiões do tamanho de carroças caçam ao entardecer.
+WA_P_GALERIAS_ESFINGE,Galerias da Esfinge
+WA_P_GALERIAS_ESFINGE_HOOK,"Quem entra precisa responder aos enigmas da esfinge, ou se perde para sempre nas galerias."
+WA_P_FENDA_APEP,Fenda de Apep
+WA_P_FENDA_APEP_HOOK,"A serpente das trevas que, nas histórias, tenta engolir o sol ao fim de cada dia."
+WA_P_CAPSULA_ESTRELA,Cápsula da Estrela Caída
+WA_P_CAPSULA_ESTRELA_HOOK,"Uma cápsula de metal queimado no alto de uma duna, ainda piscando luzes que ninguém entende."
+WA_R_JADE,Império de Jade
+WA_R_JADE_HOOK,"Terraços de arroz, bambuzais que cantam e montanhas verdes onde a fera do Ano-Novo dorme."
+WA_P_MIL_DEGRAUS,Mil Degraus
+WA_P_MIL_DEGRAUS_HOOK,"Capital em terraços, subindo a montanha degrau por degrau, cheia de lanternas e casas de chá."
+WA_P_PORTO_JUNCOS,Porto dos Juncos
+WA_P_PORTO_JUNCOS_HOOK,"Juncos de velas vermelhas trazem chá, seda e fogos de artifício."
+WA_P_PONTE_NOVE_CURVAS,Ponte das Nove Curvas
+WA_P_PONTE_NOVE_CURVAS_HOOK,Uma ponte em zigue-zague sobre o desfiladeiro. Dizem que monstros só andam em linha reta.
+WA_P_TERRACOS_ARROZAL,Terraços do Arrozal
+WA_P_TERRACOS_ARROZAL_HOOK,Terraços alagados que refletem o céu; sapos gordos e raposas espirituais.
+WA_P_BAMBUZAL_SUSSURRANTE,Bambuzal Sussurrante
+WA_P_BAMBUZAL_SUSSURRANTE_HOOK,Um bambuzal tão alto que o vento toca música nele.
+WA_P_VALE_SALTADORES,Vale dos Saltadores
+WA_P_VALE_SALTADORES_HOOK,Mortos-vivos de túnica que andam aos saltos; só sinos e lanternas os fazem parar.
+WA_P_COVIL_NIAN,Covil do Nian
+WA_P_COVIL_NIAN_HOOK,A fera do Ano-Novo desce das montanhas; só o vermelho e o barulho a espantam.
+WA_P_JARDIM_AUTOMATO,Jardim do Autômato Paciente
+WA_P_JARDIM_AUTOMATO_HOOK,"Um jardim perfeito no alto da montanha, cuidado há trezentos anos por mãos de metal."
+WA_R_SOL,Ilhas do Sol Nascente
+WA_R_SOL_HOOK,"Ilhas vulcânicas de cerejeiras, pontes vermelhas e picos onde os tengu desafiam os ousados."
+WA_P_AKARIMACHI,Akarimachi
+WA_P_AKARIMACHI_HOOK,"A Vila das Lanternas: casas de madeira e papel, pontes vermelhas e cerejeiras."
+WA_P_VILA_KAPPA,Vila do Kappa
+WA_P_VILA_KAPPA_HOOK,Aldeia de pescadores onde os kappa trocam remédios para ossos por pepinos.
+WA_P_PRAIA_RAPOSAS,Praia das Raposas
+WA_P_PRAIA_RAPOSAS_HOOK,Areia negra e raposas que trocam de forma ao luar.
+WA_P_PASSO_ONI,Passo dos Oni
+WA_P_PASSO_ONI_HOOK,Trilhas de lava fria onde os oni de chifre torto cobram pedágio.
+WA_P_MONTE_TENGU,Monte do Tengu
+WA_P_MONTE_TENGU_HOOK,Pilares de pedra onde os tengu de nariz comprido desafiam quem ousa subir.
+WA_P_ILHA_OROCHI,Ilha do Orochi
+WA_P_ILHA_OROCHI_HOOK,Uma serpente de oito cabeças e oito caudas dorme enrolada no vulcão.
+WA_R_FIORDES,Fiordes de Gelo
+WA_R_FIORDES_HOOK,"Geleiras, auroras e salões de madeira onde as sagas são cantadas junto ao fogo."
+WA_P_LUMEFIORDE,Lumefiorde
+WA_P_LUMEFIORDE_HOOK,"Salões de madeira com fogueiras sempre acesas, no fundo de um fiorde azul."
+WA_P_VILA_AURORAS,Vila das Auroras
+WA_P_VILA_AURORAS_HOOK,"Casas de turfa no gelo, onde o céu dança em verde nas noites longas."
+WA_P_GELEIRA_UIVANTE,Geleira Uivante
+WA_P_GELEIRA_UIVANTE_HOOK,Um mar de gelo onde o vento uiva como lobo.
+WA_P_PINHEIRAL_TROLLS,Pinheiral dos Trolls
+WA_P_PINHEIRAL_TROLLS_HOOK,Pinheiros escuros onde trolls viram pedra ao primeiro raio de sol.
+WA_P_TUMULOS_DRAUGR,Túmulos dos Draugr
+WA_P_TUMULOS_DRAUGR_HOOK,Montes de pedra onde os mortos das sagas ainda guardam seus tesouros.
+WA_P_COVIL_LINDWORM,Covil do Lindworm
+WA_P_COVIL_LINDWORM_HOOK,"Uma serpente-dragão sem asas dorme sob a geleira, enrolada no próprio frio."
+WA_P_FENDA_LOBO,Fenda do Lobo Acorrentado
+WA_P_FENDA_LOBO_HOOK,"Fenrir, o lobo do tamanho de uma colina, puxa correntes presas no fundo do gelo."
+WA_P_CASCO_GELO,Casco Preso no Gelo
+WA_P_CASCO_GELO_HOOK,"O casco negro de um navio que anda debaixo d'água, preso numa geleira há sessenta invernos."
+WA_R_ESTEPE,Estepe de Ferro
+WA_R_ESTEPE_HOOK,"Bosques de bétulas, isbás entalhadas e contos de feiticeiros imortais e pássaros de fogo."
+WA_P_ZHAROGRADO,Zharogrado
+WA_P_ZHAROGRADO_HOOK,"Cidade de isbás entalhadas e torres de madeira, cercada por paliçadas e campos de girassol."
+WA_P_ISBA_PES_GALINHA,Isbá dos Pés de Galinha
+WA_P_ISBA_PES_GALINHA_HOOK,A cabana da Baba Yaga anda pelo bosque; ninguém a encontra duas vezes no mesmo lugar.
+WA_P_BOSQUE_BETULAS,Bosque das Bétulas
+WA_P_BOSQUE_BETULAS_HOOK,Bétulas brancas e clareiras de flores; lobos cinzentos e plumas de fogo no chão.
+WA_P_COLINAS_FERRO,Colinas de Ferro
+WA_P_COLINAS_FERRO_HOOK,Colinas escuras de minério onde o vento arrasta a neve de lado.
+WA_P_NINHO_ZMEY,Ninho do Zmey
+WA_P_NINHO_ZMEY_HOOK,O dragão de três cabeças faz ninho nos picos brancos.
+WA_P_CASTELO_KOSCHEI,Castelo de Koschei
+WA_P_CASTELO_KOSCHEI_HOOK,"O feiticeiro imortal esconde a própria morte numa agulha, dentro de um ovo, dentro de um pato..."
+WA_P_ANTENA_ESCUTA,A Antena que Escuta
+WA_P_ANTENA_ESCUTA_HOOK,"Uma enorme concha de metal virada para o céu, no meio do bosque, zumbindo sozinha à noite."
+WA_R_BRUMAS,Brumas Verdes
+WA_R_BRUMAS_HOOK,"Ilhas de colinas verdes e névoa, onde harpas choram e cavalos d'água convidam a montar."
+WA_P_DUNBRUMA,Dúnbruma
+WA_P_DUNBRUMA_HOOK,"Fortaleza de pedra verde no alto de um morro, sempre envolta em névoa."
+WA_P_PORTO_FOCAS,Porto das Focas
+WA_P_PORTO_FOCAS_HOOK,Onde as selkies deixam a pele na praia para dançar em forma de gente.
+WA_P_COLINAS_NEVOA,Colinas da Névoa
+WA_P_COLINAS_NEVOA_HOOK,Colinas de urze e muros de pedra; ovelhas que somem na névoa e voltam diferentes.
+WA_P_LAGO_KELPIE,Lago do Kelpie
+WA_P_LAGO_KELPIE_HOOK,Um cavalo d'água convida os viajantes a montar e mergulha com eles.
+WA_P_ESTRADA_SEM_CABECA,Estrada do Cocheiro sem Cabeça
+WA_P_ESTRADA_SEM_CABECA_HOOK,Uma carruagem negra passa à meia-noite; o cocheiro carrega a própria cabeça.
+WA_P_OLHO_BALOR,Olho de Balor
+WA_P_OLHO_BALOR_HOOK,"O gigante de um olho só: quando a pálpebra se abre, tudo o que ele olha queima."
+WA_P_OFICINA_HORAS_TORTAS,Oficina das Horas Tortas
+WA_P_OFICINA_HORAS_TORTAS_HOOK,Uma máquina de latão e vidro no meio de um círculo de pedras; lá dentro os relógios andam para trás.
+WA_R_OBSIDIANA,Selvas de Obsidiana
+WA_R_OBSIDIANA_HOOK,"Selva fumegante, vulcões e cidades de pirâmides escalonadas erguidas pelo povo da selva."
+WA_P_ITZCALLI,Itzcalli
+WA_P_ITZCALLI_HOOK,"Cidade de pirâmides escalonadas, jardins flutuantes e mercados de cacau, erguida pelo povo da selva."
+WA_P_MERCADO_PENAS,Mercado das Penas
+WA_P_MERCADO_PENAS_HOOK,"Vila de artesãos de plumas, jade e obsidiana."
+WA_P_TRILHA_JAGUARES,Trilha dos Jaguares
+WA_P_TRILHA_JAGUARES_HOOK,"Trilhas sob a copa, onde olhos amarelos acompanham cada passo."
+WA_P_MANGUEZAL_ESMERALDA,Manguezal Esmeralda
+WA_P_MANGUEZAL_ESMERALDA_HOOK,"Raízes altas sobre a água verde, caranguejos-armadura e garças de crista."
+WA_P_POCO_MIL_VOZES,Poço das Mil Vozes
+WA_P_POCO_MIL_VOZES_HOOK,"Um poço natural de água azul; lá embaixo, a água responde com a voz de quem já passou."
+WA_P_BOCA_VULCAO,Boca do Vulcão Fumegante
+WA_P_BOCA_VULCAO_HOOK,"Cipactli, o grande crocodilo da terra das lendas antigas, desperta dentro do vulcão."
+WA_P_NAVE_ALBATROZ,Nave Albatroz
+WA_P_NAVE_ALBATROZ_HOOK,"Um navio que navegava no céu, encalhado na copa das árvores, ainda estalando relâmpagos."
+WA_P_MAR_MEIO,Mar do Meio
+WA_P_MAR_MEIO_HOOK,"O mar calmo no centro do mundo, cheio de ilhotas e rotas de comércio."
+WA_P_MAR_BRUMAS,Mar das Brumas
+WA_P_MAR_BRUMAS_HOOK,Águas frias e cinzentas; a névoa esconde ilhas que não estavam lá ontem.
+WA_P_MAR_PETALAS,Mar das Pétalas
+WA_P_MAR_PETALAS_HOOK,"Na época da Florada, pétalas douradas boiam nestas águas sem ninguém saber de onde vêm."
+WA_P_MAR_SOL,Mar do Sol Nascente
+WA_P_MAR_SOL_HOOK,Correntes quentes que levam às ilhas vulcânicas do leste.
+WA_P_MIL_RECIFES,Arquipélago dos Mil Recifes
+WA_P_MIL_RECIFES_HOOK,Ninguém nunca contou as ilhotas. Os barqueiros dizem que algumas mudam de lugar.
+WA_P_ILHA_FAROL_TORTO,Ilha do Farol Torto
+WA_P_ILHA_FAROL_TORTO_HOOK,Um farol inclinado que ilumina para o lado errado: e mesmo assim ninguém naufraga.
+WA_P_BALEIA_ILHA,Baleia-Ilha
+WA_P_BALEIA_ILHA_HOOK,Uma baleia que dorme há tanto tempo que os marinheiros a desenham como ilha.
+WA_P_SERPENTE_PATO,Serpente-Pato
+WA_P_SERPENTE_PATO_HOOK,"Cabeça de pato, corpo de serpente, humor péssimo. Os pescadores juram que existe."
+WA_P_SAPO_MARINHO,Sapo-Gigante do Mar
+WA_P_SAPO_MARINHO_HOOK,"Um sapo do tamanho de um barco, que boia de olhos abertos à espera de moscas grandes."
+WA_P_ENGUIA_TINTA,Baleia-Velha e a Enguia de Tinta
+WA_P_ENGUIA_TINTA_HOOK,Uma baleia cansada carrega nas costas uma enguia negra que cospe tinta nos navios.
+WA_P_SERPENTE_BRUMAS,Serpente das Brumas
+WA_P_SERPENTE_BRUMAS_HOOK,"Enrolada numa ilhota, só aparece quando a névoa fica azul."
+WA_P_FERA_CHARNECA,Fera da Charneca
+WA_P_FERA_CHARNECA_HOOK,Um bicho negro que os pastores do reino desenham para assustar as crianças. Talvez seja filhote da Coca.
+WA_P_GALEAO_ERRANTE,Galeão Errante
+WA_P_GALEAO_ERRANTE_HOOK,Um navio que ninguém tripula e que sempre chega um dia antes da tempestade.
+WA_P_REVOADA_CORVOS,Revoada dos Corvos de Ferro
+WA_P_REVOADA_CORVOS_HOOK,Pássaros escuros que voam para o leste antes de cada inverno.
+WA_P_NORTE_NUBLADO,Norte Nublado
+WA_P_NORTE_NUBLADO_HOOK,"Terra ainda não alcançada. Além das nuvens do norte, os mapas ficam em branco."
+WA_P_LESTE_ALEM,Além do Sol Nascente
+WA_P_LESTE_ALEM_HOOK,Terra ainda não alcançada. Ninguém que navegou para lá voltou para contar.
+WA_P_SUL_SEM_FIM,Areias Sem Fim
+WA_P_SUL_SEM_FIM_HOOK,Terra ainda não alcançada. Dizem que o deserto do sul não termina nunca.

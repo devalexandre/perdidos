@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+target_id = &"prank_whirlwind"
+count = 8
+text_key = "QUEST_LESSON_BOW_HAWK_DIVE_STEP1"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+type = 1
+target_id = &"spinning_leaf"
+count = 3
+text_key = "QUEST_LESSON_BOW_HAWK_DIVE_STEP2"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"lesson_blade_horizon_cut"
+name_key = "QUEST_LESSON_BLADE_HORIZON_CUT_NAME"
+giver_npc = &"master_brisa"
+region_id = &"brasil"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2")])
+reward_skill = &"blade_horizon_cut"
+reward_title = &"sabia_blade_jaguar"
+reward_xp = 80
+offer_text_key = "QUEST_LESSON_BLADE_HORIZON_CUT_OFFER"
+progress_text_key = "QUEST_LESSON_BLADE_HORIZON_CUT_PROGRESS"
+complete_text_key = "QUEST_LESSON_BLADE_HORIZON_CUT_COMPLETE"
+option_text_key = "QUEST_LESSON_BLADE_HORIZON_CUT_OPTION"
+desc_key = "QUEST_LESSON_BLADE_HORIZON_CUT_DESC"

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_machete.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"martelo_do_abismo_profundo"
+name_key = "ITEM_MARTELO_ABISMO_PROFUNDO_NAME"
+desc_key = "ITEM_MARTELO_ABISMO_PROFUNDO_DESC"
+icon = ExtResource("icon")
+type = 1
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 600
+tradeable = true
+crendice_id = &""
+crendice_sockets = 0
+exclusive_drop_zone = &"hollow_earth"
+weapon_kind = 1
+scaling_stat = &"str"
+two_handed = true
+stats = Dictionary[StringName, int]({
+  &"atk": 62,
+  &"str": 8,
+  &"vit": 4
+})

@@ -1,0 +1,96 @@
+# Segredos, credenciais e configuração privada local
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+client_secret_*.json
+credentials*.json
+service-account*.json
+service_account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+export_credentials.cfg
+/game/client_config.cfg
+
+# Ferramentas locais, execução, saves e distribuições
+/.tools/
+/.work/
+/.run/
+/build/
+/game/downloads/
+/backups/
+/backup_removed_content/
+*.log
+*.pid
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite3-journal
+
+# Godot: cache do editor/importação (manter .uid e .import dos recursos)
+.godot/
+.import/
+# Build Android personalizado e caches de Gradle
+.gradle/
+local.properties
+/game/android/build/
+
+# Dependências e artefatos do frontend/launcher
+node_modules/
+/launcher/build/bin/
+/launcher/frontend/dist/
+/launcher/bin/
+*.tsbuildinfo
+.vite/
+coverage/
+playwright-report/
+test-results/
+
+# Python e ambientes virtuais
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Arquivos temporários e backups automáticos da arte/editor
+*.tmp
+*.temp
+*.bak
+*.orig
+*.swp
+*.swo
+*~
+*.blend[0-9]
+*.blend[0-9][0-9]
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Configurações pessoais do editor/agente
+/.vscode/
+.claude/settings.local.json
+
+# Referências de estudo na raiz; não fazem parte do jogo distribuído
+/*Ragnarok Online*
+/*.blend
+/*.zip
+/Golden Blossom Cave at Sunset.png
+/ghibli style landscape.blend
+/gabarito-proporcao-64px.png
+/paleta-mestra.png
+/image.png
+/image copy.png
+
+# Binário local do motor (reprodutível pelas ferramentas do projeto)
+/godot

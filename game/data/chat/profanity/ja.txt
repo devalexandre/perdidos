@@ -1,0 +1,32 @@
+# 罵倒語 — 日本語 (ローマ字 + かな/漢字). 形式: <重さ> <モード><語>
+# Katakana é convertido para hiragana antes da busca: escreva só em hiragana.
+# Japonês não tem espaços entre palavras: termos em kana/kanji usam "*" (qualquer lugar) e
+# palavras legítimas que os contêm vão em whitelist.txt (ex.: "ばかり" contém "ばか").
+1 kuso
+1 =baka
+1 =aho
+1 kisama
+1 chikusho
+1 =temee
+2 yariman
+2 =manko
+2 =chinko
+2 =shineyo
+1 *くそ
+1 *ばか
+1 *あほ
+1 *きさま
+1 *ちくしょう
+1 *てめえ
+1 *うざい
+1 *きもい
+1 *糞
+1 *馬鹿
+1 *阿呆
+2 *しね
+2 *死ね
+2 *ころすぞ
+2 *殺すぞ
+2 *まんこ
+2 *ちんこ
+2 *やりまん

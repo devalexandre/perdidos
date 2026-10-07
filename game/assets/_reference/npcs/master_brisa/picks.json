@@ -1,0 +1,56 @@
+{
+ "dirs": {
+  "s": {
+   "idle": "f_3.png",
+   "flip": false,
+   "wl": "w_s_wl_0.png",
+   "wr": "w_s_wr_0.png"
+  },
+  "se": {
+   "idle": "d_se_1.png",
+   "flip": true,
+   "wl": "w_se_wl_1.png",
+   "wr": "w_se_wr_0.png"
+  },
+  "e": {
+   "idle": "d_e_0.png",
+   "flip": true,
+   "wl": "w_e_wl_1.png",
+   "wr": "w_e_wr_1.png"
+  },
+  "ne": {
+   "idle": "d_ne_3.png",
+   "flip": false,
+   "wl": "w_ne_wl_1.png",
+   "wr": "w_ne_wr_0.png"
+  },
+  "n": {
+   "idle": "in_1.png",
+   "flip": false,
+   "wl": "w_n_wl_1.png",
+   "wr": "w_n_wr_1.png"
+  }
+ },
+ "hair_fix": [
+  {
+   "files": [
+    "in_1.png",
+    "w_n_wl_1.png",
+    "w_n_wr_1.png",
+    "w_se_wl_1.png",
+    "w_se_wr_0.png"
+   ],
+   "frac": 0.24,
+   "lo": [
+    60,
+    64,
+    74
+   ],
+   "hi": [
+    180,
+    186,
+    198
+   ]
+  }
+ ]
+}

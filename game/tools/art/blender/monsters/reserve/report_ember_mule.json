@@ -1,0 +1,2612 @@
+[
+  {
+    "id": "ember_mule",
+    "stage": 1,
+    "meshes": 27,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ember_mule_s1.blend",
+    "preview": "reserve/previews/ember_mule_s1.png"
+  },
+  {
+    "id": "ember_mule",
+    "stage": 3,
+    "meshes": 49,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ember_mule_s3.blend",
+    "preview": "reserve/previews/ember_mule_s3.png"
+  },
+  {
+    "id": "ember_mule",
+    "stage": 4,
+    "meshes": 62,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ember_mule_s4.blend",
+    "preview": "reserve/previews/ember_mule_s4.png"
+  },
+  {
+    "id": "buriti_boar",
+    "stage": 1,
+    "meshes": 30,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/buriti_boar_s1.blend",
+    "preview": "reserve/previews/buriti_boar_s1.png"
+  },
+  {
+    "id": "buriti_boar",
+    "stage": 3,
+    "meshes": 56,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/buriti_boar_s3.blend",
+    "preview": "reserve/previews/buriti_boar_s3.png"
+  },
+  {
+    "id": "buriti_boar",
+    "stage": 4,
+    "meshes": 69,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/buriti_boar_s4.blend",
+    "preview": "reserve/previews/buriti_boar_s4.png"
+  },
+  {
+    "id": "cinder_serpent",
+    "stage": 1,
+    "meshes": 30,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cinder_serpent_s1.blend",
+    "preview": "reserve/previews/cinder_serpent_s1.png"
+  },
+  {
+    "id": "cinder_serpent",
+    "stage": 3,
+    "meshes": 52,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cinder_serpent_s3.blend",
+    "preview": "reserve/previews/cinder_serpent_s3.png"
+  },
+  {
+    "id": "cinder_serpent",
+    "stage": 4,
+    "meshes": 65,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cinder_serpent_s4.blend",
+    "preview": "reserve/previews/cinder_serpent_s4.png"
+  },
+  {
+    "id": "coca_drake",
+    "stage": 1,
+    "meshes": 25,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/coca_drake_s1.blend",
+    "preview": "reserve/previews/coca_drake_s1.png"
+  },
+  {
+    "id": "coca_drake",
+    "stage": 3,
+    "meshes": 39,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/coca_drake_s3.blend",
+    "preview": "reserve/previews/coca_drake_s3.png"
+  },
+  {
+    "id": "coca_drake",
+    "stage": 4,
+    "meshes": 52,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/coca_drake_s4.blend",
+    "preview": "reserve/previews/coca_drake_s4.png"
+  },
+  {
+    "id": "tide_colossus",
+    "stage": 1,
+    "meshes": 20,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/tide_colossus_s1.blend",
+    "preview": "reserve/previews/tide_colossus_s1.png"
+  },
+  {
+    "id": "tide_colossus",
+    "stage": 3,
+    "meshes": 38,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/tide_colossus_s3.blend",
+    "preview": "reserve/previews/tide_colossus_s3.png"
+  },
+  {
+    "id": "tide_colossus",
+    "stage": 4,
+    "meshes": 51,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/tide_colossus_s4.blend",
+    "preview": "reserve/previews/tide_colossus_s4.png"
+  },
+  {
+    "id": "golden_spindle",
+    "stage": 1,
+    "meshes": 25,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/golden_spindle_s1.blend",
+    "preview": "reserve/previews/golden_spindle_s1.png"
+  },
+  {
+    "id": "golden_spindle",
+    "stage": 3,
+    "meshes": 35,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/golden_spindle_s3.blend",
+    "preview": "reserve/previews/golden_spindle_s3.png"
+  },
+  {
+    "id": "golden_spindle",
+    "stage": 4,
+    "meshes": 48,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/golden_spindle_s4.blend",
+    "preview": "reserve/previews/golden_spindle_s4.png"
+  },
+  {
+    "id": "pond_kappa",
+    "stage": 1,
+    "meshes": 32,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/pond_kappa_s1.blend",
+    "preview": "reserve/previews/pond_kappa_s1.png"
+  },
+  {
+    "id": "pond_kappa",
+    "stage": 3,
+    "meshes": 42,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/pond_kappa_s3.blend",
+    "preview": "reserve/previews/pond_kappa_s3.png"
+  },
+  {
+    "id": "pond_kappa",
+    "stage": 4,
+    "meshes": 55,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/pond_kappa_s4.blend",
+    "preview": "reserve/previews/pond_kappa_s4.png"
+  },
+  {
+    "id": "mountain_tengu",
+    "stage": 1,
+    "meshes": 29,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mountain_tengu_s1.blend",
+    "preview": "reserve/previews/mountain_tengu_s1.png"
+  },
+  {
+    "id": "mountain_tengu",
+    "stage": 3,
+    "meshes": 41,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mountain_tengu_s3.blend",
+    "preview": "reserve/previews/mountain_tengu_s3.png"
+  },
+  {
+    "id": "mountain_tengu",
+    "stage": 4,
+    "meshes": 54,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mountain_tengu_s4.blend",
+    "preview": "reserve/previews/mountain_tengu_s4.png"
+  },
+  {
+    "id": "paper_lantern",
+    "stage": 1,
+    "meshes": 48,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/paper_lantern_s1.blend",
+    "preview": "reserve/previews/paper_lantern_s1.png"
+  },
+  {
+    "id": "paper_lantern",
+    "stage": 3,
+    "meshes": 58,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/paper_lantern_s3.blend",
+    "preview": "reserve/previews/paper_lantern_s3.png"
+  },
+  {
+    "id": "paper_lantern",
+    "stage": 4,
+    "meshes": 71,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/paper_lantern_s4.blend",
+    "preview": "reserve/previews/paper_lantern_s4.png"
+  },
+  {
+    "id": "rime_wolf",
+    "stage": 1,
+    "meshes": 21,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/rime_wolf_s1.blend",
+    "preview": "reserve/previews/rime_wolf_s1.png"
+  },
+  {
+    "id": "rime_wolf",
+    "stage": 3,
+    "meshes": 35,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/rime_wolf_s3.blend",
+    "preview": "reserve/previews/rime_wolf_s3.png"
+  },
+  {
+    "id": "rime_wolf",
+    "stage": 4,
+    "meshes": 48,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/rime_wolf_s4.blend",
+    "preview": "reserve/previews/rime_wolf_s4.png"
+  },
+  {
+    "id": "fjord_crab",
+    "stage": 1,
+    "meshes": 35,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/fjord_crab_s1.blend",
+    "preview": "reserve/previews/fjord_crab_s1.png"
+  },
+  {
+    "id": "fjord_crab",
+    "stage": 3,
+    "meshes": 49,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/fjord_crab_s3.blend",
+    "preview": "reserve/previews/fjord_crab_s3.png"
+  },
+  {
+    "id": "fjord_crab",
+    "stage": 4,
+    "meshes": 62,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/fjord_crab_s4.blend",
+    "preview": "reserve/previews/fjord_crab_s4.png"
+  },
+  {
+    "id": "drift_draugr",
+    "stage": 1,
+    "meshes": 17,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/drift_draugr_s1.blend",
+    "preview": "reserve/previews/drift_draugr_s1.png"
+  },
+  {
+    "id": "drift_draugr",
+    "stage": 3,
+    "meshes": 27,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/drift_draugr_s3.blend",
+    "preview": "reserve/previews/drift_draugr_s3.png"
+  },
+  {
+    "id": "drift_draugr",
+    "stage": 4,
+    "meshes": 40,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/drift_draugr_s4.blend",
+    "preview": "reserve/previews/drift_draugr_s4.png"
+  },
+  {
+    "id": "bronze_bull",
+    "stage": 1,
+    "meshes": 20,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/bronze_bull_s1.blend",
+    "preview": "reserve/previews/bronze_bull_s1.png"
+  },
+  {
+    "id": "bronze_bull",
+    "stage": 3,
+    "meshes": 30,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/bronze_bull_s3.blend",
+    "preview": "reserve/previews/bronze_bull_s3.png"
+  },
+  {
+    "id": "bronze_bull",
+    "stage": 4,
+    "meshes": 43,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/bronze_bull_s4.blend",
+    "preview": "reserve/previews/bronze_bull_s4.png"
+  },
+  {
+    "id": "marsh_hydra",
+    "stage": 1,
+    "meshes": 32,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/marsh_hydra_s1.blend",
+    "preview": "reserve/previews/marsh_hydra_s1.png"
+  },
+  {
+    "id": "marsh_hydra",
+    "stage": 3,
+    "meshes": 46,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/marsh_hydra_s3.blend",
+    "preview": "reserve/previews/marsh_hydra_s3.png"
+  },
+  {
+    "id": "marsh_hydra",
+    "stage": 4,
+    "meshes": 59,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/marsh_hydra_s4.blend",
+    "preview": "reserve/previews/marsh_hydra_s4.png"
+  },
+  {
+    "id": "cliff_harpy",
+    "stage": 1,
+    "meshes": 27,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cliff_harpy_s1.blend",
+    "preview": "reserve/previews/cliff_harpy_s1.png"
+  },
+  {
+    "id": "cliff_harpy",
+    "stage": 3,
+    "meshes": 43,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cliff_harpy_s3.blend",
+    "preview": "reserve/previews/cliff_harpy_s3.png"
+  },
+  {
+    "id": "cliff_harpy",
+    "stage": 4,
+    "meshes": 56,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cliff_harpy_s4.blend",
+    "preview": "reserve/previews/cliff_harpy_s4.png"
+  },
+  {
+    "id": "glass_scarab",
+    "stage": 1,
+    "meshes": 30,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/glass_scarab_s1.blend",
+    "preview": "reserve/previews/glass_scarab_s1.png"
+  },
+  {
+    "id": "glass_scarab",
+    "stage": 3,
+    "meshes": 44,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/glass_scarab_s3.blend",
+    "preview": "reserve/previews/glass_scarab_s3.png"
+  },
+  {
+    "id": "glass_scarab",
+    "stage": 4,
+    "meshes": 57,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/glass_scarab_s4.blend",
+    "preview": "reserve/previews/glass_scarab_s4.png"
+  },
+  {
+    "id": "dune_cobra",
+    "stage": 1,
+    "meshes": 23,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/dune_cobra_s1.blend",
+    "preview": "reserve/previews/dune_cobra_s1.png"
+  },
+  {
+    "id": "dune_cobra",
+    "stage": 3,
+    "meshes": 33,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/dune_cobra_s3.blend",
+    "preview": "reserve/previews/dune_cobra_s3.png"
+  },
+  {
+    "id": "dune_cobra",
+    "stage": 4,
+    "meshes": 46,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/dune_cobra_s4.blend",
+    "preview": "reserve/previews/dune_cobra_s4.png"
+  },
+  {
+    "id": "reed_crocodile",
+    "stage": 1,
+    "meshes": 19,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/reed_crocodile_s1.blend",
+    "preview": "reserve/previews/reed_crocodile_s1.png"
+  },
+  {
+    "id": "reed_crocodile",
+    "stage": 3,
+    "meshes": 33,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/reed_crocodile_s3.blend",
+    "preview": "reserve/previews/reed_crocodile_s3.png"
+  },
+  {
+    "id": "reed_crocodile",
+    "stage": 4,
+    "meshes": 46,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/reed_crocodile_s4.blend",
+    "preview": "reserve/previews/reed_crocodile_s4.png"
+  },
+  {
+    "id": "mist_hound",
+    "stage": 1,
+    "meshes": 21,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mist_hound_s1.blend",
+    "preview": "reserve/previews/mist_hound_s1.png"
+  },
+  {
+    "id": "mist_hound",
+    "stage": 3,
+    "meshes": 35,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mist_hound_s3.blend",
+    "preview": "reserve/previews/mist_hound_s3.png"
+  },
+  {
+    "id": "mist_hound",
+    "stage": 4,
+    "meshes": 48,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mist_hound_s4.blend",
+    "preview": "reserve/previews/mist_hound_s4.png"
+  },
+  {
+    "id": "bog_wisp",
+    "stage": 1,
+    "meshes": 9,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/bog_wisp_s1.blend",
+    "preview": "reserve/previews/bog_wisp_s1.png"
+  },
+  {
+    "id": "bog_wisp",
+    "stage": 3,
+    "meshes": 23,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/bog_wisp_s3.blend",
+    "preview": "reserve/previews/bog_wisp_s3.png"
+  },
+  {
+    "id": "bog_wisp",
+    "stage": 4,
+    "meshes": 36,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/bog_wisp_s4.blend",
+    "preview": "reserve/previews/bog_wisp_s4.png"
+  },
+  {
+    "id": "heather_cat",
+    "stage": 1,
+    "meshes": 19,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/heather_cat_s1.blend",
+    "preview": "reserve/previews/heather_cat_s1.png"
+  },
+  {
+    "id": "heather_cat",
+    "stage": 3,
+    "meshes": 29,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/heather_cat_s3.blend",
+    "preview": "reserve/previews/heather_cat_s3.png"
+  },
+  {
+    "id": "heather_cat",
+    "stage": 4,
+    "meshes": 42,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/heather_cat_s4.blend",
+    "preview": "reserve/previews/heather_cat_s4.png"
+  },
+  {
+    "id": "ember_bird",
+    "stage": 1,
+    "meshes": 33,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ember_bird_s1.blend",
+    "preview": "reserve/previews/ember_bird_s1.png"
+  },
+  {
+    "id": "ember_bird",
+    "stage": 3,
+    "meshes": 57,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ember_bird_s3.blend",
+    "preview": "reserve/previews/ember_bird_s3.png"
+  },
+  {
+    "id": "ember_bird",
+    "stage": 4,
+    "meshes": 70,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ember_bird_s4.blend",
+    "preview": "reserve/previews/ember_bird_s4.png"
+  },
+  {
+    "id": "mortar_hopper",
+    "stage": 1,
+    "meshes": 35,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mortar_hopper_s1.blend",
+    "preview": "reserve/previews/mortar_hopper_s1.png"
+  },
+  {
+    "id": "mortar_hopper",
+    "stage": 3,
+    "meshes": 45,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mortar_hopper_s3.blend",
+    "preview": "reserve/previews/mortar_hopper_s3.png"
+  },
+  {
+    "id": "mortar_hopper",
+    "stage": 4,
+    "meshes": 58,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/mortar_hopper_s4.blend",
+    "preview": "reserve/previews/mortar_hopper_s4.png"
+  },
+  {
+    "id": "birch_spider",
+    "stage": 1,
+    "meshes": 36,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/birch_spider_s1.blend",
+    "preview": "reserve/previews/birch_spider_s1.png"
+  },
+  {
+    "id": "birch_spider",
+    "stage": 3,
+    "meshes": 54,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/birch_spider_s3.blend",
+    "preview": "reserve/previews/birch_spider_s3.png"
+  },
+  {
+    "id": "birch_spider",
+    "stage": 4,
+    "meshes": 67,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/birch_spider_s4.blend",
+    "preview": "reserve/previews/birch_spider_s4.png"
+  },
+  {
+    "id": "nian_cub",
+    "stage": 1,
+    "meshes": 31,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/nian_cub_s1.blend",
+    "preview": "reserve/previews/nian_cub_s1.png"
+  },
+  {
+    "id": "nian_cub",
+    "stage": 3,
+    "meshes": 45,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/nian_cub_s3.blend",
+    "preview": "reserve/previews/nian_cub_s3.png"
+  },
+  {
+    "id": "nian_cub",
+    "stage": 4,
+    "meshes": 58,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/nian_cub_s4.blend",
+    "preview": "reserve/previews/nian_cub_s4.png"
+  },
+  {
+    "id": "jade_mantis",
+    "stage": 1,
+    "meshes": 33,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/jade_mantis_s1.blend",
+    "preview": "reserve/previews/jade_mantis_s1.png"
+  },
+  {
+    "id": "jade_mantis",
+    "stage": 3,
+    "meshes": 47,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/jade_mantis_s3.blend",
+    "preview": "reserve/previews/jade_mantis_s3.png"
+  },
+  {
+    "id": "jade_mantis",
+    "stage": 4,
+    "meshes": 60,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/jade_mantis_s4.blend",
+    "preview": "reserve/previews/jade_mantis_s4.png"
+  },
+  {
+    "id": "ink_carp",
+    "stage": 1,
+    "meshes": 26,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ink_carp_s1.blend",
+    "preview": "reserve/previews/ink_carp_s1.png"
+  },
+  {
+    "id": "ink_carp",
+    "stage": 3,
+    "meshes": 38,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ink_carp_s3.blend",
+    "preview": "reserve/previews/ink_carp_s3.png"
+  },
+  {
+    "id": "ink_carp",
+    "stage": 4,
+    "meshes": 51,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ink_carp_s4.blend",
+    "preview": "reserve/previews/ink_carp_s4.png"
+  },
+  {
+    "id": "cenote_hound",
+    "stage": 1,
+    "meshes": 23,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cenote_hound_s1.blend",
+    "preview": "reserve/previews/cenote_hound_s1.png"
+  },
+  {
+    "id": "cenote_hound",
+    "stage": 3,
+    "meshes": 33,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cenote_hound_s3.blend",
+    "preview": "reserve/previews/cenote_hound_s3.png"
+  },
+  {
+    "id": "cenote_hound",
+    "stage": 4,
+    "meshes": 46,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cenote_hound_s4.blend",
+    "preview": "reserve/previews/cenote_hound_s4.png"
+  },
+  {
+    "id": "stone_axolotl",
+    "stage": 1,
+    "meshes": 22,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/stone_axolotl_s1.blend",
+    "preview": "reserve/previews/stone_axolotl_s1.png"
+  },
+  {
+    "id": "stone_axolotl",
+    "stage": 3,
+    "meshes": 32,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/stone_axolotl_s3.blend",
+    "preview": "reserve/previews/stone_axolotl_s3.png"
+  },
+  {
+    "id": "stone_axolotl",
+    "stage": 4,
+    "meshes": 45,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/stone_axolotl_s4.blend",
+    "preview": "reserve/previews/stone_axolotl_s4.png"
+  },
+  {
+    "id": "cacao_bat",
+    "stage": 1,
+    "meshes": 31,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cacao_bat_s1.blend",
+    "preview": "reserve/previews/cacao_bat_s1.png"
+  },
+  {
+    "id": "cacao_bat",
+    "stage": 3,
+    "meshes": 47,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cacao_bat_s3.blend",
+    "preview": "reserve/previews/cacao_bat_s3.png"
+  },
+  {
+    "id": "cacao_bat",
+    "stage": 4,
+    "meshes": 60,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cacao_bat_s4.blend",
+    "preview": "reserve/previews/cacao_bat_s4.png"
+  }
+]

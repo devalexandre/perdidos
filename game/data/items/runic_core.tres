@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_eternal_ember.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"runic_core"
+name_key = "ITEM_RUNIC_CORE_NAME"
+desc_key = "ITEM_RUNIC_CORE_DESC"
+icon = ExtResource("icon")
+type = 7
+rarity = 2
+sell_price = 80
+tradeable = true

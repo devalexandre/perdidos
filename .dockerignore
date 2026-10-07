@@ -1,0 +1,10 @@
+**/.godot/
+**/*.import.tmp
+.tools/
+build/
+docs/
+infra/.env
+game/tests/
+*.png.orig
+game/downloads/
+*Ragnarok Online*

@@ -1,0 +1,263 @@
+[
+  {
+    "id": "buriti_boar",
+    "stage": 1,
+    "meshes": 30,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/buriti_boar_s1.blend",
+    "preview": "reserve/previews/buriti_boar_s1.png"
+  },
+  {
+    "id": "buriti_boar",
+    "stage": 3,
+    "meshes": 56,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/buriti_boar_s3.blend",
+    "preview": "reserve/previews/buriti_boar_s3.png"
+  },
+  {
+    "id": "buriti_boar",
+    "stage": 4,
+    "meshes": 69,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/buriti_boar_s4.blend",
+    "preview": "reserve/previews/buriti_boar_s4.png"
+  },
+  {
+    "id": "cacao_bat",
+    "stage": 1,
+    "meshes": 31,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cacao_bat_s1.blend",
+    "preview": "reserve/previews/cacao_bat_s1.png"
+  },
+  {
+    "id": "cacao_bat",
+    "stage": 3,
+    "meshes": 47,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cacao_bat_s3.blend",
+    "preview": "reserve/previews/cacao_bat_s3.png"
+  },
+  {
+    "id": "cacao_bat",
+    "stage": 4,
+    "meshes": 60,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/cacao_bat_s4.blend",
+    "preview": "reserve/previews/cacao_bat_s4.png"
+  },
+  {
+    "id": "ink_carp",
+    "stage": 1,
+    "meshes": 26,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ink_carp_s1.blend",
+    "preview": "reserve/previews/ink_carp_s1.png"
+  },
+  {
+    "id": "ink_carp",
+    "stage": 3,
+    "meshes": 38,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ink_carp_s3.blend",
+    "preview": "reserve/previews/ink_carp_s3.png"
+  },
+  {
+    "id": "ink_carp",
+    "stage": 4,
+    "meshes": 51,
+    "clips": {
+      "idle": [
+        1,
+        8
+      ],
+      "walk": [
+        13,
+        20
+      ],
+      "attack": [
+        25,
+        32
+      ],
+      "hit": [
+        37,
+        40
+      ],
+      "death": [
+        45,
+        52
+      ]
+    },
+    "blend": "blend/ink_carp_s4.blend",
+    "preview": "reserve/previews/ink_carp_s4.png"
+  }
+]

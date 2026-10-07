@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"hybrid_ember_cut"
+name_key = "SKILL_HYBRID_EMBER_CUT_NAME"
+desc_key = "SKILL_HYBRID_EMBER_CUT_DESC"
+school = &"hybrid"
+region_id = &"brasil"
+mana_cost = 18
+cooldown_sec = 8.0
+range_cells = 1.5
+base_multiplier = 1.5
+multiplier_per_level = 0.1
+extra = Dictionary[StringName, Variant]({
+&"dot_kind": "magic",
+&"dot_mult": 0.25,
+&"dot_mult_per_level": 0.02,
+&"dot_sec": 4
+})
+requires_melee_weapon = true
+vfx = &"flame"
+exclusive_to_title = &"sabia_hybrid_ember"
+icon_text = "CB"
+tree_title = &"sabia_hybrid_ember"
+tree_order = 2
+required_skill_levels = Dictionary[StringName, int]({
+&"hybrid_spark_blade": 1
+})

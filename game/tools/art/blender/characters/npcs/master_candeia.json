@@ -1,0 +1,135 @@
+{
+ "_doc": "Mestra Candeia (Campo de Treino, Arcano / título Luz de Vaga-lume). Senhora idosa, pele escura, cabelo branco em coque com flor laranja, xale verde-água sobre blusa laranja, saia longa vinho, cajado com chama.",
+ "body": "female",
+ "props": {
+  "q": {
+   "height": 0.93,
+   "head": 1.0
+  }
+ },
+ "pose": {
+  "spine": [
+   -0.07,
+   0,
+   0
+  ],
+  "neck": [
+   0.05,
+   0,
+   0
+  ],
+  "head": [
+   0.05,
+   0,
+   0
+  ]
+ },
+ "parts": [
+  {
+   "type": "hair",
+   "style": "bun",
+   "at": [
+    0.0,
+    0.06,
+    1.735
+   ],
+   "flower": "orange_cloth",
+   "flower_at": [
+    0.055,
+    0.02,
+    1.745
+   ]
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Body",
+   "cmap": {
+    "*": "orange_cloth"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Arms",
+   "cmap": {
+    "*": "orange_cloth"
+   }
+  },
+  {
+   "type": "shawl",
+   "mat": "teal_shawl",
+   "trim": "gold"
+  },
+  {
+   "type": "skirt",
+   "mat": "maroon",
+   "z_top": 1.02,
+   "z_bot": 0.1,
+   "r_top": 0.16,
+   "r_bot": 0.24,
+   "trim": "gold",
+   "hem_h": 0.035
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Feet",
+   "cmap": {
+    "*": "leather"
+   },
+   "cut_above": 0.13
+  },
+  {
+   "type": "staff",
+   "mat": "wood",
+   "top": "flame"
+  }
+ ],
+ "colors": {
+  "skin": [
+   "5a3222",
+   "78462e",
+   "94603c",
+   "ae7a50"
+  ],
+  "hair": [
+   "7a7480",
+   "a8a2ac",
+   "cac6ce",
+   "e6e4ea",
+   "faf8fa"
+  ],
+  "eyes": [
+   "1a100e",
+   "3a2218",
+   "5e3a24",
+   "8a5a38"
+  ],
+  "mats": {
+   "orange_cloth": [
+    "8a4a14",
+    "b8661c",
+    "d88a2c",
+    "eeb050",
+    "4a2408"
+   ],
+   "teal_shawl": [
+    "1f4a52",
+    "2f6b72",
+    "3f8a8c",
+    "5aa8a2",
+    "122a33"
+   ],
+   "maroon": [
+    "4a1a24",
+    "6a2432",
+    "8a3444",
+    "a84c5a",
+    "24080e"
+   ]
+  }
+ },
+ "anims": [
+  "idle:8",
+  "walk:8"
+ ],
+ "base": "q"
+}

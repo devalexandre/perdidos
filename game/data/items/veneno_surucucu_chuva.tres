@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_potion_hp_small.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"veneno_surucucu_chuva"
+name_key = "ITEM_VENENO_SURUCUCU_CHUVA_NAME"
+desc_key = "ITEM_VENENO_SURUCUCU_CHUVA_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 520
+tradeable = true
+crendice_id = &"veneno_surucucu_chuva"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"atk": 6
+})

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_boss"]
+script = ExtResource("2_step")
+type = 4
+target_id = &"werewolf"
+count = 1
+text_key = "QUEST_WEREWOLF_HUNT_STEP"
+trial_map_id = &"enchanted_forest_roots"
+trial_stage = 3
+trial_requires_full_moon = true
+trial_mode = &"kill"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"werewolf_hunt"
+name_key = "QUEST_WEREWOLF_HUNT_NAME"
+giver_npc = &"coronel_tobias"
+turn_in_npc = &"coronel_tobias"
+region_id = &"sabia"
+steps = Array[ExtResource("2_step")]([SubResource("step_boss")])
+reward_xp = 1800
+reward_items = Dictionary[StringName, int]({
+&"silver_hunter_garb": 1,
+&"silver_hunter_hat": 1,
+&"silver_machete": 1,
+&"silver_arrow": 30
+})
+reward_causo_id = &"lobisomem_arc"
+reward_story_ending = &"killed"
+offer_text_key = "QUEST_WEREWOLF_HUNT_OFFER"
+progress_text_key = "QUEST_WEREWOLF_HUNT_PROGRESS"
+complete_text_key = "QUEST_WEREWOLF_HUNT_COMPLETE"
+option_text_key = "QUEST_WEREWOLF_HUNT_OPTION"
+desc_key = "QUEST_WEREWOLF_HUNT_DESC"
+required_story_id = &"lobisomem_arc"
+required_story_clues = 3
+required_story_route = &"hunter"

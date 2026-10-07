@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_painted_2s.gdshader" id="1_tofac"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_plaster.png" id="2_dcjpi"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="3_4rgak"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tofac")
+shader_parameter/albedo_tex = ExtResource("2_dcjpi")
+shader_parameter/tint = Color(1.0249412, 0.9741177, 0.8470589, 1.08)
+shader_parameter/triplanar = true
+shader_parameter/tile_m = 2.0
+shader_parameter/uv_scale = null
+shader_parameter/use_vertex_ao = null
+shader_parameter/top_amount = null
+shader_parameter/top_sharpness = null
+shader_parameter/top_tile_m = null
+shader_parameter/top_tint = null
+shader_parameter/grime_height = null
+shader_parameter/base_y = null
+shader_parameter/grime_color = null
+shader_parameter/tex_noise = ExtResource("3_4rgak")
+shader_parameter/macro_strength = null
+shader_parameter/roughness = null
+shader_parameter/detail = 0.6
+shader_parameter/use_instance_tint = null

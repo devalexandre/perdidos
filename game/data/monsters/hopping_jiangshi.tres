@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_j0tb4"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_3eaxg"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_buwod"]
+
+[sub_resource type="Resource" id="Resource_c0vr2"]
+script = ExtResource("1_j0tb4")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_pnr50"]
+script = ExtResource("3_buwod")
+name_key = "MON_HOPPING_JIANGSHI_S1_NAME"
+sprite_base = "res://assets/monsters/hopping_jiangshi/mon_hopping_jiangshi_s1"
+baked_life = true
+level = 5
+max_hp = 110
+atk = 11
+def = 4
+mdef = 2
+walk_ms_per_cell = 470
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 38
+stars_min = 2
+stars_max = 6
+drops = Array[ExtResource("1_j0tb4")]([SubResource("Resource_c0vr2")])
+behaviors = Array[StringName]([&"hop_teleport"])
+
+[sub_resource type="Resource" id="Resource_qltxw"]
+script = ExtResource("1_j0tb4")
+item_id = &"potion_hp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_gg7ee"]
+script = ExtResource("3_buwod")
+stage = 2
+name_key = "MON_HOPPING_JIANGSHI_S2_NAME"
+sprite_base = "res://assets/monsters/hopping_jiangshi/mon_hopping_jiangshi_s2"
+baked_life = true
+level = 9
+max_hp = 350
+atk = 23
+def = 9
+mdef = 6
+walk_ms_per_cell = 450
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 120
+stars_min = 5
+stars_max = 12
+drops = Array[ExtResource("1_j0tb4")]([SubResource("Resource_qltxw")])
+behaviors = Array[StringName]([&"hop_teleport"])
+
+[resource]
+script = ExtResource("2_3eaxg")
+id = &"hopping_jiangshi"
+region_id = &"china"
+creature_type = &"undead"
+stages = Array[ExtResource("3_buwod")]([SubResource("Resource_pnr50"), SubResource("Resource_gg7ee")])
+

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+
+[resource]
+script = ExtResource("zone")
+map_id = &"hoer_verde_4"
+kind = 2
+name_key = "ZONE_HOER_VERDE_4_NAME"
+region_id = &"sabia"
+recommended_level_min = 46
+recommended_level_max = 52
+combat_allowed = true
+grave_on_death = true
+monster_stage_cap = 3
+bosses_allowed = true
+connected_maps = Array[StringName]([&"hoer_verde_3", &"fog_moor_gate"])

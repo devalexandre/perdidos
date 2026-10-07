@@ -1,0 +1,55 @@
+keys,pt_BR
+PARTY_ERR_XP_MODE,Escolha Individual ou Dividida para a XP do grupo.
+UI_PARTY_XP_SPLIT,Dividida
+UI_PARTY_XP_INDIVIDUAL,Individual
+PARTY_HELP,Grupo (até %d): /grupo <nome> convida · /grupo aceitar · /grupo recusar · /grupo sair · /grupo expulsar <nome> · /grupo líder <nome> · /grupo (lista) · /g <mensagem> fala com o grupo · /online
+PARTY_INVITE_SENT,Convite enviado para %s.
+PARTY_INVITED,%s convidou você para o grupo. Use /grupo aceitar ou /grupo recusar.
+PARTY_ERR_NOT_FOUND,Jogador não encontrado: %s (precisa estar conectado).
+PARTY_ERR_SELF,Você não pode fazer isso com você mesmo.
+PARTY_ERR_TARGET_IN_PARTY,%s já tem grupo.
+PARTY_ERR_ALREADY_IN_PARTY,Você já está em um grupo. Saia dele antes (/grupo sair).
+PARTY_ERR_SOLO_QUEST,"Você está na missão de título %s, que é feita sozinho. Conclua as etapas ou abandone a missão antes de entrar num grupo."
+PARTY_ERR_TARGET_SOLO_QUEST,%s está numa missão de título e precisa fazê-la sozinho.
+PARTY_ERR_FULL,O grupo está cheio (máximo de %d).
+PARTY_ERR_NOT_LEADER,Só o líder do grupo pode fazer isso.
+PARTY_ERR_NO_PARTY,Você não está em um grupo.
+PARTY_ERR_NO_INVITE,Você não tem convite de grupo pendente.
+PARTY_ERR_PENDING,%s já tem um convite de grupo esperando resposta.
+PARTY_ERR_TOO_FAST,Calma: espere um pouco antes de convidar de novo.
+PARTY_ERR_NOT_MEMBER,%s não está no seu grupo.
+PARTY_ERR_ONLINE_DISABLED,A lista de quem está online está desligada neste servidor.
+PARTY_JOINED,%s entrou no grupo.
+PARTY_LEFT,%s saiu do grupo.
+PARTY_YOU_LEFT,Você saiu do grupo.
+PARTY_KICKED,%s foi expulso do grupo.
+PARTY_YOU_WERE_KICKED,%s tirou você do grupo.
+PARTY_NEW_LEADER,%s agora lidera o grupo.
+PARTY_DISBANDED,O grupo se desfez.
+PARTY_DECLINED,%s recusou o convite.
+PARTY_YOU_DECLINED,Você recusou o convite de %s.
+PARTY_INVITE_EXPIRED,O convite para %s expirou.
+PARTY_LEADER_OFFLINE,"O líder %s desconectou. Se não voltar em %d min, a liderança passa ao membro mais antigo."
+PARTY_MEMBER_OFFLINE,%s desconectou.
+PARTY_MEMBER_ONLINE,%s voltou.
+SYS_TRIAL_NOT_YOURS,Esse monstro é da provação de outro jogador.
+UI_PARTY_TITLE,Grupo %d/%d
+UI_PARTY_LEAVE,Sair do grupo
+UI_PARTY_INVITE,Convidar para o grupo
+UI_PARTY_KICK,Expulsar do grupo
+UI_PARTY_MAKE_LEADER,Passar a liderança
+UI_PARTY_INVITE_TITLE,Convite de grupo
+UI_PARTY_INVITE_TEXT,%s convidou você para o grupo.
+UI_PARTY_ACCEPT,Aceitar
+UI_PARTY_DECLINE,Recusar
+UI_PARTY_OFFLINE,desconectado
+UI_PARTY_LEVEL,Nv %d
+UI_PARTY_LEADER,líder
+UI_CHAT_TAB_ALL,Todos
+UI_CHAT_TAB_PARTY,Grupo
+UI_CHAT_PARTY_PREFIX,[Grupo]
+UI_ONLINE_HEADER,Online agora (%d):
+UI_PARTY_LIST_HEADER,Seu grupo (%d/%d):
+UI_PLAYER_LIST_ENTRY,%s — Nv %d — %s
+UI_PLAYER_LIST_OFFLINE,%s — desconectado
+UI_CHAT_PARTY_PLACEHOLDER,Enter para falar com o grupo...

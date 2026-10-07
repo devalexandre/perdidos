@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_uwhw6"]
+
+[resource]
+script = ExtResource("1_uwhw6")
+id = &"sabia_blade_machete"
+name_key = "TITLE_SABIA_BLADE_MACHETE_NAME"
+archetype = &"blade"
+required_skills = Array[StringName]([&"blade_firm_strike", &"blade_charge", &"blade_steel_spin"])
+start_map_id = &"city_awakening"
+color = Color(0.30980393, 0.65882355, 0.627451, 1)
+desc_key = "TITLE_SABIA_BLADE_MACHETE_DESC"
+sort_order = 10
+outfit_id = &"title_machete"
+cloth_colors = PackedColorArray(0.2902, 0.3333, 0.3765, 1, 0.7843, 0.5294, 0.1804, 1)
+master_npc = &"master_brisa"
+bonus_skills = Array[StringName]([&"blade_field_dressing"])

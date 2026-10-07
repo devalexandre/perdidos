@@ -1,0 +1,166 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="1_opt"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="2_node"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_dlg"]
+
+[sub_resource type="Resource" id="opt_1"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FERREIRO_START_OPT0"
+next_node = &"legend_1"
+
+[sub_resource type="Resource" id="opt_2"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FERREIRO_START_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="opt_wolf_clue"]
+script = ExtResource("1_opt")
+text_key = "DLG_LOBISOMEM_SMITH_OPT"
+next_node = &"wolf_clue"
+
+[sub_resource type="Resource" id="opt_forge"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FORGE_OPT"
+next_node = &"forge"
+
+[sub_resource type="Resource" id="node_start"]
+script = ExtResource("2_node")
+id = &"start"
+text_key = "DLG_ELDER_ZE_FERREIRO_START"
+options = Array[ExtResource("1_opt")]([SubResource("opt_1"), SubResource("opt_wolf_clue"), SubResource("opt_forge"), SubResource("opt_2")])
+
+[sub_resource type="Resource" id="opt_wolf_clue_report"]
+script = ExtResource("1_opt")
+text_key = "DLG_LOBISOMEM_CLUE_KEEP"
+action = &"collect_story_clue"
+action_args = Dictionary[StringName, Variant]({
+&"story_id": "lobisomem_arc",
+&"clue_id": "ferreiro_bites",
+&"clue_name_key": "STORY_CLUE_SMITH"
+})
+
+[sub_resource type="Resource" id="node_wolf_clue"]
+script = ExtResource("2_node")
+id = &"wolf_clue"
+text_key = "DLG_LOBISOMEM_SMITH_CLUE"
+options = Array[ExtResource("1_opt")]([SubResource("opt_wolf_clue_report")])
+
+[sub_resource type="Resource" id="opt_3"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FERREIRO_LEGEND_1_OPT0"
+next_node = &"legend_2"
+
+[sub_resource type="Resource" id="node_legend_1"]
+script = ExtResource("2_node")
+id = &"legend_1"
+text_key = "DLG_ELDER_ZE_FERREIRO_LEGEND_1"
+options = Array[ExtResource("1_opt")]([SubResource("opt_3")])
+
+[sub_resource type="Resource" id="opt_4"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FERREIRO_LEGEND_2_OPT0"
+next_node = &"need"
+
+[sub_resource type="Resource" id="node_legend_2"]
+script = ExtResource("2_node")
+id = &"legend_2"
+text_key = "DLG_ELDER_ZE_FERREIRO_LEGEND_2"
+options = Array[ExtResource("1_opt")]([SubResource("opt_4")])
+
+[sub_resource type="Resource" id="opt_5"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FERREIRO_NEED_OPT0"
+action = &"quest_offer"
+conditions = Dictionary[StringName, Variant]({
+&"quest_available": "elder_ze_steel_song"
+})
+action_args = Dictionary[StringName, Variant]({
+&"quest_id": "elder_ze_steel_song"
+})
+
+[sub_resource type="Resource" id="opt_6"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FERREIRO_NEED_OPT1"
+next_node = &"come_back"
+conditions = Dictionary[StringName, Variant]({
+&"quest_locked": "elder_ze_steel_song"
+})
+
+[sub_resource type="Resource" id="opt_7"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FERREIRO_NEED_OPT2"
+action = &"close"
+conditions = Dictionary[StringName, Variant]({
+&"quest_taken": "elder_ze_steel_song"
+})
+
+[sub_resource type="Resource" id="node_need"]
+script = ExtResource("2_node")
+id = &"need"
+text_key = "DLG_ELDER_ZE_FERREIRO_NEED"
+options = Array[ExtResource("1_opt")]([SubResource("opt_5"), SubResource("opt_6"), SubResource("opt_7")])
+
+[sub_resource type="Resource" id="opt_8"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FERREIRO_COME_BACK_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="node_come_back"]
+script = ExtResource("2_node")
+id = &"come_back"
+text_key = "DLG_ELDER_ZE_FERREIRO_COME_BACK"
+options = Array[ExtResource("1_opt")]([SubResource("opt_8")])
+
+[sub_resource type="Resource" id="craft_blade"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_CRAFT_LONG_BLADE"
+action = &"craft_item"
+next_node = &"forge"
+action_args = Dictionary[StringName, Variant]({
+&"item_id": "sabia_long_blade",
+&"qty": 1,
+&"causos_rank": 0,
+&"materials": Dictionary[StringName, int]({&"thick_leather": 2, &"pequi_root": 1})
+})
+
+[sub_resource type="Resource" id="craft_ember"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_CRAFT_EMBER_MACHETE"
+action = &"craft_item"
+next_node = &"forge"
+action_args = Dictionary[StringName, Variant]({
+&"item_id": "ember_machete",
+&"qty": 1,
+&"causos_rank": 1,
+&"materials": Dictionary[StringName, int]({&"eternal_ember": 1, &"thick_leather": 3, &"pequi_root": 1})
+})
+
+[sub_resource type="Resource" id="craft_rootweave"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_CRAFT_ROOTWEAVE_STAFF"
+action = &"craft_item"
+next_node = &"forge"
+action_args = Dictionary[StringName, Variant]({
+&"item_id": "rootweave_staff",
+&"qty": 1,
+&"causos_rank": 3,
+&"materials": Dictionary[StringName, int]({&"eternal_ember": 2, &"firefly_light": 2, &"ancient_shell_shard": 1})
+})
+
+[sub_resource type="Resource" id="forge_leave"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_ZE_FORGE_LEAVE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_forge"]
+script = ExtResource("2_node")
+id = &"forge"
+text_key = "DLG_ELDER_ZE_FORGE_MENU"
+options = Array[ExtResource("1_opt")]([SubResource("craft_blade"), SubResource("craft_ember"),
+		SubResource("craft_rootweave"), SubResource("forge_leave")])
+
+[resource]
+script = ExtResource("3_dlg")
+id = &"elder_ze_ferreiro"
+nodes = Array[ExtResource("2_node")]([SubResource("node_start"), SubResource("node_wolf_clue"), SubResource("node_legend_1"), SubResource("node_legend_2"), SubResource("node_need"), SubResource("node_come_back"), SubResource("node_forge")])

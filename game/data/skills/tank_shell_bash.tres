@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"tank_shell_bash"
+name_key = "SKILL_TANK_SHELL_BASH_NAME"
+desc_key = "SKILL_TANK_SHELL_BASH_DESC"
+school = &"tank"
+region_id = &"brasil"
+target_type = 3
+effect = 15
+mana_cost = 16
+cooldown_sec = 12.0
+range_cells = 0.0
+radius_cells = 2.0
+cone_deg = 90.0
+base_multiplier = 0.6
+multiplier_per_level = 0.06
+extra = Dictionary[StringName, Variant]({
+&"knockback_cells": 2,
+&"stun_per_level": 0.05,
+&"stun_sec": 1.0
+})
+vfx = &"knock"
+exclusive_to_title = &"sabia_tank_jabuti"
+icon_text = "EC"
+tree_title = &"sabia_tank_jabuti"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"tank_hard_shell": 3
+})

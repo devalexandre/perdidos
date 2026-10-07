@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_td32p"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_5nuv2"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_hmug5"]
+
+[sub_resource type="Resource" id="Resource_h4idy"]
+script = ExtResource("1_td32p")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_wrap6"]
+script = ExtResource("3_hmug5")
+name_key = "MON_DUNE_SCORPION_S1_NAME"
+sprite_base = "res://assets/monsters/dune_scorpion/mon_dune_scorpion_s1"
+baked_life = true
+level = 4
+max_hp = 80
+atk = 11
+def = 4
+mdef = 1
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 30
+stars_min = 1
+stars_max = 5
+drops = Array[ExtResource("1_td32p")]([SubResource("Resource_h4idy")])
+
+[sub_resource type="Resource" id="Resource_3xk3p"]
+script = ExtResource("1_td32p")
+item_id = &"potion_hp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_8tuwa"]
+script = ExtResource("3_hmug5")
+stage = 2
+name_key = "MON_DUNE_SCORPION_S2_NAME"
+sprite_base = "res://assets/monsters/dune_scorpion/mon_dune_scorpion_s2"
+baked_life = true
+level = 8
+max_hp = 270
+atk = 22
+def = 10
+mdef = 4
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 105
+stars_min = 4
+stars_max = 11
+drops = Array[ExtResource("1_td32p")]([SubResource("Resource_3xk3p")])
+
+[resource]
+script = ExtResource("2_5nuv2")
+id = &"dune_scorpion"
+region_id = &"egito"
+stages = Array[ExtResource("3_hmug5")]([SubResource("Resource_wrap6"), SubResource("Resource_8tuwa")])

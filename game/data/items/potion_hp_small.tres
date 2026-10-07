@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_potion_hp_small.png" id="1_cb07u"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_bsdbj"]
+
+[resource]
+script = ExtResource("2_bsdbj")
+id = &"potion_hp_small"
+name_key = "ITEM_POTION_HP_SMALL_NAME"
+desc_key = "ITEM_POTION_HP_SMALL_DESC"
+icon = ExtResource("1_cb07u")
+type = 0
+stackable = true
+max_stack = 99
+buy_price = 15
+sell_price = 5
+use_effect = Dictionary[StringName, Variant]({
+&"heal_hp": 60
+})

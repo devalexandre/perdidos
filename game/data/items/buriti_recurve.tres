@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_simple_bow.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"buriti_recurve"
+name_key = "ITEM_BURITI_RECURVE_NAME"
+desc_key = "ITEM_BURITI_RECURVE_DESC"
+icon = ExtResource("icon")
+type = 1
+scaling_attribute = &"dex"
+weapon_kind = 3
+rarity = 1
+buy_price = 380
+sell_price = 125
+stats = Dictionary[StringName, int]({
+&"atk": 15,
+&"dex": 2
+})
+visual_id = &"simple_bow"
+two_handed = true

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"bow_short_flight"
+name_key = "SKILL_BOW_SHORT_FLIGHT_NAME"
+desc_key = "SKILL_BOW_SHORT_FLIGHT_DESC"
+school = &"bow"
+region_id = &"brasil"
+target_type = 5
+effect = 17
+mana_cost = 14
+cooldown_sec = 14.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+extra = Dictionary[StringName, Variant]({
+&"distance_cells": 4
+})
+requires_bow = true
+vfx = &"dash"
+exclusive_to_title = &"sabia_bow_gaviao"
+icon_text = "VC"
+tree_title = &"sabia_bow_gaviao"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"bow_sure_aim": 1
+})

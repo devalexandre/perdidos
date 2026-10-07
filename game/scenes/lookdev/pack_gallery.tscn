@@ -1,0 +1,87 @@
+[gd_scene format=3]
+
+[ext_resource type="Environment" path="res://assets/environment/painted/env_warm_day.tres" id="1_jqung"]
+[ext_resource type="Shader" path="res://assets/shaders/env_terrain.gdshader" id="2_38hx5"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_cobble.png" id="3_b7wer"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_dirt.png" id="4_qtc4c"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass.png" id="5_me5e4"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass_lush.png" id="6_ov3yp"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="7_c8imo"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_rock.png" id="8_wleel"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_sand.png" id="9_amvet"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/buriti_soft_a.res" id="10_0w3rw"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/buriti_soft_b.res" id="11_ixl6e"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/palm_soft_a.res" id="12_q0del"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/palm_soft_b.res" id="13_dqr5g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2jpu"]
+render_priority = 0
+shader = ExtResource("2_38hx5")
+shader_parameter/tex_grass = ExtResource("5_me5e4")
+shader_parameter/tex_grass_alt = ExtResource("6_ov3yp")
+shader_parameter/tex_dirt = ExtResource("4_qtc4c")
+shader_parameter/tex_cobble = ExtResource("3_b7wer")
+shader_parameter/tex_sand = ExtResource("9_amvet")
+shader_parameter/tex_rock = ExtResource("8_wleel")
+shader_parameter/tex_noise = ExtResource("7_c8imo")
+shader_parameter/grass_tile_m = null
+shader_parameter/dirt_tile_m = null
+shader_parameter/cobble_tile_m = null
+shader_parameter/sand_tile_m = null
+shader_parameter/rock_tile_m = null
+shader_parameter/splat_source = 0
+shader_parameter/splat_origin = null
+shader_parameter/splat_size = null
+shader_parameter/macro_scale_m = null
+shader_parameter/macro_warm = null
+shader_parameter/macro_cool = null
+shader_parameter/macro_strength = null
+shader_parameter/grass_alt_amount = null
+shader_parameter/grass_tint = null
+shader_parameter/dirt_tint = null
+shader_parameter/cobble_tint = null
+shader_parameter/sand_tint = null
+shader_parameter/rock_tint = null
+shader_parameter/blend_softness = null
+shader_parameter/edge_noise = null
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lt6ji"]
+size = Vector2(120, 120)
+
+[node name="PackGallery" type="Node3D" unique_id=766674344]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=323691303]
+transform = Transform3D(0.7880108, 0.39573956, -0.47162408, 0, 0.76604444, 0.6427876, 0.6156615, -0.50652355, 0.6036513, 0, 0, 0)
+light_color = Color(1, 0.86, 0.66, 1)
+light_energy = 1.35
+light_angular_distance = 1.2
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_normal_bias = 1.2
+shadow_opacity = 0.82
+shadow_blur = 1.6
+directional_shadow_mode = 1
+directional_shadow_max_distance = 60.0
+
+[node name="@WorldEnvironment@2" type="WorldEnvironment" parent="." unique_id=492755199]
+environment = ExtResource("1_jqung")
+
+[node name="@MeshInstance3D@3" type="MeshInstance3D" parent="." unique_id=638280412]
+material_override = SubResource("ShaderMaterial_n2jpu")
+mesh = SubResource("PlaneMesh_lt6ji")
+
+[node name="buriti_soft_a" type="MeshInstance3D" parent="." unique_id=950448794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5097136, 0, 0)
+mesh = ExtResource("10_0w3rw")
+
+[node name="buriti_soft_b" type="MeshInstance3D" parent="." unique_id=794831387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.589416, 0, 0)
+mesh = ExtResource("11_ixl6e")
+
+[node name="palm_soft_a" type="MeshInstance3D" parent="." unique_id=1474592935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.099447, 0, 0)
+mesh = ExtResource("12_q0del")
+
+[node name="palm_soft_b" type="MeshInstance3D" parent="." unique_id=737321581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7011359, 0, 7)
+mesh = ExtResource("13_dqr5g")

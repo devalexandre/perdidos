@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_seed_necklace.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"buriti_ring"
+name_key = "ITEM_BURITI_RING_NAME"
+desc_key = "ITEM_BURITI_RING_DESC"
+icon = ExtResource("icon")
+type = 6
+rarity = 1
+buy_price = 390
+sell_price = 130
+stats = Dictionary[StringName, int]({
+&"dex": 2,
+&"luk": 1,
+&"atk": 1
+})

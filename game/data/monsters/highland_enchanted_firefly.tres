@@ -1,0 +1,165 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_l0dg0"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_j813s"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_ljx66"]
+
+[sub_resource type="Resource" id="Resource_iopfh"]
+script = ExtResource("1_l0dg0")
+item_id = &"firefly_light"
+chance = 0.55
+
+[sub_resource type="Resource" id="Resource_5tnct"]
+script = ExtResource("1_l0dg0")
+item_id = &"potion_mp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_klx5y"]
+script = ExtResource("3_ljx66")
+name_key = "MON_HIGHLAND_ENCHANTED_FIREFLY_S1_NAME"
+sprite_base = "res://assets/monsters/enchanted_firefly/mon_enchanted_firefly_s1"
+baked_life = true
+level = 14
+max_hp = 296
+atk = 14
+matk = 24
+def = 2
+mdef = 9
+walk_ms_per_cell = 380
+attack_range_cells = 4.0
+attack_interval_ms = 1800
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 119
+stars_min = 2
+stars_max = 5
+drops = Array[ExtResource("1_l0dg0")]([SubResource("Resource_iopfh"), SubResource("Resource_5tnct")])
+behaviors = Array[StringName]([&"fly_pattern", &"ranged"])
+
+aggressive = true
+[sub_resource type="Resource" id="Resource_hxq6t"]
+script = ExtResource("1_l0dg0")
+item_id = &"firefly_light"
+chance = 0.9
+max_qty = 3
+
+[sub_resource type="Resource" id="Resource_444rw"]
+script = ExtResource("1_l0dg0")
+item_id = &"potion_mp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_5lmhq"]
+script = ExtResource("3_ljx66")
+stage = 2
+name_key = "MON_HIGHLAND_ENCHANTED_FIREFLY_S2_NAME"
+sprite_base = "res://assets/monsters/enchanted_firefly/mon_enchanted_firefly_s2"
+baked_life = true
+level = 18
+max_hp = 661
+atk = 25
+matk = 46
+def = 8
+mdef = 20
+walk_ms_per_cell = 340
+attack_range_cells = 5.0
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 7
+xp_reward = 281
+stars_min = 5
+stars_max = 12
+drops = Array[ExtResource("1_l0dg0")]([SubResource("Resource_hxq6t"), SubResource("Resource_444rw")])
+behaviors = Array[StringName]([&"fly_pattern", &"ranged"])
+
+[sub_resource type="Resource" id="Resource_eu3h5"]
+script = ExtResource("1_l0dg0")
+item_id = &"firefly_light"
+chance = 1.0
+min_qty = 4
+max_qty = 8
+
+[sub_resource type="Resource" id="Resource_q4i8d"]
+script = ExtResource("1_l0dg0")
+item_id = &"potion_mp_medium"
+chance = 0.5
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_enchan_boss_rare"]
+script = ExtResource("1_l0dg0")
+item_id = &"eternal_ember"
+chance = 0.35
+
+[sub_resource type="Resource" id="Resource_enchan_rare_rare"]
+script = ExtResource("1_l0dg0")
+item_id = &"eternal_ember"
+chance = 0.12
+
+[sub_resource type="Resource" id="Resource_enchan_atroz_d0"]
+script = ExtResource("1_l0dg0")
+item_id = &"firefly_light"
+chance = 1.0
+min_qty = 6
+max_qty = 12
+
+[sub_resource type="Resource" id="Resource_enchan_atroz_d1"]
+script = ExtResource("1_l0dg0")
+item_id = &"potion_mp_medium"
+chance = 0.75
+min_qty = 2
+max_qty = 3
+
+[sub_resource type="Resource" id="Resource_enchan_atroz_rare"]
+script = ExtResource("1_l0dg0")
+item_id = &"eternal_ember"
+chance = 0.85
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_bo1mn"]
+script = ExtResource("3_ljx66")
+stage = 3
+name_key = "MON_ENCHANTED_FIREFLY_S3_NAME"
+sprite_base = "res://assets/monsters/enchanted_firefly/mon_enchanted_firefly_s3"
+baked_life = true
+level = 21
+max_hp = 3800
+atk = 40
+matk = 85
+def = 15
+mdef = 35
+walk_ms_per_cell = 320
+attack_range_cells = 6.0
+attack_interval_ms = 1400
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 18
+xp_reward = 1500
+stars_min = 60
+stars_max = 120
+drops = Array[ExtResource("1_l0dg0")]([SubResource("Resource_eu3h5"), SubResource("Resource_q4i8d"), SubResource("Resource_enchan_boss_rare")])
+behaviors = Array[StringName]([&"fly_pattern", &"ranged", &"boss"])
+
+[sub_resource type="Resource" id="Resource_enchan_atroz"]
+script = ExtResource("3_ljx66")
+stage = 4
+name_key = "MON_ENCHANTED_FIREFLY_S4_NAME"
+sprite_base = "res://assets/monsters/enchanted_firefly/mon_enchanted_firefly_s4"
+baked_life = true
+level = 27
+walk_ms_per_cell = 256
+attack_range_cells = 6.0
+attack_interval_ms = 910
+aggressive = true
+aggro_range_cells = 13
+leash_cells = 28
+xp_reward = 3750
+stars_min = 120
+stars_max = 240
+drops = Array[ExtResource("1_l0dg0")]([SubResource("Resource_enchan_atroz_d0"), SubResource("Resource_enchan_atroz_d1"), SubResource("Resource_enchan_atroz_rare")])
+behaviors = Array[StringName]([&"fly_pattern", &"ranged", &"boss"])
+
+[resource]
+script = ExtResource("2_j813s")
+id = &"highland_enchanted_firefly"
+base_species = &"enchanted_firefly"
+stages = Array[ExtResource("3_ljx66")]([SubResource("Resource_klx5y"), SubResource("Resource_5lmhq"), SubResource("Resource_bo1mn"), SubResource("Resource_enchan_atroz")])
+rare_extra_drops = Array[ExtResource("1_l0dg0")]([SubResource("Resource_enchan_rare_rare")])

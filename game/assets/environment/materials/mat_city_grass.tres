@@ -1,0 +1,41 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_terrain.gdshader" id="1_m448d"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_cobble.png" id="2_2mqca"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_dirt.png" id="3_cekk8"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass.png" id="4_3ofxc"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass_lush.png" id="5_qbg27"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="6_8oden"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_rock.png" id="7_214c2"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_sand.png" id="8_2qdif"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_m448d")
+shader_parameter/tex_grass = ExtResource("4_3ofxc")
+shader_parameter/tex_grass_alt = ExtResource("5_qbg27")
+shader_parameter/tex_dirt = ExtResource("3_cekk8")
+shader_parameter/tex_cobble = ExtResource("2_2mqca")
+shader_parameter/tex_sand = ExtResource("8_2qdif")
+shader_parameter/tex_rock = ExtResource("7_214c2")
+shader_parameter/tex_noise = ExtResource("6_8oden")
+shader_parameter/grass_tile_m = null
+shader_parameter/dirt_tile_m = null
+shader_parameter/cobble_tile_m = null
+shader_parameter/sand_tile_m = null
+shader_parameter/rock_tile_m = null
+shader_parameter/splat_source = 0
+shader_parameter/splat_origin = null
+shader_parameter/splat_size = null
+shader_parameter/macro_scale_m = null
+shader_parameter/macro_warm = null
+shader_parameter/macro_cool = null
+shader_parameter/macro_strength = null
+shader_parameter/grass_alt_amount = null
+shader_parameter/grass_tint = null
+shader_parameter/dirt_tint = null
+shader_parameter/cobble_tint = null
+shader_parameter/sand_tint = null
+shader_parameter/rock_tint = null
+shader_parameter/blend_softness = null
+shader_parameter/edge_noise = null

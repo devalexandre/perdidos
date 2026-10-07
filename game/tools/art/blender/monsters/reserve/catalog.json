@@ -1,0 +1,52 @@
+{
+  "sabia": [
+    ["ember_mule", "Mula de Brasa", "Mula da Queimada", "Mula da Noite Ardente", "horse", "cap", "flame", "Mula de fogo: releitura fantástica sem o componente religioso da lenda."],
+    ["buriti_boar", "Queixada de Buriti", "Queixada do Veredão", "Queixada das Raízes Negras", "boar", "fur_brown", "palm", "Fauna do cerrado e veredas; criatura original, com presas e folhas de buriti."],
+    ["cinder_serpent", "Serpente-Fagulha", "Serpente do Fogo Errante", "Serpente da Cinza Viva", "serpent", "cap", "flame", "Serpente de fogo inspirada no imaginário do Boitatá; não é o chefe único da região."]
+  ],
+  "mouras": [
+    ["coca_drake", "Draguinha da Charneca", "Dragoa das Ruínas", "Dragoa do Breu", "dragon", "moss", "sail", "Coca como dragoa de fantasia, sem procissão; charnecas e ruínas portuguesas."],
+    ["tide_colossus", "Pedregulho da Maré", "Colosso do Cabo", "Colosso da Maré Negra", "golem", "rock", "coral", "Criatura original de rocha e espuma inspirada nos cabos de Adamastor, sem representar o personagem único."],
+    ["golden_spindle", "Fuso Saltitante", "Roca do Tesouro", "Roca dos Fios Sombrios", "spindle", "wood", "thread", "Objeto encantado inspirado no ouro fiado das mouras; as guardiãs não são inimigas."]
+  ],
+  "sol": [
+    ["pond_kappa", "Kappa da Lagoa", "Kappa do Remanso", "Kappa do Poço Escuro", "turtle", "moss", "bowl", "Releitura do kappa: casco, bico e cavidade de água na cabeça."],
+    ["mountain_tengu", "Corvo da Montanha", "Tengu do Vendaval", "Tengu da Asa Noturna", "bird", "cap", "fan", "Criatura aviária inspirada no tengu, com leque de penas e nariz em bico; sem objetos religiosos."],
+    ["paper_lantern", "Lanterna Travessa", "Lanterna do Desfile", "Lanterna da Chama Violeta", "lantern", "gold", "paper", "Objeto assombrado inspirado em lanternas do folclore japonês, sem escrita ritual."]
+  ],
+  "fiordes": [
+    ["rime_wolf", "Lobo da Geada", "Lobo da Aurora", "Lobo da Aurora Sombria", "wolf", "fur_cream", "ice", "Lobo fantástico dos fiordes e contos do norte; não é Fenrir."],
+    ["fjord_crab", "Caranguejo do Fiorde", "Couraça do Iceberg", "Couraça do Abismo Frio", "crab", "water", "ice", "Fauna costeira fantástica com armadura de gelo; criação original."],
+    ["drift_draugr", "Armadura à Deriva", "Vigia do Naufrágio", "Vigia do Mar Morto", "golem", "wood", "anchor", "Armadura vazia inspirada em contos de assombrações marítimas e draugr, sem restos humanos ou runas reais."]
+  ],
+  "colunas": [
+    ["bronze_bull", "Touro de Bronze", "Touro do Labirinto", "Touro da Forja Negra", "boar", "gold", "horns", "Touro autômato de fantasia inspirado em labirintos e bronze do imaginário grego."],
+    ["marsh_hydra", "Hidrinha do Charco", "Hidra dos Juncos", "Hidra do Pântano Negro", "hydra", "moss", "reeds", "Hidra de três cabeças: criatura de mito grego adaptada como espécie, sem deuses."],
+    ["cliff_harpy", "Harpia do Penhasco", "Harpia das Colunas", "Harpia da Tempestade", "bird", "fur_cream", "crest", "Harpia reinterpretada como ave fantástica chibi, sem sexualização."]
+  ],
+  "areias": [
+    ["glass_scarab", "Escaravelho de Vidro", "Escaravelho das Dunas", "Escaravelho do Eclipse", "beetle", "water", "gem", "Besouro fantástico de dunas com élitros de vidro; sem personificar divindades."],
+    ["dune_cobra", "Naja de Areia", "Naja da Duna Rubra", "Naja da Noite de Vidro", "serpent", "gold", "hood", "Naja da fauna regional com capuz mineral; criatura original, não Apep."],
+    ["reed_crocodile", "Crocodilo dos Juncos", "Crocodilo do Banco de Areia", "Crocodilo do Lodo Negro", "crocodile", "moss", "reeds", "Fauna do Nilo transformada em criatura de fantasia; sem símbolos religiosos."]
+  ],
+  "brumas": [
+    ["mist_hound", "Cão da Bruma", "Cão do Urzal", "Cão da Névoa Negra", "wolf", "moss", "mist", "Cão feérico de fantasia inspirado em contos das brumas escocesas."],
+    ["bog_wisp", "Luz do Brejo", "Candeeiro da Turfeira", "Lume da Turfa Negra", "wisp", "water", "mist", "Fogo-fátuo dos pântanos e contos de luzes errantes; sem representar uma divindade."],
+    ["heather_cat", "Gato do Urzal", "Gato da Pedra Antiga", "Gato da Lua Velada", "cat", "fur_brown", "chest", "Gato feérico inspirado no imaginário do cat-sìth, com marca clara no peito."]
+  ],
+  "estepe": [
+    ["ember_bird", "Ave-Fagulha", "Ave da Pluma Ardente", "Ave da Brasa Azul", "bird", "cap", "flame", "Ave mágica inspirada no pássaro de fogo dos contos eslavos; não é uma divindade."],
+    ["mortar_hopper", "Pilão Saltador", "Pilão da Floresta", "Pilão do Bosque Sombrio", "mortar", "wood", "pestle", "Objeto encantado inspirado no pilão dos contos de Baba Yaga; espécie original."],
+    ["birch_spider", "Aranha de Bétula", "Tecelã do Bosque Branco", "Tecelã da Geada Negra", "spider", "fur_cream", "bark", "Fauna e florestas de bétulas da região; criatura original, sem atribuição folclórica literal."]
+  ],
+  "jade": [
+    ["nian_cub", "Nian das Colinas", "Nian do Vale Rubro", "Nian da Noite Ruidosa", "dragon", "cap", "mane", "Nian como fera fantástica de chifre e juba; sem imagens de sacerdotes."],
+    ["jade_mantis", "Louva-a-deus de Jade", "Foice do Bambuzal", "Foice da Jade Negra", "mantis", "moss", "bamboo", "Fauna e bambuzais reinterpretados com placas minerais; criatura original."],
+    ["ink_carp", "Carpa de Tinta", "Carpa da Cascata", "Carpa do Rio Noturno", "fish", "water", "whiskers", "Carpa fantástica inspirada no imaginário de carpas e cascatas, com bigodes e nadadeiras em pincel."]
+  ],
+  "obsidiana": [
+    ["cenote_hound", "Cão do Cenote", "Fera da Cauda-Mão", "Fera do Cenote Negro", "wolf", "water", "handtail", "Releitura fantástica do ahuizotl, criatura aquática com mão na cauda; não é nahual ou alux."],
+    ["stone_axolotl", "Axolote de Turquesa", "Axolote da Gruta", "Axolote da Fenda Negra", "salamander", "water", "gills", "Fauna mexicana e minerais locais; criação original sem representar divindades."],
+    ["cacao_bat", "Morcego do Cacau", "Asa da Caverna", "Asa da Obsidiana Viva", "bat", "fur_brown", "gem", "Fauna de selvas e cavernas mesoamericanas; criatura original, sem deuses ou sacrifícios."]
+  ]
+}

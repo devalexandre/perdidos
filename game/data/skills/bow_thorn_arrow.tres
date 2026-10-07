@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"bow_thorn_arrow"
+name_key = "SKILL_BOW_THORN_ARROW_NAME"
+desc_key = "SKILL_BOW_THORN_ARROW_DESC"
+school = &"bow"
+region_id = &"brasil"
+effect = 2
+mana_cost = 14
+cooldown_sec = 12.0
+range_cells = 10.0
+base_multiplier = 0.6
+multiplier_per_level = 0.05
+duration_sec = 6.0
+extra = Dictionary[StringName, Variant]({
+&"damage_kind": "physical"
+})
+requires_bow = true
+vfx = &"poison"
+exclusive_to_title = &"sabia_bow_brejo"
+icon_text = "FE"
+tree_title = &"sabia_bow_brejo"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"bow_ambush_shot": 3
+})

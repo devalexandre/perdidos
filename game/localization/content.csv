@@ -1,0 +1,744 @@
+keys,pt_BR
+ITEM_POTION_HP_SMALL_NAME,Poção de Vida Pequena
+ITEM_POTION_HP_SMALL_DESC,Frasquinho de xarope de acerola e ervas. Recupera 60 de vida.
+ITEM_POTION_HP_MEDIUM_NAME,Poção de Vida Média
+ITEM_POTION_HP_MEDIUM_DESC,"Garrafa de xarope encorpado, receita das curandeiras do porto. Recupera 180 de vida."
+ITEM_POTION_MP_SMALL_NAME,Poção de Mana Pequena
+ITEM_POTION_MP_SMALL_DESC,Chá gelado de flor de maracujá. Recupera 40 de mana.
+ITEM_POTION_MP_MEDIUM_NAME,Poção de Mana Média
+ITEM_POTION_MP_MEDIUM_DESC,Infusão azulada que cintila no escuro. Recupera 120 de mana.
+ITEM_MACHETE_NAME,Facão
+ITEM_MACHETE_DESC,"Lâmina larga e confiável, boa para abrir trilha e para se defender."
+ITEM_SHORT_SWORD_NAME,Espada Curta
+ITEM_SHORT_SWORD_DESC,Espada leve de ferro forjado no porto. Rápida na mão de quem treina.
+ITEM_SABIA_LONG_BLADE_NAME,Lâmina Longa do Sabiá
+ITEM_SABIA_LONG_BLADE_DESC,Espada de ipê reforçada com ferro do porto. Um corte firme que abre caminho nas veredas.
+ITEM_BURITI_RECURVE_NAME,Arco Recurvo de Buriti
+ITEM_BURITI_RECURVE_DESC,"Arco de buriti temperado na fumaça, leve na puxada e certeiro de longe."
+ITEM_EMBER_MACHETE_NAME,Facão de Brasa
+ITEM_EMBER_MACHETE_DESC,Facão forjado por Seu Zé com uma Brasa Eterna. A lâmina guarda calor e força mágica.
+ITEM_FIREFLY_WAND_NAME,Varinha de Vaga-lume
+ITEM_FIREFLY_WAND_DESC,Varinha entalhada em raiz viva e polida com luz de vaga-lume. Acelera a conjuração.
+ITEM_MOSS_CROWN_NAME,Coroa de Musgo
+ITEM_MOSS_CROWN_DESC,Ramos e musgo trançados por mãos da Mata. Protege a cabeça e ajuda a manter a calma.
+ITEM_LEATHER_GLOVES_NAME,Luvas de Couro
+ITEM_LEATHER_GLOVES_DESC,Luvas reforçadas para empunhar lâminas quentes e ferramentas pesadas.
+ITEM_BURITI_RING_NAME,Anel de Buriti
+ITEM_BURITI_RING_DESC,Anel de fibra resinada com uma semente polida. Dá firmeza aos dedos e sorte no caminho.
+ITEM_IPE_CIRCLET_NAME,Diadema de Ipê
+ITEM_IPE_CIRCLET_DESC,Flores de ipê guardadas em um aro encantado. Amplifica a magia de quem o usa.
+ITEM_CINDER_RING_NAME,Anel de Cinza Viva
+ITEM_CINDER_RING_DESC,Um fragmento de brasa preso num aro escuro. A cinza ainda pulsa com energia arcana.
+ITEM_MITO_SABER_NAME,Sabre do Mito
+ITEM_MITO_SABER_DESC,"Lâmina lendária do Sabiá, equilibrada para um golpe certeiro e decisivo."
+ITEM_ROOTWEAVE_STAFF_NAME,Cajado Trama-Raiz
+ITEM_ROOTWEAVE_STAFF_DESC,"Cajado tecido com raiz antiga, Brasa Eterna e luz de vaga-lume. Obra de mestre do Seu Zé."
+ITEM_BOSS_GALE_BLADE_NAME,Lâmina do Vendaval
+ITEM_BOSS_GALE_BLADE_DESC,Arma rara arrancada de um chefe. O fio parece cortar até a corrente de ar.
+ITEM_ATROZ_SOUL_STAFF_NAME,Cajado da Alma Atroz
+ITEM_ATROZ_SOUL_STAFF_DESC,Arma épica tomada de uma forma Atroz. A luz sombria responde aos gestos do portador.
+ITEM_WOODEN_STAFF_NAME,Cajado de Madeira
+ITEM_WOODEN_STAFF_DESC,Cajado de madeira com um pequeno cristal azul na ponta. Ajuda a concentrar o Arcano.
+ITEM_IPE_WAND_NAME,Varinha de Ipê
+ITEM_IPE_WAND_DESC,"Galho caído do ipê da praça, ainda com uma flor amarela presa. Dizem que guarda um pouco da luz do cristal."
+ITEM_LEATHER_SHIELD_NAME,Escudo de Couro
+ITEM_LEATHER_SHIELD_DESC,Escudo redondo de couro curtido sobre aro de madeira.
+ITEM_SIMPLE_TOME_NAME,Tomo Simples
+ITEM_SIMPLE_TOME_DESC,Caderno de capa de couro com anotações de feitiços básicos.
+ITEM_STRAW_HAT_NAME,Chapéu de Palha com Flor
+ITEM_STRAW_HAT_DESC,Chapéu de palha trançada com uma florzinha na fita. Protege do sol da tarde.
+ITEM_LEATHER_JERKIN_NAME,Gibão de Couro
+ITEM_LEATHER_JERKIN_DESC,"Gibão de couro resistente, com costuras reforçadas nos ombros."
+ITEM_WALKING_BOOTS_NAME,Botas de Caminhada
+ITEM_WALKING_BOOTS_DESC,"Botas macias de couro, feitas para longas estradas de terra."
+ITEM_SEED_NECKLACE_NAME,Colar de Sementes
+ITEM_SEED_NECKLACE_DESC,Colar de sementes vermelhas e pretas enfiadas à mão. Traz calma a quem usa.
+ITEM_RIBBON_BRACELET_NAME,Pulseira de Fita
+ITEM_RIBBON_BRACELET_DESC,Fita colorida amarrada no pulso com três nós. Deixa a mão mais ligeira.
+ITEM_SPINNING_LEAF_NAME,Folha Rodopiante
+ITEM_SPINNING_LEAF_DESC,"Folha seca que ainda gira sozinha, como se tivesse um redemoinho dentro. O mercador compra."
+ITEM_IPE_FLOWER_CROWN_NAME,Coroa de Flores de Ipê
+ITEM_IPE_FLOWER_CROWN_DESC,Coroa trançada com flores amarelas caídas do ipê da praça. Presente do Tico. Item cosmético: só muda a aparência.
+NPC_MASTER_BRISA_NAME,Mestra Brisa Ferrenha
+NPC_MASTER_ORVALHO_NAME,Mestre Orvalho
+NPC_MERCHANT_NAME,Mercador Anselmo
+NPC_BOATMAN_NAME,Barqueiro Benedito
+NPC_FRUIT_VENDOR_NAME,Dona Jandira
+NPC_GATE_GUARD_NAME,Guarda Tomé
+NPC_FISHERMAN_NAME,Pescador Lindolfo
+NPC_CURIOUS_CHILD_NAME,Tico
+DLG_MASTER_BRISA_START,"Firme nos pés, Viajante. Sou Brisa Ferrenha, mestra da Escola da Lâmina. Aqui ninguém nasce sabendo: se aprende golpe a golpe."
+DLG_MASTER_BRISA_START_OPT0,O que ensina a Escola da Lâmina?
+DLG_MASTER_BRISA_START_OPT1,Tem alguma dica para mim?
+DLG_MASTER_BRISA_START_OPT2,"Até logo, mestra."
+DLG_MASTER_BRISA_ABOUT,"A Lâmina é o caminho de quem luta de perto: facão, espada e coragem. Quando você tiver andado um pouco pelos campos, volte aqui. Terei lições para quem quiser aprender."
+DLG_MASTER_BRISA_ABOUT_OPT0,Tem alguma dica para mim?
+DLG_MASTER_BRISA_ABOUT_OPT1,Voltarei.
+DLG_MASTER_BRISA_TIP,Nunca saia pelos portões sem poções no bolso. O mercador da feira vende. E um facão na mão vale mais que dez na loja.
+DLG_MASTER_BRISA_TIP_OPT0,"Obrigado, mestra."
+DLG_MASTER_ORVALHO_START,"Oh! Um rosto novo! Não repare nas luzinhas, elas são curiosas como eu. Sou Orvalho, mestre da Escola do Arcano."
+DLG_MASTER_ORVALHO_START_OPT0,O que é o Arcano?
+DLG_MASTER_ORVALHO_START_OPT1,Que luzes são essas?
+DLG_MASTER_ORVALHO_START_OPT2,"Até mais, mestre."
+DLG_MASTER_ORVALHO_ABOUT,"O Arcano é conversar com as forças do mundo: faísca, gelo, chama... Tudo tem um ritmo, e a gente aprende a escutar. Posso ensinar a Faísca e abrir o caminho da Luz de Vaga-lume, mesmo que você tenha escolhido outra escola no treino."
+DLG_MASTER_ORVALHO_ABOUT_OPT0,Que luzes são essas?
+DLG_MASTER_ORVALHO_ABOUT_OPT1,Quero conhecer suas lições.
+DLG_MASTER_ORVALHO_LIGHTS,São vaga-lumes encantados dos Campos do Sabiá. Um dia me seguiram até aqui e nunca mais foram embora. Acho que gostam do cheiro das minhas ervas!
+DLG_MASTER_ORVALHO_LIGHTS_OPT0,Que simpáticos.
+DLG_MERCHANT_START,"Chegue mais, freguês! Poção fresquinha, facão amolado e roupa boa para a estrada. Tudo pago em Estrelas!"
+DLG_MERCHANT_START_OPT0,Quero ver suas mercadorias.
+DLG_MERCHANT_START_OPT1,Você também compra coisas?
+DLG_MERCHANT_START_OPT2,Só estou olhando.
+DLG_MERCHANT_BUY_INFO,"Compro, sim! Folhas Rodopiantes e tudo o que você trouxer dos campos. Pago um preço justo. É só abrir a loja e me mostrar."
+DLG_MERCHANT_BUY_INFO_OPT0,Então vamos às compras.
+DLG_MERCHANT_BUY_INFO_OPT1,Obrigado!
+DLG_BOATMAN_START,"Ô, acordou, afinal! Te achei num bote à deriva, coberto de pétalas douradas. O rio só traz essas flores quando um Viajante cruza de outro mundo. Bem-vindo ao Porto do Despertar."
+DLG_BOATMAN_START_OPT0,Onde eu estou?
+DLG_BOATMAN_START_OPT1,Por que me chamou de Viajante?
+DLG_BOATMAN_START_OPT2,Obrigado. Vou dar uma volta.
+DLG_BOATMAN_WHERE,"No Porto do Despertar, na Terra do Sabiá. O mesmo ipê dourado que abriu sua passagem cresce na praça; suas raízes alcançam os cristais que guardam estas terras. Siga o cais para o oeste: o cristal azul debaixo dele traz de volta quem se perde."
+DLG_BOATMAN_WHERE_OPT0,Por que me chamou de Viajante?
+DLG_BOATMAN_WHERE_OPT1,"Entendi, obrigado."
+DLG_BOATMAN_TRAVELER,"É como chamamos quem a Árvore encontra entre mundos. Você não é o primeiro: cada Viajante chega por um rio diferente, mas todos carregam uma pétala que não murcha. Os Mestres, na casa de azulejos junto da praça, estudam essas chegadas."
+DLG_BOATMAN_TRAVELER_OPT0,"Onde eu estou, afinal?"
+DLG_BOATMAN_TRAVELER_OPT1,Vou procurar os Mestres.
+DLG_FRUIT_VENDOR_START,"Olha a manga, olha o caju, olha o maracujá! Fruta docinha, colhida hoje cedo. Quer ouvir uma história enquanto escolhe?"
+DLG_FRUIT_VENDOR_START_OPT0,Conte uma lenda.
+DLG_FRUIT_VENDOR_START_OPT1,"Hoje não, obrigado."
+DLG_FRUIT_VENDOR_LEGEND_1,"Dizem que nos campos anda um redemoinho travesso de gorrinho vermelho. Ele esconde as coisas dos viajantes e ri no vento. Se sumir alguma coisa sua, já sabe quem foi!"
+DLG_FRUIT_VENDOR_LEGEND_1_OPT0,Tem outra?
+DLG_FRUIT_VENDOR_LEGEND_1_OPT1,Vou ficar de olho.
+DLG_FRUIT_VENDOR_LEGEND_2,Lá nas chapadas corre uma serpente de fogo que protege os campos. Quem põe fogo no mato desperta a fúria dela. Por isso aqui a gente respeita a mata.
+DLG_FRUIT_VENDOR_LEGEND_2_OPT0,Que história!
+DLG_GATE_GUARD_START,"Alto lá, Viajante. Este é o Portão Norte. As raízes do ipê seguem sob os campos até a Mata, mas alguma coisa está ferindo esse caminho: os cristais tremem à noite. A guarda ouviu um uivo vindo de lá e encontrou marcas grandes no barro."
+DLG_GATE_GUARD_START_OPT0,Posso passar?
+DLG_GATE_GUARD_START_OPT1,E os outros portões?
+DLG_GATE_GUARD_START_OPT2,Bom serviço.
+DLG_LOBISOMEM_GUARD_OPT,Essas marcas no barro viraram assunto entre a guarda. Vou guardar esse relato.
+DLG_GATE_GUARD_GATES,"Por enquanto os portões estão fechados por ordem da guarda. Quando abrirem, os Campos são recomendados para o nível 1 a 10. Bichos mansos, na maioria... na maioria."
+DLG_GATE_GUARD_GATES_OPT0,E os outros portões?
+DLG_GATE_GUARD_GATES_OPT1,Vou me preparar.
+DLG_GATE_GUARD_OTHERS,"O Portão Sul leva à Mata Encantada, para quem já tem estrada: nível 8 a 18. O Portão Oeste dá na Arena da Queimada, onde os Viajantes duelam entre si. Vá preparado."
+DLG_GATE_GUARD_OTHERS_OPT0,Posso passar pelo Norte?
+DLG_GATE_GUARD_OTHERS_OPT1,Obrigado pelo aviso.
+DLG_FISHERMAN_START,"Psiu... fale baixinho, que o peixe escuta. Sente um pouco, Viajante. O rio ensina paciência."
+DLG_FISHERMAN_START_OPT0,Algum lugar bonito para descansar?
+DLG_FISHERMAN_START_OPT1,Pescou muita coisa hoje?
+DLG_FISHERMAN_START_OPT2,Boa pescaria.
+DLG_FISHERMAN_VIEWPOINT,"Tem três bancos que eu gosto: a ponta do píer grande, a prainha aqui ao norte e o banco da praça, de frente para o ipê. No fim da tarde o céu fica cor de goiaba. Vale sentar e olhar."
+DLG_FISHERMAN_VIEWPOINT_OPT0,Pescou muita coisa hoje?
+DLG_FISHERMAN_VIEWPOINT_OPT1,Vou conferir.
+DLG_FISHERMAN_FISH,"Hoje só uns lambaris e uma bota velha. Mas o dia não é do peixe, é do pescador."
+DLG_FISHERMAN_FISH_OPT0,Boa pescaria.
+DLG_LOBISOMEM_FISHER_OPT,Já ouviu algum uivo estranho no rio?
+DLG_LOBISOMEM_FISHER_CLUE,"Duas noites atrás, o uivo veio da direção da Mata. Até os peixes sumiram do remanso."
+DLG_LOBISOMEM_MARKET_OPT,Aconteceu alguma coisa estranha na estrada?
+DLG_LOBISOMEM_MARKET_CLUE,"Antes do amanhecer vi uma sombra cruzar a estrada. Corria em quatro patas, mas se ergueu quando ouviu a carroça."
+DLG_CURIOUS_CHILD_START,"Ei! Você é Viajante, né? Que roupa diferente! Já viu o cristal debaixo do ipê? Ele brilha até de noite!"
+DLG_CURIOUS_CHILD_START_OPT0,O que o cristal faz?
+DLG_CURIOUS_CHILD_START_OPT1,Vamos brincar?
+DLG_CURIOUS_CHILD_START_OPT2,"Tchau, Tico."
+DLG_CURIOUS_CHILD_CRYSTAL,Minha avó diz que ele cuida de quem se machuca lá fora e traz de volta para cá. E ele zumbe! Chega pertinho que dá para ouvir.
+DLG_CURIOUS_CHILD_CRYSTAL_OPT0,Vamos brincar?
+DLG_CURIOUS_CHILD_CRYSTAL_OPT1,Vou escutar.
+DLG_CURIOUS_CHILD_PLAY,Aposto que você não me pega! Dou três voltas no ipê antes de você dar uma!
+DLG_CURIOUS_CHILD_PLAY_OPT0,"Ei, espere!"
+DLG_CURIOUS_CHILD_PLAY_OPT1,"Antes, me mostre o que você tem aí na mão."
+DLG_CURIOUS_CHILD_GIFT,"Uma coroa de flores do ipê! Eu mesmo trancei com as flores que caem. Toma, é sua: todo Viajante novo precisa de uma."
+DLG_CURIOUS_CHILD_GIFT_OPT0,"Obrigado, Tico! Vou usar."
+DLG_CURIOUS_CHILD_GIFT_OPT1,Guarde para você.
+REGION_BRASIL_NAME,Terra do Sabiá
+REGION_PORTUGAL_NAME,Reino das Mouras
+REGION_JAPAO_NAME,Ilhas do Sol Nascente
+REGION_NORDICO_NAME,Fiordes de Gelo
+REGION_GRECIA_NAME,Costa das Colunas
+REGION_EGITO_NAME,Areias do Nilo
+REGION_CELTA_NAME,Brumas Verdes
+REGION_ESLAVO_NAME,Estepe de Ferro
+REGION_CHINA_NAME,Império de Jade
+REGION_MEXICO_NAME,Selvas de Obsidiana
+AREA_CAMP_NAME,Acampamento dos Viajantes
+ZONE_TRAINING_FIELD_NAME,Campo de Treino dos Viajantes
+ZONE_CITY_AWAKENING_NAME,Porto do Despertar
+NPC_CORONEL_TOBIAS_NAME,Coronel Tobias
+DLG_CORONEL_TOBIAS_START,"O gado da fazenda está sendo atacado. Quero a ameaça resolvida e pago por prova. Se você ouviu os relatos da vila, podemos conversar."
+DLG_CORONEL_TOBIAS_BYE,Voltarei quando tiver uma resposta.
+ITEM_FIREFLY_LIGHT_NAME,Luz de Vaga-lume
+ITEM_FIREFLY_LIGHT_DESC,Uma gotinha de luz morna que o Vaga-lume Encantado deixa para trás. Brilha fraquinho dentro da mão fechada.
+ITEM_ARMADILLO_SHELL_NAME,Casco de Tatu-Pedra
+ITEM_ARMADILLO_SHELL_DESC,"Placa de pedra avermelhada, lisa por fora e com um tufo de musgo. Pesa mais do que parece."
+ITEM_RED_CAP_NAME,Gorrinho Vermelho
+ITEM_RED_CAP_DESC,Um gorrinho vermelho minúsculo que caiu de um redemoinho. Ninguém sabe de quem é. Ou todo mundo sabe e ninguém fala.
+ITEM_THICK_LEATHER_NAME,Couro Grosso
+ITEM_THICK_LEATHER_DESC,"Retalho de couro duro, bom para remendar gibão e bota."
+MON_PRANK_WHIRLWIND_S1_NAME,Redemoinho Arteiro
+MON_PRANK_WHIRLWIND_S2_NAME,Rodamoinho Traquinas
+MON_PRANK_WHIRLWIND_S3_NAME,Ventania do Gorro Vermelho
+MON_ENCHANTED_FIREFLY_S1_NAME,Vaga-lume Encantado
+MON_ENCHANTED_FIREFLY_S2_NAME,Vaga-lume Candeeiro
+MON_ENCHANTED_FIREFLY_S3_NAME,Rainha-Lume do Brejo
+MON_STONE_ARMADILLO_S1_NAME,Tatu-Pedra
+MON_STONE_ARMADILLO_S2_NAME,Tatu-Rochedo
+MON_STONE_ARMADILLO_S3_NAME,Tatu-Montanha
+MON_FOUNTAIN_SERPENT_S1_NAME,Serpe da Fonte
+MON_FOUNTAIN_SERPENT_S2_NAME,Serpe Dourada
+MON_TRASGO_IMP_S1_NAME,Trasguinho
+MON_TRASGO_IMP_S2_NAME,Trasgo Resmungão
+MON_KASA_OBAKE_S1_NAME,Kasa-obake
+MON_KASA_OBAKE_S2_NAME,Kasa-obake Centenário
+MON_TRICKSTER_TANUKI_S1_NAME,Tanuki Trapaceiro
+MON_TRICKSTER_TANUKI_S2_NAME,Tanuki Barrigudo
+MON_MOSS_TROLL_S1_NAME,Trollzinho de Musgo
+MON_MOSS_TROLL_S2_NAME,Troll de Musgo
+MON_LINDWORM_HATCHLING_S1_NAME,Lindworm Filhote
+MON_LINDWORM_HATCHLING_S2_NAME,Lindworm do Gelo
+MON_GRIFFIN_CHICK_S1_NAME,Grifinho
+MON_GRIFFIN_CHICK_S2_NAME,Grifo Jovem
+MON_LITTLE_CHIMERA_S1_NAME,Quimerinha
+MON_LITTLE_CHIMERA_S2_NAME,Quimera Jovem
+MON_DUNE_SCORPION_S1_NAME,Escorpião das Dunas
+MON_DUNE_SCORPION_S2_NAME,Escorpião Rubro
+MON_SPHINX_CUB_S1_NAME,Esfinge Filhote
+MON_SPHINX_CUB_S2_NAME,Esfinge Enigmática
+MON_PUCA_TRICKSTER_S1_NAME,Púca Travesso
+MON_PUCA_TRICKSTER_S2_NAME,Púca Galopante
+MON_LAKE_KELPIE_S1_NAME,Kelpie do Lago
+MON_LAKE_KELPIE_S2_NAME,Kelpie das Brumas
+MON_ZMEY_HATCHLING_S1_NAME,Zmey Filhote
+MON_ZMEY_HATCHLING_S2_NAME,Zmey de Duas Cabeças
+MON_WALKING_HUT_S1_NAME,Cabaninha Andante
+MON_WALKING_HUT_S2_NAME,Cabana de Pés de Galinha
+MON_HOPPING_JIANGSHI_S1_NAME,Jiangshi Saltitante
+MON_HOPPING_JIANGSHI_S2_NAME,Jiangshi Ancião
+MON_SPIRIT_FOX_CUB_S1_NAME,Raposinha Espiritual
+MON_SPIRIT_FOX_CUB_S2_NAME,Raposa de Três Caudas
+MON_OBSIDIAN_IGUANA_S1_NAME,Iguana de Obsidiana
+MON_OBSIDIAN_IGUANA_S2_NAME,Lagarto de Obsidiana
+MON_JAGUAR_CUB_S1_NAME,Jaguarzinho da Selva
+MON_JAGUAR_CUB_S2_NAME,Jaguar da Selva
+NPC_MASTER_JATOBA_NAME,Mestre Jatobá
+NPC_MASTER_CANDEIA_NAME,Mestra Candeia
+NPC_MASTER_GUIOMAR_NAME,Mestra Guiomar
+NPC_MASTER_TSUBAKI_NAME,Mestra Tsubaki
+NPC_MASTER_SOLVEIG_NAME,Mestra Solveig
+NPC_MASTER_NICANDRO_NAME,Mestre Nicandro
+NPC_MASTER_SENEB_NAME,Mestre Seneb
+NPC_MASTER_EWAN_NAME,Mestre Ewan
+NPC_MASTER_ZLATA_NAME,Mestra Zlata
+NPC_MASTER_XIAOYU_NAME,Mestra Xiaoyu
+NPC_MASTER_CITLALI_NAME,Mestra Citlali
+DLG_MASTER_JATOBA_START,"Chegou mais um! Sou Jatobá, e aqui no Campo eu ensino a Lâmina: facão firme na mão, pé firme no chão."
+DLG_MASTER_JATOBA_START_OPT0,Que lugar é este?
+DLG_MASTER_JATOBA_START_OPT1,Como se luta por aqui?
+DLG_MASTER_JATOBA_START_OPT2,"Até logo, mestre."
+DLG_MASTER_JATOBA_ABOUT,"Este é o Campo de Treino dos Viajantes. Cada Mestre ergueu aqui um cantinho da sua terra, para quem chega do Outro Lado conhecer o mundo antes de escolher um caminho. O nosso cantinho é este cerrado: ipê, buriti, cupinzeiro e redemoinho arteiro."
+DLG_MASTER_JATOBA_ABOUT_OPT0,Como se luta por aqui?
+DLG_MASTER_JATOBA_ABOUT_OPT1,Entendi.
+DLG_MASTER_JATOBA_TIP,"Clique no bicho e deixe o braço trabalhar: você golpeia até ele cair ou até mandar outra coisa. Redemoinho é bobo, Tatu-Pedra é casca-grossa. E olho vivo: bicho que derruba Viajante fica mais forte."
+DLG_MASTER_JATOBA_TIP_OPT0,"Obrigado, mestre."
+DLG_MASTER_CANDEIA_START,"Boa luz, Viajante. Sou Candeia, e ensino o Arcano: a arte de acender o que ninguém vê."
+DLG_MASTER_CANDEIA_START_OPT0,O que é o Arcano?
+DLG_MASTER_CANDEIA_START_OPT1,Tem alguma dica para mim?
+DLG_MASTER_CANDEIA_START_OPT2,"Até logo, mestra."
+DLG_MASTER_CANDEIA_ABOUT,"O Arcano é o caminho de quem luta de longe, com faísca, gelo e chama. Não se aprende em livro: passa de mão em mão, de Mestre para aprendiz. Quem chega do Outro Lado aprende qualquer arte, se tiver paciência."
+DLG_MASTER_CANDEIA_ABOUT_OPT0,Tem alguma dica para mim?
+DLG_MASTER_CANDEIA_ABOUT_OPT1,Vou pensar nisso.
+DLG_MASTER_CANDEIA_TIP,Repare nos vaga-lumes do brejo: guardam um pouco de luz encantada e voam em roda. E não fique perto de quem bate forte. Mago esperto é mago longe.
+DLG_MASTER_CANDEIA_TIP_OPT0,"Obrigado, mestra."
+DLG_MASTER_GUIOMAR_START,"Salve, Viajante! Sou Guiomar, da alabarda, do Reino das Mouras. Queria levar-te às nossas muralhas, mas a travessia para a nossa terra ainda não está aberta."
+DLG_MASTER_GUIOMAR_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_GUIOMAR_START_OPT1,Até logo.
+DLG_MASTER_GUIOMAR_LORE,"Nas nossas fontes, dizem, vivem mouras encantadas que penteiam cabelos de ouro ao luar e guardam tesouros para quem cumpre a palavra dada. Quem promete e não cumpre acha só carvão."
+DLG_MASTER_GUIOMAR_LORE_OPT0,Vou lembrar disso.
+DLG_MASTER_TSUBAKI_START,"Seja bem-vindo. Sou Tsubaki, da naginata, das Ilhas do Sol Nascente. A travessia para a nossa terra ainda não está aberta. Por enquanto, cuide da postura."
+DLG_MASTER_TSUBAKI_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_TSUBAKI_START_OPT1,Até logo.
+DLG_MASTER_TSUBAKI_LORE,"Nos rios das ilhas vive o kappa, que guarda água num pratinho no alto da cabeça. Se ele fizer uma reverência, faça também: a água derrama e ele perde a força. Dizem que um kappa, para ser solto, ensinou a arte de pôr ossos no lugar."
+DLG_MASTER_TSUBAKI_LORE_OPT0,Que história boa.
+DLG_MASTER_SOLVEIG_START,"Chegue perto do fogo, Viajante. Sou Solveig, do escudo, dos Fiordes de Gelo. A travessia para a nossa terra ainda não está aberta: o mar de lá ainda está preso no gelo."
+DLG_MASTER_SOLVEIG_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_SOLVEIG_START_OPT1,Até logo.
+DLG_MASTER_SOLVEIG_LORE,"Nos fiordes, os trolls descem das montanhas quando escurece. Os velhos contam que o sol da manhã os transforma em pedra. Por isso tanta rocha lá tem cara de gente."
+DLG_MASTER_SOLVEIG_LORE_OPT0,Vou lembrar disso.
+DLG_MASTER_NICANDRO_START,"Salve, Viajante! Sou Nicandro, da lança e do escudo, da Costa das Colunas. A travessia para a nossa terra ainda não está aberta."
+DLG_MASTER_NICANDRO_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_NICANDRO_START_OPT1,Até logo.
+DLG_MASTER_NICANDRO_LORE,Lá existe um labirinto tão velho que ninguém lembra quem o construiu. Quem entra leva um novelo de linha e vai deixando o fio para trás: é o único jeito de achar a saída.
+DLG_MASTER_NICANDRO_LORE_OPT0,Que história boa.
+DLG_MASTER_SENEB_START,"Que a sombra te seja fresca, Viajante. Sou Seneb, escriba e mestre do khopesh, das Areias do Nilo. A travessia para a nossa terra ainda não está aberta."
+DLG_MASTER_SENEB_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_SENEB_START_OPT1,Até logo.
+DLG_MASTER_SENEB_LORE,"No deserto há uma esfinge que guarda a passagem com enigmas. Ela não quer a tua espada: quer a tua resposta. E os nossos curadores tratam feridas com mel e linho limpo, como ensinam os papiros antigos."
+DLG_MASTER_SENEB_LORE_OPT0,Vou lembrar disso.
+DLG_MASTER_EWAN_START,"Bem-vindo, Viajante. Sou Ewan, da espada longa e da harpa, das Brumas Verdes. A travessia para a nossa terra ainda não está aberta: a névoa ainda não deixa passar."
+DLG_MASTER_EWAN_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_EWAN_START_OPT1,Até logo.
+DLG_MASTER_EWAN_LORE,"Nas praias de lá, as selkies tiram a pele de foca para dançar na areia ao luar. Quem esconde a pele de uma selkie ganha uma saudade que nunca acaba."
+DLG_MASTER_EWAN_LORE_OPT0,Que história boa.
+DLG_MASTER_ZLATA_START,"Saudações, Viajante. Sou Zlata, do arco e do machado, da Estepe de Ferro. A travessia para a nossa terra ainda não está aberta."
+DLG_MASTER_ZLATA_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_ZLATA_START_OPT1,Até logo.
+DLG_MASTER_ZLATA_LORE,"Na floresta de bétulas mora uma velha numa cabana com pés de galinha, que gira para a porta dar para quem chega. Seja educado e ela pode ajudar. Seja grosseiro... bem, melhor ser educado."
+DLG_MASTER_ZLATA_LORE_OPT0,Vou lembrar disso.
+DLG_MASTER_XIAOYU_START,"Bem-vindo, Viajante. Sou Xiaoyu, da espada jian, do Império de Jade. A travessia para a nossa terra ainda não está aberta."
+DLG_MASTER_XIAOYU_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_XIAOYU_START_OPT1,Até logo.
+DLG_MASTER_XIAOYU_LORE,"Todo fim de ano a fera Nian desce das montanhas. Mas ela tem medo do vermelho, do fogo e do barulho: por isso penduramos lanternas vermelhas e soltamos fogos. Nenhuma fera aguenta uma festa bem barulhenta."
+DLG_MASTER_XIAOYU_LORE_OPT0,Que história boa.
+DLG_MASTER_CITLALI_START,"Bem-vindo, Viajante. Sou Citlali, da lâmina de obsidiana, das Selvas de Obsidiana. A travessia para a nossa terra ainda não está aberta."
+DLG_MASTER_CITLALI_START_OPT0,Conte sobre a sua terra.
+DLG_MASTER_CITLALI_START_OPT1,Até logo.
+DLG_MASTER_CITLALI_LORE,"Nas nossas selvas, abelhas sem ferrão fazem um mel que cura, e o jaguar anda sem fazer barulho. Quem entra na mata pede licença e cuida do caminho: a selva lembra de quem a respeita."
+DLG_MASTER_CITLALI_LORE_OPT0,Vou lembrar disso.
+MON_STONE_ARMADILLO_S4_NAME,Tatu-Montanha Atroz
+MON_PRANK_WHIRLWIND_S4_NAME,Ventania Atroz do Gorro Rubro
+MON_ENCHANTED_FIREFLY_S4_NAME,Rainha-Lume Atroz
+ITEM_ETERNAL_EMBER_NAME,Brasa Eterna
+ITEM_ETERNAL_EMBER_DESC,"Brasinha que nunca apaga, tirada do lume de um Vaga-lume Encantado raro ou chefe. Fica morna na mão até no rio."
+ITEM_PEQUI_ROOT_NAME,Raiz de Pequi
+ITEM_PEQUI_ROOT_DESC,"Raiz retorcida que um Redemoinho Arteiro arrancou do cerrado. Guarda água e cheiro de pequi, mesmo depois do fogo."
+ITEM_ANCIENT_SHELL_SHARD_NAME,Caco de Casco Antigo
+ITEM_ANCIENT_SHELL_SHARD_DESC,"Pedaço rachado do casco de um Tatu-Pedra muito velho, raro ou chefe. Mais duro do que qualquer pedra nova."
+DLG_MASTER_TAQUARI_START,Olá. Eu sou Taquari. Caço no cerrado desde menino. Eu ensino a usar o arco.
+DLG_MASTER_TAQUARI_START_OPT0,Como eu começo no arco?
+DLG_MASTER_TAQUARI_START_OPT1,Tem alguma dica?
+DLG_MASTER_TAQUARI_START_OPT2,"Até mais, mestre."
+DLG_MASTER_TAQUARI_ABOUT,"Primeiro, compre um arco na loja do porto. Depois, aprenda comigo três técnicas: Tiro Rasante, Flecha Dupla e Arco Tenso. Quem aprende as três vira Flecha do Cerrado."
+DLG_MASTER_TAQUARI_ABOUT_OPT0,Tem alguma dica?
+DLG_MASTER_TAQUARI_ABOUT_OPT1,Vou comprar um arco.
+DLG_MASTER_TAQUARI_TIP,"Não deixe o bicho chegar perto. Atire, recue e atire de novo. O arco usa a sua Destreza."
+DLG_MASTER_TAQUARI_TIP_OPT0,"Obrigado, mestre."
+NPC_MASTER_TAQUARI_NAME,Mestre Taquari
+DLG_ELDER_ZE_FERREIRO_START,"Olá! Eu sou o Zé, o ferreiro do porto. Faço facões há muitos anos."
+DLG_ELDER_ZE_FORGE_OPT,Quero ver as receitas da forja.
+DLG_ELDER_ZE_FORGE_MENU,"Escolha uma receita. Só aparecem as que cabem na sua bolsa, cujos materiais você tem e cujo rank de Causos alcançou."
+DLG_ELDER_ZE_CRAFT_LONG_BLADE,Forjar Lâmina Longa: 2 Couros e 1 Raiz de Pequi
+DLG_ELDER_ZE_CRAFT_EMBER_MACHETE,Forjar Facão de Brasa: 1 Brasa Eterna, 3 Couros e 1 Raiz de Pequi
+DLG_ELDER_ZE_CRAFT_ROOTWEAVE_STAFF,Forjar Cajado Trama-Raiz: 2 Brasas, 2 Luzes de Vaga-lume e 1 Lasca de Casco
+DLG_ELDER_ZE_FORGE_LEAVE,Voltar
+DLG_ELDER_ZE_FORGE_OPT,Quero ver suas receitas de forja.
+DLG_ELDER_ZE_FORGE_MENU,Escolha uma receita. Só aparecem as que você consegue pagar com os materiais e o nível de Causo atuais.
+DLG_ELDER_ZE_CRAFT_LONG_BLADE,Forjar Lâmina Longa: 2 Couros e 1 Raiz de Pequi
+DLG_ELDER_ZE_CRAFT_EMBER_MACHETE,Forjar Facão de Brasa: 1 Brasa Eterna, 3 Couros e 1 Raiz de Pequi
+DLG_ELDER_ZE_CRAFT_ROOTWEAVE_STAFF,Forjar Cajado Trama-Raiz: 2 Brasas, 2 Luzes de Vaga-lume e 1 Lasca de Casco
+DLG_ELDER_ZE_FORGE_LEAVE,Voltar para a cidade.
+DLG_ELDER_ZE_FERREIRO_START_OPT0,"Conte uma história, seu Zé."
+DLG_ELDER_ZE_FERREIRO_START_OPT1,"Até mais, seu Zé."
+DLG_LOBISOMEM_SMITH_OPT,Chegou algum gado ferido à ferraria?
+DLG_LOBISOMEM_SMITH_CLUE,Um tropeiro trouxe uma rês com marcas fundas demais para serem de onça. A trilha apontava para a Mata.
+DLG_LOBISOMEM_CLUE_KEEP,Vou guardar essa pista.
+NPC_ELDER_ZE_FERREIRO_NAME,Seu Zé Ferreiro
+DLG_ELDER_ANINHA_START,"Olá, meu bem. Eu sou a Vó Aninha, raizeira. Conheço as plantas que curam."
+DLG_ELDER_ANINHA_START_OPT0,"Conte uma história, Vó."
+DLG_ELDER_ANINHA_START_OPT1,"Até logo, Vó."
+NPC_ELDER_ANINHA_NAME,"Vó Aninha, a raizeira"
+DLG_MARCELINA_START,"Sou Marcelina. Três relatos diferentes ajudam a separar o que é medo do que é verdade. Quando tiver três pistas, posso mostrar os caminhos."
+DLG_MARCELINA_OPT_HUNTER,Quero enfrentar a fera para proteger a vila.
+DLG_MARCELINA_OPT_HEALER,Quero quebrar a maldição e salvar Eustáquio.
+DLG_MARCELINA_OPT_PACT,Quero observar a fera antes de decidir.
+DLG_MARCELINA_SELECTED_HUNTER,Então siga a trilha do Coronel Tobias. A caça ainda precisa ser preparada.
+DLG_MARCELINA_SELECTED_HEALER,A cura pede cuidado e a fera viva. Marque a encruzilhada e volte para concluirmos a benzedura.
+DLG_MARCELINA_SELECTED_PACT,A mata também tem algo a dizer. Procure o Curupira e observe sem atacar em três luas cheias.
+DLG_MARCELINA_OPT_BYE,Volto quando tiver reunido as pistas.
+NPC_MARCELINA_NAME,Marcelina, a benzedeira
+DLG_CURUPIRA_START,"A fera pisa pesado, mas não deixa só rastro de destruição. Observe com respeito; a mata mostra o que ela protege."
+DLG_CURUPIRA_OPT_OBSERVE,Observar a fera sem atacar.
+DLG_CURUPIRA_OPT_BYE,Continuarei observando a mata.
+NPC_CURUPIRA_NAME,Curupira, guardião da mata
+DLG_ELDER_TIAO_START,"Olá. Eu sou o Tião, o do Casco. Já apanhei muito nesta vida e sempre levantei."
+DLG_ELDER_TIAO_START_OPT0,"Conte uma história, seu Tião."
+DLG_ELDER_TIAO_START_OPT1,"Até mais, seu Tião."
+NPC_ELDER_TIAO_NAME,Velho Tião do Casco
+MON_TRIAL_TWIN_SHIELD_PUPPET_NAME,Fantoche de Dois Escudos
+MON_WEREWOLF_S1_NAME,Lobisomem Jovem
+MON_WEREWOLF_S2_NAME,Lobisomem da Mata
+MON_WEREWOLF_S3_NAME,A Fera da Mata
+MON_WEREWOLF_S4_NAME,A Fera da Mata Atroz
+QUEST_WEREWOLF_HUNT_NAME,A Caça na Lua Cheia
+QUEST_WEREWOLF_HUNT_DESC,Enfrente a Fera da Mata durante a noite de lua cheia e leve a prova ao Coronel Tobias.
+QUEST_WEREWOLF_HUNT_OFFER,Três relatos apontam para a Mata. Na lua cheia, leve a caçada até o fim e traga uma prova.
+QUEST_WEREWOLF_HUNT_PROGRESS,A lua cheia abre a trilha para a criatura.
+QUEST_WEREWOLF_HUNT_COMPLETE,A vila recebeu a notícia. O silêncio pesa mais que a recompensa.
+QUEST_WEREWOLF_HUNT_OPTION,Ouvi os relatos. Aceito a caçada.
+QUEST_WEREWOLF_HUNT_STEP,Derrote a Fera da Mata durante a lua cheia.
+QUEST_WEREWOLF_HEAL_NAME,A Benzedura da Encruzilhada
+QUEST_WEREWOLF_HEAL_DESC,Leve a história de Eustáquio à encruzilhada e retorne a Marcelina para concluir a benzedura.
+QUEST_WEREWOLF_HEAL_OFFER,A rota da cura exige que o ritual seja feito na encruzilhada. Volte depois de marcar o lugar.
+QUEST_WEREWOLF_HEAL_PROGRESS,Encontre a encruzilhada dos três caminhos.
+QUEST_WEREWOLF_HEAL_COMPLETE,Eustáquio acorda livre da maldição. A família Sete-Estrelas pode recomeçar.
+QUEST_WEREWOLF_HEAL_OPTION,Quero preparar a benzedura.
+QUEST_WEREWOLF_HEAL_STEP,Visite a encruzilhada dos três caminhos.
+QUEST_WEREWOLF_PACT_NAME,O Pacto da Vereda
+QUEST_WEREWOLF_PACT_DESC,Depois de observar a fera em três luas cheias, deixe a oferenda na mata e retorne ao Curupira.
+QUEST_WEREWOLF_PACT_OFFER,Você observou sem atacar. Deixe a oferenda na clareira e volte para me contar.
+QUEST_WEREWOLF_PACT_PROGRESS,Leve a oferenda ao ponto indicado na Mata Encantada.
+QUEST_WEREWOLF_PACT_COMPLETE,A fera aceita a oferenda e passa a reconhecer você como aliado da mata.
+QUEST_WEREWOLF_PACT_OPTION,Deixarei a oferenda e voltarei.
+QUEST_WEREWOLF_PACT_STEP,Deixe a oferenda no ponto marcado da Mata Encantada.
+PROG_MSG_WEREWOLF_ENDING_HEALED,Eustáquio acorda livre da maldição. A sina da família Sete-Estrelas foi quebrada.
+PROG_MSG_WEREWOLF_ENDING_PACT,A fera reconhece você como aliado e retorna à Mata Encantada.
+ITEM_SIMPLE_BOW_NAME,Arco Simples
+ITEM_SIMPLE_BOW_DESC,Arco de madeira de ipê com corda de tucum. Duas mãos; o dano vem da Destreza. Alcance de 8 células.
+DLG_ELDER_ZE_FERREIRO_LEGEND_1,"Quando eu era menino, a forja apagou no meio de um serviço. Sem fogo não tinha facão. Aí entrou pela janela um enxame de vaga-lumes e pousou no carvão."
+DLG_ELDER_ZE_FERREIRO_LEGEND_1_OPT0,E depois?
+DLG_ELDER_ZE_FERREIRO_LEGEND_2,"O carvão acendeu de novo, com uma luz que eu nunca tinha visto. O facão que saiu daquela brasa cortava e soltava faísca ao mesmo tempo."
+DLG_ELDER_ZE_FERREIRO_LEGEND_2_OPT0,E o que é preciso?
+DLG_ELDER_ZE_FERREIRO_NEED,Só consegue usar um facão desses quem aprendeu as duas coisas: segurar a lâmina com firmeza e acender a luz dos vaga-lumes.
+DLG_ELDER_ZE_FERREIRO_NEED_OPT0,Eu já sei essas coisas.
+DLG_ELDER_ZE_FERREIRO_NEED_OPT1,Ainda não sei.
+DLG_ELDER_ZE_FERREIRO_NEED_OPT2,Obrigado pela história.
+DLG_ELDER_ZE_FERREIRO_COME_BACK,"Volte quando tiver aprendido essas duas coisas e quando o povo já contar causos seus (renome 3). Causo vem de história vivida, de título e de fera mais forte que você."
+DLG_ELDER_ZE_FERREIRO_COME_BACK_OPT0,Vou aprender e volto.
+DLG_ELDER_ANINHA_LEGEND_1,"Todo ano o fogo passa pelo cerrado e deixa tudo preto. Quem olha acha que nada vai voltar. Mas, debaixo da terra, as raízes guardaram água."
+DLG_ELDER_ANINHA_LEGEND_1_OPT0,E depois?
+DLG_ELDER_ANINHA_LEGEND_2,"Na primeira chuva, tudo brota de novo. Eu aprendi a cuidar das pessoas do jeito que essas raízes cuidam do cerrado."
+DLG_ELDER_ANINHA_LEGEND_2_OPT0,E o que é preciso?
+DLG_ELDER_ANINHA_NEED,"Para aprender comigo, você precisa saber três coisas: acender uma luz no escuro, proteger os amigos com um escudo de cristal e acertar de longe com o arco."
+DLG_ELDER_ANINHA_NEED_OPT0,Eu já sei essas coisas.
+DLG_ELDER_ANINHA_NEED_OPT1,Ainda não sei.
+DLG_ELDER_ANINHA_NEED_OPT2,Obrigado pela história.
+DLG_ELDER_ANINHA_COME_BACK,"Volte quando souber as três coisas e quando o povo já contar causos seus (renome 3), meu bem."
+DLG_ELDER_ANINHA_COME_BACK_OPT0,Vou aprender e volto.
+DLG_ELDER_TIAO_LEGEND_1,"Conhece a história da festa no céu? Todos os bichos foram convidados, mas o jabuti não sabia voar. Ele se escondeu dentro da viola do urubu e subiu junto."
+DLG_ELDER_TIAO_LEGEND_1_OPT0,E depois?
+DLG_ELDER_TIAO_LEGEND_2,"Na volta, o urubu descobriu e jogou o jabuti lá de cima. O casco quebrou em mil pedaços. Os amigos juntaram pedaço por pedaço, e o casco ficou todo marcado, mas mais duro do que antes."
+DLG_ELDER_TIAO_LEGEND_2_OPT0,E o que é preciso?
+DLG_ELDER_TIAO_NEED,"Até hoje é assim: quem cai e levanta fica forte como o jabuti. Eu só ensino quem já provou três coisas: segurar o facão sem tremer, aguentar golpes como a aroeira e atacar certeiro como a onça."
+DLG_ELDER_TIAO_NEED_OPT0,Eu já sei essas coisas.
+DLG_ELDER_TIAO_NEED_OPT1,Ainda não sei.
+DLG_ELDER_TIAO_NEED_OPT2,Obrigado pela história.
+DLG_ELDER_TIAO_COME_BACK,Volte quando tiver provado as três coisas e quando já correrem causos seus (renome 3).
+DLG_ELDER_TIAO_COME_BACK_OPT0,Vou aprender e volto.
+MON_PEQUI_SEEDLING_NAME,Muda de Pequizeiro
+ITEM_SILVER_SWORD_NAME,Espada de Prata
+ITEM_SILVER_SWORD_DESC,Forjada em prata pura abençoada. Causa 10% a mais de dano contra lobisomens e mortos-vivos.
+ITEM_SILVER_ARROW_NAME,Flechas de Prata
+ITEM_SILVER_ARROW_DESC,Aljava com flechas de ponta de prata fundida sob o luar. Equipada na mão secundária. Causa 10% a mais de dano contra lobisomens e mortos-vivos.
+ITEM_SILVER_BOW_NAME,Arco de Prata
+ITEM_SILVER_BOW_DESC,Arco reforçado com incrustações de prata reluzente. Causa 10% a mais de dano contra lobisomens e mortos-vivos.
+ITEM_SILVER_MACHETE_NAME,Facão de Prata
+ITEM_SILVER_MACHETE_DESC,Facão tradicional do sertão com gume de prata pura. Causa 10% a mais de dano contra lobisomens e mortos-vivos.
+ITEM_SILVER_RELIC_TOME_NAME,Tomo Sagrado de Prata
+ITEM_SILVER_RELIC_TOME_DESC,Tomo antigo guarnecido de prata e orações de luz. Aumenta o poder sagrado contra lobisomens e criaturas mortas-vivas.
+ITEM_SILVER_HUNTER_HAT_NAME,Chapéu do Caçador da Noite
+ITEM_SILVER_HUNTER_HAT_DESC,Item cosmético. Chapéu de aba larga usado pelos rastreadores que enfrentam as noites de lua cheia.
+ITEM_SILVER_MOON_CIRCLET_NAME,Diadema da Lua de Prata
+ITEM_SILVER_MOON_CIRCLET_DESC,"Item cosmético. Aro de cabeça finamente moldado em prata reluzente, refletindo a claridade da lua."
+ITEM_SILVER_HUNTER_GARB_NAME,Traje do Caçador de Feras
+ITEM_SILVER_HUNTER_GARB_DESC,"Item cosmético. Traje resistente com fivelas de prata, ideal para desbravar matas e covis escuros."
+ITEM_SILVER_MOON_CLOAK_NAME,Manto da Lua Cheia
+ITEM_SILVER_MOON_CLOAK_DESC,Item cosmético. Manto prateado fluido que parece capturar o brilho do luar sobre as folhas da mata.
+ITEM_SILVER_BLADE_COSMETIC_NAME,Espada de Prata Cerimonial
+ITEM_SILVER_BLADE_COSMETIC_DESC,Item cosmético. Lâmina ceremonial ornamentada em prata pura.
+ITEM_SILVER_BOW_COSMETIC_NAME,Arco de Prata Ornamentado
+ITEM_SILVER_BOW_COSMETIC_DESC,Item cosmético. Elegante arco com curvas reforçadas em filigrana de prata.
+ITEM_SIMPLE_ARROW_NAME,Flechas Simples
+ITEM_SIMPLE_ARROW_DESC,Munição comum de madeira com ponta de pedra lascada para arcos. Equipada na mão secundária (espaço do escudo).
+ITEM_IRON_ARROW_NAME,Flechas de Ferro
+ITEM_IRON_ARROW_DESC,Munição de haste de freixo e ponta farpada de ferro forjado no porto. Veloz, pesada e estável em voo.
+ITEM_THORN_ARROW_NAME,Flechas de Espinho
+ITEM_THORN_ARROW_DESC,Munição confeccionada com espinhos rígidos do cerrado. Perfuração afiada que eleva a sorte e o crítico.
+ITEM_FIRE_ARROW_NAME,Flechas de Fogo
+ITEM_FIRE_ARROW_DESC,Munição com pontas de resina e brasa incandescente. Causa queimaduras de dano mágico de fogo ao atingir o alvo.
+ITEM_POISON_ARROW_NAME,Flechas Envenenadas
+ITEM_POISON_ARROW_DESC,Munição embebida em peçonha de criaturas da mata. Inocula toxina prejudicial a cada disparo certeiro.
+ITEM_CRYSTAL_ARROW_NAME,Flechas de Cristal
+ITEM_CRYSTAL_ARROW_DESC,Munição nobre com pontas facetadas de cristal ancestral de Ratanabá. Converte dano em rajadas rúnicas mágicas.
+ITEM_LIGHTNING_ARROW_NAME,Flechas do Trovão
+ITEM_LIGHTNING_ARROW_DESC,Munição talhada a partir de fulguritos atingidos por raios. Zune no ar com centelhas elétricas velozes.
+ITEM_VENOM_GLAND_NAME,Bolsa de Peçonha
+ITEM_VENOM_GLAND_DESC,Bolsa de peçonha concentrada extraída de criaturas perigosas da fauna brasileira. Muito cobiçada por boticários para poções e antídotos.
+ITEM_SCORPION_STINGER_NAME,Ferrão de Escorpião
+ITEM_SCORPION_STINGER_DESC,Ferrão quitinoso curvado e rígido. Usado em flechas e pontas perfurantes.
+ITEM_SPIDER_SILK_NAME,Seda de Aranha
+ITEM_SPIDER_SILK_DESC,Fios de seda ultra-resistentes colhidos de aranhas peçonhentas. Flexível e de altíssima tração.
+ITEM_SERPENT_FANG_NAME,Presa de Serpente
+ITEM_SERPENT_FANG_DESC,Presa pontiaguda e oca usada para inocular toxinas letais. Excelente matéria-prima artesanal.
+ITEM_URTICATING_SPINE_NAME,Cerdas Urticantes
+ITEM_URTICATING_SPINE_DESC,Espinhos finos e ramificados de taturana que provocam ardência e inflamação severa.
+ITEM_WILD_HONEYCOMB_NAME,Favo Selvagem
+ITEM_WILD_HONEYCOMB_DESC,Favo repleto de mel silvestre puro colhido de colmeias agressivas. Rico em energia e vigor.
+ITEM_CHITIN_SHARD_NAME,Fragmento de Quitina
+ITEM_CHITIN_SHARD_DESC,Placa endurecida do exoesqueleto de artrópodes. Usada no reforço de armaduras leves.
+
+ITEM_FIGA_DE_MADEIRA_NAME,Figa de Madeira
+ITEM_FIGA_DE_MADEIRA_DESC,"Esculpida em guiné ou aroeira, fecha o corpo contra o mal e maldições."
+CRENDICE_FIGA_DE_MADEIRA_LORE,Dizem os antigos que quem carrega uma figa de madeira no peito tem o corpo fechado. Sua proteção se ergue com mais vigor quando as forças do viajante fraquejam.
+CRENDICE_FIGA_DE_MADEIRA_SUP,Superstição: O bônus dobra se o HP estiver abaixo de 30% (a figa protege no desespero).
+ITEM_GUIA_DE_ARRUDA_NAME,Guia de Arruda e Espada de São Jorge
+ITEM_GUIA_DE_ARRUDA_DESC,Ramos trançados de ervas sagradas que purificam e espantam venenos.
+CRENDICE_GUIA_DE_ARRUDA_LORE,Feita pelas benzedeiras com arruda fresca e folhas de São Jorge. Espanta a peçonha dos rincões e cura as feridas de quem mantém a pureza dos passos.
+CRENDICE_GUIA_DE_ARRUDA_SUP,Superstição: Perde o efeito se o jogador pisar em água/lama ou for contaminado.
+ITEM_DENTE_DE_ONCA_NAME,Dente de Onça-Pintada
+ITEM_DENTE_DE_ONCA_DESC,Presa curva da maior predadora da mata fechada.
+CRENDICE_DENTE_DE_ONCA_LORE,A onça caminha nas sombras da noite e na copa fechada onde a luz mal penetra. Quem porta sua presa herda a voracidade e a precisão do bote fatal.
+CRENDICE_DENTE_DE_ONCA_SUP,Superstição: O bônus só ativa durante a noite ou em matas densas (domínio da onça).
+ITEM_PATA_DE_QUATI_NAME,Pata de Quati da Sorte
+ITEM_PATA_DE_QUATI_DESC,Amuleto de agilidade e faro apurado para tesouros da terra.
+CRENDICE_PATA_DE_QUATI_LORE,"O quati fuça raízes e encontra riquezas escondidas onde ninguém mais vê. Traz fortuna nos drops e sorte nos caminhos, mas sua sorte foge se a vida se apagar."
+CRENDICE_PATA_DE_QUATI_SUP,Superstição: O efeito é anulado se o jogador morrer (adormece e precisa ser reconsagrado no Altar).
+ITEM_MOEDA_FURADA_NAME,Moeda Furada de Réis
+ITEM_MOEDA_FURADA_DESC,Moeda colonial de prata com furo central usada no pescoço por tropeiros.
+CRENDICE_MOEDA_FURADA_LORE,A moeda furada guarda o ouro do viajante e desvia o corte de quem ataca de emboscada. Quem não procura briga recebe o favor da sorte.
+CRENDICE_MOEDA_FURADA_SUP,Superstição: Só ativa se o monstro iniciar o combate (a sorte protege quem é surpreendido).
+ITEM_SAQUINHO_SAL_GROSSO_NAME,Saquinho de Sal Grosso
+ITEM_SAQUINHO_SAL_GROSSO_DESC,Patuá de pano cru com cristais de sal abençoado que desfazem mandingas.
+CRENDICE_SAQUINHO_SAL_GROSSO_LORE,O sal grosso absorve o peso espectral e dissolve feitiços que pesam os membros. Dá firmeza na defesa e impede que a lentidão tome conta do corpo.
+CRENDICE_SAQUINHO_SAL_GROSSO_SUP,Superstição: Ativo contanto que o portador não esteja sob maldições ativas.
+ITEM_DENTE_DE_CASCAVEL_NAME,Dente de Cascavel
+ITEM_DENTE_DE_CASCAVEL_DESC,Presa oca que verte resquícios de peçonha neurotóxica amarela.
+CRENDICE_DENTE_DE_CASCAVEL_LORE,"O chocalho avisa tarde demais. Quando o dente perfura a carne, o veneno corre rápido como fogo pelas veias do inimigo."
+CRENDICE_DENTE_DE_CASCAVEL_SUP,Superstição: Chance de veneno dobra se o alvo estiver com mais de 50% de HP (bote surpresa).
+ITEM_LASCA_CRISTAL_RATANABA_NAME,Lasca de Cristal de Ratanabá
+ITEM_LASCA_CRISTAL_RATANABA_DESC,Fragmento ressonante de uma civilização ancestral esculpida na selva.
+CRENDICE_LASCA_CRISTAL_RATANABA_LORE,Brilha com luminescência azulada que ecoa cânticos esquecidos. Converte a violência dos feitiços em um escudo etéreo ao redor do feiticeiro.
+CRENDICE_LASCA_CRISTAL_RATANABA_SUP,Superstição: O escudo só acumula enquanto a mana do jogador estiver acima de 40%.
+ITEM_PEDRA_DE_RAIO_NAME,Pedra de Raio (Fulgurito)
+ITEM_PEDRA_DE_RAIO_DESC,Areia fundida e vitrificada pelo toque fulminante de um raio celeste.
+CRENDICE_PEDRA_DE_RAIO_LORE,"Onde o relâmpago toca a terra nasce a pedra de raio. Conduz a tempestade em cada golpe, especialmente quando o céu desaba em torrentes de chuva."
+CRENDICE_PEDRA_DE_RAIO_SUP,Superstição: Bônus de dano de raio sobre para +25% se estiver chovendo no mapa.
+ITEM_CUIA_AGUA_CACHOEIRA_NAME,Cuia de Água de Cachoeira
+ITEM_CUIA_AGUA_CACHOEIRA_DESC,Cabaça polida com cera de abelha guardando água cristalina de salto vivo.
+CRENDICE_CUIA_AGUA_CACHOEIRA_LORE,A água corrente purifica a fadiga e potencializa infusões curativas. Quem para às margens do remanso recupera a vitalidade do espírito.
+CRENDICE_CUIA_AGUA_CACHOEIRA_SUP,Superstição: A regeneração de mana só opera quando fora de combate há pelo menos 5s.
+ITEM_CASCA_ESCORPIAO_ATROZ_NAME,Casca do Escorpião-Amarelo Atroz
+ITEM_CASCA_ESCORPIAO_ATROZ_DESC,Placas de quitina dourada blindada e impregnada de neurotoxina letal.
+CRENDICE_CASCA_ESCORPIAO_ATROZ_LORE,Arrancada da carapaça de um escorpião mutado pela noite do sertão. Quem se atreve a golpeá-la sofre a dor ácida da peçonha refletida.
+CRENDICE_CASCA_ESCORPIAO_ATROZ_SUP,Superstição: O reflexo de dano só funciona enquanto o HP do jogador estiver acima de 50%.
+ITEM_PRESA_LOBISOMEM_NOTURNO_NAME,Presa de Lobisomem Noturno
+ITEM_PRESA_LOBISOMEM_NOTURNO_DESC,Canino afiado que sangra energia sob o luar prateado.
+CRENDICE_PRESA_LOBISOMEM_NOTURNO_LORE,O uivo na encruzilhada anuncia a maldição. Quem empunha esta presa drena a vida dos inimigos a cada golpe sob a abóbada escura da noite.
+CRENDICE_PRESA_LOBISOMEM_NOTURNO_SUP,Superstição: Só ativa estritamente durante a noite ou plenilúnio (fúria lupina).
+ITEM_TEIA_ARMADEIRA_RAINHA_NAME,Teia da Armadeira Rainha
+ITEM_TEIA_ARMADEIRA_RAINHA_DESC,Fios de seda viscosa e elástica que prendem os membros com ferocidade.
+CRENDICE_TEIA_ARMADEIRA_RAINHA_LORE,A armadeira ergue as patas dianteiras e não recua. Seus fios diminuem o ímpeto e a velocidade de qualquer presa que ouse se aproximar.
+CRENDICE_TEIA_ARMADEIRA_RAINHA_SUP,Superstição: A lentidão se dissipa se o jogador errar um ataque consecutivo.
+ITEM_VENENO_SURUCUCU_CHUVA_NAME,Veneno Cristalizado da Surucucu
+ITEM_VENENO_SURUCUCU_CHUVA_DESC,Gota âmbar petrificada do veneno hemotóxico da maior víbora da mata.
+CRENDICE_VENENO_SURUCUCU_CHUVA_LORE,"A chuva dilui a peçonha e a faz correr pelo solo ao redor do alvo, espalhando uma névoa corrosiva que atinge grupos de inimigos."
+CRENDICE_VENENO_SURUCUCU_CHUVA_SUP,Superstição: Só propaga dano em área se estiver chovendo no mapa ou em solo alagado.
+ITEM_CERA_ABELHA_MANDACAIA_NAME,Cera de Abelha Mandaçaia
+ITEM_CERA_ABELHA_MANDACAIA_DESC,Geoprópolis aromático com própolis e barro vermelho que cria uma barreira selada.
+CRENDICE_CERA_ABELHA_MANDACAIA_LORE,As abelhas nativas selam sua colmeia contra invasores com uma cera impenetrável. Absorve impactos críticos e protege a vida do apicultor.
+CRENDICE_CERA_ABELHA_MANDACAIA_SUP,Superstição: A barreira protetora precisa de 30s de calma fora de combate para se regenerar.
+ITEM_CASULO_LONOMIA_URTICANTE_NAME,Casulo de Lonomia Urticante
+ITEM_CASULO_LONOMIA_URTICANTE_DESC,Revestimento eriçado de cerdas que causam hemorragia aguda em quem encostar.
+CRENDICE_CASULO_LONOMIA_URTICANTE_LORE,Os pelos urticantes da taturana guardam uma toxina devastadora. Inimigos que desferem ataques físicos sentem o sangue arder em feridas abertas.
+CRENDICE_CASULO_LONOMIA_URTICANTE_SUP,Superstição: Só ativa se o jogador combater de mãos livres ou arma de duas mãos (sem escudo).
+ITEM_CORACAO_OBSIDIANA_ARQUITETO_NAME,Coração de Obsidiana do Arquiteto
+ITEM_CORACAO_OBSIDIANA_ARQUITETO_DESC,Núcleo biomecânico rúnico retirado do guardião ancestral de Ratanabá.
+CRENDICE_CORACAO_OBSIDIANA_ARQUITETO_LORE,O Arquiteto esculpiu as pirâmides e comandou os golems da selva. Este núcleo repele petrificação e dissipa a força de explosões e magias de área.
+CRENDICE_CORACAO_OBSIDIANA_ARQUITETO_SUP,Superstição: O amuleto só ressoa em plena eficácia enquanto o jogador estiver em movimento.
+ITEM_MASCARA_RITUAL_KUARAHY_NAME,Máscara Ritual de Kuarahy
+ITEM_MASCARA_RITUAL_KUARAHY_DESC,Máscara entalhada em ouro solar amaldiçoado usada pelo soberano xamã da Cidade Z.
+CRENDICE_MASCARA_RITUAL_KUARAHY_LORE,O Sol que dá vida também pode drená-la impiedosamente. Transfere a essência vital dos inimigos abatidos direto para o coração de quem a veste.
+CRENDICE_MASCARA_RITUAL_KUARAHY_SUP,Superstição: Só canaliza roubo de vida sob a luz direta do dia (mapas abertos com sol).
+ITEM_LENCO_DO_PREGOEIRO_NAME,Lenço do Pregoeiro do Silêncio
+ITEM_LENCO_DO_PREGOEIRO_DESC,Tecido espectral cinzento que abafa o som de gritos e tempestades mentais.
+CRENDICE_LENCO_DO_PREGOEIRO_LORE,"O Pregoeiro silenciou o vilarejo com seu brado de desespero. O lenço absorve todo atordoamento e silenciamento, mantendo a mente lúcida nas trevas."
+CRENDICE_LENCO_DO_PREGOEIRO_SUP,Superstição: O jogador deve manter ao menos 20% de mana total para conter os ecos do lenço.
+ITEM_OLHO_DO_TITA_NAME,Olho do Titã das Profundezas
+ITEM_OLHO_DO_TITA_DESC,Geodo maciço lapidado com um cristal cintilante no centro.
+CRENDICE_OLHO_DO_TITA_LORE,"Nas profundezas da terra oca, o Titã repousa sob montanhas de pedra. Em momentos de perigo mortal, a rocha ancestral se ergue para proteger seu portador."
+CRENDICE_OLHO_DO_TITA_SUP,Superstição: O escudo de emergência só ativa se o jogador estiver firme e imóvel no instante do baque.
+SYNERGY_PROTECAO_TOTAL_NAME,Proteção Total (Bênção das Benzedeiras)
+SYNERGY_PROTECAO_TOTAL_DESC,"+15% Defesa Geral, 50% de redução na duração de debuffs e imunidade a maldições."
+SYNERGY_ESPIRITO_CACA_NAME,Espírito da Caça (Caminho da Mata)
+SYNERGY_ESPIRITO_CACA_DESC,"+10% Dano Crítico, +10% Taxa de Drop e +5% de dano físico."
+SYNERGY_MISTICA_NAME,Ancestralidade Mística (Força dos Elementos)
+SYNERGY_MISTICA_DESC,"+15% Dano Mágico, +5 de Mana recuperada por golpe e +20% de regeneração de MP."
+SYNERGY_PLENILUNIO_NAME,Vigília da Noite (Predador do Plenilúnio)
+SYNERGY_PLENILUNIO_DESC,+10% Roubo de Vida adicional e +10% de velocidade de movimento à noite.
+SYS_CRENDICE_DORMANT_DEATH,"Ao morrer, a sorte de seus amuletos se esvaiu e eles adormeceram. Procure um Altar de Crendice para reconsagrá-los."
+SYS_CRENDICE_CONSECRATE_OK,Seus amuletos de crendice foram reconsagrados e recuperaram seu vigor folclórico!
+SYS_CRENDICE_INSERT_OK,Amuleto consagrado no equipamento com sucesso.
+SYS_CRENDICE_REMOVE_OK,Amuleto desencaixado com sucesso.
+NPC_INSTRUCTOR_BENTO_NAME,Instrutor Bento
+DLG_INSTRUCTOR_BENTO_START,"Olá, viajante! Sou o Instrutor Bento. Aqui no Campo de Treinamento, você aprenderá as bases para sobreviver aos perigos do sertão e das matas. O que gostaria de aprender?"
+DLG_INSTRUCTOR_BENTO_START_OPT_COMBAT,Como funcionam os atributos e o combate?
+DLG_INSTRUCTOR_BENTO_START_OPT_TITLES,Como funciona o Sistema de Títulos?
+DLG_INSTRUCTOR_BENTO_START_OPT_CRENDICES,O que é o Sistema de Crendices e Amuletos?
+DLG_INSTRUCTOR_BENTO_START_OPT_ALTARS,Como funcionam os Altares e a perda de sorte?
+DLG_INSTRUCTOR_BENTO_OPT_CLOSE,"Até logo, instrutor."
+DLG_INSTRUCTOR_BENTO_OPT_BACK,Quero perguntar outra coisa.
+DLG_INSTRUCTOR_BENTO_COMBAT,"Cada atributo molda sua eficácia em combate: FOR (Força) amplia seu ataque físico corpo a corpo. DES (Destreza) governa o dano de armas de projéteis e arcos. INT (Inteligência) potencializa magias arcanas e expande sua mana máxima. SAB (Sabedoria) rege magias sagradas, bênçãos, debuffs e a potência de curas. VIT (Vitalidade) concede vida máxima e resistência a golpes físicos. SOR (Sorte) eleva sua chance de acertos críticos e a obtenção de itens de criaturas derrotadas."
+DLG_INSTRUCTOR_BENTO_COMBAT_OPT_AMMO,Como funciona o combate à distância com arcos?
+DLG_INSTRUCTOR_BENTO_COMBAT_AMMO,"Atenção aos detalhes: para disparar com um arco, você precisa equipar flechas ou virotes no espaço da sua mão secundária (o mesmo espaço onde você colocaria um escudo). Sem munição equipada, seu arco não poderá desferir disparos!"
+DLG_INSTRUCTOR_BENTO_AMMO_OPT_COMBAT,Fale mais sobre os outros atributos.
+DLG_INSTRUCTOR_BENTO_TITLES,"Neste mundo você não está preso a moldes rígidos. Seu caminho é construído pelos Títulos que você conquista! Ao realizar façanhas e cumprir desafios com mestres renomados, você desbloqueia novos Títulos. Cada Título equipado concede um repertório único de habilidades ativas e passivas que você pode arrastar para a sua barra de ações."
+DLG_INSTRUCTOR_BENTO_TITLES_OPT_MASTERS,Onde posso encontrar mestres para treinar?
+DLG_INSTRUCTOR_BENTO_TITLES_MASTERS,"Aqui mesmo ao redor deste acampamento e pelas terras vizinhas você encontrará Mestres de diversas tradições: Jatobá, Candeia, Guiomar, Nicandro e outros. Quando provar seu valor diante deles, eles lhe confiarão novos Títulos!"
+DLG_INSTRUCTOR_BENTO_MASTERS_OPT_TITLES,Voltar ao Sistema de Títulos.
+DLG_INSTRUCTOR_BENTO_CRENDICES,"O Sistema de Crendices se apoia na sabedoria e superstição do sertão. Seus equipamentos possuem Encaixes de Crendice onde é possível fixar Amuletos Folclóricos. Lembre-se: NENHUM comerciante vende esses amuletos! Eles só podem ser obtidos como despojos raros de criaturas lendárias ou trocados com outros viajantes. Cada amuleto possui uma Condição de Superstição: seu poder máximo só desperta se você respeitar o costume — como lutar no desespero com a Figa, evitar a água com a Arruda, ou caçar à noite com o Dente de Onça!"
+DLG_INSTRUCTOR_BENTO_CRENDICES_OPT_ALTARS,E se eu tombar em combate com um amuleto?
+DLG_INSTRUCTOR_BENTO_CRENDICES_OPT_SYNERGIES,Existe bônus por usar mais de um amuleto?
+DLG_INSTRUCTOR_BENTO_ALTARS,"A sorte é temperamental: se você tombar derrotado carregando certos amuletos (como a Pata de Quati), a superstição é quebrada e o amuleto fica Adormecido. Para reavivar sua sorte ou engastar novos amuletos, visite um Altar de Crendice. Temos um logo ali ao lado de nossa fogueira, e você encontrará outros em cidades e encruzilhadas. A consagração no altar é livre de custos!"
+DLG_INSTRUCTOR_BENTO_ALTARS_OPT_SYNERGIES,Explique-me as Sinergias de Amuletos.
+DLG_INSTRUCTOR_BENTO_ALTARS_OPT_CRENDICES,Voltar às explicações sobre Amuletos.
+DLG_INSTRUCTOR_BENTO_SYNERGIES,"Quando você equipa dois ou mais amuletos de tradições complementares, seus laços folclóricos ressoam! Por exemplo: unir Figa de Madeira e Guia de Arruda desperta Proteção Total, concedendo resistências elevadas. Já reunir dentes de predadores ativa o Espírito da Caça. Combine amuletos para forjar o seu próprio destino!"
+DLG_INSTRUCTOR_BENTO_SYNERGIES_OPT_CRENDICES,Voltar aos Amuletos de Crendice.
+ITEM_CAPUZ_BRUMA_ESPECTRAL_NAME,Capuz da Bruma Espectral
+ITEM_CAPUZ_BRUMA_ESPECTRAL_DESC,Capuz tecido com farrapos recolhidos nas vielas do Vilarejo de Hoer Verde. Oferece alta proteção contra feitiços.
+ITEM_MANTO_DESESPERADOS_NAME,Manto dos Desesperados
+ITEM_MANTO_DESESPERADOS_DESC,Veste pesada impregnada com a bruma gélida da charneca. Protege o portador contra calafrios e maleitas espirituais.
+ITEM_LUVAS_TOQUE_GELIDO_NAME,Luvas do Toque Gélido
+ITEM_LUVAS_TOQUE_GELIDO_DESC,"Luvas que conservam a friagem espectral dos vultos sussurrantes, canalizando energia etérea nas magias."
+ITEM_BOTAS_PASSO_SILENCIOSO_NAME,Botas do Passo Silencioso
+ITEM_BOTAS_PASSO_SILENCIOSO_DESC,"Calçados leves que amortecem cada pisada sobre o lodo enevoado, aumentando a agilidade e a discrição."
+ITEM_ESCUDO_LAMENTO_ETERNO_NAME,Escudo do Lamento Eterno
+ITEM_ESCUDO_LAMENTO_ETERNO_DESC,Broquel forjado com aço cinzento de sino fúnebre. Repele tanto pancadas físicas quanto lamentos místicos.
+ITEM_PINGENTE_SINO_FUNEBRE_NAME,Pingente do Sino Fúnebre
+ITEM_PINGENTE_SINO_FUNEBRE_DESC,Pequeno adorno metálico que ressoa em harmonia com as almas errantes da charneca.
+ITEM_FOICE_COLHEITA_SOMBRIA_NAME,Foice da Colheita Sombria
+ITEM_FOICE_COLHEITA_SOMBRIA_DESC,Lâmina curva cerimonial usada para ceifar a palha maldita das ruínas enevoadas.
+ITEM_ARCO_SUSSURRO_NOTURNO_NAME,Arco do Sussurro Noturno
+ITEM_ARCO_SUSSURRO_NOTURNO_DESC,"Arco curvado na madeira negra de árvores mortas pelo nevoeiro, lançando flechas silenciosas."
+ITEM_CAJADO_ALMAS_PERDIDAS_NAME,Cajado das Almas Perdidas
+ITEM_CAJADO_ALMAS_PERDIDAS_DESC,"Báculo entalhado que serve de guia para espíritos aflitos, intensificando o poder do arcano."
+ITEM_ESSENCIA_NEVOA_NAME,Essência da Névoa Densa
+ITEM_ESSENCIA_NEVOA_DESC,Destilado condensado das brumas de Hoer Verde. Revigora o fôlego e restaura as forças místicas.
+ITEM_TECIDO_FANTASMAGORICO_NAME,Tecido Fantasmagórico
+ITEM_TECIDO_FANTASMAGORICO_DESC,Pedaço de pano etéreo que parece se desmanchar em vapor quando exposto ao calor.
+ITEM_CINZAS_DESESPERO_NAME,Cinzas do Desespero
+ITEM_CINZAS_DESESPERO_DESC,Pó fino e gélido deixado pelos possuídos após encontrarem repouso.
+ITEM_RESIDUO_ESPECTRAL_NAME,Resíduo Espectral
+ITEM_RESIDUO_ESPECTRAL_DESC,Cristalização vaporosa de energias retidas na bruma eterna da charneca.
+ITEM_BADALO_FERRO_FUNEBRE_NAME,Badalo de Ferro Fúnebre
+ITEM_BADALO_FERRO_FUNEBRE_DESC,Peça pesada do sino do Pregoeiro do Silêncio. Vibra com ecos lúgubres da desolação.
+ITEM_ELMO_CRISTAL_RESSONANTE_NAME,Elmo de Cristal Ressonante
+ITEM_ELMO_CRISTAL_RESSONANTE_DESC,Elmo entalhado em quartzo translúcido dos Túneis da Terra Oca. Repele energias dissonantes e vibra em harmonia com o solo.
+ITEM_ARMADURA_TITA_PROFUNDO_NAME,Armadura do Titã Profundo
+ITEM_ARMADURA_TITA_PROFUNDO_DESC,Pesada couraça de placas minerais forjadas no calor das profundezas tectônicas. Fornece robustez incomparável.
+ITEM_MANOPLAS_QUARTZO_PURO_NAME,Manoplas de Quartzo Puro
+ITEM_MANOPLAS_QUARTZO_PURO_DESC,"Protetores de punho com pontas de cristal afiado, aumentando o impacto de golpes e cortes."
+ITEM_GREVAS_ABISMO_OCO_NAME,Grevas do Abismo Oco
+ITEM_GREVAS_ABISMO_OCO_DESC,"Grevas robustas esculpidas em rocha subterrânea compacta, conferindo passadas firmes mesmo sobre fendas sísmicas."
+ITEM_ESCUDO_BASTIAO_TECTONICO_NAME,Escudo Bastião Tectônico
+ITEM_ESCUDO_BASTIAO_TECTONICO_DESC,Paredão de pedra basáltica reforçado por veios de cristal vivente. Suporta impactos esmagadores.
+ITEM_AMULETO_NUCLEO_CRISTALINO_NAME,Amuleto do Núcleo Cristalino
+ITEM_AMULETO_NUCLEO_CRISTALINO_DESC,"Pingente que abriga um geodo vivo, irradiando calor mineral e foco para o espírito."
+ITEM_MARTELO_ABISMO_PROFUNDO_NAME,Martelo do Abismo Profundo
+ITEM_MARTELO_ABISMO_PROFUNDO_DESC,"Arma colossal de duas mãos com cabeça de rocha ígnea, capaz de rachar carapaças minerais e muralhas."
+ITEM_ARCO_ESTILHA_RESSONANTE_NAME,Arco de Estilha Ressonante
+ITEM_ARCO_ESTILHA_RESSONANTE_DESC,Arco esculpido a partir de um filão de cristal elástico das cavernas mais fundas.
+ITEM_CETRO_CORACAO_TERRA_NAME,Cetro do Coração da Terra
+ITEM_CETRO_CORACAO_TERRA_DESC,"Cetro que pulsa com o batimento telúrico do planeta, potencializando magias arcanas primordiais."
+ITEM_ELIXIR_MINERAL_NAME,Elixir Mineral das Profundezas
+ITEM_ELIXIR_MINERAL_DESC,Bebida espessa enriquecida com minerais raros dissolvidos em águas termais das cavernas. Revigora a saúde e a mente.
+ITEM_CASCALHO_CRISTAL_NAME,Cascalho de Cristal Vivente
+ITEM_CASCALHO_CRISTAL_DESC,Fragmentos polidos de cristais móveis que ainda emitem tênue pulsação azulada.
+ITEM_SEDA_SOMBRIA_NAME,Seda Sombria Profunda
+ITEM_SEDA_SOMBRIA_DESC,Fio resistente e espantosamente leve tecido pelas aranhas das fendas abissais.
+ITEM_ESTILHA_PRIMORDIAL_NAME,Estilha Primordial do Titã
+ITEM_ESTILHA_PRIMORDIAL_DESC,Fragmento do núcleo rochoso do Titã das Profundezas. Retém o calor da formação do mundo.
+ITEM_ANACONDA_SCALE_DESC,Escama flexível e impermeável da grande serpente dos rios. Protege contra umidade e ataques de perfuração.
+ITEM_ANACONDA_SCALE_NAME,Escama de Sucuri
+ITEM_ANEL_CIRCUITO_ANTIGO_DESC,Aro de metal milenar com filamentos condutores que fluem a energia mágica do portador.
+ITEM_ANEL_CIRCUITO_ANTIGO_NAME,Anel do Circuito Antigo
+ITEM_ANTEATER_CLAW_DESC,Garra curvada maciça capaz de romper cupinzeiros de pedra e repelir predadores de grande porte.
+ITEM_ANTEATER_CLAW_NAME,Garra de Tamanduá
+ITEM_ARCHITECT_MATRIX_DESC,Engrenagem biomecânica milenar construída em liga desconhecida. Matéria-prima primordial para forjas lendárias.
+ITEM_ARCHITECT_MATRIX_NAME,Matriz do Arquiteto
+ITEM_ARCO_DOSSEL_PROFUNDO_DESC,Arco composto talhado na madeira envergada das árvores milenares da Cidade Perdida.
+ITEM_ARCO_DOSSEL_PROFUNDO_NAME,Arco do Dossel Profundo
+ITEM_BIOMECHANIC_MACE_DESC,Massa de combate com engrenagens de impacto projetadas para quebrar defesas e blindagens pesadas.
+ITEM_BIOMECHANIC_MACE_NAME,Clava Biomecânica Ancestral
+ITEM_BRACADEIRAS_RASTREADOR_DESC,Proteção de antebraço confeccionada em couro sombrio e guarnições de ouro flexível.
+ITEM_BRACADEIRAS_RASTREADOR_NAME,Braçadeiras do Rastreador
+ITEM_CAIMAN_PLATE_DESC,Placa óssea dérmica de altíssima dureza colhida do dorso do grande jacaré dos rios profundos.
+ITEM_CAIMAN_PLATE_NAME,Placa de Jacaré-Açu
+ITEM_CAJADO_SOLAR_KUARAHY_DESC,Foco arcano com orbe de ouro fundido que canaliza a energia incandescente do sol da selva.
+ITEM_CAJADO_SOLAR_KUARAHY_NAME,Cajado Solar de Kuarahy
+ITEM_COLAR_DISCO_SOLAR_DESC,Pendente cerimonial com o disco do sol de Z que harmoniza poder marcial e conjuração.
+ITEM_COLAR_DISCO_SOLAR_NAME,Colar do Disco Solar
+ITEM_COURACA_PLACAS_DOURADAS_DESC,Peitoral ancestral forjado em liga de ouro denso e escamas vegetais do dossel de Z.
+ITEM_COURACA_PLACAS_DOURADAS_NAME,Couraça de Placas Douradas
+ITEM_COURACA_PLACAS_RUNICAS_DESC,Armadura peitoral pesada combinando placas vulcânicas de obsidiana e ligas antigas. Máxima solidez física e vitalidade.
+ITEM_COURACA_PLACAS_RUNICAS_NAME,Couraça de Placas Rúnicas
+ITEM_CRYSTAL_RECURVE_BOW_DESC,Arco composto de fibras cristalinas e madeira nobre. Projeta disparos velozes e precisos com perfuração refinada.
+ITEM_CRYSTAL_RECURVE_BOW_NAME,Arco Recurvo de Quartzo
+ITEM_CRYSTAL_SCALE_DESC,Escama rígida e translúcida que decompõe a luz e dissipa magias hostis.
+ITEM_CRYSTAL_SCALE_NAME,Escama de Cristal
+ITEM_DIADEMA_GLIFOS_DESC,Coroa ritualística esculpida em pedra reluzente de Ratanabá com glifos pulsantes. Aumenta inteligência e resistência mística.
+ITEM_DIADEMA_GLIFOS_NAME,Diadema de Glifos
+ITEM_DIADEMA_SOLAR_Z_DESC,Coroa de ouro martelado com incrustações de topázio e símbolos do sol de Kuarahy.
+ITEM_DIADEMA_SOLAR_Z_NAME,Diadema Solar de Z
+ITEM_EGIDE_PRISMATICA_DESC,Escudo forjado com camadas de quartzo translúcido que refratam forças hostis e dissipam feitiços.
+ITEM_EGIDE_PRISMATICA_NAME,Égide Prismática
+ITEM_ESCUDO_RADIANTE_KUARAHY_DESC,Escudo redondo representando a face radiante do soberano solar. Reflete investidas com faíscas de luz.
+ITEM_ESCUDO_RADIANTE_KUARAHY_NAME,Escudo Radiante de Kuarahy
+ITEM_FIGA_DE_OBSIDIANA_DESC,Amuleto folclórico lapidado na pedra escura de Ratanabá. Encaixável em armaduras ou acessórios.
+ITEM_FIGA_DE_OBSIDIANA_NAME,Figa de Obsidiana
+ITEM_FRAGMENTO_MURAL_DESC,Lasca de arenito entalhada com relevos dos caçadores ancestrais de Z.
+ITEM_FRAGMENTO_MURAL_NAME,Fragmento de Mural Solar
+ITEM_GARRA_ONCA_SOMBRA_DESC,Garra curva e escura impregnada com a essência furtiva das feras do dossel.
+ITEM_GARRA_ONCA_SOMBRA_NAME,Garra da Onça das Sombras
+ITEM_GUARA_PELT_DESC,"Pelagem avermelhada e densa com crina negra, isolante térmica e resistente ao vento forte dos campos."
+ITEM_GUARA_PELT_NAME,Pelagem de Lobo-Guará
+ITEM_HARPY_FEATHER_DESC,"Rêmige primária majestosa do gavião-real, símbolo de soberania nos céus e equilíbrio aerodinâmico."
+ITEM_HARPY_FEATHER_NAME,Pena de Harpia
+ITEM_LANCA_SOLAR_Z_DESC,Arma pontiaguda de haste nobre com lâmina dourada que desfere golpes velozes e perfurantes.
+ITEM_LANCA_SOLAR_Z_NAME,Lança Solar de Z
+ITEM_MANDACARU_THORN_DESC,"Espinho vegetal rígido como ponta de ferro, colhido do cacto sentinela das áreas secas."
+ITEM_MANDACARU_THORN_NAME,Espinho de Mandacaru
+ITEM_MANOPLAS_CONSTRUTOR_DESC,Luvas pesadas reforçadas com juntas biomecânicas. Amplificam o impacto físico dos golpes.
+ITEM_MANOPLAS_CONSTRUTOR_NAME,Manoplas do Construtor
+ITEM_MATRIZ_SOLAR_DESC,Artefato divino esculpido em ouro puro pulsando com o calor preservado de mil sóis.
+ITEM_MATRIZ_SOLAR_NAME,Matriz Solar de Kuarahy
+ITEM_NECTAR_SOLAR_DESC,Elixir fermentado a partir de seivas douradas e orquídeas raras de Z. Restaura vitalidade e mana.
+ITEM_NECTAR_SOLAR_NAME,Néctar Solar da Mata
+ITEM_OBSIDIAN_MACHETE_DESC,Lâmina pesada e afiadíssima forjada a partir de placas vulcânicas de Ratanabá. Concede bônus massivo de corte físico.
+ITEM_OBSIDIAN_MACHETE_NAME,Facão de Obsidiana Rúnica
+ITEM_OBSIDIAN_SHARD_DESC,"Fragmento de rocha vulcânica escura polida com cortes precisos, oriundo dos monumentos ancestrais de Ratanabá."
+ITEM_OBSIDIAN_SHARD_NAME,Lasca de Obsidiana
+ITEM_OLEO_RUNICO_DESC,Extrato alquímico refinado a partir de seiva da mata e pó rúnico de Ratanabá. Recupera HP e MP.
+ITEM_OLEO_RUNICO_NAME,Óleo Rúnico
+ITEM_OLHO_COBRA_GRANDE_DESC,Amuleto mítico preservando o brilho hipnótico da grande serpente dos remansos. Concede visão e poder físico.
+ITEM_OLHO_COBRA_GRANDE_NAME,Olho da Cobra-Grande
+ITEM_OURO_ANTIGO_Z_DESC,Lingote de ouro primitivo puro cunhado pelos artesãos solares da civilização perdida.
+ITEM_OURO_ANTIGO_Z_NAME,Ouro Antigo de Z
+ITEM_PRISMA_DA_SERPENTE_DESC,Amuleto esculpido com escamas de quartzo refratário. Encaixável em escudo/mão secundária ou acessórios.
+ITEM_PRISMA_DA_SERPENTE_NAME,Prisma da Serpente Cristalina
+ITEM_RATANABA_ENERGY_WAND_DESC,Foco arcano incrustado com um núcleo rúnico puro. Amplifica a canalização de feitiços e barreiras defensivas.
+ITEM_RATANABA_ENERGY_WAND_NAME,Vara de Energia de Ratanabá
+ITEM_RUNIC_CORE_DESC,Esfera ancestral inscrita com glifos que emitem uma pulsação constante de energia e mana.
+ITEM_RUNIC_CORE_NAME,Núcleo Rúnico
+ITEM_SANDALIAS_CIPO_DOURADO_DESC,Calçado leve trançado com fibras solares de cipó místico que não afundam no lodo da selva.
+ITEM_SANDALIAS_CIPO_DOURADO_NAME,Sandálias de Cipó Dourado
+ITEM_SANDALIAS_PEDRA_POMES_DESC,Calçado leve trabalhado a partir de rochas minerais porosas de Ratanabá. Concede passos firmes e agilidade.
+ITEM_SANDALIAS_PEDRA_POMES_NAME,Sandálias de Pedra-Pomes
+ITEM_STRANGLER_ROOT_DESC,Fibras vegetais resistentes e pegajosas de trepadeira carnívora da mata tropical.
+ITEM_STRANGLER_ROOT_NAME,Raiz de Cipó-Matador
+ITEM_TARANTULA_BRISTLE_DESC,Cerdas urticantes espessas colhidas da caranguejeira-golias. Causam extrema ardência e servem para fortificar tecidos.
+ITEM_TARANTULA_BRISTLE_NAME,Cerdas de Caranguejeira
+ITEM_TEIA_MATRIARCA_DESC,Amuleto folclórico tecido com a seda da aranha rainha dos buracos. Concede esquiva e imunidade a lentidão.
+ITEM_TEIA_MATRIARCA_NAME,Teia da Matriarca Golias
+CRENDICE_FIGA_OBSIDIANA_NAME,Figa de Obsidiana de Ratanabá
+CRENDICE_FIGA_OBSIDIANA_DESC,+18% Defesa Física e +14 Defesa Mágica.
+CRENDICE_FIGA_OBSIDIANA_LORE,Talhada na rocha vítrea das ruínas antigas para repelir forças quando cercado por construtos hostis.
+CRENDICE_FIGA_OBSIDIANA_SUP,A proteção dobra quando o combatente enfrenta múltiplos inimigos ao redor.
+CRENDICE_PRISMA_SERPENTE_NAME,Prisma da Serpente Cristalina
+CRENDICE_PRISMA_SERPENTE_DESC,+15% de Reflexão Mágica e +16 Defesa Mágica.
+CRENDICE_PRISMA_SERPENTE_LORE,Lapidado das serpentes de quartzo para rebater feitiços de volta aos seus conjuradores.
+CRENDICE_PRISMA_SERPENTE_SUP,A reflexão exige que o combatente encare a fonte de perigo de frente.
+CRENDICE_TEIA_MATRIARCA_NAME,Teia da Matriarca Golias
+CRENDICE_TEIA_MATRIARCA_DESC,+15% de Esquiva e imunidade total a Lentidão (Slow).
+CRENDICE_TEIA_MATRIARCA_LORE,Tecida nos labirintos subterrâneos da maior predadora de oito patas da floresta. Fios de seda grossa que amortecem passos e aprisionam o perigo.
+CRENDICE_TEIA_MATRIARCA_SUP,A esquiva dobra quando o combatente permanece parado em emboscada por 3 segundos.
+CRENDICE_OLHO_COBRA_GRANDE_NAME,Olho da Cobra-Grande
+CRENDICE_OLHO_COBRA_GRANDE_DESC,+12% de Dano Físico e +12 Dano Mágico.
+CRENDICE_OLHO_COBRA_GRANDE_LORE,"Preserva o olhar magnético e soberano da colossal serpente dos rios profundos, reverenciada nas narrativas ribeirinhas."
+CRENDICE_OLHO_COBRA_GRANDE_SUP,O poder pleno desperta apenas em proximidade com cursos d'água ou sob precipitação de chuva.
+ITEM_TAQUARA_CANE_NAME,Vara de Taquara
+ITEM_TAQUARA_CANE_DESC,"Vara reta de taquara, leve e fácil de achar: os Redemoinhos Arteiros arrancam das touceiras dos Campos, e o Mercado vende barato. Matéria-prima das flechas."
+NPC_DONA_ANA_NAME,Dona Ana
+DLG_DONA_ANA_START,"Chegue, Viajante, que o café tá quentinho! Eu sou a Ana e guardo os caminhos de quem anda por essas terras. Quer fazer desta cidade a sua casa, ou prefere que eu te leve por um caminho que você já pisou?"
+DLG_DONA_ANA_OPT_SAVE,Salvar minha cidade aqui
+DLG_DONA_ANA_OPT_TRAVEL,Viajar para outra cidade
+DLG_DONA_ANA_OPT_BYE,"Fica para depois, Dona Ana"
+DLG_DONA_ANA_TRAVEL,"Pra onde vai, meu bem? Só levo para cidade onde você já tomou um café comigo."
+DLG_DONA_ANA_TRAVEL_COST,"Pra onde vai, meu bem? A viagem custa %s Estrelas, para o milho da tropa."
+DLG_DONA_ANA_TRAVEL_NONE,"Ainda não conheço outra cidade sua, Viajante. Quando chegar numa, procure a Ana da praça: somos muitas, e todas Ana!"
+DLG_DONA_ANA_OPT_BACK,Deixa para lá
+ITEM_SHELL_SALVE_NAME,Unguento de Casco
+ITEM_SHELL_SALVE_DESC,"Pasta grossa de casco de tatu ralado e sebo, receita do Velho Tião. Passada na pele, endurece feito casco: +20% de defesa por 90 s."

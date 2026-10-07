@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_armadillo_shell.png" id="1_t21kd"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_m1hnn"]
+
+[resource]
+script = ExtResource("2_m1hnn")
+id = &"armadillo_shell"
+name_key = "ITEM_ARMADILLO_SHELL_NAME"
+desc_key = "ITEM_ARMADILLO_SHELL_DESC"
+icon = ExtResource("1_t21kd")
+stackable = true
+max_stack = 99
+sell_price = 10

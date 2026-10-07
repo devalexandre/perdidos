@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+type = 1
+target_id = &"pequi_root"
+count = 3
+text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_STEP1"
+scale_with_titles = false
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+target_id = &""
+text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_STEP2"
+variant = &"boss"
+no_death = true
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("2_step")
+target_id = &""
+text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_STEP3"
+variant = &"atroz"
+
+[sub_resource type="Resource" id="step_4"]
+script = ExtResource("2_step")
+type = 4
+trial_map_id = &"elder_trial_arena"
+target_id = &"prank_whirlwind"
+text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_STEP4"
+time_limit_sec = 60.0
+trial_mode = &"protect"
+protect_target = &"pequi_seedling"
+protect_count = 3
+protect_min_alive = 1
+trial_spawn_count = 3
+trial_wave_sec = 20.0
+
+[sub_resource type="Resource" id="step_lore_1"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"marcelina"
+count = 1
+text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_STEP_LORE1"
+scale_with_titles = false
+lore_text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_LORE1"
+lore_option_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_LORE1_OPT"
+
+[sub_resource type="Resource" id="step_lore_2"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"curupira"
+count = 1
+text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_STEP_LORE2"
+scale_with_titles = false
+lore_text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_LORE2"
+lore_option_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_LORE2_OPT"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"elder_aninha_root_fire"
+name_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_NAME"
+giver_npc = &"elder_aninha"
+region_id = &"brasil"
+steps = Array[ExtResource("2_step")]([SubResource("step_lore_1"), SubResource("step_1"), SubResource("step_2"), SubResource("step_lore_2"), SubResource("step_3"), SubResource("step_4")])
+required_titles = Array[StringName]([&"sabia_arcane_firefly", &"sabia_arcane_crystal", &"sabia_bow_cerrado"])
+reward_skill = &"support_bottle_brew"
+required_causos = 3
+reward_causo_id = &"elder_aninha_story"
+reward_xp = 800
+reward_title = &"sabia_support_root"
+offer_text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_OFFER"
+progress_text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_PROGRESS"
+complete_text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_COMPLETE"
+option_text_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_OPTION"
+desc_key = "QUEST_ELDER_ANINHA_ROOT_FIRE_DESC"

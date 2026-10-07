@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_n3l5q"]
+
+[resource]
+script = ExtResource("1_n3l5q")
+id = &"arcane_frost_burst"
+name_key = "SKILL_ARCANE_FROST_BURST_NAME"
+desc_key = "SKILL_ARCANE_FROST_BURST_DESC"
+school = &"arcane"
+target_type = 3
+effect = 6
+mana_cost = 16
+cooldown_sec = 9.0
+range_cells = 0.0
+radius_cells = 6.0
+cone_deg = 60.0
+multiplier_per_level = 0.08
+duration_sec = 3.0
+extra = Dictionary[StringName, Variant]({
+&"slow_pct": 0.35
+})
+vfx = &"frost"
+icon_text = "RG"
+tree_title = &"sabia_arcane_firefly"
+tree_order = 2
+exclusive_to_title = &"sabia_arcane_firefly"
+required_skill_levels = Dictionary[StringName, int]({
+&"arcane_spark": 3
+})

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_simple_bow.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"crystal_recurve_bow"
+name_key = "ITEM_CRYSTAL_RECURVE_BOW_NAME"
+desc_key = "ITEM_CRYSTAL_RECURVE_BOW_DESC"
+icon = ExtResource("icon")
+type = 1
+weapon_kind = 3
+scaling_attribute = &"dex"
+two_handed = true
+rarity = 2
+sell_price = 230
+tradeable = true
+buy_price = 0
+exclusive_drop_zone = &"ruins_ratanaba"
+stats = Dictionary[StringName, int]({
+&"atk": 35,
+&"dex": 5,
+&"matk": 10
+})

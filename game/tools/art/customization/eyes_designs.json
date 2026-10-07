@@ -1,0 +1,107 @@
+{
+ "_doc": "Desenhos dos olhos (eyes.py). Olho do lado ESQUERDO da imagem, canto de fora a esquerda. '.' vazio; 0-3 iris (rampa de olhos: 0 aro/pupila, 1 sombra do cilio, 2 meio, 3 brilho); K cilio; k ponta do cilio; W branco; H reflexo; s pele. 'closed' = piscando ('.' = pele onde o aberto desenha).",
+ "front": {
+  "open": [
+   ".kKKK",
+   "KKKKK",
+   "WH01K",
+   "W1012",
+   "W2233",
+   ".333."
+  ],
+  "closed": [
+   ".....",
+   ".....",
+   ".....",
+   "kKKKK",
+   ".k...",
+   "....."
+  ]
+ },
+ "front_r": {
+  "open": [
+   "KKKk.",
+   "KKKKK",
+   "KH01W",
+   "2101W",
+   "3322W",
+   ".333."
+  ],
+  "closed": [
+   ".....",
+   ".....",
+   ".....",
+   "KKKKk",
+   "...k.",
+   "....."
+  ]
+ },
+ "near": {
+  "open": [
+   ".kKKK",
+   "KKKKK",
+   "WH01K",
+   "W1012",
+   "W2233",
+   ".333."
+  ],
+  "closed": [
+   ".....",
+   ".....",
+   ".....",
+   "kKKKK",
+   ".k...",
+   "....."
+  ]
+ },
+ "far": {
+  "open": [
+   "KKKk",
+   "KKKK",
+   "H01W",
+   "101W",
+   "233.",
+   "33.."
+  ],
+  "closed": [
+   "....",
+   "....",
+   "....",
+   "KKKk",
+   "..k.",
+   "...."
+  ]
+ },
+ "small": {
+  "open": [
+   ".kKK",
+   "KKKK",
+   "WH01",
+   "W123",
+   ".33."
+  ],
+  "closed": [
+   "....",
+   "....",
+   "kKKK",
+   ".k..",
+   "...."
+  ]
+ },
+ "small_far": {
+  "open": [
+   "KKk",
+   "KKK",
+   "H1W",
+   "23.",
+   "3.."
+  ],
+  "closed": [
+   "...",
+   "...",
+   "KKk",
+   "...",
+   "..."
+  ]
+ }
+}

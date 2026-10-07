@@ -1,0 +1,17 @@
+# Schimpfwörter — Deutsch. Format: <Schwere> <Modus><Begriff>
+2 scheiss
+2 arschloch
+2 =arsch
+2 hurensohn
+2 hure
+2 fick
+2 wichser
+2 fotze
+2 missgeburt
+2 verpiss
+2 schlampe
+2 =nutte
+2 spast
+1 kacke
+1 mistkerl
+1 vollidiot

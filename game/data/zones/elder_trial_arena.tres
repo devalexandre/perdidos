@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+[ext_resource type="Texture2D" path="res://assets/minimap/elder_trial_arena.svg" id="minimap"]
+
+[resource]
+script = ExtResource("zone")
+map_id = &"elder_trial_arena"
+kind = 2
+name_key = "ZONE_ELDER_TRIAL_ARENA_NAME"
+combat_allowed = true
+grave_on_death = false
+bosses_allowed = false
+region_id = &"brasil"
+minimap_world_rect = Rect2(-18, -18, 36, 36)
+minimap_texture = ExtResource("minimap")
+mount_allowed = false
+pets_allowed = false

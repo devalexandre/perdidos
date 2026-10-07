@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="def"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="node"]
+[sub_resource type="Resource" id="greeting"]
+script = ExtResource("node")
+id = &"start"
+text_key = "TROPEIRO_GREETING"
+[resource]
+script = ExtResource("def")
+id = &"tropeiro"
+start_node = &"start"
+nodes = Array[ExtResource("node")]([SubResource("greeting")])

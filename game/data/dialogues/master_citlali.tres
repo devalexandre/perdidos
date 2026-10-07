@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_jrvq0"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_tkvxb"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_cu0vx"]
+
+[sub_resource type="Resource" id="Resource_dmfbw"]
+script = ExtResource("2_tkvxb")
+text_key = "DLG_MASTER_CITLALI_START_OPT0"
+next_node = &"lore"
+
+[sub_resource type="Resource" id="Resource_flosq"]
+script = ExtResource("2_tkvxb")
+text_key = "DLG_MASTER_CITLALI_START_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_0oe12"]
+script = ExtResource("1_jrvq0")
+id = &"start"
+text_key = "DLG_MASTER_CITLALI_START"
+options = Array[ExtResource("2_tkvxb")]([SubResource("Resource_dmfbw"), SubResource("Resource_flosq")])
+
+[sub_resource type="Resource" id="Resource_5crp8"]
+script = ExtResource("2_tkvxb")
+text_key = "DLG_MASTER_CITLALI_LORE_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_3owjv"]
+script = ExtResource("1_jrvq0")
+id = &"lore"
+text_key = "DLG_MASTER_CITLALI_LORE"
+options = Array[ExtResource("2_tkvxb")]([SubResource("Resource_5crp8")])
+
+[resource]
+script = ExtResource("3_cu0vx")
+id = &"master_citlali"
+nodes = Array[ExtResource("1_jrvq0")]([SubResource("Resource_0oe12"), SubResource("Resource_3owjv")])

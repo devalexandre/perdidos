@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_eternal_ember.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"architect_matrix"
+name_key = "ITEM_ARCHITECT_MATRIX_NAME"
+desc_key = "ITEM_ARCHITECT_MATRIX_DESC"
+icon = ExtResource("icon")
+type = 7
+rarity = 3
+sell_price = 250
+tradeable = true

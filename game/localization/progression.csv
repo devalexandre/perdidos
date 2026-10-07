@@ -1,0 +1,1164 @@
+keys,pt_BR
+PROG_MSG_CRAFTED,Pronto: %s × %d.
+SKILL_BLADE_FIRM_STRIKE_NAME,Golpe Firme
+SKILL_BLADE_FIRM_STRIKE_DESC,Um golpe pesado de lâmina num alvo corpo a corpo: 150% do ATQ (+12% por nível).
+SKILL_BLADE_CHARGE_NAME,Investida
+SKILL_BLADE_CHARGE_DESC,"Avança até o alvo (até 8 un.), causa 120% do ATQ e atordoa por 0,8 s (+8% ATQ e +0,05 s por nível)."
+SKILL_BLADE_STEEL_SPIN_NAME,Giro de Aço
+SKILL_BLADE_STEEL_SPIN_DESC,Gira a lâmina e acerta todos ao redor (raio 3): 110% do ATQ (+10% por nível).
+SKILL_BLADE_IRON_STANCE_NAME,Postura de Ferro
+SKILL_BLADE_IRON_STANCE_DESC,"+40% de DEF por 10 s, andando 20% mais devagar (+4% DEF e +0,5 s por nível)."
+SKILL_BLADE_HORIZON_CUT_NAME,Corte do Horizonte
+SKILL_BLADE_HORIZON_CUT_DESC,"Após 0,6 s de preparo, um corte em linha reta (12 x 2 un.): 320% do ATQ (+25% por nível)."
+SKILL_ARCANE_SPARK_NAME,Faísca
+SKILL_ARCANE_SPARK_DESC,"Lança uma faísca num alvo a até 12 un. (0,4 s de conjuração): 130% do ATQM (+10% por nível)."
+SKILL_ARCANE_FROST_BURST_NAME,Rajada Gélida
+SKILL_ARCANE_FROST_BURST_DESC,"Sopro gelado em cone (6 un., 60°): 100% do ATQM e 35% mais lento por 3 s (+8% ATQM por nível)."
+SKILL_ARCANE_CREEPING_FLAME_NAME,Chama Rastejante
+SKILL_ARCANE_CREEPING_FLAME_DESC,"Acende o chão (raio 3, até 10 un.): 40% do ATQM por segundo durante 5 s (+4% por nível)."
+SKILL_ARCANE_BARRIER_NAME,Barreira Arcana
+SKILL_ARCANE_BARRIER_DESC,"Escudo em você ou num aliado (até 8 un.) que absorve 50 + 1,5 × ATQM por 8 s (+10% por nível)."
+SKILL_ARCANE_STAR_FALL_NAME,Queda Estelar
+SKILL_ARCANE_STAR_FALL_DESC,"Após 1,2 s de conjuração e 1 s de aviso no chão, uma estrela cai (raio 4, até 12 un.): 380% do ATQM (+30% por nível)."
+SKILL_BLADE_CLEARING_SWEEP_NAME,Roçada
+SKILL_BLADE_CLEARING_SWEEP_DESC,"Golpe de facão em leque à frente (3 un., 90°): 130% do ATQ e empurra os inimigos 2 células. Exclusiva do Facão Firme."
+SKILL_ARCANE_WILL_O_WISP_NAME,Fogo-Fátuo
+SKILL_ARCANE_WILL_O_WISP_DESC,Uma chama azul acompanha você e dispara no alvo (até 10 un.): 110% do ATQM. Exclusiva da Luz de Vaga-lume.
+TITLE_TRAVELER_NAME,Viajante
+TITLE_TRAVELER_DESC,Quem acabou de chegar do Outro Lado.
+TITLE_SABIA_BLADE_MACHETE_NAME,Facão Firme
+TITLE_SABIA_BLADE_MACHETE_DESC,Lâmina de base da Terra do Sabiá. O facão é a arma típica da região.
+TITLE_SABIA_BLADE_AROEIRA_NAME,Tronco de Aroeira
+TITLE_SABIA_BLADE_AROEIRA_DESC,Defesa e contragolpe: a madeira dura que não racha.
+TITLE_SABIA_BLADE_JAGUAR_NAME,Garra da Onça
+TITLE_SABIA_BLADE_JAGUAR_DESC,Dano concentrado: o predador que dá o bote.
+TITLE_SABIA_ARCANE_FIREFLY_NAME,Luz de Vaga-lume
+TITLE_SABIA_ARCANE_FIREFLY_DESC,Magia de base da Terra do Sabiá: a primeira luz encantada.
+TITLE_SABIA_ARCANE_CRYSTAL_NAME,Guarda do Cristal
+TITLE_SABIA_ARCANE_CRYSTAL_DESC,"Proteção do grupo, como o cristal azul da praça."
+TITLE_SABIA_ARCANE_BOITATA_NAME,Olho do Boitatá
+TITLE_SABIA_ARCANE_BOITATA_DESC,"Destruição à distância: fogo que alcança de longe, em homenagem ao protetor dos campos."
+TITLE_SABIA_HYBRID_EMBER_NAME,Brasa no Facão
+TITLE_SABIA_HYBRID_EMBER_DESC,Lâmina e magia juntas: quem conhece os dois caminhos.
+QUEST_TF_BLADE_TITLE_NAME,O Facão Firme
+QUEST_TF_BLADE_TITLE_DESC,O Mestre Jatobá quer ver você lutar antes de ensinar o Golpe Firme.
+QUEST_TF_BLADE_TITLE_OPTION,[Missão] Quero aprender a Lâmina.
+QUEST_TF_BLADE_TITLE_OFFER,Quer aprender a Lâmina? Então mostra serviço. Derruba cinco Redemoinhos Arteiros aí no cerrado e volta. Depois eu solto um Tatu-Pedra pra ver se você aguenta casca-grossa. Mas escuta: aqui no Campo cada Viajante só leva o título de um Mestre. Escolhe com calma.
+QUEST_TF_BLADE_TITLE_PROGRESS,"Ainda não terminou. Facão firme na mão, pé firme no chão."
+QUEST_TF_BLADE_TITLE_COMPLETE,"Golpe torto no começo, golpe certo no fim. Olha aqui: firma o pé, gira o quadril e deixa o peso do corpo descer com o facão. Esse é o Golpe Firme. De hoje em diante, te chamam de Facão Firme."
+QUEST_TF_BLADE_TITLE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_TF_BLADE_TITLE_STEP2,Provação: vença o Tatu-Pedra do Mestre Jatobá
+QUEST_TF_ARCANE_TITLE_NAME,Luz de Vaga-lume
+QUEST_TF_ARCANE_TITLE_DESC,A Mestra Candeia ensina a Faísca a quem souber guardar a luz.
+QUEST_TF_ARCANE_TITLE_OPTION,[Missão] Quero aprender o Arcano.
+QUEST_TF_ARCANE_TITLE_OFFER,"Toda magia começa com uma luz pequena. Me traz cinco Luzes de Vaga-lume, dos Vaga-lumes Encantados do brejo. Depois eu acendo um deles só pra você, e quero ver você apagá-lo. Lembra: aqui no Campo cada Viajante só leva o título de um Mestre."
+QUEST_TF_ARCANE_TITLE_PROGRESS,A luz ainda não está completa. Volte quando estiver.
+QUEST_TF_ARCANE_TITLE_COMPLETE,"Viu? A luz obedece a quem tem paciência. Junta a mão assim, pensa no calor e solta. Essa é a Faísca. De hoje em diante, você é Luz de Vaga-lume."
+QUEST_TF_ARCANE_TITLE_STEP1,Colete Luzes de Vaga-lume
+QUEST_TF_ARCANE_TITLE_STEP2,Provação: apague o Vaga-lume da Mestra Candeia
+QUEST_OPT_ACCEPT,Aceito o desafio.
+QUEST_OPT_DECLINE,Agora não.
+QUEST_OPT_REPORT,[Missão] Terminei o que o senhor pediu.
+QUEST_OPT_TURN_IN,Estou pronto para aprender.
+QUEST_OPT_BYE,Até logo.
+QUEST_OPT_START_TRIAL,[Missão] Estou pronto para a provação.
+QUEST_OPT_ASK_PROGRESS,[Missão] Como estou indo?
+PROG_MSG_LEVEL_UP,Você subiu para o nível %d! Ganhou pontos de atributo e de skill.
+PROG_MSG_XP_CAPPED,Você já aprendeu tudo o que dava aqui: não ganha mais experiência nesta área.
+PROG_MSG_NO_ATTRIBUTE_POINTS,Sem pontos de atributo suficientes.
+PROG_MSG_NO_SKILL_POINTS,Sem pontos de skill.
+PROG_MSG_SKILL_MAX_LEVEL,Essa skill já está no nível máximo.
+PROG_MSG_HOTBAR_IN_COMBAT,Não dá para mexer na barra durante o combate.
+PROG_MSG_SKILL_LEARNED,Você aprendeu %s!
+PROG_MSG_SKILL_LEVEL_UP,%s subiu para o nível %d.
+PROG_MSG_TITLE_EARNED,Título conquistado: %s!
+PROG_MSG_TITLE_SHOWN,Título exibido: %s.
+PROG_MSG_SKILL_COOLDOWN,%s ainda está em recarga (%d s).
+PROG_MSG_NO_MANA,Mana insuficiente.
+PROG_MSG_NEEDS_MELEE,Essa técnica precisa de uma lâmina equipada.
+PROG_MSG_STUNNED,Você está atordoado.
+PROG_MSG_NO_TARGET,Escolha um alvo primeiro.
+PROG_MSG_NO_COMBAT_HERE,Aqui não é lugar de luta.
+PROG_MSG_QUEST_ACCEPTED,Missão aceita: %s.
+PROG_MSG_QUEST_PROGRESS,%s: %d/%d
+PROG_MSG_QUEST_STEP_DONE,%s: etapa concluída!
+PROG_MSG_QUEST_READY,%s: volte ao Mestre.
+PROG_MSG_QUEST_COMPLETED,Missão concluída: %s!
+PROG_MSG_QUEST_ABANDONED,Missão abandonada: %s.
+PROG_MSG_QUEST_MISSING,Ainda não. Volte quando:
+PROG_MSG_STORY_CLUE_FOUND,Pista registrada: %s (%d/%d).
+PROG_MSG_STORY_CLUES_COMPLETE,Você reuniu três relatos sobre o uivo. Já pode seguir as marcas até a caverna.
+PROG_MSG_STORY_ROUTE_SELECTED,Rota escolhida. Algumas decisões podem fechar outros caminhos.
+PROG_MSG_STORY_OBSERVATION,Observação registrada: %d/%d noites de lua cheia.
+PROG_MSG_STORY_ROUTE_LOCKED,Depois de duas observações, as outras rotas se fecharam.
+PROG_MSG_STORY_NEEDS_FULL_MOON,A fera só aparece na Mata durante a noite de lua cheia.
+PROG_MSG_WEREWOLF_ENDING_HEALED,Eustáquio acorda livre da maldição. A sina da família Sete-Estrelas foi quebrada.
+PROG_MSG_WEREWOLF_ENDING_PACT,A fera reconhece você como aliado e retorna à Mata Encantada.
+STORY_CLUE_GUARD,relato da guarda
+STORY_CLUE_SMITH,marcas no gado
+STORY_CLUE_FISHERMAN,uivo vindo da Mata
+STORY_CLUE_MARKET,sombra na estrada
+PROG_MSG_CAUSO_EARNED,Um novo Causo correu pela vila: %s (+%d de renome).
+PROG_MSG_WEREWOLF_ENDING_DEATH,A mata silencia. Eustáquio não voltará para casa.
+PROG_MSG_CAUSO_RANK_UP,Sua fama mudou: %s → %s.
+CAUSOS_FORASTEIRO,Forasteiro
+CAUSOS_FALADO,Falado
+CAUSOS_ASSUNTO_DA_VILA,Assunto da Vila
+CAUSOS_CAUSO_DE_FOGUEIRA,Causo de Fogueira
+CAUSOS_LENDA,Lenda
+CAUSOS_MITO,Mito
+UI_CAUSOS_SUMMARY,Causos: %d · %s
+UI_WEREWOLF_CLUES_SUMMARY,Pistas do uivo: %d/3
+QUEST_CAVE_ROOT_HOWL_NAME,O uivo sob as raízes
+QUEST_CAVE_ROOT_HOWL_DESC,Investigue as marcas junto ao Bosque das Raízes e descubra de onde vem o uivo.
+QUEST_CAVE_ROOT_HOWL_OPTION,[Missão] Investigar as marcas na Mata.
+QUEST_CAVE_ROOT_HOWL_OFFER,"As pegadas não são de onça, e terminam diante de uma fenda sob as raízes. Entre com cuidado, siga o eco e volte para me contar o que encontrou."
+QUEST_CAVE_ROOT_HOWL_PROGRESS,As marcas seguem para dentro da pedra. Não avance sem encontrar de onde o uivo vem.
+QUEST_CAVE_ROOT_HOWL_COMPLETE,"Você ouviu o mesmo uivo? Então a caverna não está vazia. Vou reforçar a vigia da Mata; por enquanto, ninguém desce além daquela câmara."
+QUEST_CAVE_ROOT_HOWL_STEP_TRACKS,Examine as marcas junto à entrada sob as raízes.
+QUEST_CAVE_ROOT_HOWL_STEP_ECHO,Encontre a câmara de onde vem o uivo.
+PROG_MSG_TRAINING_TITLE_CLOSED,%s: você já escolheu o seu Mestre no Campo de Treino.
+PROG_MSG_TRIAL_STARTED,Provação começou: %s!
+PROG_MSG_TRIAL_TIME,Você tem %d segundos.
+PROG_MSG_TRIAL_FAILED,A provação acabou. Fale com o Mestre para tentar de novo.
+PROG_REQ_SKILL,— conhecer %s
+PROG_REQ_SKILL_LEVEL,— ter %s no nível %d
+PROG_REQ_TITLE,— for reconhecido como %s
+PROG_REQ_QUEST,— concluir %s
+PROG_REQ_STORY_CLUES,— reunir %d relatos (%d/3)
+PROG_REQ_STORY_ROUTE,Escolha a rota exigida para este desfecho.
+PROG_REQ_STORY_OBSERVATIONS,Observar a fera em noites de lua cheia (%d/%d).
+PROG_REQ_TRAINING_TITLE_DONE,"— (no Campo de Treino, só um Mestre dá o título)"
+PROG_REQ_LEAVE_TRAINING,"— sair do Campo de Treino (no treino só se conquista um título)"
+PROG_REQ_CAUSOS,"— ter renome de %d Causos (você tem %d). Causos vêm de histórias concluídas, títulos e chefes mais fortes que você."
+PROG_MSG_FAME_TITLE,"+%d Causo: a vila já fala do seu novo título, %s."
+PROG_MSG_FAME_BOSS,"+%d Causo: contam que você derrubou %s, mais forte que você."
+PROG_MSG_FAME_ATROZ,+%d Causos: você venceu %s na forma atroz! A história já corre pelas fogueiras.
+PROG_MSG_FAME_RANK_UP,Seu renome subiu: agora você é %s. Mercadores e anciãos passam a confiar mais em você.
+PROG_MSG_TITLE_SOLO_LEFT_PARTY,Missão de título é provação pessoal: você saiu do grupo.
+PROG_MSG_TITLE_SOLO_LOOT_ONLY,Nesta missão de título só contam os monstros que você derrotar e os itens que você mesmo pegar do chão durante a etapa.
+UI_CAUSOS_NEXT,Faltam %d para o próximo renome
+
+UI_SKILLS,Skills
+UI_ATTRIBUTES_WINDOW,Atributos
+UI_QUEST_LOG,Missões
+UI_HOTBAR,Barra
+UI_SKILL_POINTS,Pontos de skill: %d
+UI_ATTRIBUTE_POINTS,Pontos para distribuir: %d
+UI_CONFIRM,Confirmar
+UI_RESET,Desfazer
+UI_CONFIRM_ATTRIBUTES,Os pontos não podem ser trocados depois. Confirmar?
+UI_YES,Sim
+UI_NO,Não
+UI_SKILL_LEVEL,Nv. %d/%d
+UI_SKILL_LEVEL_UP,+1
+UI_SKILL_NONE,"Você ainda não conhece nenhuma técnica. Técnicas só se aprendem com os Mestres, por missão."
+UI_SKILL_DRAG_HINT,Arraste uma skill para a barra (teclas 1 a 0). Só fora de combate.
+UI_SKILL_COST,Mana %d · Recarga %s s
+UI_SKILL_CAST,Conjuração %s s
+UI_SKILL_RANGE,Alcance %s un.
+UI_TITLES,Títulos
+UI_TITLE_SHOW,Exibir
+UI_TITLE_SHOWN,Exibindo
+UI_TITLE_HIDE,Não exibir título
+UI_XP,XP %d / %d
+UI_XP_CAPPED,XP no teto desta área
+UI_LEVEL_SHORT,Nv %d
+UI_QUEST_NONE,Nenhuma missão no momento. Fale com os Mestres.
+UI_QUEST_READY,Pronta! Volte ao Mestre.
+UI_QUEST_ABANDON,Abandonar
+UI_QUEST_STEP,Etapa %d de %d
+UI_QUEST_TRIAL_TIME,Tempo: %d s
+UI_QUEST_TRACKER,Missões
+UI_QUEST_TRACKER_TOGGLE,Minimizar ou reabrir missões
+UI_ATTR_STR_DESC,"Força: ataque corpo a corpo, dano físico e capacidade de carga."
+UI_ATTR_DEX_DESC,"Destreza: ataque de armas de projéteis (arcos), velocidade de ataque, esquiva e acerto."
+UI_ATTR_VIT_DESC,"Vitalidade: vida máxima, resistência a dano físico e regeneração de vida."
+UI_ATTR_INT_DESC,"Inteligência: dano de magia arcana, mana máxima e conjuração mais rápida."
+UI_ATTR_SPI_DESC,"Sabedoria (Espírito): poder de magias sagradas, potência de cura, buffs, debuffs e ataques de títulos sagrados."
+UI_AIM_HINT,Clique no chão para lançar. Botão direito ou Esc cancela.
+UI_IN_COMBAT,Em combate
+FX_LEVEL_UP,NÍVEL %d!
+PROG_MSG_CAST_INTERRUPTED,Conjuração de %s interrompida.
+UI_SKILL_INSTANT,Conjuração: instantânea
+UI_SKILL_CAST_EFFECTIVE,Conjuração %s s (base %s s)
+UI_SKILL_COOLDOWN_EFFECTIVE,Recarga %s s (base %s s)
+UI_SKILL_MANA,Mana %d
+UI_TIMING_LEVEL,nível da skill +%s%%
+UI_TIMING_ATTR,DES/INT −%s%%
+UI_TIMING_SPI,Espírito −%s%%
+UI_TIMING_ITEMS,itens −%s%%
+UI_TIMING_CAPPED,limite %s%%
+UI_ATTR_CAST_NOW,Conjuração −%s%% por DES e INT (máx. %s%%; −%s%% por ponto de DES).
+UI_ATTR_CAST_NOW_INT,Conjuração −%s%% por DES e INT (máx. %s%%; −%s%% por ponto de INT).
+UI_ATTR_COOLDOWN_NOW,Recarga −%s%% pelo Espírito (máx. %s%% com itens; −%s%% por ponto).
+UI_ITEM_INSTANT,Uso instantâneo (sem recarga)
+UI_ITEM_TIMING,Conjuração %s s · Recarga %s s
+SKILL_BLADE_SHARPEN_NAME,Amolar o Facão
+SKILL_BLADE_SHARPEN_DESC,"Passa a pedra no fio: +20% de ATQ e +10% de crítico por 12 s (+2% ATQ, +1% crítico e +0,5 s por nível)."
+SKILL_BLADE_AROEIRA_REPLY_NAME,Resposta da Aroeira
+SKILL_BLADE_AROEIRA_REPLY_DESC,"Por 1,5 s, anula o próximo golpe corpo a corpo de um monstro e devolve 200% do ATQ (+15% e +0,1 s por nível)."
+SKILL_BLADE_ROOT_GRIP_NAME,Raiz Presa
+SKILL_BLADE_ROOT_GRIP_DESC,"Crava o pé no chão: prende os inimigos em volta (2,5 células) por 2 s (+0,1 s por nível)."
+SKILL_BLADE_THICK_BARK_NAME,Casca Grossa
+SKILL_BLADE_THICK_BARK_DESC,"Recebe 30% menos dano por 6 s (−2% e +0,3 s por nível)."
+SKILL_BLADE_TRUNK_CALL_NAME,Chamado do Tronco
+SKILL_BLADE_TRUNK_CALL_DESC,"Provoca: os monstros em volta (4 células) atacam você por 4 s (+0,2 s por nível)."
+SKILL_BLADE_JAGUAR_LEAP_NAME,Bote da Onça
+SKILL_BLADE_JAGUAR_LEAP_DESC,Salta até o alvo (6 células) e causa 160% do ATQ com +30% de chance de crítico (+12% por nível).
+SKILL_BLADE_CLAW_RAKE_NAME,Unhada
+SKILL_BLADE_CLAW_RAKE_DESC,Três golpes rápidos de 70% do ATQ cada (+6% por nível).
+SKILL_BLADE_BLOOD_SCENT_NAME,Faro de Sangue
+SKILL_BLADE_BLOOD_SCENT_DESC,"+25% de chance de crítico por 8 s (+1,5% e +0,4 s por nível)."
+SKILL_BLADE_JAGUAR_ROAR_NAME,Rugido da Onça
+SKILL_BLADE_JAGUAR_ROAR_DESC,"Ruge num cone de 90° (3 células): inimigos com −20% de ATQ por 6 s (−1,5% e +0,3 s por nível)."
+SKILL_ARCANE_FIREFLY_SWARM_NAME,Enxame de Vaga-lumes
+SKILL_ARCANE_FIREFLY_SWARM_DESC,"Quatro luzes vão no alvo, cada uma com 40% do MATQ (+4% por nível)."
+SKILL_ARCANE_SHARED_CRYSTAL_NAME,Cristal Repartido
+SKILL_ARCANE_SHARED_CRYSTAL_DESC,"Até 3 aliados a 6 células ganham um escudo de 30 + MATQ × 0,8 por 6 s (+10% por nível)."
+SKILL_ARCANE_CRYSTAL_PRISON_NAME,Prisão de Cristal
+SKILL_ARCANE_CRYSTAL_PRISON_DESC,"Fecha o alvo num cristal: atordoa por 2,5 s (+0,1 s por nível)."
+SKILL_ARCANE_CRYSTAL_WALL_NAME,Muralha de Cristal
+SKILL_ARCANE_CRYSTAL_WALL_DESC,"Aliados a 3 células recebem 25% menos dano por 6 s (−1,5% e +0,3 s por nível)."
+SKILL_ARCANE_CRYSTAL_GLOW_NAME,Brilho do Cristal
+SKILL_ARCANE_CRYSTAL_GLOW_DESC,Aliados a 6 células recuperam 15% da mana máxima em 8 s (+1% por nível).
+SKILL_ARCANE_STAR_STEP_NAME,Passo Estelar
+SKILL_ARCANE_STAR_STEP_DESC,Some e aparece numa célula livre a até 5 células.
+SKILL_ARCANE_FIRE_GAZE_NAME,Olhar de Fogo
+SKILL_ARCANE_FIRE_GAZE_DESC,Um raio em linha (12 células) com 200% do MATQ (+15% por nível).
+SKILL_ARCANE_FIRE_SERPENT_NAME,Serpente de Fogo
+SKILL_ARCANE_FIRE_SERPENT_DESC,Deixa um rastro em linha (8 células) que queima por 5 s: 45% do MATQ por segundo (+4% por nível).
+SKILL_ARCANE_EMBER_EYES_NAME,Olhos em Brasa
+SKILL_ARCANE_EMBER_EYES_DESC,"+25% de MATQ por 10 s (+2% e +0,5 s por nível)."
+SKILL_BOW_LOW_SHOT_NAME,Tiro Rasante
+SKILL_BOW_LOW_SHOT_DESC,Flecha rente ao chão: 130% do ATQ a até 10 células (+10% por nível). Precisa de arco.
+SKILL_BOW_DOUBLE_ARROW_NAME,Flecha Dupla
+SKILL_BOW_DOUBLE_ARROW_DESC,Duas flechas seguidas de 75% do ATQ cada (+6% por nível). Precisa de arco.
+SKILL_BOW_TAUT_DRAW_NAME,Arco Tenso
+SKILL_BOW_TAUT_DRAW_DESC,Puxa a corda até o fim (1 s): 250% do ATQ a até 12 células (+18% por nível). Precisa de arco.
+SKILL_BOW_WARNING_ARROW_NAME,Flecha de Aviso
+SKILL_BOW_WARNING_ARROW_DESC,"Marca o alvo: ele recebe 10% mais dano de todos por 6 s (+1% e +0,3 s por nível). Precisa de arco."
+SKILL_BOW_ARROW_FLOCK_NAME,Revoada de Flechas
+SKILL_BOW_ARROW_FLOCK_DESC,Chuva de flechas numa área (3 células): 120% do ATQ (+10% por nível). Precisa de arco.
+SKILL_BOW_MUD_SKIN_NAME,Pele de Barro
+SKILL_BOW_MUD_SKIN_DESC,"+30% de esquiva por 8 s (+2% e +0,4 s por nível). Precisa de arco."
+SKILL_BOW_MUD_HIDE_NAME,Lama no Corpo
+SKILL_BOW_MUD_HIDE_DESC,"Invisível para os monstros até atacar, ou por 10 s (+0,5 s por nível). Precisa de arco."
+SKILL_BOW_AMBUSH_SHOT_NAME,Tocaia
+SKILL_BOW_AMBUSH_SHOT_DESC,"200% do ATQ (+100% se estiver invisível) e prende o alvo por 1,5 s (+15% por nível). Precisa de arco."
+SKILL_BOW_VINE_SNARE_NAME,Armadilha de Cipó
+SKILL_BOW_VINE_SNARE_DESC,"Cipós prendem quem estiver na área (2 células) por 2,5 s (+0,1 s por nível). Precisa de arco."
+SKILL_BOW_THORN_ARROW_NAME,Flecha de Espinho
+SKILL_BOW_THORN_ARROW_DESC,Veneno por 6 s: 60% do ATQ por segundo (+5% por nível). Precisa de arco.
+SKILL_BOW_STILL_EYE_NAME,Olho Parado
+SKILL_BOW_STILL_EYE_DESC,"+20% de crítico e +2 células de alcance do arco por 10 s (+1% e +0,5 s por nível). Precisa de arco."
+SKILL_BOW_TRUE_ARROW_NAME,Flecha Sem Desvio
+SKILL_BOW_TRUE_ARROW_DESC,"180% do ATQ a até 14 células, ignorando 40% da DEF (+12% e +2% por nível). Precisa de arco."
+SKILL_BOW_SURE_AIM_NAME,Mira Certeira
+SKILL_BOW_SURE_AIM_DESC,"Os próximos 3 ataques físicos são críticos (dura até 15 s, +0,5 s por nível). Precisa de arco."
+SKILL_BOW_HAWK_DIVE_NAME,Mergulho do Gavião
+SKILL_BOW_HAWK_DIVE_DESC,"Flecha que cai do alto: 180% do ATQ e atordoa por 1 s (+12% e +0,05 s por nível). Precisa de arco."
+SKILL_BOW_SHORT_FLIGHT_NAME,Voo Curto
+SKILL_BOW_SHORT_FLIGHT_DESC,"Salta 4 células para trás, para longe do alvo. Precisa de arco."
+SKILL_HYBRID_SPARK_BLADE_NAME,Lâmina Faiscante
+SKILL_HYBRID_SPARK_BLADE_DESC,"Por 8 s, cada ataque básico soma um golpe mágico de 20% do MATQ (+3% e +0,4 s por nível)."
+SKILL_HYBRID_EMBER_CUT_NAME,Corte em Brasa
+SKILL_HYBRID_EMBER_CUT_DESC,150% do ATQ e queimadura por 4 s (25% do MATQ por segundo) (+10% e +2% por nível).
+SKILL_HYBRID_STEEL_SPARK_NAME,Faísca no Aço
+SKILL_HYBRID_STEEL_SPARK_DESC,Avança até o alvo (6 células) e causa 120% do MATQ (+10% por nível).
+SKILL_HYBRID_SPARKS_NAME,Fagulhas
+SKILL_HYBRID_SPARKS_DESC,Fagulhas em volta (3 células): 140% do MATQ (+10% por nível).
+SKILL_HYBRID_EMBER_HEART_NAME,Coração de Brasa
+SKILL_HYBRID_EMBER_HEART_DESC,"+10% de ATQ e de MATQ por 12 s (+1% cada e +0,5 s por nível)."
+SKILL_SUPPORT_BOTTLE_BREW_NAME,Garrafada
+SKILL_SUPPORT_BOTTLE_BREW_DESC,"Aliados a 4 células curam 8 + MATQ × 0,2 por segundo por 10 s (+8% por nível)."
+SKILL_SUPPORT_HERB_TEA_NAME,Chá de Erva
+SKILL_SUPPORT_HERB_TEA_DESC,"Cura um aliado (8 células) em 40 + MATQ × 1,6 (+10% por nível)."
+SKILL_SUPPORT_POULTICE_NAME,Emplastro
+SKILL_SUPPORT_POULTICE_DESC,"Tira os efeitos negativos de um aliado e cura 20 + MATQ × 0,6 (+10% por nível)."
+SKILL_SUPPORT_PEQUI_SHADE_NAME,Sombra de Pequizeiro
+SKILL_SUPPORT_PEQUI_SHADE_DESC,"Um aliado recebe 20% menos dano por 6 s (−1,5% e +0,3 s por nível)."
+SKILL_SUPPORT_MUTIRAO_NAME,Mutirão
+SKILL_SUPPORT_MUTIRAO_DESC,"Todo mundo junto: aliados a 6 células ganham +10% de ATQ e de MATQ por 15 s (+1% e +0,5 s por nível)."
+SKILL_SUPPORT_BROADLEAF_TEA_NAME,Chá de Folha Larga
+SKILL_SUPPORT_BROADLEAF_TEA_DESC,"Cura grande num aliado (8 células): 80 + MATQ × 2,4, e tira o veneno (+10% por nível)."
+SKILL_SUPPORT_COCONUT_WATER_NAME,Água de Coco
+SKILL_SUPPORT_COCONUT_WATER_DESC,"Cura os aliados a 6 células em 40 + MATQ × 1,0 (+10% por nível)."
+SKILL_SUPPORT_RUNNING_SAP_NAME,Seiva que Corre
+SKILL_SUPPORT_RUNNING_SAP_DESC,"Cura contínua forte num aliado: 15 + MATQ × 0,4 por segundo por 12 s (+8% por nível)."
+SKILL_SUPPORT_HOLDING_ROOT_NAME,Raiz que Segura
+SKILL_SUPPORT_HOLDING_ROOT_DESC,"Por 3 s o aliado não cai abaixo de 1 de vida (+0,2 s por nível)."
+SKILL_SUPPORT_NEW_BREATH_NAME,Fôlego Novo
+SKILL_SUPPORT_NEW_BREATH_DESC,Devolve 20% da mana máxima de um aliado (+1% por nível).
+SKILL_SUPPORT_ILL_WHISTLE_NAME,Assobio Agourento
+SKILL_SUPPORT_ILL_WHISTLE_DESC,"Assobio num cone de 90° (4 células): inimigos com −20% de DEF por 8 s (−1,5% e +0,4 s por nível)."
+SKILL_SUPPORT_OMEN_NAME,Agouro
+SKILL_SUPPORT_OMEN_DESC,"Um inimigo (10 células) fica com −25% de ATQ e −15% de MATQ por 10 s (+0,5 s por nível)."
+SKILL_SUPPORT_OWL_CRY_NAME,Pio da Rasga-Mortalha
+SKILL_SUPPORT_OWL_CRY_DESC,"Um pio numa área (3 células): lentidão de 40% por 5 s (+2% e +0,25 s por nível)."
+SKILL_SUPPORT_BIRD_LIME_NAME,Visgo
+SKILL_SUPPORT_BIRD_LIME_DESC,"Cola o inimigo no chão (10 células): preso por 3 s (+0,15 s por nível)."
+SKILL_SUPPORT_BITTER_SMOKE_NAME,Fumaça Amarga
+SKILL_SUPPORT_BITTER_SMOKE_DESC,Fumaça numa área (3 células) por 6 s: 30% do MATQ por segundo e −50% de cura recebida (+3% por nível).
+SKILL_TANK_SHELL_KNOCK_NAME,Batida no Casco
+SKILL_TANK_SHELL_KNOCK_DESC,"Bate no peito: os monstros a 4 células atacam você por 5 s (+0,25 s por nível)."
+SKILL_TANK_SHELL_RETREAT_NAME,Recolher no Casco
+SKILL_TANK_SHELL_RETREAT_DESC,"Recebe 50% menos dano e anda 50% mais devagar por 4 s (−2% e +0,2 s por nível)."
+SKILL_TANK_HARD_SHELL_NAME,Casco Duro
+SKILL_TANK_HARD_SHELL_DESC,"+30% de DEF por 12 s (+3% e +0,5 s por nível)."
+SKILL_TANK_PATIENCE_NAME,Paciência de Jabuti
+SKILL_TANK_PATIENCE_DESC,"Recupera 3% da vida máxima por segundo por 8 s (+0,2% por nível)."
+SKILL_TANK_SHELL_BASH_NAME,Empurrão de Casco
+SKILL_TANK_SHELL_BASH_DESC,"Cone de 90° (2 células): 60% do ATQ, empurra 2 células e atordoa por 1 s (+6% e +0,05 s por nível)."
+SKILL_TANK_THICK_HIDE_NAME,Couro Grosso
+SKILL_TANK_THICK_HIDE_DESC,"+40% de DEF por 15 s (+3% e +0,5 s por nível)."
+SKILL_TANK_TAPIR_STOMP_NAME,Pisada de Anta
+SKILL_TANK_TAPIR_STOMP_DESC,"Pisa forte: 80% do ATQ em volta (2,5 células) e atordoa por 1,5 s (+6% e +0,05 s por nível)."
+SKILL_TANK_TAPIR_RAM_NAME,Trombada
+SKILL_TANK_TAPIR_RAM_DESC,"Avança até o alvo (6 células), causa 130% do ATQ e empurra 3 células (+10% por nível)."
+SKILL_TANK_LIVING_WALL_NAME,Muralha Viva
+SKILL_TANK_LIVING_WALL_DESC,"Aliados a 3 células recebem 20% menos dano por 8 s (−1,5% e +0,4 s por nível)."
+SKILL_TANK_STAND_FIRM_NAME,Aguentar Firme
+SKILL_TANK_STAND_FIRM_DESC,"Imune a atordoar, prender e empurrar por 6 s (+0,3 s por nível)."
+SKILL_TANK_FURY_NAME,Fúria
+SKILL_TANK_FURY_DESC,"+40% de ATQ e −30% de DEF por 10 s (+3% ATQ e +0,5 s por nível)."
+SKILL_TANK_MAPINGUARI_HOWL_NAME,Urro do Mapinguari
+SKILL_TANK_MAPINGUARI_HOWL_DESC,"Urro em volta (4 células): inimigos com −25% de DEF por 8 s (−1,5% e +0,4 s por nível)."
+SKILL_TANK_HEAVY_CLAWS_NAME,Garras Pesadas
+SKILL_TANK_HEAVY_CLAWS_DESC,"Dois golpes num cone de 90° (2 células), 120% do ATQ cada (+10% por nível)."
+SKILL_TANK_BATTLE_THIRST_NAME,Sede de Luta
+SKILL_TANK_BATTLE_THIRST_DESC,"20% do dano causado volta como vida por 10 s (+1,5% e +0,5 s por nível)."
+SKILL_TANK_LAST_BLOW_NAME,Última Pancada
+SKILL_TANK_LAST_BLOW_DESC,"150% do ATQ, e até +150% conforme a vida que falta (+10% por nível)."
+TITLE_SABIA_BOW_CERRADO_NAME,Flecha do Cerrado
+TITLE_SABIA_BOW_CERRADO_DESC,Arco de base: ataca de longe com flechas.
+TITLE_SABIA_BOW_BREJO_NAME,Tocaia do Brejo
+TITLE_SABIA_BOW_BREJO_DESC,Emboscada: fica escondido e ataca de surpresa.
+TITLE_SABIA_BOW_GAVIAO_NAME,Gavião-Real
+TITLE_SABIA_BOW_GAVIAO_DESC,Tiro certeiro: acerta de muito longe e com mais crítico.
+TITLE_SABIA_SUPPORT_ROOT_NAME,Raiz do Cerrado
+TITLE_SABIA_SUPPORT_ROOT_DESC,"Suporte: cura e protege os amigos, como a raiz que guarda água para o cerrado."
+TITLE_SABIA_SUPPORT_BURITI_NAME,Seiva do Buriti
+TITLE_SABIA_SUPPORT_BURITI_DESC,Cura: cura forte e rápida para quem está caindo.
+TITLE_SABIA_SUPPORT_MATINTA_NAME,Assobio da Matinta
+TITLE_SABIA_SUPPORT_MATINTA_DESC,"Enfraquecer: tira a força, a defesa e a cura dos inimigos."
+TITLE_SABIA_TANK_JABUTI_NAME,Casco de Jabuti
+TITLE_SABIA_TANK_JABUTI_DESC,Tanque: chama os monstros para si e aguenta os golpes pelo grupo.
+TITLE_SABIA_TANK_ANTA_NAME,Couro de Anta
+TITLE_SABIA_TANK_ANTA_DESC,"Guerreiro pesado: muita defesa, pisada forte e trombada."
+TITLE_SABIA_TANK_MAPINGUARI_NAME,Fúria do Mapinguari
+TITLE_SABIA_TANK_MAPINGUARI_DESC,Berserker: troca defesa por força e bate mais forte quando está ferido.
+QUEST_LESSON_BLADE_SHARPEN_NAME,Lição: Amolar o Facão
+QUEST_LESSON_BLADE_SHARPEN_DESC,Mestra Brisa ensina Amolar o Facão a quem provar que está pronto.
+QUEST_LESSON_BLADE_SHARPEN_OPTION,[Lição] Quero aprender Amolar o Facão.
+QUEST_LESSON_BLADE_SHARPEN_OFFER,"Quer aprender Amolar o Facão? Primeiro, mostre que está pronto. Derrote 10 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Depois volte aqui."
+QUEST_LESSON_BLADE_SHARPEN_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_SHARPEN_COMPLETE,Muito bem. Agora você sabe usar Amolar o Facão. Treine bastante.
+QUEST_LESSON_BLADE_SHARPEN_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_SHARPEN_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BLADE_AROEIRA_REPLY_NAME,Lição: Resposta da Aroeira
+QUEST_LESSON_BLADE_AROEIRA_REPLY_DESC,Mestra Brisa ensina Resposta da Aroeira a quem provar que está pronto.
+QUEST_LESSON_BLADE_AROEIRA_REPLY_OPTION,[Lição] Quero aprender Resposta da Aroeira.
+QUEST_LESSON_BLADE_AROEIRA_REPLY_OFFER,"Quer aprender Resposta da Aroeira? Primeiro, mostre que está pronto. Derrote 8 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_AROEIRA_REPLY_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_AROEIRA_REPLY_COMPLETE,Muito bem. Agora você sabe usar Resposta da Aroeira. Treine bastante.
+QUEST_LESSON_BLADE_AROEIRA_REPLY_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_ROOT_GRIP_NAME,Lição: Raiz Presa
+QUEST_LESSON_BLADE_ROOT_GRIP_DESC,Mestra Brisa ensina Raiz Presa a quem provar que está pronto.
+QUEST_LESSON_BLADE_ROOT_GRIP_OPTION,[Lição] Quero aprender Raiz Presa.
+QUEST_LESSON_BLADE_ROOT_GRIP_OFFER,"Quer aprender Raiz Presa? Primeiro, mostre que está pronto. Derrote 10 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_ROOT_GRIP_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_ROOT_GRIP_COMPLETE,Muito bem. Agora você sabe usar Raiz Presa. Treine bastante.
+QUEST_LESSON_BLADE_ROOT_GRIP_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_THICK_BARK_NAME,Lição: Casca Grossa
+QUEST_LESSON_BLADE_THICK_BARK_DESC,Mestra Brisa ensina Casca Grossa a quem provar que está pronto.
+QUEST_LESSON_BLADE_THICK_BARK_OPTION,[Lição] Quero aprender Casca Grossa.
+QUEST_LESSON_BLADE_THICK_BARK_OFFER,"Quer aprender Casca Grossa? Primeiro, mostre que está pronto. Derrote 12 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Depois volte aqui."
+QUEST_LESSON_BLADE_THICK_BARK_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_THICK_BARK_COMPLETE,Muito bem. Agora você sabe usar Casca Grossa. Treine bastante.
+QUEST_LESSON_BLADE_THICK_BARK_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_THICK_BARK_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BLADE_TRUNK_CALL_NAME,Lição: Chamado do Tronco
+QUEST_LESSON_BLADE_TRUNK_CALL_DESC,Mestra Brisa ensina Chamado do Tronco a quem provar que está pronto.
+QUEST_LESSON_BLADE_TRUNK_CALL_OPTION,[Lição] Quero aprender Chamado do Tronco.
+QUEST_LESSON_BLADE_TRUNK_CALL_OFFER,"Quer aprender Chamado do Tronco? Primeiro, mostre que está pronto. Derrote 12 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Depois volte aqui."
+QUEST_LESSON_BLADE_TRUNK_CALL_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_TRUNK_CALL_COMPLETE,Muito bem. Agora você sabe usar Chamado do Tronco. Treine bastante.
+QUEST_LESSON_BLADE_TRUNK_CALL_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_TRUNK_CALL_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BLADE_JAGUAR_LEAP_NAME,Lição: Bote da Onça
+QUEST_LESSON_BLADE_JAGUAR_LEAP_DESC,Mestra Brisa ensina Bote da Onça a quem provar que está pronto.
+QUEST_LESSON_BLADE_JAGUAR_LEAP_OPTION,[Lição] Quero aprender Bote da Onça.
+QUEST_LESSON_BLADE_JAGUAR_LEAP_OFFER,"Quer aprender Bote da Onça? Primeiro, mostre que está pronto. Derrote 8 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_JAGUAR_LEAP_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_JAGUAR_LEAP_COMPLETE,Muito bem. Agora você sabe usar Bote da Onça. Treine bastante.
+QUEST_LESSON_BLADE_JAGUAR_LEAP_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_CLAW_RAKE_NAME,Lição: Unhada
+QUEST_LESSON_BLADE_CLAW_RAKE_DESC,Mestra Brisa ensina Unhada a quem provar que está pronto.
+QUEST_LESSON_BLADE_CLAW_RAKE_OPTION,[Lição] Quero aprender Unhada.
+QUEST_LESSON_BLADE_CLAW_RAKE_OFFER,"Quer aprender Unhada? Primeiro, mostre que está pronto. Derrote 10 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_CLAW_RAKE_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_CLAW_RAKE_COMPLETE,Muito bem. Agora você sabe usar Unhada. Treine bastante.
+QUEST_LESSON_BLADE_CLAW_RAKE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_BLOOD_SCENT_NAME,Lição: Faro de Sangue
+QUEST_LESSON_BLADE_BLOOD_SCENT_DESC,Mestra Brisa ensina Faro de Sangue a quem provar que está pronto.
+QUEST_LESSON_BLADE_BLOOD_SCENT_OPTION,[Lição] Quero aprender Faro de Sangue.
+QUEST_LESSON_BLADE_BLOOD_SCENT_OFFER,"Quer aprender Faro de Sangue? Primeiro, mostre que está pronto. Derrote 12 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Depois volte aqui."
+QUEST_LESSON_BLADE_BLOOD_SCENT_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_BLOOD_SCENT_COMPLETE,Muito bem. Agora você sabe usar Faro de Sangue. Treine bastante.
+QUEST_LESSON_BLADE_BLOOD_SCENT_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_BLOOD_SCENT_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BLADE_JAGUAR_ROAR_NAME,Lição: Rugido da Onça
+QUEST_LESSON_BLADE_JAGUAR_ROAR_DESC,Mestra Brisa ensina Rugido da Onça a quem provar que está pronto.
+QUEST_LESSON_BLADE_JAGUAR_ROAR_OPTION,[Lição] Quero aprender Rugido da Onça.
+QUEST_LESSON_BLADE_JAGUAR_ROAR_OFFER,"Quer aprender Rugido da Onça? Primeiro, mostre que está pronto. Derrote 12 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Depois volte aqui."
+QUEST_LESSON_BLADE_JAGUAR_ROAR_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_JAGUAR_ROAR_COMPLETE,Muito bem. Agora você sabe usar Rugido da Onça. Treine bastante.
+QUEST_LESSON_BLADE_JAGUAR_ROAR_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_JAGUAR_ROAR_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_ARCANE_FIREFLY_SWARM_NAME,Lição: Enxame de Vaga-lumes
+QUEST_LESSON_ARCANE_FIREFLY_SWARM_DESC,Mestre Orvalho ensina Enxame de Vaga-lumes a quem provar que está pronto.
+QUEST_LESSON_ARCANE_FIREFLY_SWARM_OPTION,[Lição] Quero aprender Enxame de Vaga-lumes.
+QUEST_LESSON_ARCANE_FIREFLY_SWARM_OFFER,"Para aprender Enxame de Vaga-lumes, preciso ver você lutar com calma. Derrote 10 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_FIREFLY_SWARM_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_FIREFLY_SWARM_COMPLETE,Pronto! Agora Enxame de Vaga-lumes é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_FIREFLY_SWARM_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_FIREFLY_SWARM_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_ARCANE_SHARED_CRYSTAL_NAME,Lição: Cristal Repartido
+QUEST_LESSON_ARCANE_SHARED_CRYSTAL_DESC,Mestre Orvalho ensina Cristal Repartido a quem provar que está pronto.
+QUEST_LESSON_ARCANE_SHARED_CRYSTAL_OPTION,[Lição] Quero aprender Cristal Repartido.
+QUEST_LESSON_ARCANE_SHARED_CRYSTAL_OFFER,"Para aprender Cristal Repartido, preciso ver você lutar com calma. Derrote 8 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_SHARED_CRYSTAL_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_SHARED_CRYSTAL_COMPLETE,Pronto! Agora Cristal Repartido é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_SHARED_CRYSTAL_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_CRYSTAL_PRISON_NAME,Lição: Prisão de Cristal
+QUEST_LESSON_ARCANE_CRYSTAL_PRISON_DESC,Mestre Orvalho ensina Prisão de Cristal a quem provar que está pronto.
+QUEST_LESSON_ARCANE_CRYSTAL_PRISON_OPTION,[Lição] Quero aprender Prisão de Cristal.
+QUEST_LESSON_ARCANE_CRYSTAL_PRISON_OFFER,"Para aprender Prisão de Cristal, preciso ver você lutar com calma. Derrote 10 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_CRYSTAL_PRISON_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_CRYSTAL_PRISON_COMPLETE,Pronto! Agora Prisão de Cristal é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_CRYSTAL_PRISON_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_CRYSTAL_WALL_NAME,Lição: Muralha de Cristal
+QUEST_LESSON_ARCANE_CRYSTAL_WALL_DESC,Mestre Orvalho ensina Muralha de Cristal a quem provar que está pronto.
+QUEST_LESSON_ARCANE_CRYSTAL_WALL_OPTION,[Lição] Quero aprender Muralha de Cristal.
+QUEST_LESSON_ARCANE_CRYSTAL_WALL_OFFER,"Para aprender Muralha de Cristal, preciso ver você lutar com calma. Derrote 12 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_CRYSTAL_WALL_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_CRYSTAL_WALL_COMPLETE,Pronto! Agora Muralha de Cristal é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_CRYSTAL_WALL_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_CRYSTAL_WALL_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_ARCANE_CRYSTAL_GLOW_NAME,Lição: Brilho do Cristal
+QUEST_LESSON_ARCANE_CRYSTAL_GLOW_DESC,Mestre Orvalho ensina Brilho do Cristal a quem provar que está pronto.
+QUEST_LESSON_ARCANE_CRYSTAL_GLOW_OPTION,[Lição] Quero aprender Brilho do Cristal.
+QUEST_LESSON_ARCANE_CRYSTAL_GLOW_OFFER,"Para aprender Brilho do Cristal, preciso ver você lutar com calma. Derrote 12 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_CRYSTAL_GLOW_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_CRYSTAL_GLOW_COMPLETE,Pronto! Agora Brilho do Cristal é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_CRYSTAL_GLOW_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_CRYSTAL_GLOW_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_ARCANE_STAR_STEP_NAME,Lição: Passo Estelar
+QUEST_LESSON_ARCANE_STAR_STEP_DESC,Mestre Orvalho ensina Passo Estelar a quem provar que está pronto.
+QUEST_LESSON_ARCANE_STAR_STEP_OPTION,[Lição] Quero aprender Passo Estelar.
+QUEST_LESSON_ARCANE_STAR_STEP_OFFER,"Para aprender Passo Estelar, preciso ver você lutar com calma. Derrote 8 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_STAR_STEP_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_STAR_STEP_COMPLETE,Pronto! Agora Passo Estelar é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_STAR_STEP_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_FIRE_GAZE_NAME,Lição: Olhar de Fogo
+QUEST_LESSON_ARCANE_FIRE_GAZE_DESC,Mestre Orvalho ensina Olhar de Fogo a quem provar que está pronto.
+QUEST_LESSON_ARCANE_FIRE_GAZE_OPTION,[Lição] Quero aprender Olhar de Fogo.
+QUEST_LESSON_ARCANE_FIRE_GAZE_OFFER,"Para aprender Olhar de Fogo, preciso ver você lutar com calma. Derrote 10 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_FIRE_GAZE_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_FIRE_GAZE_COMPLETE,Pronto! Agora Olhar de Fogo é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_FIRE_GAZE_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_FIRE_SERPENT_NAME,Lição: Serpente de Fogo
+QUEST_LESSON_ARCANE_FIRE_SERPENT_DESC,Mestre Orvalho ensina Serpente de Fogo a quem provar que está pronto.
+QUEST_LESSON_ARCANE_FIRE_SERPENT_OPTION,[Lição] Quero aprender Serpente de Fogo.
+QUEST_LESSON_ARCANE_FIRE_SERPENT_OFFER,"Para aprender Serpente de Fogo, preciso ver você lutar com calma. Derrote 12 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_FIRE_SERPENT_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_FIRE_SERPENT_COMPLETE,Pronto! Agora Serpente de Fogo é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_FIRE_SERPENT_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_FIRE_SERPENT_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_ARCANE_EMBER_EYES_NAME,Lição: Olhos em Brasa
+QUEST_LESSON_ARCANE_EMBER_EYES_DESC,Mestre Orvalho ensina Olhos em Brasa a quem provar que está pronto.
+QUEST_LESSON_ARCANE_EMBER_EYES_OPTION,[Lição] Quero aprender Olhos em Brasa.
+QUEST_LESSON_ARCANE_EMBER_EYES_OFFER,"Para aprender Olhos em Brasa, preciso ver você lutar com calma. Derrote 12 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_EMBER_EYES_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_EMBER_EYES_COMPLETE,Pronto! Agora Olhos em Brasa é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_EMBER_EYES_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_EMBER_EYES_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_BOW_LOW_SHOT_NAME,Lição: Tiro Rasante
+QUEST_LESSON_BOW_LOW_SHOT_DESC,Mestre Taquari ensina Tiro Rasante a quem provar que está pronto.
+QUEST_LESSON_BOW_LOW_SHOT_OPTION,[Lição] Quero aprender Tiro Rasante.
+QUEST_LESSON_BOW_LOW_SHOT_OFFER,Quer aprender Tiro Rasante? Derrote 6 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_LOW_SHOT_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_LOW_SHOT_COMPLETE,Isso! Agora você sabe usar Tiro Rasante. Mire com calma e solte. Você conquistou um novo caminho do Sabiá; agora pode continuar as lições comigo.
+QUEST_LESSON_BOW_LOW_SHOT_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_DOUBLE_ARROW_NAME,Lição: Flecha Dupla
+QUEST_LESSON_BOW_DOUBLE_ARROW_DESC,Mestre Taquari ensina Flecha Dupla a quem provar que está pronto.
+QUEST_LESSON_BOW_DOUBLE_ARROW_OPTION,[Lição] Quero aprender Flecha Dupla.
+QUEST_LESSON_BOW_DOUBLE_ARROW_OFFER,Quer aprender Flecha Dupla? Derrote 6 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_DOUBLE_ARROW_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_DOUBLE_ARROW_COMPLETE,Isso! Agora você sabe usar Flecha Dupla. Mire com calma e solte.
+QUEST_LESSON_BOW_DOUBLE_ARROW_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_TAUT_DRAW_NAME,Lição: Arco Tenso
+QUEST_LESSON_BOW_TAUT_DRAW_DESC,Mestre Taquari ensina Arco Tenso a quem provar que está pronto.
+QUEST_LESSON_BOW_TAUT_DRAW_OPTION,[Lição] Quero aprender Arco Tenso.
+QUEST_LESSON_BOW_TAUT_DRAW_OFFER,Quer aprender Arco Tenso? Derrote 8 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_TAUT_DRAW_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_TAUT_DRAW_COMPLETE,Isso! Agora você sabe usar Arco Tenso. Mire com calma e solte.
+QUEST_LESSON_BOW_TAUT_DRAW_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_WARNING_ARROW_NAME,Lição: Flecha de Aviso
+QUEST_LESSON_BOW_WARNING_ARROW_DESC,Mestre Taquari ensina Flecha de Aviso a quem provar que está pronto.
+QUEST_LESSON_BOW_WARNING_ARROW_OPTION,[Lição] Quero aprender Flecha de Aviso.
+QUEST_LESSON_BOW_WARNING_ARROW_OFFER,Quer aprender Flecha de Aviso? Derrote 10 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_WARNING_ARROW_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_WARNING_ARROW_COMPLETE,Isso! Agora você sabe usar Flecha de Aviso. Mire com calma e solte.
+QUEST_LESSON_BOW_WARNING_ARROW_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_WARNING_ARROW_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BOW_ARROW_FLOCK_NAME,Lição: Revoada de Flechas
+QUEST_LESSON_BOW_ARROW_FLOCK_DESC,Mestre Taquari ensina Revoada de Flechas a quem provar que está pronto.
+QUEST_LESSON_BOW_ARROW_FLOCK_OPTION,[Lição] Quero aprender Revoada de Flechas.
+QUEST_LESSON_BOW_ARROW_FLOCK_OFFER,Quer aprender Revoada de Flechas? Derrote 10 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_ARROW_FLOCK_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_ARROW_FLOCK_COMPLETE,Isso! Agora você sabe usar Revoada de Flechas. Mire com calma e solte.
+QUEST_LESSON_BOW_ARROW_FLOCK_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_ARROW_FLOCK_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BOW_MUD_SKIN_NAME,Lição: Pele de Barro
+QUEST_LESSON_BOW_MUD_SKIN_DESC,Mestre Taquari ensina Pele de Barro a quem provar que está pronto.
+QUEST_LESSON_BOW_MUD_SKIN_OPTION,[Lição] Quero aprender Pele de Barro.
+QUEST_LESSON_BOW_MUD_SKIN_OFFER,Quer aprender Pele de Barro? Derrote 8 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_MUD_SKIN_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_MUD_SKIN_COMPLETE,Isso! Agora você sabe usar Pele de Barro. Mire com calma e solte.
+QUEST_LESSON_BOW_MUD_SKIN_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_MUD_HIDE_NAME,Lição: Lama no Corpo
+QUEST_LESSON_BOW_MUD_HIDE_DESC,Mestre Taquari ensina Lama no Corpo a quem provar que está pronto.
+QUEST_LESSON_BOW_MUD_HIDE_OPTION,[Lição] Quero aprender Lama no Corpo.
+QUEST_LESSON_BOW_MUD_HIDE_OFFER,Quer aprender Lama no Corpo? Derrote 8 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_MUD_HIDE_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_MUD_HIDE_COMPLETE,Isso! Agora você sabe usar Lama no Corpo. Mire com calma e solte.
+QUEST_LESSON_BOW_MUD_HIDE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_AMBUSH_SHOT_NAME,Lição: Tocaia
+QUEST_LESSON_BOW_AMBUSH_SHOT_DESC,Mestre Taquari ensina Tocaia a quem provar que está pronto.
+QUEST_LESSON_BOW_AMBUSH_SHOT_OPTION,[Lição] Quero aprender Tocaia.
+QUEST_LESSON_BOW_AMBUSH_SHOT_OFFER,Quer aprender Tocaia? Derrote 10 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_AMBUSH_SHOT_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_AMBUSH_SHOT_COMPLETE,Isso! Agora você sabe usar Tocaia. Mire com calma e solte.
+QUEST_LESSON_BOW_AMBUSH_SHOT_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_VINE_SNARE_NAME,Lição: Armadilha de Cipó
+QUEST_LESSON_BOW_VINE_SNARE_DESC,Mestre Taquari ensina Armadilha de Cipó a quem provar que está pronto.
+QUEST_LESSON_BOW_VINE_SNARE_OPTION,[Lição] Quero aprender Armadilha de Cipó.
+QUEST_LESSON_BOW_VINE_SNARE_OFFER,Quer aprender Armadilha de Cipó? Derrote 12 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_VINE_SNARE_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_VINE_SNARE_COMPLETE,Isso! Agora você sabe usar Armadilha de Cipó. Mire com calma e solte.
+QUEST_LESSON_BOW_VINE_SNARE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_VINE_SNARE_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BOW_THORN_ARROW_NAME,Lição: Flecha de Espinho
+QUEST_LESSON_BOW_THORN_ARROW_DESC,Mestre Taquari ensina Flecha de Espinho a quem provar que está pronto.
+QUEST_LESSON_BOW_THORN_ARROW_OPTION,[Lição] Quero aprender Flecha de Espinho.
+QUEST_LESSON_BOW_THORN_ARROW_OFFER,Quer aprender Flecha de Espinho? Derrote 12 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_THORN_ARROW_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_THORN_ARROW_COMPLETE,Isso! Agora você sabe usar Flecha de Espinho. Mire com calma e solte.
+QUEST_LESSON_BOW_THORN_ARROW_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_THORN_ARROW_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BOW_STILL_EYE_NAME,Lição: Olho Parado
+QUEST_LESSON_BOW_STILL_EYE_DESC,Mestre Taquari ensina Olho Parado a quem provar que está pronto.
+QUEST_LESSON_BOW_STILL_EYE_OPTION,[Lição] Quero aprender Olho Parado.
+QUEST_LESSON_BOW_STILL_EYE_OFFER,Quer aprender Olho Parado? Derrote 8 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_STILL_EYE_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_STILL_EYE_COMPLETE,Isso! Agora você sabe usar Olho Parado. Mire com calma e solte.
+QUEST_LESSON_BOW_STILL_EYE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_TRUE_ARROW_NAME,Lição: Flecha Sem Desvio
+QUEST_LESSON_BOW_TRUE_ARROW_DESC,Mestre Taquari ensina Flecha Sem Desvio a quem provar que está pronto.
+QUEST_LESSON_BOW_TRUE_ARROW_OPTION,[Lição] Quero aprender Flecha Sem Desvio.
+QUEST_LESSON_BOW_TRUE_ARROW_OFFER,Quer aprender Flecha Sem Desvio? Derrote 8 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_TRUE_ARROW_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_TRUE_ARROW_COMPLETE,Isso! Agora você sabe usar Flecha Sem Desvio. Mire com calma e solte.
+QUEST_LESSON_BOW_TRUE_ARROW_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_SURE_AIM_NAME,Lição: Mira Certeira
+QUEST_LESSON_BOW_SURE_AIM_DESC,Mestre Taquari ensina Mira Certeira a quem provar que está pronto.
+QUEST_LESSON_BOW_SURE_AIM_OPTION,[Lição] Quero aprender Mira Certeira.
+QUEST_LESSON_BOW_SURE_AIM_OFFER,Quer aprender Mira Certeira? Derrote 10 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_SURE_AIM_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_SURE_AIM_COMPLETE,Isso! Agora você sabe usar Mira Certeira. Mire com calma e solte.
+QUEST_LESSON_BOW_SURE_AIM_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_HAWK_DIVE_NAME,Lição: Mergulho do Gavião
+QUEST_LESSON_BOW_HAWK_DIVE_DESC,Mestre Taquari ensina Mergulho do Gavião a quem provar que está pronto.
+QUEST_LESSON_BOW_HAWK_DIVE_OPTION,[Lição] Quero aprender Mergulho do Gavião.
+QUEST_LESSON_BOW_HAWK_DIVE_OFFER,Quer aprender Mergulho do Gavião? Derrote 12 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_HAWK_DIVE_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_HAWK_DIVE_COMPLETE,Isso! Agora você sabe usar Mergulho do Gavião. Mire com calma e solte.
+QUEST_LESSON_BOW_HAWK_DIVE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_HAWK_DIVE_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BOW_SHORT_FLIGHT_NAME,Lição: Voo Curto
+QUEST_LESSON_BOW_SHORT_FLIGHT_DESC,Mestre Taquari ensina Voo Curto a quem provar que está pronto.
+QUEST_LESSON_BOW_SHORT_FLIGHT_OPTION,[Lição] Quero aprender Voo Curto.
+QUEST_LESSON_BOW_SHORT_FLIGHT_OFFER,Quer aprender Voo Curto? Derrote 12 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Ataque de longe e não deixe chegarem perto.
+QUEST_LESSON_BOW_SHORT_FLIGHT_PROGRESS,Ainda falta. Termine a caçada e volte.
+QUEST_LESSON_BOW_SHORT_FLIGHT_COMPLETE,Isso! Agora você sabe usar Voo Curto. Mire com calma e solte.
+QUEST_LESSON_BOW_SHORT_FLIGHT_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BOW_SHORT_FLIGHT_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_HYBRID_EMBER_CUT_NAME,Lição: Corte em Brasa
+QUEST_LESSON_HYBRID_EMBER_CUT_DESC,Seu Zé Ferreiro ensina Corte em Brasa a quem provar que está pronto.
+QUEST_LESSON_HYBRID_EMBER_CUT_OPTION,[Lição] Quero aprender Corte em Brasa.
+QUEST_LESSON_HYBRID_EMBER_CUT_OFFER,"Para aprender Corte em Brasa, preciso ver sua força. Derrote 6 Vaga-lumes Encantados. Depois volte à forja."
+QUEST_LESSON_HYBRID_EMBER_CUT_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_HYBRID_EMBER_CUT_COMPLETE,Muito bem. Agora Corte em Brasa é sua. Cuide bem dela.
+QUEST_LESSON_HYBRID_EMBER_CUT_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_HYBRID_STEEL_SPARK_NAME,Lição: Faísca no Aço
+QUEST_LESSON_HYBRID_STEEL_SPARK_DESC,Seu Zé Ferreiro ensina Faísca no Aço a quem provar que está pronto.
+QUEST_LESSON_HYBRID_STEEL_SPARK_OPTION,[Lição] Quero aprender Faísca no Aço.
+QUEST_LESSON_HYBRID_STEEL_SPARK_OFFER,"Para aprender Faísca no Aço, preciso ver sua força. Derrote 8 Vaga-lumes Encantados. Depois volte à forja."
+QUEST_LESSON_HYBRID_STEEL_SPARK_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_HYBRID_STEEL_SPARK_COMPLETE,Muito bem. Agora Faísca no Aço é sua. Cuide bem dela.
+QUEST_LESSON_HYBRID_STEEL_SPARK_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_HYBRID_SPARKS_NAME,Lição: Fagulhas
+QUEST_LESSON_HYBRID_SPARKS_DESC,Seu Zé Ferreiro ensina Fagulhas a quem provar que está pronto.
+QUEST_LESSON_HYBRID_SPARKS_OPTION,[Lição] Quero aprender Fagulhas.
+QUEST_LESSON_HYBRID_SPARKS_OFFER,"Para aprender Fagulhas, preciso ver sua força. Derrote 10 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois volte à forja."
+QUEST_LESSON_HYBRID_SPARKS_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_HYBRID_SPARKS_COMPLETE,Muito bem. Agora Fagulhas é sua. Cuide bem dela.
+QUEST_LESSON_HYBRID_SPARKS_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_HYBRID_SPARKS_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_HYBRID_EMBER_HEART_NAME,Lição: Coração de Brasa
+QUEST_LESSON_HYBRID_EMBER_HEART_DESC,Seu Zé Ferreiro ensina Coração de Brasa a quem provar que está pronto.
+QUEST_LESSON_HYBRID_EMBER_HEART_OPTION,[Lição] Quero aprender Coração de Brasa.
+QUEST_LESSON_HYBRID_EMBER_HEART_OFFER,"Para aprender Coração de Brasa, preciso ver sua força. Derrote 10 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois volte à forja."
+QUEST_LESSON_HYBRID_EMBER_HEART_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_HYBRID_EMBER_HEART_COMPLETE,Muito bem. Agora Coração de Brasa é sua. Cuide bem dela.
+QUEST_LESSON_HYBRID_EMBER_HEART_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_HYBRID_EMBER_HEART_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_SUPPORT_HERB_TEA_NAME,Lição: Chá de Erva
+QUEST_LESSON_SUPPORT_HERB_TEA_DESC,Vó Aninha ensina Chá de Erva a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_HERB_TEA_OPTION,[Lição] Quero aprender Chá de Erva.
+QUEST_LESSON_SUPPORT_HERB_TEA_OFFER,"Quer aprender Chá de Erva, meu bem? Derrote 6 Vaga-lumes Encantados. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_HERB_TEA_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_HERB_TEA_COMPLETE,Pronto. Agora você sabe usar Chá de Erva. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_HERB_TEA_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_POULTICE_NAME,Lição: Emplastro
+QUEST_LESSON_SUPPORT_POULTICE_DESC,Vó Aninha ensina Emplastro a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_POULTICE_OPTION,[Lição] Quero aprender Emplastro.
+QUEST_LESSON_SUPPORT_POULTICE_OFFER,"Quer aprender Emplastro, meu bem? Derrote 8 Vaga-lumes Encantados. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_POULTICE_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_POULTICE_COMPLETE,Pronto. Agora você sabe usar Emplastro. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_POULTICE_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_PEQUI_SHADE_NAME,Lição: Sombra de Pequizeiro
+QUEST_LESSON_SUPPORT_PEQUI_SHADE_DESC,Vó Aninha ensina Sombra de Pequizeiro a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_PEQUI_SHADE_OPTION,[Lição] Quero aprender Sombra de Pequizeiro.
+QUEST_LESSON_SUPPORT_PEQUI_SHADE_OFFER,"Quer aprender Sombra de Pequizeiro, meu bem? Derrote 10 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_PEQUI_SHADE_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_PEQUI_SHADE_COMPLETE,Pronto. Agora você sabe usar Sombra de Pequizeiro. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_PEQUI_SHADE_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_PEQUI_SHADE_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_SUPPORT_MUTIRAO_NAME,Lição: Mutirão
+QUEST_LESSON_SUPPORT_MUTIRAO_DESC,Vó Aninha ensina Mutirão a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_MUTIRAO_OPTION,[Lição] Quero aprender Mutirão.
+QUEST_LESSON_SUPPORT_MUTIRAO_OFFER,"Quer aprender Mutirão, meu bem? Derrote 10 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_MUTIRAO_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_MUTIRAO_COMPLETE,Pronto. Agora você sabe usar Mutirão. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_MUTIRAO_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_MUTIRAO_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_SUPPORT_BROADLEAF_TEA_NAME,Lição: Chá de Folha Larga
+QUEST_LESSON_SUPPORT_BROADLEAF_TEA_DESC,Vó Aninha ensina Chá de Folha Larga a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_BROADLEAF_TEA_OPTION,[Lição] Quero aprender Chá de Folha Larga.
+QUEST_LESSON_SUPPORT_BROADLEAF_TEA_OFFER,"Quer aprender Chá de Folha Larga, meu bem? Derrote 8 Vaga-lumes Encantados. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_BROADLEAF_TEA_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_BROADLEAF_TEA_COMPLETE,Pronto. Agora você sabe usar Chá de Folha Larga. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_BROADLEAF_TEA_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_COCONUT_WATER_NAME,Lição: Água de Coco
+QUEST_LESSON_SUPPORT_COCONUT_WATER_DESC,Vó Aninha ensina Água de Coco a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_COCONUT_WATER_OPTION,[Lição] Quero aprender Água de Coco.
+QUEST_LESSON_SUPPORT_COCONUT_WATER_OFFER,"Quer aprender Água de Coco, meu bem? Derrote 8 Vaga-lumes Encantados. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_COCONUT_WATER_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_COCONUT_WATER_COMPLETE,Pronto. Agora você sabe usar Água de Coco. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_COCONUT_WATER_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_RUNNING_SAP_NAME,Lição: Seiva que Corre
+QUEST_LESSON_SUPPORT_RUNNING_SAP_DESC,Vó Aninha ensina Seiva que Corre a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_RUNNING_SAP_OPTION,[Lição] Quero aprender Seiva que Corre.
+QUEST_LESSON_SUPPORT_RUNNING_SAP_OFFER,"Quer aprender Seiva que Corre, meu bem? Derrote 10 Vaga-lumes Encantados. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_RUNNING_SAP_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_RUNNING_SAP_COMPLETE,Pronto. Agora você sabe usar Seiva que Corre. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_RUNNING_SAP_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_HOLDING_ROOT_NAME,Lição: Raiz que Segura
+QUEST_LESSON_SUPPORT_HOLDING_ROOT_DESC,Vó Aninha ensina Raiz que Segura a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_HOLDING_ROOT_OPTION,[Lição] Quero aprender Raiz que Segura.
+QUEST_LESSON_SUPPORT_HOLDING_ROOT_OFFER,"Quer aprender Raiz que Segura, meu bem? Derrote 12 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_HOLDING_ROOT_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_HOLDING_ROOT_COMPLETE,Pronto. Agora você sabe usar Raiz que Segura. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_HOLDING_ROOT_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_HOLDING_ROOT_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_SUPPORT_NEW_BREATH_NAME,Lição: Fôlego Novo
+QUEST_LESSON_SUPPORT_NEW_BREATH_DESC,Vó Aninha ensina Fôlego Novo a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_NEW_BREATH_OPTION,[Lição] Quero aprender Fôlego Novo.
+QUEST_LESSON_SUPPORT_NEW_BREATH_OFFER,"Quer aprender Fôlego Novo, meu bem? Derrote 12 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_NEW_BREATH_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_NEW_BREATH_COMPLETE,Pronto. Agora você sabe usar Fôlego Novo. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_NEW_BREATH_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_NEW_BREATH_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_SUPPORT_ILL_WHISTLE_NAME,Lição: Assobio Agourento
+QUEST_LESSON_SUPPORT_ILL_WHISTLE_DESC,Vó Aninha ensina Assobio Agourento a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_ILL_WHISTLE_OPTION,[Lição] Quero aprender Assobio Agourento.
+QUEST_LESSON_SUPPORT_ILL_WHISTLE_OFFER,"Quer aprender Assobio Agourento, meu bem? Derrote 8 Vaga-lumes Encantados. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_ILL_WHISTLE_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_ILL_WHISTLE_COMPLETE,Pronto. Agora você sabe usar Assobio Agourento. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_ILL_WHISTLE_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_OMEN_NAME,Lição: Agouro
+QUEST_LESSON_SUPPORT_OMEN_DESC,Vó Aninha ensina Agouro a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_OMEN_OPTION,[Lição] Quero aprender Agouro.
+QUEST_LESSON_SUPPORT_OMEN_OFFER,"Quer aprender Agouro, meu bem? Derrote 8 Vaga-lumes Encantados. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_OMEN_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_OMEN_COMPLETE,Pronto. Agora você sabe usar Agouro. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_OMEN_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_OWL_CRY_NAME,Lição: Pio da Rasga-Mortalha
+QUEST_LESSON_SUPPORT_OWL_CRY_DESC,Vó Aninha ensina Pio da Rasga-Mortalha a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_OWL_CRY_OPTION,[Lição] Quero aprender Pio da Rasga-Mortalha.
+QUEST_LESSON_SUPPORT_OWL_CRY_OFFER,"Quer aprender Pio da Rasga-Mortalha, meu bem? Derrote 10 Vaga-lumes Encantados. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_OWL_CRY_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_OWL_CRY_COMPLETE,Pronto. Agora você sabe usar Pio da Rasga-Mortalha. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_OWL_CRY_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_BIRD_LIME_NAME,Lição: Visgo
+QUEST_LESSON_SUPPORT_BIRD_LIME_DESC,Vó Aninha ensina Visgo a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_BIRD_LIME_OPTION,[Lição] Quero aprender Visgo.
+QUEST_LESSON_SUPPORT_BIRD_LIME_OFFER,"Quer aprender Visgo, meu bem? Derrote 12 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_BIRD_LIME_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_BIRD_LIME_COMPLETE,Pronto. Agora você sabe usar Visgo. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_BIRD_LIME_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_BIRD_LIME_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_SUPPORT_BITTER_SMOKE_NAME,Lição: Fumaça Amarga
+QUEST_LESSON_SUPPORT_BITTER_SMOKE_DESC,Vó Aninha ensina Fumaça Amarga a quem provar que está pronto.
+QUEST_LESSON_SUPPORT_BITTER_SMOKE_OPTION,[Lição] Quero aprender Fumaça Amarga.
+QUEST_LESSON_SUPPORT_BITTER_SMOKE_OFFER,"Quer aprender Fumaça Amarga, meu bem? Derrote 12 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois volte para a Vó."
+QUEST_LESSON_SUPPORT_BITTER_SMOKE_PROGRESS,"Ainda falta um pouco, meu bem. Termine e volte."
+QUEST_LESSON_SUPPORT_BITTER_SMOKE_COMPLETE,Pronto. Agora você sabe usar Fumaça Amarga. Use para cuidar dos seus amigos.
+QUEST_LESSON_SUPPORT_BITTER_SMOKE_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_SUPPORT_BITTER_SMOKE_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_TANK_SHELL_RETREAT_NAME,Lição: Recolher no Casco
+QUEST_LESSON_TANK_SHELL_RETREAT_DESC,Velho Tião ensina Recolher no Casco a quem provar que está pronto.
+QUEST_LESSON_TANK_SHELL_RETREAT_OPTION,[Lição] Quero aprender Recolher no Casco.
+QUEST_LESSON_TANK_SHELL_RETREAT_OFFER,Quer aprender Recolher no Casco? Aguente a luta contra 6 Tatus-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_SHELL_RETREAT_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_SHELL_RETREAT_COMPLETE,Muito bem. Agora Recolher no Casco é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_SHELL_RETREAT_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_HARD_SHELL_NAME,Lição: Casco Duro
+QUEST_LESSON_TANK_HARD_SHELL_DESC,Velho Tião ensina Casco Duro a quem provar que está pronto.
+QUEST_LESSON_TANK_HARD_SHELL_OPTION,[Lição] Quero aprender Casco Duro.
+QUEST_LESSON_TANK_HARD_SHELL_OFFER,Quer aprender Casco Duro? Aguente a luta contra 8 Tatus-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_HARD_SHELL_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_HARD_SHELL_COMPLETE,Muito bem. Agora Casco Duro é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_HARD_SHELL_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_PATIENCE_NAME,Lição: Paciência de Jabuti
+QUEST_LESSON_TANK_PATIENCE_DESC,Velho Tião ensina Paciência de Jabuti a quem provar que está pronto.
+QUEST_LESSON_TANK_PATIENCE_OPTION,[Lição] Quero aprender Paciência de Jabuti.
+QUEST_LESSON_TANK_PATIENCE_OFFER,Quer aprender Paciência de Jabuti? Aguente a luta contra 10 Tatus-Pedra e traga 3 Cascos de Tatu-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_PATIENCE_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_PATIENCE_COMPLETE,Muito bem. Agora Paciência de Jabuti é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_PATIENCE_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_PATIENCE_STEP2,Colete Cascos de Tatu-Pedra
+QUEST_LESSON_TANK_SHELL_BASH_NAME,Lição: Empurrão de Casco
+QUEST_LESSON_TANK_SHELL_BASH_DESC,Velho Tião ensina Empurrão de Casco a quem provar que está pronto.
+QUEST_LESSON_TANK_SHELL_BASH_OPTION,[Lição] Quero aprender Empurrão de Casco.
+QUEST_LESSON_TANK_SHELL_BASH_OFFER,Quer aprender Empurrão de Casco? Aguente a luta contra 10 Tatus-Pedra e traga 3 Cascos de Tatu-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_SHELL_BASH_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_SHELL_BASH_COMPLETE,Muito bem. Agora Empurrão de Casco é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_SHELL_BASH_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_SHELL_BASH_STEP2,Colete Cascos de Tatu-Pedra
+QUEST_LESSON_TANK_THICK_HIDE_NAME,Lição: Couro Grosso
+QUEST_LESSON_TANK_THICK_HIDE_DESC,Velho Tião ensina Couro Grosso a quem provar que está pronto.
+QUEST_LESSON_TANK_THICK_HIDE_OPTION,[Lição] Quero aprender Couro Grosso.
+QUEST_LESSON_TANK_THICK_HIDE_OFFER,Quer aprender Couro Grosso? Aguente a luta contra 8 Tatus-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_THICK_HIDE_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_THICK_HIDE_COMPLETE,Muito bem. Agora Couro Grosso é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_THICK_HIDE_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_TAPIR_STOMP_NAME,Lição: Pisada de Anta
+QUEST_LESSON_TANK_TAPIR_STOMP_DESC,Velho Tião ensina Pisada de Anta a quem provar que está pronto.
+QUEST_LESSON_TANK_TAPIR_STOMP_OPTION,[Lição] Quero aprender Pisada de Anta.
+QUEST_LESSON_TANK_TAPIR_STOMP_OFFER,Quer aprender Pisada de Anta? Aguente a luta contra 8 Tatus-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_TAPIR_STOMP_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_TAPIR_STOMP_COMPLETE,Muito bem. Agora Pisada de Anta é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_TAPIR_STOMP_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_TAPIR_RAM_NAME,Lição: Trombada
+QUEST_LESSON_TANK_TAPIR_RAM_DESC,Velho Tião ensina Trombada a quem provar que está pronto.
+QUEST_LESSON_TANK_TAPIR_RAM_OPTION,[Lição] Quero aprender Trombada.
+QUEST_LESSON_TANK_TAPIR_RAM_OFFER,Quer aprender Trombada? Aguente a luta contra 10 Tatus-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_TAPIR_RAM_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_TAPIR_RAM_COMPLETE,Muito bem. Agora Trombada é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_TAPIR_RAM_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_LIVING_WALL_NAME,Lição: Muralha Viva
+QUEST_LESSON_TANK_LIVING_WALL_DESC,Velho Tião ensina Muralha Viva a quem provar que está pronto.
+QUEST_LESSON_TANK_LIVING_WALL_OPTION,[Lição] Quero aprender Muralha Viva.
+QUEST_LESSON_TANK_LIVING_WALL_OFFER,Quer aprender Muralha Viva? Aguente a luta contra 12 Tatus-Pedra e traga 3 Cascos de Tatu-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_LIVING_WALL_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_LIVING_WALL_COMPLETE,Muito bem. Agora Muralha Viva é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_LIVING_WALL_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_LIVING_WALL_STEP2,Colete Cascos de Tatu-Pedra
+QUEST_LESSON_TANK_STAND_FIRM_NAME,Lição: Aguentar Firme
+QUEST_LESSON_TANK_STAND_FIRM_DESC,Velho Tião ensina Aguentar Firme a quem provar que está pronto.
+QUEST_LESSON_TANK_STAND_FIRM_OPTION,[Lição] Quero aprender Aguentar Firme.
+QUEST_LESSON_TANK_STAND_FIRM_OFFER,Quer aprender Aguentar Firme? Aguente a luta contra 12 Tatus-Pedra e traga 3 Cascos de Tatu-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_STAND_FIRM_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_STAND_FIRM_COMPLETE,Muito bem. Agora Aguentar Firme é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_STAND_FIRM_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_STAND_FIRM_STEP2,Colete Cascos de Tatu-Pedra
+QUEST_LESSON_TANK_FURY_NAME,Lição: Fúria
+QUEST_LESSON_TANK_FURY_DESC,Velho Tião ensina Fúria a quem provar que está pronto.
+QUEST_LESSON_TANK_FURY_OPTION,[Lição] Quero aprender Fúria.
+QUEST_LESSON_TANK_FURY_OFFER,Quer aprender Fúria? Aguente a luta contra 8 Tatus-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_FURY_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_FURY_COMPLETE,Muito bem. Agora Fúria é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_FURY_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_MAPINGUARI_HOWL_NAME,Lição: Urro do Mapinguari
+QUEST_LESSON_TANK_MAPINGUARI_HOWL_DESC,Velho Tião ensina Urro do Mapinguari a quem provar que está pronto.
+QUEST_LESSON_TANK_MAPINGUARI_HOWL_OPTION,[Lição] Quero aprender Urro do Mapinguari.
+QUEST_LESSON_TANK_MAPINGUARI_HOWL_OFFER,Quer aprender Urro do Mapinguari? Aguente a luta contra 8 Tatus-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_MAPINGUARI_HOWL_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_MAPINGUARI_HOWL_COMPLETE,Muito bem. Agora Urro do Mapinguari é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_MAPINGUARI_HOWL_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_HEAVY_CLAWS_NAME,Lição: Garras Pesadas
+QUEST_LESSON_TANK_HEAVY_CLAWS_DESC,Velho Tião ensina Garras Pesadas a quem provar que está pronto.
+QUEST_LESSON_TANK_HEAVY_CLAWS_OPTION,[Lição] Quero aprender Garras Pesadas.
+QUEST_LESSON_TANK_HEAVY_CLAWS_OFFER,Quer aprender Garras Pesadas? Aguente a luta contra 10 Tatus-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_HEAVY_CLAWS_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_HEAVY_CLAWS_COMPLETE,Muito bem. Agora Garras Pesadas é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_HEAVY_CLAWS_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_BATTLE_THIRST_NAME,Lição: Sede de Luta
+QUEST_LESSON_TANK_BATTLE_THIRST_DESC,Velho Tião ensina Sede de Luta a quem provar que está pronto.
+QUEST_LESSON_TANK_BATTLE_THIRST_OPTION,[Lição] Quero aprender Sede de Luta.
+QUEST_LESSON_TANK_BATTLE_THIRST_OFFER,Quer aprender Sede de Luta? Aguente a luta contra 12 Tatus-Pedra e traga 3 Cascos de Tatu-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_BATTLE_THIRST_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_BATTLE_THIRST_COMPLETE,Muito bem. Agora Sede de Luta é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_BATTLE_THIRST_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_BATTLE_THIRST_STEP2,Colete Cascos de Tatu-Pedra
+QUEST_LESSON_TANK_LAST_BLOW_NAME,Lição: Última Pancada
+QUEST_LESSON_TANK_LAST_BLOW_DESC,Velho Tião ensina Última Pancada a quem provar que está pronto.
+QUEST_LESSON_TANK_LAST_BLOW_OPTION,[Lição] Quero aprender Última Pancada.
+QUEST_LESSON_TANK_LAST_BLOW_OFFER,Quer aprender Última Pancada? Aguente a luta contra 12 Tatus-Pedra e traga 3 Cascos de Tatu-Pedra. Depois volte aqui.
+QUEST_LESSON_TANK_LAST_BLOW_PROGRESS,"Calma, ainda falta. Termine e volte."
+QUEST_LESSON_TANK_LAST_BLOW_COMPLETE,Muito bem. Agora Última Pancada é sua. Quem aguenta firme fica forte.
+QUEST_LESSON_TANK_LAST_BLOW_STEP1,Derrote Tatus-Pedra
+QUEST_LESSON_TANK_LAST_BLOW_STEP2,Colete Cascos de Tatu-Pedra
+QUEST_LESSON_BLADE_CHARGE_NAME,Lição: Investida
+QUEST_LESSON_BLADE_CHARGE_DESC,Mestra Brisa ensina Investida a quem provar que está pronto.
+QUEST_LESSON_BLADE_CHARGE_OPTION,[Lição] Quero aprender Investida.
+QUEST_LESSON_BLADE_CHARGE_OFFER,"Quer aprender Investida? Primeiro, mostre que está pronto. Derrote 6 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_CHARGE_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_CHARGE_COMPLETE,Muito bem. Agora você sabe usar Investida. Treine bastante.
+QUEST_LESSON_BLADE_CHARGE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_STEEL_SPIN_NAME,Lição: Giro de Aço
+QUEST_LESSON_BLADE_STEEL_SPIN_DESC,Mestra Brisa ensina Giro de Aço a quem provar que está pronto.
+QUEST_LESSON_BLADE_STEEL_SPIN_OPTION,[Lição] Quero aprender Giro de Aço.
+QUEST_LESSON_BLADE_STEEL_SPIN_OFFER,"Quer aprender Giro de Aço? Primeiro, mostre que está pronto. Derrote 8 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_STEEL_SPIN_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_STEEL_SPIN_COMPLETE,Muito bem. Agora você sabe usar Giro de Aço. Treine bastante.
+QUEST_LESSON_BLADE_STEEL_SPIN_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_CLEARING_SWEEP_NAME,Lição: Roçada
+QUEST_LESSON_BLADE_CLEARING_SWEEP_DESC,Mestra Brisa ensina Roçada a quem provar que está pronto.
+QUEST_LESSON_BLADE_CLEARING_SWEEP_OPTION,[Lição] Quero aprender Roçada.
+QUEST_LESSON_BLADE_CLEARING_SWEEP_OFFER,"Quer aprender Roçada? Primeiro, mostre que está pronto. Derrote 10 Redemoinhos Arteiros e traga 3 Folhas Rodopiantes. Depois volte aqui."
+QUEST_LESSON_BLADE_CLEARING_SWEEP_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_CLEARING_SWEEP_COMPLETE,Muito bem. Agora você sabe usar Roçada. Treine bastante.
+QUEST_LESSON_BLADE_CLEARING_SWEEP_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_CLEARING_SWEEP_STEP2,Colete Folhas Rodopiantes
+QUEST_LESSON_BLADE_IRON_STANCE_NAME,Lição: Postura de Ferro
+QUEST_LESSON_BLADE_IRON_STANCE_DESC,Mestra Brisa ensina Postura de Ferro a quem provar que está pronto.
+QUEST_LESSON_BLADE_IRON_STANCE_OPTION,[Lição] Quero aprender Postura de Ferro.
+QUEST_LESSON_BLADE_IRON_STANCE_OFFER,"Quer aprender Postura de Ferro? Primeiro, mostre que está pronto. Derrote 8 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_IRON_STANCE_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_IRON_STANCE_COMPLETE,Muito bem. Agora você sabe usar Postura de Ferro. Treine bastante.
+QUEST_LESSON_BLADE_IRON_STANCE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_BLADE_HORIZON_CUT_NAME,Lição: Corte do Horizonte
+QUEST_LESSON_BLADE_HORIZON_CUT_DESC,Mestra Brisa ensina Corte do Horizonte a quem provar que está pronto.
+QUEST_LESSON_BLADE_HORIZON_CUT_OPTION,[Lição] Quero aprender Corte do Horizonte.
+QUEST_LESSON_BLADE_HORIZON_CUT_OFFER,"Quer aprender Corte do Horizonte? Primeiro, mostre que está pronto. Derrote 8 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_HORIZON_CUT_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_HORIZON_CUT_COMPLETE,Muito bem. Agora você sabe usar Corte do Horizonte. Treine bastante.
+QUEST_LESSON_BLADE_HORIZON_CUT_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_ARCANE_FROST_BURST_NAME,Lição: Rajada Gélida
+QUEST_LESSON_ARCANE_FROST_BURST_DESC,Mestre Orvalho ensina Rajada Gélida a quem provar que está pronto.
+QUEST_LESSON_ARCANE_FROST_BURST_OPTION,[Lição] Quero aprender Rajada Gélida.
+QUEST_LESSON_ARCANE_FROST_BURST_OFFER,"Para aprender Rajada Gélida, preciso ver você lutar com calma. Derrote 6 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_FROST_BURST_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_FROST_BURST_COMPLETE,Pronto! Agora Rajada Gélida é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_FROST_BURST_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_CREEPING_FLAME_NAME,Lição: Chama Rastejante
+QUEST_LESSON_ARCANE_CREEPING_FLAME_DESC,Mestre Orvalho ensina Chama Rastejante a quem provar que está pronto.
+QUEST_LESSON_ARCANE_CREEPING_FLAME_OPTION,[Lição] Quero aprender Chama Rastejante.
+QUEST_LESSON_ARCANE_CREEPING_FLAME_OFFER,"Para aprender Chama Rastejante, preciso ver você lutar com calma. Derrote 8 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_CREEPING_FLAME_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_CREEPING_FLAME_COMPLETE,Pronto! Agora Chama Rastejante é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_CREEPING_FLAME_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_WILL_O_WISP_NAME,Lição: Fogo-Fátuo
+QUEST_LESSON_ARCANE_WILL_O_WISP_DESC,Mestre Orvalho ensina Fogo-Fátuo a quem provar que está pronto.
+QUEST_LESSON_ARCANE_WILL_O_WISP_OPTION,[Lição] Quero aprender Fogo-Fátuo.
+QUEST_LESSON_ARCANE_WILL_O_WISP_OFFER,"Para aprender Fogo-Fátuo, preciso ver você lutar com calma. Derrote 10 Vaga-lumes Encantados e traga 3 Luzes de Vaga-lume. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_WILL_O_WISP_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_WILL_O_WISP_COMPLETE,Pronto! Agora Fogo-Fátuo é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_WILL_O_WISP_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_WILL_O_WISP_STEP2,Colete Luzes de Vaga-lume
+QUEST_LESSON_ARCANE_BARRIER_NAME,Lição: Barreira Arcana
+QUEST_LESSON_ARCANE_BARRIER_DESC,Mestre Orvalho ensina Barreira Arcana a quem provar que está pronto.
+QUEST_LESSON_ARCANE_BARRIER_OPTION,[Lição] Quero aprender Barreira Arcana.
+QUEST_LESSON_ARCANE_BARRIER_OFFER,"Para aprender Barreira Arcana, preciso ver você lutar com calma. Derrote 8 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_BARRIER_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_BARRIER_COMPLETE,Pronto! Agora Barreira Arcana é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_BARRIER_STEP1,Derrote Vaga-lumes Encantados
+QUEST_LESSON_ARCANE_STAR_FALL_NAME,Lição: Queda Estelar
+QUEST_LESSON_ARCANE_STAR_FALL_DESC,Mestre Orvalho ensina Queda Estelar a quem provar que está pronto.
+QUEST_LESSON_ARCANE_STAR_FALL_OPTION,[Lição] Quero aprender Queda Estelar.
+QUEST_LESSON_ARCANE_STAR_FALL_OFFER,"Para aprender Queda Estelar, preciso ver você lutar com calma. Derrote 8 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_STAR_FALL_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_STAR_FALL_COMPLETE,Pronto! Agora Queda Estelar é sua. Use com cuidado.
+QUEST_LESSON_ARCANE_STAR_FALL_STEP1,Derrote Vaga-lumes Encantados
+PROG_MSG_NEEDS_BOW,Essa técnica precisa de um arco equipado.
+PROG_MSG_NO_AMMO,Essa técnica precisa de munição equipada na mão secundária.
+PROG_MSG_BLINK_BLOCKED,Não dá para aparecer ali: escolha uma célula livre.
+PROG_REQ_SKILL_KNOWN,— você já conhece %s
+PROG_MSG_TRIAL_SURVIVED,%s: você aguentou firme até o fim!
+PROG_DEV_REPLY,[dev] %s
+UI_SKILL_REQ_LEVEL,%s no nível %d
+UI_SKILL_REQ_TITLE,título %s
+UI_SKILL_REQ_OK,%s (ok)
+UI_SKILL_REQ_NO,%s (falta)
+UI_SKILL_MISSING,Falta: %s
+UI_SKILL_LEARN_WITH,Lição com %s
+UI_SKILL_TREE_OF,Árvore: %s
+UI_SKILL_TREE_MASTER,quem ensina: %s
+UI_SKILL_TREE_LOCKED,título ainda não conquistado
+UI_SKILL_TREE_INHERITS,ramo de %s
+UI_SKILL_TREE_OTHER,Outras
+UI_SKILL_NEEDS_BOW,Precisa de arco equipado
+PROG_MSG_PROTECTED_HP,%s: %d/%d de vida.
+PROG_MSG_TRIAL_PROTECTED,Muito bem! %d muda(s) ficaram de pé até o fim.
+PROG_MSG_TRIAL_PROTECT_FELL,Uma muda caiu! Restam %d.
+PROG_MSG_TRIAL_PROTECT_LOST,%s: as três mudas caíram. Fale com a Vó Aninha para tentar de novo.
+QUEST_LESSON_BLADE_FIRM_STRIKE_NAME,Lição: Golpe Firme
+QUEST_LESSON_BLADE_FIRM_STRIKE_DESC,Mestra Brisa ensina Golpe Firme a quem provar que está pronto.
+QUEST_LESSON_BLADE_FIRM_STRIKE_OPTION,[Lição] Quero aprender Golpe Firme.
+QUEST_LESSON_BLADE_FIRM_STRIKE_OFFER,"Quer aprender Golpe Firme? Primeiro, mostre que está pronto. Derrote 6 Redemoinhos Arteiros. Depois volte aqui."
+QUEST_LESSON_BLADE_FIRM_STRIKE_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
+QUEST_LESSON_BLADE_FIRM_STRIKE_COMPLETE,Muito bem. Agora você sabe usar Golpe Firme. Treine bastante. Você conquistou um novo caminho do Sabiá; agora pode continuar as lições comigo.
+QUEST_LESSON_BLADE_FIRM_STRIKE_STEP1,Derrote Redemoinhos Arteiros
+QUEST_LESSON_ARCANE_SPARK_NAME,Lição: Faísca
+QUEST_LESSON_ARCANE_SPARK_DESC,Mestre Orvalho ensina Faísca a quem provar que está pronto.
+QUEST_LESSON_ARCANE_SPARK_OPTION,[Lição] Quero aprender Faísca.
+QUEST_LESSON_ARCANE_SPARK_OFFER,"Para aprender Faísca, preciso ver você lutar com calma. Derrote 6 Vaga-lumes Encantados. Depois venha falar comigo."
+QUEST_LESSON_ARCANE_SPARK_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
+QUEST_LESSON_ARCANE_SPARK_COMPLETE,Pronto! Agora Faísca é sua. Use com cuidado. Você conquistou um novo caminho do Sabiá; agora pode continuar as lições comigo.
+QUEST_LESSON_ARCANE_SPARK_STEP1,Derrote Vaga-lumes Encantados
+QUEST_ELDER_ZE_STEEL_SONG_NAME,Aço que Canta
+QUEST_ELDER_ZE_STEEL_SONG_DESC,"Sub-história de Seu Zé Ferreiro. O facão que cantava sumiu no brejo há muitos anos. Siga o causo, reúna as brasas, enfrente a Rainha-Lume e a fera atroz, e vença o fantoche de dois escudos."
+QUEST_ELDER_ZE_STEEL_SONG_OPTION,[Missão] Quero um facão de brasa.
+QUEST_ELDER_ZE_STEEL_SONG_OFFER,"Você aprendeu as duas coisas, e já tem gente contando causo seu. Então escute: o facão daquela brasa não está mais comigo. Um ferreiro andarilho levou ele embora, atravessando o rio. Vá falar com o Barqueiro, ele sabe o resto. Depois traga duas Brasas Eternas, derrube a Rainha-Lume do Brejo, enfrente uma fera atroz à noite e, por último, o meu fantoche de dois escudos."
+QUEST_ELDER_ZE_STEEL_SONG_PROGRESS,O causo ainda não acabou. Siga as pistas e volte quando tiver tudo.
+QUEST_ELDER_ZE_STEEL_SONG_COMPLETE,"A brasa da Rainha, o fogo da fera e a sua mão firme. Ouviu? O aço cantou de novo, igualzinho ao da minha infância. Esse causo agora é seu: o porto vai contar por muitos anos. Você é Brasa no Facão e aprendeu a Lâmina Faiscante."
+QUEST_ELDER_ZE_STEEL_SONG_STEP1,Colete Brasas Eternas (de Vaga-lume Encantado raro ou chefe)
+QUEST_ELDER_ZE_STEEL_SONG_STEP2,Derrote o chefe Rainha-Lume do Brejo
+QUEST_ELDER_ZE_STEEL_SONG_STEP3,Derrote um chefe em forma atroz (à noite)
+QUEST_ELDER_ZE_STEEL_SONG_STEP4,Provação: derrube o fantoche de dois escudos do Seu Zé
+QUEST_ELDER_ANINHA_ROOT_FIRE_NAME,A Raiz Debaixo do Fogo
+QUEST_ELDER_ANINHA_ROOT_FIRE_DESC,"Sub-história de Vó Aninha. Descubra por que ela virou raizeira, colha as raízes de pequi, derrote um chefe sem cair, apague o fogo atroz e proteja as mudas até o fim."
+QUEST_ELDER_ANINHA_ROOT_FIRE_OPTION,"[Missão] Quero aprender com a senhora, Vó."
+QUEST_ELDER_ANINHA_ROOT_FIRE_OFFER,"Você sabe as três coisas, meu bem, e o povo já fala bem de você. Mas antes de ensinar, quero que você entenda de onde vem o que eu sei. Vá conversar com a Marcelina: ela estava lá no ano do grande fogo. Depois me traga três Raízes de Pequi, derrote um chefe sem cair, apague um fogo atroz à noite e, por fim, proteja as minhas três mudas de pequizeiro dos redemoinhos."
+QUEST_ELDER_ANINHA_ROOT_FIRE_PROGRESS,"Calma, meu bem. A raiz demora, mas não desiste. Termine e volte."
+QUEST_ELDER_ANINHA_ROOT_FIRE_COMPLETE,"As mudas ficaram de pé, e você cuidou delas como a raiz cuida do cerrado depois do fogo. Agora essa história também é sua. Você é Raiz do Cerrado e aprendeu a Garrafada."
+QUEST_ELDER_ANINHA_ROOT_FIRE_STEP1,Colete Raízes de Pequi (de Redemoinho Arteiro raro ou chefe)
+QUEST_ELDER_ANINHA_ROOT_FIRE_STEP2,Derrote um chefe sem cair (sozinho vale)
+QUEST_ELDER_ANINHA_ROOT_FIRE_STEP3,Derrote um chefe em forma atroz (à noite)
+QUEST_ELDER_ANINHA_ROOT_FIRE_STEP4,Provação: proteja as 3 mudas até o fim (60 s)
+QUEST_ELDER_TIAO_SKY_FEAST_NAME,O Casco da Festa no Céu
+QUEST_ELDER_TIAO_SKY_FEAST_DESC,"Sub-história do Velho Tião. Descubra onde caíram os cacos do casco do jabuti, derrote dois chefes de espécies diferentes, enfrente o Tatu-Pedra atroz e aguente seis tatus de uma vez."
+QUEST_ELDER_TIAO_SKY_FEAST_OPTION,[Missão] Quero um casco duro como o do jabuti.
+QUEST_ELDER_TIAO_SKY_FEAST_OFFER,"Você provou as três coisas, e já correm causos seus por aí. Então vou te contar o que ninguém conta: o casco do jabuti quebrou em mil pedaços, mas nem todos foram achados. A moça das frutas sabe onde caíram os que faltam. Fale com ela, traga três Cacos de Casco Antigo, derrote dois chefes de bichos diferentes, enfrente o Tatu-Pedra atroz à noite e, por último, aguente seis tatus em cima de você por 45 segundos."
+QUEST_ELDER_TIAO_SKY_FEAST_PROGRESS,Ainda falta pedaço desse casco. Termine e volte.
+QUEST_ELDER_TIAO_SKY_FEAST_COMPLETE,"Você caiu e levantou, como o jabuti, e juntou o que faltava do casco. Agora a festa no céu tem um causo novo, e ele é seu. Você é Casco de Jabuti e aprendeu a Batida no Casco."
+QUEST_ELDER_TIAO_SKY_FEAST_STEP1,Colete Cacos de Casco Antigo (de Tatu-Pedra raro ou chefe)
+QUEST_ELDER_TIAO_SKY_FEAST_STEP2,Derrote 2 chefes de espécies diferentes
+QUEST_ELDER_TIAO_SKY_FEAST_STEP3,Derrote o Tatu-Pedra chefe em forma atroz (à noite)
+QUEST_ELDER_TIAO_SKY_FEAST_STEP4,Provação: aguente seis tatus por 45 s sem cair
+SKILL_HOLY_LIGHT_NAME,Luz Sagrada
+SKILL_HOLY_LIGHT_DESC,Dispara um feixe de luz pura purificadora (160% ATQM). Causa 20% a mais de dano contra lobisomens e mortos-vivos.
+NPC_MASTER_INHAMBU_NAME,Mestre Inhambu
+DLG_MASTER_INHAMBU_START,O vento do cerrado não perdoa pressa. A flecha só voa reta se a respiração estiver quieta.
+DLG_MASTER_INHAMBU_START_OPT0,Conte-me sobre o caminho do arco.
+DLG_MASTER_INHAMBU_START_OPT1,Tem algum conselho para quem atira de longe?
+DLG_MASTER_INHAMBU_START_OPT2,Até logo.
+DLG_MASTER_INHAMBU_ABOUT,Aqui no Sabiá nós aprendemos com o gavião e a perdiz. Não adianta puxar a corda até quebrar se não souber ler a folhagem balançando.
+DLG_MASTER_INHAMBU_ABOUT_OPT0,Qual o segredo da pontaria?
+DLG_MASTER_INHAMBU_ABOUT_OPT1,Entendido.
+DLG_MASTER_INHAMBU_TIP,Fique atento à destreza. Ela firma o tiro e acelera o disparo. E nunca atire em linha reta se o capim estiver alto demais.
+DLG_MASTER_INHAMBU_TIP_OPT0,Obrigado pelo ensinamento.
+QUEST_TF_BOW_TITLE_NAME,Voo da Taquara
+QUEST_TF_BOW_TITLE_DESC,"Mestre Inhambu ensina o tiro certeiro com arco e flechas no Campo de Treino. Fale com o Instrutor Bento, junte folhas giratórias, derrote redemoinhos e passe no teste de tiro."
+QUEST_TF_BOW_TITLE_OPTION,[Missão de Título] Desejo aprender o caminho da Flecha do Cerrado.
+QUEST_TF_BOW_TITLE_OFFER,"Para quem atira de longe, a vista precisa estar limpa e a calma no peito. Primeiro, consulte o Instrutor Bento no acampamento. Depois me traga 4 folhas giratórias caídas de redemoinhos. Derrote 5 redemoinhos e encare o alvo móvel no estande!"
+QUEST_TF_BOW_TITLE_PROGRESS,"Ainda não terminou os passos, viajante. Respire fundo e conclua o treino com o arco."
+QUEST_TF_BOW_TITLE_COMPLETE,"Sua flecha cortou o ar como o voo da taquara: reta, sem tremer. Agora você carrega o título Flecha do Cerrado e aprendeu o Tiro Rasante!"
+QUEST_TF_BOW_TITLE_STEP1,Converse com o Instrutor Bento no centro do campo
+QUEST_TF_BOW_TITLE_STEP2,Colete 4 Folhas Giratórias de Redemoinho
+QUEST_TF_BOW_TITLE_STEP3,Derrote 5 Redemoinhos Travessos
+QUEST_TF_BOW_TITLE_STEP4,Provação: acerte o alvo móvel dentro do tempo limite
+QUEST_TF_BLADE_TITLE_STEP_TALK,Converse com o Instrutor Bento sobre empunhadura e postura
+QUEST_TF_BLADE_TITLE_STEP_COLLECT,Colete 4 Folhas Giratórias para afiar seu corte
+QUEST_TF_ARCANE_TITLE_STEP_TALK,Converse com o Instrutor Bento sobre concentração e centelhas de mana
+QUEST_TF_ARCANE_TITLE_STEP_KILL,Derrote 5 Vaga-lumes Encantados
+QUEST_SABIA_BLADE_AROEIRA_NAME,Tronco Inabalável
+QUEST_SABIA_BLADE_AROEIRA_DESC,"Mestra Brisa ensina que a aroeira enverga mas não quebra. Consulte Seu Zé Ferreiro, colete carcaças de tatu, derrote tatus nos campos e domine a Postura de Ferro."
+QUEST_SABIA_BLADE_AROEIRA_OPTION,[Missão de Título] Quero aprender a resistência do Tronco de Aroeira.
+QUEST_SABIA_BLADE_AROEIRA_OFFER,"O facão corta, mas a aroeira suporta o machado sem lascar. Fale com Seu Zé Ferreiro sobre têmpera dura. Traga 4 carcaças duras de tatu, derrote 6 tatus nos campos e suporte o impacto pesado na provação!"
+QUEST_SABIA_BLADE_AROEIRA_PROGRESS,Ainda falta forjar sua resistência. Termine as tarefas e volte aqui.
+QUEST_SABIA_BLADE_AROEIRA_COMPLETE,Suas pernas firmaram no chão como raízes centenárias. Agora você é Tronco de Aroeira e aprendeu a Postura de Ferro!
+QUEST_SABIA_BLADE_AROEIRA_STEP_TALK,Fale com Seu Zé Ferreiro na forja da cidade
+QUEST_SABIA_BLADE_AROEIRA_STEP_COLLECT,Colete 4 Carcaças Duras de Tatu
+QUEST_SABIA_BLADE_AROEIRA_STEP_KILL,Derrote 6 Tatus-Pedra nos Campos do Sabiá
+QUEST_SABIA_BLADE_AROEIRA_STEP_TRIAL,Provação: enfrente a investida pesada sem recuar
+QUEST_SABIA_BLADE_JAGUAR_NAME,Bote da Mata
+QUEST_SABIA_BLADE_JAGUAR_DESC,"Mestra Brisa ensina o bote fulminante da fera. Converse com Coronel Tobias, obtenha couro resistente, derrote redemoinhos furiosos e realize a prova de velocidade."
+QUEST_SABIA_BLADE_JAGUAR_OPTION,[Missão de Título] Quero aprender a rapidez da Garra da Onça.
+QUEST_SABIA_BLADE_JAGUAR_OFFER,"A onça rasteja em silêncio e ataca num só relâmpago. Fale com o Coronel Tobias sobre os rastros da mata. Junte 3 tiras de couro grosso, elimine 6 redemoinhos nos campos e passe no teste do bote veloz!"
+QUEST_SABIA_BLADE_JAGUAR_PROGRESS,A fera não hesita. Conclua os passos para provar sua prontidão.
+QUEST_SABIA_BLADE_JAGUAR_COMPLETE,Seu corte foi mais rápido que o piscar de olhos. Agora você é Garra da Onça e aprendeu o Corte do Horizonte!
+QUEST_SABIA_BLADE_JAGUAR_STEP_TALK,Fale com o Coronel Tobias no posto dos campos
+QUEST_SABIA_BLADE_JAGUAR_STEP_COLLECT,Colete 3 Couros Grossos
+QUEST_SABIA_BLADE_JAGUAR_STEP_KILL,Derrote 6 Redemoinhos nos Campos
+QUEST_SABIA_BLADE_JAGUAR_STEP_TRIAL,Provação: finalize o combate em menos de 60 segundos
+QUEST_SABIA_ARCANE_CRYSTAL_NAME,Cúpula Prismática
+QUEST_SABIA_ARCANE_CRYSTAL_DESC,"Mestre Orvalho revela como as pedras brilhantes do brejo resguardam aliados. Fale com a criança curiosa, recolha fragmentos de quitina cristalina e erga a Barreira Arcana."
+QUEST_SABIA_ARCANE_CRYSTAL_OPTION,[Missão de Título] Ensine-me a proteção da Guarda do Cristal.
+QUEST_SABIA_ARCANE_CRYSTAL_OFFER,"A luz não serve apenas para queimar; ela protege quem está ao seu lado. Fale com a criança curiosa que corre nas docas sobre os reflexos na água. Junte 4 fragmentos brilhantes, vença 6 vaga-lumes e erga o escudo na provação."
+QUEST_SABIA_ARCANE_CRYSTAL_PROGRESS,A pedra ainda não ressoou com sua mana. Conclua as tarefas.
+QUEST_SABIA_ARCANE_CRYSTAL_COMPLETE,O cristal brilhou em volta de você e de quem te acompanha. Agora você é Guarda do Cristal e aprendeu a Barreira Arcana!
+QUEST_SABIA_ARCANE_CRYSTAL_STEP_TALK,Converse com a criança curiosa na cidade
+QUEST_SABIA_ARCANE_CRYSTAL_STEP_COLLECT,Colete 4 Fragmentos de Quitina Brilhante
+QUEST_SABIA_ARCANE_CRYSTAL_STEP_KILL,Derrote 6 Vaga-lumes Encantados
+QUEST_SABIA_ARCANE_CRYSTAL_STEP_TRIAL,Provação: resista ao choque mágico com seu escudo
+QUEST_SABIA_ARCANE_BOITATA_NAME,Fogo das Águas
+QUEST_SABIA_ARCANE_BOITATA_DESC,"Mestre Orvalho conta sobre a serpente incandescente que vigia a noite. Fale com Marcelina, colete presas afiadas, derrote serpentes de brasa e aprenda a Serpente Flamejante."
+QUEST_SABIA_ARCANE_BOITATA_OPTION,[Missão de Título] Desejo invocar o fogo do Olho do Boitatá.
+QUEST_SABIA_ARCANE_BOITATA_OFFER,"O Boitatá é a chama viva que corre sobre os rios sem se apagar. Fale com Marcelina sobre as visões na escuridão. Traga 4 presas de serpente, derrote 6 serpentes de brasa e domine o calor intenso na provação!"
+QUEST_SABIA_ARCANE_BOITATA_PROGRESS,O fogo ainda é fraco no seu olhar. Conclua os testes.
+QUEST_SABIA_ARCANE_BOITATA_COMPLETE,A chama azul e dourada acendeu nas suas mãos. Agora você carrega o Olho do Boitatá e domina a Serpente Flamejante!
+QUEST_SABIA_ARCANE_BOITATA_STEP_TALK,Fale com Marcelina sobre as visões noturnas
+QUEST_SABIA_ARCANE_BOITATA_STEP_COLLECT,Colete 4 Presas de Serpente
+QUEST_SABIA_ARCANE_BOITATA_STEP_KILL,Derrote 6 Serpentes de Brasa
+QUEST_SABIA_ARCANE_BOITATA_STEP_TRIAL,Provação: canalize o fogo contínuo sem perder a concentração
+QUEST_SABIA_BOW_BREJO_NAME,Sombra na Taboa
+QUEST_SABIA_BOW_BREJO_DESC,"Mestre Taquari ensina a arte de espreitar nas margens barrentas. Fale com o barqueiro, junte fios de seda, derrote queixadas e domine a Pele de Barro."
+QUEST_SABIA_BOW_BREJO_OPTION,[Missão de Título] Quero aprender a furtividade da Tocaia do Brejo.
+QUEST_SABIA_BOW_BREJO_OFFER,"No alagado, o bicho escuta até o bater dos cílios. Converse com o barqueiro no cais. Traga 4 fios de seda de aranha, cace 6 queixadas nas veredas e passe no teste de emboscada oculta!"
+QUEST_SABIA_BOW_BREJO_PROGRESS,Ainda está pisando pesado demais na lama. Vá com calma e termine os passos.
+QUEST_SABIA_BOW_BREJO_COMPLETE,Você se misturou ao capim como névoa da manhã. Agora você é Tocaia do Brejo e aprendeu a Pele de Barro!
+QUEST_SABIA_BOW_BREJO_STEP_TALK,Fale com o barqueiro sobre os canais da vereda
+QUEST_SABIA_BOW_BREJO_STEP_COLLECT,Colete 4 Fios de Seda de Aranha
+QUEST_SABIA_BOW_BREJO_STEP_KILL,Derrote 6 Queixadas nas veredas
+QUEST_SABIA_BOW_BREJO_STEP_TRIAL,Provação: realize um disparo surpresa sem que a presa perceba
+QUEST_SABIA_BOW_GAVIAO_NAME,Asa que Vigia
+QUEST_SABIA_BOW_GAVIAO_DESC,"Mestre Taquari ensina o olhar de longo alcance do gavião. Fale com o guarda do portão, junte ferrões pontiagudos, derrote redemoinhos e domine o Olho Parado."
+QUEST_SABIA_BOW_GAVIAO_OPTION,[Missão de Título] Quero a visão certeira do Gavião-Real.
+QUEST_SABIA_BOW_GAVIAO_OFFER,"O gavião não erra o bote porque não tem pressa no ar. Fale com o guarda do portão sobre vigiar os descampados. Colete 4 ferrões pontiagudos, abata 6 redemoinhos velozes e acerte os alvos distantes!"
+QUEST_SABIA_BOW_GAVIAO_PROGRESS,Sua mira ainda oscila com o vento. Termine o treinamento.
+QUEST_SABIA_BOW_GAVIAO_COMPLETE,Sua flecha encontrou o centro do alvo sem vacilar. Agora você é Gavião-Real e aprendeu o Olho Parado!
+QUEST_SABIA_BOW_GAVIAO_STEP_TALK,Fale com o guarda do portão sobre vigiar o horizonte
+QUEST_SABIA_BOW_GAVIAO_STEP_COLLECT,Colete 4 Ferrões Pontiagudos
+QUEST_SABIA_BOW_GAVIAO_STEP_KILL,Derrote 6 Redemoinhos nos descampados
+QUEST_SABIA_BOW_GAVIAO_STEP_TRIAL,Provação: acerte todos os alvos distantes dentro do tempo limite
+QUEST_SABIA_SUPPORT_BURITI_NAME,Água da Vereda
+QUEST_SABIA_SUPPORT_BURITI_DESC,"Vó Aninha ensina como o buriti guarda a água doce da vida. Fale com a vendedora de frutas, recolha favos de mel silvestre, purifique criaturas e aprenda o Chá de Folha Larga."
+QUEST_SABIA_SUPPORT_BURITI_OPTION,[Missão de Título] Quero curar os necessitados com a Seiva do Buriti.
+QUEST_SABIA_SUPPORT_BURITI_OFFER,"Onde tem buriti, tem cura debaixo da terra, meu bem. Fale com a vendedora de frutas na praça. Traga 4 favos de mel silvestre, derrote 8 queixadas furiosas e prepare o chá medicinal na provação!"
+QUEST_SABIA_SUPPORT_BURITI_PROGRESS,"A água ainda está turva, meu bem. Termine com carinho e volte."
+QUEST_SABIA_SUPPORT_BURITI_COMPLETE,A seiva pura curou as feridas e renovou o alento do grupo. Agora você é Seiva do Buriti e aprendeu o Chá de Folha Larga!
+QUEST_SABIA_SUPPORT_BURITI_STEP_TALK,Fale com a vendedora de frutas sobre ervas do brejo
+QUEST_SABIA_SUPPORT_BURITI_STEP_COLLECT,Colete 4 Favos de Mel Silvestre
+QUEST_SABIA_SUPPORT_BURITI_STEP_KILL,Derrote 8 Queixadas nas veredas
+QUEST_SABIA_SUPPORT_BURITI_STEP_TRIAL,Provação: mantenha a cura ativa enquanto sofre investidas
+QUEST_SABIA_SUPPORT_MATINTA_NAME,O Canto Noturno
+QUEST_SABIA_SUPPORT_MATINTA_DESC,"Vó Aninha conta do assobio misterioso que gela o sangue e desvia ataques. Converse com o Curupira, colha pelos urticantes, derrote serpentes e aprenda o Assobio Agourento."
+QUEST_SABIA_SUPPORT_MATINTA_OPTION,[Missão de Título] Desejo aprender o Assobio da Matinta.
+QUEST_SABIA_SUPPORT_MATINTA_OFFER,"A noite tem voz, e quem aprende a assobiar no tom certo faz a fera hesitar no salto. Fale com o amigo da floresta na mata. Junte 4 pelos urticantes, derrote 8 serpentes de brasa e assuste o bando na provação!"
+QUEST_SABIA_SUPPORT_MATINTA_PROGRESS,O vento ainda abafa seu assobio. Conclua os testes com calma.
+QUEST_SABIA_SUPPORT_MATINTA_COMPLETE,Seu assobio ecoou na mata e os inimigos recuaram de pavor. Agora você é Assobio da Matinta e aprendeu o Assobio Agourento!
+QUEST_SABIA_SUPPORT_MATINTA_STEP_TALK,Fale com o Curupira na entrada da mata
+QUEST_SABIA_SUPPORT_MATINTA_STEP_COLLECT,Colete 4 Espinhos Urticantes
+QUEST_SABIA_SUPPORT_MATINTA_STEP_KILL,Derrote 8 Serpentes nos campos
+QUEST_SABIA_SUPPORT_MATINTA_STEP_TRIAL,Provação: enfraqueça os atacantes com seu assobio
+QUEST_SABIA_TANK_ANTA_NAME,Pele de Couro Duro
+QUEST_SABIA_TANK_ANTA_DESC,"Velho Tião ensina como avançar no capoeirão como a anta: abrindo caminho sem desviar de espinho. Fale com Seu Zé, colha couro grosso, derrote tatus e domine o Couro Grosso."
+QUEST_SABIA_TANK_ANTA_OPTION,[Missão de Título] Quero a couraça pesada do Couro de Anta.
+QUEST_SABIA_TANK_ANTA_OFFER,"A anta passa por onde nada passa, atropelando graveto e espinheiro. Fale com Seu Zé Ferreiro sobre pregar rebite no couro. Traga 5 tiras de couro grosso, vença 8 tatus casca-dura e avance na provação!"
+QUEST_SABIA_TANK_ANTA_PROGRESS,Ainda falta firmeza no peito. Termine as tarefas e venha cá.
+QUEST_SABIA_TANK_ANTA_COMPLETE,Não tem galho que te pare nem investida que te derrube. Agora você carrega o Couro de Anta e aprendeu o Couro Grosso!
+QUEST_SABIA_TANK_ANTA_STEP_TALK,Fale com Seu Zé Ferreiro sobre rebites resistentes
+QUEST_SABIA_TANK_ANTA_STEP_COLLECT,Colete 5 Tiras de Couro Grosso
+QUEST_SABIA_TANK_ANTA_STEP_KILL,Derrote 8 Tatus nos campos
+QUEST_SABIA_TANK_ANTA_STEP_TRIAL,Provação: quebre a barreira com seu atropelo pesado
+QUEST_SABIA_TANK_MAPINGUARI_NAME,O Rugido da Terra
+QUEST_SABIA_TANK_MAPINGUARI_DESC,"Velho Tião conta do guardião das cavernas profundas cujo grito atrai todos os golpes. Fale com o vigia do portão, traga glândulas peçonhentas, derrote queixadas e domine a Fúria."
+QUEST_SABIA_TANK_MAPINGUARI_OPTION,[Missão de Título] Quero a coragem da Fúria do Mapinguari.
+QUEST_SABIA_TANK_MAPINGUARI_OFFER,"Quando o bicho brada, a caverna treme e tudo quanto é monstro corre para cima dele. Fale com o guarda do portão sobre os urros da serra. Junte 4 glândulas de veneno, derrote 8 queixadas e chame a atenção do bando na provação!"
+QUEST_SABIA_TANK_MAPINGUARI_PROGRESS,Seu urro ainda não ecoou forte. Termine as tarefas do cerrado.
+QUEST_SABIA_TANK_MAPINGUARI_COMPLETE,O chão tremeu sob suas botas e os monstros só enxergam você. Agora você é Fúria do Mapinguari e aprendeu a Fúria!
+QUEST_SABIA_TANK_MAPINGUARI_STEP_TALK,Fale com o guarda do portão sobre os urros da caverna
+QUEST_SABIA_TANK_MAPINGUARI_STEP_COLLECT,Colete 4 Glândulas de Veneno
+QUEST_SABIA_TANK_MAPINGUARI_STEP_KILL,Derrote 8 Queixadas
+QUEST_SABIA_TANK_MAPINGUARI_STEP_TRIAL,Provação: resista à fúria de múltiplos adversários
+QUEST_OPT_HEAR_LORE,[Causo] Me conte o que você sabe.
+QUEST_OPT_LORE_DONE,Vou lembrar disso.
+QUEST_ELDER_ZE_STEEL_SONG_STEP_LORE1,Ouça o causo do Barqueiro sobre o facão que cantava
+QUEST_ELDER_ZE_STEEL_SONG_LORE1_OPT,[Causo] Seu Zé disse que o senhor atravessou o facão que cantava.
+QUEST_ELDER_ZE_STEEL_SONG_LORE1,"Atravessei, sim. O dono era um ferreiro andarilho que pagou a viagem com uma faísca na palma da mão. No meio do brejo ele jogou o facão na água e disse: ""A Rainha-Lume guarda a brasa até alguém merecer."" Desde aquela noite ela brilha mais forte que todos os outros vaga-lumes."
+QUEST_ELDER_ZE_STEEL_SONG_STEP_LORE2,Ouça o que a Criança Curiosa viu numa noite sem lua
+QUEST_ELDER_ZE_STEEL_SONG_LORE2_OPT,[Causo] Dizem que você viu fogo andando à noite.
+QUEST_ELDER_ZE_STEEL_SONG_LORE2,"Vi! Era um bicho enorme, todo em brasa, e as faíscas pulavam dele igual pipoca. Minha mãe disse que a brasa da Rainha só esquenta de verdade quando encosta no fogo de uma fera atroz. Você vai lá? Me conta depois!"
+QUEST_ELDER_ANINHA_ROOT_FIRE_STEP_LORE1,Ouça a Marcelina contar sobre o ano do grande fogo
+QUEST_ELDER_ANINHA_ROOT_FIRE_LORE1_OPT,[Causo] A Vó Aninha pediu que eu ouvisse a senhora.
+QUEST_ELDER_ANINHA_ROOT_FIRE_LORE1,"Ela pediu? Então é sério. Antes de ser raizeira, a Aninha perdeu a casa num fogo do cerrado. Naquele ano não tinha o que comer. Foram os pequizeiros queimados que salvaram a vila: as raízes deles brotaram antes de tudo. Ela passou a vida aprendendo com aquelas raízes."
+QUEST_ELDER_ANINHA_ROOT_FIRE_STEP_LORE2,Ouça o Curupira sobre o fogo que anda à noite
+QUEST_ELDER_ANINHA_ROOT_FIRE_LORE2_OPT,[Causo] Vim pelas raízes de pequi da Vó Aninha.
+QUEST_ELDER_ANINHA_ROOT_FIRE_LORE2,"As raízes de pequi são guardadas por mim. Dou a quem cuida da mata, e você cuidou. Mas escute: tem um fogo que anda à noite, atroz, que queima até a raiz. Apague esse fogo e o cerrado inteiro vai saber o seu nome."
+QUEST_ELDER_TIAO_SKY_FEAST_STEP_LORE1,Ouça a Vendedora de Frutas sobre os cacos do casco
+QUEST_ELDER_TIAO_SKY_FEAST_LORE1_OPT,[Causo] O Velho Tião disse que a senhora sabe dos cacos do jabuti.
+QUEST_ELDER_TIAO_SKY_FEAST_LORE1,"Minha avó contava que os cacos que ninguém achou caíram lá no Planalto do Céu Partido. Os tatus de lá comeram o pó do casco e cresceram duros que nem pedra. Por isso o casco deles brilha velho, de outro tempo."
+QUEST_ELDER_TIAO_SKY_FEAST_STEP_LORE2,Ouça o Guarda do Portão sobre o rancor do casco
+QUEST_ELDER_TIAO_SKY_FEAST_LORE2_OPT,[Causo] Você já viu o tatu que sai nas noites escuras?
+QUEST_ELDER_TIAO_SKY_FEAST_LORE2,"Já, e não quero ver de novo. Dizem que é o rancor do casco quebrado: o urubu nunca pediu desculpa, e a raiva ficou num tatu-pedra enorme que sai da toca em noite atroz. Quem derrubar aquela fera tem o respeito do Tião, e de toda a guarda."
+QUEST_VETERAN_RELIC_ANCIENT_SHELL_SHARD,"Prova de veterano: traga Cacos de Casco Antigo (Tatu-Pedra raro, chefe ou atroz)"
+QUEST_VETERAN_RELIC_PEQUI_ROOT,"Prova de veterano: traga Raízes de Pequi (Redemoinho Arteiro raro, chefe ou atroz)"
+QUEST_VETERAN_RELIC_ETERNAL_EMBER,"Prova de veterano: traga Brasas Eternas (Vaga-lume Encantado raro, chefe ou atroz)"
+QUEST_VETERAN_BOSS_STONE_ARMADILLO,"Prova de veterano: derrote o Tatu-Montanha, chefe do covil"
+QUEST_VETERAN_BOSS_PRANK_WHIRLWIND,"Prova de veterano: derrote a Ventania do Gorro Vermelho, chefe do covil"
+QUEST_VETERAN_BOSS_CINDER_SERPENT,"Prova de veterano: derrote a Serpente do Fogo Errante, chefe do covil"
+QUEST_VETERAN_BOSS_ENCHANTED_FIREFLY,"Prova de veterano: derrote a Rainha-Lume do Brejo, chefe do covil"
+QUEST_VETERAN_BOSS_BURITI_BOAR,"Prova de veterano: derrote o Queixada do Veredão, chefe do covil"
+QUEST_VETERAN_ATROZ,Prova de veterano: derrote qualquer chefe na forma atroz (à noite)
+QUEST_LESSON_HOLY_LIGHT_NAME,A Luz da Benzedeira
+QUEST_LESSON_HOLY_LIGHT_DESC,"Marcelina só ensina a Luz Sagrada a quem já é Assunto da Vila (renome 5). Ouça o causo do Pescador e livre a gruta dos mortos que não descansam."
+QUEST_LESSON_HOLY_LIGHT_OPTION,[Missão] Ouvi dizer que a senhora benze com luz.
+QUEST_LESSON_HOLY_LIGHT_OFFER,"Benzo, sim. Mas essa luz eu só passo para quem o povo já respeita, e o seu nome anda na boca da vila. Vá ouvir o Pescador: foi ele quem viu os mortos saírem da gruta. Depois, faça eles descansarem: oito Zumbis e oito Esqueletos da gruta."
+QUEST_LESSON_HOLY_LIGHT_PROGRESS,"Ainda tem morto andando. Termine e volte, que a luz espera."
+QUEST_LESSON_HOLY_LIGHT_COMPLETE,"Você devolveu o sossego à gruta. Agora segure as mãos assim e pense em quem você protege: essa é a Luz Sagrada. Ela queima mais quem não devia estar de pé, lobisomem ou morto-vivo."
+QUEST_LESSON_HOLY_LIGHT_STEP_LORE,Ouça o causo do Pescador sobre a gruta
+QUEST_LESSON_HOLY_LIGHT_LORE_OPT,[Causo] A Marcelina disse que você viu os mortos da gruta.
+QUEST_LESSON_HOLY_LIGHT_LORE,"Vi, e não durmo direito desde então. Era lua minguante, a maré baixa deixou a boca da gruta à mostra, e de lá saiu uma fileira de gente seca, andando sem fazer barulho. Minha avó dizia que só luz benzida faz morto voltar a deitar."
+QUEST_LESSON_HOLY_LIGHT_STEP_ZOMBIE,Faça os Zumbis da gruta descansarem
+QUEST_LESSON_HOLY_LIGHT_STEP_SKELETON,Faça os Esqueletos da gruta descansarem
+SKILL_BOW_FLETCHING_NAME,Fazer Flechas
+SKILL_BOW_FLETCHING_DESC,"Ofício do arqueiro do Cerrado: transforma 1 Vara de Taquara em 10 Flechas Simples (+2 por nível). Fora de combate."
+PROG_MSG_CRAFT_MISSING,"Falta material: %s (precisa de %d, tem %d)."
+PROG_MSG_CRAFT_IN_COMBAT,Ofício não se faz no meio da luta. Saia do combate primeiro.
+SKILL_BLADE_FIELD_DRESSING_NAME,Curativo de Mateiro
+SKILL_BLADE_FIELD_DRESSING_DESC,Ofício do Facão Firme: amassa 3 Folhas Rodopiantes num emplasto e enche 2 Poções de Vida Pequenas (+1 a cada 2 níveis). Fora de combate.
+SKILL_ARCANE_BOTTLE_LIGHT_NAME,Engarrafar Luz
+SKILL_ARCANE_BOTTLE_LIGHT_DESC,Ofício da Luz de Vaga-lume: prende 3 Luzes de Vaga-lume no vidro e faz 2 Poções de Mana Pequenas (+1 a cada 2 níveis). Fora de combate.
+SKILL_BOW_POISON_TIPS_NAME,Envenenar Pontas
+SKILL_BOW_POISON_TIPS_DESC,Ofício da Tocaia do Brejo: unta 10 Flechas Simples com 1 Bolsa de Peçonha e faz 10 Flechas Envenenadas (+1 a cada 2 níveis). Fora de combate.
+SKILL_BOW_FEATHERING_NAME,Emplumar
+SKILL_BOW_FEATHERING_DESC,Ofício do Gavião-Real: empluma 10 Flechas Simples com 1 Pena de Harpia e faz 10 Flechas de Ferro (+1 a cada 2 níveis). Fora de combate.
+SKILL_HYBRID_EMBER_TIPS_NAME,Forjar Pontas de Brasa
+SKILL_HYBRID_EMBER_TIPS_DESC,"Ofício da Brasa no Facão, aprendido com Seu Zé: tempera 10 Flechas Simples em 1 Brasa Eterna e faz 10 Flechas de Fogo (+1 a cada 2 níveis). Fora de combate."
+SKILL_SUPPORT_GARRAFADA_NAME,Garrafada
+SKILL_SUPPORT_GARRAFADA_DESC,"Ofício da Raiz do Cerrado, receita da Vó Aninha: curte 1 Raiz de Pequi com 1 Favo Selvagem e enche 2 Poções de Vida Médias (+1 a cada 2 níveis). Fora de combate."
+SKILL_TANK_SHELL_SALVE_NAME,Unguento de Casco
+SKILL_TANK_SHELL_SALVE_DESC,"Ofício do Casco de Jabuti, segredo do Velho Tião: rala 2 Cascos de Tatu-Pedra com 1 Couro Grosso e faz 1 Unguento de Casco (+1 a cada 3 níveis). Fora de combate."
+SKILL_BLADE_PILFER_NAME,Surrupiar
+SKILL_BLADE_PILFER_DESC,"Ofício da Garra da Onça: mão leve num monstro vivo e perto. Chance de 20% (+5% por nível, mais DES e SOR) de tirar um item da tabela dele direto para a mochila. Uma vez por monstro; não funciona em chefe, forma atroz nem monstro de provação. Só onde há combate."
+PROG_MSG_STEAL_OK,Surrupiou: %s!
+PROG_MSG_STEAL_FAILED,A mão escorregou: não surrupiou nada.
+PROG_MSG_STEAL_ALREADY,Esse aí já foi surrupiado.
+PROG_MSG_STEAL_REFUSED,"Não dá para surrupiar de chefe, forma atroz nem monstro de provação."
+PROG_MSG_STEAL_NOTHING,Esse aí não tem nada para surrupiar.

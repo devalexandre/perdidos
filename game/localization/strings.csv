@@ -1,0 +1,178 @@
+keys,pt_BR
+MAP_CITY_AWAKENING,Porto do Despertar
+NET_CONNECTING,Conectando ao servidor...
+NET_CONNECTED,Conectado
+NET_DISCONNECTED,Desconectado do servidor
+NET_UPDATE_REQUIRED,Atualize o jogo
+NET_CONNECTION_FAILED,Não foi possível conectar ao servidor
+NET_NAME_IN_USE,Esse nome já está em uso no servidor
+TITLE_GAME_NAME,Perdidos
+TITLE_SUBTITLE,Porto do Despertar
+TITLE_NAME,Nome do personagem
+TITLE_NAME_PLACEHOLDER,De 3 a 16 letras
+TITLE_BODY,Corpo
+TITLE_BODY_MALE,Masculino
+TITLE_BODY_FEMALE,Feminino
+TITLE_ADVANCED,Avançado
+TITLE_HOST,Servidor
+TITLE_SERVER_OTHER,Outro
+TITLE_SERVER_STATUS_ONLINE,Online
+TITLE_SERVER_STATUS_OFFLINE,Offline
+TITLE_SERVER_STATUS_CHECKING,Verificando...
+TITLE_SERVER_REFRESH,Atualizar status dos servidores
+TITLE_SERVER_OFFLINE_WARN,"Atenção: O servidor selecionado parece estar offline."
+TITLE_PORT,Porta
+TITLE_PLAY,Jogar
+TITLE_CREATE_CHARACTER,Criar Personagem
+TITLE_SETTINGS,Configurações
+TITLE_QUIT,Sair
+TITLE_ERR_NAME_LENGTH,O nome precisa ter de 3 a 16 caracteres
+TITLE_ERR_NAME_CHARS,"Use só letras, números e espaço"
+TITLE_ERR_HOST,Informe o endereço do servidor
+TITLE_ERR_PORT,Porta inválida
+TITLE_CONNECTING,Conectando...
+UI_INVENTORY,Inventário
+UI_CHARACTER,Personagem
+UI_MENU,Menu
+UI_SHOP,Loja
+UI_SETTINGS,Configurações
+UI_STARS,%d Estrelas
+UI_PRICE,%d Estrelas
+UI_BUY,Comprar
+UI_SELL_ONE,Vender 1
+UI_SELL_ALL,Vender tudo
+UI_USE,Usar
+UI_EQUIP,Equipar
+UI_UNEQUIP,Desequipar
+UI_QUANTITY,Quantidade
+UI_SELL_HINT,Arraste um item do inventário para cá para vender (ou clique com o botão direito nele)
+UI_INVENTORY_HINT,Toque num item para ver detalhes
+UI_EQUIPMENT_HINT,Toque num espaço para ver o item
+UI_EQUIPMENT,Equipamento
+UI_COSMETICS,Visual
+UI_ATTRIBUTES,Atributos
+UI_CHAT_PLACEHOLDER,Enter para falar...
+UI_CHAT_MINIMIZE,Recolher chat
+UI_CHAT_EXPAND,Expandir chat
+UI_RESOLUTION,Resolução
+UI_GRAPHICS_QUALITY,Qualidade gráfica
+UI_GRAPHICS_HIGH,Alta
+UI_GRAPHICS_MEDIUM,Média
+UI_GRAPHICS_LOW,Baixa
+UI_FULLSCREEN,Tela cheia
+UI_VOLUME_MASTER,Volume geral
+UI_VOLUME_MUSIC,Música
+UI_VOLUME_AMBIENCE,Ambiente
+UI_VOLUME_SFX,Efeitos
+UI_VOLUME_UI,Interface
+UI_APPLY,Aplicar
+UI_QUIT,Sair do jogo
+STAT_LEVEL,Nível
+STAT_HP,Vida
+STAT_MP,Mana
+STAT_MAX_HP,Vida máx.
+STAT_MAX_MP,Mana máx.
+STAT_ATK,ATQ
+STAT_MATK,ATQM
+STAT_DEF,DEF
+STAT_MDEF,DEFM
+STAT_STR,FOR
+STAT_DEX,DES
+STAT_VIT,VIT
+STAT_INT,INT
+STAT_SPI,ESP
+STAT_CAST_REDUCTION,Conjuração
+STAT_COOLDOWN_REDUCTION,Recarga
+ITEM_TYPE_CONSUMABLE,Consumível
+ITEM_TYPE_WEAPON,Arma
+ITEM_TYPE_OFFHAND,Mão secundária
+ITEM_TYPE_HEAD,Cabeça
+ITEM_TYPE_BODY,Corpo
+ITEM_TYPE_FEET,Pés
+ITEM_TYPE_ACCESSORY,Acessório
+ITEM_TYPE_MATERIAL,Material
+ITEM_TYPE_GLOVES,Luvas
+ITEM_HEAL_HP,Recupera %d de vida
+ITEM_HEAL_MP,Recupera %d de mana
+ITEM_DEF_BUFF,"+%d%% de defesa por %d s"
+ITEM_SELL_PRICE,Vende por %d Estrelas
+EQUIP_SLOT_WEAPON,Arma
+EQUIP_SLOT_OFFHAND,Mão sec.
+EQUIP_SLOT_HEAD,Cabeça
+EQUIP_SLOT_BODY,Corpo
+EQUIP_SLOT_GLOVES,Luvas
+EQUIP_SLOT_FEET,Pés
+EQUIP_SLOT_ACCESSORY_1,Acessório 1
+EQUIP_SLOT_ACCESSORY_2,Acessório 2
+EQUIP_SLOT_COSMETIC_HEAD,Cabeça
+EQUIP_SLOT_COSMETIC_BODY,Roupa
+EQUIP_SLOT_COSMETIC_WEAPON,Arma
+EMOTE_WAVE,Acenar
+EMOTE_SIT,Sentar
+EMOTE_LAUGH,Rir
+EMOTE_CRY,Chorar
+EMOTE_ANGRY,Raiva
+EMOTE_HEART,Coração
+SYS_TOO_FAR,Longe demais
+SYS_TARGET_INVALID,Não dá para interagir com isso
+SYS_NOT_ENOUGH_STARS,Estrelas insuficientes
+SYS_INVENTORY_FULL,Inventário cheio
+SYS_SHOP_NOT_OPEN,A loja não está aberta
+SYS_ITEM_NOT_SOLD_HERE,Esse item não é vendido aqui
+SYS_ITEM_NOT_SELLABLE,Esse item não pode ser vendido
+SYS_ITEM_NOT_USABLE,Esse item não pode ser usado
+SYS_ITEM_NOT_EQUIPPABLE,Esse item não pode ser equipado
+SYS_NO_AMMO,Você precisa equipar munição na mão secundária para atirar!
+SYS_AMMO_REFILLED,"A aljava esvaziou: mais %s do inventário entraram no lugar (%d)."
+SYS_ITEM_ON_COOLDOWN,Aguarde %d s para usar de novo
+SYS_COOLDOWN,Aguarde a recarga
+SYS_INVALID_ITEM,Item inválido
+SYS_CHAT_TOO_FAST,Calma! Uma mensagem por segundo
+SYS_CHAT_TOO_LONG,Mensagem longa demais (máximo %d caracteres)
+SYS_PORTAL_CLOSED,Portão fechado. Recomendado: nível %s
+NET_NAME_OFFENSIVE,Esse nome não é permitido. Escolha outro.
+
+TITLE_MYSTERY_SUBTITLE,Há mundos esperando por você.
+TITLE_TRAVELER,Seu viajante
+NET_AUTH_REQUIRED,Este servidor exige login. Abra o jogo pelo launcher.
+NET_AUTH_INVALID,"Sua sessão expirou ou é inválida. Feche o jogo, entre de novo no launcher e clique em Jogar."
+ANDROID_AUTH_SUBTITLE,Entre ou crie sua conta para jogar no Android.
+ANDROID_AUTH_LOGIN_TAB,Entrar
+ANDROID_AUTH_REGISTER_TAB,Criar conta
+ANDROID_AUTH_EMAIL,E-mail
+ANDROID_AUTH_PASSWORD,Senha
+ANDROID_AUTH_SHOW_PASSWORD,Mostrar senha
+ANDROID_AUTH_CONFIRM,Confirmar senha
+ANDROID_AUTH_LOGIN,Entrar
+ANDROID_AUTH_REGISTER,Criar conta
+ANDROID_AUTH_BUSY,Conectando...
+ANDROID_AUTH_EMAIL_REQUIRED,Digite seu e-mail.
+ANDROID_AUTH_EMAIL_INVALID,Digite um e-mail válido.
+ANDROID_AUTH_PASSWORD_REQUIRED,Digite sua senha.
+ANDROID_AUTH_PASSWORD_SHORT,A senha precisa ter pelo menos 8 caracteres.
+ANDROID_AUTH_PASSWORD_MISMATCH,As senhas não são iguais.
+ANDROID_AUTH_OFFLINE,Não foi possível falar com o servidor de contas. Confira sua conexão e tente de novo.
+ANDROID_AUTH_BAD_RESPONSE,Resposta inesperada do servidor de contas.
+ANDROID_AUTH_API_UNSET,O endereço do servidor de contas não está configurado.
+ANDROID_AUTH_GOOGLE_DIVIDER,ou
+ANDROID_AUTH_GOOGLE,Usar conta Google
+ANDROID_AUTH_GOOGLE_WAIT,Aguardando Google...
+ANDROID_AUTH_GOOGLE_UNAVAILABLE,Não foi possível concluir o login Google. Tente novamente.
+ANDROID_AUTH_BROWSER_FAILED,Não foi possível abrir o navegador.
+NET_NAME_OWNED,Esse personagem pertence a outra conta. Escolha outro nome.
+LAUNCHER_REQUIRED_TITLE,Abra pelo launcher
+LAUNCHER_REQUIRED_TEXT,"O Perdidos é aberto pelo launcher: entre com sua conta e clique em Jogar. O launcher também mantém o jogo atualizado."
+LAUNCHER_REQUIRED_CLOSE,Fechar
+UI_MOBILE_CONTROLS,Controles touch para celular
+UI_MOBILE_CONFIG_TITLE,Configurar Atalhos Rápidos
+UI_MOBILE_SLOT_EMPTY,Vazio
+UI_MOBILE_ATTACK,Ataque
+UI_MOBILE_TARGET,Alvo
+UI_MOBILE_POTION,Poção
+UI_MOBILE_HINT_ASSIGN,Toque num atalho (1-4) e depois na habilidade ou item abaixo para equipar.
+NET_SLOT_FULL,"Sua conta já tem um personagem salvo (1 slot por conta). Ele aparece na tela inicial para jogar."
+TITLE_SLOTS_HEADER,Seus personagens
+TITLE_SLOT_COUNT,%d/%d slot
+TITLE_SLOT_LEVEL,Nível %d
+TITLE_SLOT_LOCKED,Personagem salvo: a aparência não pode mais ser alterada.
+UI_HOTBAR_ALREADY_EQUIPPED,Esse equipamento já está vestido.

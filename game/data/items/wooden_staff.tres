@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_wooden_staff.png" id="1_ayrty"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_0q5dl"]
+
+[resource]
+script = ExtResource("2_0q5dl")
+id = &"wooden_staff"
+name_key = "ITEM_WOODEN_STAFF_NAME"
+desc_key = "ITEM_WOODEN_STAFF_DESC"
+icon = ExtResource("1_ayrty")
+type = 1
+scaling_attribute = &"int"
+weapon_kind = 2
+buy_price = 80
+sell_price = 25
+stats = Dictionary[StringName, int]({
+&"atk": 2,
+&"matk": 10
+})
+visual_id = &"staff"

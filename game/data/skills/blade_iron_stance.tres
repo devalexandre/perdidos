@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_shqap"]
+
+[resource]
+script = ExtResource("1_shqap")
+id = &"blade_iron_stance"
+name_key = "SKILL_BLADE_IRON_STANCE_NAME"
+desc_key = "SKILL_BLADE_IRON_STANCE_DESC"
+school = &"blade"
+target_type = 5
+effect = 4
+mana_cost = 25
+cooldown_sec = 30.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 10.0
+extra = Dictionary[StringName, Variant]({
+&"def_pct": 0.4,
+&"def_pct_per_level": 0.04,
+&"duration_per_level": 0.5,
+&"self_slow_pct": 0.2
+})
+vfx = &"guard"
+icon_text = "PF"
+tree_title = &"sabia_blade_aroeira"
+tree_order = 1
+exclusive_to_title = &"sabia_blade_machete"

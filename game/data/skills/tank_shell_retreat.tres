@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"tank_shell_retreat"
+name_key = "SKILL_TANK_SHELL_RETREAT_NAME"
+desc_key = "SKILL_TANK_SHELL_RETREAT_DESC"
+school = &"tank"
+region_id = &"brasil"
+target_type = 5
+effect = 9
+mana_cost = 16
+cooldown_sec = 20.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 4.0
+extra = Dictionary[StringName, Variant]({
+&"dmg_taken_pct": -0.5,
+&"dmg_taken_pct_per_level": -0.02,
+&"duration_per_level": 0.2,
+&"self_slow_pct": 0.5
+})
+vfx = &"guard"
+exclusive_to_title = &"sabia_tank_jabuti"
+icon_text = "RC"
+tree_title = &"sabia_tank_jabuti"
+tree_order = 2
+required_skill_levels = Dictionary[StringName, int]({
+&"tank_shell_knock": 1
+})

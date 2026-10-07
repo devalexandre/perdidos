@@ -1,0 +1,48 @@
+keys,pt_BR
+CUSTOM_SECTION,Aparência
+CUSTOM_SKIN,Pele
+CUSTOM_HAIR,Cabelo
+CUSTOM_HAIR_COLOR,Cor do cabelo
+CUSTOM_EYES,Olhos
+CUSTOM_EARRINGS,Brincos
+CUSTOM_RANDOM,Aleatório
+CUSTOM_PREV,Anterior
+CUSTOM_NEXT,Próximo
+CUSTOM_ROTATE_LEFT,Girar para a esquerda
+CUSTOM_ROTATE_RIGHT,Girar para a direita
+CUSTOM_HAIR_SPIKY,Arrepiado
+CUSTOM_HAIR_NEAT,Curto penteado
+CUSTOM_HAIR_PONYTAIL,Rabo de cavalo
+CUSTOM_HAIR_CURLY,Crespo volumoso
+CUSTOM_HAIR_BOB,Chanel com franja
+CUSTOM_HAIR_WAVES,Longo ondulado
+CUSTOM_HAIR_BRAID,Trança
+CUSTOM_HAIR_BUZZ,Raspado
+CUSTOM_EARRING_NONE,Nenhum
+CUSTOM_EARRING_HOOP,Argola
+CUSTOM_EARRING_SEED,Pingente de semente
+CUSTOM_EARRING_FEATHER,Pena
+CUSTOM_SKIN_0,Pele 1
+CUSTOM_SKIN_1,Pele 2
+CUSTOM_SKIN_2,Pele 3
+CUSTOM_SKIN_3,Pele 4
+CUSTOM_SKIN_4,Pele 5
+CUSTOM_SKIN_5,Pele 6
+CUSTOM_HAIR_COLOR_0,Castanho
+CUSTOM_HAIR_COLOR_1,Preto
+CUSTOM_HAIR_COLOR_2,Castanho-escuro
+CUSTOM_HAIR_COLOR_3,Ruivo acobreado
+CUSTOM_HAIR_COLOR_4,Loiro mel
+CUSTOM_HAIR_COLOR_5,Grisalho
+CUSTOM_HAIR_COLOR_6,Amarelo-ipê
+CUSTOM_HAIR_COLOR_7,Verde-rio
+CUSTOM_HAIR_COLOR_8,Roxo-ipê
+CUSTOM_HAIR_COLOR_9,Azul-noite
+CUSTOM_EYE_0,Castanhos
+CUSTOM_EYE_1,Pretos
+CUSTOM_EYE_2,Âmbar
+CUSTOM_EYE_3,Verdes
+CUSTOM_EYE_4,Azuis
+CUSTOM_EYE_5,Cinzentos
+CUSTOM_NATIONALITY,Nacionalidade
+CUSTOM_NATIONALITY_HINT,"Região de onde o seu Viajante veio. Define a roupa com que ele chega; os títulos mudam a roupa depois."

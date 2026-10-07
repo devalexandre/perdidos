@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"hybrid_sparks"
+name_key = "SKILL_HYBRID_SPARKS_NAME"
+desc_key = "SKILL_HYBRID_SPARKS_DESC"
+school = &"hybrid"
+region_id = &"brasil"
+target_type = 2
+effect = 1
+mana_cost = 22
+cooldown_sec = 12.0
+range_cells = 0.0
+radius_cells = 3.0
+base_multiplier = 1.4
+multiplier_per_level = 0.1
+vfx = &"spark"
+exclusive_to_title = &"sabia_hybrid_ember"
+icon_text = "FG"
+tree_title = &"sabia_hybrid_ember"
+tree_order = 4
+required_skill_levels = Dictionary[StringName, int]({
+&"hybrid_ember_cut": 3
+})

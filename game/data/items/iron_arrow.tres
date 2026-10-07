@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_iron_arrow.png" id="1_icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_item"]
+
+[resource]
+script = ExtResource("2_item")
+id = &"iron_arrow"
+name_key = "ITEM_IRON_ARROW_NAME"
+desc_key = "ITEM_IRON_ARROW_DESC"
+icon = ExtResource("1_icon")
+type = 2
+rarity = 1
+stackable = true
+max_stack = 99
+buy_price = 25
+sell_price = 8
+tradeable = true
+stats = Dictionary[StringName, int]({
+&"atk": 4,
+&"dex": 1
+})
+is_ammo = true

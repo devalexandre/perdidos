@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_oalqe"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_cycvy"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_ipdk2"]
+
+[sub_resource type="Resource" id="Resource_svkf1"]
+script = ExtResource("2_cycvy")
+text_key = "DLG_MASTER_BRISA_START_OPT0"
+next_node = &"about"
+
+[sub_resource type="Resource" id="Resource_ljl6w"]
+script = ExtResource("2_cycvy")
+text_key = "DLG_MASTER_BRISA_START_OPT1"
+next_node = &"tip"
+
+[sub_resource type="Resource" id="Resource_3yrv0"]
+script = ExtResource("2_cycvy")
+text_key = "DLG_MASTER_BRISA_START_OPT2"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_otyf7"]
+script = ExtResource("1_oalqe")
+id = &"start"
+text_key = "DLG_MASTER_BRISA_START"
+options = Array[ExtResource("2_cycvy")]([SubResource("Resource_svkf1"), SubResource("Resource_ljl6w"), SubResource("Resource_3yrv0")])
+
+[sub_resource type="Resource" id="Resource_qsvvd"]
+script = ExtResource("2_cycvy")
+text_key = "DLG_MASTER_BRISA_ABOUT_OPT0"
+next_node = &"tip"
+
+[sub_resource type="Resource" id="Resource_in2wm"]
+script = ExtResource("2_cycvy")
+text_key = "DLG_MASTER_BRISA_ABOUT_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_8qxyd"]
+script = ExtResource("1_oalqe")
+id = &"about"
+text_key = "DLG_MASTER_BRISA_ABOUT"
+options = Array[ExtResource("2_cycvy")]([SubResource("Resource_qsvvd"), SubResource("Resource_in2wm")])
+
+[sub_resource type="Resource" id="Resource_t8lkk"]
+script = ExtResource("2_cycvy")
+text_key = "DLG_MASTER_BRISA_TIP_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_oj3pq"]
+script = ExtResource("1_oalqe")
+id = &"tip"
+text_key = "DLG_MASTER_BRISA_TIP"
+options = Array[ExtResource("2_cycvy")]([SubResource("Resource_t8lkk")])
+
+[resource]
+script = ExtResource("3_ipdk2")
+id = &"master_brisa"
+nodes = Array[ExtResource("1_oalqe")]([SubResource("Resource_otyf7"), SubResource("Resource_8qxyd"), SubResource("Resource_oj3pq")])

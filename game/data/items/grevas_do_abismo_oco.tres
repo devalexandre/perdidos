@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_walking_boots.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"grevas_do_abismo_oco"
+name_key = "ITEM_GREVAS_ABISMO_OCO_NAME"
+desc_key = "ITEM_GREVAS_ABISMO_OCO_DESC"
+icon = ExtResource("icon")
+type = 5
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 340
+tradeable = true
+crendice_id = &""
+crendice_sockets = 0
+exclusive_drop_zone = &"hollow_earth"
+stats = Dictionary[StringName, int]({
+  &"def": 14,
+  &"mdef": 18,
+  &"vit": 5
+})

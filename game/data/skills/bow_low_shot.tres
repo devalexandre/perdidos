@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"bow_low_shot"
+name_key = "SKILL_BOW_LOW_SHOT_NAME"
+desc_key = "SKILL_BOW_LOW_SHOT_DESC"
+school = &"bow"
+region_id = &"brasil"
+mana_cost = 6
+cooldown_sec = 4.0
+range_cells = 10.0
+base_multiplier = 1.3
+multiplier_per_level = 0.1
+requires_bow = true
+vfx = &"arrow"
+icon_text = "TR"
+tree_title = &"sabia_bow_cerrado"
+tree_order = 1

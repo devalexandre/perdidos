@@ -1,0 +1,74 @@
+{
+ "male/s/b_wind": {
+  "seed": 5151,
+  "extra": " Only ONE machete, held in the right hand; the left hand is empty, held in a fist in front of the chest."
+ },
+ "male/n/u_punch": {
+  "seed": 5151,
+  "extra": " Seen from behind: the punching arm reaches forward away from the viewer (foreshortened, partly hidden by the body), the other elbow bent back beside the body. The arms are NOT spread to the sides."
+ },
+ "male/e/b_wind": {
+  "seed": 5151,
+  "extra": " Only ONE machete, held in the right hand; the other hand is empty."
+ },
+ "male/e/u_kick": {
+  "seed": 5151,
+  "extra": " The kick goes to the RIGHT side of the image: the character faces right, the backpack is on the LEFT side of the image, the raised foot is on the right."
+ },
+ "male/s/s_thrust": {
+  "seed": 5151,
+  "extra": " The staff points straight at the viewer, strongly foreshortened, held horizontally at chest height with both hands in front of the body; only ONE staff."
+ },
+ "male/n/s_thrust": {
+  "seed": 5151,
+  "extra": " Seen from behind: the staff points forward away from the viewer, going up in the image past the shoulder, held at chest height with both hands; only ONE staff."
+ },
+ "female/n/s_thrust": {
+  "seed": 5151,
+  "extra": " Seen from behind: the staff points forward away from the viewer, going up in the image past the shoulder, held at chest height with both hands; only ONE staff."
+ },
+ "female/se/s_thrust": {
+  "seed": 5151,
+  "extra": " Only ONE staff, held with both hands, pointing to the lower right."
+ },
+ "female/se/b_wind": {
+  "seed": 5151,
+  "extra": " Only ONE machete, held in the right hand; the other hand is empty. Nothing on the head."
+ },
+ "male/n/c_release": {
+  "seed": 5151,
+  "extra": " Seen from behind: both arms reach forward away from the viewer at shoulder height, mostly hidden by the body and the head; the arms are NOT spread to the sides; no sparkles."
+ },
+ "male/s/d_slump": {
+  "seed": 5151
+ },
+ "male/se/d_slump": {
+  "seed": 5151
+ },
+ "male/e/d_slump": {
+  "seed": 5151
+ },
+ "male/ne/d_slump": {
+  "seed": 7171,
+  "extra": " The head keeps exactly the same angle and the same size as in the original image."
+ },
+ "female/n/c_release": {
+  "seed": 5151,
+  "extra": " Seen from behind: both arms reach forward away from the viewer at shoulder height, mostly hidden by the body and the head; the arms are NOT spread to the sides; no sparkles."
+ },
+ "female/s/d_slump": {
+  "seed": 5151
+ },
+ "female/se/d_slump": {
+  "seed": 5151
+ },
+ "female/e/d_slump": {
+  "seed": 5151
+ },
+ "female/ne/d_slump": {
+  "seed": 5151
+ },
+ "female/n/d_slump": {
+  "seed": 5151
+ }
+}

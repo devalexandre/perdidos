@@ -1,0 +1,175 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_mat_1"]
+
+script = ExtResource("drop")
+item_id = &"thick_leather"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_1"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_small"
+chance = 0.15
+
+[sub_resource type="Resource" id="stage1"]
+
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_CAVE_ZOMBIE_S1_NAME"
+sprite_base = "res://assets/monsters/cave_zombie/mon_cave_zombie_s1"
+baked_life = true
+visual_scale = 1.0
+level = 15
+max_hp = 530
+atk = 48
+matk = 0
+def = 7
+mdef = 5
+walk_ms_per_cell = 430
+attack_range_cells = 1.5
+attack_interval_ms = 1650
+aggressive = true
+aggro_range_cells = 6
+leash_cells = 14
+xp_reward = 210
+stars_min = 7
+stars_max = 21
+behaviors = Array[StringName]([])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_1"), SubResource("drop_pot_1")])
+
+[sub_resource type="Resource" id="drop_mat_2"]
+
+script = ExtResource("drop")
+item_id = &"thick_leather"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_2"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.15
+
+[sub_resource type="Resource" id="stage2"]
+
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_CAVE_ZOMBIE_S2_NAME"
+sprite_base = "res://assets/monsters/cave_zombie/mon_cave_zombie_s2"
+baked_life = true
+visual_scale = 1.2
+level = 21
+max_hp = 1152
+atk = 60
+matk = 0
+def = 10
+mdef = 7
+walk_ms_per_cell = 430
+attack_range_cells = 1.5
+attack_interval_ms = 1650
+aggressive = true
+aggro_range_cells = 6
+leash_cells = 14
+xp_reward = 294
+stars_min = 10
+stars_max = 27
+behaviors = Array[StringName]([])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_2"), SubResource("drop_pot_2")])
+
+[sub_resource type="Resource" id="drop_mat_3"]
+
+script = ExtResource("drop")
+item_id = &"thick_leather"
+chance = 1.0
+min_qty = 2
+max_qty = 6
+
+[sub_resource type="Resource" id="drop_pot_3"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+
+[sub_resource type="Resource" id="stage3"]
+
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_CAVE_ZOMBIE_S3_NAME"
+sprite_base = "res://assets/monsters/cave_zombie/mon_cave_zombie_s3"
+baked_life = true
+visual_scale = 1.5
+level = 27
+max_hp = 8700
+atk = 96
+matk = 0
+def = 42
+mdef = 29
+walk_ms_per_cell = 470
+attack_range_cells = 2.0
+attack_interval_ms = 1800
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 2500
+stars_min = 75
+stars_max = 150
+behaviors = Array[StringName]([&"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_3"), SubResource("drop_pot_3")])
+
+[sub_resource type="Resource" id="drop_mat_4"]
+
+script = ExtResource("drop")
+item_id = &"thick_leather"
+chance = 1.0
+min_qty = 2
+max_qty = 6
+
+[sub_resource type="Resource" id="drop_pot_4"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+
+[sub_resource type="Resource" id="stage4"]
+
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_CAVE_ZOMBIE_S4_NAME"
+sprite_base = "res://assets/monsters/cave_zombie/mon_cave_zombie_s4"
+baked_life = true
+visual_scale = 1.8
+level = 33
+max_hp = 9700
+atk = 96
+matk = 0
+def = 42
+mdef = 29
+walk_ms_per_cell = 360
+attack_range_cells = 2.0
+attack_interval_ms = 1350
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 20
+xp_reward = 5000
+stars_min = 150
+stars_max = 300
+behaviors = Array[StringName]([&"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_4"), SubResource("drop_pot_4")])
+
+[resource]
+
+script = ExtResource("monster")
+id = &"cave_zombie"
+region_id = &"brasil"
+creature_type = &"undead"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

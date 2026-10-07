@@ -1,0 +1,123 @@
+{
+ "_doc": "Mercador Anselmo (feira da cidade, loja). Homem de meia-idade, cabelo preto, barba cheia curta, chapéu de palha de abas largas, camisa branca de manga dobrada, avental verde, faixa vermelha.",
+ "body": "male",
+ "props": {
+  "q": {
+   "height": 1.0,
+   "head": 1.0,
+   "thin": {
+    "spine_01": [
+     1.12,
+     1.18
+    ],
+    "spine_02": [
+     1.08,
+     1.15
+    ]
+   }
+  }
+ },
+ "parts": [
+  {
+   "type": "hair",
+   "style": "neat"
+  },
+  {
+   "type": "beard",
+   "style": "full",
+   "mat": "hair"
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Body",
+   "cmap": {
+    "cloth_light": "shirt",
+    "*": "leather"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Arms",
+   "cmap": {
+    "*": "shirt"
+   }
+  },
+  {
+   "type": "apron",
+   "mat": "apron_green",
+   "z_top": 1.2,
+   "z_bot": 0.54,
+   "half": 0.95,
+   "belly": 0.02
+  },
+  {
+   "type": "sash",
+   "mat": "sash",
+   "side": -1,
+   "grow": 0.044
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Legs",
+   "cmap": {
+    "*": "brown_pants"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Ranger_Feet_Boots",
+   "cmap": {
+    "metal": "brass",
+    "*": "boot"
+   }
+  },
+  {
+   "type": "hat_wide",
+   "mat": "straw",
+   "band": "strap_dark",
+   "r": 0.225
+  }
+ ],
+ "colors": {
+  "skin": [
+   "8a5238",
+   "a86a4a",
+   "c48a64",
+   "dcaa80"
+  ],
+  "hair": [
+   "120e16",
+   "201a24",
+   "302834",
+   "443a48",
+   "5c5060"
+  ],
+  "eyes": [
+   "1e1210",
+   "3e2418",
+   "6a3e24",
+   "9a6038"
+  ],
+  "mats": {
+   "apron_green": [
+    "2e4a2a",
+    "3e6238",
+    "547c48",
+    "70965e",
+    "18261a"
+   ],
+   "brown_pants": [
+    "3e2a1c",
+    "56402a",
+    "6e5438",
+    "886c4a",
+    "1c120c"
+   ]
+  }
+ },
+ "anims": [
+  "idle:8",
+  "walk:8"
+ ],
+ "base": "q"
+}

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/master_nicandro.tres" id="1_qilq1"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_ccj2r"]
+
+[resource]
+script = ExtResource("2_ccj2r")
+id = &"master_nicandro"
+name_key = "NPC_MASTER_NICANDRO_NAME"
+sprite_base = "res://assets/npcs/npc_master_nicandro"
+map_id = &"training_field"
+spawn_marker = &"master_nicandro"
+move_speed = 1.6
+dialogue = ExtResource("1_qilq1")

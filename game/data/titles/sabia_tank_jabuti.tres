@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_title"]
+
+[resource]
+script = ExtResource("1_title")
+id = &"sabia_tank_jabuti"
+name_key = "TITLE_SABIA_TANK_JABUTI_NAME"
+archetype = &"tank"
+tier = 3
+required_titles = Array[StringName]([&"sabia_blade_machete", &"sabia_blade_aroeira", &"sabia_blade_jaguar"])
+color = Color(0.5568628, 0.4, 0.76862746, 1)
+desc_key = "TITLE_SABIA_TANK_JABUTI_DESC"
+sort_order = 60
+outfit_id = &"title_jabuti"
+cloth_colors = PackedColorArray(0.3137, 0.3765, 0.2353, 1, 0.7843, 0.6588, 0.3137, 1)
+quest_only = true
+master_npc = &"elder_tiao"
+bonus_skills = Array[StringName]([&"tank_shell_salve"])

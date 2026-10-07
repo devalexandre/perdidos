@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/master_candeia.tres" id="1_oihgg"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_llain"]
+
+[resource]
+script = ExtResource("2_llain")
+id = &"master_candeia"
+name_key = "NPC_MASTER_CANDEIA_NAME"
+sprite_base = "res://assets/npcs/npc_master_candeia"
+map_id = &"training_field"
+spawn_marker = &"master_candeia"
+move_speed = 1.4
+dialogue = ExtResource("1_oihgg")

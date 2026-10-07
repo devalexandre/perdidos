@@ -1,0 +1,162 @@
+{
+ "lo_body": {
+  "ramp": [
+   "Madeira/cabelo 1",
+   "Ouro/amarelo 1",
+   "Pergaminho 2",
+   "Pergaminho 3"
+  ],
+  "line": "Madeira/cabelo 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "lo_body2": {
+  "ramp": [
+   "Madeira/cabelo 1",
+   "Madeira/cabelo 2",
+   "Madeira/cabelo 3",
+   "Pergaminho 3"
+  ],
+  "line": "Madeira/cabelo 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "lo_saddle": {
+  "ramp": [
+   "Pergaminho 2",
+   "Pergaminho 3",
+   "Pergaminho 4",
+   "Pergaminho 4"
+  ],
+  "line": "Pergaminho 2",
+  "out": "Pergaminho 1"
+ },
+ "lo_spine": {
+  "ramp": [
+   "Verde folha 2",
+   "Verde folha 3",
+   "Verde folha 3",
+   "Verde folha 4"
+  ],
+  "line": "Verde folha 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "lo_tip": {
+  "flat": "Ouro/amarelo 3",
+  "out": "Madeira/cabelo 1"
+ },
+ "lo_head": {
+  "ramp": [
+   "Madeira/cabelo 1",
+   "Madeira/cabelo 2",
+   "Madeira/cabelo 3",
+   "Madeira/cabelo 4"
+  ],
+  "line": "Madeira/cabelo 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "lo_leg": {
+  "ramp": [
+   "Madeira/cabelo 1",
+   "Madeira/cabelo 2",
+   "Madeira/cabelo 3",
+   "Madeira/cabelo 4"
+  ],
+  "line": "Madeira/cabelo 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "lo_ember": {
+  "ramp": [
+   "Vermelho 2",
+   "Vermelho 3",
+   "Vermelho 4",
+   "Ouro/amarelo 4"
+  ],
+  "line": "Vermelho 1",
+  "out": "Vermelho 1"
+ },
+ "lo_silk": {
+  "ramp": [
+   "Pedra/metal 3",
+   "Pedra/metal 4",
+   "Pergaminho 4",
+   "Base 2"
+  ],
+  "line": "Pedra/metal 3",
+  "out": "Pedra/metal 2"
+ },
+ "lo_silk_line": {
+  "flat": "Pedra/metal 3",
+  "out": "Pedra/metal 2"
+ },
+ "lo_seam": {
+  "flat": "Ouro/amarelo 3",
+  "out": "Vermelho 2"
+ },
+ "lo_cocoon_n": {
+  "ramp": [
+   "Azul ceu 1",
+   "Roxo 2",
+   "Pedra/metal 3",
+   "Roxo 4"
+  ],
+  "line": "Roxo 1",
+  "out": "Base 1"
+ },
+ "lo_cocoon_line": {
+  "flat": "Roxo 1",
+  "out": "Base 1"
+ },
+ "lo_moth_fur": {
+  "ramp": [
+   "Roxo 1",
+   "Roxo 2",
+   "Roxo 3",
+   "Roxo 4"
+  ],
+  "line": "Roxo 1",
+  "out": "Base 1"
+ },
+ "lo_moth_fur2": {
+  "ramp": [
+   "Base 1",
+   "Azul ceu 1",
+   "Azul ceu 2",
+   "Azul ceu 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "lo_moth_head": {
+  "ramp": [
+   "Roxo 1",
+   "Roxo 2",
+   "Pedra/metal 3",
+   "Roxo 4"
+  ],
+  "line": "Roxo 1",
+  "out": "Base 1"
+ },
+ "lo_wing": {
+  "ramp": [
+   "Base 1",
+   "Azul ceu 1",
+   "Roxo 2",
+   "Roxo 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "lo_wing2": {
+  "ramp": [
+   "Roxo 1",
+   "Rosa 1",
+   "Roxo 2",
+   "Rosa 2"
+  ],
+  "line": "Roxo 1",
+  "out": "Base 1"
+ },
+ "lo_wing_line": {
+  "flat": "Base 1",
+  "out": "Base 1"
+ }
+}

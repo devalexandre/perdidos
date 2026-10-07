@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_simple_bow.png" id="1_icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_item"]
+
+[resource]
+script = ExtResource("2_item")
+id = &"silver_bow_cosmetic"
+name_key = "ITEM_SILVER_BOW_COSMETIC_NAME"
+desc_key = "ITEM_SILVER_BOW_COSMETIC_DESC"
+icon = ExtResource("1_icon")
+type = 1
+weapon_kind = 3
+visual_id = &"simple_bow"
+two_handed = true
+is_cosmetic = true
+buy_price = 180
+sell_price = 60
+tradeable = true

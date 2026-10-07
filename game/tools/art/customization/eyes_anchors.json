@@ -1,0 +1,339 @@
+{
+ "_doc": "Olhos na referencia (quadro 0 do idle de cada direcao; 'sit' etc. = referencia propria daquela animacao). x, y = canto superior esquerdo do desenho (eyes_designs.json); mirror espelha o desenho; cover = margem [cima, baixo, esq, dir] onde o olho antigo vira pele. NE/N sem olhos. SE idle: desde o Agente F (27/09) o idle SE olha para a DIREITA (picks flip_each.idle), igual aos passos, ao sit e ao combate.",
+ "male": {
+  "s": {
+   "idle": {
+    "eyes": [
+     {
+      "x": 41,
+      "y": 30,
+      "design": "front",
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     },
+     {
+      "x": 51,
+      "y": 30,
+      "design": "front_r",
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     }
+    ]
+   },
+   "sit": {
+    "eyes": [
+     {
+      "x": 42,
+      "y": 49,
+      "design": "small",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ]
+     },
+     {
+      "x": 49,
+      "y": 49,
+      "design": "small",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ],
+      "mirror": true
+     }
+    ]
+   }
+  },
+  "se": {
+   "idle": {
+    "eyes": [
+     {
+      "x": 56,
+      "y": 30,
+      "design": "far",
+      "mirror": false,
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     },
+     {
+      "x": 47,
+      "y": 30,
+      "design": "near",
+      "mirror": false,
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     }
+    ]
+   },
+   "sit": {
+    "eyes": [
+     {
+      "x": 43,
+      "y": 48,
+      "design": "small_far",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ],
+      "mirror": true
+     },
+     {
+      "x": 50,
+      "y": 48,
+      "design": "small",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ],
+      "mirror": true
+     }
+    ]
+   }
+  },
+  "e": {
+   "idle": {
+    "eyes": [
+     {
+      "x": 49,
+      "y": 29,
+      "design": "near",
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     },
+     {
+      "x": 57,
+      "y": 29,
+      "design": "far",
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     }
+    ]
+   },
+   "sit": {
+    "eyes": [
+     {
+      "x": 46,
+      "y": 48,
+      "design": "small",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ]
+     },
+     {
+      "x": 54,
+      "y": 48,
+      "design": "small_far",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "female": {
+  "s": {
+   "idle": {
+    "eyes": [
+     {
+      "x": 39,
+      "y": 27,
+      "design": "front",
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     },
+     {
+      "x": 49,
+      "y": 27,
+      "design": "front_r",
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     }
+    ]
+   },
+   "sit": {
+    "eyes": [
+     {
+      "x": 40,
+      "y": 47,
+      "design": "small",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ]
+     },
+     {
+      "x": 47,
+      "y": 47,
+      "design": "small",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ],
+      "mirror": true
+     }
+    ]
+   }
+  },
+  "se": {
+   "idle": {
+    "eyes": [
+     {
+      "x": 56,
+      "y": 26,
+      "design": "far",
+      "mirror": false,
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     },
+     {
+      "x": 47,
+      "y": 26,
+      "design": "near",
+      "mirror": false,
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     }
+    ]
+   },
+   "sit": {
+    "eyes": [
+     {
+      "x": 44,
+      "y": 47,
+      "design": "small",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ]
+     },
+     {
+      "x": 51,
+      "y": 47,
+      "design": "small_far",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ]
+     }
+    ]
+   }
+  },
+  "e": {
+   "idle": {
+    "eyes": [
+     {
+      "x": 49,
+      "y": 26,
+      "design": "near",
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     },
+     {
+      "x": 56,
+      "y": 26,
+      "design": "far",
+      "cover": [
+       2,
+       1,
+       2,
+       2
+      ]
+     }
+    ]
+   },
+   "sit": {
+    "eyes": [
+     {
+      "x": 47,
+      "y": 47,
+      "design": "small",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ]
+     },
+     {
+      "x": 55,
+      "y": 47,
+      "design": "small_far",
+      "cover": [
+       1,
+       1,
+       1,
+       1
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

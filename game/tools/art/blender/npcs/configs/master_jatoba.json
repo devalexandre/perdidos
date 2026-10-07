@@ -1,0 +1,137 @@
+{
+ "_doc": "Mestre Jatobá (Campo de Treino, Lâmina / título Facão Firme). Homem forte, pele morena escura, cabelo preto curto, barba por fazer; camisa branca de manga dobrada, colete de couro, faixa vermelha, chapéu de couro pendurado nas costas, facão na cintura.",
+ "body": "male",
+ "props": {
+  "q": {
+   "height": 1.03,
+   "head": 1.0,
+   "thin": {
+    "spine_03": 1.04,
+    "spine_02": 1.01,
+    "clavicle_l": 0.99,
+    "clavicle_r": 0.99,
+    "upperarm_l": 1.01,
+    "upperarm_r": 1.01
+   }
+  }
+ },
+ "pose": {
+  "chest": [
+   0.03,
+   0,
+   0
+  ]
+ },
+ "parts": [
+  {
+   "type": "hair",
+   "style": "neat"
+  },
+  {
+   "type": "beard",
+   "style": "stubble",
+   "mat": "hair"
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Body",
+   "cmap": {
+    "cloth_light": "shirt",
+    "*": "leather"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Arms",
+   "cmap": {
+    "*": "shirt"
+   }
+  },
+  {
+   "type": "vest",
+   "mat": "leather",
+   "edge": "strap_dark",
+   "gap": 0.45,
+   "grow": 0.036
+  },
+  {
+   "type": "sash",
+   "mat": "sash",
+   "side": 1,
+   "grow": 0.042
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Legs",
+   "cmap": {
+    "*": "brown_pants"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Ranger_Feet_Boots",
+   "cmap": {
+    "metal": "brass",
+    "*": "boot"
+   }
+  },
+  {
+   "type": "bracers",
+   "mat": "leather"
+  },
+  {
+   "type": "hat_wide",
+   "mat": "hat_leather",
+   "band": "strap_dark",
+   "pos": "back"
+  },
+  {
+   "type": "weapon_hip",
+   "mat": "strap_dark",
+   "hilt": "wood",
+   "side": 1
+  }
+ ],
+ "colors": {
+  "skin": [
+   "6e3e28",
+   "8e5436",
+   "ac6c48",
+   "c4875c"
+  ],
+  "hair": [
+   "120e16",
+   "201a24",
+   "302834",
+   "443a48",
+   "5c5060"
+  ],
+  "eyes": [
+   "1e1210",
+   "3e2418",
+   "6a3e24",
+   "9a6038"
+  ],
+  "mats": {
+   "brown_pants": [
+    "3e2a1c",
+    "56402a",
+    "6e5438",
+    "886c4a",
+    "1c120c"
+   ],
+   "hat_leather": [
+    "4a2c18",
+    "6a4024",
+    "8c5a34",
+    "a87448",
+    "22140a"
+   ]
+  }
+ },
+ "anims": [
+  "idle:8",
+  "walk:8"
+ ],
+ "base": "q"
+}

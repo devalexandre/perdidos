@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_jstcd"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_b4xi0"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_nvtyb"]
+
+[sub_resource type="Resource" id="Resource_pgaom"]
+script = ExtResource("1_jstcd")
+item_id = &"thick_leather"
+chance = 0.15
+
+[sub_resource type="Resource" id="Resource_xnihm"]
+script = ExtResource("3_nvtyb")
+name_key = "MON_JAGUAR_CUB_S1_NAME"
+sprite_base = "res://assets/monsters/jaguar_cub/mon_jaguar_cub_s1"
+baked_life = true
+level = 6
+max_hp = 105
+atk = 14
+def = 3
+mdef = 3
+walk_ms_per_cell = 330
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 48
+stars_min = 2
+stars_max = 7
+drops = Array[ExtResource("1_jstcd")]([SubResource("Resource_pgaom")])
+
+[sub_resource type="Resource" id="Resource_1a4bb"]
+script = ExtResource("1_jstcd")
+item_id = &"thick_leather"
+chance = 0.35
+
+[sub_resource type="Resource" id="Resource_fmx4r"]
+script = ExtResource("3_nvtyb")
+stage = 2
+name_key = "MON_JAGUAR_CUB_S2_NAME"
+sprite_base = "res://assets/monsters/jaguar_cub/mon_jaguar_cub_s2"
+baked_life = true
+level = 10
+max_hp = 330
+atk = 27
+def = 8
+mdef = 8
+walk_ms_per_cell = 310
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 140
+stars_min = 6
+stars_max = 13
+drops = Array[ExtResource("1_jstcd")]([SubResource("Resource_1a4bb")])
+
+[resource]
+script = ExtResource("2_b4xi0")
+id = &"jaguar_cub"
+region_id = &"mexico"
+stages = Array[ExtResource("3_nvtyb")]([SubResource("Resource_xnihm"), SubResource("Resource_fmx4r")])

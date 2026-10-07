@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+[resource]
+script = ExtResource("zone")
+map_id = &"split_sky_plateau"
+kind = 2
+name_key = "WA_HIGHLANDS_ASCENT"
+region_id = &"sabia"
+recommended_level_min = 12
+recommended_level_max = 25
+monster_stage_cap = 3
+bosses_allowed = true
+connected_maps = Array[StringName]([&"enchanted_forest_heart", &"split_sky_plateau_ridges"])

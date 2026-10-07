@@ -1,0 +1,175 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_mat_1"]
+
+script = ExtResource("drop")
+item_id = &"firefly_light"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_1"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_small"
+chance = 0.15
+
+[sub_resource type="Resource" id="stage1"]
+
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_CAVE_BAT_S1_NAME"
+sprite_base = "res://assets/monsters/cave_bat/mon_cave_bat_s1"
+baked_life = true
+visual_scale = 0.85
+level = 12
+max_hp = 446
+atk = 42
+matk = 0
+def = 6
+mdef = 4
+walk_ms_per_cell = 330
+attack_range_cells = 1.5
+attack_interval_ms = 1350
+aggressive = true
+aggro_range_cells = 6
+leash_cells = 14
+xp_reward = 168
+stars_min = 6
+stars_max = 18
+behaviors = Array[StringName]([&"fly_pattern"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_1"), SubResource("drop_pot_1")])
+
+[sub_resource type="Resource" id="drop_mat_2"]
+
+script = ExtResource("drop")
+item_id = &"firefly_light"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_2"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.15
+
+[sub_resource type="Resource" id="stage2"]
+
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_CAVE_BAT_S2_NAME"
+sprite_base = "res://assets/monsters/cave_bat/mon_cave_bat_s2"
+baked_life = true
+visual_scale = 1.05
+level = 18
+max_hp = 1013
+atk = 54
+matk = 0
+def = 9
+mdef = 6
+walk_ms_per_cell = 330
+attack_range_cells = 1.5
+attack_interval_ms = 1350
+aggressive = true
+aggro_range_cells = 6
+leash_cells = 14
+xp_reward = 252
+stars_min = 9
+stars_max = 24
+behaviors = Array[StringName]([&"fly_pattern"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_2"), SubResource("drop_pot_2")])
+
+[sub_resource type="Resource" id="drop_mat_3"]
+
+script = ExtResource("drop")
+item_id = &"firefly_light"
+chance = 1.0
+min_qty = 2
+max_qty = 6
+
+[sub_resource type="Resource" id="drop_pot_3"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+
+[sub_resource type="Resource" id="stage3"]
+
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_CAVE_BAT_S3_NAME"
+sprite_base = "res://assets/monsters/cave_bat/mon_cave_bat_s3"
+baked_life = true
+visual_scale = 1.35
+level = 25
+max_hp = 9600
+atk = 102
+matk = 0
+def = 48
+mdef = 33
+walk_ms_per_cell = 370
+attack_range_cells = 2.0
+attack_interval_ms = 1500
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 2800
+stars_min = 75
+stars_max = 150
+behaviors = Array[StringName]([&"fly_pattern", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_3"), SubResource("drop_pot_3")])
+
+[sub_resource type="Resource" id="drop_mat_4"]
+
+script = ExtResource("drop")
+item_id = &"firefly_light"
+chance = 1.0
+min_qty = 2
+max_qty = 6
+
+[sub_resource type="Resource" id="drop_pot_4"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+
+[sub_resource type="Resource" id="stage4"]
+
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_CAVE_BAT_S4_NAME"
+sprite_base = "res://assets/monsters/cave_bat/mon_cave_bat_s4"
+baked_life = true
+visual_scale = 1.6
+level = 31
+max_hp = 10600
+atk = 102
+matk = 0
+def = 48
+mdef = 33
+walk_ms_per_cell = 260
+attack_range_cells = 2.0
+attack_interval_ms = 1050
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 20
+xp_reward = 5600
+stars_min = 150
+stars_max = 300
+behaviors = Array[StringName]([&"fly_pattern", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_4"), SubResource("drop_pot_4")])
+
+[resource]
+
+script = ExtResource("monster")
+id = &"cave_bat"
+region_id = &"brasil"
+creature_type = &"beast"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

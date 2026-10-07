@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"blade_claw_rake"
+name_key = "SKILL_BLADE_CLAW_RAKE_NAME"
+desc_key = "SKILL_BLADE_CLAW_RAKE_DESC"
+school = &"blade"
+region_id = &"brasil"
+effect = 14
+mana_cost = 14
+cooldown_sec = 7.0
+range_cells = 1.5
+base_multiplier = 0.7
+multiplier_per_level = 0.06
+extra = Dictionary[StringName, Variant]({
+&"hits": 3
+})
+requires_melee_weapon = true
+vfx = &"slash"
+exclusive_to_title = &"sabia_blade_jaguar"
+icon_text = "UN"
+tree_title = &"sabia_blade_jaguar"
+tree_order = 3
+required_skill_levels = Dictionary[StringName, int]({
+&"blade_jaguar_leap": 1
+})

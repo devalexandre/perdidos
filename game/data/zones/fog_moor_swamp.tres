@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+
+[resource]
+script = ExtResource("zone")
+map_id = &"fog_moor_swamp"
+kind = 2
+name_key = "ZONE_FOG_MOOR_SWAMP_NAME"
+region_id = &"sabia"
+recommended_level_min = 36
+recommended_level_max = 40
+combat_allowed = true
+grave_on_death = true
+monster_stage_cap = 2
+bosses_allowed = false
+connected_maps = Array[StringName]([&"fog_moor_trail", &"fog_moor_gate"])

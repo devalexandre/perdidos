@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_straw_hat.png" id="1_y4cfw"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_nik4q"]
+
+[resource]
+script = ExtResource("2_nik4q")
+id = &"straw_hat"
+name_key = "ITEM_STRAW_HAT_NAME"
+desc_key = "ITEM_STRAW_HAT_DESC"
+icon = ExtResource("1_y4cfw")
+type = 3
+buy_price = 40
+sell_price = 12
+stats = Dictionary[StringName, int]({
+&"def": 1,
+&"mdef": 1
+})
+visual_id = &"straw_hat"

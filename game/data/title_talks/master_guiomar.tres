@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TitleTalkDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_talk_def.gd" id="1_tt"]
+
+[resource]
+script = ExtResource("1_tt")
+id = &"master_guiomar"
+npc_id = &"master_guiomar"
+region_id = &"portugal"
+title_name_key = "RULES_TT_GUIOMAR_TITLE"
+title_desc_key = "RULES_TT_GUIOMAR_DESC"
+skill_name_keys = Array[String](["RULES_TT_GUIOMAR_SKILL"])
+style_key = "RULES_TT_GUIOMAR_STYLE"

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"bow_arrow_flock"
+name_key = "SKILL_BOW_ARROW_FLOCK_NAME"
+desc_key = "SKILL_BOW_ARROW_FLOCK_DESC"
+school = &"bow"
+region_id = &"brasil"
+target_type = 1
+mana_cost = 24
+cooldown_sec = 16.0
+range_cells = 10.0
+radius_cells = 3.0
+base_multiplier = 1.2
+multiplier_per_level = 0.1
+requires_bow = true
+vfx = &"arrow"
+exclusive_to_title = &"sabia_bow_cerrado"
+icon_text = "RF"
+tree_title = &"sabia_bow_cerrado"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"bow_taut_draw": 3
+})

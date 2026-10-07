@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="WorldRegionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("place")
+id = &"akarimachi"
+region_id = &"sol"
+kind = 0
+status = 2
+name_key = "WA_P_AKARIMACHI"
+hook_key = "WA_P_AKARIMACHI_HOOK"
+pos = Vector2(0.872, 0.428)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("place")
+id = &"vila_kappa"
+region_id = &"sol"
+kind = 1
+status = 2
+name_key = "WA_P_VILA_KAPPA"
+hook_key = "WA_P_VILA_KAPPA_HOOK"
+pos = Vector2(0.9, 0.315)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("place")
+id = &"praia_raposas"
+region_id = &"sol"
+kind = 2
+status = 2
+name_key = "WA_P_PRAIA_RAPOSAS"
+hook_key = "WA_P_PRAIA_RAPOSAS_HOOK"
+pos = Vector2(0.915, 0.44)
+level_min = 10
+level_max = 20
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("place")
+id = &"passo_oni"
+region_id = &"sol"
+kind = 2
+status = 2
+name_key = "WA_P_PASSO_ONI"
+hook_key = "WA_P_PASSO_ONI_HOOK"
+pos = Vector2(0.875, 0.575)
+level_min = 20
+level_max = 30
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("place")
+id = &"monte_tengu"
+region_id = &"sol"
+kind = 3
+status = 2
+name_key = "WA_P_MONTE_TENGU"
+hook_key = "WA_P_MONTE_TENGU_HOOK"
+pos = Vector2(0.88, 0.37)
+level_min = 30
+level_max = 40
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("place")
+id = &"ilha_orochi"
+region_id = &"sol"
+kind = 5
+status = 2
+name_key = "WA_P_ILHA_OROCHI"
+hook_key = "WA_P_ILHA_OROCHI_HOOK"
+pos = Vector2(0.888, 0.512)
+level_min = 40
+level_max = 50
+
+[resource]
+script = ExtResource("region")
+id = &"sol"
+name_key = "WA_R_SOL"
+hook_key = "WA_R_SOL_HOOK"
+inspiration = "Japão"
+label_pos = Vector2(0.905, 0.235)
+reached = false
+places = Array[ExtResource("place")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5")])

@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_painted.gdshader" id="1_bhdv6"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_wood.png" id="2_nnxts"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="3_ws3vr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bhdv6")
+shader_parameter/albedo_tex = ExtResource("2_nnxts")
+shader_parameter/tint = Color(0.4906667, 0.8106667, 0.57066673, 1.6)
+shader_parameter/triplanar = null
+shader_parameter/tile_m = null
+shader_parameter/uv_scale = Vector2(1.1111112, 1.1111112)
+shader_parameter/use_vertex_ao = null
+shader_parameter/top_amount = null
+shader_parameter/top_sharpness = null
+shader_parameter/top_tile_m = null
+shader_parameter/top_tint = null
+shader_parameter/grime_height = null
+shader_parameter/base_y = null
+shader_parameter/grime_color = null
+shader_parameter/tex_noise = ExtResource("3_ws3vr")
+shader_parameter/macro_strength = null
+shader_parameter/roughness = null
+shader_parameter/detail = 0.5
+shader_parameter/use_instance_tint = null

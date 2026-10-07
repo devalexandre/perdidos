@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ipe_flower_crown.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"moss_crown"
+name_key = "ITEM_MOSS_CROWN_NAME"
+desc_key = "ITEM_MOSS_CROWN_DESC"
+icon = ExtResource("icon")
+type = 3
+rarity = 1
+buy_price = 420
+sell_price = 140
+stats = Dictionary[StringName, int]({
+&"def": 3,
+&"vit": 2,
+&"spi": 1
+})
+visual_id = &"straw_hat"

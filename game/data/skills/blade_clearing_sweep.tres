@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_a5qcp"]
+
+[resource]
+script = ExtResource("1_a5qcp")
+id = &"blade_clearing_sweep"
+name_key = "SKILL_BLADE_CLEARING_SWEEP_NAME"
+desc_key = "SKILL_BLADE_CLEARING_SWEEP_DESC"
+school = &"blade"
+target_type = 3
+mana_cost = 18
+cooldown_sec = 12.0
+range_cells = 0.0
+radius_cells = 3.0
+cone_deg = 90.0
+base_multiplier = 1.3
+extra = Dictionary[StringName, Variant]({
+&"knockback_cells": 2.0
+})
+requires_melee_weapon = true
+vfx = &"slash"
+exclusive_to_title = &"sabia_blade_machete"
+icon_text = "RO"
+counts_for_titles = false
+tree_title = &"sabia_blade_machete"
+tree_order = 4
+required_skill_levels = Dictionary[StringName, int]({
+&"blade_steel_spin": 3
+})

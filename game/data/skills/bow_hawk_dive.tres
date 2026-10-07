@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"bow_hawk_dive"
+name_key = "SKILL_BOW_HAWK_DIVE_NAME"
+desc_key = "SKILL_BOW_HAWK_DIVE_DESC"
+school = &"bow"
+region_id = &"brasil"
+mana_cost = 22
+cooldown_sec = 16.0
+range_cells = 12.0
+base_multiplier = 1.8
+multiplier_per_level = 0.12
+extra = Dictionary[StringName, Variant]({
+&"stun_per_level": 0.05,
+&"stun_sec": 1.0
+})
+requires_bow = true
+vfx = &"arrow"
+exclusive_to_title = &"sabia_bow_gaviao"
+icon_text = "MG"
+tree_title = &"sabia_bow_gaviao"
+tree_order = 4
+required_skill_levels = Dictionary[StringName, int]({
+&"bow_true_arrow": 3
+})

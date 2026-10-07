@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_jn848"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_kalr3"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_f70il"]
+
+[sub_resource type="Resource" id="Resource_ekpo6"]
+script = ExtResource("2_kalr3")
+text_key = "DLG_MERCHANT_START_OPT0"
+action = &"open_shop"
+
+[sub_resource type="Resource" id="Resource_3d6o3"]
+script = ExtResource("2_kalr3")
+text_key = "DLG_MERCHANT_START_OPT1"
+next_node = &"buy_info"
+
+[sub_resource type="Resource" id="Resource_ym7js"]
+script = ExtResource("2_kalr3")
+text_key = "DLG_MERCHANT_START_OPT2"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_x051r"]
+script = ExtResource("1_jn848")
+id = &"start"
+text_key = "DLG_MERCHANT_START"
+options = Array[ExtResource("2_kalr3")]([SubResource("Resource_ekpo6"), SubResource("Resource_3d6o3"), SubResource("Resource_ym7js")])
+
+[sub_resource type="Resource" id="Resource_xdx5l"]
+script = ExtResource("2_kalr3")
+text_key = "DLG_MERCHANT_BUY_INFO_OPT0"
+action = &"open_shop"
+
+[sub_resource type="Resource" id="Resource_npvi7"]
+script = ExtResource("2_kalr3")
+text_key = "DLG_MERCHANT_BUY_INFO_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_vlrgv"]
+script = ExtResource("1_jn848")
+id = &"buy_info"
+text_key = "DLG_MERCHANT_BUY_INFO"
+options = Array[ExtResource("2_kalr3")]([SubResource("Resource_xdx5l"), SubResource("Resource_npvi7")])
+
+[resource]
+script = ExtResource("3_f70il")
+id = &"merchant"
+nodes = Array[ExtResource("1_jn848")]([SubResource("Resource_x051r"), SubResource("Resource_vlrgv")])

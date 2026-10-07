@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_2oll7"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_yq0qb"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_rck7q"]
+
+[sub_resource type="Resource" id="Resource_0ry6j"]
+script = ExtResource("1_2oll7")
+item_id = &"potion_mp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_if30p"]
+script = ExtResource("3_rck7q")
+name_key = "MON_SPHINX_CUB_S1_NAME"
+sprite_base = "res://assets/monsters/sphinx_cub/mon_sphinx_cub_s1"
+baked_life = true
+level = 6
+max_hp = 105
+atk = 11
+matk = 10
+def = 4
+mdef = 6
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 48
+stars_min = 2
+stars_max = 7
+drops = Array[ExtResource("1_2oll7")]([SubResource("Resource_0ry6j")])
+
+[sub_resource type="Resource" id="Resource_6k8be"]
+script = ExtResource("1_2oll7")
+item_id = &"potion_mp_medium"
+
+[sub_resource type="Resource" id="Resource_5h6yd"]
+script = ExtResource("3_rck7q")
+stage = 2
+name_key = "MON_SPHINX_CUB_S2_NAME"
+sprite_base = "res://assets/monsters/sphinx_cub/mon_sphinx_cub_s2"
+baked_life = true
+level = 10
+max_hp = 340
+atk = 22
+matk = 20
+def = 9
+mdef = 13
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 140
+stars_min = 6
+stars_max = 13
+drops = Array[ExtResource("1_2oll7")]([SubResource("Resource_6k8be")])
+
+[resource]
+script = ExtResource("2_yq0qb")
+id = &"sphinx_cub"
+region_id = &"egito"
+stages = Array[ExtResource("3_rck7q")]([SubResource("Resource_if30p"), SubResource("Resource_5h6yd")])

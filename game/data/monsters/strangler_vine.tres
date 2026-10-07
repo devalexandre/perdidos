@@ -1,0 +1,171 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_mat_1"]
+script = ExtResource("drop")
+item_id = &"strangler_root"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_1"]
+script = ExtResource("drop")
+item_id = &"potion_hp_small"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_STRANGLER_VINE_S1_NAME"
+sprite_base = "res://assets/monsters/strangler_vine/mon_strangler_vine_s1"
+baked_life = true
+visual_scale = 0.95
+level = 14
+max_hp = 332
+atk = 38
+matk = 0
+def = 7
+mdef = 4
+walk_ms_per_cell = 360
+attack_range_cells = 1.5
+attack_interval_ms = 1500
+aggressive = false
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 196
+stars_min = 7
+stars_max = 19
+behaviors = Array[StringName]([])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_1"), SubResource("drop_pot_1")])
+
+[sub_resource type="Resource" id="drop_mat_2"]
+script = ExtResource("drop")
+item_id = &"strangler_root"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_2"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage2"]
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_STRANGLER_VINE_S2_NAME"
+sprite_base = "res://assets/monsters/strangler_vine/mon_strangler_vine_s2"
+baked_life = true
+visual_scale = 1.15
+level = 21
+max_hp = 733
+atk = 52
+matk = 0
+def = 10
+mdef = 7
+walk_ms_per_cell = 360
+attack_range_cells = 1.5
+attack_interval_ms = 1500
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 294
+stars_min = 10
+stars_max = 26
+behaviors = Array[StringName]([])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_2"), SubResource("drop_pot_2")])
+
+[sub_resource type="Resource" id="drop_mat_3"]
+script = ExtResource("drop")
+item_id = &"strangler_root"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_pot_3"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage3"]
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_STRANGLER_VINE_S3_NAME"
+sprite_base = "res://assets/monsters/strangler_vine/mon_strangler_vine_s3"
+baked_life = true
+visual_scale = 1.45
+level = 30
+max_hp = 8800
+atk = 67
+matk = 0
+def = 30
+mdef = 20
+walk_ms_per_cell = 400
+attack_range_cells = 2.2
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 2440
+stars_min = 70
+stars_max = 140
+behaviors = Array[StringName]([&"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_3"), SubResource("drop_pot_3")])
+
+[sub_resource type="Resource" id="drop_mat_4"]
+script = ExtResource("drop")
+item_id = &"strangler_root"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_pot_4"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage4"]
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_STRANGLER_VINE_S4_NAME"
+sprite_base = "res://assets/monsters/strangler_vine/mon_strangler_vine_s4"
+baked_life = true
+visual_scale = 1.75
+level = 36
+max_hp = 12300
+atk = 82
+matk = 0
+def = 38
+mdef = 26
+walk_ms_per_cell = 320
+attack_range_cells = 2.2
+attack_interval_ms = 1250
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 20
+xp_reward = 4880
+stars_min = 140
+stars_max = 280
+behaviors = Array[StringName]([&"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_4"), SubResource("drop_pot_4")])
+
+[resource]
+
+script = ExtResource("monster")
+id = &"strangler_vine"
+region_id = &"sabia"
+creature_type = &"beast"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

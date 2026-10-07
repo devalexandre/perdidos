@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_qdef"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_qstep"]
+
+[sub_resource type="Resource" id="step_talk"]
+script = ExtResource("2_qstep")
+type = 3
+target_id = &"gate_guard"
+count = 1
+text_key = "QUEST_SABIA_BOW_GAVIAO_STEP_TALK"
+
+[sub_resource type="Resource" id="step_collect"]
+script = ExtResource("2_qstep")
+type = 1
+target_id = &"scorpion_stinger"
+count = 4
+text_key = "QUEST_SABIA_BOW_GAVIAO_STEP_COLLECT"
+scale_with_titles = true
+
+[sub_resource type="Resource" id="step_kill"]
+script = ExtResource("2_qstep")
+type = 0
+target_id = &"prank_whirlwind"
+count = 6
+text_key = "QUEST_SABIA_BOW_GAVIAO_STEP_KILL"
+scale_with_titles = true
+
+[sub_resource type="Resource" id="step_trial"]
+script = ExtResource("2_qstep")
+type = 4
+target_id = &"prank_whirlwind"
+count = 1
+text_key = "QUEST_SABIA_BOW_GAVIAO_STEP_TRIAL"
+time_limit_sec = 60.0
+
+[sub_resource type="Resource" id="step_vet_relic"]
+script = ExtResource("2_qstep")
+type = 1
+target_id = &"ancient_shell_shard"
+count = 2
+text_key = "QUEST_VETERAN_RELIC_ANCIENT_SHELL_SHARD"
+scale_with_titles = false
+min_prior_titles = 1
+
+[sub_resource type="Resource" id="step_vet_boss"]
+script = ExtResource("2_qstep")
+target_id = &"prank_whirlwind"
+count = 1
+text_key = "QUEST_VETERAN_BOSS_PRANK_WHIRLWIND"
+variant = &"boss"
+scale_with_titles = false
+min_prior_titles = 2
+
+[sub_resource type="Resource" id="step_vet_atroz"]
+script = ExtResource("2_qstep")
+target_id = &""
+count = 1
+text_key = "QUEST_VETERAN_ATROZ"
+variant = &"atroz"
+scale_with_titles = false
+min_prior_titles = 3
+
+[resource]
+script = ExtResource("1_qdef")
+id = &"sabia_bow_gaviao_title"
+name_key = "QUEST_SABIA_BOW_GAVIAO_NAME"
+giver_npc = &"master_taquari"
+steps = Array[ExtResource("2_qstep")]([SubResource("step_talk"), SubResource("step_collect"), SubResource("step_vet_relic"), SubResource("step_kill"), SubResource("step_vet_boss"), SubResource("step_vet_atroz"), SubResource("step_trial")])
+training_title_quest = false
+required_titles = Array[StringName]([&"sabia_bow_cerrado"])
+reward_skill = &"bow_still_eye"
+reward_xp = 350
+hidden_until_eligible = false
+reward_title = &"sabia_bow_gaviao"
+offer_text_key = "QUEST_SABIA_BOW_GAVIAO_OFFER"
+progress_text_key = "QUEST_SABIA_BOW_GAVIAO_PROGRESS"
+complete_text_key = "QUEST_SABIA_BOW_GAVIAO_COMPLETE"
+option_text_key = "QUEST_SABIA_BOW_GAVIAO_OPTION"
+desc_key = "QUEST_SABIA_BOW_GAVIAO_DESC"

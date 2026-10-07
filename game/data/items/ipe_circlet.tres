@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ipe_flower_crown.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"ipe_circlet"
+name_key = "ITEM_IPE_CIRCLET_NAME"
+desc_key = "ITEM_IPE_CIRCLET_DESC"
+icon = ExtResource("icon")
+type = 3
+rarity = 2
+buy_price = 680
+sell_price = 225
+stats = Dictionary[StringName, int]({
+&"def": 2,
+&"int": 3,
+&"matk": 3
+})
+visual_id = &"ipe_flower_crown"

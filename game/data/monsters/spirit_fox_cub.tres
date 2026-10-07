@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_jp4db"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_gverd"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_2qt4m"]
+
+[sub_resource type="Resource" id="Resource_yybsd"]
+script = ExtResource("1_jp4db")
+item_id = &"potion_mp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_gm77c"]
+script = ExtResource("3_2qt4m")
+name_key = "MON_SPIRIT_FOX_CUB_S1_NAME"
+sprite_base = "res://assets/monsters/spirit_fox_cub/mon_spirit_fox_cub_s1"
+baked_life = true
+level = 3
+max_hp = 55
+atk = 7
+matk = 9
+def = 1
+mdef = 4
+walk_ms_per_cell = 340
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 22
+stars_min = 1
+stars_max = 5
+drops = Array[ExtResource("1_jp4db")]([SubResource("Resource_yybsd")])
+
+[sub_resource type="Resource" id="Resource_0nfqm"]
+script = ExtResource("1_jp4db")
+item_id = &"potion_mp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_1u41w"]
+script = ExtResource("3_2qt4m")
+stage = 2
+name_key = "MON_SPIRIT_FOX_CUB_S2_NAME"
+sprite_base = "res://assets/monsters/spirit_fox_cub/mon_spirit_fox_cub_s2"
+baked_life = true
+level = 7
+max_hp = 210
+atk = 15
+matk = 19
+def = 4
+mdef = 10
+walk_ms_per_cell = 320
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 85
+stars_min = 4
+stars_max = 10
+drops = Array[ExtResource("1_jp4db")]([SubResource("Resource_0nfqm")])
+
+[resource]
+script = ExtResource("2_gverd")
+id = &"spirit_fox_cub"
+region_id = &"china"
+stages = Array[ExtResource("3_2qt4m")]([SubResource("Resource_gm77c"), SubResource("Resource_1u41w")])

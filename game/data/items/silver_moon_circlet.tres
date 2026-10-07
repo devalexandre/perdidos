@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ipe_flower_crown.png" id="1_icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_item"]
+
+[resource]
+script = ExtResource("2_item")
+id = &"silver_moon_circlet"
+name_key = "ITEM_SILVER_MOON_CIRCLET_NAME"
+desc_key = "ITEM_SILVER_MOON_CIRCLET_DESC"
+icon = ExtResource("1_icon")
+type = 3
+visual_id = &"ipe_flower_crown"
+is_cosmetic = true
+buy_price = 150
+sell_price = 50
+tradeable = true

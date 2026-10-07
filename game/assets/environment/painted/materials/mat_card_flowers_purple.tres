@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_foliage.gdshader" id="1_c31nm"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/cards/card_flowers.png" id="2_ydpor"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_c31nm")
+shader_parameter/albedo_tex = ExtResource("2_ydpor")
+shader_parameter/tint = Color(0.85, 0.7, 1.1, 1)
+shader_parameter/uv_scale = null
+shader_parameter/alpha_cut = 0.4
+shader_parameter/use_alpha = null
+shader_parameter/wind_strength = 0.1
+shader_parameter/wind_speed = 1.8
+shader_parameter/wind_dir = null
+shader_parameter/wind_gust_scale = null
+shader_parameter/backlight_color = null
+shader_parameter/hue_variation = null
+shader_parameter/value_variation = null
+shader_parameter/base_darken = 0.35
+shader_parameter/base_color = Color(0.36, 0.44, 0.16, 1)
+shader_parameter/fade_start = 40.0
+shader_parameter/fade_end = 48.0
+shader_parameter/use_instance_custom = true
+shader_parameter/recolor_amount = null
+shader_parameter/recolor_dark = null
+shader_parameter/recolor_light = null
+shader_parameter/recolor_ao_mix = null
+shader_parameter/speckle_amount = null
+shader_parameter/speckle_color = null
+shader_parameter/speckle_scale = null

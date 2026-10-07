@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"tank_fury"
+name_key = "SKILL_TANK_FURY_NAME"
+desc_key = "SKILL_TANK_FURY_DESC"
+school = &"tank"
+region_id = &"brasil"
+target_type = 5
+effect = 9
+mana_cost = 10
+cooldown_sec = 30.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 10.0
+extra = Dictionary[StringName, Variant]({
+&"atk_pct": 0.4,
+&"atk_pct_per_level": 0.03,
+&"def_pct": -0.3,
+&"duration_per_level": 0.5
+})
+vfx = &"buff"
+exclusive_to_title = &"sabia_tank_jabuti"
+icon_text = "FR"
+tree_title = &"sabia_tank_mapinguari"
+tree_order = 1

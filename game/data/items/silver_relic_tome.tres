@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_simple_tome.png" id="1_icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_item"]
+
+[resource]
+script = ExtResource("2_item")
+id = &"silver_relic_tome"
+name_key = "ITEM_SILVER_RELIC_TOME_NAME"
+desc_key = "ITEM_SILVER_RELIC_TOME_DESC"
+icon = ExtResource("1_icon")
+type = 2
+scaling_attribute = &"int"
+rarity = 2
+buy_price = 260
+sell_price = 90
+tradeable = true
+stats = Dictionary[StringName, int]({
+&"cast_reduction": 12,
+&"int": 2,
+&"matk": 8,
+&"mdef": 4,
+&"spi": 2
+})
+silver_effective = true

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"support_running_sap"
+name_key = "SKILL_SUPPORT_RUNNING_SAP_NAME"
+desc_key = "SKILL_SUPPORT_RUNNING_SAP_DESC"
+school = &"support"
+region_id = &"brasil"
+target_type = 6
+effect = 8
+mana_cost = 20
+cooldown_sec = 12.0
+range_cells = 8.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 12.0
+extra = Dictionary[StringName, Variant]({
+&"hot_base": 15,
+&"hot_matk_ratio": 0.4,
+&"hot_per_level": 0.08
+})
+vfx = &"heal"
+exclusive_to_title = &"sabia_support_buriti"
+icon_text = "SC"
+tree_title = &"sabia_support_buriti"
+tree_order = 3
+required_skill_levels = Dictionary[StringName, int]({
+&"support_broadleaf_tea": 3
+})

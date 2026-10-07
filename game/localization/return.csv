@@ -1,0 +1,19 @@
+keys,pt_BR
+ITEM_RETURN_SCROLL_NAME,Pergaminho de Retorno
+ITEM_RETURN_SCROLL_DESC,"Pergaminho enrolado com fita azul. Ao ler, leva você à cidade salva com a Dona Ana (sem ela, à última cidade em que esteve). Em combate, a leitura leva 1 segundo e o golpe a interrompe."
+SYS_RETURN_DEAD,"Caído, não dá para ler o Pergaminho de Retorno."
+SYS_RETURN_TRIAL,O Pergaminho de Retorno não funciona durante uma provação.
+SYS_RETURN_TRADE,Feche a troca antes de ler o Pergaminho de Retorno.
+SYS_RETURN_TRAINING,O Pergaminho de Retorno não funciona no Campo de Treino: saia pelo portal.
+SYS_RETURN_DONE,Você voltou para %s.
+WAYSTONE_LEARNED,Dona Ana guardou o caminho de %s.
+WAYSTONE_SAVED,"Cidade salva: %s. Ao cair ou ler o Pergaminho de Retorno, você volta para o lado da Dona Ana."
+WAYSTONE_TRAVELED,Você foi levado até %s.
+WAYSTONE_PAID,Você pagou %s Estrelas pela viagem.
+SYS_WAYSTONE_UNKNOWN,Você ainda não conheceu essa cidade: fale com a Dona Ana de lá primeiro.
+SYS_WAYSTONE_SAME_CITY,Você já está em %s.
+SYS_WAYSTONE_COMBAT,Em combate não dá para viajar com a Dona Ana.
+SYS_WAYSTONE_TRIAL,Não dá para viajar durante uma provação.
+SYS_WAYSTONE_DEAD,"Caído, não dá para viajar."
+SYS_WAYSTONE_TRADE,Feche a troca antes de viajar.
+SYS_WAYSTONE_NO_STARS,A viagem custa %s Estrelas e você tem %s.

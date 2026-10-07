@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"arcane_firefly_swarm"
+name_key = "SKILL_ARCANE_FIREFLY_SWARM_NAME"
+desc_key = "SKILL_ARCANE_FIREFLY_SWARM_DESC"
+school = &"arcane"
+region_id = &"brasil"
+effect = 14
+mana_cost = 20
+cooldown_sec = 10.0
+range_cells = 8.0
+base_multiplier = 0.4
+multiplier_per_level = 0.04
+extra = Dictionary[StringName, Variant]({
+&"damage_kind": "magic",
+&"hits": 4
+})
+vfx = &"spark"
+exclusive_to_title = &"sabia_arcane_firefly"
+icon_text = "EV"
+tree_title = &"sabia_arcane_firefly"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"arcane_will_o_wisp": 3
+})

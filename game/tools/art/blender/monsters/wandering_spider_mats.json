@@ -1,0 +1,120 @@
+{
+ "ws_body": {
+  "ramp": [
+   "Pergaminho 1",
+   "Pergaminho 2",
+   "Pergaminho 3",
+   "Pergaminho 4"
+  ],
+  "line": "Pergaminho 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "ws_abd": {
+  "ramp": [
+   "Pergaminho 1",
+   "Pedra/metal 2",
+   "Pergaminho 2",
+   "Pergaminho 3"
+  ],
+  "line": "Pergaminho 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "ws_leg": {
+  "ramp": [
+   "Pergaminho 1",
+   "Pedra/metal 2",
+   "Pergaminho 2",
+   "Pergaminho 3"
+  ],
+  "line": "Pergaminho 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "ws_dark": {
+  "ramp": [
+   "Base 1",
+   "Madeira/cabelo 1",
+   "Pergaminho 1",
+   "Pedra/metal 2"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "ws_pale": {
+  "ramp": [
+   "Pergaminho 2",
+   "Pergaminho 3",
+   "Pergaminho 4",
+   "Pergaminho 4"
+  ],
+  "line": "Pergaminho 2",
+  "out": "Pergaminho 1"
+ },
+ "ws_fang": {
+  "ramp": [
+   "Vermelho 1",
+   "Vermelho 2",
+   "Vermelho 3",
+   "Vermelho 4"
+  ],
+  "line": "Vermelho 1",
+  "out": "Vermelho 1"
+ },
+ "ws_band": {
+  "ramp": [
+   "Madeira/cabelo 1",
+   "Pergaminho 1",
+   "Pedra/metal 2",
+   "Pergaminho 2"
+  ],
+  "line": "Madeira/cabelo 1",
+  "out": "Madeira/cabelo 1"
+ },
+ "ws_blade": {
+  "ramp": [
+   "Pergaminho 2",
+   "Pergaminho 3",
+   "Pergaminho 4",
+   "Base 2"
+  ],
+  "line": "Pergaminho 2",
+  "out": "Pergaminho 1"
+ },
+ "ws_silk": {
+  "ramp": [
+   "Pedra/metal 3",
+   "Pedra/metal 4",
+   "Pergaminho 4",
+   "Base 2"
+  ],
+  "line": "Pedra/metal 3",
+  "out": "Pedra/metal 2"
+ },
+ "ws_silk_line": {
+  "flat": "Pedra/metal 3",
+  "out": "Pedra/metal 2"
+ },
+ "ws_silk_mote": {
+  "flat": "Pergaminho 4",
+  "out": "Pedra/metal 3"
+ },
+ "ws_bristle": {
+  "ramp": [
+   "Roxo 2",
+   "Roxo 3",
+   "Roxo 4",
+   "Roxo 4"
+  ],
+  "line": "Roxo 1",
+  "out": "Roxo 1"
+ },
+ "ws_saber": {
+  "ramp": [
+   "Pergaminho 2",
+   "Pergaminho 3",
+   "Pergaminho 4",
+   "Base 2"
+  ],
+  "line": "Pergaminho 1",
+  "out": "Base 1"
+ }
+}

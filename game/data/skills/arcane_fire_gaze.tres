@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"arcane_fire_gaze"
+name_key = "SKILL_ARCANE_FIRE_GAZE_NAME"
+desc_key = "SKILL_ARCANE_FIRE_GAZE_DESC"
+school = &"arcane"
+region_id = &"brasil"
+target_type = 4
+effect = 1
+mana_cost = 28
+cooldown_sec = 12.0
+range_cells = 12.0
+line_length_cells = 12.0
+line_width_cells = 1.0
+base_multiplier = 2.0
+multiplier_per_level = 0.15
+vfx = &"flame"
+exclusive_to_title = &"sabia_arcane_boitata"
+icon_text = "OF"
+tree_title = &"sabia_arcane_boitata"
+tree_order = 3
+required_skill_levels = Dictionary[StringName, int]({
+&"arcane_star_fall": 3
+})

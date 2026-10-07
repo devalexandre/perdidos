@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_f8lbk"]
+
+[resource]
+script = ExtResource("1_f8lbk")
+id = &"arcane_star_fall"
+name_key = "SKILL_ARCANE_STAR_FALL_NAME"
+desc_key = "SKILL_ARCANE_STAR_FALL_DESC"
+school = &"arcane"
+element = &"light"
+target_type = 1
+effect = 1
+mana_cost = 45
+cooldown_sec = 24.0
+cast_time_sec = 1.2
+range_cells = 12.0
+radius_cells = 4.0
+base_multiplier = 3.8
+multiplier_per_level = 0.3
+vfx = &"star"
+icon_text = "QE"
+ground_warning_sec = 1.0
+tree_title = &"sabia_arcane_boitata"
+tree_order = 1
+exclusive_to_title = &"sabia_arcane_firefly"

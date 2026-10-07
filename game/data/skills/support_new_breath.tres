@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"support_new_breath"
+name_key = "SKILL_SUPPORT_NEW_BREATH_NAME"
+desc_key = "SKILL_SUPPORT_NEW_BREATH_DESC"
+school = &"support"
+region_id = &"brasil"
+target_type = 6
+effect = 22
+mana_cost = 10
+cooldown_sec = 40.0
+range_cells = 8.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+extra = Dictionary[StringName, Variant]({
+&"mp_pct": 0.2,
+&"mp_pct_per_level": 0.01
+})
+vfx = &"mana"
+exclusive_to_title = &"sabia_support_buriti"
+icon_text = "FN"
+tree_title = &"sabia_support_buriti"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"support_running_sap": 3
+})

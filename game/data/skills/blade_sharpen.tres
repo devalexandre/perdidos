@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"blade_sharpen"
+name_key = "SKILL_BLADE_SHARPEN_NAME"
+desc_key = "SKILL_BLADE_SHARPEN_DESC"
+school = &"blade"
+region_id = &"brasil"
+target_type = 5
+effect = 9
+mana_cost = 10
+cooldown_sec = 30.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 12.0
+extra = Dictionary[StringName, Variant]({
+&"atk_pct": 0.2,
+&"atk_pct_per_level": 0.02,
+&"crit": 0.1,
+&"crit_per_level": 0.01,
+&"duration_per_level": 0.5
+})
+requires_melee_weapon = true
+vfx = &"buff"
+exclusive_to_title = &"sabia_blade_machete"
+icon_text = "AF"
+tree_title = &"sabia_blade_machete"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"blade_charge": 3
+})

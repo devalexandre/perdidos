@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ipe_wand.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"ratanaba_energy_wand"
+name_key = "ITEM_RATANABA_ENERGY_WAND_NAME"
+desc_key = "ITEM_RATANABA_ENERGY_WAND_DESC"
+icon = ExtResource("icon")
+type = 1
+weapon_kind = 2
+scaling_attribute = &"int"
+rarity = 3
+sell_price = 310
+tradeable = true
+buy_price = 0
+exclusive_drop_zone = &"ruins_ratanaba"
+stats = Dictionary[StringName, int]({
+&"matk": 44,
+&"int": 5,
+&"mdef": 6
+})

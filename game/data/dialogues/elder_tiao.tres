@@ -1,0 +1,92 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="1_opt"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="2_node"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_dlg"]
+
+[sub_resource type="Resource" id="opt_1"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_TIAO_START_OPT0"
+next_node = &"legend_1"
+
+[sub_resource type="Resource" id="opt_2"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_TIAO_START_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="node_start"]
+script = ExtResource("2_node")
+id = &"start"
+text_key = "DLG_ELDER_TIAO_START"
+options = Array[ExtResource("1_opt")]([SubResource("opt_1"), SubResource("opt_2")])
+
+[sub_resource type="Resource" id="opt_3"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_TIAO_LEGEND_1_OPT0"
+next_node = &"legend_2"
+
+[sub_resource type="Resource" id="node_legend_1"]
+script = ExtResource("2_node")
+id = &"legend_1"
+text_key = "DLG_ELDER_TIAO_LEGEND_1"
+options = Array[ExtResource("1_opt")]([SubResource("opt_3")])
+
+[sub_resource type="Resource" id="opt_4"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_TIAO_LEGEND_2_OPT0"
+next_node = &"need"
+
+[sub_resource type="Resource" id="node_legend_2"]
+script = ExtResource("2_node")
+id = &"legend_2"
+text_key = "DLG_ELDER_TIAO_LEGEND_2"
+options = Array[ExtResource("1_opt")]([SubResource("opt_4")])
+
+[sub_resource type="Resource" id="opt_5"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_TIAO_NEED_OPT0"
+action = &"quest_offer"
+conditions = Dictionary[StringName, Variant]({
+&"quest_available": "elder_tiao_sky_feast"
+})
+action_args = Dictionary[StringName, Variant]({
+&"quest_id": "elder_tiao_sky_feast"
+})
+
+[sub_resource type="Resource" id="opt_6"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_TIAO_NEED_OPT1"
+next_node = &"come_back"
+conditions = Dictionary[StringName, Variant]({
+&"quest_locked": "elder_tiao_sky_feast"
+})
+
+[sub_resource type="Resource" id="opt_7"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_TIAO_NEED_OPT2"
+action = &"close"
+conditions = Dictionary[StringName, Variant]({
+&"quest_taken": "elder_tiao_sky_feast"
+})
+
+[sub_resource type="Resource" id="node_need"]
+script = ExtResource("2_node")
+id = &"need"
+text_key = "DLG_ELDER_TIAO_NEED"
+options = Array[ExtResource("1_opt")]([SubResource("opt_5"), SubResource("opt_6"), SubResource("opt_7")])
+
+[sub_resource type="Resource" id="opt_8"]
+script = ExtResource("1_opt")
+text_key = "DLG_ELDER_TIAO_COME_BACK_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="node_come_back"]
+script = ExtResource("2_node")
+id = &"come_back"
+text_key = "DLG_ELDER_TIAO_COME_BACK"
+options = Array[ExtResource("1_opt")]([SubResource("opt_8")])
+
+[resource]
+script = ExtResource("3_dlg")
+id = &"elder_tiao"
+nodes = Array[ExtResource("2_node")]([SubResource("node_start"), SubResource("node_legend_1"), SubResource("node_legend_2"), SubResource("node_need"), SubResource("node_come_back")])

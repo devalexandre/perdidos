@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/curious_child.tres" id="1_pclol"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_cox06"]
+
+[resource]
+script = ExtResource("2_cox06")
+id = &"curious_child"
+name_key = "NPC_CURIOUS_CHILD_NAME"
+sprite_base = "res://assets/npcs/npc_curious_child"
+map_id = &"city_awakening"
+spawn_marker = &"curious_child"
+routine = 1
+wander_radius = 6.0
+move_speed = 2.6
+dialogue = ExtResource("1_pclol")

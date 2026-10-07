@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_foliage.gdshader" id="1_bueju"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/cards/card_broad_clump.png" id="2_kacth"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bueju")
+shader_parameter/albedo_tex = ExtResource("2_kacth")
+shader_parameter/tint = Color(1, 0.9, 0.55, 1)
+shader_parameter/uv_scale = null
+shader_parameter/alpha_cut = 0.45
+shader_parameter/use_alpha = null
+shader_parameter/wind_strength = 0.07
+shader_parameter/wind_speed = null
+shader_parameter/wind_dir = null
+shader_parameter/wind_gust_scale = null
+shader_parameter/backlight_color = null
+shader_parameter/hue_variation = null
+shader_parameter/value_variation = null
+shader_parameter/base_darken = null
+shader_parameter/base_color = null
+shader_parameter/fade_start = null
+shader_parameter/fade_end = null
+shader_parameter/use_instance_custom = null
+shader_parameter/recolor_amount = null
+shader_parameter/recolor_dark = null
+shader_parameter/recolor_light = null
+shader_parameter/recolor_ao_mix = null
+shader_parameter/speckle_amount = null
+shader_parameter/speckle_color = null
+shader_parameter/speckle_scale = null

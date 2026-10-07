@@ -1,0 +1,199 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_mat_1"]
+script = ExtResource("drop")
+item_id = &"fragmento_mural_solar"
+chance = 0.45
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_gold_1"]
+script = ExtResource("drop")
+item_id = &"ouro_antigo_de_z"
+chance = 0.25
+min_qty = 1
+max_qty = 3
+
+[sub_resource type="Resource" id="drop_nectar_1"]
+script = ExtResource("drop")
+item_id = &"nectar_solar_da_mata"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_CAMO_HUNTER_S1_NAME"
+sprite_base = "res://assets/monsters/camo_hunter/mon_camo_hunter_s1"
+baked_life = true
+visual_scale = 1.1
+level = 31
+max_hp = 720
+atk = 76
+matk = 76
+def = 15
+mdef = 10
+walk_ms_per_cell = 340
+attack_range_cells = 4.5
+attack_interval_ms = 1450
+aggressive = false
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 496
+stars_min = 15
+stars_max = 37
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_1"), SubResource("drop_gold_1"), SubResource("drop_nectar_1")])
+
+[sub_resource type="Resource" id="drop_mat_2"]
+script = ExtResource("drop")
+item_id = &"fragmento_mural_solar"
+chance = 0.45
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_gold_2"]
+script = ExtResource("drop")
+item_id = &"ouro_antigo_de_z"
+chance = 0.25
+min_qty = 1
+max_qty = 3
+
+[sub_resource type="Resource" id="drop_nectar_2"]
+script = ExtResource("drop")
+item_id = &"nectar_solar_da_mata"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage2"]
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_CAMO_HUNTER_S2_NAME"
+sprite_base = "res://assets/monsters/camo_hunter/mon_camo_hunter_s2"
+baked_life = true
+visual_scale = 1.3
+level = 36
+max_hp = 1353
+atk = 86
+matk = 86
+def = 18
+mdef = 12
+walk_ms_per_cell = 340
+attack_range_cells = 4.5
+attack_interval_ms = 1450
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 576
+stars_min = 18
+stars_max = 42
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_2"), SubResource("drop_gold_2"), SubResource("drop_nectar_2")])
+
+[sub_resource type="Resource" id="drop_mat_3"]
+script = ExtResource("drop")
+item_id = &"fragmento_mural_solar"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_gold_3"]
+script = ExtResource("drop")
+item_id = &"ouro_antigo_de_z"
+chance = 0.8
+min_qty = 1
+max_qty = 3
+
+[sub_resource type="Resource" id="drop_nectar_3"]
+script = ExtResource("drop")
+item_id = &"nectar_solar_da_mata"
+chance = 0.7
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage3"]
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_CAMO_HUNTER_S3_NAME"
+sprite_base = "res://assets/monsters/camo_hunter/mon_camo_hunter_s3"
+baked_life = true
+visual_scale = 1.6
+level = 42
+max_hp = 9900
+atk = 71
+matk = 71
+def = 34
+mdef = 26
+walk_ms_per_cell = 380
+attack_range_cells = 4.5
+attack_interval_ms = 1550
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 1950
+stars_min = 80
+stars_max = 160
+behaviors = Array[StringName]([&"ranged", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_3"), SubResource("drop_gold_3"), SubResource("drop_nectar_3")])
+
+[sub_resource type="Resource" id="drop_mat_4"]
+script = ExtResource("drop")
+item_id = &"fragmento_mural_solar"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_gold_4"]
+script = ExtResource("drop")
+item_id = &"ouro_antigo_de_z"
+chance = 0.8
+min_qty = 1
+max_qty = 3
+
+[sub_resource type="Resource" id="drop_nectar_4"]
+script = ExtResource("drop")
+item_id = &"nectar_solar_da_mata"
+chance = 0.7
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage4"]
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_CAMO_HUNTER_S4_NAME"
+sprite_base = "res://assets/monsters/camo_hunter/mon_camo_hunter_s4"
+baked_life = true
+visual_scale = 1.9
+level = 47
+max_hp = 14400
+atk = 89
+matk = 89
+def = 44
+mdef = 34
+walk_ms_per_cell = 300
+attack_range_cells = 4.5
+attack_interval_ms = 1200
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 20
+xp_reward = 3900
+stars_min = 160
+stars_max = 320
+behaviors = Array[StringName]([&"ranged", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_4"), SubResource("drop_gold_4"), SubResource("drop_nectar_4")])
+
+[resource]
+
+script = ExtResource("monster")
+id = &"camo_hunter"
+region_id = &"sabia"
+creature_type = &"beast"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

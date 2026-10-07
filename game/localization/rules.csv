@@ -1,0 +1,60 @@
+keys,pt_BR
+STAT_LUK,SOR
+UI_ATTR_LUK_DESC,"Sorte: chance de crítico, chance de drop de itens e de encontrar monstros raros."
+COMBAT_MISS,Errou
+MON_RARE_NAME_FORMAT,%s Raro
+SYS_RARE_MONSTER_APPEARED,"Um monstro raro surgiu por perto: %s! Ele brilha, é mais forte e deixa mais itens."
+UI_GEAR_MENU,Menu
+UI_GEAR_TOOLTIP,Menus e atalhos
+UI_EMOTES,Emotes
+UI_EMOTES_TOOLTIP,Emotes (Alt+1 a Alt+6)
+RULES_TT_OPTION,Fale sobre o título que você ensina.
+RULES_TT_WHAT,"Você chegou longe, Viajante. O título que eu ensino é “%s”. %s"
+RULES_TT_STYLE,"%s
+
+Para conquistá-lo, você aprende: %s."
+RULES_TT_NO_SKILLS,as skills que eu ensino na minha terra
+RULES_TT_CITY_OPEN,"Quem conquista este título começa a jornada em %s, quando sair do Campo de Treino. Se este é o seu caminho, peça a quest do título."
+RULES_TT_CITY_CLOSED,"Este título começa na minha terra, %s, mas a travessia para lá ainda não está aberta. Por enquanto, escolha um Mestre da Terra do Sabiá."
+RULES_TT_OPT_STYLE,E como se luta com ele?
+RULES_TT_OPT_CITY,Onde eu começaria com ele?
+RULES_TT_OPT_BACK,Quero falar de outra coisa.
+RULES_TT_OPT_THANKS,"Obrigado, vou pensar."
+RULES_TT_BLADE_SABIA_STYLE,"É o caminho de quem luta de perto: facão na mão, pé firme no chão. Você aguenta pancada, avança no bicho e derruba grupos com golpes em volta. Força e Vitalidade são os seus melhores amigos."
+RULES_TT_ARCANE_SABIA_STYLE,"É o caminho de quem luta de longe: faísca, gelo e chama. Você controla a distância, gela quem chega perto e queima áreas inteiras. Intelecto e Espírito sustentam a sua mana."
+RULES_TT_GUIOMAR_TITLE,Alabarda da Muralha
+RULES_TT_GUIOMAR_DESC,A haste longa que guarda as muralhas do Reino das Mouras.
+RULES_TT_GUIOMAR_STYLE,"Você luta a três células de distância: varre em arco, segura a fila e não deixa ninguém passar."
+RULES_TT_GUIOMAR_SKILL,Varrida de Haste
+RULES_TT_TSUBAKI_TITLE,Lua da Naginata
+RULES_TT_TSUBAKI_DESC,A lâmina curva em meia-lua das Ilhas do Sol Nascente.
+RULES_TT_TSUBAKI_STYLE,"Varridas largas, passos leves e controle do espaço em volta: quem chega perto sai cortado."
+RULES_TT_TSUBAKI_SKILL,Arco de Lua
+RULES_TT_SOLVEIG_TITLE,Escudo do Fiorde
+RULES_TT_SOLVEIG_DESC,A parede de escudos dos Fiordes de Gelo.
+RULES_TT_SOLVEIG_STYLE,"Você fica na frente, colado aos aliados, e protege o grupo com o escudo erguido."
+RULES_TT_SOLVEIG_SKILL,Parede de Escudos
+RULES_TT_NICANDRO_TITLE,Hoplita
+RULES_TT_NICANDRO_DESC,Lança e escudo de bronze da Costa das Colunas.
+RULES_TT_NICANDRO_STYLE,Bloqueio de frente e contragolpe: você segura a linha e pune quem ataca.
+RULES_TT_NICANDRO_SKILL,Muralha de Lanças
+RULES_TT_SENEB_TITLE,Escriba
+RULES_TT_SENEB_DESC,A mente afiada das Areias do Nilo.
+RULES_TT_SENEB_STYLE,Você vence pela esperteza: cala os feitiços do inimigo e confunde quem ataca.
+RULES_TT_SENEB_SKILL,Pergunta sem Resposta
+RULES_TT_EWAN_TITLE,Espada das Brumas
+RULES_TT_EWAN_DESC,A espada longa das Brumas Verdes.
+RULES_TT_EWAN_STYLE,Golpes largos de duas mãos que acertam vários inimigos à sua frente.
+RULES_TT_EWAN_SKILL,Corte Largo
+RULES_TT_ZLATA_TITLE,Pena de Fogo
+RULES_TT_ZLATA_DESC,"O arco da Estepe de Ferro, com penas que ardem."
+RULES_TT_ZLATA_STYLE,Você atira de longe: flechas que atravessam a fila e deixam o alvo queimando.
+RULES_TT_ZLATA_SKILL,Flecha de Pena Ardente
+RULES_TT_XIAOYU_TITLE,Espada de Jade
+RULES_TT_XIAOYU_DESC,O jian preciso do Império de Jade.
+RULES_TT_XIAOYU_STYLE,Precisão acima de força: golpes exatos que passam pela defesa do inimigo.
+RULES_TT_XIAOYU_SKILL,Ponto Exato
+RULES_TT_CITLALI_TITLE,Lâmina de Obsidiana
+RULES_TT_CITLALI_DESC,O fio vidrado das Selvas de Obsidiana.
+RULES_TT_CITLALI_STYLE,Cortes rápidos que deixam o alvo sangrando: você desgasta o inimigo golpe a golpe.
+RULES_TT_CITLALI_SKILL,Corte Vidrado

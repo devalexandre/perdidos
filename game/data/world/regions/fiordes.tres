@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="WorldRegionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("place")
+id = &"lumefiorde"
+region_id = &"fiordes"
+kind = 0
+status = 2
+name_key = "WA_P_LUMEFIORDE"
+hook_key = "WA_P_LUMEFIORDE_HOOK"
+pos = Vector2(0.4, 0.285)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("place")
+id = &"vila_auroras"
+region_id = &"fiordes"
+kind = 1
+status = 2
+name_key = "WA_P_VILA_AURORAS"
+hook_key = "WA_P_VILA_AURORAS_HOOK"
+pos = Vector2(0.3, 0.34)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("place")
+id = &"geleira_uivante"
+region_id = &"fiordes"
+kind = 2
+status = 2
+name_key = "WA_P_GELEIRA_UIVANTE"
+hook_key = "WA_P_GELEIRA_UIVANTE_HOOK"
+pos = Vector2(0.33, 0.245)
+level_min = 10
+level_max = 25
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("place")
+id = &"pinheiral_trolls"
+region_id = &"fiordes"
+kind = 2
+status = 2
+name_key = "WA_P_PINHEIRAL_TROLLS"
+hook_key = "WA_P_PINHEIRAL_TROLLS_HOOK"
+pos = Vector2(0.44, 0.215)
+level_min = 20
+level_max = 30
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("place")
+id = &"tumulos_draugr"
+region_id = &"fiordes"
+kind = 3
+status = 2
+name_key = "WA_P_TUMULOS_DRAUGR"
+hook_key = "WA_P_TUMULOS_DRAUGR_HOOK"
+pos = Vector2(0.265, 0.205)
+level_min = 30
+level_max = 40
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("place")
+id = &"covil_lindworm"
+region_id = &"fiordes"
+kind = 3
+status = 2
+name_key = "WA_P_COVIL_LINDWORM"
+hook_key = "WA_P_COVIL_LINDWORM_HOOK"
+pos = Vector2(0.37, 0.135)
+level_min = 35
+level_max = 45
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("place")
+id = &"fenda_lobo"
+region_id = &"fiordes"
+kind = 5
+status = 2
+name_key = "WA_P_FENDA_LOBO"
+hook_key = "WA_P_FENDA_LOBO_HOOK"
+pos = Vector2(0.405, 0.195)
+level_min = 45
+level_max = 55
+
+[sub_resource type="Resource" id="p7"]
+script = ExtResource("place")
+id = &"casco_gelo"
+region_id = &"fiordes"
+kind = 4
+status = 2
+name_key = "WA_P_CASCO_GELO"
+hook_key = "WA_P_CASCO_GELO_HOOK"
+pos = Vector2(0.255, 0.29)
+level_min = 50
+level_max = 65
+
+[resource]
+script = ExtResource("region")
+id = &"fiordes"
+name_key = "WA_R_FIORDES"
+hook_key = "WA_R_FIORDES_HOOK"
+inspiration = "Noruega e Islândia"
+label_pos = Vector2(0.335, 0.155)
+reached = false
+places = Array[ExtResource("place")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7")])

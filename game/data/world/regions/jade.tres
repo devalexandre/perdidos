@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="WorldRegionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("place")
+id = &"mil_degraus"
+region_id = &"jade"
+kind = 0
+status = 2
+name_key = "WA_P_MIL_DEGRAUS"
+hook_key = "WA_P_MIL_DEGRAUS_HOOK"
+pos = Vector2(0.625, 0.335)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("place")
+id = &"porto_juncos"
+region_id = &"jade"
+kind = 7
+status = 2
+name_key = "WA_P_PORTO_JUNCOS"
+hook_key = "WA_P_PORTO_JUNCOS_HOOK"
+pos = Vector2(0.735, 0.575)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("place")
+id = &"ponte_nove_curvas"
+region_id = &"jade"
+kind = 6
+status = 2
+name_key = "WA_P_PONTE_NOVE_CURVAS"
+hook_key = "WA_P_PONTE_NOVE_CURVAS_HOOK"
+pos = Vector2(0.665, 0.43)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("place")
+id = &"terracos_arrozal"
+region_id = &"jade"
+kind = 2
+status = 2
+name_key = "WA_P_TERRACOS_ARROZAL"
+hook_key = "WA_P_TERRACOS_ARROZAL_HOOK"
+pos = Vector2(0.6, 0.395)
+level_min = 10
+level_max = 20
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("place")
+id = &"bambuzal_sussurrante"
+region_id = &"jade"
+kind = 2
+status = 2
+name_key = "WA_P_BAMBUZAL_SUSSURRANTE"
+hook_key = "WA_P_BAMBUZAL_SUSSURRANTE_HOOK"
+pos = Vector2(0.735, 0.47)
+level_min = 20
+level_max = 30
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("place")
+id = &"vale_saltadores"
+region_id = &"jade"
+kind = 3
+status = 2
+name_key = "WA_P_VALE_SALTADORES"
+hook_key = "WA_P_VALE_SALTADORES_HOOK"
+pos = Vector2(0.785, 0.37)
+level_min = 30
+level_max = 40
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("place")
+id = &"covil_nian"
+region_id = &"jade"
+kind = 5
+status = 2
+name_key = "WA_P_COVIL_NIAN"
+hook_key = "WA_P_COVIL_NIAN_HOOK"
+pos = Vector2(0.695, 0.28)
+level_min = 40
+level_max = 50
+
+[sub_resource type="Resource" id="p7"]
+script = ExtResource("place")
+id = &"jardim_automato"
+region_id = &"jade"
+kind = 4
+status = 2
+name_key = "WA_P_JARDIM_AUTOMATO"
+hook_key = "WA_P_JARDIM_AUTOMATO_HOOK"
+pos = Vector2(0.8, 0.17)
+level_min = 50
+level_max = 65
+
+[resource]
+script = ExtResource("region")
+id = &"jade"
+name_key = "WA_R_JADE"
+hook_key = "WA_R_JADE_HOOK"
+inspiration = "China"
+label_pos = Vector2(0.705, 0.225)
+reached = false
+places = Array[ExtResource("place")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7")])

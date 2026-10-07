@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_o6dm1"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_omnc1"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_m7aww"]
+
+[sub_resource type="Resource" id="Resource_5hgcs"]
+script = ExtResource("2_omnc1")
+text_key = "DLG_MASTER_GUIOMAR_START_OPT0"
+next_node = &"lore"
+
+[sub_resource type="Resource" id="Resource_djhig"]
+script = ExtResource("2_omnc1")
+text_key = "DLG_MASTER_GUIOMAR_START_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_b0add"]
+script = ExtResource("1_o6dm1")
+id = &"start"
+text_key = "DLG_MASTER_GUIOMAR_START"
+options = Array[ExtResource("2_omnc1")]([SubResource("Resource_5hgcs"), SubResource("Resource_djhig")])
+
+[sub_resource type="Resource" id="Resource_hf8xd"]
+script = ExtResource("2_omnc1")
+text_key = "DLG_MASTER_GUIOMAR_LORE_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_rwni1"]
+script = ExtResource("1_o6dm1")
+id = &"lore"
+text_key = "DLG_MASTER_GUIOMAR_LORE"
+options = Array[ExtResource("2_omnc1")]([SubResource("Resource_hf8xd")])
+
+[resource]
+script = ExtResource("3_m7aww")
+id = &"master_guiomar"
+nodes = Array[ExtResource("1_o6dm1")]([SubResource("Resource_b0add"), SubResource("Resource_rwni1")])

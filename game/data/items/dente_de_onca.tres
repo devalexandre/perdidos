@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ancient_shell_shard.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"dente_de_onca"
+name_key = "ITEM_DENTE_DE_ONCA_NAME"
+desc_key = "ITEM_DENTE_DE_ONCA_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 350
+tradeable = true
+crendice_id = &"dente_de_onca"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"str": 3
+})

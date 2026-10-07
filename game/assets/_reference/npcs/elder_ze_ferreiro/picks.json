@@ -1,0 +1,25 @@
+{
+ "dirs": {
+  "s": {
+   "idle": "f_1.png",
+   "flip": false
+  },
+  "se": {
+   "idle": "d_se_1.png",
+   "flip": false
+  },
+  "e": {
+   "idle": "d_e_1.png",
+   "flip": false
+  },
+  "ne": {
+   "idle": "d_ne_0.png",
+   "flip": false
+  },
+  "n": {
+   "idle": "d_n_1.png",
+   "flip": false
+  }
+ },
+ "head_colors": 12
+}

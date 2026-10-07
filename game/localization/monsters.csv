@@ -1,0 +1,173 @@
+keys,pt_BR
+SYS_BOSS_LAIR_APPEARED,O chefe está no covil: %s!
+SYS_MONSTER_BECAME_ATROZ,"A noite despertou a forma atroz: %s! Mais forte, mais rápida e caçando os mais fracos."
+SYS_NIGHT_FALLS,A noite caiu. Os chefes ficam atrozes até o amanhecer.
+SYS_DAY_BREAKS,Amanheceu. Os chefes atrozes se acalmam quando saem da luta.
+SYS_DEV_INFO,[teste] %s
+SYS_BOSS_APPEARED,Um chefe apareceu por perto: %s!
+MON_HIGHLAND_PRANK_WHIRLWIND_S1_NAME,Redemoinho da Chapada
+MON_HIGHLAND_PRANK_WHIRLWIND_S2_NAME,Redemoinho da Chapada Veterano
+MON_HIGHLAND_ENCHANTED_FIREFLY_S1_NAME,Vaga-lume da Chapada
+MON_HIGHLAND_ENCHANTED_FIREFLY_S2_NAME,Vaga-lume da Chapada Veterano
+MON_HIGHLAND_STONE_ARMADILLO_S1_NAME,Tatu da Chapada
+MON_HIGHLAND_STONE_ARMADILLO_S2_NAME,Tatu da Chapada Veterano
+MON_BURITI_BOAR_S1_NAME,Queixada de Buriti
+MON_BURITI_BOAR_S2_NAME,Queixada Veterana
+MON_BURITI_BOAR_S3_NAME,Queixada do Veredão
+MON_BURITI_BOAR_S4_NAME,Queixada das Raízes Negras
+MON_HIGHLAND_BURITI_BOAR_S1_NAME,Queixada de Buriti da Chapada
+MON_HIGHLAND_BURITI_BOAR_S2_NAME,Queixada Veterana da Chapada
+MON_HIGHLAND_BURITI_BOAR_S3_NAME,Queixada do Veredão
+MON_HIGHLAND_BURITI_BOAR_S4_NAME,Queixada das Raízes Negras
+MON_CINDER_SERPENT_S1_NAME,Serpente-Fagulha
+MON_CINDER_SERPENT_S2_NAME,Serpente-Fagulha Veterana
+MON_CINDER_SERPENT_S3_NAME,Serpente do Fogo Errante
+MON_CINDER_SERPENT_S4_NAME,Serpente da Cinza Viva
+MON_HIGHLAND_CINDER_SERPENT_S1_NAME,Serpente-Fagulha da Chapada
+MON_HIGHLAND_CINDER_SERPENT_S2_NAME,Serpente-Fagulha Veterana da Chapada
+MON_HIGHLAND_CINDER_SERPENT_S3_NAME,Serpente do Fogo Errante
+MON_HIGHLAND_CINDER_SERPENT_S4_NAME,Serpente da Cinza Viva
+MON_EMBER_MULE_S1_NAME,Mula de Brasa
+MON_EMBER_MULE_S2_NAME,Mula de Brasa Veterana
+MON_EMBER_MULE_S3_NAME,Mula da Queimada
+MON_EMBER_MULE_S4_NAME,Mula da Noite Ardente
+MON_HIGHLAND_EMBER_MULE_S1_NAME,Mula de Brasa da Chapada
+MON_HIGHLAND_EMBER_MULE_S2_NAME,Mula de Brasa Veterana da Chapada
+MON_HIGHLAND_EMBER_MULE_S3_NAME,Mula da Queimada
+MON_HIGHLAND_EMBER_MULE_S4_NAME,Mula da Noite Ardente
+MON_SABIA_JAGUAR_S1_NAME,Onça-pintada Jovem
+MON_SABIA_JAGUAR_S2_NAME,Onça-pintada
+MON_YELLOW_SCORPION_S1_NAME,Escorpião-Amarelo
+MON_YELLOW_SCORPION_S2_NAME,Escorpião-Amarelo Veterano
+MON_YELLOW_SCORPION_S3_NAME,Ferrão-Dourado do Entulho
+MON_YELLOW_SCORPION_S4_NAME,Escorpião-Amarelo Atroz
+MON_WANDERING_SPIDER_S1_NAME,Aranha-Armadeira
+MON_WANDERING_SPIDER_S2_NAME,Aranha-Armadeira Veterana
+MON_WANDERING_SPIDER_S3_NAME,Armadeira Rainha dos Desvãos
+MON_WANDERING_SPIDER_S4_NAME,Aranha-Armadeira Atroz
+MON_BROWN_RECLUSE_S1_NAME,Aranha-Marrom
+MON_BROWN_RECLUSE_S2_NAME,Aranha-Marrom Tecedeira
+MON_BROWN_RECLUSE_S3_NAME,Tecedeira da Necrose
+MON_BROWN_RECLUSE_S4_NAME,Aranha-Marrom Atroz
+MON_JARARACA_SERPENT_S1_NAME,Jararaca da Mata
+MON_JARARACA_SERPENT_S2_NAME,Jararaca Veloz
+MON_JARARACA_SERPENT_S3_NAME,Bote-Fulminante da Taboa
+MON_JARARACA_SERPENT_S4_NAME,Jararaca Atroz
+MON_RATTLESNAKE_S1_NAME,Cascavel dos Pastos
+MON_RATTLESNAKE_S2_NAME,Cascavel Sonante
+MON_RATTLESNAKE_S3_NAME,Cascavel do Guizo Sombrio
+MON_RATTLESNAKE_S4_NAME,Cascavel Atroz
+MON_SURUCUCU_SERPENT_S1_NAME,Surucucu Pico-de-Jaca
+MON_SURUCUCU_SERPENT_S2_NAME,Surucucu Imponente
+MON_SURUCUCU_SERPENT_S3_NAME,Soberana Pico-de-Jaca
+MON_SURUCUCU_SERPENT_S4_NAME,Surucucu Atroz
+MON_CORAL_SNAKE_S1_NAME,Coral-Verdadeira
+MON_CORAL_SNAKE_S2_NAME,Coral de Anéis Mortais
+MON_CORAL_SNAKE_S3_NAME,Rainha dos Anéis Escarlates
+MON_CORAL_SNAKE_S4_NAME,Coral-Verdadeira Atroz
+MON_LONOMIA_CATERPILLAR_S1_NAME,Taturana Lonomia
+MON_LONOMIA_CATERPILLAR_S2_NAME,Taturana Espinhosa
+MON_LONOMIA_CATERPILLAR_S3_NAME,Lonomia Matriarca das Urtigas
+MON_LONOMIA_CATERPILLAR_S4_NAME,Taturana Lonomia Atroz
+MON_KILLER_BEE_S1_NAME,Enxame de Abelhas-Ferozes
+MON_KILLER_BEE_S2_NAME,Enxame Zumbidor
+MON_KILLER_BEE_S3_NAME,Rainha do Cortiço Bravo
+MON_KILLER_BEE_S4_NAME,Abelha Assassina Atroz
+MON_AEDES_MOSQUITO_S1_NAME,Mosquito Aedes
+MON_AEDES_MOSQUITO_S2_NAME,Aedes Vetor Pestilento
+MON_AEDES_MOSQUITO_S3_NAME,Zumbidor da Febre Negra
+MON_AEDES_MOSQUITO_S4_NAME,Aedes Aegypti Atroz
+MON_CAVE_SKELETON_S1_NAME,Esqueleto Errante
+MON_CAVE_SKELETON_S2_NAME,Esqueleto Guerreiro
+MON_CAVE_SKELETON_S3_NAME,Senhor das Ossadas
+MON_CAVE_SKELETON_S4_NAME,Esqueleto Atroz
+MON_CAVE_ZOMBIE_S1_NAME,Carniçal das Sombras
+MON_CAVE_ZOMBIE_S2_NAME,Morto-vivo Fétido
+MON_CAVE_ZOMBIE_S3_NAME,Abominação Cadavérica
+MON_CAVE_ZOMBIE_S4_NAME,Morto-vivo Atroz
+MON_CAVE_BAT_S1_NAME,Morcego Cavernoso
+MON_CAVE_BAT_S2_NAME,Morcego Vampiro
+MON_CAVE_BAT_S3_NAME,Quiróptero Ancião
+MON_CAVE_BAT_S4_NAME,Morcego Sanguinário Atroz
+MON_RATANABA_SENTINEL_S1_NAME,Sentinela de Obsidiana
+MON_RATANABA_SENTINEL_S2_NAME,Sentinela Rúnica
+MON_RATANABA_SENTINEL_S3_NAME,Guardião Rúnico Ancestral
+MON_RATANABA_SENTINEL_S4_NAME,Sentinela de Obsidiana Atroz
+MON_CRYSTAL_SERPENT_S1_NAME,Serpente de Cristal
+MON_CRYSTAL_SERPENT_S2_NAME,Serpente de Quartzo
+MON_CRYSTAL_SERPENT_S3_NAME,Víbora Prisma Ancestral
+MON_CRYSTAL_SERPENT_S4_NAME,Serpente de Cristal Atroz
+MON_RATANABA_ARCHITECT_S1_NAME,Autômato de Inspeção
+MON_RATANABA_ARCHITECT_S2_NAME,Engenheiro Ancestral
+MON_RATANABA_ARCHITECT_S3_NAME,O Arquiteto de Ratanabá
+MON_RATANABA_ARCHITECT_S4_NAME,O Arquiteto Biomecânico Atroz
+MON_SPIDER_GOLIATH_S1_NAME,Caranguejeira dos Buracos
+MON_SPIDER_GOLIATH_S2_NAME,Caranguejeira Anciã
+MON_SPIDER_GOLIATH_S3_NAME,"Golias, a Matriarca dos Buracos"
+MON_SPIDER_GOLIATH_S4_NAME,Caranguejeira-Golias Atroz
+MON_RIVER_ANACONDA_S1_NAME,Sucuri dos Banhados
+MON_RIVER_ANACONDA_S2_NAME,Sucuri Constritora
+MON_RIVER_ANACONDA_S3_NAME,Cobra-Grande dos Remansos
+MON_RIVER_ANACONDA_S4_NAME,Cobra-Grande Titânica Atroz
+MON_GIANT_ANTEATER_S1_NAME,Tamanduá do Cerrado
+MON_GIANT_ANTEATER_S2_NAME,Tamanduá Couraçado
+MON_GIANT_ANTEATER_S3_NAME,Garra-de-Foice do Cupinzeiro
+MON_GIANT_ANTEATER_S4_NAME,Tamanduá-Bandeira Atroz
+MON_MANED_WOLF_S1_NAME,Lobo-Guará das Veredas
+MON_MANED_WOLF_S2_NAME,Guará da Alta Mata
+MON_MANED_WOLF_S3_NAME,Passo-Longo das Quebradas
+MON_MANED_WOLF_S4_NAME,Lobo-Guará Atroz
+MON_BLACK_CAIMAN_S1_NAME,Jacaré do Pantanal
+MON_BLACK_CAIMAN_S2_NAME,Jacaré Blindado
+MON_BLACK_CAIMAN_S3_NAME,Couro-Negro dos Remansos
+MON_BLACK_CAIMAN_S4_NAME,Jacaré-Açu Atroz
+MON_HARPY_EAGLE_S1_NAME,Gavião da Mata
+MON_HARPY_EAGLE_S2_NAME,Harpia Caçadora
+MON_HARPY_EAGLE_S3_NAME,Soberana das Alturas
+MON_HARPY_EAGLE_S4_NAME,Harpia-Real Atroz
+MON_STRANGLER_VINE_S1_NAME,Broto de Cipó-Matador
+MON_STRANGLER_VINE_S2_NAME,Cipó Estrangulador
+MON_STRANGLER_VINE_S3_NAME,Raiz-Flagelo do Dossel
+MON_STRANGLER_VINE_S4_NAME,Cipó-Matador Atroz
+MON_MANDACARU_GUARDIAN_S1_NAME,Mandacaru dos Espinhos
+MON_MANDACARU_GUARDIAN_S2_NAME,Mandacaru Couraçado
+MON_MANDACARU_GUARDIAN_S3_NAME,Sentinela das Secas
+MON_MANDACARU_GUARDIAN_S4_NAME,Mandacaru Atroz
+MON_SHADOW_JAGUAR_S1_NAME,Onça das Sombras
+MON_SHADOW_JAGUAR_S2_NAME,Onça Predadora da Noite
+MON_SHADOW_JAGUAR_S3_NAME,Sombra-Feroz do Dossel
+MON_SHADOW_JAGUAR_S4_NAME,Onça das Sombras Atroz
+MON_CAMO_HUNTER_S1_NAME,Batedor Camuflado
+MON_CAMO_HUNTER_S2_NAME,Rastreador de Z
+MON_CAMO_HUNTER_S3_NAME,Mestre-Caçador da Selva
+MON_CAMO_HUNTER_S4_NAME,Caçador Ancestral Atroz
+MON_KUARAHY_SOBERANO_S1_NAME,Guardião do Disco Solar
+MON_KUARAHY_SOBERANO_S2_NAME,Sacerdote Dourado
+MON_KUARAHY_SOBERANO_S3_NAME,"Kuarahy, o Soberano de Z"
+MON_KUARAHY_SOBERANO_S4_NAME,Kuarahy Solar Atroz
+MON_WHISPERING_SHADE_S1_NAME,Vulto Sussurrante
+MON_WHISPERING_SHADE_S2_NAME,Espectro da Bruma
+MON_WHISPERING_SHADE_S3_NAME,Alma Penada dos Campos
+MON_WHISPERING_SHADE_S4_NAME,Vulto Sussurrante Atroz
+MON_DESPAIR_POSSESSED_S1_NAME,Errante da Desesperança
+MON_DESPAIR_POSSESSED_S2_NAME,Possuído da Charneca
+MON_DESPAIR_POSSESSED_S3_NAME,Fanático das Névoas
+MON_DESPAIR_POSSESSED_S4_NAME,Possuído Atroz
+MON_SILENCE_CRIER_S1_NAME,Coveiro do Silêncio
+MON_SILENCE_CRIER_S2_NAME,Vigia da Névoa
+MON_SILENCE_CRIER_S3_NAME,O Pregoeiro do Silêncio
+MON_SILENCE_CRIER_S4_NAME,Pregoeiro Atroz do Sino
+MON_LIVING_CRYSTAL_S1_NAME,Fragmento de Cristal Vivente
+MON_LIVING_CRYSTAL_S2_NAME,Guardião de Quartzo
+MON_LIVING_CRYSTAL_S3_NAME,Monólito Cristalino Ancião
+MON_LIVING_CRYSTAL_S4_NAME,Cristal Vivente Atroz
+MON_SHADOW_WEAVER_S1_NAME,Tecelã da Sombra Jovem
+MON_SHADOW_WEAVER_S2_NAME,Aranha Tecelã Profunda
+MON_SHADOW_WEAVER_S3_NAME,Matriarca Tecelã do Abismo
+MON_SHADOW_WEAVER_S4_NAME,Tecelã Sombria Atroz
+MON_DEEP_TITAN_S1_NAME,Golem da Terra Profunda
+MON_DEEP_TITAN_S2_NAME,Guardião Tectônico
+MON_DEEP_TITAN_S3_NAME,O Titã das Profundezas
+MON_DEEP_TITAN_S4_NAME,Titã Tectônico Atroz
+MON_CAVE_FIREFLY_S1_NAME,Vaga-lume da Gruta
+MON_CAVE_FIREFLY_S2_NAME,Vaga-lume da Gruta Veterano

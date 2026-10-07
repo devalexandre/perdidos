@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_05cne"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_actqn"]
+
+[sub_resource type="Resource" id="step_talk"]
+script = ExtResource("2_actqn")
+type = 3
+target_id = &"instructor_bento"
+count = 1
+text_key = "QUEST_TF_BLADE_TITLE_STEP_TALK"
+
+[sub_resource type="Resource" id="step_collect"]
+script = ExtResource("2_actqn")
+type = 1
+target_id = &"spinning_leaf"
+count = 4
+text_key = "QUEST_TF_BLADE_TITLE_STEP_COLLECT"
+scale_with_titles = true
+
+[sub_resource type="Resource" id="step_kill"]
+script = ExtResource("2_actqn")
+type = 0
+target_id = &"prank_whirlwind"
+count = 5
+text_key = "QUEST_TF_BLADE_TITLE_STEP1"
+scale_with_titles = true
+
+[sub_resource type="Resource" id="step_trial"]
+script = ExtResource("2_actqn")
+type = 4
+target_id = &"stone_armadillo"
+count = 1
+text_key = "QUEST_TF_BLADE_TITLE_STEP2"
+time_limit_sec = 120.0
+
+[resource]
+script = ExtResource("1_05cne")
+id = &"tf_blade_title"
+name_key = "QUEST_TF_BLADE_TITLE_NAME"
+giver_npc = &"master_jatoba"
+steps = Array[ExtResource("2_actqn")]([SubResource("step_talk"), SubResource("step_collect"), SubResource("step_kill"), SubResource("step_trial")])
+training_title_quest = true
+reward_skill = &"blade_firm_strike"
+reward_xp = 150
+hidden_until_eligible = false
+reward_title = &"sabia_blade_machete"
+offer_text_key = "QUEST_TF_BLADE_TITLE_OFFER"
+progress_text_key = "QUEST_TF_BLADE_TITLE_PROGRESS"
+complete_text_key = "QUEST_TF_BLADE_TITLE_COMPLETE"
+option_text_key = "QUEST_TF_BLADE_TITLE_OPTION"
+desc_key = "QUEST_TF_BLADE_TITLE_DESC"

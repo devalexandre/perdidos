@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_return_scroll.png" id="1_rscr"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_rscr"]
+
+[resource]
+script = ExtResource("2_rscr")
+id = &"return_scroll"
+name_key = "ITEM_RETURN_SCROLL_NAME"
+desc_key = "ITEM_RETURN_SCROLL_DESC"
+icon = ExtResource("1_rscr")
+type = 0
+stackable = true
+max_stack = 99
+buy_price = 20
+sell_price = 5
+use_effect = Dictionary[StringName, Variant]({
+&"cast_sec": 0.0,
+&"cooldown_group": &"return_scroll",
+&"cooldown_sec": 10.0,
+&"return_city": true
+})

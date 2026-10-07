@@ -1,0 +1,221 @@
+# Termos sensíveis — GDD §4.0 regra 3 (religiões vivas, todos os idiomas) e §0 regra 5 (nada de Ragnarok).
+# Formato: <nível> <termo>   (comparação sem acento, sem maiúsculas, palavra inteira)
+#   !  proibido  → falha a checagem (make check-names)
+#   ?  sensível  → aviso: exige revisão humana do contexto (pode ser palavra comum ou criatura mitológica antagonista)
+#   ~  Ragnarok  → aviso: nome de classe/skill de Ragnarok Online (não usar como título/skill)
+#   re! / re? / re~  → expressão regular aplicada ao texto ORIGINAL (com acento e maiúsculas)
+# Lista inicial; revisores de cada idioma devem ampliar (docs/cultural/revisao-cultural.md).
+
+# --- Tradições indígenas brasileiras / tupi-guarani (espiritualidade viva)
+! Tupã
+! Tupa
+! Nhanderu
+! Ñanderu
+! Nhandecy
+! Rudá
+! Jurupari
+? Guaraci
+? Jaci
+? Sumé
+? Pajé
+? Karaí
+? Caboclo
+
+# --- Religiões afro-brasileiras (candomblé, umbanda)
+! Iemanjá
+! Yemanjá
+! Oxum
+! Oxalá
+! Xangô
+! Ogum
+! Iansã
+! Oxóssi
+! Obaluaê
+! Omulu
+! Nanã
+! Exu
+! Olorum
+! Olodumare
+! Ossaim
+! Oxumaré
+! Logunedé
+! Ibeji
+! Pombagira
+! Zé Pilintra
+! Preto-Velho
+? Orixá
+
+# --- Cristianismo (figuras e liturgia)
+! Jesus
+! Cristo
+! Javé
+! Jeová
+! Yahweh
+! Lúcifer
+! Satanás
+! Belzebu
+! Kyrie
+! Magnificat
+! Aleluia
+! Hosana
+! Sanctus
+! Agnus Dei
+! Ave Maria
+! Pai Nosso
+! Espírito Santo
+? Deus
+? Maria
+? Trindade
+? Anjo
+? Demônio
+re? \bS(ão|anto|anta) [A-ZÁÉÍÓÚ][a-záéíóúâêôãõç]+
+
+# --- Islã
+! Alá
+! Allah
+! Maomé
+! Muhammad
+! Mohammed
+! Alcorão
+! Corão
+! Quran
+
+# --- Judaísmo
+! Adonai
+! Elohim
+! Torá
+? Moisés
+
+# --- Hinduísmo
+! Shiva
+! Vishnu
+! Brahma
+! Krishna
+! Ganesha
+! Lakshmi
+! Durga
+! Hanuman
+! Parvati
+! Indra
+! Surya
+? Kali
+? Agni
+? Rama
+
+# --- Budismo
+! Buda
+! Buddha
+! Bodhisattva
+! Guanyin
+! Kannon
+! Amida
+
+# --- Xintoísmo (kami cultuados)
+! Amaterasu
+! Susanoo
+! Inari
+! Izanagi
+! Izanami
+! Hachiman
+! Tsukuyomi
+! Raijin
+! Fujin
+? Kami
+
+# --- Religiosidade chinesa / taoísmo
+! Mazu
+? Guan Yu
+? Laozi
+? Imperador de Jade
+
+# --- Paganismo nórdico contemporâneo
+! Odin
+! Odim
+! Thor
+! Freya
+! Freyja
+! Frigg
+! Baldur
+! Tyr
+! Heimdall
+? Loki
+? Fenrir
+
+# --- Helenismo contemporâneo
+! Zeus
+! Hera
+! Atena
+! Athena
+! Apolo
+! Ártemis
+! Afrodite
+! Poseidon
+! Hades
+! Dionísio
+? Hermes
+
+# --- Kemetismo
+! Osíris
+! Hórus
+! Anúbis
+! Thoth
+! Maat
+! Amon
+? Ísis
+? Apep
+
+# --- Tradição mexica
+! Quetzalcóatl
+! Tezcatlipoca
+! Huitzilopochtli
+! Tlaloc
+! Coatlicue
+? Cipactli
+
+# --- Rodnovery (eslavo)
+! Perun
+! Veles
+! Svarog
+! Mokosh
+! Dazhbog
+
+# --- Neopaganismo celta
+! Brigid
+! Lugh
+! Dagda
+! Morrígan
+! Cernunnos
+? Balor
+
+# --- Ragnarok Online (classes pt-BR e skills conhecidas)
+~ Espadachim
+~ Mago
+~ Arqueiro
+~ Noviço
+~ Gatuno
+~ Cavaleiro
+~ Bruxo
+~ Sacerdote
+~ Caçador
+~ Ferreiro
+~ Mercenário
+~ Monge
+~ Templário
+~ Sábio
+~ Arruaceiro
+~ Alquimista
+~ Bardo
+~ Odalisca
+~ Aprendiz
+~ Ninja
+~ Justiceiro
+~ Poring
+~ Bash
+~ Magnum Break
+~ Fire Bolt
+~ Frost Diver
+~ Storm Gust
+~ Meteor Storm
+~ Heal
+~ Blessing
+~ Increase Agility

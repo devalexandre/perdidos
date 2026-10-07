@@ -1,0 +1,47 @@
+# Servidor do jogo + PostgreSQL.  Uso: `make up` (ou `docker compose -f infra/docker-compose.yml --env-file infra/.env up -d`)
+# Produção: copie infra/.env.example para infra/.env e troque as credenciais.
+# Porta do banco fica só em 127.0.0.1 (GDD §15.7: banco nunca exposto).
+# Serviços do GDD §15.7 ainda não criados: accounts-api e caddy (entram na Fase 2).
+name: perdidos
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-isekai}
+      POSTGRES_USER: ${POSTGRES_USER:-isekai}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD em infra/.env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/001_schema.sql:ro
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  game-server:
+    build:
+      context: ..
+      dockerfile: infra/server/Dockerfile
+      args:
+        GODOT_VERSION: ${GODOT_VERSION:-4.7.2}
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      GAME_PORT: ${GAME_PORT:-7777}
+      # Ainda não usado pelo servidor (saves em JSON até a Fase 2); já fica pronto para o CharacterStore em PostgreSQL.
+      DATABASE_URL: postgres://${POSTGRES_USER:-isekai}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-isekai}
+    ports:
+      - "${GAME_PORT:-7777}:${GAME_PORT:-7777}/udp"
+    volumes:
+      - saves:/data/saves
+
+volumes:
+  pgdata:
+  saves:

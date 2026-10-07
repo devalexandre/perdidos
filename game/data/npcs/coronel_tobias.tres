@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/coronel_tobias.tres" id="1_dialogue"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_npc"]
+
+[resource]
+script = ExtResource("2_npc")
+id = &"coronel_tobias"
+name_key = "NPC_CORONEL_TOBIAS_NAME"
+sprite_base = "res://assets/npcs/npc_coronel_tobias"
+map_id = &"fields_sabia"
+spawn_marker = &"coronel_tobias"
+move_speed = 1.0
+dialogue = ExtResource("1_dialogue")
+fallback_sprite_base = "res://assets/npcs/npc_merchant"

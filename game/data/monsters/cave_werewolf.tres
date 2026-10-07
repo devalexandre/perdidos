@@ -1,0 +1,114 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="1_monster"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="2_stage"]
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="3_drop"]
+
+[sub_resource type="Resource" id="drop_boss_sword"]
+script = ExtResource("3_drop")
+item_id = &"silver_sword"
+chance = 0.12
+
+[sub_resource type="Resource" id="drop_boss_bow"]
+script = ExtResource("3_drop")
+item_id = &"silver_bow"
+chance = 0.12
+
+[sub_resource type="Resource" id="drop_boss_tome"]
+script = ExtResource("3_drop")
+item_id = &"silver_relic_tome"
+chance = 0.12
+
+[sub_resource type="Resource" id="drop_atroz_staff"]
+script = ExtResource("3_drop")
+item_id = &"atroz_soul_staff"
+chance = 0.1
+
+[sub_resource type="Resource" id="stage_young"]
+script = ExtResource("2_stage")
+stage = 1
+name_key = "MON_WEREWOLF_S1_NAME"
+sprite_base = "res://assets/monsters/werewolf/mon_werewolf_s1"
+baked_life = true
+level = 16
+max_hp = 693
+atk = 51
+def = 24
+mdef = 16
+walk_ms_per_cell = 430
+attack_interval_ms = 1550
+aggressive = true
+aggro_range_cells = 6
+leash_cells = 14
+xp_reward = 187
+stars_min = 10
+stars_max = 20
+
+[sub_resource type="Resource" id="stage_forest"]
+script = ExtResource("2_stage")
+stage = 2
+name_key = "MON_WEREWOLF_S2_NAME"
+sprite_base = "res://assets/monsters/werewolf/mon_werewolf_s2"
+baked_life = true
+level = 22
+max_hp = 2475
+atk = 85
+def = 41
+mdef = 25
+walk_ms_per_cell = 390
+attack_interval_ms = 1400
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 632
+stars_min = 24
+stars_max = 48
+
+[sub_resource type="Resource" id="stage_boss"]
+script = ExtResource("2_stage")
+stage = 3
+name_key = "MON_WEREWOLF_S3_NAME"
+sprite_base = "res://assets/monsters/werewolf/mon_werewolf_s3"
+baked_life = true
+level = 26
+max_hp = 10400
+atk = 117
+def = 55
+mdef = 31
+walk_ms_per_cell = 420
+attack_range_cells = 2.5
+attack_interval_ms = 1650
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 18
+xp_reward = 2860
+stars_min = 100
+stars_max = 180
+drops = Array[ExtResource("3_drop")]([SubResource("drop_boss_sword"), SubResource("drop_boss_bow"), SubResource("drop_boss_tome")])
+behaviors = Array[StringName]([&"boss"])
+
+[sub_resource type="Resource" id="stage_atroz"]
+script = ExtResource("2_stage")
+stage = 4
+name_key = "MON_WEREWOLF_S4_NAME"
+sprite_base = "res://assets/monsters/werewolf/mon_werewolf_s4"
+baked_life = true
+level = 30
+walk_ms_per_cell = 336
+attack_range_cells = 2.5
+attack_interval_ms = 1250
+aggressive = true
+aggro_range_cells = 12
+leash_cells = 24
+xp_reward = 4500
+stars_min = 180
+stars_max = 320
+drops = Array[ExtResource("3_drop")]([SubResource("drop_boss_sword"), SubResource("drop_boss_bow"), SubResource("drop_boss_tome"), SubResource("drop_atroz_staff")])
+behaviors = Array[StringName]([&"boss"])
+
+[resource]
+script = ExtResource("1_monster")
+id = &"cave_werewolf"
+region_id = &"brasil"
+creature_type = &"werewolf"
+stages = Array[ExtResource("2_stage")]([SubResource("stage_young"), SubResource("stage_forest"), SubResource("stage_boss"), SubResource("stage_atroz")])

@@ -1,0 +1,182 @@
+{
+ "ui_panel.png": {
+  "size": [
+   48,
+   48
+  ],
+  "nine_slice": [
+   8,
+   8,
+   8,
+   8
+  ],
+  "note": "janela/painel; miolo de pergaminho"
+ },
+ "ui_button_normal.png": {
+  "size": [
+   32,
+   16
+  ],
+  "nine_slice": [
+   5,
+   5,
+   5,
+   5
+  ]
+ },
+ "ui_button_hover.png": {
+  "size": [
+   32,
+   16
+  ],
+  "nine_slice": [
+   5,
+   5,
+   5,
+   5
+  ]
+ },
+ "ui_button_pressed.png": {
+  "size": [
+   32,
+   16
+  ],
+  "nine_slice": [
+   5,
+   5,
+   5,
+   5
+  ]
+ },
+ "ui_item_slot.png": {
+  "size": [
+   36,
+   36
+  ],
+  "nine_slice": [
+   3,
+   3,
+   3,
+   3
+  ],
+  "note": "espaco 36x36 para icone 32x32 (2 px de borda)"
+ },
+ "ui_item_slot_selected.png": {
+  "size": [
+   36,
+   36
+  ],
+  "nine_slice": [
+   3,
+   3,
+   3,
+   3
+  ]
+ },
+ "ui_tooltip.png": {
+  "size": [
+   16,
+   16
+  ],
+  "nine_slice": [
+   4,
+   4,
+   4,
+   4
+  ],
+  "note": "fundo escuro; texto claro"
+ },
+ "ui_dialogue_box.png": {
+  "size": [
+   96,
+   48
+  ],
+  "nine_slice": [
+   12,
+   12,
+   12,
+   12
+  ]
+ },
+ "ui_name_plate.png": {
+  "size": [
+   24,
+   12
+  ],
+  "nine_slice": [
+   4,
+   4,
+   4,
+   4
+  ],
+  "note": "placa do nome de quem fala no dialogo"
+ },
+ "cursor_normal.png": {
+  "size": [
+   24,
+   24
+  ],
+  "hotspot": [
+   0,
+   0
+  ]
+ },
+ "cursor_interact.png": {
+  "size": [
+   24,
+   24
+  ],
+  "hotspot": [
+   0,
+   0
+  ]
+ },
+ "emotes/emote_wave.png": {
+  "size": [
+   32,
+   32
+  ]
+ },
+ "emotes/emote_sit.png": {
+  "size": [
+   32,
+   32
+  ]
+ },
+ "emotes/emote_laugh.png": {
+  "size": [
+   32,
+   32
+  ]
+ },
+ "emotes/emote_cry.png": {
+  "size": [
+   32,
+   32
+  ]
+ },
+ "emotes/emote_angry.png": {
+  "size": [
+   32,
+   32
+  ]
+ },
+ "emotes/emote_heart.png": {
+  "size": [
+   32,
+   32
+  ]
+ },
+ "_doc": "Kit de UI (C). nine_slice = [esquerda, cima, direita, baixo] em px para StyleBoxTexture/NinePatchRect (texture_filter nearest, escala inteira). hotspot = ponto do clique do cursor. Cores da paleta mestra.",
+ "_colors": {
+  "text_dark": "#3a2418",
+  "text_light": "#f2e6c8",
+  "text_gold": "#e6b43a",
+  "rarity": {
+   "common": "#fcfaf5",
+   "uncommon": "#5aa048",
+   "rare": "#5a90e0",
+   "epic": "#8e66c4"
+  }
+ }
+}

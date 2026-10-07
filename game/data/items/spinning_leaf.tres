@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_spinning_leaf.png" id="1_8tkhc"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_cta8y"]
+
+[resource]
+script = ExtResource("2_cta8y")
+id = &"spinning_leaf"
+name_key = "ITEM_SPINNING_LEAF_NAME"
+desc_key = "ITEM_SPINNING_LEAF_DESC"
+icon = ExtResource("1_8tkhc")
+stackable = true
+max_stack = 99
+sell_price = 8

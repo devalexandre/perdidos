@@ -1,0 +1,39 @@
+# Palavras legítimas que CONTÊM um termo das listas (problema de Scunthorpe).
+# Uma por linha; comparação normalizada (sem acento, minúsculas). Se a palavra daqui cobre o trecho
+# encontrado, ele não é censurado. Para prefixos, basta o começo comum (ex.: "cocktail").
+# pt
+putativo
+putativa
+porrete
+vadiar
+vadiagem
+vadiando
+vadiou
+vadiava
+cuscuz
+cuzcuz
+fodder
+# en
+scunthorpe
+cockpit
+cocktail
+cockroach
+cockatoo
+cockerel
+cockney
+cockle
+cockatiel
+shiitake
+shitake
+pussycat
+pussywillow
+pissarro
+dickens
+# de / fr / it
+# ja (sem espaços entre palavras)
+ばかり
+ばかす
+あほう
+しねん
+しねま
+まんこう

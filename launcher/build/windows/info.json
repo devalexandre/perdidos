@@ -1,0 +1,15 @@
+{
+	"fixed": {
+		"file_version": "0.1.0"
+	},
+	"info": {
+		"0000": {
+			"ProductVersion": "0.1.0",
+			"CompanyName": "Perdidos",
+			"FileDescription": "Launcher do Perdidos",
+			"LegalCopyright": "© 2026 Perdidos",
+			"ProductName": "Perdidos",
+			"Comments": "Entra na conta, atualiza e abre o jogo."
+		}
+	}
+}

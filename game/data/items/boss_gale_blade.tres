@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_machete.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"boss_gale_blade"
+name_key = "ITEM_BOSS_GALE_BLADE_NAME"
+desc_key = "ITEM_BOSS_GALE_BLADE_DESC"
+icon = ExtResource("icon")
+type = 1
+scaling_attribute = &"str"
+weapon_kind = 1
+rarity = 2
+sell_price = 180
+stats = Dictionary[StringName, int]({
+&"atk": 28,
+&"str": 3,
+&"dex": 1
+})
+visual_id = &"blade"

@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="WorldRegionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("place")
+id = &"zharogrado"
+region_id = &"estepe"
+kind = 0
+status = 2
+name_key = "WA_P_ZHAROGRADO"
+hook_key = "WA_P_ZHAROGRADO_HOOK"
+pos = Vector2(0.505, 0.265)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("place")
+id = &"isba_pes_galinha"
+region_id = &"estepe"
+kind = 3
+status = 2
+name_key = "WA_P_ISBA_PES_GALINHA"
+hook_key = "WA_P_ISBA_PES_GALINHA_HOOK"
+pos = Vector2(0.54, 0.21)
+level_min = 25
+level_max = 40
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("place")
+id = &"bosque_betulas"
+region_id = &"estepe"
+kind = 2
+status = 2
+name_key = "WA_P_BOSQUE_BETULAS"
+hook_key = "WA_P_BOSQUE_BETULAS_HOOK"
+pos = Vector2(0.478, 0.185)
+level_min = 10
+level_max = 20
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("place")
+id = &"colinas_ferro"
+region_id = &"estepe"
+kind = 2
+status = 2
+name_key = "WA_P_COLINAS_FERRO"
+hook_key = "WA_P_COLINAS_FERRO_HOOK"
+pos = Vector2(0.495, 0.34)
+level_min = 20
+level_max = 30
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("place")
+id = &"ninho_zmey"
+region_id = &"estepe"
+kind = 3
+status = 2
+name_key = "WA_P_NINHO_ZMEY"
+hook_key = "WA_P_NINHO_ZMEY_HOOK"
+pos = Vector2(0.6, 0.155)
+level_min = 35
+level_max = 45
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("place")
+id = &"castelo_koschei"
+region_id = &"estepe"
+kind = 5
+status = 2
+name_key = "WA_P_CASTELO_KOSCHEI"
+hook_key = "WA_P_CASTELO_KOSCHEI_HOOK"
+pos = Vector2(0.447, 0.325)
+level_min = 45
+level_max = 55
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("place")
+id = &"antena_escuta"
+region_id = &"estepe"
+kind = 4
+status = 2
+name_key = "WA_P_ANTENA_ESCUTA"
+hook_key = "WA_P_ANTENA_ESCUTA_HOOK"
+pos = Vector2(0.572, 0.245)
+level_min = 50
+level_max = 65
+
+[resource]
+script = ExtResource("region")
+id = &"estepe"
+name_key = "WA_R_ESTEPE"
+hook_key = "WA_R_ESTEPE_HOOK"
+inspiration = "povos eslavos"
+label_pos = Vector2(0.535, 0.165)
+reached = false
+places = Array[ExtResource("place")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6")])

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_eternal_ember.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"cinder_ring"
+name_key = "ITEM_CINDER_RING_NAME"
+desc_key = "ITEM_CINDER_RING_DESC"
+icon = ExtResource("icon")
+type = 6
+rarity = 2
+buy_price = 760
+sell_price = 250
+stats = Dictionary[StringName, int]({
+&"int": 2,
+&"spi": 2,
+&"matk": 4
+})

@@ -1,0 +1,8 @@
+# Registro dos monstros e Mestres do Campo de Treino (GDD §17.0.4, §17.5) — agente W, 27/09/2026
+
+- **Ferramenta:** Bria.ai FIBO (`/v2/image/generate`, `/v2/image/edit`) + RMBG-2.0, licença comercial. Mesmo estilo aprovado dos NPCs/Viajante v2.
+- **Monstros:** `tools/art/monster_pipeline/` — `style_block.txt` + `monsters.json` (descrição por espécie; estágios 2 e 3 por EDIÇÃO do estágio anterior, para manter a identidade) + `neg.txt`. Etapas `monster_pipeline.py` (gen → evolve → dirs → attack → rmbg), escolhas em `picks.json` de cada pasta de trabalho (`$MON_WORK/<id>_s<n>`), seeds `seed_of(id, n)` (+100 direções, +300 ataque, +400 costas reforçadas). Tatu-Pedra s1 parte da **Âncora 3** (`style_anchor/anchors/original/a3_3.png`).
+- **Animações:** `build_monster.py` / `build_all.sh`: poses de IA (parado por direção + pose de ataque S/SE/L, e NE/N no vaga-lume) e quadros intermediários por deslocamento de pixels (respiração, passo/pulo/voo/giro, antecipação, clarão de dano, queda e dissolução). Paleta própria de até 40 cores por estágio. Tamanho relativo ao Viajante (GDD §10.2.1): `size_lineup.py`.
+- **Cultural:** jiangshi com a faixa do chapéu recolorida (sem amuleto/escrita); Saci não aparece (o Redemoinho só evoca o gorro e a fumaça); nenhum símbolo religioso nos Mestres.
+- **Mestres:** `tools/art/character_pipeline/npc/npcs.json` (entradas `master_*` novas) + `npc_pipeline.py` (gen → dirs → rmbg) + `build_masters.py` (idle 5 direções; walk de reserva feito do idle, rotina IDLE).
+- **Pendente:** limpeza manual no Aseprite; animações extras de chefe (attack_area, summon) para os mapas de caça; poses de ataque NE/N dedicadas (hoje usam a pose parada deslocada).

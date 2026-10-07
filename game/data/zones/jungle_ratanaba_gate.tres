@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+
+[resource]
+script = ExtResource("zone")
+map_id = &"jungle_ratanaba_gate"
+kind = 2
+name_key = "ZONE_JUNGLE_RATANABA_GATE_NAME"
+region_id = &"sabia"
+recommended_level_min = 25
+recommended_level_max = 30
+combat_allowed = true
+grave_on_death = true
+monster_stage_cap = 2
+bosses_allowed = false
+connected_maps = Array[StringName]([&"jungle_ratanaba_trail", &"jungle_ratanaba_waterfall", &"ruins_ratanaba_1"])

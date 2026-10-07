@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"arcane_crystal_prison"
+name_key = "SKILL_ARCANE_CRYSTAL_PRISON_NAME"
+desc_key = "SKILL_ARCANE_CRYSTAL_PRISON_DESC"
+school = &"arcane"
+region_id = &"brasil"
+effect = 13
+mana_cost = 22
+cooldown_sec = 16.0
+range_cells = 8.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 2.5
+extra = Dictionary[StringName, Variant]({
+&"duration_per_level": 0.1
+})
+vfx = &"stun"
+exclusive_to_title = &"sabia_arcane_crystal"
+icon_text = "PC"
+tree_title = &"sabia_arcane_crystal"
+tree_order = 3
+required_skill_levels = Dictionary[StringName, int]({
+&"arcane_barrier": 3
+})

@@ -1,0 +1,110 @@
+{
+	"_doc": "Cinemática da travessia (GDD §9.3). Roteiro: docs/lore/chegada-do-viajante.md. Tempos em segundos. image: {body} = male|female. focus = centro da câmera em coordenadas normalizadas da imagem (0..1); zoom 1 = imagem cobrindo a tela. in/out: cut | black | white | gold | crossfade. particles: petals | stars_rise | fireflies. glow: brilho pulsante preso à imagem (pos normalizada, por corpo). sfx: [{name, at}]. Legendas: chaves de localization/cutscene.csv.",
+	"music": ["arrival", "title"],
+	"end_fade_sec": 1.5,
+	"shots": [
+		{
+			"id": "city",
+			"image": "city_{body}.png",
+			"duration": 7.0,
+			"zoom": [1.0, 1.1],
+			"focus": [[0.5, 0.5], [0.47, 0.58]],
+			"in": "black", "in_sec": 1.5,
+			"captions": [
+				{"key": "CUTSCENE_ARRIVAL_01", "at": 1.0, "dur": 2.7},
+				{"key": "CUTSCENE_ARRIVAL_02", "at": 3.9, "dur": 2.8}
+			]
+		},
+		{
+			"id": "petal",
+			"image": "petal_{body}.png",
+			"duration": 6.5,
+			"zoom": [1.05, 1.15],
+			"focus": [[0.5, 0.52], [0.5, 0.45]],
+			"in": "crossfade", "in_sec": 1.2,
+			"particles": "motes",
+			"glow": {"pos": {"male": [0.568, 0.262], "female": [0.414, 0.29]}, "radius": 0.07, "color": [1.0, 0.8, 0.35, 0.8]},
+			"sfx": [{"name": "event_chime", "at": 1.0}],
+			"captions": [
+				{"key": "CUTSCENE_ARRIVAL_03", "at": 1.2, "dur": 2.4},
+				{"key": "CUTSCENE_ARRIVAL_04", "at": 3.7, "dur": 2.6}
+			]
+		},
+		{
+			"id": "stillness",
+			"image": "petal_{body}.png",
+			"duration": 4.5,
+			"zoom": [1.15, 1.7],
+			"focus": [[0.5, 0.45], {"male": [0.568, 0.28], "female": [0.414, 0.3]}],
+			"in": "cut",
+			"out": "white", "out_sec": 1.3,
+			"glow": {"pos": {"male": [0.568, 0.262], "female": [0.414, 0.29]}, "radius": 0.07, "grow": 6.0, "color": [1.0, 0.85, 0.45, 0.9]},
+			"captions": [
+				{"key": "CUTSCENE_ARRIVAL_05", "at": 0.3, "dur": 2.9}
+			]
+		},
+		{
+			"id": "fall",
+			"image": "fall.png",
+			"duration": 8.0,
+			"zoom": [1.4, 1.05],
+			"focus": [[0.52, 0.55], [0.55, 0.45]],
+			"in": "white", "in_sec": 1.2,
+			"particles": "stars_rise",
+			"sfx": [{"name": "fall_whoosh", "at": 0.2}],
+			"captions": [
+				{"key": "CUTSCENE_ARRIVAL_06", "at": 1.3, "dur": 2.8},
+				{"key": "CUTSCENE_ARRIVAL_07", "at": 4.4, "dur": 3.0}
+			]
+		},
+		{
+			"id": "land",
+			"image": "land.png",
+			"duration": 7.0,
+			"zoom": [1.3, 1.08],
+			"focus": [[0.55, 0.3], [0.62, 0.62]],
+			"in": "crossfade", "in_sec": 1.5,
+			"particles": "petals",
+			"captions": [
+				{"key": "CUTSCENE_ARRIVAL_08", "at": 1.2, "dur": 2.6},
+				{"key": "CUTSCENE_ARRIVAL_09", "at": 4.0, "dur": 2.6}
+			]
+		},
+		{
+			"id": "legends",
+			"image": "cerrado.png",
+			"duration": 6.5,
+			"zoom": [1.05, 1.35],
+			"focus": [[0.45, 0.5], [0.5, 0.55]],
+			"in": "crossfade", "in_sec": 1.2,
+			"out": "black", "out_sec": 1.5,
+			"particles": "fireflies",
+			"captions": [
+				{"key": "CUTSCENE_ARRIVAL_10", "at": 1.0, "dur": 2.4},
+				{"key": "CUTSCENE_ARRIVAL_11", "at": 3.5, "dur": 2.4}
+			]
+		},
+		{
+			"id": "darkness",
+			"image": "",
+			"duration": 4.0,
+			"in": "cut",
+			"sfx": [{"name": "wake_river", "at": 1.2}],
+			"captions": [
+				{"key": "CUTSCENE_ARRIVAL_12", "at": 0.8, "dur": 2.6}
+			]
+		},
+		{
+			"id": "riverbank",
+			"image": "riverbank_{body}.png",
+			"duration": 9.0,
+			"zoom": [1.35, 1.0],
+			"focus": [[0.35, 0.72], [0.5, 0.5]],
+			"in": "black", "in_sec": 2.5,
+			"captions": [
+				{"key": "CUTSCENE_ARRIVAL_13", "at": 2.4, "dur": 2.8},
+				{"key": "CUTSCENE_ARRIVAL_14", "at": 5.5, "dur": 3.0}
+			]
+		}
+	]
+}

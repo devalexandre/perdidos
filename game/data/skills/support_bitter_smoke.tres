@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"support_bitter_smoke"
+name_key = "SKILL_SUPPORT_BITTER_SMOKE_NAME"
+desc_key = "SKILL_SUPPORT_BITTER_SMOKE_DESC"
+school = &"support"
+region_id = &"brasil"
+target_type = 1
+effect = 2
+mana_cost = 24
+cooldown_sec = 18.0
+range_cells = 10.0
+radius_cells = 3.0
+base_multiplier = 0.3
+multiplier_per_level = 0.03
+duration_sec = 6.0
+extra = Dictionary[StringName, Variant]({
+&"zone_heal_received_pct": -0.5
+})
+vfx = &"poison"
+exclusive_to_title = &"sabia_support_matinta"
+icon_text = "FU"
+tree_title = &"sabia_support_matinta"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"support_owl_cry": 3
+})

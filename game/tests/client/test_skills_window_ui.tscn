@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/client/test_skills_window_ui.gd" id="1"]
+
+[node name="SkillsWindowUITest" type="Node"]
+script = ExtResource("1")

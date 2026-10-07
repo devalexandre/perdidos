@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ipe_wand.png" id="1_4wgd3"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_picft"]
+
+[resource]
+script = ExtResource("2_picft")
+id = &"ipe_wand"
+name_key = "ITEM_IPE_WAND_NAME"
+desc_key = "ITEM_IPE_WAND_DESC"
+icon = ExtResource("1_4wgd3")
+type = 1
+scaling_attribute = &"int"
+weapon_kind = 2
+rarity = 1
+buy_price = 160
+sell_price = 55
+stats = Dictionary[StringName, int]({
+&"atk": 1,
+&"cast_reduction": 8,
+&"int": 1,
+&"matk": 13
+})
+visual_id = &"staff"

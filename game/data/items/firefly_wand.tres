@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ipe_wand.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"firefly_wand"
+name_key = "ITEM_FIREFLY_WAND_NAME"
+desc_key = "ITEM_FIREFLY_WAND_DESC"
+icon = ExtResource("icon")
+type = 1
+scaling_attribute = &"int"
+weapon_kind = 2
+rarity = 2
+buy_price = 720
+sell_price = 240
+stats = Dictionary[StringName, int]({
+&"atk": 4,
+&"matk": 25,
+&"int": 3,
+&"cast_reduction": 4
+})
+visual_id = &"staff"

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+target_id = &"enchanted_firefly"
+count = 10
+text_key = "QUEST_LESSON_ARCANE_WILL_O_WISP_STEP1"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+type = 1
+target_id = &"firefly_light"
+count = 3
+text_key = "QUEST_LESSON_ARCANE_WILL_O_WISP_STEP2"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"lesson_arcane_will_o_wisp"
+name_key = "QUEST_LESSON_ARCANE_WILL_O_WISP_NAME"
+giver_npc = &"master_orvalho"
+region_id = &"brasil"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2")])
+reward_skill = &"arcane_will_o_wisp"
+reward_xp = 140
+offer_text_key = "QUEST_LESSON_ARCANE_WILL_O_WISP_OFFER"
+progress_text_key = "QUEST_LESSON_ARCANE_WILL_O_WISP_PROGRESS"
+complete_text_key = "QUEST_LESSON_ARCANE_WILL_O_WISP_COMPLETE"
+option_text_key = "QUEST_LESSON_ARCANE_WILL_O_WISP_OPTION"
+desc_key = "QUEST_LESSON_ARCANE_WILL_O_WISP_DESC"

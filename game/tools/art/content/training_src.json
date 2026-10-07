@@ -1,0 +1,201 @@
+{
+ "_doc": "Fonte unica do conteudo do Campo de Treino (marco 'Chegada do Viajante', agente W). build_training.py acrescenta/atualiza as chaves em localization/content.csv (sem apagar as outras); build_training.gd gera data/{monsters,npcs,dialogues,zones,items}/*.tres. Textos pt-BR provisorios. Nomes conferidos com make check-names (GDD 4.0 regra 3).",
+ "regions": {
+  "brasil": "Terra do Sabiá", "portugal": "Reino das Mouras", "japao": "Ilhas do Sol Nascente", "nordico": "Fiordes de Gelo",
+  "grecia": "Costa das Colunas", "egito": "Areias do Nilo", "celta": "Brumas Verdes", "eslavo": "Estepe de Ferro",
+  "china": "Império de Jade", "mexico": "Selvas de Obsidiana"
+ },
+ "areas": {
+  "camp": "Acampamento dos Viajantes"
+ },
+ "zones": [
+  {"map_id": "training_field", "kind": "TRAINING", "name": "Campo de Treino dos Viajantes", "xp_level_cap": 10, "items_bound_to_zone": true,
+   "combat_allowed": true, "grave_on_death": false, "respawn_marker": "CampRespawn", "minimap": "res://assets/minimap/minimap_training_field.png",
+   "rect": [-100, -100, 200, 200]},
+  {"map_id": "city_awakening", "kind": "CITY", "name": "Porto do Despertar", "xp_level_cap": 0, "items_bound_to_zone": false,
+   "combat_allowed": false, "grave_on_death": false, "respawn_marker": "SpawnPoint", "minimap": "res://assets/minimap/minimap_city_awakening.png",
+   "rect": [-80, -80, 160, 160]}
+ ],
+ "items": [
+  {"id": "firefly_light", "type": "MATERIAL", "stack": 99, "sell": 6, "name": "Luz de Vaga-lume",
+   "desc": "Uma gotinha de luz morna que o Vaga-lume Encantado deixa para trás. Brilha fraquinho dentro da mão fechada."},
+  {"id": "armadillo_shell", "type": "MATERIAL", "stack": 99, "sell": 10, "name": "Casco de Tatu-Pedra",
+   "desc": "Placa de pedra avermelhada, lisa por fora e com um tufo de musgo. Pesa mais do que parece."},
+  {"id": "red_cap", "type": "MATERIAL", "stack": 99, "sell": 30, "rarity": "RARE", "name": "Gorrinho Vermelho",
+   "desc": "Um gorrinho vermelho minúsculo que caiu de um redemoinho. Ninguém sabe de quem é. Ou todo mundo sabe e ninguém fala."},
+  {"id": "thick_leather", "type": "MATERIAL", "stack": 99, "sell": 7, "name": "Couro Grosso",
+   "desc": "Retalho de couro duro, bom para remendar gibão e bota."}
+ ],
+ "monsters": [
+  {"id": "prank_whirlwind", "region": "brasil", "respawn": 30, "stages": [
+    {"name": "Redemoinho Arteiro", "frame": 96, "level": 2, "hp": 45, "atk": 7, "def": 0, "mdef": 2, "walk_ms": 420, "range": 1.5, "interval": 1600,
+     "aggressive": false, "aggro": 5, "leash": 12, "xp": 16, "stars": [1, 4], "evolve": 0, "behaviors": ["hop_teleport"],
+     "drops": [["spinning_leaf", 0.5, 1, 2], ["red_cap", 0.02, 1, 1], ["potion_hp_small", 0.06, 1, 1]]},
+    {"name": "Rodamoinho Traquinas", "frame": 96, "level": 6, "hp": 190, "atk": 18, "def": 4, "mdef": 6, "walk_ms": 360, "range": 1.5, "interval": 1400,
+     "aggressive": true, "aggro": 6, "leash": 14, "xp": 70, "stars": [4, 10], "evolve": 250, "behaviors": ["hop_teleport"],
+     "drops": [["spinning_leaf", 0.8, 1, 3], ["red_cap", 0.08, 1, 1], ["potion_hp_small", 0.15, 1, 1]]},
+    {"name": "Ventania do Gorro Vermelho", "frame": 240, "level": 20, "hp": 4200, "atk": 70, "def": 18, "mdef": 25, "walk_ms": 300, "range": 2.0, "interval": 1300,
+     "aggressive": true, "aggro": 8, "leash": 18, "xp": 1400, "stars": [60, 120], "evolve": 4000, "behaviors": ["hop_teleport", "boss"],
+     "drops": [["red_cap", 0.6, 1, 1], ["spinning_leaf", 1.0, 3, 6], ["potion_hp_medium", 0.5, 1, 2]]}]},
+  {"id": "enchanted_firefly", "region": "brasil", "respawn": 30, "stages": [
+    {"name": "Vaga-lume Encantado", "frame": 96, "level": 4, "hp": 70, "atk": 6, "matk": 10, "def": 1, "mdef": 4, "walk_ms": 380, "range": 4.0, "interval": 1800,
+     "aggressive": false, "aggro": 5, "leash": 12, "xp": 30, "stars": [2, 5], "evolve": 0, "behaviors": ["fly_pattern", "ranged"],
+     "drops": [["firefly_light", 0.55, 1, 1], ["potion_mp_small", 0.08, 1, 1]]},
+    {"name": "Vaga-lume Candeeiro", "frame": 144, "level": 8, "hp": 260, "atk": 14, "matk": 26, "def": 5, "mdef": 12, "walk_ms": 340, "range": 5.0, "interval": 1600,
+     "aggressive": true, "aggro": 7, "leash": 14, "xp": 115, "stars": [5, 12], "evolve": 300, "behaviors": ["fly_pattern", "ranged"],
+     "drops": [["firefly_light", 0.9, 1, 3], ["potion_mp_small", 0.2, 1, 1]]},
+    {"name": "Rainha-Lume do Brejo", "frame": 240, "level": 21, "hp": 3800, "atk": 40, "matk": 85, "def": 15, "mdef": 35, "walk_ms": 320, "range": 6.0, "interval": 1400,
+     "aggressive": true, "aggro": 9, "leash": 18, "xp": 1500, "stars": [60, 120], "evolve": 4200, "behaviors": ["fly_pattern", "ranged", "boss"],
+     "drops": [["firefly_light", 1.0, 4, 8], ["potion_mp_medium", 0.5, 1, 2]]}]},
+  {"id": "stone_armadillo", "region": "brasil", "respawn": 30, "stages": [
+    {"name": "Tatu-Pedra", "frame": 96, "level": 7, "hp": 180, "atk": 14, "def": 12, "mdef": 3, "walk_ms": 450, "range": 1.5, "interval": 1700,
+     "aggressive": false, "aggro": 5, "leash": 12, "xp": 60, "stars": [3, 8], "evolve": 0, "behaviors": ["roll_charge"],
+     "drops": [["armadillo_shell", 0.45, 1, 1], ["thick_leather", 0.25, 1, 1], ["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Tatu-Rochedo", "frame": 144, "level": 10, "hp": 520, "atk": 26, "def": 24, "mdef": 8, "walk_ms": 420, "range": 1.8, "interval": 1600,
+     "aggressive": true, "aggro": 6, "leash": 14, "xp": 180, "stars": [8, 16], "evolve": 400, "behaviors": ["roll_charge"],
+     "drops": [["armadillo_shell", 0.9, 1, 3], ["thick_leather", 0.5, 1, 2], ["potion_hp_medium", 0.1, 1, 1]]},
+    {"name": "Tatu-Montanha", "frame": 240, "level": 22, "hp": 6500, "atk": 80, "def": 45, "mdef": 20, "walk_ms": 480, "range": 2.5, "interval": 1900,
+     "aggressive": true, "aggro": 7, "leash": 16, "xp": 1600, "stars": [70, 140], "evolve": 4500, "behaviors": ["roll_charge", "boss"],
+     "drops": [["armadillo_shell", 1.0, 4, 8], ["thick_leather", 1.0, 2, 4], ["potion_hp_medium", 0.5, 1, 2]]}]},
+
+  {"id": "fountain_serpent", "region": "portugal", "respawn": 30, "stages": [
+    {"name": "Serpe da Fonte", "frame": 96, "level": 3, "hp": 60, "atk": 8, "def": 2, "mdef": 2, "xp": 22, "stars": [1, 5], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Serpe Dourada", "scale": 1.4, "level": 7, "hp": 230, "atk": 19, "def": 6, "mdef": 6, "xp": 85, "stars": [4, 10], "evolve": 280, "aggressive": true, "behaviors": [], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "trasgo_imp", "region": "portugal", "respawn": 30, "stages": [
+    {"name": "Trasguinho", "frame": 96, "level": 5, "hp": 90, "atk": 11, "def": 3, "mdef": 3, "xp": 38, "stars": [2, 6], "behaviors": ["hop_teleport"], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Trasgo Resmungão", "scale": 1.4, "level": 9, "hp": 300, "atk": 23, "def": 8, "mdef": 8, "xp": 120, "stars": [5, 12], "evolve": 320, "aggressive": true, "behaviors": ["hop_teleport"], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "kasa_obake", "region": "japao", "respawn": 30, "stages": [
+    {"name": "Kasa-obake", "frame": 96, "level": 3, "hp": 55, "atk": 8, "def": 1, "mdef": 4, "xp": 22, "stars": [1, 5], "behaviors": ["hop_teleport"], "drops": [["potion_mp_small", 0.08, 1, 1]]},
+    {"name": "Kasa-obake Centenário", "scale": 1.4, "level": 7, "hp": 220, "atk": 18, "def": 5, "mdef": 10, "xp": 85, "stars": [4, 10], "evolve": 280, "aggressive": true, "behaviors": ["hop_teleport"], "drops": [["potion_mp_small", 0.2, 1, 1]]}]},
+  {"id": "trickster_tanuki", "region": "japao", "respawn": 30, "stages": [
+    {"name": "Tanuki Trapaceiro", "frame": 96, "level": 5, "hp": 95, "atk": 10, "def": 3, "mdef": 3, "xp": 38, "stars": [2, 6], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Tanuki Barrigudo", "scale": 1.4, "level": 9, "hp": 320, "atk": 22, "def": 9, "mdef": 7, "xp": 120, "stars": [5, 12], "evolve": 320, "aggressive": true, "behaviors": [], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "moss_troll", "region": "nordico", "respawn": 30, "stages": [
+    {"name": "Trollzinho de Musgo", "frame": 96, "level": 5, "hp": 120, "atk": 12, "def": 5, "mdef": 1, "walk_ms": 480, "xp": 40, "stars": [2, 6], "behaviors": [], "drops": [["thick_leather", 0.15, 1, 1]]},
+    {"name": "Troll de Musgo", "scale": 1.4, "level": 9, "hp": 380, "atk": 25, "def": 12, "mdef": 4, "walk_ms": 460, "xp": 125, "stars": [5, 12], "evolve": 320, "aggressive": true, "behaviors": [], "drops": [["thick_leather", 0.35, 1, 1]]}]},
+  {"id": "lindworm_hatchling", "region": "nordico", "respawn": 30, "stages": [
+    {"name": "Lindworm Filhote", "frame": 96, "level": 3, "hp": 60, "atk": 9, "def": 2, "mdef": 2, "xp": 22, "stars": [1, 5], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Lindworm do Gelo", "scale": 1.4, "level": 7, "hp": 230, "atk": 19, "def": 6, "mdef": 6, "xp": 85, "stars": [4, 10], "evolve": 280, "aggressive": true, "behaviors": [], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "griffin_chick", "region": "grecia", "respawn": 30, "stages": [
+    {"name": "Grifinho", "frame": 96, "level": 4, "hp": 75, "atk": 10, "def": 2, "mdef": 2, "xp": 30, "stars": [1, 5], "behaviors": ["fly_pattern"], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Grifo Jovem", "scale": 1.4, "level": 8, "hp": 260, "atk": 21, "def": 7, "mdef": 6, "xp": 105, "stars": [4, 11], "evolve": 300, "aggressive": true, "behaviors": ["fly_pattern"], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "little_chimera", "region": "grecia", "respawn": 30, "stages": [
+    {"name": "Quimerinha", "frame": 96, "level": 6, "hp": 110, "atk": 12, "matk": 8, "def": 4, "mdef": 4, "xp": 48, "stars": [2, 7], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Quimera Jovem", "scale": 1.4, "level": 10, "hp": 360, "atk": 25, "matk": 16, "def": 10, "mdef": 10, "xp": 140, "stars": [6, 13], "evolve": 340, "aggressive": true, "behaviors": [], "drops": [["potion_hp_medium", 0.1, 1, 1]]}]},
+  {"id": "dune_scorpion", "region": "egito", "respawn": 30, "stages": [
+    {"name": "Escorpião das Dunas", "frame": 96, "level": 4, "hp": 80, "atk": 11, "def": 4, "mdef": 1, "xp": 30, "stars": [1, 5], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Escorpião Rubro", "scale": 1.4, "level": 8, "hp": 270, "atk": 22, "def": 10, "mdef": 4, "xp": 105, "stars": [4, 11], "evolve": 300, "aggressive": true, "behaviors": [], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "sphinx_cub", "region": "egito", "respawn": 30, "stages": [
+    {"name": "Esfinge Filhote", "frame": 96, "level": 6, "hp": 105, "atk": 11, "matk": 10, "def": 4, "mdef": 6, "xp": 48, "stars": [2, 7], "behaviors": [], "drops": [["potion_mp_small", 0.08, 1, 1]]},
+    {"name": "Esfinge Enigmática", "scale": 1.4, "level": 10, "hp": 340, "atk": 22, "matk": 20, "def": 9, "mdef": 13, "xp": 140, "stars": [6, 13], "evolve": 340, "aggressive": true, "behaviors": [], "drops": [["potion_mp_medium", 0.1, 1, 1]]}]},
+  {"id": "puca_trickster", "region": "celta", "respawn": 30, "stages": [
+    {"name": "Púca Travesso", "frame": 96, "level": 4, "hp": 75, "atk": 10, "def": 2, "mdef": 3, "walk_ms": 340, "xp": 30, "stars": [1, 5], "behaviors": ["hop_teleport"], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Púca Galopante", "scale": 1.4, "level": 8, "hp": 250, "atk": 21, "def": 6, "mdef": 8, "walk_ms": 320, "xp": 105, "stars": [4, 11], "evolve": 300, "aggressive": true, "behaviors": ["hop_teleport"], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "lake_kelpie", "region": "celta", "respawn": 30, "stages": [
+    {"name": "Kelpie do Lago", "frame": 96, "level": 6, "hp": 115, "atk": 13, "def": 4, "mdef": 4, "xp": 48, "stars": [2, 7], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Kelpie das Brumas", "scale": 1.4, "level": 10, "hp": 360, "atk": 25, "def": 10, "mdef": 10, "xp": 140, "stars": [6, 13], "evolve": 340, "aggressive": true, "behaviors": [], "drops": [["potion_hp_medium", 0.1, 1, 1]]}]},
+  {"id": "zmey_hatchling", "region": "eslavo", "respawn": 30, "stages": [
+    {"name": "Zmey Filhote", "frame": 96, "level": 5, "hp": 95, "atk": 11, "matk": 8, "def": 3, "mdef": 3, "xp": 38, "stars": [2, 6], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Zmey de Duas Cabeças", "scale": 1.4, "level": 9, "hp": 320, "atk": 23, "matk": 16, "def": 8, "mdef": 8, "xp": 120, "stars": [5, 12], "evolve": 320, "aggressive": true, "behaviors": [], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "walking_hut", "region": "eslavo", "respawn": 30, "stages": [
+    {"name": "Cabaninha Andante", "frame": 96, "level": 3, "hp": 70, "atk": 8, "def": 5, "mdef": 2, "walk_ms": 460, "xp": 22, "stars": [1, 5], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Cabana de Pés de Galinha", "scale": 1.4, "level": 7, "hp": 250, "atk": 18, "def": 12, "mdef": 5, "walk_ms": 440, "xp": 85, "stars": [4, 10], "evolve": 280, "aggressive": true, "behaviors": [], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "hopping_jiangshi", "region": "china", "respawn": 30, "stages": [
+    {"name": "Jiangshi Saltitante", "frame": 96, "level": 5, "hp": 110, "atk": 11, "def": 4, "mdef": 2, "walk_ms": 470, "xp": 38, "stars": [2, 6], "behaviors": ["hop_teleport"], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Jiangshi Ancião", "scale": 1.4, "level": 9, "hp": 350, "atk": 23, "def": 9, "mdef": 6, "walk_ms": 450, "xp": 120, "stars": [5, 12], "evolve": 320, "aggressive": true, "behaviors": ["hop_teleport"], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "spirit_fox_cub", "region": "china", "respawn": 30, "stages": [
+    {"name": "Raposinha Espiritual", "frame": 96, "level": 3, "hp": 55, "atk": 7, "matk": 9, "def": 1, "mdef": 4, "walk_ms": 340, "xp": 22, "stars": [1, 5], "behaviors": [], "drops": [["potion_mp_small", 0.08, 1, 1]]},
+    {"name": "Raposa de Três Caudas", "scale": 1.4, "level": 7, "hp": 210, "atk": 15, "matk": 19, "def": 4, "mdef": 10, "walk_ms": 320, "xp": 85, "stars": [4, 10], "evolve": 280, "aggressive": true, "behaviors": [], "drops": [["potion_mp_small", 0.2, 1, 1]]}]},
+  {"id": "obsidian_iguana", "region": "mexico", "respawn": 30, "stages": [
+    {"name": "Iguana de Obsidiana", "frame": 96, "level": 4, "hp": 85, "atk": 10, "def": 5, "mdef": 2, "xp": 30, "stars": [1, 5], "behaviors": [], "drops": [["potion_hp_small", 0.08, 1, 1]]},
+    {"name": "Lagarto de Obsidiana", "scale": 1.4, "level": 8, "hp": 280, "atk": 21, "def": 11, "mdef": 5, "xp": 105, "stars": [4, 11], "evolve": 300, "aggressive": true, "behaviors": [], "drops": [["potion_hp_small", 0.2, 1, 1]]}]},
+  {"id": "jaguar_cub", "region": "mexico", "respawn": 30, "stages": [
+    {"name": "Jaguarzinho da Selva", "frame": 96, "level": 6, "hp": 105, "atk": 14, "def": 3, "mdef": 3, "walk_ms": 330, "xp": 48, "stars": [2, 7], "behaviors": [], "drops": [["thick_leather", 0.15, 1, 1]]},
+    {"name": "Jaguar da Selva", "scale": 1.4, "level": 10, "hp": 330, "atk": 27, "def": 8, "mdef": 8, "walk_ms": 310, "xp": 140, "stars": [6, 13], "evolve": 340, "aggressive": true, "behaviors": [], "drops": [["thick_leather", 0.35, 1, 1]]}]}
+ ],
+ "npcs": [
+  {"id": "master_jatoba", "region": "brasil", "name": "Mestre Jatobá", "routine": "IDLE", "speed": 1.6},
+  {"id": "master_candeia", "region": "brasil", "name": "Mestra Candeia", "routine": "IDLE", "speed": 1.4},
+  {"id": "master_guiomar", "region": "portugal", "name": "Mestra Guiomar", "routine": "IDLE", "speed": 1.6},
+  {"id": "master_tsubaki", "region": "japao", "name": "Mestra Tsubaki", "routine": "IDLE", "speed": 1.6},
+  {"id": "master_solveig", "region": "nordico", "name": "Mestra Solveig", "routine": "IDLE", "speed": 1.6},
+  {"id": "master_nicandro", "region": "grecia", "name": "Mestre Nicandro", "routine": "IDLE", "speed": 1.6},
+  {"id": "master_seneb", "region": "egito", "name": "Mestre Seneb", "routine": "IDLE", "speed": 1.4},
+  {"id": "master_ewan", "region": "celta", "name": "Mestre Ewan", "routine": "IDLE", "speed": 1.6},
+  {"id": "master_zlata", "region": "eslavo", "name": "Mestra Zlata", "routine": "IDLE", "speed": 1.6},
+  {"id": "master_xiaoyu", "region": "china", "name": "Mestra Xiaoyu", "routine": "IDLE", "speed": 1.6},
+  {"id": "master_citlali", "region": "mexico", "name": "Mestra Citlali", "routine": "IDLE", "speed": 1.6}
+ ],
+ "dialogues": {
+  "master_jatoba": {
+   "start": {"text": "Chegou mais um! Sou Jatobá, e aqui no Campo eu ensino a Lâmina: facão firme na mão, pé firme no chão.",
+    "options": [["Que lugar é este?", "about"], ["Como se luta por aqui?", "tip"], ["Até logo, mestre.", ""]]},
+   "about": {"text": "Este é o Campo de Treino dos Viajantes. Cada Mestre ergueu aqui um cantinho da sua terra, para quem chega do Outro Lado conhecer o mundo antes de escolher um caminho. O nosso cantinho é este cerrado: ipê, buriti, cupinzeiro e redemoinho arteiro.",
+    "options": [["Como se luta por aqui?", "tip"], ["Entendi.", ""]]},
+   "tip": {"text": "Clique no bicho e deixe o braço trabalhar: você golpeia até ele cair ou até mandar outra coisa. Redemoinho é bobo, Tatu-Pedra é casca-grossa. E olho vivo: bicho que derruba Viajante fica mais forte.",
+    "options": [["Obrigado, mestre.", ""]]}
+  },
+  "master_candeia": {
+   "start": {"text": "Boa luz, Viajante. Sou Candeia, e ensino o Arcano: a arte de acender o que ninguém vê.",
+    "options": [["O que é o Arcano?", "about"], ["Tem alguma dica para mim?", "tip"], ["Até logo, mestra.", ""]]},
+   "about": {"text": "O Arcano é o caminho de quem luta de longe, com faísca, gelo e chama. Não se aprende em livro: passa de mão em mão, de Mestre para aprendiz. Quem chega do Outro Lado aprende qualquer arte, se tiver paciência.",
+    "options": [["Tem alguma dica para mim?", "tip"], ["Vou pensar nisso.", ""]]},
+   "tip": {"text": "Repare nos vaga-lumes do brejo: guardam um pouco de luz encantada e voam em roda. E não fique perto de quem bate forte. Mago esperto é mago longe.",
+    "options": [["Obrigado, mestra.", ""]]}
+  },
+  "master_guiomar": {
+   "start": {"text": "Salve, Viajante! Sou Guiomar, da alabarda, do Reino das Mouras. Queria levar-te às nossas muralhas, mas a travessia para a nossa terra ainda não está aberta.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "Nas nossas fontes, dizem, vivem mouras encantadas que penteiam cabelos de ouro ao luar e guardam tesouros para quem cumpre a palavra dada. Quem promete e não cumpre acha só carvão.",
+    "options": [["Vou lembrar disso.", ""]]}
+  },
+  "master_tsubaki": {
+   "start": {"text": "Seja bem-vindo. Sou Tsubaki, da naginata, das Ilhas do Sol Nascente. A travessia para a nossa terra ainda não está aberta. Por enquanto, cuide da postura.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "Nos rios das ilhas vive o kappa, que guarda água num pratinho no alto da cabeça. Se ele fizer uma reverência, faça também: a água derrama e ele perde a força. Dizem que um kappa, para ser solto, ensinou a arte de pôr ossos no lugar.",
+    "options": [["Que história boa.", ""]]}
+  },
+  "master_solveig": {
+   "start": {"text": "Chegue perto do fogo, Viajante. Sou Solveig, do escudo, dos Fiordes de Gelo. A travessia para a nossa terra ainda não está aberta: o mar de lá ainda está preso no gelo.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "Nos fiordes, os trolls descem das montanhas quando escurece. Os velhos contam que o sol da manhã os transforma em pedra. Por isso tanta rocha lá tem cara de gente.",
+    "options": [["Vou lembrar disso.", ""]]}
+  },
+  "master_nicandro": {
+   "start": {"text": "Salve, Viajante! Sou Nicandro, da lança e do escudo, da Costa das Colunas. A travessia para a nossa terra ainda não está aberta.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "Lá existe um labirinto tão velho que ninguém lembra quem o construiu. Quem entra leva um novelo de linha e vai deixando o fio para trás: é o único jeito de achar a saída.",
+    "options": [["Que história boa.", ""]]}
+  },
+  "master_seneb": {
+   "start": {"text": "Que a sombra te seja fresca, Viajante. Sou Seneb, escriba e mestre do khopesh, das Areias do Nilo. A travessia para a nossa terra ainda não está aberta.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "No deserto há uma esfinge que guarda a passagem com enigmas. Ela não quer a tua espada: quer a tua resposta. E os nossos curadores tratam feridas com mel e linho limpo, como ensinam os papiros antigos.",
+    "options": [["Vou lembrar disso.", ""]]}
+  },
+  "master_ewan": {
+   "start": {"text": "Bem-vindo, Viajante. Sou Ewan, da espada longa e da harpa, das Brumas Verdes. A travessia para a nossa terra ainda não está aberta: a névoa ainda não deixa passar.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "Nas praias de lá, as selkies tiram a pele de foca para dançar na areia ao luar. Quem esconde a pele de uma selkie ganha uma saudade que nunca acaba.",
+    "options": [["Que história boa.", ""]]}
+  },
+  "master_zlata": {
+   "start": {"text": "Saudações, Viajante. Sou Zlata, do arco e do machado, da Estepe de Ferro. A travessia para a nossa terra ainda não está aberta.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "Na floresta de bétulas mora uma velha numa cabana com pés de galinha, que gira para a porta dar para quem chega. Seja educado e ela pode ajudar. Seja grosseiro... bem, melhor ser educado.",
+    "options": [["Vou lembrar disso.", ""]]}
+  },
+  "master_xiaoyu": {
+   "start": {"text": "Bem-vindo, Viajante. Sou Xiaoyu, da espada jian, do Império de Jade. A travessia para a nossa terra ainda não está aberta.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "Todo fim de ano a fera Nian desce das montanhas. Mas ela tem medo do vermelho, do fogo e do barulho: por isso penduramos lanternas vermelhas e soltamos fogos. Nenhuma fera aguenta uma festa bem barulhenta.",
+    "options": [["Que história boa.", ""]]}
+  },
+  "master_citlali": {
+   "start": {"text": "Bem-vindo, Viajante. Sou Citlali, da lâmina de obsidiana, das Selvas de Obsidiana. A travessia para a nossa terra ainda não está aberta.",
+    "options": [["Conte sobre a sua terra.", "lore"], ["Até logo.", ""]]},
+   "lore": {"text": "Nas nossas selvas, abelhas sem ferrão fazem um mel que cura, e o jaguar anda sem fazer barulho. Quem entra na mata pede licença e cuida do caminho: a selva lembra de quem a respeita.",
+    "options": [["Vou lembrar disso.", ""]]}
+  }
+ }
+}

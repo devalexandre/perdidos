@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_bctae"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_daben"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_68tj8"]
+
+[sub_resource type="Resource" id="Resource_5vuub"]
+script = ExtResource("1_bctae")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_q26i7"]
+script = ExtResource("3_68tj8")
+name_key = "MON_PUCA_TRICKSTER_S1_NAME"
+sprite_base = "res://assets/monsters/puca_trickster/mon_puca_trickster_s1"
+baked_life = true
+level = 4
+max_hp = 75
+atk = 10
+def = 2
+mdef = 3
+walk_ms_per_cell = 340
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 30
+stars_min = 1
+stars_max = 5
+drops = Array[ExtResource("1_bctae")]([SubResource("Resource_5vuub")])
+behaviors = Array[StringName]([&"hop_teleport"])
+
+[sub_resource type="Resource" id="Resource_t2agi"]
+script = ExtResource("1_bctae")
+item_id = &"potion_hp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_ncrsd"]
+script = ExtResource("3_68tj8")
+stage = 2
+name_key = "MON_PUCA_TRICKSTER_S2_NAME"
+sprite_base = "res://assets/monsters/puca_trickster/mon_puca_trickster_s2"
+baked_life = true
+level = 8
+max_hp = 250
+atk = 21
+def = 6
+mdef = 8
+walk_ms_per_cell = 320
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 105
+stars_min = 4
+stars_max = 11
+drops = Array[ExtResource("1_bctae")]([SubResource("Resource_t2agi")])
+behaviors = Array[StringName]([&"hop_teleport"])
+
+[resource]
+script = ExtResource("2_daben")
+id = &"puca_trickster"
+region_id = &"celta"
+stages = Array[ExtResource("3_68tj8")]([SubResource("Resource_q26i7"), SubResource("Resource_ncrsd")])

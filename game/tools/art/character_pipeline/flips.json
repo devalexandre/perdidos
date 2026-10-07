@@ -1,0 +1,17 @@
+{
+ "m_se": {
+  "idle": true,
+  "wl": true,
+  "wr": true
+ },
+ "f_se": {
+  "idle": true,
+  "wl": true,
+  "wr": true
+ },
+ "f_e": {
+  "idle": true,
+  "wl": true,
+  "wr": true
+ }
+}

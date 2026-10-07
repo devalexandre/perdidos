@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_2c7ya"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_qqdcw"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_e1523"]
+
+[sub_resource type="Resource" id="Resource_0q4ym"]
+script = ExtResource("1_2c7ya")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_x65jv"]
+script = ExtResource("3_e1523")
+name_key = "MON_GRIFFIN_CHICK_S1_NAME"
+sprite_base = "res://assets/monsters/griffin_chick/mon_griffin_chick_s1"
+baked_life = true
+level = 4
+max_hp = 75
+atk = 10
+def = 2
+mdef = 2
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 30
+stars_min = 1
+stars_max = 5
+drops = Array[ExtResource("1_2c7ya")]([SubResource("Resource_0q4ym")])
+behaviors = Array[StringName]([&"fly_pattern"])
+
+[sub_resource type="Resource" id="Resource_l54d6"]
+script = ExtResource("1_2c7ya")
+item_id = &"potion_hp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_ipgm6"]
+script = ExtResource("3_e1523")
+stage = 2
+name_key = "MON_GRIFFIN_CHICK_S2_NAME"
+sprite_base = "res://assets/monsters/griffin_chick/mon_griffin_chick_s2"
+baked_life = true
+level = 8
+max_hp = 260
+atk = 21
+def = 7
+mdef = 6
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 105
+stars_min = 4
+stars_max = 11
+drops = Array[ExtResource("1_2c7ya")]([SubResource("Resource_l54d6")])
+behaviors = Array[StringName]([&"fly_pattern"])
+
+[resource]
+script = ExtResource("2_qqdcw")
+id = &"griffin_chick"
+region_id = &"grecia"
+stages = Array[ExtResource("3_e1523")]([SubResource("Resource_x65jv"), SubResource("Resource_ipgm6")])

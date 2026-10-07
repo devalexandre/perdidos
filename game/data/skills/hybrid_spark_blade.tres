@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"hybrid_spark_blade"
+name_key = "SKILL_HYBRID_SPARK_BLADE_NAME"
+desc_key = "SKILL_HYBRID_SPARK_BLADE_DESC"
+school = &"hybrid"
+region_id = &"brasil"
+target_type = 5
+effect = 9
+mana_cost = 22
+cooldown_sec = 30.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 8.0
+extra = Dictionary[StringName, Variant]({
+&"duration_per_level": 0.4,
+&"imbue_matk": 0.2,
+&"imbue_matk_per_level": 0.03
+})
+requires_melee_weapon = true
+vfx = &"spark"
+exclusive_to_title = &"sabia_hybrid_ember"
+icon_text = "LF"
+tree_title = &"sabia_hybrid_ember"
+tree_order = 1

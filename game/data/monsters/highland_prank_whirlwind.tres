@@ -1,0 +1,187 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_e6201"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_gsg11"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_1vsi5"]
+
+[sub_resource type="Resource" id="Resource_taquara"]
+script = ExtResource("1_e6201")
+item_id = &"taquara_cane"
+chance = 0.45
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_tx3fr"]
+script = ExtResource("1_e6201")
+item_id = &"spinning_leaf"
+chance = 0.5
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_aodme"]
+script = ExtResource("1_e6201")
+item_id = &"red_cap"
+chance = 0.02
+
+[sub_resource type="Resource" id="Resource_lvowj"]
+script = ExtResource("1_e6201")
+item_id = &"potion_hp_small"
+chance = 0.06
+
+[sub_resource type="Resource" id="Resource_ol6v2"]
+script = ExtResource("3_1vsi5")
+name_key = "MON_HIGHLAND_PRANK_WHIRLWIND_S1_NAME"
+sprite_base = "res://assets/monsters/prank_whirlwind/mon_prank_whirlwind_s1"
+baked_life = true
+level = 12
+max_hp = 353
+atk = 25
+mdef = 6
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 115
+stars_min = 1
+stars_max = 4
+drops = Array[ExtResource("1_e6201")]([SubResource("Resource_tx3fr"), SubResource("Resource_aodme"), SubResource("Resource_lvowj"), SubResource("Resource_taquara")])
+behaviors = Array[StringName]([&"hop_teleport"])
+
+aggressive = true
+[sub_resource type="Resource" id="Resource_4uav2"]
+script = ExtResource("1_e6201")
+item_id = &"spinning_leaf"
+chance = 0.8
+max_qty = 3
+
+[sub_resource type="Resource" id="Resource_w3u0c"]
+script = ExtResource("1_e6201")
+item_id = &"red_cap"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_1l04p"]
+script = ExtResource("1_e6201")
+item_id = &"potion_hp_small"
+chance = 0.15
+
+[sub_resource type="Resource" id="Resource_7y1kw"]
+script = ExtResource("3_1vsi5")
+stage = 2
+name_key = "MON_HIGHLAND_PRANK_WHIRLWIND_S2_NAME"
+sprite_base = "res://assets/monsters/prank_whirlwind/mon_prank_whirlwind_s2"
+baked_life = true
+level = 16
+max_hp = 587
+atk = 36
+def = 8
+mdef = 11
+walk_ms_per_cell = 360
+attack_interval_ms = 1400
+aggressive = true
+xp_reward = 206
+stars_min = 4
+stars_max = 10
+drops = Array[ExtResource("1_e6201")]([SubResource("Resource_4uav2"), SubResource("Resource_w3u0c"), SubResource("Resource_1l04p"), SubResource("Resource_taquara")])
+behaviors = Array[StringName]([&"hop_teleport"])
+
+[sub_resource type="Resource" id="Resource_xu4mb"]
+script = ExtResource("1_e6201")
+item_id = &"red_cap"
+chance = 0.6
+
+[sub_resource type="Resource" id="Resource_oh25s"]
+script = ExtResource("1_e6201")
+item_id = &"spinning_leaf"
+chance = 1.0
+min_qty = 3
+max_qty = 6
+
+[sub_resource type="Resource" id="Resource_8clc3"]
+script = ExtResource("1_e6201")
+item_id = &"potion_hp_medium"
+chance = 0.5
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_prank__boss_rare"]
+script = ExtResource("1_e6201")
+item_id = &"pequi_root"
+chance = 0.35
+
+[sub_resource type="Resource" id="Resource_prank__rare_rare"]
+script = ExtResource("1_e6201")
+item_id = &"pequi_root"
+chance = 0.12
+
+[sub_resource type="Resource" id="Resource_prank__atroz_d0"]
+script = ExtResource("1_e6201")
+item_id = &"red_cap"
+chance = 0.9
+min_qty = 2
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_prank__atroz_d1"]
+script = ExtResource("1_e6201")
+item_id = &"spinning_leaf"
+chance = 1.0
+min_qty = 4
+max_qty = 9
+
+[sub_resource type="Resource" id="Resource_prank__atroz_d2"]
+script = ExtResource("1_e6201")
+item_id = &"potion_hp_medium"
+chance = 0.75
+min_qty = 2
+max_qty = 3
+
+[sub_resource type="Resource" id="Resource_prank__atroz_rare"]
+script = ExtResource("1_e6201")
+item_id = &"pequi_root"
+chance = 0.85
+max_qty = 2
+
+[sub_resource type="Resource" id="Resource_e7gqf"]
+script = ExtResource("3_1vsi5")
+stage = 3
+name_key = "MON_PRANK_WHIRLWIND_S3_NAME"
+sprite_base = "res://assets/monsters/prank_whirlwind/mon_prank_whirlwind_s3"
+baked_life = true
+level = 20
+max_hp = 4200
+atk = 70
+def = 18
+mdef = 25
+walk_ms_per_cell = 300
+attack_range_cells = 2.0
+attack_interval_ms = 1300
+aggressive = true
+aggro_range_cells = 8
+leash_cells = 18
+xp_reward = 1400
+stars_min = 60
+stars_max = 120
+drops = Array[ExtResource("1_e6201")]([SubResource("Resource_xu4mb"), SubResource("Resource_oh25s"), SubResource("Resource_8clc3"), SubResource("Resource_prank__boss_rare")])
+behaviors = Array[StringName]([&"hop_teleport", &"boss"])
+
+[sub_resource type="Resource" id="Resource_prank__atroz"]
+script = ExtResource("3_1vsi5")
+stage = 4
+name_key = "MON_PRANK_WHIRLWIND_S4_NAME"
+sprite_base = "res://assets/monsters/prank_whirlwind/mon_prank_whirlwind_s4"
+baked_life = true
+level = 26
+walk_ms_per_cell = 240
+attack_range_cells = 2.0
+attack_interval_ms = 845
+aggressive = true
+aggro_range_cells = 12
+leash_cells = 28
+xp_reward = 3500
+stars_min = 120
+stars_max = 240
+drops = Array[ExtResource("1_e6201")]([SubResource("Resource_prank__atroz_d0"), SubResource("Resource_prank__atroz_d1"), SubResource("Resource_prank__atroz_d2"), SubResource("Resource_prank__atroz_rare")])
+behaviors = Array[StringName]([&"hop_teleport", &"boss"])
+
+[resource]
+script = ExtResource("2_gsg11")
+id = &"highland_prank_whirlwind"
+base_species = &"prank_whirlwind"
+stages = Array[ExtResource("3_1vsi5")]([SubResource("Resource_ol6v2"), SubResource("Resource_7y1kw"), SubResource("Resource_e7gqf"), SubResource("Resource_prank__atroz")])
+rare_extra_drops = Array[ExtResource("1_e6201")]([SubResource("Resource_prank__rare_rare")])

@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="WorldRegionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("place")
+id = &"itzcalli"
+region_id = &"obsidiana"
+kind = 0
+status = 2
+name_key = "WA_P_ITZCALLI"
+hook_key = "WA_P_ITZCALLI_HOOK"
+pos = Vector2(0.125, 0.65)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("place")
+id = &"mercado_penas"
+region_id = &"obsidiana"
+kind = 1
+status = 2
+name_key = "WA_P_MERCADO_PENAS"
+hook_key = "WA_P_MERCADO_PENAS_HOOK"
+pos = Vector2(0.095, 0.69)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("place")
+id = &"trilha_jaguares"
+region_id = &"obsidiana"
+kind = 2
+status = 2
+name_key = "WA_P_TRILHA_JAGUARES"
+hook_key = "WA_P_TRILHA_JAGUARES_HOOK"
+pos = Vector2(0.178, 0.66)
+level_min = 10
+level_max = 20
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("place")
+id = &"manguezal_esmeralda"
+region_id = &"obsidiana"
+kind = 2
+status = 2
+name_key = "WA_P_MANGUEZAL_ESMERALDA"
+hook_key = "WA_P_MANGUEZAL_ESMERALDA_HOOK"
+pos = Vector2(0.2, 0.745)
+level_min = 20
+level_max = 30
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("place")
+id = &"poco_mil_vozes"
+region_id = &"obsidiana"
+kind = 3
+status = 2
+name_key = "WA_P_POCO_MIL_VOZES"
+hook_key = "WA_P_POCO_MIL_VOZES_HOOK"
+pos = Vector2(0.13, 0.72)
+level_min = 30
+level_max = 40
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("place")
+id = &"boca_vulcao"
+region_id = &"obsidiana"
+kind = 5
+status = 2
+name_key = "WA_P_BOCA_VULCAO"
+hook_key = "WA_P_BOCA_VULCAO_HOOK"
+pos = Vector2(0.165, 0.585)
+level_min = 45
+level_max = 55
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("place")
+id = &"nave_albatroz"
+region_id = &"obsidiana"
+kind = 4
+status = 2
+name_key = "WA_P_NAVE_ALBATROZ"
+hook_key = "WA_P_NAVE_ALBATROZ_HOOK"
+pos = Vector2(0.225, 0.622)
+level_min = 50
+level_max = 65
+
+[resource]
+script = ExtResource("region")
+id = &"obsidiana"
+name_key = "WA_R_OBSIDIANA"
+hook_key = "WA_R_OBSIDIANA_HOOK"
+inspiration = "México antigo"
+label_pos = Vector2(0.115, 0.605)
+reached = false
+places = Array[ExtResource("place")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6")])

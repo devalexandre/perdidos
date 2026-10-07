@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="1_6pg84"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="2_2wgul"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_f8ge6"]
+
+[sub_resource type="Resource" id="Resource_1jw5c"]
+script = ExtResource("2_2wgul")
+text_key = "DLG_MASTER_ORVALHO_START_OPT0"
+next_node = &"about"
+
+[sub_resource type="Resource" id="Resource_p4lk0"]
+script = ExtResource("2_2wgul")
+text_key = "DLG_MASTER_ORVALHO_START_OPT1"
+next_node = &"lights"
+
+[sub_resource type="Resource" id="Resource_5e8iq"]
+script = ExtResource("2_2wgul")
+text_key = "DLG_MASTER_ORVALHO_START_OPT2"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_3yh07"]
+script = ExtResource("1_6pg84")
+id = &"start"
+text_key = "DLG_MASTER_ORVALHO_START"
+options = Array[ExtResource("2_2wgul")]([SubResource("Resource_1jw5c"), SubResource("Resource_p4lk0"), SubResource("Resource_5e8iq")])
+
+[sub_resource type="Resource" id="Resource_mac3q"]
+script = ExtResource("2_2wgul")
+text_key = "DLG_MASTER_ORVALHO_ABOUT_OPT0"
+next_node = &"lights"
+
+[sub_resource type="Resource" id="Resource_0igfx"]
+script = ExtResource("2_2wgul")
+text_key = "DLG_MASTER_ORVALHO_ABOUT_OPT1"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_ab6ut"]
+script = ExtResource("1_6pg84")
+id = &"about"
+text_key = "DLG_MASTER_ORVALHO_ABOUT"
+options = Array[ExtResource("2_2wgul")]([SubResource("Resource_mac3q"), SubResource("Resource_0igfx")])
+
+[sub_resource type="Resource" id="Resource_ut1g2"]
+script = ExtResource("2_2wgul")
+text_key = "DLG_MASTER_ORVALHO_LIGHTS_OPT0"
+action = &"close"
+
+[sub_resource type="Resource" id="Resource_gr6ac"]
+script = ExtResource("1_6pg84")
+id = &"lights"
+text_key = "DLG_MASTER_ORVALHO_LIGHTS"
+options = Array[ExtResource("2_2wgul")]([SubResource("Resource_ut1g2")])
+
+[resource]
+script = ExtResource("3_f8ge6")
+id = &"master_orvalho"
+nodes = Array[ExtResource("1_6pg84")]([SubResource("Resource_3yh07"), SubResource("Resource_ab6ut"), SubResource("Resource_gr6ac")])

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TitleTalkDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_talk_def.gd" id="1_tt"]
+
+[resource]
+script = ExtResource("1_tt")
+id = &"master_zlata"
+npc_id = &"master_zlata"
+region_id = &"eslavo"
+title_name_key = "RULES_TT_ZLATA_TITLE"
+title_desc_key = "RULES_TT_ZLATA_DESC"
+skill_name_keys = Array[String](["RULES_TT_ZLATA_SKILL"])
+style_key = "RULES_TT_ZLATA_STYLE"

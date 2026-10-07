@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://tests/client/test_mobile_controls.gd" id="1_test_mobile"]
+
+[node name="TestMobileControls" type="Node"]
+script = ExtResource("1_test_mobile")

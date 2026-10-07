@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_water.gdshader" id="1_kff0d"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="2_citxw"]
+
+[resource]
+render_priority = 5
+shader = ExtResource("1_kff0d")
+shader_parameter/deep_color = null
+shader_parameter/shallow_color = null
+shader_parameter/foam_color = null
+shader_parameter/tex_noise = ExtResource("2_citxw")
+shader_parameter/scale_m = null
+shader_parameter/speed = null
+shader_parameter/foam_amount = null
+shader_parameter/sparkle = null
+shader_parameter/use_depth_edge = null
+shader_parameter/shore_depth = null

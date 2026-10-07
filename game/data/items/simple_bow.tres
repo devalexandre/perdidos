@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_simple_bow.png" id="1_sbow1"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_sbow2"]
+
+[resource]
+script = ExtResource("2_sbow2")
+id = &"simple_bow"
+name_key = "ITEM_SIMPLE_BOW_NAME"
+desc_key = "ITEM_SIMPLE_BOW_DESC"
+icon = ExtResource("1_sbow1")
+type = 1
+scaling_attribute = &"dex"
+weapon_kind = 3
+buy_price = 90
+sell_price = 30
+stats = Dictionary[StringName, int]({
+&"atk": 7,
+&"dex": 1
+})
+visual_id = &"simple_bow"
+two_handed = true

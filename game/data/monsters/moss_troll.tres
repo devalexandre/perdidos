@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_kr3ar"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_hiin0"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_1ukus"]
+
+[sub_resource type="Resource" id="Resource_kq54i"]
+script = ExtResource("1_kr3ar")
+item_id = &"thick_leather"
+chance = 0.15
+
+[sub_resource type="Resource" id="Resource_4ktvs"]
+script = ExtResource("3_1ukus")
+name_key = "MON_MOSS_TROLL_S1_NAME"
+sprite_base = "res://assets/monsters/moss_troll/mon_moss_troll_s1"
+baked_life = true
+level = 5
+max_hp = 120
+atk = 12
+def = 5
+mdef = 1
+walk_ms_per_cell = 480
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 40
+stars_min = 2
+stars_max = 6
+drops = Array[ExtResource("1_kr3ar")]([SubResource("Resource_kq54i")])
+
+[sub_resource type="Resource" id="Resource_dow0i"]
+script = ExtResource("1_kr3ar")
+item_id = &"thick_leather"
+chance = 0.35
+
+[sub_resource type="Resource" id="Resource_jbql0"]
+script = ExtResource("3_1ukus")
+stage = 2
+name_key = "MON_MOSS_TROLL_S2_NAME"
+sprite_base = "res://assets/monsters/moss_troll/mon_moss_troll_s2"
+baked_life = true
+level = 9
+max_hp = 380
+atk = 25
+def = 12
+mdef = 4
+walk_ms_per_cell = 460
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 125
+stars_min = 5
+stars_max = 12
+drops = Array[ExtResource("1_kr3ar")]([SubResource("Resource_dow0i")])
+
+[resource]
+script = ExtResource("2_hiin0")
+id = &"moss_troll"
+region_id = &"nordico"
+stages = Array[ExtResource("3_1ukus")]([SubResource("Resource_4ktvs"), SubResource("Resource_jbql0")])

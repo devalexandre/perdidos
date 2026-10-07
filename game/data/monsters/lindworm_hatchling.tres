@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_l5t8a"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_yd0nu"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_klffw"]
+
+[sub_resource type="Resource" id="Resource_nvrac"]
+script = ExtResource("1_l5t8a")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_ktcn4"]
+script = ExtResource("3_klffw")
+name_key = "MON_LINDWORM_HATCHLING_S1_NAME"
+sprite_base = "res://assets/monsters/lindworm_hatchling/mon_lindworm_hatchling_s1"
+baked_life = true
+level = 3
+max_hp = 60
+atk = 9
+def = 2
+mdef = 2
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 22
+stars_min = 1
+stars_max = 5
+drops = Array[ExtResource("1_l5t8a")]([SubResource("Resource_nvrac")])
+
+[sub_resource type="Resource" id="Resource_mfi8u"]
+script = ExtResource("1_l5t8a")
+item_id = &"potion_hp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_8uxj4"]
+script = ExtResource("3_klffw")
+stage = 2
+name_key = "MON_LINDWORM_HATCHLING_S2_NAME"
+sprite_base = "res://assets/monsters/lindworm_hatchling/mon_lindworm_hatchling_s2"
+baked_life = true
+level = 7
+max_hp = 230
+atk = 19
+def = 6
+mdef = 6
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 85
+stars_min = 4
+stars_max = 10
+drops = Array[ExtResource("1_l5t8a")]([SubResource("Resource_mfi8u")])
+
+[resource]
+script = ExtResource("2_yd0nu")
+id = &"lindworm_hatchling"
+region_id = &"nordico"
+stages = Array[ExtResource("3_klffw")]([SubResource("Resource_ktcn4"), SubResource("Resource_8uxj4")])

@@ -1,0 +1,185 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_mat_1"]
+script = ExtResource("drop")
+item_id = &"anaconda_scale"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_1"]
+script = ExtResource("drop")
+item_id = &"potion_hp_small"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_RIVER_ANACONDA_S1_NAME"
+sprite_base = "res://assets/monsters/river_anaconda/mon_river_anaconda_s1"
+baked_life = true
+visual_scale = 1.15
+level = 18
+max_hp = 404
+atk = 46
+matk = 46
+def = 9
+mdef = 6
+walk_ms_per_cell = 360
+attack_range_cells = 4.5
+attack_interval_ms = 1500
+aggressive = false
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 252
+stars_min = 9
+stars_max = 23
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_1"), SubResource("drop_pot_1")])
+
+[sub_resource type="Resource" id="drop_mat_2"]
+script = ExtResource("drop")
+item_id = &"anaconda_scale"
+chance = 0.4
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_pot_2"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.15
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="stage2"]
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_RIVER_ANACONDA_S2_NAME"
+sprite_base = "res://assets/monsters/river_anaconda/mon_river_anaconda_s2"
+baked_life = true
+visual_scale = 1.35
+level = 26
+max_hp = 877
+atk = 62
+matk = 62
+def = 13
+mdef = 8
+walk_ms_per_cell = 360
+attack_range_cells = 4.5
+attack_interval_ms = 1500
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 364
+stars_min = 13
+stars_max = 31
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_2"), SubResource("drop_pot_2")])
+
+[sub_resource type="Resource" id="drop_mat_3"]
+script = ExtResource("drop")
+item_id = &"anaconda_scale"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_pot_3"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_crendice_3"]
+script = ExtResource("drop")
+item_id = &"olho_cobra_grande"
+chance = 0.05
+min_qty = 1
+max_qty = 1
+
+[sub_resource type="Resource" id="stage3"]
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_RIVER_ANACONDA_S3_NAME"
+sprite_base = "res://assets/monsters/river_anaconda/mon_river_anaconda_s3"
+baked_life = true
+visual_scale = 1.75
+level = 36
+max_hp = 7300
+atk = 57
+matk = 57
+def = 28
+mdef = 22
+walk_ms_per_cell = 400
+attack_range_cells = 4.5
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 1740
+stars_min = 70
+stars_max = 140
+behaviors = Array[StringName]([&"ranged", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_3"), SubResource("drop_pot_3"), SubResource("drop_crendice_3")])
+
+[sub_resource type="Resource" id="drop_mat_4"]
+script = ExtResource("drop")
+item_id = &"anaconda_scale"
+chance = 1.0
+min_qty = 2
+max_qty = 5
+
+[sub_resource type="Resource" id="drop_pot_4"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.6
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="drop_crendice_4"]
+script = ExtResource("drop")
+item_id = &"olho_cobra_grande"
+chance = 0.12
+min_qty = 1
+max_qty = 1
+
+[sub_resource type="Resource" id="stage4"]
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_RIVER_ANACONDA_S4_NAME"
+sprite_base = "res://assets/monsters/river_anaconda/mon_river_anaconda_s4"
+baked_life = true
+visual_scale = 2.1
+level = 44
+max_hp = 10800
+atk = 72
+matk = 72
+def = 36
+mdef = 28
+walk_ms_per_cell = 320
+attack_range_cells = 4.5
+attack_interval_ms = 1250
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 20
+xp_reward = 3480
+stars_min = 140
+stars_max = 280
+behaviors = Array[StringName]([&"ranged", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop_mat_4"), SubResource("drop_pot_4"), SubResource("drop_crendice_4")])
+
+[resource]
+
+script = ExtResource("monster")
+id = &"river_anaconda"
+region_id = &"sabia"
+creature_type = &"beast"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

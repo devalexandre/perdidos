@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_painted.gdshader" id="1_lb7cc"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_stonewall.png" id="2_jqdho"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="3_jfpvf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lb7cc")
+shader_parameter/albedo_tex = ExtResource("2_jqdho")
+shader_parameter/tint = Color(0.3, 0.27, 0.33, 1)
+shader_parameter/triplanar = true
+shader_parameter/tile_m = 2.5
+shader_parameter/uv_scale = null
+shader_parameter/use_vertex_ao = null
+shader_parameter/top_amount = null
+shader_parameter/top_sharpness = null
+shader_parameter/top_tile_m = null
+shader_parameter/top_tint = null
+shader_parameter/grime_height = null
+shader_parameter/base_y = null
+shader_parameter/grime_color = null
+shader_parameter/tex_noise = ExtResource("3_jfpvf")
+shader_parameter/macro_strength = null
+shader_parameter/roughness = null
+shader_parameter/detail = null
+shader_parameter/use_instance_tint = null

@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perdidos MMO — Painel Administrativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0d12;
+      --bg-panel: #11151c;
+      --bg-card: #161b24;
+      --bg-hover: #1d2430;
+      --border: #242c3b;
+      --border-light: #323d50;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --primary: #f59e0b;
+      --primary-hover: #d97706;
+      --primary-light: rgba(245, 158, 11, 0.15);
+      --success: #10b981;
+      --success-light: rgba(16, 185, 129, 0.15);
+      --danger: #ef4444;
+      --danger-light: rgba(239, 68, 68, 0.15);
+      --info: #06b6d4;
+      --info-light: rgba(6, 182, 212, 0.15);
+      --purple: #a855f7;
+      --purple-light: rgba(168, 85, 247, 0.15);
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Topbar */
+    header {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #000;
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .online-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--success);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.4; transform: scale(0.9); }
+    }
+    .user-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .btn-logout {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+    .btn-logout:hover {
+      background: var(--danger-light);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    /* Subnav / Tabs */
+    nav.tabs-nav {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      color: var(--text-main);
+    }
+    .tab-btn.active {
+      color: var(--primary);
+    }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px 3px 0 0;
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 24px;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .stat-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+    .stat-card-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .stat-card-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .stat-card-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .badge-success { background: var(--success-light); color: var(--success); }
+    .badge-warning { background: var(--primary-light); color: var(--primary); }
+    .badge-info { background: var(--info-light); color: var(--info); }
+    .badge-purple { background: var(--purple-light); color: var(--purple); }
+
+    /* Content Cards */
+    .card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .card-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.01);
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-body {
+      padding: 20px;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+    th {
+      background: var(--bg-card);
+      color: var(--text-dim);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg-hover); }
+
+    /* Search & Inputs */
+    .search-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    input[type="text"], input[type="password"], input[type="number"], select {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
+      border-color: var(--primary);
+    }
+	.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+	.form-field { display: flex; flex-direction: column; gap: 6px; }
+	.form-field.full { grid-column: 1 / -1; }
+	.form-field label { color: var(--text-dim); font-size: 0.75rem; font-weight: 700; }
+	.form-field input, .form-field textarea {
+	  width: 100%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main);
+	  padding: 10px 12px; border-radius: 6px; font: inherit; outline: none;
+	}
+	.form-field textarea { min-height: 76px; resize: vertical; }
+	.form-error { color: var(--danger); font-size: 0.8rem; display: none; }
+    .btn {
+      background: var(--primary);
+      color: #000;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: var(--primary-hover); }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--bg-hover); }
+    .btn-sm {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+
+    /* Event Cards Grid */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .event-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .event-card.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.1);
+    }
+    .event-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .event-icon {
+      font-size: 2rem;
+    }
+    .event-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .event-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+    .event-perks {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    /* Switch toggle */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--border);
+      transition: .3s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider { background-color: var(--primary); }
+    input:checked + .slider:before { transform: translateX(20px); }
+
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      max-width: 650px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-body { padding: 20px; }
+    .modal-footer {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    /* Log Box */
+    .log-box {
+      background: #000;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      padding: 16px;
+      border-radius: 8px;
+      height: 480px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+    /* Login Screen */
+    #login-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--bg-dark);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Modal / Screen -->
+  <div id="login-overlay">
+    <div class="login-card">
+      <div style="font-size: 2.5rem; margin-bottom: 12px;">🛡️</div>
+      <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 6px;">Painel de Controle</h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Autentique-se com o e-mail de administrador para prosseguir.</p>
+      
+      <div style="text-align: left; margin-bottom: 16px;">
+        <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-dim); display: block; margin-bottom: 6px;">E-MAIL</label>
+        <input type="text" id="login-email" value="progsphp@gmail.com" style="width: 100%;">
+      </div>
+      <div style="text-align: left; margin-bottom: 24px;">
+        <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-dim); display: block; margin-bottom: 6px;">SENHA</label>
+        <input type="password" id="login-password" placeholder="Digite a senha..." style="width: 100%;">
+      </div>
+      <button class="btn" style="width: 100%; justify-content: center;" onclick="doLogin()">Acessar Painel</button>
+      <div id="login-error" style="color: var(--danger); font-size: 0.8rem; margin-top: 14px; display: none;"></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <span>⚔️ Perdidos MMO</span>
+      <span class="brand-badge">Admin</span>
+    </div>
+    <div class="top-right">
+      <div class="online-indicator">
+        <div class="dot"></div>
+        <span><strong id="hdr-online-count">0</strong> Online</span>
+      </div>
+      <div class="user-pill">
+        <span>progsphp@gmail.com</span>
+        <button class="btn-logout" onclick="doLogout()">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab('overview')">📊 Visão Geral</button>
+    <button class="tab-btn" onclick="switchTab('players')">👥 Jogadores</button>
+    <button class="tab-btn" onclick="switchTab('drops')">📦 Itens & Drops</button>
+    <button class="tab-btn" onclick="switchTab('items')">⚔️ Catálogo de Itens</button>
+    <button class="tab-btn" onclick="switchTab('events')">🎉 Eventos & Datas</button>
+    <button class="tab-btn" onclick="switchTab('cosmetics')">👑 Enfeites & Cosméticos</button>
+    <button class="tab-btn" onclick="switchTab('logs')">🖥️ Servidor & Logs</button>
+  </nav>
+
+  <!-- Main Container -->
+  <main>
+    <!-- TAB: VISÃO GERAL -->
+    <section id="tab-overview">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-title">JOGADORES CADASTRADOS</div>
+          <div class="stat-card-value" id="card-total-players">--</div>
+          <div class="stat-card-sub" id="card-total-accounts">-- contas registradas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">ONLINE AGORA <span class="badge badge-success">AO VIVO</span></div>
+          <div class="stat-card-value" id="card-online-count" style="color: var(--success);">--</div>
+          <div class="stat-card-sub" id="card-instances-count">-- instâncias ativas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">ESTRELAS EM CIRCULAÇÃO</div>
+          <div class="stat-card-value" id="card-total-stars" style="color: var(--primary);">--</div>
+          <div class="stat-card-sub">Economia total de jogadores</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">DROPS NO CHÃO</div>
+          <div class="stat-card-value" id="card-total-drops" style="color: var(--info);">--</div>
+          <div class="stat-card-sub">Itens caídos nos mapas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">BÔNUS & MULTIPLICADORES</div>
+          <div class="stat-card-value">
+            <span class="badge badge-warning" id="card-xp-mult">1.0x XP</span>
+            <span class="badge badge-info" id="card-drop-mult">1.0x Drop</span>
+          </div>
+          <div class="stat-card-sub" id="card-events-active-count">0 eventos ativos</div>
+        </div>
+      </div>
+
+      <!-- Quick Broadcast -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📢 Transmissão de Anúncio Global</div>
+        </div>
+        <div class="card-body" style="display: flex; gap: 12px;">
+          <input type="text" id="input-broadcast" placeholder="Digite uma mensagem para todos os jogadores no jogo..." style="flex: 1;">
+          <button class="btn" onclick="sendBroadcast()">Enviar Anúncio</button>
+        </div>
+      </div>
+
+      <!-- Live Players Snapshot & Active Events Row -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">🟢 Jogadores Conectados no Momento</div>
+          </div>
+          <div class="card-body table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Nível</th>
+                  <th>Mapa Atual</th>
+                  <th>Coordenadas</th>
+                  <th>Vida / Mana</th>
+                  <th>Estrelas</th>
+                </tr>
+              </thead>
+              <tbody id="live-players-tbody">
+                <tr><td colspan="6" style="text-align: center; color: var(--text-dim);">Nenhum jogador online no momento.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">🎉 Eventos Ativos</div>
+          </div>
+          <div class="card-body" id="active-events-overview">
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Carregando...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: CATÁLOGO DE ITENS -->
+    <section id="tab-items" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">⚔️ Criar arma, armadura ou item</div>
+        </div>
+        <div class="card-body">
+          <p style="font-size: .85rem; color: var(--text-muted); margin-bottom: 16px;">O painel cria a definição, adiciona a tradução e envia o ícone. O jogo e o servidor precisam ser reiniciados para carregar o item novo.</p>
+          <form id="item-create-form" onsubmit="createItem(event)" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+            <input name="id" required pattern="[a-z][a-z0-9_]{2,63}" placeholder="ID: espada_de_ipe">
+            <input name="name" required maxlength="100" placeholder="Nome do item">
+            <select name="type" required><option value="WEAPON">Arma</option><option value="OFFHAND">Mão secundária</option><option value="HEAD">Cabeça</option><option value="BODY">Armadura / corpo</option><option value="FEET">Botas</option><option value="GLOVES">Luvas</option><option value="ACCESSORY">Acessório</option><option value="CONSUMABLE">Consumível</option><option value="MATERIAL">Material</option><option value="CRENDICE">Crendice</option></select>
+            <select name="rarity"><option value="COMMON">Comum</option><option value="UNCOMMON">Incomum</option><option value="RARE">Raro</option><option value="EPIC">Épico</option></select>
+            <select name="weapon_kind"><option value="NONE">Sem classe de arma</option><option value="BLADE">Lâmina</option><option value="ARCANE">Arcana</option><option value="BOW">Arco</option></select>
+            <input name="buy_price" type="number" min="0" value="0" required placeholder="Preço de compra">
+            <input name="sell_price" type="number" min="0" value="0" required placeholder="Preço de venda">
+            <input name="max_stack" type="number" min="1" max="999" value="1" required placeholder="Pilha máxima">
+            <input name="stats" value="{}" placeholder='Atributos JSON: {"atk":10}'>
+            <input name="use_effect" value="{}" placeholder='Efeito JSON: {"heal_hp":60}'>
+            <input name="icon" type="file" accept="image/png,image/jpeg" required>
+            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:.8rem;">
+              <label><input name="stackable" type="checkbox" value="true"> Empilhável</label>
+              <label><input name="tradeable" type="checkbox" value="true" checked> Negociável</label>
+              <label><input name="two_handed" type="checkbox" value="true"> Duas mãos</label>
+              <label><input name="is_cosmetic" type="checkbox" value="true"> Cosmético</label>
+            </div>
+            <textarea name="description" required maxlength="500" placeholder="Descrição e o que o item faz" style="grid-column:1/-1;min-height:80px;"></textarea>
+            <div style="grid-column:1/-1;display:flex;gap:12px;align-items:center;"><button class="btn" type="submit">Criar item</button><span id="item-create-status" style="font-size:.85rem;"></span></div>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">📚 Armas, armaduras e itens existentes <span id="items-total" class="badge badge-info"></span></div><button class="btn btn-secondary btn-sm" onclick="loadItems()">🔄 Atualizar</button></div>
+        <div class="card-body table-container"><table><thead><tr><th>ID</th><th>Nome</th><th>Tipo</th><th>Raridade</th><th>Atributos / efeito</th><th>Compra / Venda</th><th>Pilha</th></tr></thead><tbody id="items-tbody"><tr><td colspan="7">Carregando...</td></tr></tbody></table></div>
+      </div>
+    </section>
+
+    <!-- TAB: JOGADORES -->
+    <section id="tab-players" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">👥 Gerenciador de Jogadores</div>
+          <button class="btn btn-secondary btn-sm" onclick="loadPlayers()">🔄 Atualizar</button>
+        </div>
+        <div class="card-body">
+          <div class="search-bar">
+            <input type="text" id="player-search" placeholder="Buscar por nome do personagem..." oninput="filterPlayersTable()" style="flex: 1; min-width: 200px;">
+            <select id="player-filter-status" onchange="filterPlayersTable()">
+              <option value="all">Todos os Status</option>
+              <option value="online">Apenas Online</option>
+              <option value="offline">Apenas Offline</option>
+            </select>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Personagem</th>
+                  <th>Nível</th>
+                  <th>Estrelas</th>
+                  <th>Mapa</th>
+                  <th>Posição (X, Z)</th>
+                  <th>Último Save</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="all-players-tbody">
+                <tr><td colspan="8" style="text-align: center;">Carregando...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: ITENS & DROPS -->
+    <section id="tab-drops" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📦 Itens Dropados no Chão (Tempo Real)</div>
+          <button class="btn btn-secondary btn-sm" onclick="loadDrops()">🔄 Atualizar</button>
+        </div>
+        <div class="card-body table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Item</th>
+                <th>Quantidade</th>
+                <th>Mapa</th>
+                <th>Coordenadas (X, Y, Z)</th>
+              </tr>
+            </thead>
+            <tbody id="drops-tbody">
+              <tr><td colspan="5" style="text-align: center; color: var(--text-dim);">Nenhum item dropado no momento.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: EVENTOS & DATAS -->
+    <section id="tab-events" style="display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2 style="font-size: 1.2rem; font-weight: 800;">Datas Comemorativas & Eventos do Jogo</h2>
+        <button class="btn" onclick="openNewEventModal()">+ Criar Novo Evento</button>
+      </div>
+
+      <div class="events-grid" id="events-cards-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB: ENFEITES & COSMÉTICOS -->
+    <section id="tab-cosmetics" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🎋 Enfeites & Decorações de Mapa (Datas Comemorativas)</div>
+        </div>
+        <div class="card-body">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+            Ative enfeites temáticos para o Porto do Despertar e mapas do jogo. Os clientes e o servidor atualizam dinamicamente.
+          </p>
+          <div class="events-grid" id="decorations-container">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">👑 Cosméticos & Chapéus Comemorativos</div>
+        </div>
+        <div class="card-body">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+            Libere o uso e drop de cosméticos temáticos sazonais para os jogadores.
+          </p>
+          <div class="events-grid" id="cosmetics-container">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: SERVIDOR & LOGS -->
+    <section id="tab-logs" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🖥️ Console de Logs do Servidor (Últimas Linhas)</div>
+          <button class="btn btn-secondary btn-sm" onclick="loadLogs()">🔄 Atualizar Logs</button>
+        </div>
+        <div class="card-body">
+          <div class="log-box" id="server-logs-box">Carregando logs do servidor...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Player Detail Modal -->
+  <div class="modal-backdrop" id="player-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-player-name" style="font-weight: 800;">Detalhes do Jogador</h3>
+        <button style="background: none; border: none; color: #fff; font-size: 1.2rem; cursor: pointer;" onclick="closeModal('player-modal')">✕</button>
+      </div>
+      <div class="modal-body" id="modal-player-content">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('player-modal')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Event Modal -->
+  <div class="modal-backdrop" id="event-modal">
+	<div class="modal">
+	  <div class="modal-header">
+		<h3 style="font-weight: 800;">🎉 Criar novo evento</h3>
+		<button style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;" onclick="closeModal('event-modal')">✕</button>
+	  </div>
+	  <div class="modal-body">
+		<div class="form-grid">
+		  <div class="form-field">
+			<label for="event-icon">ÍCONE</label>
+			<input id="event-icon" type="text" value="🎉" maxlength="12">
+		  </div>
+		  <div class="form-field">
+			<label for="event-name">NOME *</label>
+			<input id="event-name" type="text" maxlength="80" placeholder="Ex.: Festival das Águas">
+		  </div>
+		  <div class="form-field full">
+			<label for="event-description">DESCRIÇÃO</label>
+			<textarea id="event-description" maxlength="300" placeholder="O que muda durante o evento?"></textarea>
+		  </div>
+		  <div class="form-field">
+			<label for="event-xp">MULTIPLICADOR DE XP</label>
+			<input id="event-xp" type="number" min="0.1" max="10" step="0.05" value="1">
+		  </div>
+		  <div class="form-field">
+			<label for="event-drop">MULTIPLICADOR DE DROP</label>
+			<input id="event-drop" type="number" min="0.1" max="10" step="0.05" value="1">
+		  </div>
+		  <div class="form-field full">
+			<label for="event-announcement">ANÚNCIO PARA OS JOGADORES</label>
+			<textarea id="event-announcement" maxlength="300" placeholder="Mensagem exibida quando o evento for ativado"></textarea>
+		  </div>
+		  <div class="form-field full">
+			<label><input id="event-active" type="checkbox"> Criar já ativado</label>
+		  </div>
+		  <div class="form-error full" id="event-create-error"></div>
+		</div>
+	  </div>
+	  <div class="modal-footer">
+		<button class="btn btn-secondary" onclick="closeModal('event-modal')">Cancelar</button>
+		<button class="btn" id="event-create-submit" onclick="createEvent()">Criar evento</button>
+	  </div>
+	</div>
+  </div>
+
+  <script>
+    let playersCache = [];
+    let currentTab = 'overview';
+
+	async function adminFetch(url, options) {
+	  const res = await fetch(url, options);
+	  if (res.status === 401 || res.status === 403) {
+		document.getElementById('login-overlay').style.display = 'flex';
+		throw new Error('Sua sessão administrativa expirou. Entre novamente.');
+	  }
+	  if (!res.ok) {
+		let message = 'Falha ao carregar os dados do painel.';
+		try { const data = await res.json(); message = data.message || data.error || message; } catch (_) {}
+		throw new Error(message);
+	  }
+	  return res;
+	}
+
+    // Auto-login check on load
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const res = await fetch('/api/admin/me');
+        if (res.ok) {
+          document.getElementById('login-overlay').style.display = 'none';
+          refreshData();
+          setInterval(refreshData, 5000);
+        }
+      } catch (e) {}
+    });
+
+    async function doLogin() {
+      const email = document.getElementById('login-email').value;
+      const pass = document.getElementById('login-password').value;
+      const errEl = document.getElementById('login-error');
+      errEl.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password: pass })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          document.getElementById('login-overlay').style.display = 'none';
+          refreshData();
+          setInterval(refreshData, 5000);
+        } else {
+          errEl.innerText = data.error || data.message || 'Falha ao autenticar.';
+          errEl.style.display = 'block';
+        }
+      } catch (e) {
+        errEl.innerText = 'Erro de conexão com o servidor.';
+        errEl.style.display = 'block';
+      }
+    }
+
+    async function doLogout() {
+      await fetch('/api/admin/logout', { method: 'POST' });
+      location.reload();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('main > section').forEach(sec => sec.style.display = 'none');
+
+      document.querySelector('[onclick="switchTab(\'' + tab + '\')"]').classList.add('active');
+      document.getElementById('tab-' + tab).style.display = 'block';
+
+      if (tab === 'players') loadPlayers();
+      if (tab === 'drops') loadDrops();
+      if (tab === 'items') loadItems();
+      if (tab === 'events') loadEvents();
+      if (tab === 'cosmetics') loadCosmeticsAndDecorations();
+      if (tab === 'logs') loadLogs();
+    }
+
+    async function refreshData() {
+      loadOverview();
+      if (currentTab === 'players') loadPlayers();
+      if (currentTab === 'drops') loadDrops();
+      if (currentTab === 'logs') loadLogs();
+    }
+
+    async function loadOverview() {
+      try {
+		const res = await adminFetch('/api/admin/overview');
+        const d = await res.json();
+
+        document.getElementById('hdr-online-count').innerText = d.online_count || 0;
+        document.getElementById('card-total-players').innerText = d.total_players || 0;
+        document.getElementById('card-total-accounts').innerText = (d.total_accounts || 0) + ' contas registradas';
+        document.getElementById('card-online-count').innerText = d.online_count || 0;
+        document.getElementById('card-instances-count').innerText = (d.instances ? d.instances.length : 0) + ' instâncias ativas';
+        document.getElementById('card-total-stars').innerText = (d.total_stars || 0).toLocaleString('pt-BR');
+        document.getElementById('card-total-drops').innerText = d.total_drops || 0;
+        document.getElementById('card-xp-mult').innerText = (d.xp_mult || 1.0) + 'x XP';
+        document.getElementById('card-drop-mult').innerText = (d.drop_mult || 1.0) + 'x Drop';
+        document.getElementById('card-events-active-count').innerText = (d.active_events_count || 0) + ' eventos ativos';
+
+        // Live players snippet
+        const tbody = document.getElementById('live-players-tbody');
+        if (d.online_count > 0 && d.players && d.players.length > 0) {
+          tbody.innerHTML = d.players.map(p => `
+            <tr>
+              <td><strong>${p.name}</strong></td>
+              <td>Nv. ${p.level}</td>
+              <td><span class="badge badge-info">${p.map}</span></td>
+              <td><code>(${p.pos[0]}, ${p.pos[2]})</code></td>
+              <td>${p.hp}/${p.max_hp}</td>
+              <td style="color: var(--primary); font-weight: 700;">★ ${p.stars}</td>
+            </tr>
+          `).join('');
+        } else {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-dim); padding: 24px;">Nenhum jogador online no momento.</td></tr>';
+        }
+
+        // Active events snippet
+        const evBox = document.getElementById('active-events-overview');
+        if (d.active_events && d.active_events.length > 0) {
+          evBox.innerHTML = d.active_events.map(ev => `
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 10px;">
+              <div style="font-weight: 700; display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                <span>${ev.icon}</span> <span>${ev.name}</span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">${ev.description}</div>
+              <div style="display: flex; gap: 6px; margin-top: 8px;">
+                <span class="badge badge-warning">${ev.xp_mult}x XP</span>
+                <span class="badge badge-info">${ev.drop_mult}x Drop</span>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          evBox.innerHTML = '<p style="color: var(--text-dim); font-size: 0.85rem; text-align: center; padding: 16px;">Nenhum evento ativo. Acesse a aba "Eventos" para ativar.</p>';
+        }
+	  } catch (e) {
+		console.error(e);
+	  }
+    }
+
+    async function loadPlayers() {
+      try {
+		const res = await adminFetch('/api/admin/players');
+        const d = await res.json();
+        playersCache = d.players || [];
+        filterPlayersTable();
+	  } catch (e) {
+		document.getElementById('all-players-tbody').innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--danger);padding:24px;">' + e.message + '</td></tr>';
+	  }
+    }
+
+    function filterPlayersTable() {
+      const q = (document.getElementById('player-search').value || '').toLowerCase();
+      const statusFilter = document.getElementById('player-filter-status').value;
+      const tbody = document.getElementById('all-players-tbody');
+
+      const filtered = playersCache.filter(p => {
+        const matchName = p.name.toLowerCase().includes(q) || (p.email && p.email.toLowerCase().includes(q));
+        if (!matchName) return false;
+        if (statusFilter === 'online' && !p.is_online) return false;
+        if (statusFilter === 'offline' && p.is_online) return false;
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: var(--text-dim); padding: 24px;">Nenhum jogador encontrado.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(p => `
+        <tr>
+          <td>${p.is_online ? '<span class="badge badge-success">ONLINE</span>' : '<span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">OFFLINE</span>'}</td>
+          <td><strong>${p.name}</strong> <span style="font-size: 0.75rem; color: var(--text-dim);">${p.email}</span></td>
+          <td>Nv. ${p.level}</td>
+          <td style="color: var(--primary); font-weight: 700;">★ ${p.stars.toLocaleString('pt-BR')}</td>
+          <td><span class="badge badge-info">${p.map}</span></td>
+          <td><code>(${p.pos[0]}, ${p.pos[2]})</code></td>
+          <td style="font-size: 0.78rem; color: var(--text-dim);">${p.last_saved || '--'}</td>
+          <td>
+            <button class="btn btn-secondary btn-sm" onclick="viewPlayerDetail('${p.name}')">Detalhes</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function viewPlayerDetail(name) {
+      try {
+		const res = await adminFetch('/api/admin/player-detail?name=' + encodeURIComponent(name));
+        const p = await res.json();
+
+        document.getElementById('modal-player-name').innerText = '👤 ' + p.name + ' (Nv. ' + (p.level || 1) + ')';
+        const body = document.getElementById('modal-player-content');
+
+        const attrs = p.attributes || {};
+        const prog = p.progression || {};
+        const inv = p.inventory || [];
+        const eq = p.equipment || {};
+
+        let invHtml = inv.filter(i => i.item).map(i => `
+          <span class="badge badge-info" style="margin: 2px;">${i.item} x${i.qty || 1}</span>
+        `).join('') || '<span style="color: var(--text-dim);">Inventário vazio</span>';
+
+        let eqHtml = Object.entries(eq).filter(([_, v]) => v.id).map(([k, v]) => `
+          <div style="font-size: 0.8rem;"><strong style="color: var(--text-dim);">${k}:</strong> ${v.id}</div>
+        `).join('') || '<span style="color: var(--text-dim);">Nenhum equipamento</span>';
+
+        body.innerHTML = `
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+            <div style="background: var(--bg-card); padding: 12px; border-radius: 8px;">
+              <h4 style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 8px;">ATRIBUTOS</h4>
+              <div style="font-size: 0.85rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+                <div>STR: <strong>${attrs.str || 0}</strong></div>
+                <div>DEX: <strong>${attrs.dex || 0}</strong></div>
+                <div>VIT: <strong>${attrs.vit || 0}</strong></div>
+                <div>INT: <strong>${attrs.int || 0}</strong></div>
+                <div>SPI: <strong>${attrs.spi || 0}</strong></div>
+                <div>LUK: <strong>${attrs.luk || 0}</strong></div>
+              </div>
+            </div>
+            <div style="background: var(--bg-card); padding: 12px; border-radius: 8px;">
+              <h4 style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 8px;">ESTATÍSTICAS</h4>
+              <div style="font-size: 0.85rem; line-height: 1.6;">
+                <div>Estrelas: <strong style="color: var(--primary);">★ ${p.stars || 0}</strong></div>
+                <div>HP: <strong>${p.hp || 0}</strong> | MP: <strong>${p.mp || 0}</strong></div>
+                <div>Título: <strong>${prog.displayed_title || 'Nenhum'}</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <h4 style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 8px;">EQUIPAMENTO ATUAL</h4>
+            <div style="background: var(--bg-card); padding: 12px; border-radius: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              ${eqHtml}
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 8px;">INVENTÁRIO</h4>
+            <div style="background: var(--bg-card); padding: 12px; border-radius: 8px;">
+              ${invHtml}
+            </div>
+          </div>
+        `;
+
+        document.getElementById('player-modal').style.display = 'flex';
+      } catch (e) {}
+    }
+
+    async function loadDrops() {
+      try {
+		const res = await adminFetch('/api/admin/drops');
+        const d = await res.json();
+        const tbody = document.getElementById('drops-tbody');
+
+        if (!d.drops || d.drops.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-dim); padding: 24px;">Nenhum item dropado no chão no momento.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = d.drops.map(item => `
+          <tr>
+            <td><code>#${item.id}</code></td>
+            <td><strong>${item.item}</strong></td>
+            <td><span class="badge badge-warning">x${item.qty}</span></td>
+            <td><span class="badge badge-info">${item.map}</span></td>
+            <td><code>(${item.pos[0]}, ${item.pos[1]}, ${item.pos[2]})</code></td>
+          </tr>
+        `).join('');
+      } catch (e) {}
+    }
+
+    async function loadItems() {
+      const tbody = document.getElementById('items-tbody');
+      try {
+        const res = await adminFetch('/api/admin/items');
+        const d = await res.json();
+        document.getElementById('items-total').innerText = `${d.total || 0} itens`;
+        tbody.innerHTML = (d.items || []).map(item => {
+          const values = {...(item.Stats || {}), ...(item.UseEffect || {})};
+          const effects = Object.entries(values).map(([key, value]) => `${key}: ${value}`).join(' · ') || (item.WeaponKind !== 'NONE' ? item.WeaponKind : '—');
+          return `<tr><td><code>${item.ID}</code></td><td><strong>${item.Name}</strong><div style="font-size:.72rem;color:var(--text-dim);">${item.Description || ''}</div></td><td>${item.Type}</td><td>${item.Rarity}</td><td>${effects}</td><td>★ ${item.BuyPrice} / ${item.SellPrice}</td><td>${item.Stackable ? item.MaxStack : '—'}</td></tr>`;
+        }).join('');
+      } catch (e) { tbody.innerHTML = `<tr><td colspan="7">${e.message}</td></tr>`; }
+    }
+
+    async function createItem(event) {
+      event.preventDefault();
+      const form = event.currentTarget, status = document.getElementById('item-create-status');
+      status.style.color = 'var(--text-muted)'; status.innerText = 'Criando...';
+      try {
+        const res = await adminFetch('/api/admin/items/create', { method: 'POST', body: new FormData(form) });
+        const d = await res.json();
+        if (!res.ok) throw new Error(d.error || 'Não foi possível criar o item.');
+        status.style.color = 'var(--success)'; status.innerText = d.message;
+        form.reset(); form.elements.tradeable.checked = true; form.elements.max_stack.value = 1; form.elements.buy_price.value = 0; form.elements.sell_price.value = 0; form.elements.stats.value = '{}'; form.elements.use_effect.value = '{}';
+        loadItems();
+      } catch (e) { status.style.color = 'var(--danger)'; status.innerText = e.message; }
+    }
+
+    async function loadEvents() {
+      try {
+		const res = await adminFetch('/api/admin/events');
+        const d = await res.json();
+        const grid = document.getElementById('events-cards-container');
+
+        grid.innerHTML = (d.events || []).map(ev => `
+          <div class="event-card ${ev.active ? 'active' : ''}">
+            <div>
+              <div class="event-card-top">
+                <span class="event-icon">${ev.icon || '🎉'}</span>
+                <label class="switch">
+                  <input type="checkbox" ${ev.active ? 'checked' : ''} onchange="toggleEvent('${ev.id}', this.checked)">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="event-name">${ev.name}</div>
+              <div class="event-desc">${ev.description}</div>
+              ${ev.region ? `<div class="event-desc" style="margin-top: 8px;"><strong>Região:</strong> ${ev.region}${ev.countries?.length ? ` · ${ev.countries.join(', ')}` : ''}${ev.period ? ` · ${ev.period}` : ''}</div>` : ''}
+              ${ev.visual_change ? `<div class="event-desc"><strong>Mudança visual:</strong> ${ev.visual_change}</div>` : ''}
+              <div class="event-perks">
+                <span class="badge badge-warning">⭐ ${ev.xp_mult}x XP</span>
+                <span class="badge badge-info">🎁 ${ev.drop_mult}x Drop</span>
+                ${ev.active ? '<span class="badge badge-success">ATIVO AGORA</span>' : '<span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">INATIVO</span>'}
+              </div>
+            </div>
+            ${ev.announcement ? `<div style="font-size: 0.75rem; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 10px;">📢 <em>"${ev.announcement}"</em></div>` : ''}
+          </div>
+        `).join('');
+      } catch (e) {}
+    }
+
+    async function toggleEvent(eventId, active) {
+	  await adminFetch('/api/admin/events/toggle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event_id: eventId, active })
+      });
+      loadEvents();
+      loadOverview();
+    }
+
+	function openNewEventModal() {
+	  document.getElementById('event-create-error').style.display = 'none';
+	  document.getElementById('event-modal').style.display = 'flex';
+	  setTimeout(() => document.getElementById('event-name').focus(), 0);
+	}
+
+	async function createEvent() {
+	  const name = document.getElementById('event-name').value.trim();
+	  const error = document.getElementById('event-create-error');
+	  const submit = document.getElementById('event-create-submit');
+	  error.style.display = 'none';
+	  if (!name) {
+		error.innerText = 'Informe o nome do evento.';
+		error.style.display = 'block';
+		return;
+	  }
+	  const payload = {
+		name,
+		icon: document.getElementById('event-icon').value.trim() || '🎉',
+		description: document.getElementById('event-description').value.trim(),
+		xp_mult: Number(document.getElementById('event-xp').value),
+		drop_mult: Number(document.getElementById('event-drop').value),
+		announcement: document.getElementById('event-announcement').value.trim(),
+		active: document.getElementById('event-active').checked,
+		decorations: [], cosmetics: []
+	  };
+	  submit.disabled = true;
+	  submit.innerText = 'Criando...';
+	  try {
+		await adminFetch('/api/admin/events/create', {
+		  method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+		});
+		closeModal('event-modal');
+		document.getElementById('event-name').value = '';
+		document.getElementById('event-description').value = '';
+		document.getElementById('event-announcement').value = '';
+		document.getElementById('event-active').checked = false;
+		await loadEvents();
+		loadOverview();
+	  } catch (e) {
+		error.innerText = e.message;
+		error.style.display = 'block';
+	  } finally {
+		submit.disabled = false;
+		submit.innerText = 'Criar evento';
+	  }
+	}
+
+    const decorationLabels = {
+      'bandeirinhas_juninas': { name: 'Bandeirolas Juninas', desc: 'Varal de bandeirolas nos postes e praças coloniais', icon: '🎏' },
+      'fogueira_festiva': { name: 'Fogueira Festiva', desc: 'Grande fogueira no centro de Porto do Despertar', icon: '🔥' },
+      'lanternas_folcloricas': { name: 'Lanternas Noturnas', desc: 'Lanternas mágicas flutuantes ao anoitecer', icon: '🏮' },
+      'petalas_ipe': { name: 'Chuva de Pétalas de Ipê', desc: 'Pétalas amarelas e roxas caindo suavemente nas vilas', icon: '🌸' },
+      'tochas_misticas': { name: 'Tochas Místicas', desc: 'Tochas com chamas azuis nas trilhas noturnas', icon: '🕯️' },
+      'luzes_festivas': { name: 'Luzes de Fim de Ano', desc: 'Iluminação nas fachadas das casas coloniais', icon: '✨' },
+      'arcos_florais': { name: 'Arcos Florais', desc: 'Arcos cobertos de flores nas entradas das vilas', icon: '🌺' },
+      'arvore_enfeitada': { name: 'Árvore Enfeitada', desc: 'Árvore festiva nas praças principais', icon: '🎄' },
+      'totem_curupira': { name: 'Totens do Curupira', desc: 'Marcos protetores nas trilhas da mata', icon: '🌿' },
+      'neblina_estelar': { name: 'Neblina Estelar', desc: 'Névoa brilhante durante a noite', icon: '🌌' }
+    };
+
+    const cosmeticLabels = {
+      'straw_hat': { name: 'Chapéu de Palha Junino', slot: 'Head', icon: '👒' },
+      'red_cap': { name: 'Carapuça do Saci', slot: 'Head', icon: '🧢' },
+      'ipe_flower_crown': { name: 'Coroa Floral de Ipê', slot: 'Head', icon: '👑' },
+      'silver_moon_circlet': { name: 'Diadema da Lua Prateada', slot: 'Head', icon: '🌙' },
+      'silver_hunter_hat': { name: 'Chapéu do Caçador Estelar', slot: 'Head', icon: '🎩' },
+      'cosmetic_bumbah_mask': { name: 'Máscara Boi-Bumbá', slot: 'Head', icon: '🎭' },
+      'cosmetic_golden_sash': { name: 'Faixa Festiva Dourada', slot: 'Body', icon: '🎗️' },
+      'ipe_circlet': { name: 'Diadema de Ipê', slot: 'Head', icon: '🌼' },
+      'cosmetic_traje_caipira': { name: 'Traje Junino', slot: 'Body', icon: '👕' },
+      'cosmetic_gorro_festivo': { name: 'Gorro Festivo', slot: 'Head', icon: '🎅' }
+    };
+
+    function catalogLabel(id) {
+      return id.replace(/^cosmetic_/, '').split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
+    }
+
+    async function loadCosmeticsAndDecorations() {
+      try {
+		const res = await adminFetch('/api/admin/events');
+        const d = await res.json();
+
+        // Decorations
+        const decGrid = document.getElementById('decorations-container');
+        const decs = d.active_decorations || {};
+        const allDecorations = [...new Set([...Object.keys(decorationLabels), ...Object.keys(decs)])];
+        decGrid.innerHTML = allDecorations.map(id => {
+          const meta = decorationLabels[id] || { name: catalogLabel(id), desc: 'Mudança visual preparada para um evento futuro', icon: '✨' };
+          const active = !!decs[id];
+          return `
+            <div class="event-card ${active ? 'active' : ''}">
+              <div class="event-card-top">
+                <span class="event-icon">${meta.icon}</span>
+                <label class="switch">
+                  <input type="checkbox" ${active ? 'checked' : ''} onchange="toggleDecoration('${id}', this.checked)">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="event-name">${meta.name}</div>
+              <div class="event-desc">${meta.desc}</div>
+              <div>${active ? '<span class="badge badge-success">ENFEITE VISÍVEL</span>' : '<span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">DESATIVADO</span>'}</div>
+            </div>
+          `;
+        }).join('');
+
+        // Cosmetics
+        const cosGrid = document.getElementById('cosmetics-container');
+        const cos = d.active_cosmetics || {};
+        const allCosmetics = [...new Set([...Object.keys(cosmeticLabels), ...Object.keys(cos)])];
+        cosGrid.innerHTML = allCosmetics.map(id => {
+          const meta = cosmeticLabels[id] || { name: catalogLabel(id), slot: 'Cosmético', icon: '🎨' };
+          const active = !!cos[id];
+          return `
+            <div class="event-card ${active ? 'active' : ''}">
+              <div class="event-card-top">
+                <span class="event-icon">${meta.icon}</span>
+                <label class="switch">
+                  <input type="checkbox" ${active ? 'checked' : ''} onchange="toggleCosmetic('${id}', this.checked)">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="event-name">${meta.name}</div>
+              <div class="event-desc">Slot Cosmético: <strong>${meta.slot}</strong></div>
+              <div>${active ? '<span class="badge badge-purple">COSMÉTICO LIBERADO</span>' : '<span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">BLOQUEADO</span>'}</div>
+            </div>
+          `;
+        }).join('');
+      } catch (e) {}
+    }
+
+    async function toggleDecoration(id, active) {
+	  await adminFetch('/api/admin/decorations/toggle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ decoration_id: id, active })
+      });
+      loadCosmeticsAndDecorations();
+    }
+
+    async function toggleCosmetic(id, active) {
+	  await adminFetch('/api/admin/cosmetics/toggle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cosmetic_id: id, active })
+      });
+      loadCosmeticsAndDecorations();
+    }
+
+    async function sendBroadcast() {
+      const msg = document.getElementById('input-broadcast').value;
+      if (!msg.trim()) return;
+	  await adminFetch('/api/admin/broadcast', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      });
+      document.getElementById('input-broadcast').value = '';
+      alert('Mensagem enviada para transmissão no servidor!');
+    }
+
+    async function loadLogs() {
+      try {
+		const res = await adminFetch('/api/admin/logs');
+        const d = await res.json();
+        const box = document.getElementById('server-logs-box');
+        box.innerText = (d.logs || []).join('\n');
+        box.scrollTop = box.scrollHeight;
+	  } catch (e) {
+		document.getElementById('server-logs-box').innerText = 'Erro: ' + e.message;
+	  }
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+</body>
+</html>

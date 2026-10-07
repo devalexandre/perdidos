@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://test_city_of_z_arch_001"]
+
+[ext_resource type="Script" path="res://tests/world/test_city_of_z_architecture.gd" id="1_test"]
+
+[node name="TestCityOfZArchitecture" type="Node"]
+script = ExtResource("1_test")

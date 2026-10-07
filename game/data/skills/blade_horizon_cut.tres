@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_svsy1"]
+
+[resource]
+script = ExtResource("1_svsy1")
+id = &"blade_horizon_cut"
+name_key = "SKILL_BLADE_HORIZON_CUT_NAME"
+desc_key = "SKILL_BLADE_HORIZON_CUT_DESC"
+school = &"blade"
+target_type = 4
+mana_cost = 40
+cooldown_sec = 20.0
+cast_time_sec = 0.6
+range_cells = 0.0
+line_length_cells = 12.0
+line_width_cells = 2.0
+base_multiplier = 3.2
+multiplier_per_level = 0.25
+requires_melee_weapon = true
+vfx = &"slash"
+icon_text = "CH"
+tree_title = &"sabia_blade_jaguar"
+tree_order = 1
+exclusive_to_title = &"sabia_blade_machete"

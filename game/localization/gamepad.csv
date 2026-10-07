@@ -1,0 +1,35 @@
+keys,pt_BR
+PAD_HINT_ACT,Agir
+PAD_HINT_BACK,Voltar
+PAD_HINT_SLOTS_12,Atalhos 1–2
+PAD_HINT_SLOTS_MORE,+ botão: 3–0
+PAD_HINT_TARGET,Alvo
+PAD_HINT_MENU,Menu
+PAD_HINT_MAP,Mapa
+PAD_HINT_NAVIGATE,Navegar
+PAD_HINT_CHOOSE,Escolher
+PAD_HINT_AIM,Mirar
+PAD_HINT_CAST,Lançar
+PAD_HINT_CANCEL,Cancelar
+PAD_HINT_TABS,Abas
+PAD_HINT_RANDOM,Aleatório
+PAD_HINT_ROTATE,Girar
+PAD_HINT_PLAY,Jogar
+UI_PAD_HELP,Controle
+UI_PAD_HELP_SHOW,Ver botões
+UI_PAD_HELP_TEXT,"Analógico esquerdo / D-pad: andar (no menu: navegar)
+A: agir — ataca o alvo, pega item, conversa com NPC, usa portal/altar ou trava o monstro mais perto (no menu: escolher)
+B: voltar — fecha menu/janela/diálogo, cancela a mira, solta o alvo
+X / Y: atalhos 1 e 2
+RT segurado + X / Y / B / A: atalhos 3, 4, 5, 6
+LT segurado + X / Y / B / A: atalhos 7, 8, 9, 0
+LB / RB: alvo anterior / próximo — R3: trava ou solta o mais perto
+L3: poção rápida — analógico direito: girar câmera e zoom
+Start: menu — Select: mapa
+Skill de área: analógico esquerdo mira, A lança, B cancela
+Com o controle em uso os botões de toque somem; toque na tela para trazê-los de volta."
+UI_PAD_STATUS_VERSION,Versão do jogo: %s
+UI_PAD_STATUS_NONE,Nenhum controle detectado pelo jogo.
+UI_PAD_STATUS_CONNECTED,Controle detectado: %s
+UI_PAD_STATUS_WAIT,Mova o analógico ou pressione um botão para testar.
+UI_PAD_STATUS_EVENT,Último comando recebido: %s

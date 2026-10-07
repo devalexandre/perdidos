@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_painted_2s.gdshader" id="1_44gx4"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_roof_canal.png" id="2_4k2xt"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="3_j5s2a"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_44gx4")
+shader_parameter/albedo_tex = ExtResource("2_4k2xt")
+shader_parameter/tint = Color(0.55, 0.56, 0.64, 1)
+shader_parameter/triplanar = null
+shader_parameter/tile_m = null
+shader_parameter/uv_scale = Vector2(0.5128205, 0.5128205)
+shader_parameter/use_vertex_ao = null
+shader_parameter/top_amount = null
+shader_parameter/top_sharpness = null
+shader_parameter/top_tile_m = null
+shader_parameter/top_tint = null
+shader_parameter/grime_height = null
+shader_parameter/base_y = null
+shader_parameter/grime_color = null
+shader_parameter/tex_noise = ExtResource("3_j5s2a")
+shader_parameter/macro_strength = null
+shader_parameter/roughness = null
+shader_parameter/detail = null
+shader_parameter/use_instance_tint = null

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"bow_taut_draw"
+name_key = "SKILL_BOW_TAUT_DRAW_NAME"
+desc_key = "SKILL_BOW_TAUT_DRAW_DESC"
+school = &"bow"
+region_id = &"brasil"
+mana_cost = 16
+cooldown_sec = 10.0
+cast_time_sec = 1.0
+range_cells = 12.0
+base_multiplier = 2.5
+multiplier_per_level = 0.18
+requires_bow = true
+vfx = &"arrow"
+icon_text = "AT"
+tree_title = &"sabia_bow_cerrado"
+tree_order = 3
+required_skill_levels = Dictionary[StringName, int]({
+&"bow_low_shot": 3
+})

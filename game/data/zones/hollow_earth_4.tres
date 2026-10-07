@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+
+[resource]
+script = ExtResource("zone")
+map_id = &"hollow_earth_4"
+kind = 2
+name_key = "ZONE_HOLLOW_EARTH_4_NAME"
+region_id = &"sabia"
+recommended_level_min = 50
+recommended_level_max = 56
+combat_allowed = true
+grave_on_death = true
+monster_stage_cap = 3
+bosses_allowed = false
+connected_maps = Array[StringName]([&"hollow_earth_3", &"hollow_earth_5"])
+mount_allowed = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+
+[resource]
+script = ExtResource("zone")
+map_id = &"cave_reino_encoberto_2"
+kind = 2
+name_key = "WA_CAVE_REINO_ENCOBERTO_2"
+region_id = &"sabia"
+recommended_level_min = 16
+recommended_level_max = 20
+monster_stage_cap = 2
+bosses_allowed = false
+connected_maps = Array[StringName]([&"cave_reino_encoberto", &"cave_reino_encoberto_3"])
+mount_allowed = false

@@ -1,0 +1,2137 @@
+[gd_scene load_steps=157 format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/cave_level.gd" id="cave"]
+[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_ground_gravel.tres" id="gravel"]
+[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_rock.tres" id="rock_mat"]
+[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_rock_moss.tres" id="moss"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/rock_moss_a.res" id="rock"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/crystal_cluster.res" id="crystal"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/fern.res" id="fern"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pk_mushroom.res" id="mushroom"]
+
+[sub_resource type="Environment" id="environment"]
+background_mode = 1
+background_color = Color(0.008, 0.016, 0.027, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.38, 0.57, 0.7, 1)
+ambient_light_energy = 0.605
+fog_enabled = true
+fog_light_color = Color(0.025, 0.06, 0.08, 1)
+fog_density = 0.002
+
+[sub_resource type="BoxMesh" id="floor_0"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_0_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_1"]
+size = Vector3(12, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_1_shape"]
+size = Vector3(12, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_2"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_2_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_3"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_3_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_4"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_4_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_5"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_5_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_6"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_6_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_7"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_7_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_8"]
+size = Vector3(64, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_8_shape"]
+size = Vector3(64, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_9"]
+size = Vector3(28, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_9_shape"]
+size = Vector3(28, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_10"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_10_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_11"]
+size = Vector3(28, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_11_shape"]
+size = Vector3(28, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_12"]
+size = Vector3(26, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_12_shape"]
+size = Vector3(26, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_13"]
+size = Vector3(26, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_13_shape"]
+size = Vector3(26, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_14"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_14_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_15"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_15_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_16"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_16_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_17"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_17_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_18"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_18_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_19"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_19_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_20"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_20_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_21"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_21_shape"]
+size = Vector3(24, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_22"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_22_shape"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_23"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_23_shape"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_24"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_24_shape"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_25"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_25_shape"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_26"]
+size = Vector3(64, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_26_shape"]
+size = Vector3(64, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_27"]
+size = Vector3(56, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_27_shape"]
+size = Vector3(56, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_28"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_28_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_29"]
+size = Vector3(32, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_29_shape"]
+size = Vector3(32, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_30"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_30_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_31"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_31_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_32"]
+size = Vector3(28, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_32_shape"]
+size = Vector3(28, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_33"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_33_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_34"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_34_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_35"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_35_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_36"]
+size = Vector3(12, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_36_shape"]
+size = Vector3(12, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_37"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_37_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_38"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_38_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_39"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_39_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_40"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_40_shape"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_41"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_41_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_42"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_42_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_43"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_43_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_44"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_44_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_45"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_45_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_46"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_46_shape"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_47"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_47_shape"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_48"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_48_shape"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_49"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_49_shape"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_50"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_50_shape"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_51"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_51_shape"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_52"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_52_shape"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_53"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_53_shape"]
+size = Vector3(6, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_54"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_54_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_55"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_55_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_56"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_56_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_57"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_57_shape"]
+size = Vector3(8, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_58"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_58_shape"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_59"]
+size = Vector3(18, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_59_shape"]
+size = Vector3(18, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_60"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_60_shape"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_61"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_61_shape"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_62"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_62_shape"]
+size = Vector3(22, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_63"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_63_shape"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_64"]
+size = Vector3(28, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_64_shape"]
+size = Vector3(28, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_65"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_65_shape"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_66"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_66_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_67"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_67_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_68"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_68_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_69"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_69_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_70"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_70_shape"]
+size = Vector3(16, 3, 2)
+
+[sub_resource type="BoxMesh" id="floor_71"]
+size = Vector3(12, 3, 2)
+
+[sub_resource type="BoxShape3D" id="floor_71_shape"]
+size = Vector3(12, 3, 2)
+
+[sub_resource type="NavigationMesh" id="nav"]
+cell_size = 0.2
+cell_height = 0.2
+vertices = PackedVector3Array(-36, 0, -20, -36, 0, -18, -34, 0, -18, -34, 0, -20, -36, 0, -16, -34, 0, -16, -36, 0, -14, -34, 0, -14, -36, 0, -12, -34, 0, -12, -34, 0, -24, -34, 0, -22, -32, 0, -22, -32, 0, -24, -32, 0, -20, -32, 0, -18, -32, 0, -16, -32, 0, -14, -32, 0, -12, -34, 0, -10, -32, 0, -10, -34, 0, -8, -32, 0, -8, -32, 0, -26, -30, 0, -24, -30, 0, -26, -30, 0, -22, -30, 0, -20, -30, 0, -18, -30, 0, -16, -30, 0, -14, -30, 0, -12, -30, 0, -10, -30, 0, -8, -32, 0, -6, -30, 0, -6, -28, 0, -24, -28, 0, -26, -28, 0, -22, -28, 0, -20, -28, 0, -18, -28, 0, -16, -28, 0, -14, -28, 0, -12, -28, 0, -10, -28, 0, -8, -28, 0, -6, -30, 0, 6, -30, 0, 8, -28, 0, 8, -28, 0, 6, -30, 0, 10, -28, 0, 10, -30, 0, 12, -28, 0, 12, -30, 0, 14, -28, 0, 14, -30, 0, 16, -28, 0, 16, -30, 0, 18, -28, 0, 18, -28, 0, -28, -26, 0, -26, -26, 0, -28, -26, 0, -24, -26, 0, -22, -26, 0, -20, -26, 0, -18, -26, 0, -16, -26, 0, -14, -26, 0, -12, -26, 0, -10, -26, 0, -8, -26, 0, -6, -28, 0, -4, -26, 0, -4, -28, 0, 4, -26, 0, 6, -26, 0, 4, -26, 0, 8, -26, 0, 10, -26, 0, 12, -26, 0, 14, -26, 0, 16, -26, 0, 18, -28, 0, 20, -26, 0, 20, -24, 0, -26, -24, 0, -28, -24, 0, -24, -24, 0, -22, -24, 0, -20, -24, 0, -18, -24, 0, -16, -24, 0, -14, -24, 0, -12, -24, 0, -10, -24, 0, -8, -24, 0, -6, -24, 0, -4, -26, 0, -2, -24, 0, -2, -26, 0, 0, -24, 0, 0, -26, 0, 2, -24, 0, 2, -24, 0, 4, -24, 0, 6, -24, 0, 8, -24, 0, 10, -24, 0, 12, -24, 0, 14, -24, 0, 16, -24, 0, 18, -24, 0, 20, -26, 0, 22, -24, 0, 22, -22, 0, -26, -22, 0, -28, -22, 0, -24, -22, 0, -22, -22, 0, -20, -22, 0, -18, -22, 0, -16, -22, 0, -14, -22, 0, -12, -22, 0, -10, -22, 0, -8, -22, 0, -6, -22, 0, -4, -22, 0, -2, -22, 0, 0, -22, 0, 2, -22, 0, 4, -22, 0, 6, -22, 0, 8, -22, 0, 10, -22, 0, 16, -22, 0, 14, -22, 0, 18, -22, 0, 20, -22, 0, 22, -20, 0, -26, -20, 0, -28, -20, 0, -24, -20, 0, -22, -20, 0, -20, -20, 0, -18, -20, 0, -16, -20, 0, -14, -20, 0, -12, -20, 0, -10, -20, 0, -8, -20, 0, -6, -20, 0, -4, -20, 0, -2, -20, 0, 0, -20, 0, 2, -20, 0, 4, -20, 0, 6, -20, 0, 8, -20, 0, 18, -20, 0, 16, -20, 0, 20, -20, 0, 22, -18, 0, -24, -18, 0, -26, -18, 0, -22, -18, 0, -20, -18, 0, -18, -18, 0, -16, -18, 0, -14, -18, 0, -12, -18, 0, -10, -18, 0, -8, -18, 0, -6, -18, 0, -4, -18, 0, -2, -18, 0, 0, -18, 0, 2, -18, 0, 4, -18, 0, 6, -18, 0, 8, -18, 0, 18, -18, 0, 16, -18, 0, 20, -18, 0, 22, -16, 0, -24, -16, 0, -26, -16, 0, -22, -16, 0, -20, -16, 0, -18, -16, 0, -16, -16, 0, -14, -16, 0, -12, -16, 0, -10, -16, 0, -8, -16, 0, -6, -16, 0, -4, -16, 0, 4, -16, 0, 2, -16, 0, 6, -16, 0, 8, -18, 0, 10, -16, 0, 10, -18, 0, 14, -16, 0, 16, -16, 0, 14, -16, 0, 18, -16, 0, 20, -16, 0, 22, -14, 0, -24, -14, 0, -26, -14, 0, -22, -14, 0, -20, -14, 0, -18, -14, 0, -16, -14, 0, -14, -14, 0, -12, -14, 0, -10, -14, 0, -8, -14, 0, -6, -14, 0, -4, -16, 0, -2, -14, 0, -2, -14, 0, 4, -14, 0, 2, -14, 0, 6, -14, 0, 8, -14, 0, 10, -16, 0, 12, -14, 0, 12, -14, 0, 14, -14, 0, 16, -14, 0, 18, -14, 0, 20, -14, 0, 22, -12, 0, -24, -12, 0, -26, -12, 0, -22, -12, 0, -20, -12, 0, -18, -12, 0, -16, -12, 0, -14, -12, 0, -12, -12, 0, -8, -12, 0, -10, -12, 0, -6, -12, 0, -4, -12, 0, -2, -14, 0, 0, -12, 0, 0, -12, 0, 6, -12, 0, 4, -12, 0, 8, -12, 0, 10, -12, 0, 12, -12, 0, 14, -12, 0, 16, -12, 0, 18, -12, 0, 20, -12, 0, 22, -14, 0, 24, -12, 0, 24, -12, 0, -28, -10, 0, -26, -10, 0, -28, -10, 0, -24, -10, 0, -22, -10, 0, -20, -10, 0, -6, -10, 0, -8, -10, 0, -4, -10, 0, -2, -10, 0, 0, -10, 0, 8, -10, 0, 6, -10, 0, 10, -10, 0, 12, -10, 0, 14, -10, 0, 16, -10, 0, 18, -10, 0, 20, -10, 0, 22, -10, 0, 24, -8, 0, -26, -8, 0, -28, -8, 0, -24, -8, 0, -22, -8, 0, -20, -8, 0, -6, -8, 0, -8, -8, 0, -4, -8, 0, -2, -8, 0, 0, -8, 0, 20, -8, 0, 18, -8, 0, 22, -8, 0, 24, -10, 0, 26, -8, 0, 26, -8, 0, -34, -8, 0, -32, -6, 0, -32, -6, 0, -34, -8, 0, -30, -6, 0, -30, -6, 0, -28, -6, 0, -26, -6, 0, -24, -6, 0, -22, -6, 0, -6, -6, 0, -8, -6, 0, -4, -6, 0, -2, -6, 0, 0, -6, 0, 20, -6, 0, 18, -6, 0, 22, -6, 0, 24, -6, 0, 26, -8, 0, 28, -6, 0, 28, -8, 0, 30, -6, 0, 30, -8, 0, 32, -6, 0, 32, -8, 0, 34, -6, 0, 34, -8, 0, 36, -6, 0, 36, -6, 0, -36, -4, 0, -34, -4, 0, -36, -4, 0, -32, -4, 0, -30, -4, 0, -28, -4, 0, -26, -4, 0, -24, -4, 0, -6, -4, 0, -8, -4, 0, -4, -4, 0, -2, -4, 0, 0, -4, 0, 22, -4, 0, 20, -4, 0, 24, -4, 0, 26, -4, 0, 28, -4, 0, 30, -4, 0, 32, -4, 0, 34, -4, 0, 36, -6, 0, 38, -4, 0, 38, -4, 0, -38, -2, 0, -36, -2, 0, -38, -2, 0, -34, -2, 0, -32, -2, 0, -30, -2, 0, -28, -2, 0, -26, -2, 0, -24, -4, 0, -22, -2, 0, -22, -2, 0, -6, -2, 0, -8, -2, 0, -4, -2, 0, -2, -2, 0, 0, -2, 0, 24, -2, 0, 22, -2, 0, 26, -2, 0, 28, -2, 0, 30, -2, 0, 32, -2, 0, 34, -2, 0, 36, -2, 0, 38, 0, 0, -36, 0, 0, -38, 0, 0, -34, 0, 0, -32, 0, 0, -30, 0, 0, -28, 0, 0, -26, 0, 0, -24, 0, 0, -22, 0, 0, -6, 0, 0, -8, 0, 0, -4, 0, 0, -2, 0, 0, 0, 0, 0, 24, 0, 0, 22, 0, 0, 26, 0, 0, 28, 0, 0, 30, 0, 0, 32, 0, 0, 34, 0, 0, 36, 0, 0, 38, 2, 0, -36, 2, 0, -38, 2, 0, -34, 2, 0, -32, 2, 0, -30, 2, 0, -28, 2, 0, -26, 2, 0, -24, 2, 0, -22, 2, 0, -6, 2, 0, -8, 2, 0, -4, 2, 0, -2, 2, 0, 0, 2, 0, 24, 2, 0, 22, 2, 0, 26, 2, 0, 28, 2, 0, 30, 2, 0, 32, 2, 0, 34, 2, 0, 36, 2, 0, 38, 4, 0, -36, 4, 0, -38, 4, 0, -34, 4, 0, -32, 4, 0, -30, 4, 0, -28, 4, 0, -26, 4, 0, -24, 4, 0, -22, 4, 0, -6, 4, 0, -8, 4, 0, -4, 4, 0, -2, 4, 0, 0, 4, 0, 24, 4, 0, 22, 4, 0, 26, 4, 0, 28, 4, 0, 30, 4, 0, 32, 4, 0, 34, 4, 0, 36, 4, 0, 38, 6, 0, -34, 6, 0, -36, 6, 0, -32, 6, 0, -30, 6, 0, -28, 6, 0, -26, 6, 0, -24, 6, 0, -6, 6, 0, -8, 6, 0, -4, 6, 0, -2, 6, 0, 0, 4, 0, 20, 6, 0, 22, 6, 0, 20, 6, 0, 24, 6, 0, 26, 6, 0, 28, 6, 0, 30, 6, 0, 32, 6, 0, 34, 6, 0, 36, 6, 0, 38, 8, 0, -32, 8, 0, -34, 8, 0, -30, 8, 0, -28, 8, 0, -26, 8, 0, -24, 6, 0, -22, 8, 0, -22, 8, 0, -6, 8, 0, -8, 8, 0, -4, 8, 0, -2, 8, 0, 0, 6, 0, 18, 8, 0, 20, 8, 0, 18, 8, 0, 22, 8, 0, 24, 8, 0, 26, 8, 0, 28, 8, 0, 30, 8, 0, 32, 8, 0, 34, 8, 0, 36, 10, 0, -26, 10, 0, -28, 10, 0, -24, 10, 0, -22, 8, 0, -20, 10, 0, -20, 10, 0, -6, 10, 0, -8, 10, 0, -4, 10, 0, -2, 10, 0, 0, 10, 0, 20, 10, 0, 18, 10, 0, 22, 10, 0, 24, 10, 0, 26, 12, 0, -26, 12, 0, -28, 12, 0, -24, 12, 0, -22, 12, 0, -20, 12, 0, -6, 12, 0, -8, 12, 0, -4, 12, 0, -2, 12, 0, 0, 10, 0, 8, 10, 0, 10, 12, 0, 10, 12, 0, 8, 10, 0, 12, 12, 0, 12, 10, 0, 14, 12, 0, 14, 10, 0, 16, 12, 0, 16, 12, 0, 18, 12, 0, 20, 12, 0, 22, 12, 0, 24, 14, 0, -24, 14, 0, -26, 14, 0, -22, 14, 0, -20, 12, 0, -18, 14, 0, -18, 12, 0, -16, 14, 0, -16, 12, 0, -14, 14, 0, -14, 12, 0, -12, 14, 0, -12, 12, 0, -10, 14, 0, -8, 14, 0, -10, 14, 0, -6, 14, 0, -4, 14, 0, -2, 14, 0, 0, 12, 0, 4, 12, 0, 6, 14, 0, 6, 14, 0, 4, 14, 0, 8, 14, 0, 10, 14, 0, 12, 14, 0, 14, 14, 0, 16, 14, 0, 18, 14, 0, 20, 14, 0, 22, 14, 0, 24, 16, 0, -24, 16, 0, -26, 16, 0, -22, 16, 0, -20, 16, 0, -18, 16, 0, -16, 16, 0, -14, 16, 0, -12, 16, 0, -10, 16, 0, -8, 16, 0, -6, 16, 0, -4, 16, 0, -2, 16, 0, 6, 16, 0, 4, 16, 0, 8, 16, 0, 10, 16, 0, 12, 16, 0, 14, 16, 0, 16, 16, 0, 18, 16, 0, 20, 16, 0, 22, 18, 0, -24, 18, 0, -26, 18, 0, -22, 18, 0, -20, 18, 0, -18, 18, 0, -16, 18, 0, -14, 18, 0, -12, 18, 0, -10, 18, 0, -8, 18, 0, -6, 18, 0, -4, 16, 0, 2, 18, 0, 4, 18, 0, 2, 18, 0, 6, 18, 0, 8, 18, 0, 10, 18, 0, 16, 18, 0, 14, 18, 0, 18, 18, 0, 20, 18, 0, 22, 20, 0, -24, 20, 0, -26, 20, 0, -22, 20, 0, -20, 20, 0, -18, 20, 0, -16, 20, 0, -14, 20, 0, -12, 20, 0, -10, 20, 0, -8, 20, 0, -6, 20, 0, -4, 18, 0, -2, 20, 0, -2, 18, 0, 0, 20, 0, 0, 20, 0, 2, 20, 0, 4, 20, 0, 6, 20, 0, 8, 20, 0, 18, 20, 0, 16, 20, 0, 20, 20, 0, 22, 20, 0, -28, 22, 0, -26, 22, 0, -28, 22, 0, -24, 22, 0, -22, 22, 0, -20, 22, 0, -18, 22, 0, -16, 22, 0, -14, 22, 0, -12, 22, 0, -10, 22, 0, -8, 22, 0, -6, 22, 0, -4, 22, 0, -2, 22, 0, 0, 22, 0, 2, 22, 0, 4, 22, 0, 6, 22, 0, 8, 22, 0, 18, 22, 0, 16, 22, 0, 20, 22, 0, 22, 24, 0, -26, 24, 0, -28, 24, 0, -24, 24, 0, -22, 24, 0, -20, 24, 0, -18, 24, 0, -16, 24, 0, -14, 24, 0, -12, 24, 0, -10, 24, 0, -8, 24, 0, -6, 24, 0, -4, 24, 0, -2, 24, 0, 0, 24, 0, 2, 24, 0, 4, 24, 0, 6, 24, 0, 8, 22, 0, 10, 24, 0, 10, 22, 0, 14, 24, 0, 16, 24, 0, 14, 24, 0, 18, 24, 0, 20, 24, 0, 22, 26, 0, -26, 26, 0, -28, 26, 0, -24, 26, 0, -22, 26, 0, -20, 26, 0, -18, 26, 0, -16, 26, 0, -14, 26, 0, -12, 26, 0, -10, 26, 0, -8, 26, 0, -6, 26, 0, -4, 26, 0, -2, 26, 0, 0, 26, 0, 2, 26, 0, 6, 26, 0, 4, 26, 0, 8, 26, 0, 10, 24, 0, 12, 26, 0, 12, 26, 0, 14, 26, 0, 16, 26, 0, 18, 26, 0, 20, 28, 0, -26, 28, 0, -28, 28, 0, -24, 28, 0, -22, 28, 0, -20, 28, 0, -18, 28, 0, -16, 28, 0, -14, 28, 0, -12, 28, 0, -10, 28, 0, -8, 28, 0, -6, 28, 0, -4, 28, 0, 6, 28, 0, 4, 28, 0, 8, 28, 0, 10, 28, 0, 12, 28, 0, 14, 28, 0, 16, 28, 0, 18, 28, 0, 20, 30, 0, -24, 30, 0, -26, 30, 0, -22, 30, 0, -20, 30, 0, -18, 30, 0, -16, 30, 0, -14, 30, 0, -12, 30, 0, -10, 30, 0, -8, 30, 0, -6, 30, 0, 10, 30, 0, 8, 30, 0, 12, 30, 0, 14, 30, 0, 16, 32, 0, -24, 32, 0, -26, 32, 0, -22, 32, 0, -20, 32, 0, -18, 32, 0, -16, 32, 0, -14, 32, 0, -12, 32, 0, -10, 32, 0, -8, 32, 0, -6, 34, 0, -22, 34, 0, -24, 34, 0, -20, 34, 0, -18, 34, 0, -16, 34, 0, -14, 34, 0, -12, 34, 0, -10, 34, 0, -8, 36, 0, -18, 36, 0, -20, 36, 0, -16, 36, 0, -14, 36, 0, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 4, 5, 2), PackedInt32Array(4, 6, 7, 5), PackedInt32Array(6, 8, 9, 7), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(11, 3, 14, 12), PackedInt32Array(3, 2, 15, 14), PackedInt32Array(2, 5, 16, 15), PackedInt32Array(5, 7, 17, 16), PackedInt32Array(7, 9, 18, 17), PackedInt32Array(9, 19, 20, 18), PackedInt32Array(19, 21, 22, 20), PackedInt32Array(23, 13, 24, 25), PackedInt32Array(13, 12, 26, 24), PackedInt32Array(12, 14, 27, 26), PackedInt32Array(14, 15, 28, 27), PackedInt32Array(15, 16, 29, 28), PackedInt32Array(16, 17, 30, 29), PackedInt32Array(17, 18, 31, 30), PackedInt32Array(18, 20, 32, 31), PackedInt32Array(20, 22, 33, 32), PackedInt32Array(22, 34, 35, 33), PackedInt32Array(25, 24, 36, 37), PackedInt32Array(24, 26, 38, 36), PackedInt32Array(26, 27, 39, 38), PackedInt32Array(27, 28, 40, 39), PackedInt32Array(28, 29, 41, 40), PackedInt32Array(29, 30, 42, 41), PackedInt32Array(30, 31, 43, 42), PackedInt32Array(31, 32, 44, 43), PackedInt32Array(32, 33, 45, 44), PackedInt32Array(33, 35, 46, 45), PackedInt32Array(47, 48, 49, 50), PackedInt32Array(48, 51, 52, 49), PackedInt32Array(51, 53, 54, 52), PackedInt32Array(53, 55, 56, 54), PackedInt32Array(55, 57, 58, 56), PackedInt32Array(57, 59, 60, 58), PackedInt32Array(61, 37, 62, 63), PackedInt32Array(37, 36, 64, 62), PackedInt32Array(36, 38, 65, 64), PackedInt32Array(38, 39, 66, 65), PackedInt32Array(39, 40, 67, 66), PackedInt32Array(40, 41, 68, 67), PackedInt32Array(41, 42, 69, 68), PackedInt32Array(42, 43, 70, 69), PackedInt32Array(43, 44, 71, 70), PackedInt32Array(44, 45, 72, 71), PackedInt32Array(45, 46, 73, 72), PackedInt32Array(46, 74, 75, 73), PackedInt32Array(76, 50, 77, 78), PackedInt32Array(50, 49, 79, 77), PackedInt32Array(49, 52, 80, 79), PackedInt32Array(52, 54, 81, 80), PackedInt32Array(54, 56, 82, 81), PackedInt32Array(56, 58, 83, 82), PackedInt32Array(58, 60, 84, 83), PackedInt32Array(60, 85, 86, 84), PackedInt32Array(63, 62, 87, 88), PackedInt32Array(62, 64, 89, 87), PackedInt32Array(64, 65, 90, 89), PackedInt32Array(65, 66, 91, 90), PackedInt32Array(66, 67, 92, 91), PackedInt32Array(67, 68, 93, 92), PackedInt32Array(68, 69, 94, 93), PackedInt32Array(69, 70, 95, 94), PackedInt32Array(70, 71, 96, 95), PackedInt32Array(71, 72, 97, 96), PackedInt32Array(72, 73, 98, 97), PackedInt32Array(73, 75, 99, 98), PackedInt32Array(75, 100, 101, 99), PackedInt32Array(100, 102, 103, 101), PackedInt32Array(102, 104, 105, 103), PackedInt32Array(104, 78, 106, 105), PackedInt32Array(78, 77, 107, 106), PackedInt32Array(77, 79, 108, 107), PackedInt32Array(79, 80, 109, 108), PackedInt32Array(80, 81, 110, 109), PackedInt32Array(81, 82, 111, 110), PackedInt32Array(82, 83, 112, 111), PackedInt32Array(83, 84, 113, 112), PackedInt32Array(84, 86, 114, 113), PackedInt32Array(86, 115, 116, 114), PackedInt32Array(88, 87, 117, 118), PackedInt32Array(87, 89, 119, 117), PackedInt32Array(89, 90, 120, 119), PackedInt32Array(90, 91, 121, 120), PackedInt32Array(91, 92, 122, 121), PackedInt32Array(92, 93, 123, 122), PackedInt32Array(93, 94, 124, 123), PackedInt32Array(94, 95, 125, 124), PackedInt32Array(95, 96, 126, 125), PackedInt32Array(96, 97, 127, 126), PackedInt32Array(97, 98, 128, 127), PackedInt32Array(98, 99, 129, 128), PackedInt32Array(99, 101, 130, 129), PackedInt32Array(101, 103, 131, 130), PackedInt32Array(103, 105, 132, 131), PackedInt32Array(105, 106, 133, 132), PackedInt32Array(106, 107, 134, 133), PackedInt32Array(107, 108, 135, 134), PackedInt32Array(108, 109, 136, 135), PackedInt32Array(111, 112, 137, 138), PackedInt32Array(112, 113, 139, 137), PackedInt32Array(113, 114, 140, 139), PackedInt32Array(114, 116, 141, 140), PackedInt32Array(118, 117, 142, 143), PackedInt32Array(117, 119, 144, 142), PackedInt32Array(119, 120, 145, 144), PackedInt32Array(120, 121, 146, 145), PackedInt32Array(121, 122, 147, 146), PackedInt32Array(122, 123, 148, 147), PackedInt32Array(123, 124, 149, 148), PackedInt32Array(124, 125, 150, 149), PackedInt32Array(125, 126, 151, 150), PackedInt32Array(126, 127, 152, 151), PackedInt32Array(127, 128, 153, 152), PackedInt32Array(128, 129, 154, 153), PackedInt32Array(129, 130, 155, 154), PackedInt32Array(130, 131, 156, 155), PackedInt32Array(131, 132, 157, 156), PackedInt32Array(132, 133, 158, 157), PackedInt32Array(133, 134, 159, 158), PackedInt32Array(134, 135, 160, 159), PackedInt32Array(137, 139, 161, 162), PackedInt32Array(139, 140, 163, 161), PackedInt32Array(140, 141, 164, 163), PackedInt32Array(142, 144, 165, 166), PackedInt32Array(144, 145, 167, 165), PackedInt32Array(145, 146, 168, 167), PackedInt32Array(146, 147, 169, 168), PackedInt32Array(147, 148, 170, 169), PackedInt32Array(148, 149, 171, 170), PackedInt32Array(149, 150, 172, 171), PackedInt32Array(150, 151, 173, 172), PackedInt32Array(151, 152, 174, 173), PackedInt32Array(152, 153, 175, 174), PackedInt32Array(153, 154, 176, 175), PackedInt32Array(154, 155, 177, 176), PackedInt32Array(155, 156, 178, 177), PackedInt32Array(156, 157, 179, 178), PackedInt32Array(157, 158, 180, 179), PackedInt32Array(158, 159, 181, 180), PackedInt32Array(159, 160, 182, 181), PackedInt32Array(162, 161, 183, 184), PackedInt32Array(161, 163, 185, 183), PackedInt32Array(163, 164, 186, 185), PackedInt32Array(166, 165, 187, 188), PackedInt32Array(165, 167, 189, 187), PackedInt32Array(167, 168, 190, 189), PackedInt32Array(168, 169, 191, 190), PackedInt32Array(169, 170, 192, 191), PackedInt32Array(170, 171, 193, 192), PackedInt32Array(171, 172, 194, 193), PackedInt32Array(172, 173, 195, 194), PackedInt32Array(173, 174, 196, 195), PackedInt32Array(174, 175, 197, 196), PackedInt32Array(175, 176, 198, 197), PackedInt32Array(179, 180, 199, 200), PackedInt32Array(180, 181, 201, 199), PackedInt32Array(181, 182, 202, 201), PackedInt32Array(182, 203, 204, 202), PackedInt32Array(205, 184, 206, 207), PackedInt32Array(184, 183, 208, 206), PackedInt32Array(183, 185, 209, 208), PackedInt32Array(185, 186, 210, 209), PackedInt32Array(188, 187, 211, 212), PackedInt32Array(187, 189, 213, 211), PackedInt32Array(189, 190, 214, 213), PackedInt32Array(190, 191, 215, 214), PackedInt32Array(191, 192, 216, 215), PackedInt32Array(192, 193, 217, 216), PackedInt32Array(193, 194, 218, 217), PackedInt32Array(194, 195, 219, 218), PackedInt32Array(195, 196, 220, 219), PackedInt32Array(196, 197, 221, 220), PackedInt32Array(197, 198, 222, 221), PackedInt32Array(198, 223, 224, 222), PackedInt32Array(200, 199, 225, 226), PackedInt32Array(199, 201, 227, 225), PackedInt32Array(201, 202, 228, 227), PackedInt32Array(202, 204, 229, 228), PackedInt32Array(204, 230, 231, 229), PackedInt32Array(230, 207, 232, 231), PackedInt32Array(207, 206, 233, 232), PackedInt32Array(206, 208, 234, 233), PackedInt32Array(208, 209, 235, 234), PackedInt32Array(209, 210, 236, 235), PackedInt32Array(212, 211, 237, 238), PackedInt32Array(211, 213, 239, 237), PackedInt32Array(213, 214, 240, 239), PackedInt32Array(214, 215, 241, 240), PackedInt32Array(215, 216, 242, 241), PackedInt32Array(216, 217, 243, 242), PackedInt32Array(217, 218, 244, 243), PackedInt32Array(219, 220, 245, 246), PackedInt32Array(220, 221, 247, 245), PackedInt32Array(221, 222, 248, 247), PackedInt32Array(222, 224, 249, 248), PackedInt32Array(224, 250, 251, 249), PackedInt32Array(225, 227, 252, 253), PackedInt32Array(227, 228, 254, 252), PackedInt32Array(228, 229, 255, 254), PackedInt32Array(229, 231, 256, 255), PackedInt32Array(231, 232, 257, 256), PackedInt32Array(232, 233, 258, 257), PackedInt32Array(233, 234, 259, 258), PackedInt32Array(234, 235, 260, 259), PackedInt32Array(235, 236, 261, 260), PackedInt32Array(236, 262, 263, 261), PackedInt32Array(264, 238, 265, 266), PackedInt32Array(238, 237, 267, 265), PackedInt32Array(237, 239, 268, 267), PackedInt32Array(239, 240, 269, 268), PackedInt32Array(245, 247, 270, 271), PackedInt32Array(247, 248, 272, 270), PackedInt32Array(248, 249, 273, 272), PackedInt32Array(249, 251, 274, 273), PackedInt32Array(252, 254, 275, 276), PackedInt32Array(254, 255, 277, 275), PackedInt32Array(255, 256, 278, 277), PackedInt32Array(256, 257, 279, 278), PackedInt32Array(257, 258, 280, 279), PackedInt32Array(258, 259, 281, 280), PackedInt32Array(259, 260, 282, 281), PackedInt32Array(260, 261, 283, 282), PackedInt32Array(261, 263, 284, 283), PackedInt32Array(266, 265, 285, 286), PackedInt32Array(265, 267, 287, 285), PackedInt32Array(267, 268, 288, 287), PackedInt32Array(268, 269, 289, 288), PackedInt32Array(271, 270, 290, 291), PackedInt32Array(270, 272, 292, 290), PackedInt32Array(272, 273, 293, 292), PackedInt32Array(273, 274, 294, 293), PackedInt32Array(281, 282, 295, 296), PackedInt32Array(282, 283, 297, 295), PackedInt32Array(283, 284, 298, 297), PackedInt32Array(284, 299, 300, 298), PackedInt32Array(301, 302, 303, 304), PackedInt32Array(302, 305, 306, 303), PackedInt32Array(305, 286, 307, 306), PackedInt32Array(286, 285, 308, 307), PackedInt32Array(285, 287, 309, 308), PackedInt32Array(287, 288, 310, 309), PackedInt32Array(291, 290, 311, 312), PackedInt32Array(290, 292, 313, 311), PackedInt32Array(292, 293, 314, 313), PackedInt32Array(293, 294, 315, 314), PackedInt32Array(296, 295, 316, 317), PackedInt32Array(295, 297, 318, 316), PackedInt32Array(297, 298, 319, 318), PackedInt32Array(298, 300, 320, 319), PackedInt32Array(300, 321, 322, 320), PackedInt32Array(321, 323, 324, 322), PackedInt32Array(323, 325, 326, 324), PackedInt32Array(325, 327, 328, 326), PackedInt32Array(327, 329, 330, 328), PackedInt32Array(331, 304, 332, 333), PackedInt32Array(304, 303, 334, 332), PackedInt32Array(303, 306, 335, 334), PackedInt32Array(306, 307, 336, 335), PackedInt32Array(307, 308, 337, 336), PackedInt32Array(308, 309, 338, 337), PackedInt32Array(312, 311, 339, 340), PackedInt32Array(311, 313, 341, 339), PackedInt32Array(313, 314, 342, 341), PackedInt32Array(314, 315, 343, 342), PackedInt32Array(316, 318, 344, 345), PackedInt32Array(318, 319, 346, 344), PackedInt32Array(319, 320, 347, 346), PackedInt32Array(320, 322, 348, 347), PackedInt32Array(322, 324, 349, 348), PackedInt32Array(324, 326, 350, 349), PackedInt32Array(326, 328, 351, 350), PackedInt32Array(328, 330, 352, 351), PackedInt32Array(330, 353, 354, 352), PackedInt32Array(355, 333, 356, 357), PackedInt32Array(333, 332, 358, 356), PackedInt32Array(332, 334, 359, 358), PackedInt32Array(334, 335, 360, 359), PackedInt32Array(335, 336, 361, 360), PackedInt32Array(336, 337, 362, 361), PackedInt32Array(337, 338, 363, 362), PackedInt32Array(338, 364, 365, 363), PackedInt32Array(340, 339, 366, 367), PackedInt32Array(339, 341, 368, 366), PackedInt32Array(341, 342, 369, 368), PackedInt32Array(342, 343, 370, 369), PackedInt32Array(344, 346, 371, 372), PackedInt32Array(346, 347, 373, 371), PackedInt32Array(347, 348, 374, 373), PackedInt32Array(348, 349, 375, 374), PackedInt32Array(349, 350, 376, 375), PackedInt32Array(350, 351, 377, 376), PackedInt32Array(351, 352, 378, 377), PackedInt32Array(352, 354, 379, 378), PackedInt32Array(357, 356, 380, 381), PackedInt32Array(356, 358, 382, 380), PackedInt32Array(358, 359, 383, 382), PackedInt32Array(359, 360, 384, 383), PackedInt32Array(360, 361, 385, 384), PackedInt32Array(361, 362, 386, 385), PackedInt32Array(362, 363, 387, 386), PackedInt32Array(363, 365, 388, 387), PackedInt32Array(367, 366, 389, 390), PackedInt32Array(366, 368, 391, 389), PackedInt32Array(368, 369, 392, 391), PackedInt32Array(369, 370, 393, 392), PackedInt32Array(372, 371, 394, 395), PackedInt32Array(371, 373, 396, 394), PackedInt32Array(373, 374, 397, 396), PackedInt32Array(374, 375, 398, 397), PackedInt32Array(375, 376, 399, 398), PackedInt32Array(376, 377, 400, 399), PackedInt32Array(377, 378, 401, 400), PackedInt32Array(378, 379, 402, 401), PackedInt32Array(381, 380, 403, 404), PackedInt32Array(380, 382, 405, 403), PackedInt32Array(382, 383, 406, 405), PackedInt32Array(383, 384, 407, 406), PackedInt32Array(384, 385, 408, 407), PackedInt32Array(385, 386, 409, 408), PackedInt32Array(386, 387, 410, 409), PackedInt32Array(387, 388, 411, 410), PackedInt32Array(390, 389, 412, 413), PackedInt32Array(389, 391, 414, 412), PackedInt32Array(391, 392, 415, 414), PackedInt32Array(392, 393, 416, 415), PackedInt32Array(395, 394, 417, 418), PackedInt32Array(394, 396, 419, 417), PackedInt32Array(396, 397, 420, 419), PackedInt32Array(397, 398, 421, 420), PackedInt32Array(398, 399, 422, 421), PackedInt32Array(399, 400, 423, 422), PackedInt32Array(400, 401, 424, 423), PackedInt32Array(401, 402, 425, 424), PackedInt32Array(404, 403, 426, 427), PackedInt32Array(403, 405, 428, 426), PackedInt32Array(405, 406, 429, 428), PackedInt32Array(406, 407, 430, 429), PackedInt32Array(407, 408, 431, 430), PackedInt32Array(408, 409, 432, 431), PackedInt32Array(409, 410, 433, 432), PackedInt32Array(410, 411, 434, 433), PackedInt32Array(413, 412, 435, 436), PackedInt32Array(412, 414, 437, 435), PackedInt32Array(414, 415, 438, 437), PackedInt32Array(415, 416, 439, 438), PackedInt32Array(418, 417, 440, 441), PackedInt32Array(417, 419, 442, 440), PackedInt32Array(419, 420, 443, 442), PackedInt32Array(420, 421, 444, 443), PackedInt32Array(421, 422, 445, 444), PackedInt32Array(422, 423, 446, 445), PackedInt32Array(423, 424, 447, 446), PackedInt32Array(424, 425, 448, 447), PackedInt32Array(426, 428, 449, 450), PackedInt32Array(428, 429, 451, 449), PackedInt32Array(429, 430, 452, 451), PackedInt32Array(430, 431, 453, 452), PackedInt32Array(431, 432, 454, 453), PackedInt32Array(432, 433, 455, 454), PackedInt32Array(436, 435, 456, 457), PackedInt32Array(435, 437, 458, 456), PackedInt32Array(437, 438, 459, 458), PackedInt32Array(438, 439, 460, 459), PackedInt32Array(461, 441, 462, 463), PackedInt32Array(441, 440, 464, 462), PackedInt32Array(440, 442, 465, 464), PackedInt32Array(442, 443, 466, 465), PackedInt32Array(443, 444, 467, 466), PackedInt32Array(444, 445, 468, 467), PackedInt32Array(445, 446, 469, 468), PackedInt32Array(446, 447, 470, 469), PackedInt32Array(447, 448, 471, 470), PackedInt32Array(449, 451, 472, 473), PackedInt32Array(451, 452, 474, 472), PackedInt32Array(452, 453, 475, 474), PackedInt32Array(453, 454, 476, 475), PackedInt32Array(454, 455, 477, 476), PackedInt32Array(455, 478, 479, 477), PackedInt32Array(457, 456, 480, 481), PackedInt32Array(456, 458, 482, 480), PackedInt32Array(458, 459, 483, 482), PackedInt32Array(459, 460, 484, 483), PackedInt32Array(485, 463, 486, 487), PackedInt32Array(463, 462, 488, 486), PackedInt32Array(462, 464, 489, 488), PackedInt32Array(464, 465, 490, 489), PackedInt32Array(465, 466, 491, 490), PackedInt32Array(466, 467, 492, 491), PackedInt32Array(467, 468, 493, 492), PackedInt32Array(468, 469, 494, 493), PackedInt32Array(469, 470, 495, 494), PackedInt32Array(475, 476, 496, 497), PackedInt32Array(476, 477, 498, 496), PackedInt32Array(477, 479, 499, 498), PackedInt32Array(479, 500, 501, 499), PackedInt32Array(481, 480, 502, 503), PackedInt32Array(480, 482, 504, 502), PackedInt32Array(482, 483, 505, 504), PackedInt32Array(483, 484, 506, 505), PackedInt32Array(487, 486, 507, 508), PackedInt32Array(486, 488, 509, 507), PackedInt32Array(488, 489, 510, 509), PackedInt32Array(489, 490, 511, 510), PackedInt32Array(497, 496, 512, 513), PackedInt32Array(496, 498, 514, 512), PackedInt32Array(498, 499, 515, 514), PackedInt32Array(499, 501, 516, 515), PackedInt32Array(503, 502, 517, 518), PackedInt32Array(502, 504, 519, 517), PackedInt32Array(504, 505, 520, 519), PackedInt32Array(505, 506, 521, 520), PackedInt32Array(522, 523, 524, 525), PackedInt32Array(523, 526, 527, 524), PackedInt32Array(526, 528, 529, 527), PackedInt32Array(528, 530, 531, 529), PackedInt32Array(530, 508, 532, 531), PackedInt32Array(508, 507, 533, 532), PackedInt32Array(507, 509, 534, 533), PackedInt32Array(509, 510, 535, 534), PackedInt32Array(512, 514, 536, 537), PackedInt32Array(514, 515, 538, 536), PackedInt32Array(515, 516, 539, 538), PackedInt32Array(516, 540, 541, 539), PackedInt32Array(540, 542, 543, 541), PackedInt32Array(542, 544, 545, 543), PackedInt32Array(544, 546, 547, 545), PackedInt32Array(548, 518, 549, 550), PackedInt32Array(518, 517, 551, 549), PackedInt32Array(517, 519, 552, 551), PackedInt32Array(519, 520, 553, 552), PackedInt32Array(520, 521, 554, 553), PackedInt32Array(555, 556, 557, 558), PackedInt32Array(556, 525, 559, 557), PackedInt32Array(525, 524, 560, 559), PackedInt32Array(524, 527, 561, 560), PackedInt32Array(527, 529, 562, 561), PackedInt32Array(529, 531, 563, 562), PackedInt32Array(531, 532, 564, 563), PackedInt32Array(532, 533, 565, 564), PackedInt32Array(533, 534, 566, 565), PackedInt32Array(534, 535, 567, 566), PackedInt32Array(537, 536, 568, 569), PackedInt32Array(536, 538, 570, 568), PackedInt32Array(538, 539, 571, 570), PackedInt32Array(539, 541, 572, 571), PackedInt32Array(541, 543, 573, 572), PackedInt32Array(543, 545, 574, 573), PackedInt32Array(545, 547, 575, 574), PackedInt32Array(547, 550, 576, 575), PackedInt32Array(550, 549, 577, 576), PackedInt32Array(549, 551, 578, 577), PackedInt32Array(551, 552, 579, 578), PackedInt32Array(552, 553, 580, 579), PackedInt32Array(558, 557, 581, 582), PackedInt32Array(557, 559, 583, 581), PackedInt32Array(559, 560, 584, 583), PackedInt32Array(560, 561, 585, 584), PackedInt32Array(561, 562, 586, 585), PackedInt32Array(562, 563, 587, 586), PackedInt32Array(563, 564, 588, 587), PackedInt32Array(564, 565, 589, 588), PackedInt32Array(565, 566, 590, 589), PackedInt32Array(569, 568, 591, 592), PackedInt32Array(568, 570, 593, 591), PackedInt32Array(570, 571, 594, 593), PackedInt32Array(571, 572, 595, 594), PackedInt32Array(572, 573, 596, 595), PackedInt32Array(573, 574, 597, 596), PackedInt32Array(574, 575, 598, 597), PackedInt32Array(575, 576, 599, 598), PackedInt32Array(576, 577, 600, 599), PackedInt32Array(577, 578, 601, 600), PackedInt32Array(578, 579, 602, 601), PackedInt32Array(603, 582, 604, 605), PackedInt32Array(582, 581, 606, 604), PackedInt32Array(581, 583, 607, 606), PackedInt32Array(583, 584, 608, 607), PackedInt32Array(586, 587, 609, 610), PackedInt32Array(587, 588, 611, 609), PackedInt32Array(588, 589, 612, 611), PackedInt32Array(589, 590, 613, 612), PackedInt32Array(592, 591, 614, 615), PackedInt32Array(591, 593, 616, 614), PackedInt32Array(593, 594, 617, 616), PackedInt32Array(594, 595, 618, 617), PackedInt32Array(595, 596, 619, 618), PackedInt32Array(596, 597, 620, 619), PackedInt32Array(597, 598, 621, 620), PackedInt32Array(598, 599, 622, 621), PackedInt32Array(599, 600, 623, 622), PackedInt32Array(600, 601, 624, 623), PackedInt32Array(601, 602, 625, 624), PackedInt32Array(602, 626, 627, 625), PackedInt32Array(626, 628, 629, 627), PackedInt32Array(628, 605, 630, 629), PackedInt32Array(605, 604, 631, 630), PackedInt32Array(604, 606, 632, 631), PackedInt32Array(606, 607, 633, 632), PackedInt32Array(609, 611, 634, 635), PackedInt32Array(611, 612, 636, 634), PackedInt32Array(612, 613, 637, 636), PackedInt32Array(638, 615, 639, 640), PackedInt32Array(615, 614, 641, 639), PackedInt32Array(614, 616, 642, 641), PackedInt32Array(616, 617, 643, 642), PackedInt32Array(617, 618, 644, 643), PackedInt32Array(618, 619, 645, 644), PackedInt32Array(619, 620, 646, 645), PackedInt32Array(620, 621, 647, 646), PackedInt32Array(621, 622, 648, 647), PackedInt32Array(622, 623, 649, 648), PackedInt32Array(623, 624, 650, 649), PackedInt32Array(624, 625, 651, 650), PackedInt32Array(625, 627, 652, 651), PackedInt32Array(627, 629, 653, 652), PackedInt32Array(629, 630, 654, 653), PackedInt32Array(630, 631, 655, 654), PackedInt32Array(631, 632, 656, 655), PackedInt32Array(632, 633, 657, 656), PackedInt32Array(635, 634, 658, 659), PackedInt32Array(634, 636, 660, 658), PackedInt32Array(636, 637, 661, 660), PackedInt32Array(640, 639, 662, 663), PackedInt32Array(639, 641, 664, 662), PackedInt32Array(641, 642, 665, 664), PackedInt32Array(642, 643, 666, 665), PackedInt32Array(643, 644, 667, 666), PackedInt32Array(644, 645, 668, 667), PackedInt32Array(645, 646, 669, 668), PackedInt32Array(646, 647, 670, 669), PackedInt32Array(647, 648, 671, 670), PackedInt32Array(648, 649, 672, 671), PackedInt32Array(649, 650, 673, 672), PackedInt32Array(650, 651, 674, 673), PackedInt32Array(651, 652, 675, 674), PackedInt32Array(652, 653, 676, 675), PackedInt32Array(653, 654, 677, 676), PackedInt32Array(654, 655, 678, 677), PackedInt32Array(655, 656, 679, 678), PackedInt32Array(656, 657, 680, 679), PackedInt32Array(657, 681, 682, 680), PackedInt32Array(683, 659, 684, 685), PackedInt32Array(659, 658, 686, 684), PackedInt32Array(658, 660, 687, 686), PackedInt32Array(660, 661, 688, 687), PackedInt32Array(663, 662, 689, 690), PackedInt32Array(662, 664, 691, 689), PackedInt32Array(664, 665, 692, 691), PackedInt32Array(665, 666, 693, 692), PackedInt32Array(666, 667, 694, 693), PackedInt32Array(667, 668, 695, 694), PackedInt32Array(668, 669, 696, 695), PackedInt32Array(669, 670, 697, 696), PackedInt32Array(670, 671, 698, 697), PackedInt32Array(671, 672, 699, 698), PackedInt32Array(672, 673, 700, 699), PackedInt32Array(673, 674, 701, 700), PackedInt32Array(674, 675, 702, 701), PackedInt32Array(675, 676, 703, 702), PackedInt32Array(676, 677, 704, 703), PackedInt32Array(678, 679, 705, 706), PackedInt32Array(679, 680, 707, 705), PackedInt32Array(680, 682, 708, 707), PackedInt32Array(682, 709, 710, 708), PackedInt32Array(709, 685, 711, 710), PackedInt32Array(685, 684, 712, 711), PackedInt32Array(684, 686, 713, 712), PackedInt32Array(686, 687, 714, 713), PackedInt32Array(690, 689, 715, 716), PackedInt32Array(689, 691, 717, 715), PackedInt32Array(691, 692, 718, 717), PackedInt32Array(692, 693, 719, 718), PackedInt32Array(693, 694, 720, 719), PackedInt32Array(694, 695, 721, 720), PackedInt32Array(695, 696, 722, 721), PackedInt32Array(696, 697, 723, 722), PackedInt32Array(697, 698, 724, 723), PackedInt32Array(698, 699, 725, 724), PackedInt32Array(699, 700, 726, 725), PackedInt32Array(700, 701, 727, 726), PackedInt32Array(706, 705, 728, 729), PackedInt32Array(705, 707, 730, 728), PackedInt32Array(707, 708, 731, 730), PackedInt32Array(708, 710, 732, 731), PackedInt32Array(710, 711, 733, 732), PackedInt32Array(711, 712, 734, 733), PackedInt32Array(712, 713, 735, 734), PackedInt32Array(713, 714, 736, 735), PackedInt32Array(715, 717, 737, 738), PackedInt32Array(717, 718, 739, 737), PackedInt32Array(718, 719, 740, 739), PackedInt32Array(719, 720, 741, 740), PackedInt32Array(720, 721, 742, 741), PackedInt32Array(721, 722, 743, 742), PackedInt32Array(722, 723, 744, 743), PackedInt32Array(723, 724, 745, 744), PackedInt32Array(724, 725, 746, 745), PackedInt32Array(725, 726, 747, 746), PackedInt32Array(730, 731, 748, 749), PackedInt32Array(731, 732, 750, 748), PackedInt32Array(732, 733, 751, 750), PackedInt32Array(733, 734, 752, 751), PackedInt32Array(738, 737, 753, 754), PackedInt32Array(737, 739, 755, 753), PackedInt32Array(739, 740, 756, 755), PackedInt32Array(740, 741, 757, 756), PackedInt32Array(741, 742, 758, 757), PackedInt32Array(742, 743, 759, 758), PackedInt32Array(743, 744, 760, 759), PackedInt32Array(744, 745, 761, 760), PackedInt32Array(745, 746, 762, 761), PackedInt32Array(746, 747, 763, 762), PackedInt32Array(753, 755, 764, 765), PackedInt32Array(755, 756, 766, 764), PackedInt32Array(756, 757, 767, 766), PackedInt32Array(757, 758, 768, 767), PackedInt32Array(758, 759, 769, 768), PackedInt32Array(759, 760, 770, 769), PackedInt32Array(760, 761, 771, 770), PackedInt32Array(761, 762, 772, 771), PackedInt32Array(766, 767, 773, 774), PackedInt32Array(767, 768, 775, 773), PackedInt32Array(768, 769, 776, 775), PackedInt32Array(769, 770, 777, 776)])
+
+[sub_resource type="StandardMaterial3D" id="crystal_mat"]
+albedo_color = Color(0.1, 0.7, 0.72, 1)
+emission_enabled = true
+emission = Color(0.07, 0.42, 0.55, 1)
+emission_energy_multiplier = 1.4
+
+[sub_resource type="BoxShape3D" id="portal_shape"]
+size = Vector3(4, 4, 3)
+
+[node name="cave_reino_encoberto" type="Node3D"]
+script = ExtResource("cave")
+map_id = &"cave_reino_encoberto"
+floor_number = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("environment")
+
+[node name="Floor" type="Node3D" parent="."]
+
+
+[node name="Decor" type="Node3D" parent="."]
+
+
+[node name="Interactables" type="Node3D" parent="."]
+
+
+[node name="Spawns" type="Node3D" parent="."]
+
+
+[node name="NpcPoints" type="Node3D" parent="."]
+
+
+[node name="floor_0" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -37)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_0"]
+mesh = SubResource("floor_0")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_0"]
+shape = SubResource("floor_0_shape")
+
+[node name="floor_1" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -35)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_1"]
+mesh = SubResource("floor_1")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_1"]
+shape = SubResource("floor_1_shape")
+
+[node name="floor_2" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -33)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_2"]
+mesh = SubResource("floor_2")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_2"]
+shape = SubResource("floor_2_shape")
+
+[node name="floor_3" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -31)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_3"]
+mesh = SubResource("floor_3")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_3"]
+shape = SubResource("floor_3_shape")
+
+[node name="floor_4" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -29)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_4"]
+mesh = SubResource("floor_4")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_4"]
+shape = SubResource("floor_4_shape")
+
+[node name="floor_5" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, -27)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_5"]
+mesh = SubResource("floor_5")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_5"]
+shape = SubResource("floor_5_shape")
+
+[node name="floor_6" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -27)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_6"]
+mesh = SubResource("floor_6")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_6"]
+shape = SubResource("floor_6_shape")
+
+[node name="floor_7" type="StaticBody3D" parent="Floor"]
+position = Vector3(24.0, -1.5, -27)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_7"]
+mesh = SubResource("floor_7")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_7"]
+shape = SubResource("floor_7_shape")
+
+[node name="floor_8" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -25)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_8"]
+mesh = SubResource("floor_8")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_8"]
+shape = SubResource("floor_8_shape")
+
+[node name="floor_9" type="StaticBody3D" parent="Floor"]
+position = Vector3(-20.0, -1.5, -23)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_9"]
+mesh = SubResource("floor_9")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_9"]
+shape = SubResource("floor_9_shape")
+
+[node name="floor_10" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -23)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_10"]
+mesh = SubResource("floor_10")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_10"]
+shape = SubResource("floor_10_shape")
+
+[node name="floor_11" type="StaticBody3D" parent="Floor"]
+position = Vector3(20.0, -1.5, -23)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_11"]
+mesh = SubResource("floor_11")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_11"]
+shape = SubResource("floor_11_shape")
+
+[node name="floor_12" type="StaticBody3D" parent="Floor"]
+position = Vector3(-21.0, -1.5, -21)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_12"]
+mesh = SubResource("floor_12")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_12"]
+shape = SubResource("floor_12_shape")
+
+[node name="floor_13" type="StaticBody3D" parent="Floor"]
+position = Vector3(21.0, -1.5, -21)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_13"]
+mesh = SubResource("floor_13")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_13"]
+shape = SubResource("floor_13_shape")
+
+[node name="floor_14" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, -19)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_14"]
+mesh = SubResource("floor_14")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_14"]
+shape = SubResource("floor_14_shape")
+
+[node name="floor_15" type="StaticBody3D" parent="Floor"]
+position = Vector3(24.0, -1.5, -19)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_15"]
+mesh = SubResource("floor_15")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_15"]
+shape = SubResource("floor_15_shape")
+
+[node name="floor_16" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, -17)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_16"]
+mesh = SubResource("floor_16")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_16"]
+shape = SubResource("floor_16_shape")
+
+[node name="floor_17" type="StaticBody3D" parent="Floor"]
+position = Vector3(24.0, -1.5, -17)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_17"]
+mesh = SubResource("floor_17")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_17"]
+shape = SubResource("floor_17_shape")
+
+[node name="floor_18" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, -15)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_18"]
+mesh = SubResource("floor_18")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_18"]
+shape = SubResource("floor_18_shape")
+
+[node name="floor_19" type="StaticBody3D" parent="Floor"]
+position = Vector3(24.0, -1.5, -15)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_19"]
+mesh = SubResource("floor_19")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_19"]
+shape = SubResource("floor_19_shape")
+
+[node name="floor_20" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, -13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_20"]
+mesh = SubResource("floor_20")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_20"]
+shape = SubResource("floor_20_shape")
+
+[node name="floor_21" type="StaticBody3D" parent="Floor"]
+position = Vector3(24.0, -1.5, -13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_21"]
+mesh = SubResource("floor_21")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_21"]
+shape = SubResource("floor_21_shape")
+
+[node name="floor_22" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, -11)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_22"]
+mesh = SubResource("floor_22")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_22"]
+shape = SubResource("floor_22_shape")
+
+[node name="floor_23" type="StaticBody3D" parent="Floor"]
+position = Vector3(24.0, -1.5, -11)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_23"]
+mesh = SubResource("floor_23")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_23"]
+shape = SubResource("floor_23_shape")
+
+[node name="floor_24" type="StaticBody3D" parent="Floor"]
+position = Vector3(-23.0, -1.5, -9)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_24"]
+mesh = SubResource("floor_24")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_24"]
+shape = SubResource("floor_24_shape")
+
+[node name="floor_25" type="StaticBody3D" parent="Floor"]
+position = Vector3(23.0, -1.5, -9)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_25"]
+mesh = SubResource("floor_25")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_25"]
+shape = SubResource("floor_25_shape")
+
+[node name="floor_26" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -7)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_26"]
+mesh = SubResource("floor_26")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_26"]
+shape = SubResource("floor_26_shape")
+
+[node name="floor_27" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -5)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_27"]
+mesh = SubResource("floor_27")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_27"]
+shape = SubResource("floor_27_shape")
+
+[node name="floor_28" type="StaticBody3D" parent="Floor"]
+position = Vector3(-22.0, -1.5, -3)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_28"]
+mesh = SubResource("floor_28")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_28"]
+shape = SubResource("floor_28_shape")
+
+[node name="floor_29" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -3)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_29"]
+mesh = SubResource("floor_29")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_29"]
+shape = SubResource("floor_29_shape")
+
+[node name="floor_30" type="StaticBody3D" parent="Floor"]
+position = Vector3(22.0, -1.5, -3)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_30"]
+mesh = SubResource("floor_30")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_30"]
+shape = SubResource("floor_30_shape")
+
+[node name="floor_31" type="StaticBody3D" parent="Floor"]
+position = Vector3(-22.0, -1.5, -1)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_31"]
+mesh = SubResource("floor_31")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_31"]
+shape = SubResource("floor_31_shape")
+
+[node name="floor_32" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -1)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_32"]
+mesh = SubResource("floor_32")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_32"]
+shape = SubResource("floor_32_shape")
+
+[node name="floor_33" type="StaticBody3D" parent="Floor"]
+position = Vector3(22.0, -1.5, -1)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_33"]
+mesh = SubResource("floor_33")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_33"]
+shape = SubResource("floor_33_shape")
+
+[node name="floor_34" type="StaticBody3D" parent="Floor"]
+position = Vector3(-22.0, -1.5, 1)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_34"]
+mesh = SubResource("floor_34")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_34"]
+shape = SubResource("floor_34_shape")
+
+[node name="floor_35" type="StaticBody3D" parent="Floor"]
+position = Vector3(22.0, -1.5, 1)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_35"]
+mesh = SubResource("floor_35")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_35"]
+shape = SubResource("floor_35_shape")
+
+[node name="floor_36" type="StaticBody3D" parent="Floor"]
+position = Vector3(-20.0, -1.5, 3)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_36"]
+mesh = SubResource("floor_36")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_36"]
+shape = SubResource("floor_36_shape")
+
+[node name="floor_37" type="StaticBody3D" parent="Floor"]
+position = Vector3(20.0, -1.5, 3)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_37"]
+mesh = SubResource("floor_37")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_37"]
+shape = SubResource("floor_37_shape")
+
+[node name="floor_38" type="StaticBody3D" parent="Floor"]
+position = Vector3(-20.0, -1.5, 5)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_38"]
+mesh = SubResource("floor_38")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_38"]
+shape = SubResource("floor_38_shape")
+
+[node name="floor_39" type="StaticBody3D" parent="Floor"]
+position = Vector3(20.0, -1.5, 5)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_39"]
+mesh = SubResource("floor_39")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_39"]
+shape = SubResource("floor_39_shape")
+
+[node name="floor_40" type="StaticBody3D" parent="Floor"]
+position = Vector3(-20.0, -1.5, 7)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_40"]
+mesh = SubResource("floor_40")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_40"]
+shape = SubResource("floor_40_shape")
+
+[node name="floor_41" type="StaticBody3D" parent="Floor"]
+position = Vector3(20.0, -1.5, 7)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_41"]
+mesh = SubResource("floor_41")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_41"]
+shape = SubResource("floor_41_shape")
+
+[node name="floor_42" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, 9)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_42"]
+mesh = SubResource("floor_42")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_42"]
+shape = SubResource("floor_42_shape")
+
+[node name="floor_43" type="StaticBody3D" parent="Floor"]
+position = Vector3(-14.0, -1.5, 9)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_43"]
+mesh = SubResource("floor_43")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_43"]
+shape = SubResource("floor_43_shape")
+
+[node name="floor_44" type="StaticBody3D" parent="Floor"]
+position = Vector3(14.0, -1.5, 9)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_44"]
+mesh = SubResource("floor_44")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_44"]
+shape = SubResource("floor_44_shape")
+
+[node name="floor_45" type="StaticBody3D" parent="Floor"]
+position = Vector3(26.0, -1.5, 9)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_45"]
+mesh = SubResource("floor_45")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_45"]
+shape = SubResource("floor_45_shape")
+
+[node name="floor_46" type="StaticBody3D" parent="Floor"]
+position = Vector3(-27.0, -1.5, 11)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_46"]
+mesh = SubResource("floor_46")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_46"]
+shape = SubResource("floor_46_shape")
+
+[node name="floor_47" type="StaticBody3D" parent="Floor"]
+position = Vector3(-13.0, -1.5, 11)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_47"]
+mesh = SubResource("floor_47")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_47"]
+shape = SubResource("floor_47_shape")
+
+[node name="floor_48" type="StaticBody3D" parent="Floor"]
+position = Vector3(13.0, -1.5, 11)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_48"]
+mesh = SubResource("floor_48")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_48"]
+shape = SubResource("floor_48_shape")
+
+[node name="floor_49" type="StaticBody3D" parent="Floor"]
+position = Vector3(27.0, -1.5, 11)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_49"]
+mesh = SubResource("floor_49")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_49"]
+shape = SubResource("floor_49_shape")
+
+[node name="floor_50" type="StaticBody3D" parent="Floor"]
+position = Vector3(-27.0, -1.5, 13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_50"]
+mesh = SubResource("floor_50")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_50"]
+shape = SubResource("floor_50_shape")
+
+[node name="floor_51" type="StaticBody3D" parent="Floor"]
+position = Vector3(-13.0, -1.5, 13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_51"]
+mesh = SubResource("floor_51")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_51"]
+shape = SubResource("floor_51_shape")
+
+[node name="floor_52" type="StaticBody3D" parent="Floor"]
+position = Vector3(13.0, -1.5, 13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_52"]
+mesh = SubResource("floor_52")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_52"]
+shape = SubResource("floor_52_shape")
+
+[node name="floor_53" type="StaticBody3D" parent="Floor"]
+position = Vector3(27.0, -1.5, 13)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_53"]
+mesh = SubResource("floor_53")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_53"]
+shape = SubResource("floor_53_shape")
+
+[node name="floor_54" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, 15)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_54"]
+mesh = SubResource("floor_54")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_54"]
+shape = SubResource("floor_54_shape")
+
+[node name="floor_55" type="StaticBody3D" parent="Floor"]
+position = Vector3(-14.0, -1.5, 15)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_55"]
+mesh = SubResource("floor_55")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_55"]
+shape = SubResource("floor_55_shape")
+
+[node name="floor_56" type="StaticBody3D" parent="Floor"]
+position = Vector3(14.0, -1.5, 15)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_56"]
+mesh = SubResource("floor_56")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_56"]
+shape = SubResource("floor_56_shape")
+
+[node name="floor_57" type="StaticBody3D" parent="Floor"]
+position = Vector3(26.0, -1.5, 15)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_57"]
+mesh = SubResource("floor_57")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_57"]
+shape = SubResource("floor_57_shape")
+
+[node name="floor_58" type="StaticBody3D" parent="Floor"]
+position = Vector3(-20.0, -1.5, 17)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_58"]
+mesh = SubResource("floor_58")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_58"]
+shape = SubResource("floor_58_shape")
+
+[node name="floor_59" type="StaticBody3D" parent="Floor"]
+position = Vector3(19.0, -1.5, 17)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_59"]
+mesh = SubResource("floor_59")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_59"]
+shape = SubResource("floor_59_shape")
+
+[node name="floor_60" type="StaticBody3D" parent="Floor"]
+position = Vector3(-17.0, -1.5, 19)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_60"]
+mesh = SubResource("floor_60")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_60"]
+shape = SubResource("floor_60_shape")
+
+[node name="floor_61" type="StaticBody3D" parent="Floor"]
+position = Vector3(17.0, -1.5, 19)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_61"]
+mesh = SubResource("floor_61")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_61"]
+shape = SubResource("floor_61_shape")
+
+[node name="floor_62" type="StaticBody3D" parent="Floor"]
+position = Vector3(-15.0, -1.5, 21)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_62"]
+mesh = SubResource("floor_62")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_62"]
+shape = SubResource("floor_62_shape")
+
+[node name="floor_63" type="StaticBody3D" parent="Floor"]
+position = Vector3(14.0, -1.5, 21)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_63"]
+mesh = SubResource("floor_63")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_63"]
+shape = SubResource("floor_63_shape")
+
+[node name="floor_64" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 23)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_64"]
+mesh = SubResource("floor_64")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_64"]
+shape = SubResource("floor_64_shape")
+
+[node name="floor_65" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 25)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_65"]
+mesh = SubResource("floor_65")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_65"]
+shape = SubResource("floor_65_shape")
+
+[node name="floor_66" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 27)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_66"]
+mesh = SubResource("floor_66")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_66"]
+shape = SubResource("floor_66_shape")
+
+[node name="floor_67" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 29)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_67"]
+mesh = SubResource("floor_67")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_67"]
+shape = SubResource("floor_67_shape")
+
+[node name="floor_68" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 31)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_68"]
+mesh = SubResource("floor_68")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_68"]
+shape = SubResource("floor_68_shape")
+
+[node name="floor_69" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 33)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_69"]
+mesh = SubResource("floor_69")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_69"]
+shape = SubResource("floor_69_shape")
+
+[node name="floor_70" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 35)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_70"]
+mesh = SubResource("floor_70")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_70"]
+shape = SubResource("floor_70_shape")
+
+[node name="floor_71" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 37)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_71"]
+mesh = SubResource("floor_71")
+material_override = ExtResource("gravel")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor/floor_71"]
+shape = SubResource("floor_71_shape")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("nav")
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+position = Vector3(0, 0, 30)
+
+
+[node name="CaveReturn" type="Marker3D" parent="."]
+position = Vector3(0, 0, 30)
+
+
+[node name="WestArrival" type="Marker3D" parent="."]
+position = Vector3(-24, 0, -18)
+
+
+[node name="EastArrival" type="Marker3D" parent="."]
+position = Vector3(24, 0, -18)
+
+
+[node name="NorthArrival" type="Marker3D" parent="."]
+position = Vector3(-24, 0, -18)
+
+
+[node name="CaveHowl" type="Marker3D" parent="."]
+position = Vector3(0, 0, -30)
+
+
+[node name="Viewpoint1" type="Marker3D" parent="."]
+position = Vector3(0, 62, 52)
+rotation_degrees = Vector3(-52, 0, 0)
+
+[node name="Rock0" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-37, -0.4, -19)
+scale = Vector3(2.4, 9.649044308685166, 2.4)
+rotation_degrees = Vector3(0, 197, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock3" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-37, -0.4, -13)
+scale = Vector3(2.4, 9.597534705396221, 2.4)
+rotation_degrees = Vector3(0, 324, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock6" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-35, -0.4, -11)
+scale = Vector3(2.4, 10.474012710135725, 2.4)
+rotation_degrees = Vector3(0, 37, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock9" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-33, -0.4, -7)
+scale = Vector3(2.4, 10.713563672446028, 2.4)
+rotation_degrees = Vector3(0, 48, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock12" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-31, -0.4, 7)
+scale = Vector3(2.4, 9.107949865018885, 2.4)
+rotation_degrees = Vector3(0, 73, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock15" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-31, -0.4, 13)
+scale = Vector3(2.4, 10.080799599490858, 2.4)
+rotation_degrees = Vector3(0, 310, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock18" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-29, -0.4, -27)
+scale = Vector3(2.4, 7.36024529255865, 2.4)
+rotation_degrees = Vector3(0, 333, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock21" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-29, -0.4, 19)
+scale = Vector3(2.4, 8.420648743733423, 2.4)
+rotation_degrees = Vector3(0, 317, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock24" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-27, -0.4, -1)
+scale = Vector3(2.4, 7.74454052365329, 2.4)
+rotation_degrees = Vector3(0, 230, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock27" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-27, -0.4, 21)
+scale = Vector3(2.4, 7.647602826459661, 2.4)
+rotation_degrees = Vector3(0, 247, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock30" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-23, -0.4, -29)
+scale = Vector3(2.4, 7.090274160121026, 2.4)
+rotation_degrees = Vector3(0, 353, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock33" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-23, -0.4, 23)
+scale = Vector3(2.4, 8.410100394903699, 2.4)
+rotation_degrees = Vector3(0, 347, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock36" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-21, -0.4, 15)
+scale = Vector3(2.4, 10.347976087106503, 2.4)
+rotation_degrees = Vector3(0, 190, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock39" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-19, -0.4, 9)
+scale = Vector3(2.4, 8.739504883310914, 2.4)
+rotation_degrees = Vector3(0, 86, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock42" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-17, -0.4, -27)
+scale = Vector3(2.4, 8.65299025900558, 2.4)
+rotation_degrees = Vector3(0, 237, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock45" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-17, -0.4, 1)
+scale = Vector3(2.4, 8.951114166278447, 2.4)
+rotation_degrees = Vector3(0, 348, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock48" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-17, -0.4, 23)
+scale = Vector3(2.4, 8.796524210934582, 2.4)
+rotation_degrees = Vector3(0, 44, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock51" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-15, -0.4, 1)
+scale = Vector3(2.4, 10.601145268180503, 2.4)
+rotation_degrees = Vector3(0, 247, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock54" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-13, -0.4, -11)
+scale = Vector3(2.4, 7.165361237529786, 2.4)
+rotation_degrees = Vector3(0, 359, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock57" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-13, -0.4, 25)
+scale = Vector3(2.4, 8.780708322383443, 2.4)
+rotation_degrees = Vector3(0, 146, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock60" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-11, -0.4, -17)
+scale = Vector3(2.4, 10.322977080276043, 2.4)
+rotation_degrees = Vector3(0, 127, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock63" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-11, -0.4, -9)
+scale = Vector3(2.4, 7.35867412598466, 2.4)
+rotation_degrees = Vector3(0, 336, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock66" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-11, -0.4, 25)
+scale = Vector3(2.4, 8.273603720989978, 2.4)
+rotation_degrees = Vector3(0, 222, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock69" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-9, -0.4, -29)
+scale = Vector3(2.4, 8.196029581216722, 2.4)
+rotation_degrees = Vector3(0, 103, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock72" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-9, -0.4, 1)
+scale = Vector3(2.4, 10.508238818919143, 2.4)
+rotation_degrees = Vector3(0, 123, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock75" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-9, -0.4, 11)
+scale = Vector3(2.4, 9.861678365958904, 2.4)
+rotation_degrees = Vector3(0, 350, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock78" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-9, -0.4, 17)
+scale = Vector3(2.4, 8.96816753696053, 2.4)
+rotation_degrees = Vector3(0, 161, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock81" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-9, -0.4, 31)
+scale = Vector3(2.4, 7.601162742905423, 2.4)
+rotation_degrees = Vector3(0, 242, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock84" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-7, -0.4, -35)
+scale = Vector3(2.4, 9.58002980738518, 2.4)
+rotation_degrees = Vector3(0, 254, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock87" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-7, -0.4, 1)
+scale = Vector3(2.4, 8.042692515628772, 2.4)
+rotation_degrees = Vector3(0, 33, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock90" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-5, -0.4, -37)
+scale = Vector3(2.4, 7.34557232871522, 2.4)
+rotation_degrees = Vector3(0, 346, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock93" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-5, -0.4, 1)
+scale = Vector3(2.4, 8.933801203000943, 2.4)
+rotation_degrees = Vector3(0, 224, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock96" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-3, -0.4, -39)
+scale = Vector3(2.4, 9.22253333956932, 2.4)
+rotation_degrees = Vector3(0, 280, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock99" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-3, -0.4, 1)
+scale = Vector3(2.4, 9.61778210488611, 2.4)
+rotation_degrees = Vector3(0, 77, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock102" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-1, -0.4, -39)
+scale = Vector3(2.4, 10.971119775324734, 2.4)
+rotation_degrees = Vector3(0, 356, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock105" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-1, -0.4, 1)
+scale = Vector3(2.4, 7.987365717087952, 2.4)
+rotation_degrees = Vector3(0, 66, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock108" type="MeshInstance3D" parent="Decor"]
+position = Vector3(1, -0.4, -39)
+scale = Vector3(2.4, 8.515280819911501, 2.4)
+rotation_degrees = Vector3(0, 294, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock111" type="MeshInstance3D" parent="Decor"]
+position = Vector3(1, -0.4, 1)
+scale = Vector3(2.4, 7.099988705813916, 2.4)
+rotation_degrees = Vector3(0, 164, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock114" type="MeshInstance3D" parent="Decor"]
+position = Vector3(3, -0.4, -39)
+scale = Vector3(2.4, 7.330564139513057, 2.4)
+rotation_degrees = Vector3(0, 275, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock117" type="MeshInstance3D" parent="Decor"]
+position = Vector3(3, -0.4, 1)
+scale = Vector3(2.4, 7.850166214307491, 2.4)
+rotation_degrees = Vector3(0, 143, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock120" type="MeshInstance3D" parent="Decor"]
+position = Vector3(5, -0.4, -37)
+scale = Vector3(2.4, 10.317781431183326, 2.4)
+rotation_degrees = Vector3(0, 275, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock123" type="MeshInstance3D" parent="Decor"]
+position = Vector3(5, -0.4, 1)
+scale = Vector3(2.4, 10.128996324866563, 2.4)
+rotation_degrees = Vector3(0, 122, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock126" type="MeshInstance3D" parent="Decor"]
+position = Vector3(7, -0.4, -35)
+scale = Vector3(2.4, 8.46028361932411, 2.4)
+rotation_degrees = Vector3(0, 324, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock129" type="MeshInstance3D" parent="Decor"]
+position = Vector3(7, -0.4, 1)
+scale = Vector3(2.4, 9.330119755055984, 2.4)
+rotation_degrees = Vector3(0, 51, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock132" type="MeshInstance3D" parent="Decor"]
+position = Vector3(9, -0.4, -33)
+scale = Vector3(2.4, 10.158598998474263, 2.4)
+rotation_degrees = Vector3(0, 59, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock135" type="MeshInstance3D" parent="Decor"]
+position = Vector3(9, -0.4, -19)
+scale = Vector3(2.4, 8.312996425582657, 2.4)
+rotation_degrees = Vector3(0, 9, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock138" type="MeshInstance3D" parent="Decor"]
+position = Vector3(9, -0.4, 9)
+scale = Vector3(2.4, 9.266375335298084, 2.4)
+rotation_degrees = Vector3(0, 142, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock141" type="MeshInstance3D" parent="Decor"]
+position = Vector3(9, -0.4, 15)
+scale = Vector3(2.4, 8.409960027418606, 2.4)
+rotation_degrees = Vector3(0, 135, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock144" type="MeshInstance3D" parent="Decor"]
+position = Vector3(9, -0.4, 29)
+scale = Vector3(2.4, 8.759993113975577, 2.4)
+rotation_degrees = Vector3(0, 188, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock147" type="MeshInstance3D" parent="Decor"]
+position = Vector3(9, -0.4, 35)
+scale = Vector3(2.4, 8.727744604297241, 2.4)
+rotation_degrees = Vector3(0, 119, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock150" type="MeshInstance3D" parent="Decor"]
+position = Vector3(11, -0.4, -17)
+scale = Vector3(2.4, 8.355689497047461, 2.4)
+rotation_degrees = Vector3(0, 164, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock153" type="MeshInstance3D" parent="Decor"]
+position = Vector3(11, -0.4, -9)
+scale = Vector3(2.4, 9.648157863041847, 2.4)
+rotation_degrees = Vector3(0, 297, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock156" type="MeshInstance3D" parent="Decor"]
+position = Vector3(11, -0.4, 7)
+scale = Vector3(2.4, 7.561044298662946, 2.4)
+rotation_degrees = Vector3(0, 45, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock159" type="MeshInstance3D" parent="Decor"]
+position = Vector3(13, -0.4, -11)
+scale = Vector3(2.4, 7.990755043224942, 2.4)
+rotation_degrees = Vector3(0, 104, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock162" type="MeshInstance3D" parent="Decor"]
+position = Vector3(13, -0.4, 25)
+scale = Vector3(2.4, 8.553697178943667, 2.4)
+rotation_degrees = Vector3(0, 195, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock165" type="MeshInstance3D" parent="Decor"]
+position = Vector3(15, -0.4, 3)
+scale = Vector3(2.4, 8.850448695587332, 2.4)
+rotation_degrees = Vector3(0, 157, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock168" type="MeshInstance3D" parent="Decor"]
+position = Vector3(17, -0.4, -3)
+scale = Vector3(2.4, 10.511455133378139, 2.4)
+rotation_degrees = Vector3(0, 74, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock171" type="MeshInstance3D" parent="Decor"]
+position = Vector3(17, -0.4, 11)
+scale = Vector3(2.4, 8.728746211111718, 2.4)
+rotation_degrees = Vector3(0, 195, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock174" type="MeshInstance3D" parent="Decor"]
+position = Vector3(19, -0.4, -27)
+scale = Vector3(2.4, 8.715390529935515, 2.4)
+rotation_degrees = Vector3(0, 282, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock177" type="MeshInstance3D" parent="Decor"]
+position = Vector3(19, -0.4, 23)
+scale = Vector3(2.4, 7.565739606076098, 2.4)
+rotation_degrees = Vector3(0, 37, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock180" type="MeshInstance3D" parent="Decor"]
+position = Vector3(21, -0.4, 15)
+scale = Vector3(2.4, 7.022074934830979, 2.4)
+rotation_degrees = Vector3(0, 33, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock183" type="MeshInstance3D" parent="Decor"]
+position = Vector3(23, -0.4, 11)
+scale = Vector3(2.4, 7.469009676700106, 2.4)
+rotation_degrees = Vector3(0, 21, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock186" type="MeshInstance3D" parent="Decor"]
+position = Vector3(25, -0.4, -29)
+scale = Vector3(2.4, 7.056134274183181, 2.4)
+rotation_degrees = Vector3(0, 73, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock189" type="MeshInstance3D" parent="Decor"]
+position = Vector3(27, -0.4, -29)
+scale = Vector3(2.4, 10.992789371054759, 2.4)
+rotation_degrees = Vector3(0, 185, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock192" type="MeshInstance3D" parent="Decor"]
+position = Vector3(27, -0.4, 1)
+scale = Vector3(2.4, 7.551137003311549, 2.4)
+rotation_degrees = Vector3(0, 77, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock195" type="MeshInstance3D" parent="Decor"]
+position = Vector3(29, -0.4, -27)
+scale = Vector3(2.4, 7.016898699391689, 2.4)
+rotation_degrees = Vector3(0, 5, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock198" type="MeshInstance3D" parent="Decor"]
+position = Vector3(29, -0.4, 7)
+scale = Vector3(2.4, 8.26755538051825, 2.4)
+rotation_degrees = Vector3(0, 81, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock201" type="MeshInstance3D" parent="Decor"]
+position = Vector3(31, -0.4, -27)
+scale = Vector3(2.4, 7.545838138781896, 2.4)
+rotation_degrees = Vector3(0, 29, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock204" type="MeshInstance3D" parent="Decor"]
+position = Vector3(31, -0.4, 11)
+scale = Vector3(2.4, 8.156034468776136, 2.4)
+rotation_degrees = Vector3(0, 8, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock207" type="MeshInstance3D" parent="Decor"]
+position = Vector3(33, -0.4, -25)
+scale = Vector3(2.4, 8.704793094342389, 2.4)
+rotation_degrees = Vector3(0, 46, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock210" type="MeshInstance3D" parent="Decor"]
+position = Vector3(35, -0.4, -21)
+scale = Vector3(2.4, 10.505640308280753, 2.4)
+rotation_degrees = Vector3(0, 119, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock213" type="MeshInstance3D" parent="Decor"]
+position = Vector3(37, -0.4, -19)
+scale = Vector3(2.4, 8.146690025161512, 2.4)
+rotation_degrees = Vector3(0, 177, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Rock216" type="MeshInstance3D" parent="Decor"]
+position = Vector3(37, -0.4, -13)
+scale = Vector3(2.4, 9.395936398859543, 2.4)
+rotation_degrees = Vector3(0, 1, 0)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Pillar0" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-20, -0.5, 12)
+scale = Vector3(3, 8, 3)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Pillar1" type="MeshInstance3D" parent="Decor"]
+position = Vector3(20, -0.5, 12)
+scale = Vector3(3, 8, 3)
+mesh = ExtResource("rock")
+material_override = ExtResource("rock_mat")
+
+[node name="Crystal0" type="MeshInstance3D" parent="Decor"]
+position = Vector3(7, 0, 30)
+mesh = ExtResource("crystal")
+material_override = SubResource("crystal_mat")
+
+[node name="Glow0" type="OmniLight3D" parent="Decor"]
+position = Vector3(0, 4, 30)
+light_color = Color(0.15, 0.65, 0.85, 1)
+light_energy = 1.3
+omni_range = 17
+
+[node name="Moss0" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-6, 0, 30)
+mesh = ExtResource("fern")
+material_override = ExtResource("moss")
+
+[node name="Mushrooms0" type="MeshInstance3D" parent="Decor"]
+position = Vector3(6, 0, 32)
+mesh = ExtResource("mushroom")
+material_override = SubResource("crystal_mat")
+
+[node name="Crystal1" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-11, 0, 12)
+mesh = ExtResource("crystal")
+material_override = SubResource("crystal_mat")
+
+[node name="Glow1" type="OmniLight3D" parent="Decor"]
+position = Vector3(-20, 4, 12)
+light_color = Color(0.15, 0.65, 0.85, 1)
+light_energy = 1.3
+omni_range = 19
+
+[node name="Moss1" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-28, 0, 12)
+mesh = ExtResource("fern")
+material_override = ExtResource("moss")
+
+[node name="Mushrooms1" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-12, 0, 14)
+mesh = ExtResource("mushroom")
+material_override = SubResource("crystal_mat")
+
+[node name="Crystal2" type="MeshInstance3D" parent="Decor"]
+position = Vector3(28, 0, 12)
+mesh = ExtResource("crystal")
+material_override = SubResource("crystal_mat")
+
+[node name="Glow2" type="OmniLight3D" parent="Decor"]
+position = Vector3(20, 4, 12)
+light_color = Color(0.15, 0.65, 0.85, 1)
+light_energy = 1.3
+omni_range = 18
+
+[node name="Moss2" type="MeshInstance3D" parent="Decor"]
+position = Vector3(13, 0, 12)
+mesh = ExtResource("fern")
+material_override = ExtResource("moss")
+
+[node name="Mushrooms2" type="MeshInstance3D" parent="Decor"]
+position = Vector3(27, 0, 14)
+mesh = ExtResource("mushroom")
+material_override = SubResource("crystal_mat")
+
+[node name="Crystal3" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-14, 0, -16)
+mesh = ExtResource("crystal")
+material_override = SubResource("crystal_mat")
+
+[node name="Glow3" type="OmniLight3D" parent="Decor"]
+position = Vector3(-24, 4, -16)
+light_color = Color(0.15, 0.65, 0.85, 1)
+light_energy = 1.3
+omni_range = 20
+
+[node name="Moss3" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-33, 0, -16)
+mesh = ExtResource("fern")
+material_override = ExtResource("moss")
+
+[node name="Mushrooms3" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-15, 0, -14)
+mesh = ExtResource("mushroom")
+material_override = SubResource("crystal_mat")
+
+[node name="Crystal4" type="MeshInstance3D" parent="Decor"]
+position = Vector3(34, 0, -16)
+mesh = ExtResource("crystal")
+material_override = SubResource("crystal_mat")
+
+[node name="Glow4" type="OmniLight3D" parent="Decor"]
+position = Vector3(24, 4, -16)
+light_color = Color(0.15, 0.65, 0.85, 1)
+light_energy = 1.3
+omni_range = 20
+
+[node name="Moss4" type="MeshInstance3D" parent="Decor"]
+position = Vector3(15, 0, -16)
+mesh = ExtResource("fern")
+material_override = ExtResource("moss")
+
+[node name="Mushrooms4" type="MeshInstance3D" parent="Decor"]
+position = Vector3(33, 0, -14)
+mesh = ExtResource("mushroom")
+material_override = SubResource("crystal_mat")
+
+[node name="Crystal5" type="MeshInstance3D" parent="Decor"]
+position = Vector3(6, 0, -30)
+mesh = ExtResource("crystal")
+material_override = SubResource("crystal_mat")
+
+[node name="Glow5" type="OmniLight3D" parent="Decor"]
+position = Vector3(0, 4, -30)
+light_color = Color(0.15, 0.65, 0.85, 1)
+light_energy = 1.3
+omni_range = 16
+
+[node name="Moss5" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-5, 0, -30)
+mesh = ExtResource("fern")
+material_override = ExtResource("moss")
+
+[node name="Mushrooms5" type="MeshInstance3D" parent="Decor"]
+position = Vector3(5, 0, -28)
+mesh = ExtResource("mushroom")
+material_override = SubResource("crystal_mat")
+
+[node name="EntranceLight" type="SpotLight3D" parent="."]
+position = Vector3(0, 16, 30)
+rotation_degrees = Vector3(-90, 0, 0)
+light_color = Color(0.7, 0.8, 0.65, 1)
+light_energy = 3
+spot_range = 28
+spot_angle = 28
+
+[node name="ReturnPortal" type="Area3D" parent="Interactables"]
+position = Vector3(0, 1, 34)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"cave_return"
+metadata/target_id = "m:cave_return"
+metadata/interact_type = &"portal"
+metadata/target_map = &"enchanted_forest_roots"
+metadata/target_spawn = &"CaveReturn"
+metadata/approach_position = Vector3(0, 0, 34)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/ReturnPortal"]
+shape = SubResource("portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/ReturnPortal"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "Superfície ↑"
+
+[node name="WestDescent" type="Area3D" parent="Interactables"]
+position = Vector3(-24, 1, -24)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"cave_deeper_1"
+metadata/target_id = "m:cave_deeper_1"
+metadata/interact_type = &"portal"
+metadata/target_map = &"cave_reino_encoberto_2"
+metadata/target_spawn = &"SpawnPoint"
+metadata/approach_position = Vector3(-24, 0, -24)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/WestDescent"]
+shape = SubResource("portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/WestDescent"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "↓ F2 · Oeste"
+
+[node name="EastDescent" type="Area3D" parent="Interactables"]
+position = Vector3(24, 1, -24)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"cave_east_1"
+metadata/target_id = "m:cave_east_1"
+metadata/interact_type = &"portal"
+metadata/target_map = &"cave_reino_encoberto_2"
+metadata/target_spawn = &"EastEntry"
+metadata/approach_position = Vector3(24, 0, -24)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/EastDescent"]
+shape = SubResource("portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/EastDescent"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "↓ F2 · Leste"
+
+[node name="EastEntry" type="Marker3D" parent="."]
+position = Vector3(22, 0, 12)
+
+
+[node name="Pack0" type="Marker3D" parent="Spawns"]
+position = Vector3(-15, 0, 11)
+metadata/monster_id = &"cave_bat"
+metadata/stage = 1
+metadata/count = 3
+metadata/radius_cells = 3
+metadata/respawn_sec = 120.0
+
+[node name="Pack4" type="Marker3D" parent="Spawns"]
+position = Vector3(5, 0, -29)
+metadata/monster_id = &"cave_skeleton"
+metadata/stage = 1
+metadata/count = 3
+metadata/radius_cells = 3
+metadata/respawn_sec = 120.0

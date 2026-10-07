@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="WorldRegionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("place")
+id = &"dunbruma"
+region_id = &"brumas"
+kind = 0
+status = 2
+name_key = "WA_P_DUNBRUMA"
+hook_key = "WA_P_DUNBRUMA_HOOK"
+pos = Vector2(0.215, 0.228)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("place")
+id = &"porto_focas"
+region_id = &"brumas"
+kind = 7
+status = 2
+name_key = "WA_P_PORTO_FOCAS"
+hook_key = "WA_P_PORTO_FOCAS_HOOK"
+pos = Vector2(0.085, 0.25)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("place")
+id = &"colinas_nevoa"
+region_id = &"brumas"
+kind = 2
+status = 2
+name_key = "WA_P_COLINAS_NEVOA"
+hook_key = "WA_P_COLINAS_NEVOA_HOOK"
+pos = Vector2(0.14, 0.225)
+level_min = 10
+level_max = 20
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("place")
+id = &"lago_kelpie"
+region_id = &"brumas"
+kind = 2
+status = 2
+name_key = "WA_P_LAGO_KELPIE"
+hook_key = "WA_P_LAGO_KELPIE_HOOK"
+pos = Vector2(0.205, 0.445)
+level_min = 20
+level_max = 30
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("place")
+id = &"estrada_sem_cabeca"
+region_id = &"brumas"
+kind = 3
+status = 2
+name_key = "WA_P_ESTRADA_SEM_CABECA"
+hook_key = "WA_P_ESTRADA_SEM_CABECA_HOOK"
+pos = Vector2(0.16, 0.16)
+level_min = 30
+level_max = 40
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("place")
+id = &"olho_balor"
+region_id = &"brumas"
+kind = 5
+status = 2
+name_key = "WA_P_OLHO_BALOR"
+hook_key = "WA_P_OLHO_BALOR_HOOK"
+pos = Vector2(0.195, 0.125)
+level_min = 45
+level_max = 55
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("place")
+id = &"oficina_horas_tortas"
+region_id = &"brumas"
+kind = 4
+status = 2
+name_key = "WA_P_OFICINA_HORAS_TORTAS"
+hook_key = "WA_P_OFICINA_HORAS_TORTAS_HOOK"
+pos = Vector2(0.1, 0.43)
+level_min = 50
+level_max = 65
+
+[resource]
+script = ExtResource("region")
+id = &"brumas"
+name_key = "WA_R_BRUMAS"
+hook_key = "WA_R_BRUMAS_HOOK"
+inspiration = "Irlanda e Escócia"
+label_pos = Vector2(0.175, 0.295)
+reached = false
+places = Array[ExtResource("place")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6")])

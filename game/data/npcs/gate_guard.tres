@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/gate_guard.tres" id="1_4bx3m"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_il5w6"]
+
+[resource]
+script = ExtResource("2_il5w6")
+id = &"gate_guard"
+name_key = "NPC_GATE_GUARD_NAME"
+sprite_base = "res://assets/npcs/npc_gate_guard"
+map_id = &"city_awakening"
+spawn_marker = &"gate_guard"
+routine = 2
+patrol_markers = Array[StringName]([&"gate_guard_patrol_1", &"gate_guard_patrol_2"])
+move_speed = 1.4
+dialogue = ExtResource("1_4bx3m")

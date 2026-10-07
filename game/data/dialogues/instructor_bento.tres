@@ -1,0 +1,198 @@
+[gd_resource type="Resource" script_class="DialogueDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="1_opt"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="2_node"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="3_dlg"]
+
+[sub_resource type="Resource" id="opt_start_combat"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_START_OPT_COMBAT"
+next_node = &"combat"
+
+[sub_resource type="Resource" id="opt_start_titles"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_START_OPT_TITLES"
+next_node = &"titles"
+
+[sub_resource type="Resource" id="opt_start_crendices"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_START_OPT_CRENDICES"
+next_node = &"crendices"
+
+[sub_resource type="Resource" id="opt_start_altars"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_START_OPT_ALTARS"
+next_node = &"altars"
+
+[sub_resource type="Resource" id="opt_start_close"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_CLOSE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_start"]
+script = ExtResource("2_node")
+id = &"start"
+text_key = "DLG_INSTRUCTOR_BENTO_START"
+options = Array[ExtResource("1_opt")]([SubResource("opt_start_combat"), SubResource("opt_start_titles"), SubResource("opt_start_crendices"), SubResource("opt_start_altars"), SubResource("opt_start_close")])
+
+[sub_resource type="Resource" id="opt_combat_ammo"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_COMBAT_OPT_AMMO"
+next_node = &"combat_ammo"
+
+[sub_resource type="Resource" id="opt_combat_back"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_BACK"
+next_node = &"start"
+
+[sub_resource type="Resource" id="opt_combat_close"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_CLOSE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_combat"]
+script = ExtResource("2_node")
+id = &"combat"
+text_key = "DLG_INSTRUCTOR_BENTO_COMBAT"
+options = Array[ExtResource("1_opt")]([SubResource("opt_combat_ammo"), SubResource("opt_combat_back"), SubResource("opt_combat_close")])
+
+[sub_resource type="Resource" id="opt_ammo_combat"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_AMMO_OPT_COMBAT"
+next_node = &"combat"
+
+[sub_resource type="Resource" id="opt_ammo_back"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_BACK"
+next_node = &"start"
+
+[sub_resource type="Resource" id="opt_ammo_close"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_CLOSE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_combat_ammo"]
+script = ExtResource("2_node")
+id = &"combat_ammo"
+text_key = "DLG_INSTRUCTOR_BENTO_COMBAT_AMMO"
+options = Array[ExtResource("1_opt")]([SubResource("opt_ammo_combat"), SubResource("opt_ammo_back"), SubResource("opt_ammo_close")])
+
+[sub_resource type="Resource" id="opt_titles_masters"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_TITLES_OPT_MASTERS"
+next_node = &"titles_masters"
+
+[sub_resource type="Resource" id="opt_titles_back"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_BACK"
+next_node = &"start"
+
+[sub_resource type="Resource" id="opt_titles_close"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_CLOSE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_titles"]
+script = ExtResource("2_node")
+id = &"titles"
+text_key = "DLG_INSTRUCTOR_BENTO_TITLES"
+options = Array[ExtResource("1_opt")]([SubResource("opt_titles_masters"), SubResource("opt_titles_back"), SubResource("opt_titles_close")])
+
+[sub_resource type="Resource" id="opt_masters_titles"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_MASTERS_OPT_TITLES"
+next_node = &"titles"
+
+[sub_resource type="Resource" id="opt_masters_back"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_BACK"
+next_node = &"start"
+
+[sub_resource type="Resource" id="opt_masters_close"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_CLOSE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_titles_masters"]
+script = ExtResource("2_node")
+id = &"titles_masters"
+text_key = "DLG_INSTRUCTOR_BENTO_TITLES_MASTERS"
+options = Array[ExtResource("1_opt")]([SubResource("opt_masters_titles"), SubResource("opt_masters_back"), SubResource("opt_masters_close")])
+
+[sub_resource type="Resource" id="opt_crendices_altars"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_CRENDICES_OPT_ALTARS"
+next_node = &"altars"
+
+[sub_resource type="Resource" id="opt_crendices_synergies"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_CRENDICES_OPT_SYNERGIES"
+next_node = &"synergies"
+
+[sub_resource type="Resource" id="opt_crendices_back"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_BACK"
+next_node = &"start"
+
+[sub_resource type="Resource" id="opt_crendices_close"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_CLOSE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_crendices"]
+script = ExtResource("2_node")
+id = &"crendices"
+text_key = "DLG_INSTRUCTOR_BENTO_CRENDICES"
+options = Array[ExtResource("1_opt")]([SubResource("opt_crendices_altars"), SubResource("opt_crendices_synergies"), SubResource("opt_crendices_back"), SubResource("opt_crendices_close")])
+
+[sub_resource type="Resource" id="opt_altars_synergies"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_ALTARS_OPT_SYNERGIES"
+next_node = &"synergies"
+
+[sub_resource type="Resource" id="opt_altars_crendices"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_ALTARS_OPT_CRENDICES"
+next_node = &"crendices"
+
+[sub_resource type="Resource" id="opt_altars_back"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_BACK"
+next_node = &"start"
+
+[sub_resource type="Resource" id="opt_altars_close"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_CLOSE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_altars"]
+script = ExtResource("2_node")
+id = &"altars"
+text_key = "DLG_INSTRUCTOR_BENTO_ALTARS"
+options = Array[ExtResource("1_opt")]([SubResource("opt_altars_synergies"), SubResource("opt_altars_crendices"), SubResource("opt_altars_back"), SubResource("opt_altars_close")])
+
+[sub_resource type="Resource" id="opt_synergies_crendices"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_SYNERGIES_OPT_CRENDICES"
+next_node = &"crendices"
+
+[sub_resource type="Resource" id="opt_synergies_back"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_BACK"
+next_node = &"start"
+
+[sub_resource type="Resource" id="opt_synergies_close"]
+script = ExtResource("1_opt")
+text_key = "DLG_INSTRUCTOR_BENTO_OPT_CLOSE"
+action = &"close"
+
+[sub_resource type="Resource" id="node_synergies"]
+script = ExtResource("2_node")
+id = &"synergies"
+text_key = "DLG_INSTRUCTOR_BENTO_SYNERGIES"
+options = Array[ExtResource("1_opt")]([SubResource("opt_synergies_crendices"), SubResource("opt_synergies_back"), SubResource("opt_synergies_close")])
+
+[resource]
+script = ExtResource("3_dlg")
+id = &"instructor_bento"
+nodes = Array[ExtResource("2_node")]([SubResource("node_start"), SubResource("node_combat"), SubResource("node_combat_ammo"), SubResource("node_titles"), SubResource("node_titles_masters"), SubResource("node_crendices"), SubResource("node_altars"), SubResource("node_synergies")])

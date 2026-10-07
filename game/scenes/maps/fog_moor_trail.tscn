@@ -1,0 +1,1584 @@
+[gd_scene load_steps=162 format=3]
+
+[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_ground_sabia_forest.tres" id="ground_mat"]
+[ext_resource type="Script" path="res://scripts/shared/map.gd" id="map"]
+
+[sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
+sky_top_color = Color(0.12, 0.16, 0.22, 1)
+sky_horizon_color = Color(0.24, 0.28, 0.35, 1)
+ground_bottom_color = Color(0.08, 0.10, 0.14, 1)
+ground_horizon_color = Color(0.24, 0.28, 0.35, 1)
+
+[sub_resource type="Sky" id="sky"]
+sky_material = SubResource("sky_mat")
+
+[sub_resource type="Environment" id="env"]
+background_mode = 2
+sky = SubResource("sky")
+ambient_light_source = 2
+ambient_light_color = Color(0.60, 0.65, 0.75, 1)
+ambient_light_energy = 0.8
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.35, 0.40, 0.48, 1)
+fog_density = 0.015
+
+[sub_resource type="NavigationMesh" id="navmesh"]
+cell_size = 0.2
+cell_height = 0.2
+vertices = PackedVector3Array(-40, 0, -30, -40, 0, -28, -38, 0, -28, -38, 0, -30, -40, 0, -26, -38, 0, -26, -40, 0, -24, -38, 0, -24, -40, 0, -22, -38, 0, -22, -40, 0, -20, -38, 0, -20, -40, 0, -18, -38, 0, -18, -38, 0, -32, -36, 0, -30, -36, 0, -32, -36, 0, -28, -36, 0, -26, -36, 0, -24, -36, 0, -22, -36, 0, -20, -36, 0, -18, -38, 0, -16, -36, 0, -16, -38, 0, 16, -38, 0, 18, -36, 0, 18, -36, 0, 16, -38, 0, 20, -36, 0, 20, -38, 0, 22, -36, 0, 22, -38, 0, 24, -36, 0, 24, -38, 0, 26, -36, 0, 26, -38, 0, 28, -36, 0, 28, -36, 0, -34, -34, 0, -32, -34, 0, -34, -34, 0, -30, -34, 0, -28, -34, 0, -26, -34, 0, -24, -34, 0, -22, -34, 0, -20, -34, 0, -18, -34, 0, -16, -36, 0, -14, -34, 0, -14, -36, 0, 14, -34, 0, 16, -34, 0, 14, -34, 0, 18, -34, 0, 20, -34, 0, 22, -34, 0, 24, -34, 0, 26, -34, 0, 28, -36, 0, 30, -34, 0, 30, -34, 0, -36, -32, 0, -34, -32, 0, -36, -32, 0, -32, -32, 0, -30, -32, 0, -28, -32, 0, -26, -32, 0, -24, -32, 0, -22, -32, 0, -20, -32, 0, -18, -32, 0, -16, -32, 0, -14, -34, 0, -12, -32, 0, -12, -34, 0, -2, -34, 0, 0, -32, 0, 0, -32, 0, -2, -34, 0, 2, -32, 0, 2, -34, 0, 4, -32, 0, 4, -34, 0, 6, -32, 0, 6, -34, 0, 8, -32, 0, 8, -34, 0, 12, -32, 0, 14, -32, 0, 12, -32, 0, 16, -32, 0, 18, -32, 0, 20, -32, 0, 22, -32, 0, 24, -32, 0, 26, -32, 0, 28, -32, 0, 30, -34, 0, 32, -32, 0, 32, -32, 0, -38, -30, 0, -36, -30, 0, -38, -30, 0, -34, -30, 0, -32, -30, 0, -30, -30, 0, -28, -30, 0, -26, -30, 0, -24, -30, 0, -22, -30, 0, -20, -30, 0, -18, -30, 0, -16, -30, 0, -14, -30, 0, -12, -32, 0, -10, -30, 0, -10, -32, 0, -4, -30, 0, -2, -30, 0, -4, -30, 0, 0, -30, 0, 2, -30, 0, 4, -30, 0, 6, -30, 0, 8, -32, 0, 10, -30, 0, 10, -30, 0, 12, -30, 0, 14, -30, 0, 16, -30, 0, 18, -30, 0, 20, -30, 0, 22, -30, 0, 24, -30, 0, 26, -30, 0, 28, -30, 0, 30, -30, 0, 32, -32, 0, 34, -30, 0, 34, -28, 0, -36, -28, 0, -38, -28, 0, -34, -28, 0, -32, -28, 0, -30, -28, 0, -28, -28, 0, -26, -28, 0, -24, -28, 0, -22, -28, 0, -20, -28, 0, -18, -28, 0, -16, -28, 0, -14, -28, 0, -12, -28, 0, -10, -30, 0, -8, -28, 0, -8, -30, 0, -6, -28, 0, -6, -28, 0, -4, -28, 0, -2, -28, 0, 0, -28, 0, 2, -28, 0, 4, -28, 0, 6, -28, 0, 8, -28, 0, 10, -28, 0, 12, -28, 0, 14, -28, 0, 16, -28, 0, 18, -28, 0, 20, -28, 0, 22, -28, 0, 24, -28, 0, 26, -28, 0, 28, -28, 0, 30, -28, 0, 32, -28, 0, 34, -30, 0, 36, -28, 0, 36, -26, 0, -36, -26, 0, -38, -26, 0, -34, -26, 0, -32, -26, 0, -30, -26, 0, -28, -26, 0, -26, -26, 0, -24, -26, 0, -22, -26, 0, -20, -26, 0, -18, -26, 0, -16, -26, 0, -14, -26, 0, -12, -26, 0, -10, -26, 0, -8, -26, 0, -6, -26, 0, -4, -26, 0, -2, -26, 0, 0, -26, 0, 2, -26, 0, 4, -26, 0, 6, -26, 0, 8, -26, 0, 10, -26, 0, 12, -26, 0, 14, -26, 0, 16, -26, 0, 18, -26, 0, 20, -26, 0, 22, -26, 0, 24, -26, 0, 26, -26, 0, 28, -26, 0, 30, -26, 0, 32, -26, 0, 34, -26, 0, 36, -24, 0, -36, -24, 0, -38, -24, 0, -34, -24, 0, -32, -24, 0, -30, -24, 0, -28, -24, 0, -26, -24, 0, -24, -24, 0, -22, -24, 0, -20, -24, 0, -18, -24, 0, -16, -24, 0, -14, -24, 0, -12, -24, 0, -10, -24, 0, -8, -24, 0, -6, -24, 0, -4, -24, 0, -2, -24, 0, 0, -24, 0, 2, -24, 0, 4, -24, 0, 6, -24, 0, 8, -24, 0, 10, -24, 0, 12, -24, 0, 14, -24, 0, 16, -24, 0, 18, -24, 0, 20, -24, 0, 22, -24, 0, 24, -24, 0, 26, -24, 0, 28, -24, 0, 30, -24, 0, 32, -24, 0, 34, -24, 0, 36, -22, 0, -36, -22, 0, -38, -22, 0, -34, -22, 0, -32, -22, 0, -30, -22, 0, -28, -22, 0, -26, -22, 0, -24, -22, 0, -22, -22, 0, -20, -22, 0, -18, -22, 0, -16, -22, 0, -14, -22, 0, -12, -22, 0, -10, -22, 0, -8, -22, 0, -6, -22, 0, -4, -22, 0, -2, -22, 0, 0, -22, 0, 2, -22, 0, 4, -22, 0, 6, -22, 0, 8, -22, 0, 10, -22, 0, 12, -22, 0, 14, -22, 0, 16, -22, 0, 18, -22, 0, 20, -22, 0, 22, -22, 0, 24, -22, 0, 26, -22, 0, 28, -22, 0, 30, -22, 0, 32, -22, 0, 34, -22, 0, 36, -20, 0, -36, -20, 0, -38, -20, 0, -34, -20, 0, -32, -20, 0, -30, -20, 0, -28, -20, 0, -26, -20, 0, -24, -20, 0, -22, -20, 0, -20, -20, 0, -18, -20, 0, -16, -20, 0, -14, -20, 0, -8, -20, 0, -10, -20, 0, -6, -20, 0, -4, -20, 0, -2, -20, 0, 0, -20, 0, 2, -20, 0, 4, -20, 0, 6, -20, 0, 8, -20, 0, 10, -20, 0, 12, -20, 0, 14, -20, 0, 16, -20, 0, 18, -20, 0, 20, -20, 0, 22, -20, 0, 24, -20, 0, 26, -20, 0, 28, -20, 0, 30, -20, 0, 32, -20, 0, 34, -20, 0, 36, -18, 0, -34, -18, 0, -36, -18, 0, -32, -18, 0, -30, -18, 0, -28, -18, 0, -26, -18, 0, -24, -18, 0, -22, -18, 0, -20, -18, 0, -18, -18, 0, -16, -18, 0, 10, -18, 0, 8, -18, 0, 12, -18, 0, 14, -18, 0, 16, -18, 0, 18, -18, 0, 20, -18, 0, 22, -18, 0, 24, -18, 0, 26, -18, 0, 28, -18, 0, 30, -18, 0, 32, -18, 0, 34, -18, 0, 36, -16, 0, -32, -16, 0, -34, -16, 0, -30, -16, 0, -28, -16, 0, -26, -16, 0, -24, -16, 0, -22, -16, 0, -20, -16, 0, -18, -16, 0, -16, -16, 0, 10, -16, 0, 8, -16, 0, 12, -16, 0, 14, -16, 0, 16, -16, 0, 18, -16, 0, 20, -16, 0, 22, -16, 0, 24, -16, 0, 26, -16, 0, 28, -16, 0, 30, -16, 0, 32, -16, 0, 34, -14, 0, -30, -14, 0, -32, -14, 0, -28, -14, 0, -26, -14, 0, -24, -14, 0, -22, -14, 0, -20, -14, 0, -18, -14, 0, -16, -16, 0, -14, -14, 0, -14, -16, 0, -10, -16, 0, -8, -14, 0, -8, -14, 0, -10, -16, 0, -6, -16, 0, -4, -14, 0, -4, -14, 0, -6, -16, 0, -2, -14, 0, -2, -16, 0, 0, -14, 0, 0, -16, 0, 2, -14, 0, 2, -16, 0, 4, -14, 0, 4, -16, 0, 6, -14, 0, 6, -14, 0, 8, -14, 0, 10, -14, 0, 12, -14, 0, 14, -14, 0, 16, -14, 0, 18, -14, 0, 20, -14, 0, 22, -14, 0, 24, -14, 0, 26, -14, 0, 28, -14, 0, 30, -14, 0, 32, -12, 0, -28, -12, 0, -30, -12, 0, -26, -12, 0, -24, -12, 0, -22, -12, 0, -20, -12, 0, -18, -12, 0, -16, -12, 0, -14, -14, 0, -12, -12, 0, -12, -12, 0, -10, -12, 0, -8, -12, 0, -6, -12, 0, -4, -12, 0, -2, -12, 0, 0, -12, 0, 2, -12, 0, 4, -12, 0, 6, -12, 0, 12, -12, 0, 10, -12, 0, 14, -12, 0, 16, -12, 0, 18, -12, 0, 20, -12, 0, 22, -12, 0, 24, -12, 0, 26, -12, 0, 28, -12, 0, 30, -10, 0, -14, -10, 0, -16, -10, 0, -12, -10, 0, -10, -10, 0, -8, -10, 0, -6, -10, 0, -4, -10, 0, -2, -10, 0, 0, -10, 0, 2, -10, 0, 4, -10, 0, 14, -10, 0, 12, -10, 0, 16, -10, 0, 18, -10, 0, 20, -10, 0, 22, -10, 0, 24, -10, 0, 26, -10, 0, 28, -8, 0, -14, -8, 0, -16, -8, 0, -12, -8, 0, -10, -8, 0, -8, -8, 0, -6, -8, 0, -4, -8, 0, -2, -8, 0, 0, -8, 0, 2, -8, 0, 4, -8, 0, 14, -8, 0, 12, -8, 0, 16, -6, 0, -12, -6, 0, -14, -6, 0, -10, -6, 0, -8, -6, 0, -6, -6, 0, -4, -6, 0, -2, -6, 0, 0, -6, 0, 2, -6, 0, 4, -8, 0, 6, -6, 0, 6, -8, 0, 10, -6, 0, 12, -6, 0, 10, -6, 0, 14, -6, 0, -16, -4, 0, -14, -4, 0, -16, -4, 0, -12, -4, 0, -10, -4, 0, -8, -4, 0, -6, -4, 0, -4, -4, 0, -2, -4, 0, 0, -4, 0, 2, -4, 0, 4, -4, 0, 6, -6, 0, 8, -4, 0, 8, -4, 0, 10, -4, 0, 12, -4, 0, 14, -6, 0, 16, -4, 0, 16, -2, 0, -14, -2, 0, -16, -2, 0, -12, -2, 0, -10, -2, 0, -8, -2, 0, -6, -2, 0, -4, -2, 0, -2, -2, 0, 0, -2, 0, 2, -2, 0, 4, -2, 0, 6, -2, 0, 8, -2, 0, 10, -2, 0, 12, -2, 0, 14, -2, 0, 16, 0, 0, -14, 0, 0, -16, 0, 0, -12, 0, 0, -10, 0, 0, -8, 0, 0, -6, 0, 0, -4, 0, 0, -2, 0, 0, 0, 0, 0, 2, 0, 0, 4, 0, 0, 6, 0, 0, 8, 0, 0, 10, 0, 0, 12, 0, 0, 14, 0, 0, 16, 2, 0, -14, 2, 0, -16, 2, 0, -12, 2, 0, -10, 2, 0, -8, 2, 0, -6, 2, 0, -4, 2, 0, -2, 2, 0, 0, 2, 0, 2, 2, 0, 4, 2, 0, 6, 2, 0, 8, 2, 0, 10, 2, 0, 12, 2, 0, 14, 2, 0, 16, 4, 0, -14, 4, 0, -16, 4, 0, -12, 4, 0, -10, 4, 0, -8, 4, 0, -6, 4, 0, -4, 4, 0, -2, 4, 0, 0, 4, 0, 2, 4, 0, 4, 4, 0, 6, 4, 0, 8, 4, 0, 10, 4, 0, 12, 4, 0, 14, 4, 0, 16, 6, 0, -14, 6, 0, -16, 6, 0, -12, 6, 0, -10, 6, 0, -8, 6, 0, -6, 6, 0, -4, 6, 0, -2, 6, 0, 0, 6, 0, 2, 6, 0, 4, 6, 0, 6, 6, 0, 8, 6, 0, 10, 6, 0, 12, 6, 0, 14, 6, 0, 16, 8, 0, -12, 8, 0, -14, 8, 0, -10, 8, 0, -8, 8, 0, -6, 8, 0, -4, 8, 0, -2, 8, 0, 0, 8, 0, 2, 8, 0, 4, 8, 0, 6, 8, 0, 8, 8, 0, 10, 8, 0, 12, 8, 0, 14, 10, 0, -12, 10, 0, -14, 10, 0, -10, 10, 0, -4, 10, 0, -6, 10, 0, -2, 10, 0, 0, 10, 0, 2, 10, 0, 4, 10, 0, 6, 10, 0, 8, 10, 0, 10, 10, 0, 12, 10, 0, 14, 12, 0, -12, 12, 0, -14, 12, 0, -2, 12, 0, -4, 12, 0, 0, 12, 0, 2, 12, 0, 4, 12, 0, 6, 12, 0, 8, 12, 0, 10, 12, 0, 12, 12, 0, -16, 14, 0, -14, 14, 0, -16, 14, 0, -12, 14, 0, -2, 14, 0, -4, 14, 0, 0, 14, 0, 2, 14, 0, 4, 14, 0, 6, 14, 0, 8, 14, 0, 10, 14, 0, -28, 14, 0, -26, 16, 0, -26, 16, 0, -28, 14, 0, -24, 16, 0, -24, 14, 0, -22, 16, 0, -22, 14, 0, -20, 16, 0, -20, 14, 0, -18, 16, 0, -18, 16, 0, -16, 16, 0, -14, 16, 0, -12, 14, 0, -10, 16, 0, -10, 14, 0, -6, 16, 0, -4, 16, 0, -6, 16, 0, -2, 16, 0, 0, 16, 0, 2, 16, 0, 4, 16, 0, 6, 16, 0, -30, 18, 0, -28, 18, 0, -30, 18, 0, -26, 18, 0, -24, 18, 0, -22, 18, 0, -20, 18, 0, -18, 18, 0, -16, 18, 0, -14, 18, 0, -12, 18, 0, -10, 16, 0, -8, 18, 0, -8, 18, 0, -6, 18, 0, -32, 20, 0, -30, 20, 0, -32, 20, 0, -28, 20, 0, -26, 20, 0, -24, 20, 0, -22, 20, 0, -20, 20, 0, -18, 20, 0, -16, 20, 0, -14, 20, 0, -12, 20, 0, -10, 20, 0, -8, 20, 0, -34, 22, 0, -32, 22, 0, -34, 22, 0, -30, 22, 0, -28, 22, 0, -26, 22, 0, -24, 22, 0, -22, 22, 0, -20, 22, 0, -18, 22, 0, -16, 22, 0, -14, 22, 0, -12, 22, 0, -10, 22, 0, -8, 20, 0, -6, 22, 0, -6, 24, 0, -32, 24, 0, -34, 24, 0, -30, 24, 0, -28, 24, 0, -26, 24, 0, -24, 24, 0, -22, 24, 0, -20, 24, 0, -18, 24, 0, -16, 24, 0, -14, 24, 0, -12, 24, 0, -10, 24, 0, -8, 24, 0, -6, 26, 0, -32, 26, 0, -34, 26, 0, -30, 26, 0, -28, 26, 0, -26, 26, 0, -24, 26, 0, -22, 26, 0, -20, 26, 0, -18, 26, 0, -16, 26, 0, -14, 26, 0, -12, 26, 0, -10, 26, 0, -8, 26, 0, -6, 28, 0, -32, 28, 0, -34, 28, 0, -30, 28, 0, -28, 28, 0, -26, 28, 0, -24, 28, 0, -22, 28, 0, -20, 28, 0, -18, 28, 0, -16, 28, 0, -14, 28, 0, -12, 28, 0, -10, 28, 0, -8, 28, 0, -6, 26, 0, -4, 28, 0, -4, 26, 0, -2, 28, 0, -2, 26, 0, 0, 28, 0, 0, 26, 0, 2, 28, 0, 2, 30, 0, -32, 30, 0, -34, 30, 0, -30, 30, 0, -28, 30, 0, -26, 30, 0, -24, 30, 0, -22, 30, 0, -20, 30, 0, -18, 30, 0, -16, 30, 0, -14, 30, 0, -12, 30, 0, -10, 30, 0, -8, 30, 0, -6, 30, 0, -4, 30, 0, -2, 30, 0, 0, 30, 0, 2, 28, 0, 4, 30, 0, 4, 32, 0, -32, 32, 0, -34, 32, 0, -30, 32, 0, -28, 32, 0, -26, 32, 0, -24, 32, 0, -22, 32, 0, -20, 32, 0, -18, 32, 0, -16, 32, 0, -14, 32, 0, -12, 32, 0, -10, 32, 0, -8, 32, 0, -6, 32, 0, -4, 32, 0, -2, 32, 0, 0, 32, 0, 2, 32, 0, 4, 30, 0, 6, 32, 0, 6, 34, 0, -32, 34, 0, -34, 34, 0, -30, 34, 0, -28, 34, 0, -26, 34, 0, -24, 34, 0, -22, 34, 0, -20, 34, 0, -18, 34, 0, -16, 34, 0, -14, 34, 0, -12, 34, 0, -10, 34, 0, -8, 34, 0, -6, 34, 0, -4, 34, 0, -2, 34, 0, 0, 34, 0, 2, 34, 0, 4, 34, 0, 6, 36, 0, -32, 36, 0, -34, 36, 0, -30, 36, 0, -28, 36, 0, -26, 36, 0, -24, 36, 0, -22, 36, 0, -20, 36, 0, -18, 36, 0, -16, 36, 0, -14, 36, 0, -12, 36, 0, -10, 36, 0, -8, 36, 0, -6, 36, 0, -4, 36, 0, -2, 36, 0, 0, 36, 0, 2, 36, 0, 4, 38, 0, -30, 38, 0, -32, 38, 0, -28, 38, 0, -26, 38, 0, -24, 38, 0, -22, 38, 0, -20, 38, 0, -18, 38, 0, -16, 38, 0, -14, 38, 0, -12, 38, 0, -10, 38, 0, -8, 40, 0, -28, 40, 0, -30, 40, 0, -26, 40, 0, -24, 40, 0, -22, 40, 0, -20, 40, 0, -18, 40, 0, -16, 40, 0, -14, 40, 0, -12, 40, 0, -10, 42, 0, -26, 42, 0, -28, 42, 0, -24, 42, 0, -22, 42, 0, -20, 42, 0, -18, 42, 0, -16, 42, 0, -14, 42, 0, -12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 4, 5, 2), PackedInt32Array(4, 6, 7, 5), PackedInt32Array(6, 8, 9, 7), PackedInt32Array(8, 10, 11, 9), PackedInt32Array(10, 12, 13, 11), PackedInt32Array(14, 3, 15, 16), PackedInt32Array(3, 2, 17, 15), PackedInt32Array(2, 5, 18, 17), PackedInt32Array(5, 7, 19, 18), PackedInt32Array(7, 9, 20, 19), PackedInt32Array(9, 11, 21, 20), PackedInt32Array(11, 13, 22, 21), PackedInt32Array(13, 23, 24, 22), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(26, 29, 30, 27), PackedInt32Array(29, 31, 32, 30), PackedInt32Array(31, 33, 34, 32), PackedInt32Array(33, 35, 36, 34), PackedInt32Array(35, 37, 38, 36), PackedInt32Array(39, 16, 40, 41), PackedInt32Array(16, 15, 42, 40), PackedInt32Array(15, 17, 43, 42), PackedInt32Array(17, 18, 44, 43), PackedInt32Array(18, 19, 45, 44), PackedInt32Array(19, 20, 46, 45), PackedInt32Array(20, 21, 47, 46), PackedInt32Array(21, 22, 48, 47), PackedInt32Array(22, 24, 49, 48), PackedInt32Array(24, 50, 51, 49), PackedInt32Array(52, 28, 53, 54), PackedInt32Array(28, 27, 55, 53), PackedInt32Array(27, 30, 56, 55), PackedInt32Array(30, 32, 57, 56), PackedInt32Array(32, 34, 58, 57), PackedInt32Array(34, 36, 59, 58), PackedInt32Array(36, 38, 60, 59), PackedInt32Array(38, 61, 62, 60), PackedInt32Array(63, 41, 64, 65), PackedInt32Array(41, 40, 66, 64), PackedInt32Array(40, 42, 67, 66), PackedInt32Array(42, 43, 68, 67), PackedInt32Array(43, 44, 69, 68), PackedInt32Array(44, 45, 70, 69), PackedInt32Array(45, 46, 71, 70), PackedInt32Array(46, 47, 72, 71), PackedInt32Array(47, 48, 73, 72), PackedInt32Array(48, 49, 74, 73), PackedInt32Array(49, 51, 75, 74), PackedInt32Array(51, 76, 77, 75), PackedInt32Array(78, 79, 80, 81), PackedInt32Array(79, 82, 83, 80), PackedInt32Array(82, 84, 85, 83), PackedInt32Array(84, 86, 87, 85), PackedInt32Array(86, 88, 89, 87), PackedInt32Array(90, 54, 91, 92), PackedInt32Array(54, 53, 93, 91), PackedInt32Array(53, 55, 94, 93), PackedInt32Array(55, 56, 95, 94), PackedInt32Array(56, 57, 96, 95), PackedInt32Array(57, 58, 97, 96), PackedInt32Array(58, 59, 98, 97), PackedInt32Array(59, 60, 99, 98), PackedInt32Array(60, 62, 100, 99), PackedInt32Array(62, 101, 102, 100), PackedInt32Array(103, 65, 104, 105), PackedInt32Array(65, 64, 106, 104), PackedInt32Array(64, 66, 107, 106), PackedInt32Array(66, 67, 108, 107), PackedInt32Array(67, 68, 109, 108), PackedInt32Array(68, 69, 110, 109), PackedInt32Array(69, 70, 111, 110), PackedInt32Array(70, 71, 112, 111), PackedInt32Array(71, 72, 113, 112), PackedInt32Array(72, 73, 114, 113), PackedInt32Array(73, 74, 115, 114), PackedInt32Array(74, 75, 116, 115), PackedInt32Array(75, 77, 117, 116), PackedInt32Array(77, 118, 119, 117), PackedInt32Array(120, 81, 121, 122), PackedInt32Array(81, 80, 123, 121), PackedInt32Array(80, 83, 124, 123), PackedInt32Array(83, 85, 125, 124), PackedInt32Array(85, 87, 126, 125), PackedInt32Array(87, 89, 127, 126), PackedInt32Array(89, 128, 129, 127), PackedInt32Array(128, 92, 130, 129), PackedInt32Array(92, 91, 131, 130), PackedInt32Array(91, 93, 132, 131), PackedInt32Array(93, 94, 133, 132), PackedInt32Array(94, 95, 134, 133), PackedInt32Array(95, 96, 135, 134), PackedInt32Array(96, 97, 136, 135), PackedInt32Array(97, 98, 137, 136), PackedInt32Array(98, 99, 138, 137), PackedInt32Array(99, 100, 139, 138), PackedInt32Array(100, 102, 140, 139), PackedInt32Array(102, 141, 142, 140), PackedInt32Array(105, 104, 143, 144), PackedInt32Array(104, 106, 145, 143), PackedInt32Array(106, 107, 146, 145), PackedInt32Array(107, 108, 147, 146), PackedInt32Array(108, 109, 148, 147), PackedInt32Array(109, 110, 149, 148), PackedInt32Array(110, 111, 150, 149), PackedInt32Array(111, 112, 151, 150), PackedInt32Array(112, 113, 152, 151), PackedInt32Array(113, 114, 153, 152), PackedInt32Array(114, 115, 154, 153), PackedInt32Array(115, 116, 155, 154), PackedInt32Array(116, 117, 156, 155), PackedInt32Array(117, 119, 157, 156), PackedInt32Array(119, 158, 159, 157), PackedInt32Array(158, 160, 161, 159), PackedInt32Array(160, 122, 162, 161), PackedInt32Array(122, 121, 163, 162), PackedInt32Array(121, 123, 164, 163), PackedInt32Array(123, 124, 165, 164), PackedInt32Array(124, 125, 166, 165), PackedInt32Array(125, 126, 167, 166), PackedInt32Array(126, 127, 168, 167), PackedInt32Array(127, 129, 169, 168), PackedInt32Array(129, 130, 170, 169), PackedInt32Array(130, 131, 171, 170), PackedInt32Array(131, 132, 172, 171), PackedInt32Array(132, 133, 173, 172), PackedInt32Array(133, 134, 174, 173), PackedInt32Array(134, 135, 175, 174), PackedInt32Array(135, 136, 176, 175), PackedInt32Array(136, 137, 177, 176), PackedInt32Array(137, 138, 178, 177), PackedInt32Array(138, 139, 179, 178), PackedInt32Array(139, 140, 180, 179), PackedInt32Array(140, 142, 181, 180), PackedInt32Array(142, 182, 183, 181), PackedInt32Array(144, 143, 184, 185), PackedInt32Array(143, 145, 186, 184), PackedInt32Array(145, 146, 187, 186), PackedInt32Array(146, 147, 188, 187), PackedInt32Array(147, 148, 189, 188), PackedInt32Array(148, 149, 190, 189), PackedInt32Array(149, 150, 191, 190), PackedInt32Array(150, 151, 192, 191), PackedInt32Array(151, 152, 193, 192), PackedInt32Array(152, 153, 194, 193), PackedInt32Array(153, 154, 195, 194), PackedInt32Array(154, 155, 196, 195), PackedInt32Array(155, 156, 197, 196), PackedInt32Array(156, 157, 198, 197), PackedInt32Array(157, 159, 199, 198), PackedInt32Array(159, 161, 200, 199), PackedInt32Array(161, 162, 201, 200), PackedInt32Array(162, 163, 202, 201), PackedInt32Array(163, 164, 203, 202), PackedInt32Array(164, 165, 204, 203), PackedInt32Array(165, 166, 205, 204), PackedInt32Array(166, 167, 206, 205), PackedInt32Array(167, 168, 207, 206), PackedInt32Array(168, 169, 208, 207), PackedInt32Array(169, 170, 209, 208), PackedInt32Array(170, 171, 210, 209), PackedInt32Array(171, 172, 211, 210), PackedInt32Array(172, 173, 212, 211), PackedInt32Array(173, 174, 213, 212), PackedInt32Array(174, 175, 214, 213), PackedInt32Array(175, 176, 215, 214), PackedInt32Array(176, 177, 216, 215), PackedInt32Array(177, 178, 217, 216), PackedInt32Array(178, 179, 218, 217), PackedInt32Array(179, 180, 219, 218), PackedInt32Array(180, 181, 220, 219), PackedInt32Array(181, 183, 221, 220), PackedInt32Array(185, 184, 222, 223), PackedInt32Array(184, 186, 224, 222), PackedInt32Array(186, 187, 225, 224), PackedInt32Array(187, 188, 226, 225), PackedInt32Array(188, 189, 227, 226), PackedInt32Array(189, 190, 228, 227), PackedInt32Array(190, 191, 229, 228), PackedInt32Array(191, 192, 230, 229), PackedInt32Array(192, 193, 231, 230), PackedInt32Array(193, 194, 232, 231), PackedInt32Array(194, 195, 233, 232), PackedInt32Array(195, 196, 234, 233), PackedInt32Array(196, 197, 235, 234), PackedInt32Array(197, 198, 236, 235), PackedInt32Array(198, 199, 237, 236), PackedInt32Array(199, 200, 238, 237), PackedInt32Array(200, 201, 239, 238), PackedInt32Array(201, 202, 240, 239), PackedInt32Array(202, 203, 241, 240), PackedInt32Array(203, 204, 242, 241), PackedInt32Array(204, 205, 243, 242), PackedInt32Array(205, 206, 244, 243), PackedInt32Array(206, 207, 245, 244), PackedInt32Array(207, 208, 246, 245), PackedInt32Array(208, 209, 247, 246), PackedInt32Array(209, 210, 248, 247), PackedInt32Array(210, 211, 249, 248), PackedInt32Array(211, 212, 250, 249), PackedInt32Array(212, 213, 251, 250), PackedInt32Array(213, 214, 252, 251), PackedInt32Array(214, 215, 253, 252), PackedInt32Array(215, 216, 254, 253), PackedInt32Array(216, 217, 255, 254), PackedInt32Array(217, 218, 256, 255), PackedInt32Array(218, 219, 257, 256), PackedInt32Array(219, 220, 258, 257), PackedInt32Array(220, 221, 259, 258), PackedInt32Array(223, 222, 260, 261), PackedInt32Array(222, 224, 262, 260), PackedInt32Array(224, 225, 263, 262), PackedInt32Array(225, 226, 264, 263), PackedInt32Array(226, 227, 265, 264), PackedInt32Array(227, 228, 266, 265), PackedInt32Array(228, 229, 267, 266), PackedInt32Array(229, 230, 268, 267), PackedInt32Array(230, 231, 269, 268), PackedInt32Array(231, 232, 270, 269), PackedInt32Array(232, 233, 271, 270), PackedInt32Array(233, 234, 272, 271), PackedInt32Array(234, 235, 273, 272), PackedInt32Array(235, 236, 274, 273), PackedInt32Array(236, 237, 275, 274), PackedInt32Array(237, 238, 276, 275), PackedInt32Array(238, 239, 277, 276), PackedInt32Array(239, 240, 278, 277), PackedInt32Array(240, 241, 279, 278), PackedInt32Array(241, 242, 280, 279), PackedInt32Array(242, 243, 281, 280), PackedInt32Array(243, 244, 282, 281), PackedInt32Array(244, 245, 283, 282), PackedInt32Array(245, 246, 284, 283), PackedInt32Array(246, 247, 285, 284), PackedInt32Array(247, 248, 286, 285), PackedInt32Array(248, 249, 287, 286), PackedInt32Array(249, 250, 288, 287), PackedInt32Array(250, 251, 289, 288), PackedInt32Array(251, 252, 290, 289), PackedInt32Array(252, 253, 291, 290), PackedInt32Array(253, 254, 292, 291), PackedInt32Array(254, 255, 293, 292), PackedInt32Array(255, 256, 294, 293), PackedInt32Array(256, 257, 295, 294), PackedInt32Array(257, 258, 296, 295), PackedInt32Array(258, 259, 297, 296), PackedInt32Array(261, 260, 298, 299), PackedInt32Array(260, 262, 300, 298), PackedInt32Array(262, 263, 301, 300), PackedInt32Array(263, 264, 302, 301), PackedInt32Array(264, 265, 303, 302), PackedInt32Array(265, 266, 304, 303), PackedInt32Array(266, 267, 305, 304), PackedInt32Array(267, 268, 306, 305), PackedInt32Array(268, 269, 307, 306), PackedInt32Array(269, 270, 308, 307), PackedInt32Array(270, 271, 309, 308), PackedInt32Array(271, 272, 310, 309), PackedInt32Array(274, 275, 311, 312), PackedInt32Array(275, 276, 313, 311), PackedInt32Array(276, 277, 314, 313), PackedInt32Array(277, 278, 315, 314), PackedInt32Array(278, 279, 316, 315), PackedInt32Array(279, 280, 317, 316), PackedInt32Array(280, 281, 318, 317), PackedInt32Array(281, 282, 319, 318), PackedInt32Array(282, 283, 320, 319), PackedInt32Array(283, 284, 321, 320), PackedInt32Array(284, 285, 322, 321), PackedInt32Array(285, 286, 323, 322), PackedInt32Array(286, 287, 324, 323), PackedInt32Array(287, 288, 325, 324), PackedInt32Array(288, 289, 326, 325), PackedInt32Array(289, 290, 327, 326), PackedInt32Array(290, 291, 328, 327), PackedInt32Array(291, 292, 329, 328), PackedInt32Array(292, 293, 330, 329), PackedInt32Array(293, 294, 331, 330), PackedInt32Array(294, 295, 332, 331), PackedInt32Array(295, 296, 333, 332), PackedInt32Array(296, 297, 334, 333), PackedInt32Array(298, 300, 335, 336), PackedInt32Array(300, 301, 337, 335), PackedInt32Array(301, 302, 338, 337), PackedInt32Array(302, 303, 339, 338), PackedInt32Array(303, 304, 340, 339), PackedInt32Array(304, 305, 341, 340), PackedInt32Array(305, 306, 342, 341), PackedInt32Array(306, 307, 343, 342), PackedInt32Array(307, 308, 344, 343), PackedInt32Array(308, 309, 345, 344), PackedInt32Array(320, 321, 346, 347), PackedInt32Array(321, 322, 348, 346), PackedInt32Array(322, 323, 349, 348), PackedInt32Array(323, 324, 350, 349), PackedInt32Array(324, 325, 351, 350), PackedInt32Array(325, 326, 352, 351), PackedInt32Array(326, 327, 353, 352), PackedInt32Array(327, 328, 354, 353), PackedInt32Array(328, 329, 355, 354), PackedInt32Array(329, 330, 356, 355), PackedInt32Array(330, 331, 357, 356), PackedInt32Array(331, 332, 358, 357), PackedInt32Array(332, 333, 359, 358), PackedInt32Array(333, 334, 360, 359), PackedInt32Array(335, 337, 361, 362), PackedInt32Array(337, 338, 363, 361), PackedInt32Array(338, 339, 364, 363), PackedInt32Array(339, 340, 365, 364), PackedInt32Array(340, 341, 366, 365), PackedInt32Array(341, 342, 367, 366), PackedInt32Array(342, 343, 368, 367), PackedInt32Array(343, 344, 369, 368), PackedInt32Array(344, 345, 370, 369), PackedInt32Array(347, 346, 371, 372), PackedInt32Array(346, 348, 373, 371), PackedInt32Array(348, 349, 374, 373), PackedInt32Array(349, 350, 375, 374), PackedInt32Array(350, 351, 376, 375), PackedInt32Array(351, 352, 377, 376), PackedInt32Array(352, 353, 378, 377), PackedInt32Array(353, 354, 379, 378), PackedInt32Array(354, 355, 380, 379), PackedInt32Array(355, 356, 381, 380), PackedInt32Array(356, 357, 382, 381), PackedInt32Array(357, 358, 383, 382), PackedInt32Array(358, 359, 384, 383), PackedInt32Array(361, 363, 385, 386), PackedInt32Array(363, 364, 387, 385), PackedInt32Array(364, 365, 388, 387), PackedInt32Array(365, 366, 389, 388), PackedInt32Array(366, 367, 390, 389), PackedInt32Array(367, 368, 391, 390), PackedInt32Array(368, 369, 392, 391), PackedInt32Array(369, 370, 393, 392), PackedInt32Array(370, 394, 395, 393), PackedInt32Array(396, 397, 398, 399), PackedInt32Array(400, 401, 402, 403), PackedInt32Array(401, 404, 405, 402), PackedInt32Array(404, 406, 407, 405), PackedInt32Array(406, 408, 409, 407), PackedInt32Array(408, 410, 411, 409), PackedInt32Array(410, 412, 413, 411), PackedInt32Array(412, 372, 414, 413), PackedInt32Array(372, 371, 415, 414), PackedInt32Array(371, 373, 416, 415), PackedInt32Array(373, 374, 417, 416), PackedInt32Array(374, 375, 418, 417), PackedInt32Array(375, 376, 419, 418), PackedInt32Array(376, 377, 420, 419), PackedInt32Array(377, 378, 421, 420), PackedInt32Array(378, 379, 422, 421), PackedInt32Array(379, 380, 423, 422), PackedInt32Array(380, 381, 424, 423), PackedInt32Array(381, 382, 425, 424), PackedInt32Array(382, 383, 426, 425), PackedInt32Array(385, 387, 427, 428), PackedInt32Array(387, 388, 429, 427), PackedInt32Array(388, 389, 430, 429), PackedInt32Array(389, 390, 431, 430), PackedInt32Array(390, 391, 432, 431), PackedInt32Array(391, 392, 433, 432), PackedInt32Array(392, 393, 434, 433), PackedInt32Array(393, 395, 435, 434), PackedInt32Array(395, 436, 437, 435), PackedInt32Array(436, 399, 438, 437), PackedInt32Array(399, 398, 439, 438), PackedInt32Array(398, 403, 440, 439), PackedInt32Array(403, 402, 441, 440), PackedInt32Array(402, 405, 442, 441), PackedInt32Array(405, 407, 443, 442), PackedInt32Array(407, 409, 444, 443), PackedInt32Array(409, 411, 445, 444), PackedInt32Array(411, 413, 446, 445), PackedInt32Array(415, 416, 447, 448), PackedInt32Array(416, 417, 449, 447), PackedInt32Array(417, 418, 450, 449), PackedInt32Array(418, 419, 451, 450), PackedInt32Array(419, 420, 452, 451), PackedInt32Array(420, 421, 453, 452), PackedInt32Array(421, 422, 454, 453), PackedInt32Array(422, 423, 455, 454), PackedInt32Array(423, 424, 456, 455), PackedInt32Array(424, 425, 457, 456), PackedInt32Array(434, 435, 458, 459), PackedInt32Array(435, 437, 460, 458), PackedInt32Array(437, 438, 461, 460), PackedInt32Array(438, 439, 462, 461), PackedInt32Array(439, 440, 463, 462), PackedInt32Array(440, 441, 464, 463), PackedInt32Array(441, 442, 465, 464), PackedInt32Array(442, 443, 466, 465), PackedInt32Array(443, 444, 467, 466), PackedInt32Array(444, 445, 468, 467), PackedInt32Array(447, 449, 469, 470), PackedInt32Array(449, 450, 471, 469), PackedInt32Array(450, 451, 472, 471), PackedInt32Array(451, 452, 473, 472), PackedInt32Array(452, 453, 474, 473), PackedInt32Array(453, 454, 475, 474), PackedInt32Array(454, 455, 476, 475), PackedInt32Array(455, 456, 477, 476), PackedInt32Array(459, 458, 478, 479), PackedInt32Array(458, 460, 480, 478), PackedInt32Array(460, 461, 481, 480), PackedInt32Array(461, 462, 482, 481), PackedInt32Array(462, 463, 483, 482), PackedInt32Array(463, 464, 484, 483), PackedInt32Array(464, 465, 485, 484), PackedInt32Array(465, 466, 486, 485), PackedInt32Array(466, 467, 487, 486), PackedInt32Array(467, 468, 488, 487), PackedInt32Array(470, 469, 489, 490), PackedInt32Array(469, 471, 491, 489), PackedInt32Array(478, 480, 492, 493), PackedInt32Array(480, 481, 494, 492), PackedInt32Array(481, 482, 495, 494), PackedInt32Array(482, 483, 496, 495), PackedInt32Array(483, 484, 497, 496), PackedInt32Array(484, 485, 498, 497), PackedInt32Array(485, 486, 499, 498), PackedInt32Array(486, 487, 500, 499), PackedInt32Array(487, 488, 501, 500), PackedInt32Array(488, 502, 503, 501), PackedInt32Array(504, 490, 505, 506), PackedInt32Array(490, 489, 507, 505), PackedInt32Array(508, 493, 509, 510), PackedInt32Array(493, 492, 511, 509), PackedInt32Array(492, 494, 512, 511), PackedInt32Array(494, 495, 513, 512), PackedInt32Array(495, 496, 514, 513), PackedInt32Array(496, 497, 515, 514), PackedInt32Array(497, 498, 516, 515), PackedInt32Array(498, 499, 517, 516), PackedInt32Array(499, 500, 518, 517), PackedInt32Array(500, 501, 519, 518), PackedInt32Array(501, 503, 520, 519), PackedInt32Array(503, 521, 522, 520), PackedInt32Array(521, 506, 523, 522), PackedInt32Array(506, 505, 524, 523), PackedInt32Array(505, 507, 525, 524), PackedInt32Array(507, 526, 527, 525), PackedInt32Array(510, 509, 528, 529), PackedInt32Array(509, 511, 530, 528), PackedInt32Array(511, 512, 531, 530), PackedInt32Array(512, 513, 532, 531), PackedInt32Array(513, 514, 533, 532), PackedInt32Array(514, 515, 534, 533), PackedInt32Array(515, 516, 535, 534), PackedInt32Array(516, 517, 536, 535), PackedInt32Array(517, 518, 537, 536), PackedInt32Array(518, 519, 538, 537), PackedInt32Array(519, 520, 539, 538), PackedInt32Array(520, 522, 540, 539), PackedInt32Array(522, 523, 541, 540), PackedInt32Array(523, 524, 542, 541), PackedInt32Array(524, 525, 543, 542), PackedInt32Array(525, 527, 544, 543), PackedInt32Array(529, 528, 545, 546), PackedInt32Array(528, 530, 547, 545), PackedInt32Array(530, 531, 548, 547), PackedInt32Array(531, 532, 549, 548), PackedInt32Array(532, 533, 550, 549), PackedInt32Array(533, 534, 551, 550), PackedInt32Array(534, 535, 552, 551), PackedInt32Array(535, 536, 553, 552), PackedInt32Array(536, 537, 554, 553), PackedInt32Array(537, 538, 555, 554), PackedInt32Array(538, 539, 556, 555), PackedInt32Array(539, 540, 557, 556), PackedInt32Array(540, 541, 558, 557), PackedInt32Array(541, 542, 559, 558), PackedInt32Array(542, 543, 560, 559), PackedInt32Array(543, 544, 561, 560), PackedInt32Array(546, 545, 562, 563), PackedInt32Array(545, 547, 564, 562), PackedInt32Array(547, 548, 565, 564), PackedInt32Array(548, 549, 566, 565), PackedInt32Array(549, 550, 567, 566), PackedInt32Array(550, 551, 568, 567), PackedInt32Array(551, 552, 569, 568), PackedInt32Array(552, 553, 570, 569), PackedInt32Array(553, 554, 571, 570), PackedInt32Array(554, 555, 572, 571), PackedInt32Array(555, 556, 573, 572), PackedInt32Array(556, 557, 574, 573), PackedInt32Array(557, 558, 575, 574), PackedInt32Array(558, 559, 576, 575), PackedInt32Array(559, 560, 577, 576), PackedInt32Array(560, 561, 578, 577), PackedInt32Array(563, 562, 579, 580), PackedInt32Array(562, 564, 581, 579), PackedInt32Array(564, 565, 582, 581), PackedInt32Array(565, 566, 583, 582), PackedInt32Array(566, 567, 584, 583), PackedInt32Array(567, 568, 585, 584), PackedInt32Array(568, 569, 586, 585), PackedInt32Array(569, 570, 587, 586), PackedInt32Array(570, 571, 588, 587), PackedInt32Array(571, 572, 589, 588), PackedInt32Array(572, 573, 590, 589), PackedInt32Array(573, 574, 591, 590), PackedInt32Array(574, 575, 592, 591), PackedInt32Array(575, 576, 593, 592), PackedInt32Array(576, 577, 594, 593), PackedInt32Array(577, 578, 595, 594), PackedInt32Array(580, 579, 596, 597), PackedInt32Array(579, 581, 598, 596), PackedInt32Array(581, 582, 599, 598), PackedInt32Array(582, 583, 600, 599), PackedInt32Array(583, 584, 601, 600), PackedInt32Array(584, 585, 602, 601), PackedInt32Array(585, 586, 603, 602), PackedInt32Array(586, 587, 604, 603), PackedInt32Array(587, 588, 605, 604), PackedInt32Array(588, 589, 606, 605), PackedInt32Array(589, 590, 607, 606), PackedInt32Array(590, 591, 608, 607), PackedInt32Array(591, 592, 609, 608), PackedInt32Array(592, 593, 610, 609), PackedInt32Array(593, 594, 611, 610), PackedInt32Array(594, 595, 612, 611), PackedInt32Array(596, 598, 613, 614), PackedInt32Array(598, 599, 615, 613), PackedInt32Array(599, 600, 616, 615), PackedInt32Array(600, 601, 617, 616), PackedInt32Array(601, 602, 618, 617), PackedInt32Array(602, 603, 619, 618), PackedInt32Array(603, 604, 620, 619), PackedInt32Array(604, 605, 621, 620), PackedInt32Array(605, 606, 622, 621), PackedInt32Array(606, 607, 623, 622), PackedInt32Array(607, 608, 624, 623), PackedInt32Array(608, 609, 625, 624), PackedInt32Array(609, 610, 626, 625), PackedInt32Array(610, 611, 627, 626), PackedInt32Array(614, 613, 628, 629), PackedInt32Array(613, 615, 630, 628), PackedInt32Array(617, 618, 631, 632), PackedInt32Array(618, 619, 633, 631), PackedInt32Array(619, 620, 634, 633), PackedInt32Array(620, 621, 635, 634), PackedInt32Array(621, 622, 636, 635), PackedInt32Array(622, 623, 637, 636), PackedInt32Array(623, 624, 638, 637), PackedInt32Array(624, 625, 639, 638), PackedInt32Array(625, 626, 640, 639), PackedInt32Array(626, 627, 641, 640), PackedInt32Array(629, 628, 642, 643), PackedInt32Array(631, 633, 644, 645), PackedInt32Array(633, 634, 646, 644), PackedInt32Array(634, 635, 647, 646), PackedInt32Array(635, 636, 648, 647), PackedInt32Array(636, 637, 649, 648), PackedInt32Array(637, 638, 650, 649), PackedInt32Array(638, 639, 651, 650), PackedInt32Array(639, 640, 652, 651), PackedInt32Array(653, 643, 654, 655), PackedInt32Array(643, 642, 656, 654), PackedInt32Array(645, 644, 657, 658), PackedInt32Array(644, 646, 659, 657), PackedInt32Array(646, 647, 660, 659), PackedInt32Array(647, 648, 661, 660), PackedInt32Array(648, 649, 662, 661), PackedInt32Array(649, 650, 663, 662), PackedInt32Array(650, 651, 664, 663), PackedInt32Array(665, 666, 667, 668), PackedInt32Array(666, 669, 670, 667), PackedInt32Array(669, 671, 672, 670), PackedInt32Array(671, 673, 674, 672), PackedInt32Array(673, 675, 676, 674), PackedInt32Array(675, 655, 677, 676), PackedInt32Array(655, 654, 678, 677), PackedInt32Array(654, 656, 679, 678), PackedInt32Array(656, 680, 681, 679), PackedInt32Array(682, 658, 683, 684), PackedInt32Array(658, 657, 685, 683), PackedInt32Array(657, 659, 686, 685), PackedInt32Array(659, 660, 687, 686), PackedInt32Array(660, 661, 688, 687), PackedInt32Array(661, 662, 689, 688), PackedInt32Array(690, 668, 691, 692), PackedInt32Array(668, 667, 693, 691), PackedInt32Array(667, 670, 694, 693), PackedInt32Array(670, 672, 695, 694), PackedInt32Array(672, 674, 696, 695), PackedInt32Array(674, 676, 697, 696), PackedInt32Array(676, 677, 698, 697), PackedInt32Array(677, 678, 699, 698), PackedInt32Array(678, 679, 700, 699), PackedInt32Array(679, 681, 701, 700), PackedInt32Array(681, 702, 703, 701), PackedInt32Array(702, 684, 704, 703), PackedInt32Array(705, 692, 706, 707), PackedInt32Array(692, 691, 708, 706), PackedInt32Array(691, 693, 709, 708), PackedInt32Array(693, 694, 710, 709), PackedInt32Array(694, 695, 711, 710), PackedInt32Array(695, 696, 712, 711), PackedInt32Array(696, 697, 713, 712), PackedInt32Array(697, 698, 714, 713), PackedInt32Array(698, 699, 715, 714), PackedInt32Array(699, 700, 716, 715), PackedInt32Array(700, 701, 717, 716), PackedInt32Array(701, 703, 718, 717), PackedInt32Array(719, 707, 720, 721), PackedInt32Array(707, 706, 722, 720), PackedInt32Array(706, 708, 723, 722), PackedInt32Array(708, 709, 724, 723), PackedInt32Array(709, 710, 725, 724), PackedInt32Array(710, 711, 726, 725), PackedInt32Array(711, 712, 727, 726), PackedInt32Array(712, 713, 728, 727), PackedInt32Array(713, 714, 729, 728), PackedInt32Array(714, 715, 730, 729), PackedInt32Array(715, 716, 731, 730), PackedInt32Array(716, 717, 732, 731), PackedInt32Array(717, 718, 733, 732), PackedInt32Array(718, 734, 735, 733), PackedInt32Array(721, 720, 736, 737), PackedInt32Array(720, 722, 738, 736), PackedInt32Array(722, 723, 739, 738), PackedInt32Array(723, 724, 740, 739), PackedInt32Array(724, 725, 741, 740), PackedInt32Array(725, 726, 742, 741), PackedInt32Array(726, 727, 743, 742), PackedInt32Array(727, 728, 744, 743), PackedInt32Array(728, 729, 745, 744), PackedInt32Array(729, 730, 746, 745), PackedInt32Array(730, 731, 747, 746), PackedInt32Array(731, 732, 748, 747), PackedInt32Array(732, 733, 749, 748), PackedInt32Array(733, 735, 750, 749), PackedInt32Array(737, 736, 751, 752), PackedInt32Array(736, 738, 753, 751), PackedInt32Array(738, 739, 754, 753), PackedInt32Array(739, 740, 755, 754), PackedInt32Array(740, 741, 756, 755), PackedInt32Array(741, 742, 757, 756), PackedInt32Array(742, 743, 758, 757), PackedInt32Array(743, 744, 759, 758), PackedInt32Array(744, 745, 760, 759), PackedInt32Array(745, 746, 761, 760), PackedInt32Array(746, 747, 762, 761), PackedInt32Array(747, 748, 763, 762), PackedInt32Array(748, 749, 764, 763), PackedInt32Array(749, 750, 765, 764), PackedInt32Array(752, 751, 766, 767), PackedInt32Array(751, 753, 768, 766), PackedInt32Array(753, 754, 769, 768), PackedInt32Array(754, 755, 770, 769), PackedInt32Array(755, 756, 771, 770), PackedInt32Array(756, 757, 772, 771), PackedInt32Array(757, 758, 773, 772), PackedInt32Array(758, 759, 774, 773), PackedInt32Array(759, 760, 775, 774), PackedInt32Array(760, 761, 776, 775), PackedInt32Array(761, 762, 777, 776), PackedInt32Array(762, 763, 778, 777), PackedInt32Array(763, 764, 779, 778), PackedInt32Array(764, 765, 780, 779), PackedInt32Array(765, 781, 782, 780), PackedInt32Array(781, 783, 784, 782), PackedInt32Array(783, 785, 786, 784), PackedInt32Array(785, 787, 788, 786), PackedInt32Array(767, 766, 789, 790), PackedInt32Array(766, 768, 791, 789), PackedInt32Array(768, 769, 792, 791), PackedInt32Array(769, 770, 793, 792), PackedInt32Array(770, 771, 794, 793), PackedInt32Array(771, 772, 795, 794), PackedInt32Array(772, 773, 796, 795), PackedInt32Array(773, 774, 797, 796), PackedInt32Array(774, 775, 798, 797), PackedInt32Array(775, 776, 799, 798), PackedInt32Array(776, 777, 800, 799), PackedInt32Array(777, 778, 801, 800), PackedInt32Array(778, 779, 802, 801), PackedInt32Array(779, 780, 803, 802), PackedInt32Array(780, 782, 804, 803), PackedInt32Array(782, 784, 805, 804), PackedInt32Array(784, 786, 806, 805), PackedInt32Array(786, 788, 807, 806), PackedInt32Array(788, 808, 809, 807), PackedInt32Array(790, 789, 810, 811), PackedInt32Array(789, 791, 812, 810), PackedInt32Array(791, 792, 813, 812), PackedInt32Array(792, 793, 814, 813), PackedInt32Array(793, 794, 815, 814), PackedInt32Array(794, 795, 816, 815), PackedInt32Array(795, 796, 817, 816), PackedInt32Array(796, 797, 818, 817), PackedInt32Array(797, 798, 819, 818), PackedInt32Array(798, 799, 820, 819), PackedInt32Array(799, 800, 821, 820), PackedInt32Array(800, 801, 822, 821), PackedInt32Array(801, 802, 823, 822), PackedInt32Array(802, 803, 824, 823), PackedInt32Array(803, 804, 825, 824), PackedInt32Array(804, 805, 826, 825), PackedInt32Array(805, 806, 827, 826), PackedInt32Array(806, 807, 828, 827), PackedInt32Array(807, 809, 829, 828), PackedInt32Array(809, 830, 831, 829), PackedInt32Array(811, 810, 832, 833), PackedInt32Array(810, 812, 834, 832), PackedInt32Array(812, 813, 835, 834), PackedInt32Array(813, 814, 836, 835), PackedInt32Array(814, 815, 837, 836), PackedInt32Array(815, 816, 838, 837), PackedInt32Array(816, 817, 839, 838), PackedInt32Array(817, 818, 840, 839), PackedInt32Array(818, 819, 841, 840), PackedInt32Array(819, 820, 842, 841), PackedInt32Array(820, 821, 843, 842), PackedInt32Array(821, 822, 844, 843), PackedInt32Array(822, 823, 845, 844), PackedInt32Array(823, 824, 846, 845), PackedInt32Array(824, 825, 847, 846), PackedInt32Array(825, 826, 848, 847), PackedInt32Array(826, 827, 849, 848), PackedInt32Array(827, 828, 850, 849), PackedInt32Array(828, 829, 851, 850), PackedInt32Array(829, 831, 852, 851), PackedInt32Array(833, 832, 853, 854), PackedInt32Array(832, 834, 855, 853), PackedInt32Array(834, 835, 856, 855), PackedInt32Array(835, 836, 857, 856), PackedInt32Array(836, 837, 858, 857), PackedInt32Array(837, 838, 859, 858), PackedInt32Array(838, 839, 860, 859), PackedInt32Array(839, 840, 861, 860), PackedInt32Array(840, 841, 862, 861), PackedInt32Array(841, 842, 863, 862), PackedInt32Array(842, 843, 864, 863), PackedInt32Array(843, 844, 865, 864), PackedInt32Array(844, 845, 866, 865), PackedInt32Array(845, 846, 867, 866), PackedInt32Array(846, 847, 868, 867), PackedInt32Array(847, 848, 869, 868), PackedInt32Array(848, 849, 870, 869), PackedInt32Array(849, 850, 871, 870), PackedInt32Array(850, 851, 872, 871), PackedInt32Array(853, 855, 873, 874), PackedInt32Array(855, 856, 875, 873), PackedInt32Array(856, 857, 876, 875), PackedInt32Array(857, 858, 877, 876), PackedInt32Array(858, 859, 878, 877), PackedInt32Array(859, 860, 879, 878), PackedInt32Array(860, 861, 880, 879), PackedInt32Array(861, 862, 881, 880), PackedInt32Array(862, 863, 882, 881), PackedInt32Array(863, 864, 883, 882), PackedInt32Array(864, 865, 884, 883), PackedInt32Array(865, 866, 885, 884), PackedInt32Array(873, 875, 886, 887), PackedInt32Array(875, 876, 888, 886), PackedInt32Array(876, 877, 889, 888), PackedInt32Array(877, 878, 890, 889), PackedInt32Array(878, 879, 891, 890), PackedInt32Array(879, 880, 892, 891), PackedInt32Array(880, 881, 893, 892), PackedInt32Array(881, 882, 894, 893), PackedInt32Array(882, 883, 895, 894), PackedInt32Array(883, 884, 896, 895), PackedInt32Array(886, 888, 897, 898), PackedInt32Array(888, 889, 899, 897), PackedInt32Array(889, 890, 900, 899), PackedInt32Array(890, 891, 901, 900), PackedInt32Array(891, 892, 902, 901), PackedInt32Array(892, 893, 903, 902), PackedInt32Array(893, 894, 904, 903), PackedInt32Array(894, 895, 905, 904)])
+agent_height = 1.8
+agent_radius = 0.5
+
+[sub_resource type="BoxShape3D" id="portal_shape"]
+size = Vector3(4, 3, 4)
+
+[sub_resource type="CylinderMesh" id="pillar_mesh"]
+top_radius = 1.8
+bottom_radius = 2.0
+height = 7.0
+
+[sub_resource type="CylinderShape3D" id="pillar_col"]
+height = 7.0
+radius = 2.0
+
+[sub_resource type="BoxMesh" id="floor_0"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_0"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_1"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_1"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_2"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_2"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_3"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_3"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_4"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_4"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_5"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_5"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_6"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_6"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_7"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_7"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_8"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_8"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_9"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_9"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_10"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_10"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_11"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_11"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_12"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_12"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_13"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_13"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_14"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_14"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_15"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_15"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_16"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_16"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_17"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_17"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_18"]
+size = Vector3(26.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_18"]
+size = Vector3(26.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_19"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_19"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_20"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_20"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_21"]
+size = Vector3(8.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_21"]
+size = Vector3(8.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_22"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_22"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_23"]
+size = Vector3(30.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_23"]
+size = Vector3(30.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_24"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_24"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_25"]
+size = Vector3(56.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_25"]
+size = Vector3(56.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_26"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_26"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_27"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_27"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_28"]
+size = Vector3(26.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_28"]
+size = Vector3(26.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_29"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_29"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_30"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_30"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_31"]
+size = Vector3(22.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_31"]
+size = Vector3(22.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_32"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_32"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_33"]
+size = Vector3(22.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_33"]
+size = Vector3(22.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_34"]
+size = Vector3(2.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_34"]
+size = Vector3(2.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_35"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_35"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_36"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_36"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_37"]
+size = Vector3(26.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_37"]
+size = Vector3(26.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_38"]
+size = Vector3(2.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_38"]
+size = Vector3(2.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_39"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_39"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_40"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_40"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_41"]
+size = Vector3(32.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_41"]
+size = Vector3(32.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_42"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_42"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_43"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_43"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_44"]
+size = Vector3(32.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_44"]
+size = Vector3(32.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_45"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_45"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_46"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_46"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_47"]
+size = Vector3(32.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_47"]
+size = Vector3(32.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_48"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_48"]
+size = Vector3(10.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_49"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_49"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_50"]
+size = Vector3(32.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_50"]
+size = Vector3(32.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_51"]
+size = Vector3(8.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_51"]
+size = Vector3(8.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_52"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_52"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_53"]
+size = Vector3(4.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_53"]
+size = Vector3(4.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_54"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_54"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_55"]
+size = Vector3(4.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_55"]
+size = Vector3(4.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_56"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_56"]
+size = Vector3(14.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_57"]
+size = Vector3(2.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_57"]
+size = Vector3(2.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_58"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_58"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_59"]
+size = Vector3(18.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_59"]
+size = Vector3(18.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_60"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_60"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_61"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_61"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_62"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_62"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_63"]
+size = Vector3(44.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_63"]
+size = Vector3(44.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_64"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_64"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_65"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_65"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_66"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_66"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_67"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_67"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_68"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_68"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_69"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_69"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_70"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_70"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_71"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_71"]
+size = Vector3(28.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_72"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_72"]
+size = Vector3(24.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_73"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_73"]
+size = Vector3(20.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_74"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_74"]
+size = Vector3(16.0, 3.0, 2.0)
+
+[sub_resource type="BoxMesh" id="floor_75"]
+size = Vector3(12.0, 3.0, 2.0)
+
+[sub_resource type="BoxShape3D" id="floor_col_75"]
+size = Vector3(12.0, 3.0, 2.0)
+
+
+[node name="fog_moor_trail" type="Node3D"]
+script = ExtResource("map")
+map_id = &"fog_moor_trail"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("env")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 20, 0)
+light_color = Color(0.60, 0.65, 0.75, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("navmesh")
+
+[node name="Floor" type="Node3D" parent="."]
+
+
+[node name="Interactables" type="Node3D" parent="."]
+
+
+[node name="Spawns" type="Node3D" parent="."]
+
+
+[node name="NpcPoints" type="Node3D" parent="."]
+
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+position = Vector3(0, 0, 0)
+
+[node name="floor_0" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -37.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_0"]
+mesh = SubResource("floor_0")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_0"]
+shape = SubResource("floor_col_0")
+
+[node name="floor_1" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -35.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_1"]
+mesh = SubResource("floor_1")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_1"]
+shape = SubResource("floor_col_1")
+
+[node name="floor_2" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -33.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_2"]
+mesh = SubResource("floor_2")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_2"]
+shape = SubResource("floor_col_2")
+
+[node name="floor_3" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -33.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_3"]
+mesh = SubResource("floor_3")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_3"]
+shape = SubResource("floor_col_3")
+
+[node name="floor_4" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -31.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_4"]
+mesh = SubResource("floor_4")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_4"]
+shape = SubResource("floor_col_4")
+
+[node name="floor_5" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -31.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_5"]
+mesh = SubResource("floor_5")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_5"]
+shape = SubResource("floor_col_5")
+
+[node name="floor_6" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -29.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_6"]
+mesh = SubResource("floor_6")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_6"]
+shape = SubResource("floor_col_6")
+
+[node name="floor_7" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -29.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_7"]
+mesh = SubResource("floor_7")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_7"]
+shape = SubResource("floor_col_7")
+
+[node name="floor_8" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -27.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_8"]
+mesh = SubResource("floor_8")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_8"]
+shape = SubResource("floor_col_8")
+
+[node name="floor_9" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -27.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_9"]
+mesh = SubResource("floor_9")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_9"]
+shape = SubResource("floor_col_9")
+
+[node name="floor_10" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -25.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_10"]
+mesh = SubResource("floor_10")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_10"]
+shape = SubResource("floor_col_10")
+
+[node name="floor_11" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -25.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_11"]
+mesh = SubResource("floor_11")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_11"]
+shape = SubResource("floor_col_11")
+
+[node name="floor_12" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -23.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_12"]
+mesh = SubResource("floor_12")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_12"]
+shape = SubResource("floor_col_12")
+
+[node name="floor_13" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -23.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_13"]
+mesh = SubResource("floor_13")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_13"]
+shape = SubResource("floor_col_13")
+
+[node name="floor_14" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -21.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_14"]
+mesh = SubResource("floor_14")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_14"]
+shape = SubResource("floor_col_14")
+
+[node name="floor_15" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -21.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_15"]
+mesh = SubResource("floor_15")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_15"]
+shape = SubResource("floor_col_15")
+
+[node name="floor_16" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -19.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_16"]
+mesh = SubResource("floor_16")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_16"]
+shape = SubResource("floor_col_16")
+
+[node name="floor_17" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -19.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_17"]
+mesh = SubResource("floor_17")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_17"]
+shape = SubResource("floor_col_17")
+
+[node name="floor_18" type="StaticBody3D" parent="Floor"]
+position = Vector3(-25.0, -1.5, -17.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_18"]
+mesh = SubResource("floor_18")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_18"]
+shape = SubResource("floor_col_18")
+
+[node name="floor_19" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -17.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_19"]
+mesh = SubResource("floor_19")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_19"]
+shape = SubResource("floor_col_19")
+
+[node name="floor_20" type="StaticBody3D" parent="Floor"]
+position = Vector3(-28.0, -1.5, -15.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_20"]
+mesh = SubResource("floor_20")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_20"]
+shape = SubResource("floor_col_20")
+
+[node name="floor_21" type="StaticBody3D" parent="Floor"]
+position = Vector3(-12.0, -1.5, -15.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_21"]
+mesh = SubResource("floor_21")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_21"]
+shape = SubResource("floor_col_21")
+
+[node name="floor_22" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -15.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_22"]
+mesh = SubResource("floor_22")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_22"]
+shape = SubResource("floor_col_22")
+
+[node name="floor_23" type="StaticBody3D" parent="Floor"]
+position = Vector3(27.0, -1.5, -15.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_23"]
+mesh = SubResource("floor_23")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_23"]
+shape = SubResource("floor_col_23")
+
+[node name="floor_24" type="StaticBody3D" parent="Floor"]
+position = Vector3(-28.0, -1.5, -13.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_24"]
+mesh = SubResource("floor_24")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_24"]
+shape = SubResource("floor_col_24")
+
+[node name="floor_25" type="StaticBody3D" parent="Floor"]
+position = Vector3(14.0, -1.5, -13.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_25"]
+mesh = SubResource("floor_25")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_25"]
+shape = SubResource("floor_col_25")
+
+[node name="floor_26" type="StaticBody3D" parent="Floor"]
+position = Vector3(-27.0, -1.5, -11.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_26"]
+mesh = SubResource("floor_26")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_26"]
+shape = SubResource("floor_col_26")
+
+[node name="floor_27" type="StaticBody3D" parent="Floor"]
+position = Vector3(-2.0, -1.5, -11.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_27"]
+mesh = SubResource("floor_27")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_27"]
+shape = SubResource("floor_col_27")
+
+[node name="floor_28" type="StaticBody3D" parent="Floor"]
+position = Vector3(27.0, -1.5, -11.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_28"]
+mesh = SubResource("floor_28")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_28"]
+shape = SubResource("floor_col_28")
+
+[node name="floor_29" type="StaticBody3D" parent="Floor"]
+position = Vector3(-25.0, -1.5, -9.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_29"]
+mesh = SubResource("floor_29")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_29"]
+shape = SubResource("floor_col_29")
+
+[node name="floor_30" type="StaticBody3D" parent="Floor"]
+position = Vector3(-4.0, -1.5, -9.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_30"]
+mesh = SubResource("floor_30")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_30"]
+shape = SubResource("floor_col_30")
+
+[node name="floor_31" type="StaticBody3D" parent="Floor"]
+position = Vector3(27.0, -1.5, -9.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_31"]
+mesh = SubResource("floor_31")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_31"]
+shape = SubResource("floor_col_31")
+
+[node name="floor_32" type="StaticBody3D" parent="Floor"]
+position = Vector3(-25.0, -1.5, -7.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_32"]
+mesh = SubResource("floor_32")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_32"]
+shape = SubResource("floor_col_32")
+
+[node name="floor_33" type="StaticBody3D" parent="Floor"]
+position = Vector3(-3.0, -1.5, -7.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_33"]
+mesh = SubResource("floor_33")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_33"]
+shape = SubResource("floor_col_33")
+
+[node name="floor_34" type="StaticBody3D" parent="Floor"]
+position = Vector3(17.0, -1.5, -7.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_34"]
+mesh = SubResource("floor_34")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_34"]
+shape = SubResource("floor_col_34")
+
+[node name="floor_35" type="StaticBody3D" parent="Floor"]
+position = Vector3(28.0, -1.5, -7.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_35"]
+mesh = SubResource("floor_35")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_35"]
+shape = SubResource("floor_col_35")
+
+[node name="floor_36" type="StaticBody3D" parent="Floor"]
+position = Vector3(-25.0, -1.5, -5.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_36"]
+mesh = SubResource("floor_36")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_36"]
+shape = SubResource("floor_col_36")
+
+[node name="floor_37" type="StaticBody3D" parent="Floor"]
+position = Vector3(-3.0, -1.5, -5.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_37"]
+mesh = SubResource("floor_37")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_37"]
+shape = SubResource("floor_col_37")
+
+[node name="floor_38" type="StaticBody3D" parent="Floor"]
+position = Vector3(15.0, -1.5, -5.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_38"]
+mesh = SubResource("floor_38")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_38"]
+shape = SubResource("floor_col_38")
+
+[node name="floor_39" type="StaticBody3D" parent="Floor"]
+position = Vector3(31.0, -1.5, -5.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_39"]
+mesh = SubResource("floor_39")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_39"]
+shape = SubResource("floor_col_39")
+
+[node name="floor_40" type="StaticBody3D" parent="Floor"]
+position = Vector3(-26.0, -1.5, -3.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_40"]
+mesh = SubResource("floor_40")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_40"]
+shape = SubResource("floor_col_40")
+
+[node name="floor_41" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -3.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_41"]
+mesh = SubResource("floor_41")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_41"]
+shape = SubResource("floor_col_41")
+
+[node name="floor_42" type="StaticBody3D" parent="Floor"]
+position = Vector3(31.0, -1.5, -3.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_42"]
+mesh = SubResource("floor_42")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_42"]
+shape = SubResource("floor_col_42")
+
+[node name="floor_43" type="StaticBody3D" parent="Floor"]
+position = Vector3(-27.0, -1.5, -1.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_43"]
+mesh = SubResource("floor_43")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_43"]
+shape = SubResource("floor_col_43")
+
+[node name="floor_44" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, -1.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_44"]
+mesh = SubResource("floor_44")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_44"]
+shape = SubResource("floor_col_44")
+
+[node name="floor_45" type="StaticBody3D" parent="Floor"]
+position = Vector3(31.0, -1.5, -1.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_45"]
+mesh = SubResource("floor_45")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_45"]
+shape = SubResource("floor_col_45")
+
+[node name="floor_46" type="StaticBody3D" parent="Floor"]
+position = Vector3(-27.0, -1.5, 1.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_46"]
+mesh = SubResource("floor_46")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_46"]
+shape = SubResource("floor_col_46")
+
+[node name="floor_47" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 1.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_47"]
+mesh = SubResource("floor_47")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_47"]
+shape = SubResource("floor_col_47")
+
+[node name="floor_48" type="StaticBody3D" parent="Floor"]
+position = Vector3(31.0, -1.5, 1.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_48"]
+mesh = SubResource("floor_48")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_48"]
+shape = SubResource("floor_col_48")
+
+[node name="floor_49" type="StaticBody3D" parent="Floor"]
+position = Vector3(-27.0, -1.5, 3.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_49"]
+mesh = SubResource("floor_49")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_49"]
+shape = SubResource("floor_col_49")
+
+[node name="floor_50" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 3.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_50"]
+mesh = SubResource("floor_50")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_50"]
+shape = SubResource("floor_col_50")
+
+[node name="floor_51" type="StaticBody3D" parent="Floor"]
+position = Vector3(32.0, -1.5, 3.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_51"]
+mesh = SubResource("floor_51")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_51"]
+shape = SubResource("floor_col_51")
+
+[node name="floor_52" type="StaticBody3D" parent="Floor"]
+position = Vector3(-27.0, -1.5, 5.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_52"]
+mesh = SubResource("floor_52")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_52"]
+shape = SubResource("floor_col_52")
+
+[node name="floor_53" type="StaticBody3D" parent="Floor"]
+position = Vector3(-14.0, -1.5, 5.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_53"]
+mesh = SubResource("floor_53")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_53"]
+shape = SubResource("floor_col_53")
+
+[node name="floor_54" type="StaticBody3D" parent="Floor"]
+position = Vector3(4.0, -1.5, 5.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_54"]
+mesh = SubResource("floor_54")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_54"]
+shape = SubResource("floor_col_54")
+
+[node name="floor_55" type="StaticBody3D" parent="Floor"]
+position = Vector3(32.0, -1.5, 5.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_55"]
+mesh = SubResource("floor_55")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_55"]
+shape = SubResource("floor_col_55")
+
+[node name="floor_56" type="StaticBody3D" parent="Floor"]
+position = Vector3(-27.0, -1.5, 7.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_56"]
+mesh = SubResource("floor_56")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_56"]
+shape = SubResource("floor_col_56")
+
+[node name="floor_57" type="StaticBody3D" parent="Floor"]
+position = Vector3(-15.0, -1.5, 7.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_57"]
+mesh = SubResource("floor_57")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_57"]
+shape = SubResource("floor_col_57")
+
+[node name="floor_58" type="StaticBody3D" parent="Floor"]
+position = Vector3(4.0, -1.5, 7.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_58"]
+mesh = SubResource("floor_58")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_58"]
+shape = SubResource("floor_col_58")
+
+[node name="floor_59" type="StaticBody3D" parent="Floor"]
+position = Vector3(-23.0, -1.5, 9.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_59"]
+mesh = SubResource("floor_59")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_59"]
+shape = SubResource("floor_col_59")
+
+[node name="floor_60" type="StaticBody3D" parent="Floor"]
+position = Vector3(4.0, -1.5, 9.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_60"]
+mesh = SubResource("floor_60")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_60"]
+shape = SubResource("floor_col_60")
+
+[node name="floor_61" type="StaticBody3D" parent="Floor"]
+position = Vector3(-22.0, -1.5, 11.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_61"]
+mesh = SubResource("floor_61")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_61"]
+shape = SubResource("floor_col_61")
+
+[node name="floor_62" type="StaticBody3D" parent="Floor"]
+position = Vector3(2.0, -1.5, 11.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_62"]
+mesh = SubResource("floor_62")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_62"]
+shape = SubResource("floor_col_62")
+
+[node name="floor_63" type="StaticBody3D" parent="Floor"]
+position = Vector3(-12.0, -1.5, 13.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_63"]
+mesh = SubResource("floor_63")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_63"]
+shape = SubResource("floor_col_63")
+
+[node name="floor_64" type="StaticBody3D" parent="Floor"]
+position = Vector3(-22.0, -1.5, 15.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_64"]
+mesh = SubResource("floor_64")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_64"]
+shape = SubResource("floor_col_64")
+
+[node name="floor_65" type="StaticBody3D" parent="Floor"]
+position = Vector3(0.0, -1.5, 15.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_65"]
+mesh = SubResource("floor_65")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_65"]
+shape = SubResource("floor_col_65")
+
+[node name="floor_66" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 17.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_66"]
+mesh = SubResource("floor_66")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_66"]
+shape = SubResource("floor_col_66")
+
+[node name="floor_67" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 19.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_67"]
+mesh = SubResource("floor_67")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_67"]
+shape = SubResource("floor_col_67")
+
+[node name="floor_68" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 21.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_68"]
+mesh = SubResource("floor_68")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_68"]
+shape = SubResource("floor_col_68")
+
+[node name="floor_69" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 23.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_69"]
+mesh = SubResource("floor_69")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_69"]
+shape = SubResource("floor_col_69")
+
+[node name="floor_70" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 25.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_70"]
+mesh = SubResource("floor_70")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_70"]
+shape = SubResource("floor_col_70")
+
+[node name="floor_71" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 27.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_71"]
+mesh = SubResource("floor_71")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_71"]
+shape = SubResource("floor_col_71")
+
+[node name="floor_72" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 29.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_72"]
+mesh = SubResource("floor_72")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_72"]
+shape = SubResource("floor_col_72")
+
+[node name="floor_73" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 31.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_73"]
+mesh = SubResource("floor_73")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_73"]
+shape = SubResource("floor_col_73")
+
+[node name="floor_74" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 33.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_74"]
+mesh = SubResource("floor_74")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_74"]
+shape = SubResource("floor_col_74")
+
+[node name="floor_75" type="StaticBody3D" parent="Floor"]
+position = Vector3(-24.0, -1.5, 35.0)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Surface" type="MeshInstance3D" parent="Floor/floor_75"]
+mesh = SubResource("floor_75")
+surface_material_override/0 = ExtResource("ground_mat")
+
+[node name="Col" type="CollisionShape3D" parent="Floor/floor_75"]
+shape = SubResource("floor_col_75")
+
+[node name="pillar_0" type="StaticBody3D" parent="."]
+position = Vector3(-10, 2.0, 8)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="pillar_0"]
+mesh = SubResource("pillar_mesh")
+
+[node name="Col" type="CollisionShape3D" parent="pillar_0"]
+shape = SubResource("pillar_col")
+
+[node name="pillar_1" type="StaticBody3D" parent="."]
+position = Vector3(12, 2.0, -8)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="pillar_1"]
+mesh = SubResource("pillar_mesh")
+
+[node name="Col" type="CollisionShape3D" parent="pillar_1"]
+shape = SubResource("pillar_col")
+
+[node name="pillar_2" type="StaticBody3D" parent="."]
+position = Vector3(-18, 2.0, -12)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="pillar_2"]
+mesh = SubResource("pillar_mesh")
+
+[node name="Col" type="CollisionShape3D" parent="pillar_2"]
+shape = SubResource("pillar_col")
+
+[node name="ToCity" type="Area3D" parent="Interactables"]
+position = Vector3(-28, 1, 26)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"fog_moor_trail_to_city"
+metadata/target_id = "m:fog_moor_trail_to_city"
+metadata/interact_type = &"portal"
+metadata/target_map = &"city_sumidouro"
+metadata/target_spawn = &"FogMoorReturn"
+metadata/approach_position = Vector3(-28, 0.0, 26)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/ToCity"]
+shape = SubResource("portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/ToCity"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "Arraial do Sumidouro ←"
+
+[node name="ToSwamp" type="Area3D" parent="Interactables"]
+position = Vector3(32, 1, -24)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"fog_moor_trail_to_swamp"
+metadata/target_id = "m:fog_moor_trail_to_swamp"
+metadata/interact_type = &"portal"
+metadata/target_map = &"fog_moor_swamp"
+metadata/target_spawn = &"SpawnPoint"
+metadata/approach_position = Vector3(32, 0.0, -24)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/ToSwamp"]
+shape = SubResource("portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/ToSwamp"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "Pântano das Brumas →"
+
+[node name="ToGateDirect" type="Area3D" parent="Interactables"]
+position = Vector3(-30, 1, -28)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"fog_moor_trail_to_gate_direct"
+metadata/target_id = "m:fog_moor_trail_to_gate_direct"
+metadata/interact_type = &"portal"
+metadata/target_map = &"fog_moor_gate"
+metadata/target_spawn = &"FromTrail"
+metadata/approach_position = Vector3(-30, 0.0, -28)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/ToGateDirect"]
+shape = SubResource("portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/ToGateDirect"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "Atalho do Vilarejo ↑"
+
+[node name="Pack1" type="Marker3D" parent="Spawns"]
+position = Vector3(-15.0, 0, 13.0)
+metadata/monster_id = &"whispering_shade"
+metadata/stage = 1
+metadata/count = 3
+metadata/radius_cells = 4
+metadata/respawn_sec = 90.0
+
+[node name="Pack2" type="Marker3D" parent="Spawns"]
+position = Vector3(17.0, 0, -13.0)
+metadata/monster_id = &"despair_possessed"
+metadata/stage = 1
+metadata/count = 3
+metadata/radius_cells = 4
+metadata/respawn_sec = 90.0
+
+[node name="Pack3" type="Marker3D" parent="Spawns"]
+position = Vector3(-11.0, 0, -13.0)
+metadata/monster_id = &"maned_wolf"
+metadata/stage = 2
+metadata/count = 2
+metadata/radius_cells = 4
+metadata/respawn_sec = 90.0
+
+[node name="Pack4" type="Marker3D" parent="Spawns"]
+position = Vector3(8, 0, 8)
+metadata/monster_id = &"whispering_shade"
+metadata/stage = 1
+metadata/count = 2
+metadata/radius_cells = 4
+metadata/respawn_sec = 90.0

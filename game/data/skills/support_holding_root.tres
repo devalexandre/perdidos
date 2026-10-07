@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"support_holding_root"
+name_key = "SKILL_SUPPORT_HOLDING_ROOT_NAME"
+desc_key = "SKILL_SUPPORT_HOLDING_ROOT_DESC"
+school = &"support"
+region_id = &"brasil"
+target_type = 6
+effect = 9
+mana_cost = 28
+cooldown_sec = 60.0
+range_cells = 8.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 3.0
+extra = Dictionary[StringName, Variant]({
+&"death_ward": 1,
+&"duration_per_level": 0.2
+})
+vfx = &"shield"
+exclusive_to_title = &"sabia_support_buriti"
+icon_text = "RS"
+tree_title = &"sabia_support_buriti"
+tree_order = 4
+required_skill_levels = Dictionary[StringName, int]({
+&"support_coconut_water": 3
+})

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ipe_flower_crown.png" id="1_d1rs4"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_qb226"]
+
+[resource]
+script = ExtResource("2_qb226")
+id = &"ipe_flower_crown"
+name_key = "ITEM_IPE_FLOWER_CROWN_NAME"
+desc_key = "ITEM_IPE_FLOWER_CROWN_DESC"
+icon = ExtResource("1_d1rs4")
+type = 3
+visual_id = &"ipe_flower_crown"
+is_cosmetic = true

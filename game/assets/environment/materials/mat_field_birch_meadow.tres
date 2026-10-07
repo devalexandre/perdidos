@@ -1,0 +1,41 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_terrain_decal.gdshader" id="1_xe1qa"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_cobble.png" id="2_tdhax"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_dirt.png" id="3_m1d5t"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass.png" id="4_tre2c"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass_lush.png" id="5_tcvnt"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="6_p5q12"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_rock.png" id="7_aml65"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_sand.png" id="8_1vbbi"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_xe1qa")
+shader_parameter/tex_grass = ExtResource("4_tre2c")
+shader_parameter/tex_grass_alt = ExtResource("5_tcvnt")
+shader_parameter/tex_dirt = ExtResource("3_m1d5t")
+shader_parameter/tex_cobble = ExtResource("2_tdhax")
+shader_parameter/tex_sand = ExtResource("8_1vbbi")
+shader_parameter/tex_rock = ExtResource("7_aml65")
+shader_parameter/tex_noise = ExtResource("6_p5q12")
+shader_parameter/grass_tile_m = null
+shader_parameter/dirt_tile_m = null
+shader_parameter/cobble_tile_m = null
+shader_parameter/sand_tile_m = null
+shader_parameter/rock_tile_m = null
+shader_parameter/splat_source = 0
+shader_parameter/splat_origin = null
+shader_parameter/splat_size = null
+shader_parameter/macro_scale_m = null
+shader_parameter/macro_warm = null
+shader_parameter/macro_cool = null
+shader_parameter/macro_strength = null
+shader_parameter/grass_alt_amount = 0.5
+shader_parameter/grass_tint = Color(1.02, 1.05, 0.92, 1)
+shader_parameter/dirt_tint = null
+shader_parameter/cobble_tint = null
+shader_parameter/sand_tint = null
+shader_parameter/rock_tint = null
+shader_parameter/blend_softness = null
+shader_parameter/edge_noise = null

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_xkqcu"]
+
+[resource]
+script = ExtResource("1_xkqcu")
+id = &"blade_firm_strike"
+name_key = "SKILL_BLADE_FIRM_STRIKE_NAME"
+desc_key = "SKILL_BLADE_FIRM_STRIKE_DESC"
+school = &"blade"
+mana_cost = 8
+cooldown_sec = 4.0
+base_multiplier = 1.5
+multiplier_per_level = 0.12
+requires_melee_weapon = true
+vfx = &"slash"
+icon_text = "GF"
+tree_title = &"sabia_blade_machete"
+tree_order = 1

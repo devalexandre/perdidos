@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_shell_salve.png" id="1_icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_item"]
+
+[resource]
+script = ExtResource("2_item")
+id = &"shell_salve"
+name_key = "ITEM_SHELL_SALVE_NAME"
+desc_key = "ITEM_SHELL_SALVE_DESC"
+icon = ExtResource("1_icon")
+type = 0
+stackable = true
+max_stack = 99
+buy_price = 0
+sell_price = 30
+use_effect = Dictionary[StringName, Variant]({
+&"def_buff_pct": 0.2,
+&"buff_sec": 90.0,
+&"cast_sec": 1.0,
+&"cooldown_sec": 90.0,
+&"cooldown_group": &"shell_salve"
+})

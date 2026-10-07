@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"arcane_crystal_wall"
+name_key = "SKILL_ARCANE_CRYSTAL_WALL_NAME"
+desc_key = "SKILL_ARCANE_CRYSTAL_WALL_DESC"
+school = &"arcane"
+region_id = &"brasil"
+target_type = 2
+effect = 9
+mana_cost = 26
+cooldown_sec = 24.0
+range_cells = 0.0
+radius_cells = 3.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 6.0
+extra = Dictionary[StringName, Variant]({
+&"dmg_taken_pct": -0.25,
+&"dmg_taken_pct_per_level": -0.015,
+&"duration_per_level": 0.3
+})
+vfx = &"shield"
+exclusive_to_title = &"sabia_arcane_crystal"
+icon_text = "MC"
+tree_title = &"sabia_arcane_crystal"
+tree_order = 4
+required_skill_levels = Dictionary[StringName, int]({
+&"arcane_shared_crystal": 3
+})

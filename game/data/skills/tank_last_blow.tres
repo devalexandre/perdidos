@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"tank_last_blow"
+name_key = "SKILL_TANK_LAST_BLOW_NAME"
+desc_key = "SKILL_TANK_LAST_BLOW_DESC"
+school = &"tank"
+region_id = &"brasil"
+mana_cost = 20
+cooldown_sec = 20.0
+range_cells = 1.5
+base_multiplier = 1.5
+multiplier_per_level = 0.1
+extra = Dictionary[StringName, Variant]({
+&"missing_hp_bonus": 1.5
+})
+vfx = &"slash"
+exclusive_to_title = &"sabia_tank_mapinguari"
+icon_text = "UP"
+tree_title = &"sabia_tank_mapinguari"
+tree_order = 5
+required_skill_levels = Dictionary[StringName, int]({
+&"tank_mapinguari_howl": 3
+})

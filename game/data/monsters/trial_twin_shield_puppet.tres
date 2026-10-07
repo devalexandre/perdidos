@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="1_mdef"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="2_mstage"]
+
+[sub_resource type="Resource" id="stage_1"]
+script = ExtResource("2_mstage")
+name_key = "MON_TRIAL_TWIN_SHIELD_PUPPET_NAME"
+sprite_base = "res://assets/monsters/stone_armadillo/mon_stone_armadillo_s2"
+baked_life = true
+level = 15
+max_hp = 1800
+atk = 18
+def = 45
+mdef = 45
+walk_ms_per_cell = 100000000
+attack_interval_ms = 2000
+aggro_range_cells = 0
+leash_cells = 1
+xp_reward = 0
+
+[resource]
+script = ExtResource("1_mdef")
+id = &"trial_twin_shield_puppet"
+stages = Array[ExtResource("2_mstage")]([SubResource("stage_1")])
+respawn_sec = 0.0
+can_be_rare = false

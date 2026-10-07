@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_leather_jerkin.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"couraca_de_placas_douradas"
+name_key = "ITEM_COURACA_PLACAS_DOURADAS_NAME"
+desc_key = "ITEM_COURACA_PLACAS_DOURADAS_DESC"
+icon = ExtResource("icon")
+type = 4
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 440
+tradeable = true
+exclusive_drop_zone = &"city_of_z"
+stats = Dictionary[StringName, int]({
+&"def": 36,
+&"mdef": 16,
+&"vit": 5
+})

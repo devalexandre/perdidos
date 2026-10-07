@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_painted_decal.gdshader" id="1_l2jmt"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_dirt.png" id="2_3gyjt"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="3_1y7vj"]
+
+[resource]
+render_priority = 3
+shader = ExtResource("1_l2jmt")
+shader_parameter/albedo_tex = ExtResource("2_3gyjt")
+shader_parameter/tint = Color(0.94, 0.88, 0.77, 1)
+shader_parameter/triplanar = true
+shader_parameter/tile_m = 3.2
+shader_parameter/uv_scale = null
+shader_parameter/use_vertex_ao = null
+shader_parameter/top_amount = null
+shader_parameter/top_sharpness = null
+shader_parameter/top_tile_m = null
+shader_parameter/top_tint = null
+shader_parameter/grime_height = null
+shader_parameter/base_y = null
+shader_parameter/grime_color = null
+shader_parameter/tex_noise = ExtResource("3_1y7vj")
+shader_parameter/macro_strength = 0.16
+shader_parameter/roughness = null
+shader_parameter/detail = 0.52
+shader_parameter/use_instance_tint = null

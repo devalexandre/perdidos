@@ -1,0 +1,210 @@
+{
+ "_doc": "NPCs do Porto do Despertar (GDD 17.7, proximos-passos 3.1). build/face/desc entram no style_block.txt (mesmo bloco de estilo do Viajante v2, tools/art/character_pipeline/p_c1m.txt). height = altura do personagem no quadro 96x96 (adulto 84 como o Viajante; crianca menor). prop = objeto que a IA deve manter nas edicoes.",
+ "merchant": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "sturdy average build, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "middle-aged man with an anime-style face, medium-sized friendly eyes, warm broad smile, short neat dark beard",
+  "desc": "cheerful market merchant, tanned skin, short dark hair under a flat-brimmed straw hat, cream linen shirt with rolled-up sleeves, mustard-yellow vest, long green work apron with pockets, red cloth sash belt with a small leather coin pouch, brown trousers, sturdy brown leather boots",
+  "prop": "straw hat, green apron and coin pouch"
+ },
+ "master_brisa": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "middle-aged woman with an anime-style face, sharp medium-sized eyes, stern calm expression, a small scar on the chin",
+  "desc": "veteran sword master, short steel-gray hair tied back in a small tight bun, brown leather jerkin with small steel shoulder pads, a red scarf tied around the neck, dark brown trousers, tall dark leather boots, a long machete in a leather sheath at her left hip",
+  "prop": "red scarf, steel shoulder pads and sheathed machete"
+ },
+ "master_orvalho": {
+  "height": 82,
+  "neg_drop": [
+   "stocky",
+   "bulky",
+   "chubby cheeks"
+  ],
+  "build": "short plump build with a round belly, proportions about 3.5 heads tall",
+  "face": "jolly middle-aged man with an anime-style face, small round glasses, kind eyes, big friendly smile, short brown beard",
+  "desc": "cheerful herbalist mage, teal-green knee-length robe covered with many small pockets holding tiny glass vials of herbs, a tall pointed straw hat, a leather belt with pouches, soft brown boots, three small glowing warm-yellow firefly lights floating around him",
+  "prop": "pointed straw hat, round glasses, teal robe with vials and small floating yellow lights"
+ },
+ "boatman": {
+  "height": 83,
+  "neg_drop": [],
+  "build": "wiry lean build, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "elderly man with an anime-style face, kind medium-sized eyes, warm smile, short white beard",
+  "desc": "weathered river boatman, sun-tanned skin, short curly white hair, faded blue and white horizontally striped sleeveless shirt, rolled-up beige canvas trousers, a coiled rope hanging over one shoulder, brown leather boots, holding a long wooden boat pole upright in his right hand",
+  "prop": "striped shirt, coiled rope and long wooden boat pole"
+ },
+ "fruit_vendor": {
+  "height": 82,
+  "neg_drop": [],
+  "build": "slim average build, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "friendly woman in her forties with an anime-style face, medium-sized warm eyes, bright smile",
+  "desc": "fruit seller at a riverside market, dark wavy shoulder-length hair tied with a yellow headscarf, orange blouse with small white flower prints, long green skirt, short white apron, brown sandal-boots, holding a woven straw basket full of colorful fruits (mangoes, oranges, bananas) against her hip",
+  "prop": "yellow headscarf and straw fruit basket"
+ },
+ "gate_guard": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "fit lean build, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "young adult man with an anime-style face, sharp medium-sized eyes, serious but friendly expression",
+  "desc": "town gate guard, short black hair under a round steel kettle helmet, blue padded gambeson tunic with a yellow sash across the chest, brown leather belt, brown trousers, tall leather boots, holding a wooden spear with a steel tip upright in his right hand",
+  "prop": "steel kettle helmet, blue gambeson with yellow sash and upright spear"
+ },
+ "fisherman": {
+  "height": 82,
+  "neg_drop": [],
+  "build": "thin lanky build, slightly relaxed posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "old man with an anime-style face, calm half-closed eyes, gentle smile, gray mustache",
+  "desc": "old riverside fisherman, wide-brimmed frayed straw hat, open light-green short-sleeved shirt over a white undershirt, rolled-up brown trousers, simple brown leather boots, a small woven fish basket at his hip, holding a long bamboo fishing rod resting on his shoulder",
+  "prop": "wide straw hat, fish basket and bamboo fishing rod"
+ },
+ "curious_child": {
+  "height": 62,
+  "neg_drop": [
+   "short legs",
+   "chubby cheeks"
+  ],
+  "build": "child proportions, about 3 heads tall, skinny arms and legs",
+  "face": "curious cheerful boy about nine years old with an anime-style face, big bright eager eyes, wide gap-toothed grin",
+  "desc": "town kid, messy short black hair with a cowlick, loose cream linen tunic with a red patch on the shoulder, short brown shorts held by a rope belt, a small bandage on one knee, little brown boots, holding a small wooden toy sailboat in one hand",
+  "prop": "cream tunic, rope belt and small wooden toy sailboat"
+ },
+ "traveler_male": {
+  "height": 84,
+  "prop": "blue zip hoodie, spiky brown hair, dark blue jeans, white high-top sneakers and small brown leather backpack"
+ },
+ "traveler_female": {
+  "height": 84,
+  "prop": "blue zip hoodie, long brown ponytail, dark jeans shorts over black tights, white high-top sneakers and small brown leather backpack"
+ },
+ "master_jatoba": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "middle-aged Brazilian man with warm brown skin and an anime-style face, sharp medium-sized eyes, calm confident half smile, short curly black hair graying at the temples, a trimmed short beard",
+  "desc": "veteran blade master of the savanna, sleeveless tan leather jerkin over a cream linen shirt with rolled sleeves, a red cloth sash at the waist, brown trousers tied at the calves, a wide-brimmed brown leather hat hanging on his back, a long machete in a leather sheath at his left hip",
+  "prop": "leather hat on the back, red sash and sheathed machete"
+ },
+ "master_candeia": {
+  "height": 82,
+  "neg_drop": [],
+  "build": "slim graceful build, upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "elderly Brazilian woman with dark brown skin and an anime-style face, kind wise eyes, gentle smile, white hair in a braided bun with a small yellow flower",
+  "desc": "wise arcane master, sleeveless ochre tunic over a long plum-purple skirt, a woven shawl with orange and teal stripes over the shoulders, a tall wooden staff topped with a small brass oil lamp glowing warm yellow, two tiny glowing yellow firefly lights floating near her",
+  "prop": "striped shawl and wooden staff with a glowing brass oil lamp"
+ },
+ "master_guiomar": {
+  "height": 85,
+  "neg_drop": [],
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "woman in her forties with light olive skin and an anime-style face, sharp determined eyes, dark brown hair in a single braid",
+  "desc": "halberd master of an old fortress, a polished steel breastplate over a wine-red padded tunic with a small blue and white tile pattern trim, dark trousers, brown leather boots, holding a tall halberd upright at her side",
+  "prop": "steel breastplate and tall halberd"
+ },
+ "master_tsubaki": {
+  "height": 83,
+  "neg_drop": [],
+  "build": "slim graceful build, upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "young woman with light skin and an anime-style face, calm focused eyes, black hair in a high ponytail tied with a red cord, a small red camellia flower pin",
+  "desc": "naginata master, a white wrapped kimono-style top and wide dark indigo hakama trousers, a dark sash, straw sandals with white socks, holding a long naginata polearm upright at her side",
+  "prop": "indigo hakama and long naginata"
+ },
+ "master_solveig": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "woman with fair freckled skin and an anime-style face, bright blue eyes, confident smile, long blonde hair in two thick braids",
+  "desc": "shield master of the frozen fjords, a blue wool cloak lined with white fur, a chainmail shirt over a brown tunic, fur-trimmed boots, a round wooden shield painted with a simple blue wave pattern on her left arm, a short hand axe at her belt",
+  "prop": "fur cloak, round wooden shield and hand axe"
+ },
+ "master_nicandro": {
+  "height": 85,
+  "neg_drop": [],
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "middle-aged man with olive skin and an anime-style face, calm sharp eyes, short curly dark hair and a short dark beard",
+  "desc": "spear master of the coast of columns, a white knee-length tunic with a blue meander pattern border, a brown leather belt, a round bronze shield on his back, leather sandals with straps up the calves, holding a long spear upright",
+  "prop": "bronze shield on the back and long spear"
+ },
+ "master_seneb": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "slim graceful build, upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "man with brown skin and an anime-style face, calm intelligent eyes lined with dark kohl, shaved head",
+  "desc": "scribe and blade master of the desert river, a white pleated linen kilt, a wide collar necklace of turquoise and gold beads, gold armbands, leather sandals, a curved bronze sickle sword at his belt and a small wooden scroll case at his side",
+  "prop": "bead collar, curved bronze sword and scroll case"
+ },
+ "master_ewan": {
+  "height": 86,
+  "neg_drop": [],
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "young man with fair skin and an anime-style face, friendly green eyes, red hair tied back, a short red beard",
+  "desc": "longsword and harp master of the misty isles, a green and brown plaid cloak pinned at the shoulder with a round silver brooch, a cream linen shirt, brown trousers and boots, a small wooden harp hanging at his side, a longsword across his back",
+  "prop": "plaid cloak, small harp and longsword on the back"
+ },
+ "master_zlata": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "woman with fair skin and an anime-style face, keen grey eyes, a long light brown braid over the shoulder",
+  "desc": "archer and axe master of the steppe, a white linen shirt with red embroidered sleeves under a sleeveless dark green long coat, a round fur hat, tall brown leather boots, a wooden bow and quiver on her back, a hand axe at her belt",
+  "prop": "fur hat, green coat, bow on the back and hand axe"
+ },
+ "master_xiaoyu": {
+  "height": 83,
+  "neg_drop": [],
+  "build": "slim graceful build, upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "young woman with light skin and an anime-style face, serene eyes, black hair in a neat bun with a green jade hairpin",
+  "desc": "swordmaster of the jade empire, a flowing light blue robe with wide white sleeves and a jade-green sash, soft black cloth shoes, holding a slim straight double-edged sword in its sheath at her side",
+  "prop": "light blue robe, jade hairpin and slim straight sword"
+ },
+ "master_citlali": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "woman with brown skin and an anime-style face, strong confident eyes, long black hair in a braid woven with a turquoise ribbon",
+  "desc": "obsidian blade master of the jungle, a white cotton tunic with a red and turquoise geometric border, a short cape with a spotted jaguar fur pattern, leather sandals, holding a flat wooden club edged with small black obsidian blades",
+  "prop": "jaguar pattern cape and wooden club edged with obsidian"
+ },
+ "master_taquari": {
+  "build": "athletic lean build, straight upright posture, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "middle-aged Brazilian man with sun-tanned light brown skin and an anime-style face, narrow focused eyes, calm serious expression, long black hair tied in a low ponytail, a thin mustache",
+  "desc": "veteran archer master of the savanna, holding a tall longbow made of pale yellow bamboo cane upright in his left hand, a bamboo quiver full of fletched arrows on his back, a sleeveless olive-green leather jerkin over a cream linen shirt with rolled sleeves, a woven golden straw sash at the waist, leather bracers on the forearms, khaki trousers wrapped with cloth at the calves, brown boots",
+  "height": 84,
+  "neg_drop": [],
+  "prop": "bamboo longbow, bamboo quiver and straw sash"
+ },
+ "elder_ze_ferreiro": {
+  "build": "short sturdy build with slightly hunched rounded shoulders of an old man, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "very old man with an anime-style face, deep wrinkles on the forehead and cheeks, bushy white eyebrows, bald head with a ring of short white hair, a thick white mustache, kind tired eyes, warm tan skin",
+  "desc": "old village blacksmith, a heavy dark brown leather apron over a sooty gray work shirt with rolled sleeves, thick brown leather gloves, a heavy iron smithing hammer held down in his right hand, a small cloth towel over one shoulder, dark trousers and sturdy boots",
+  "height": 80,
+  "neg_drop": [
+   "stocky",
+   "bulky"
+  ],
+  "prop": "leather apron, white mustache and iron smithing hammer"
+ },
+ "elder_aninha": {
+  "build": "small thin frail build of an old woman with a slightly stooped back, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "very old grandmother with an anime-style face, many soft wrinkles, gentle smiling narrow eyes, white hair in a bun, warm brown skin",
+  "desc": "old folk herbalist grandmother, a red and yellow flowered headscarf tied over her white hair, a cream blouse with a knitted brown shawl over the shoulders, a long dark green skirt, a woven straw basket full of green herbs hanging on one arm, leaning on a simple wooden walking cane in the other hand, simple brown shoes",
+  "height": 76,
+  "neg_drop": [],
+  "prop": "flowered headscarf, herb basket and wooden cane"
+ },
+ "elder_tiao": {
+  "build": "broad strong build for an old man with thick arms and a slightly bent back, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "very old man with an anime-style face, deep wrinkles, a long white beard, bald head with white hair on the sides, bushy white eyebrows, stern but kind eyes, weathered tan skin",
+  "desc": "strong old warrior of the tortoise, a sleeveless vest reinforced with rounded brown tortoise shell plates with ochre borders, a gray long-sleeved shirt, a wide leather belt, dark brown trousers, heavy boots, leaning on a thick gnarled wooden staff held upright in one hand",
+  "height": 83,
+  "neg_drop": [
+   "stocky",
+   "bulky",
+   "wide shoulders",
+   "muscular"
+  ],
+  "prop": "tortoise shell plated vest, long white beard and gnarled wooden staff"
+ }
+}

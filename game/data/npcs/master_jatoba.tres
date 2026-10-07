@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/master_jatoba.tres" id="1_g76q0"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_dxo5i"]
+
+[resource]
+script = ExtResource("2_dxo5i")
+id = &"master_jatoba"
+name_key = "NPC_MASTER_JATOBA_NAME"
+sprite_base = "res://assets/npcs/npc_master_jatoba"
+map_id = &"training_field"
+spawn_marker = &"master_jatoba"
+move_speed = 1.6
+dialogue = ExtResource("1_g76q0")

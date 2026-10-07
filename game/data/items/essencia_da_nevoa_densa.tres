@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_potion_mp_medium.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"essencia_da_nevoa_densa"
+name_key = "ITEM_ESSENCIA_NEVOA_NAME"
+desc_key = "ITEM_ESSENCIA_NEVOA_DESC"
+icon = ExtResource("icon")
+type = 0
+rarity = 1
+stackable = true
+max_stack = 99
+buy_price = 0
+sell_price = 90
+tradeable = true
+crendice_id = &""
+crendice_sockets = 0
+exclusive_drop_zone = &"hoer_verde"
+use_effect = Dictionary[StringName, int]({
+  &"heal_hp": 550,
+  &"heal_mp": 220
+})
+stats = Dictionary[StringName, int]({})

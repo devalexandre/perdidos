@@ -1,0 +1,56 @@
+{
+ "m": {
+  "s": {
+   "idle": "idle2_m_s_0.png",
+   "wl": "w_m_s_wl_4.png",
+   "wr": "w_m_s_wr_4.png"
+  },
+  "se": {
+   "idle": "base_m_se.png",
+   "wl": "w_m_se_wl_0.png",
+   "wr": "w_m_se_wr_0.png"
+  },
+  "e": {
+   "idle": "base_m_e.png",
+   "wl": "w_m_e_wl_0.png",
+   "wr": "w_m_e_wr_0.png"
+  },
+  "ne": {
+   "idle": "base_m_ne.png",
+   "wl": "w_m_ne_wl_0.png",
+   "wr": "w_m_ne_wr_0.png"
+  },
+  "n": {
+   "idle": "base_m_n.png",
+   "wl": "w_m_n_wl_2.png",
+   "wr": "w_m_n_wr_3.png"
+  }
+ },
+ "f": {
+  "s": {
+   "idle": "idle2_f_s_1.png",
+   "wl": "w_f_s_wl_4.png",
+   "wr": "w_f_s_wr_4.png"
+  },
+  "se": {
+   "idle": "base_f_se.png",
+   "wl": "w_f_se_wl_0.png",
+   "wr": "w_f_se_wr_0.png"
+  },
+  "e": {
+   "idle": "base_f_e.png",
+   "wl": "w_f_e_wl_0.png",
+   "wr": "w_f_e_wr_0.png"
+  },
+  "ne": {
+   "idle": "base_f_ne.png",
+   "wl": "w_f_ne_wl_0.png",
+   "wr": "w_f_ne_wr_0.png"
+  },
+  "n": {
+   "idle": "base_f_n.png",
+   "wl": "w_f_n_wl_4.png",
+   "wr": "w_f_n_wr_2.png"
+  }
+ }
+}

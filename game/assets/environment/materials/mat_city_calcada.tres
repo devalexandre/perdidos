@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_painted_2s.gdshader" id="1_4fcdb"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_paving.png" id="2_offti"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="3_uaf42"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4fcdb")
+shader_parameter/albedo_tex = ExtResource("2_offti")
+shader_parameter/tint = Color(1.18, 1.12, 1.03, 1)
+shader_parameter/triplanar = true
+shader_parameter/tile_m = 3.2
+shader_parameter/uv_scale = null
+shader_parameter/use_vertex_ao = null
+shader_parameter/top_amount = null
+shader_parameter/top_sharpness = null
+shader_parameter/top_tile_m = null
+shader_parameter/top_tint = null
+shader_parameter/grime_height = null
+shader_parameter/base_y = null
+shader_parameter/grime_color = null
+shader_parameter/tex_noise = ExtResource("3_uaf42")
+shader_parameter/macro_strength = 0.12
+shader_parameter/roughness = null
+shader_parameter/detail = 0.96
+shader_parameter/use_instance_tint = null

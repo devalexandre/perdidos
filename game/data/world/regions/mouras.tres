@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="WorldRegionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("place")
+id = &"fiandouro"
+region_id = &"mouras"
+kind = 0
+status = 2
+name_key = "WA_P_FIANDOURO"
+hook_key = "WA_P_FIANDOURO_HOOK"
+pos = Vector2(0.455, 0.435)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("place")
+id = &"vila_andorinhas"
+region_id = &"mouras"
+kind = 1
+status = 2
+name_key = "WA_P_VILA_ANDORINHAS"
+hook_key = "WA_P_VILA_ANDORINHAS_HOOK"
+pos = Vector2(0.375, 0.47)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("place")
+id = &"cais_naus"
+region_id = &"mouras"
+kind = 7
+status = 2
+name_key = "WA_P_CAIS_NAUS"
+hook_key = "WA_P_CAIS_NAUS_HOOK"
+pos = Vector2(0.43, 0.515)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("place")
+id = &"olival_ventos"
+region_id = &"mouras"
+kind = 2
+status = 2
+name_key = "WA_P_OLIVAL_VENTOS"
+hook_key = "WA_P_OLIVAL_VENTOS_HOOK"
+pos = Vector2(0.4, 0.37)
+level_min = 10
+level_max = 20
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("place")
+id = &"serra_cardos"
+region_id = &"mouras"
+kind = 2
+status = 2
+name_key = "WA_P_SERRA_CARDOS"
+hook_key = "WA_P_SERRA_CARDOS_HOOK"
+pos = Vector2(0.475, 0.385)
+level_min = 20
+level_max = 30
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("place")
+id = &"cova_moura"
+region_id = &"mouras"
+kind = 3
+status = 2
+name_key = "WA_P_COVA_MOURA"
+hook_key = "WA_P_COVA_MOURA_HOOK"
+pos = Vector2(0.478, 0.49)
+level_min = 25
+level_max = 35
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("place")
+id = &"toca_coca"
+region_id = &"mouras"
+kind = 3
+status = 2
+name_key = "WA_P_TOCA_COCA"
+hook_key = "WA_P_TOCA_COCA_HOOK"
+pos = Vector2(0.392, 0.508)
+level_min = 30
+level_max = 40
+
+[sub_resource type="Resource" id="p7"]
+script = ExtResource("place")
+id = &"cabo_gigante"
+region_id = &"mouras"
+kind = 5
+status = 2
+name_key = "WA_P_CABO_GIGANTE"
+hook_key = "WA_P_CABO_GIGANTE_HOOK"
+pos = Vector2(0.372, 0.43)
+level_min = 40
+level_max = 50
+
+[resource]
+script = ExtResource("region")
+id = &"mouras"
+name_key = "WA_R_MOURAS"
+hook_key = "WA_R_MOURAS_HOOK"
+inspiration = "Portugal"
+label_pos = Vector2(0.415, 0.395)
+reached = false
+places = Array[ExtResource("place")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7")])

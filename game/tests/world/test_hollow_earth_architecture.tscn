@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://test_hollow_earth_arch_001"]
+
+[ext_resource type="Script" path="res://tests/world/test_hollow_earth_architecture.gd" id="1_test"]
+
+[node name="TestHollowEarthArchitecture" type="Node"]
+script = ExtResource("1_test")

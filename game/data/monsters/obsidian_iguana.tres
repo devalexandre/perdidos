@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_olyaf"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_xpumu"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_74hw0"]
+
+[sub_resource type="Resource" id="Resource_1jcbj"]
+script = ExtResource("1_olyaf")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_dm0n0"]
+script = ExtResource("3_74hw0")
+name_key = "MON_OBSIDIAN_IGUANA_S1_NAME"
+sprite_base = "res://assets/monsters/obsidian_iguana/mon_obsidian_iguana_s1"
+baked_life = true
+level = 4
+max_hp = 85
+atk = 10
+def = 5
+mdef = 2
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 30
+stars_min = 1
+stars_max = 5
+drops = Array[ExtResource("1_olyaf")]([SubResource("Resource_1jcbj")])
+
+[sub_resource type="Resource" id="Resource_5a854"]
+script = ExtResource("1_olyaf")
+item_id = &"potion_hp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_u5hto"]
+script = ExtResource("3_74hw0")
+stage = 2
+name_key = "MON_OBSIDIAN_IGUANA_S2_NAME"
+sprite_base = "res://assets/monsters/obsidian_iguana/mon_obsidian_iguana_s2"
+baked_life = true
+level = 8
+max_hp = 280
+atk = 21
+def = 11
+mdef = 5
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 105
+stars_min = 4
+stars_max = 11
+drops = Array[ExtResource("1_olyaf")]([SubResource("Resource_5a854")])
+
+[resource]
+script = ExtResource("2_xpumu")
+id = &"obsidian_iguana"
+region_id = &"mexico"
+stages = Array[ExtResource("3_74hw0")]([SubResource("Resource_dm0n0"), SubResource("Resource_u5hto")])

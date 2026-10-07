@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_eternal_ember.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"lasca_cristal_ratanaba"
+name_key = "ITEM_LASCA_CRISTAL_RATANABA_NAME"
+desc_key = "ITEM_LASCA_CRISTAL_RATANABA_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 450
+tradeable = true
+crendice_id = &"lasca_cristal_ratanaba"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"int": 3,
+&"matk": 10
+})

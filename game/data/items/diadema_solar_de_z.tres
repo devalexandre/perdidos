@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ipe_flower_crown.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"diadema_solar_de_z"
+name_key = "ITEM_DIADEMA_SOLAR_Z_NAME"
+desc_key = "ITEM_DIADEMA_SOLAR_Z_DESC"
+icon = ExtResource("icon")
+type = 3
+rarity = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 320
+tradeable = true
+exclusive_drop_zone = &"city_of_z"
+stats = Dictionary[StringName, int]({
+&"def": 14,
+&"mdef": 16,
+&"str": 4,
+&"int": 4
+})

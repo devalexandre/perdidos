@@ -1,0 +1,169 @@
+{
+ "_doc": "Olhos/rosto em pixel art (chr_post.py). Desenho do olho do lado ESQUERDO da imagem (canto de fora a esquerda); o da direita e espelhado. Codigos: 0-3 iris (rampa de olhos), K cilio, k ponta do cilio, W branco, H reflexo, '.' vazio. 'closed' = piscar (mesmo tamanho). front = de frente/3-4 perto; far = olho de longe no 3/4; side = perfil. ancora = centro do desenho (cx, cy).",
+ "front": {
+  "open": [
+   "kKKK",
+   "W0H1",
+   "W012",
+   ".33."
+  ],
+  "closed": [
+   "....",
+   "....",
+   "kKKK",
+   "...."
+  ],
+  "c": [
+   2,
+   2
+  ]
+ },
+ "far": {
+  "open": [
+   "KKk",
+   "01W",
+   "12W",
+   "3.."
+  ],
+  "closed": [
+   "...",
+   "...",
+   "KKk",
+   "..."
+  ],
+  "c": [
+   1,
+   2
+  ]
+ },
+ "side": {
+  "open": [
+   "KKk",
+   "0HW",
+   "12.",
+   "3.."
+  ],
+  "closed": [
+   "...",
+   "...",
+   "KKk",
+   "..."
+  ],
+  "c": [
+   1,
+   2
+  ]
+ },
+ "brow": {
+  "front": [
+   "BBB"
+  ],
+  "far": [
+   "BB"
+  ],
+  "side": [
+   "BB"
+  ],
+  "front_big": [
+   "BBBB"
+  ],
+  "far_big": [
+   "BBB"
+  ],
+  "side_big": [
+   "BBB"
+  ]
+ },
+ "mouth": {
+  "front": [
+   "mm"
+  ],
+  "far": [
+   "m"
+  ],
+  "side": [
+   "m"
+  ],
+  "front_big": [
+   "mmm"
+  ],
+  "far_big": [
+   "mm"
+  ],
+  "side_big": [
+   "m"
+  ]
+ },
+ "front_big": {
+  "open": [
+   ".kKKKk",
+   "KKKKKK",
+   "WH011K",
+   "W0112K",
+   "W1223K",
+   ".2333.",
+   "..33.."
+  ],
+  "closed": [
+   "......",
+   "......",
+   "......",
+   "......",
+   "kKKKKk",
+   "......",
+   "......"
+  ],
+  "c": [
+   2,
+   4
+  ]
+ },
+ "far_big": {
+  "open": [
+   "KKKKk",
+   "KKKKK",
+   "H011W",
+   "0112W",
+   "1223W",
+   "233..",
+   "33..."
+  ],
+  "closed": [
+   ".....",
+   ".....",
+   ".....",
+   ".....",
+   "kKKKK",
+   ".....",
+   "....."
+  ],
+  "c": [
+   2,
+   4
+  ]
+ },
+ "side_big": {
+  "open": [
+   "KKKk",
+   "KKKK",
+   "H01W",
+   "012W",
+   "123.",
+   "233.",
+   "33.."
+  ],
+  "closed": [
+   "....",
+   "....",
+   "....",
+   "....",
+   "kKKK",
+   "....",
+   "...."
+  ],
+  "c": [
+   1,
+   4
+  ]
+ }
+}

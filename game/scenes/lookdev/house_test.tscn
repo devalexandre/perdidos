@@ -1,0 +1,853 @@
+[gd_scene format=3]
+
+[ext_resource type="Environment" path="res://assets/environment/painted/env_warm_city.tres" id="1_cojfq"]
+[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_paving.tres" id="2_st80p"]
+[ext_resource type="Script" path="res://scripts/client/env/foliage_scatter.gd" id="3_laesg"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_wall_plaster_straight_base.res" id="4_0vkpq"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_wall_plaster_window_wide_round.res" id="5_d81cd"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_window_wide_round1.res" id="6_8tson"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_windowshutters_wide_round_open.res" id="7_xyoa6"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_wall_plaster_door_round.res" id="8_3bp1w"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_door_1_round.res" id="9_h2ydu"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_wall_plaster_window_thin_round.res" id="10_68khn"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_window_thin_round1.res" id="11_uw5ae"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_windowshutters_thin_round_open.res" id="12_wmfex"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_balcony_simple_straight.res" id="13_tv6ti"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_windowshutters_thin_round_closed.res" id="14_5qcow"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_wall_plaster_straight.res" id="15_lw8jd"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_corner_exterior_brick.res" id="16_r1clu"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_roof_roundtiles_6x8.res" id="17_g0ty2"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_roof_front_brick6.res" id="18_7vurx"]
+[ext_resource type="ArrayMesh" path="res://assets/environment/painted/meshes/pkv_prop_chimney.res" id="19_cg862"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mx4mf"]
+size = Vector2(80, 80)
+
+[sub_resource type="MultiMesh" id="MultiMesh_o15lt"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092446, 0, -1.2325026e-07, 8.184893, 3.1226888, 3.592447)
+instance_count = 3
+mesh = ExtResource("4_0vkpq")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 3.5, 0.17535579, 1, 0.97, 0.9, -3.8247464e-08, 0, 0.875, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 0.875, 0.060890865, 1, 0.97, 0.9, -3.8247464e-08, 0, -0.875, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, 2.625, 0.9172902, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_2qf4m"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092446, 0, -3.592447, 8.184893, 3.1226888, 3.5924473)
+instance_count = 4
+mesh = ExtResource("4_0vkpq")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3, 0, -3.5000002, 0.33328417, 1, 0.97, 0.9, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -7, 0, -3.5, 0.38719675, 1, 0.97, 0.9, -3.8247464e-08, 0, -0.875, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, -0.875, 0.9339844, 1, 0.97, 0.9, -3.8247464e-08, 0, 0.875, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, -2.625, 0.71641785, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_ma7q5"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092446, 0, 1.1516831e-07, 8.184893, 3.1226888, 3.5924468)
+instance_count = 4
+mesh = ExtResource("5_d81cd")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.5, 0.020476183, 1, 0.97, 0.9, -3.8247464e-08, 0, 0.875, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 2.625, 0.69969887, 1, 0.97, 0.9, -3.8247464e-08, 0, -0.875, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, 0.875, 0.88074404, 1, 0.97, 0.9, 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 3.5, 0.5376091, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_ednvf"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092446, 0, -14.700001, 10.092446, 3.1226888, 14.700001)
+instance_count = 7
+mesh = ExtResource("5_d81cd")
+metadata/foliage_instances = PackedFloat32Array(0.875, 0, 0, 0, 1, 0, 0, 0, 1, -0.8749998, 0, -7.5, 0.78543, 1, 0.8, 0.74, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5000002, 0, -13.8, 0.40509304, 1, 0.8, 0.74, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -9, 0, -3.4999998, 0.26610455, 1, 0.97, 0.9, -3.8247464e-08, 0, -0.875, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, -2.625, 0.16107535, 1, 0.97, 0.9, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5, 0, -3.5, 0.17710625, 1, 0.97, 0.9, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.4999998, 0, -10.2, 0.94262886, 1, 0.8, 0.74, -3.8247464e-08, 0, 0.875, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, -0.875, 0.44136286, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_jnywx"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.6575532, 0, -14.7, 6.6848936, 3.1226888, 14.7)
+instance_count = 6
+mesh = ExtResource("5_d81cd")
+metadata/foliage_instances = PackedFloat32Array(-4.0979426e-08, 0, 0.9375, 0, 1, 0, -1, 0, -4.371139e-08, 0.75, 0, -0.9375, 0.6737221, 1, 0.84, 0.56, 0.875, 0, 0, 0, 1, 0, 0, 0, 1, 2.6250002, 0, -7.5, 0.22632842, 1, 0.8, 0.74, -3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, -10.2, 0.7141836, 1, 0.8, 0.74, -3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, -13.8, 0.692955, 1, 0.8, 0.74, -4.0979426e-08, 0, -0.9375, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, -2.8125, 0.54927635, 1, 0.84, 0.56, -1.0833334, 0, 9.4708014e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 0, -3.75, 0.7603281, 1, 0.84, 0.56)
+
+[sub_resource type="MultiMesh" id="MultiMesh_2er34"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.65755296, 0, 1.1516831e-07, 6.6848936, 3.1226888, 3.75)
+instance_count = 2
+mesh = ExtResource("5_d81cd")
+metadata/foliage_instances = PackedFloat32Array(-4.0979426e-08, 0, 0.9375, 0, 1, 0, -1, 0, -4.371139e-08, 0.74999976, 0, 2.8125, 0.30313444, 1, 0.84, 0.56, -4.0979426e-08, 0, -0.9375, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, 0.9375, 0.6689478, 1, 0.84, 0.56)
+
+[sub_resource type="MultiMesh" id="MultiMesh_akwho"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-6.768659e-08, 0, -16.592447, 1.7500001, 3.1226888, 0.4064827)
+instance_count = 1
+mesh = ExtResource("5_d81cd")
+metadata/foliage_instances = PackedFloat32Array(-0.875, 0, 7.649493e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.8749998, 0, -16.5, 0.087993, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_w7fjs"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-3.5, 0, -16.592447, 1.7499999, 3.1226888, 0.4064827)
+instance_count = 1
+mesh = ExtResource("5_d81cd")
+metadata/foliage_instances = PackedFloat32Array(-0.875, 0, 7.649493e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.6250002, 0, -16.5, 0.32232207, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_pccn1"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.277292, 1.0160443, 0.1925423, 8.5545845, 1.7257367, 3.5847497)
+instance_count = 4
+mesh = ExtResource("6_8tson")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.5, 0.4727941, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 2.625, 0.10193323, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, 0.875, 0.61472106, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 3.5, 0.6143358, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_gof66"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.277292, 1.0160443, -14.482458, 10.08475, 1.7257367, 14.289916)
+instance_count = 7
+mesh = ExtResource("6_8tson")
+metadata/foliage_instances = PackedFloat32Array(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.4999998, 0, -10.2, 0.38569462, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, -0.875, 0.6843125, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, -2.625, 0.25648552, 1, 1, 1, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -9, 0, -3.4999998, 0.90471184, 1, 1, 1, 1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5000002, 0, -13.8, 0.31942108, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8749998, 0, -7.5, 0.10407762, 1, 1, 1, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5, 0, -3.5, 0.99895066, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_jfqfn"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.47270793, 1.0160443, -14.482458, 7.0545845, 1.7257367, 14.227416)
+instance_count = 6
+mesh = ExtResource("6_8tson")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6250002, 0, -7.5, 0.048163615, 1, 1, 1, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 0, -3.75, 0.08650543, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, -10.2, 0.65365213, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, -13.8, 0.07878364, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, -2.8125, 0.120877735, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.75, 0, -0.9375, 0.29442543, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_ubpoi"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.4727077, 1.0160443, 0.2550423, 7.0545845, 1.7257367, 3.2399154)
+instance_count = 2
+mesh = ExtResource("6_8tson")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, 0.9375, 0.5686018, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.74999976, 0, 2.8125, 0.45137748, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_ecauj"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.1925421, 1.0160443, -16.777292, 1.3649154, 1.7257367, 0.52957535)
+instance_count = 1
+mesh = ExtResource("6_8tson")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.8749998, 0, -16.5, 0.88262874, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_nscnj"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-3.307458, 1.0160443, -16.777292, 1.3649154, 1.7257367, 0.52957535)
+instance_count = 1
+mesh = ExtResource("6_8tson")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.6250002, 0, -16.5, 0.12046187, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_thp07"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.56315, 1.0932441, -0.22852626, 9.126301, 1.6471877, 4.2916765)
+instance_count = 4
+mesh = ExtResource("7_xyoa6")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 3.5, 0.002999991, 0.36, 0.52, 0.85, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, 0.875, 0.3807053, 0.36, 0.52, 0.85, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 2.625, 0.03262734, 0.36, 0.52, 0.85, 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.5, 0.5055776, 0.36, 0.52, 0.85)
+
+[sub_resource type="MultiMesh" id="MultiMesh_v1x8u"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.56315, 1.0932441, -14.999957, 10.7916765, 1.6471877, 15.228483)
+instance_count = 7
+mesh = ExtResource("7_xyoa6")
+metadata/foliage_instances = PackedFloat32Array(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.4999998, 0, -10.2, 0.06896721, 0.32, 0.72, 0.7, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5, 0, -3.5, 0.21390986, 0.36, 0.52, 0.85, 1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5000002, 0, -13.8, 0.9705141, 0.32, 0.72, 0.7, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, -0.875, 0.096977174, 0.36, 0.52, 0.85, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, -2.625, 0.79775935, 0.36, 0.52, 0.85, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -9, 0, -3.4999998, 0.9835193, 0.36, 0.52, 0.85, 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8749998, 0, -7.5, 0.39558092, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_6seaj"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.18684977, 1.0932441, -14.903526, 7.626301, 1.6471877, 15.069552)
+instance_count = 6
+mesh = ExtResource("7_xyoa6")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.75, 0, -0.9375, 0.9321688, 0.38, 0.62, 0.36, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, -2.8125, 0.69460285, 0.38, 0.62, 0.36, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, -13.8, 0.5684279, 0.32, 0.72, 0.7, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, -10.2, 0.9432978, 0.32, 0.72, 0.7, 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6250002, 0, -7.5, 0.9425508, 0.32, 0.72, 0.7, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 0, -3.75, 0.7223304, 0.38, 0.62, 0.36)
+
+[sub_resource type="MultiMesh" id="MultiMesh_62kp5"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.18684953, 1.0932441, -0.16602626, 7.626301, 1.6471877, 4.082052)
+instance_count = 2
+mesh = ExtResource("7_xyoa6")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, 0.9375, 0.6549503, 0.38, 0.62, 0.36, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.74999976, 0, 2.8125, 0.32199785, 0.38, 0.62, 0.36)
+
+[sub_resource type="MultiMesh" id="MultiMesh_fwf4b"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-0.22852646, 1.0932441, -17.06315, 2.3034835, 1.6471877, 0.4723549)
+instance_count = 1
+mesh = ExtResource("7_xyoa6")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.8749998, 0, -16.5, 0.5824793, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_n10tu"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-3.7285266, 1.0932441, -17.06315, 2.3034835, 1.6471877, 0.4723549)
+instance_count = 1
+mesh = ExtResource("7_xyoa6")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.6250002, 0, -16.5, 0.4095724, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_unop6"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-6, 0, 3.1859646, 2, 3.1226888, 0.40648222)
+instance_count = 1
+mesh = ExtResource("8_3bp1w")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3.5, 0.4806244, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_v3754"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(2.9166665, 0, 3.4359646, 2.1666665, 3.1226888, 0.40648222)
+instance_count = 1
+mesh = ExtResource("8_3bp1w")
+metadata/foliage_instances = PackedFloat32Array(1.0833334, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3.75, 0.50545305, 1, 0.84, 0.56)
+
+[sub_resource type="MultiMesh" id="MultiMesh_1piir"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(3.1859646, 0, -12.9, 0.40648222, 3.1226888, 1.7999992)
+instance_count = 1
+mesh = ExtResource("8_3bp1w")
+metadata/foliage_instances = PackedFloat32Array(-3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, -12, 0.77383727, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_uef2v"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-5.046263, 0.033089638, 3.4424424, 1.120013, 2.3182366, 0.12070036)
+instance_count = 1
+mesh = ExtResource("9_h2ydu")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3.5, 0.9623952, 0.36, 0.52, 0.85)
+
+[sub_resource type="MultiMesh" id="MultiMesh_5p7t0"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(3.9537368, 0.033089638, 3.6924424, 1.1200128, 2.3182366, 0.12070036)
+instance_count = 1
+mesh = ExtResource("9_h2ydu")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3.75, 0.8868999, 0.38, 0.62, 0.36)
+
+[sub_resource type="MultiMesh" id="MultiMesh_fiy7k"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(3.4424424, 0.033089638, -13.07375, 0.12070036, 2.3182366, 1.1200123)
+instance_count = 1
+mesh = ExtResource("9_h2ydu")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 0, -12, 0.8081717, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_4vx5g"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092446, 3.12, -1.2325026e-07, 8.184894, 3.1226888, 3.592447)
+instance_count = 6
+mesh = ExtResource("10_68khn")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.12, 3.5, 0.8830073, 1, 0.97, 0.9, -3.8247464e-08, 0, -0.875, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, 2.625, 0.11611364, 1, 0.97, 0.9, 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.12, 3.5, 0.9132385, 1, 0.97, 0.9, 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.12, 3.5, 0.87284154, 1, 0.97, 0.9, 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.12, 3.5, 0.9302895, 1, 0.97, 0.9, -3.8247464e-08, 0, 0.875, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, 0.875, 0.6988194, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_7bhrr"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092446, 3.12, -16.5, 8.342446, 3.1226888, 16.5)
+instance_count = 8
+mesh = ExtResource("10_68khn")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3, 3.12, -3.5000002, 0.2538795, 1, 0.97, 0.9, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.4999995, 3.12, -8.4, 0.13667367, 1, 0.8, 0.74, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5, 3.12, -12, 0.16246097, 1, 0.8, 0.74, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5000005, 3.12, -15.599999, 0.2732187, 1, 0.8, 0.74, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -7, 3.12, -3.5, 0.09516515, 1, 0.97, 0.9, -3.8247464e-08, 0, 0.875, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, -2.625, 0.3565151, 1, 0.97, 0.9, 0.875, 0, 0, 0, 1, 0, 0, 0, 1, -2.6249998, 3.12, -7.5, 0.012980494, 1, 0.8, 0.74, -3.8247464e-08, 0, -0.875, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, -0.875, 0.6047037, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_4plq0"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(5.9604645e-08, 3.12, -16.5, 3.592447, 3.1226888, 9.092447)
+instance_count = 6
+mesh = ExtResource("10_68khn")
+metadata/foliage_instances = PackedFloat32Array(0.875, 0, 0, 0, 1, 0, 0, 0, 1, 0.8750002, 3.12, -7.5, 0.2781467, 1, 0.8, 0.74, -3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -12, 0.87135077, 1, 0.8, 0.74, -3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -10.2, 0.13922036, 1, 0.8, 0.74, -3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -13.8, 0.34794915, 1, 0.8, 0.74, -3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.5000002, 3.12, -8.400001, 0.7662165, 1, 0.8, 0.74, -3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.4999998, 3.12, -15.6, 0.7822484, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_2berq"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(1.7499999, 3.12, -16.592447, 1.7500001, 3.1226888, 0.4064827)
+instance_count = 1
+mesh = ExtResource("10_68khn")
+metadata/foliage_instances = PackedFloat32Array(-0.875, 0, 7.649493e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.6249998, 3.12, -16.5, 0.58837754, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_q3qfp"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-1.75, 3.12, -16.592447, 1.75, 3.1226888, 0.4064827)
+instance_count = 1
+mesh = ExtResource("10_68khn")
+metadata/foliage_instances = PackedFloat32Array(-0.875, 0, 7.649493e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.8750002, 3.12, -16.5, 0.5231473, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_55ovp"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092366, 4.136044, 0.43118972, 8.184732, 1.6046844, 3.1611767)
+instance_count = 6
+mesh = ExtResource("11_uw5ae")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.12, 3.5, 0.4396142, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, 0.875, 0.1943842, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, 2.625, 0.3550691, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.12, 3.5, 0.5362975, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.12, 3.5, 0.40399775, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.12, 3.5, 0.8896584, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_s4ry0"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092366, 4.136044, -16.04381, 8.184732, 1.6046844, 15.61262)
+instance_count = 8
+mesh = ExtResource("11_uw5ae")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3, 3.12, -3.5000002, 0.80623746, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, -0.875, 0.5611611, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6249998, 3.12, -7.5, 0.76311046, 1, 1, 1, 1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5, 3.12, -12, 0.841026, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, -2.625, 0.77940494, 1, 1, 1, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -7, 3.12, -3.5, 0.27997237, 1, 1, 1, 1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.4999995, 3.12, -8.4, 0.9639667, 1, 1, 1, 1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5000005, 3.12, -15.599999, 0.75047344, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_ft0ea"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.4311899, 4.136044, -16.04381, 3.1611767, 1.6046844, 8.636177)
+instance_count = 6
+mesh = ExtResource("11_uw5ae")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8750002, 3.12, -7.5, 0.76630145, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -10.2, 0.19245099, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -13.8, 0.7565045, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5000002, 3.12, -8.400001, 0.42420328, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -12, 0.5369109, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4999998, 3.12, -15.6, 0.26209033, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_o2rdk"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(2.1811895, 4.136044, -16.592367, 0.88762045, 1.6046844, 0.34438896)
+instance_count = 1
+mesh = ExtResource("11_uw5ae")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.6249998, 3.12, -16.5, 0.7816574, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_3yt3c"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-1.3188105, 4.136044, -16.592367, 0.88762057, 1.6046844, 0.34438896)
+instance_count = 1
+mesh = ExtResource("11_uw5ae")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.8750002, 3.12, -16.5, 0.15185264, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_arlhh"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.435505, 4.213244, 0.055427473, 8.87101, 1.5184226, 3.8800776)
+instance_count = 4
+mesh = ExtResource("12_wmfex")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, 0.875, 0.5470412, 0.36, 0.52, 0.85, 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.12, 3.5, 0.57037526, 0.36, 0.52, 0.85, 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.12, 3.5, 0.3215499, 0.36, 0.52, 0.85, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, 2.625, 0.11427556, 0.36, 0.52, 0.85)
+
+[sub_resource type="MultiMesh" id="MultiMesh_36xea"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-3.9355056, 4.213244, -16.419573, 2.3710108, 1.5184226, 16.364145)
+instance_count = 4
+mesh = ExtResource("12_wmfex")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6249998, 3.12, -7.5, 0.86886454, 0.32, 0.72, 0.7, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, -0.875, 0.63729894, 0.36, 0.52, 0.85, 1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5000005, 3.12, -15.599999, 0.15909937, 0.32, 0.72, 0.7, 1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.4999995, 3.12, -8.4, 0.90229905, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_0104s"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(3.5590167, 4.213244, -16.386705, 0.3764887, 1.5184226, 8.806277)
+instance_count = 5
+mesh = ExtResource("12_wmfex")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5000002, 3.12, -8.400001, 0.27995682, 0.32, 0.72, 0.7, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -13.8, 0.44780847, 0.32, 0.72, 0.7, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -10.2, 0.31100115, 0.32, 0.72, 0.7, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4999998, 3.12, -15.6, 0.70749044, 0.32, 0.72, 0.7, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.12, -12, 0.5678454, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_834cu"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(1.838294, 4.213244, -16.935505, 1.6062782, 1.5184226, 0.37648773)
+instance_count = 1
+mesh = ExtResource("12_wmfex")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.6249998, 3.12, -16.5, 0.49519828, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_ion3o"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-1.6617059, 4.213244, -16.935505, 1.6062782, 1.5184226, 0.37648773)
+instance_count = 1
+mesh = ExtResource("12_wmfex")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.8750002, 3.12, -16.5, 0.77297884, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_dfthj"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-8, 2.9649127, 4.39797, 2, 1.2298868, 0.20628262)
+instance_count = 1
+mesh = ExtResource("13_tv6ti")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.07, 3.5, 0.07141666, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_826gn"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(4.39797, 2.9649127, -14.8, 0.20628262, 1.2298868, 5.6000004)
+instance_count = 2
+mesh = ExtResource("13_tv6ti")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.07, -10.2, 0.10088355, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 3.07, -13.8, 0.13617271, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_rb1qo"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-5.428683, 4.213244, 3.652465, 2.867403, 1.5184226, 0.1357696)
+instance_count = 2
+mesh = ExtResource("14_5qcow")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.12, 3.5, 0.34641895, 0.36, 0.52, 0.85, 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.12, 3.5, 0.7002312, 0.36, 0.52, 0.85)
+
+[sub_resource type="MultiMesh" id="MultiMesh_yqee1"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.288235, 4.213244, -12.428682, 7.7169175, 1.5184226, 10.242403)
+instance_count = 4
+mesh = ExtResource("14_5qcow")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, -2.625, 0.6149078, 0.36, 0.52, 0.85, 1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5, 3.12, -12, 0.40175477, 0.32, 0.72, 0.7, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3, 3.12, -3.5000002, 0.28032076, 0.36, 0.52, 0.85, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -7, 3.12, -3.5, 0.6243615, 0.36, 0.52, 0.85)
+
+[sub_resource type="MultiMesh" id="MultiMesh_1b7u4"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.44631737, 4.213244, -7.347535, 0.867403, 1.5184226, 0.13576984)
+instance_count = 1
+mesh = ExtResource("14_5qcow")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8750002, 3.12, -7.5, 0.5371398, 0.32, 0.72, 0.7)
+
+[sub_resource type="MultiMesh" id="MultiMesh_gqhbp"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092446, -0.0020958781, -16.5, 10.092446, 6.2447844, 16.5)
+instance_count = 11
+mesh = ExtResource("15_lw8jd")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5, 3.12, -3.5, 0.9376922, 1, 0.97, 0.9, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5000005, 0, -15.599999, 0.256584, 1, 0.8, 0.74, 0.875, 0, 0, 0, 1, 0, 0, 0, 1, -0.8749998, 3.12, -7.5, 0.18859996, 1, 0.8, 0.74, -3.8247464e-08, 0, -0.875, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, -2.625, 0.5722217, 1, 0.97, 0.9, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.4999995, 0, -8.4, 0.75865173, 1, 0.8, 0.74, -3.8247464e-08, 0, 0.875, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, -0.875, 0.8236823, 1, 0.97, 0.9, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5000002, 3.12, -13.8, 0.63299376, 1, 0.8, 0.74, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.5, 0, -12, 0.0367697, 1, 0.8, 0.74, 0.875, 0, 0, 0, 1, 0, 0, 0, 1, -2.6249998, 0, -7.5, 0.4311537, 1, 0.8, 0.74, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -9, 3.12, -3.4999998, 0.5191293, 1, 0.97, 0.9, 1.1802075e-07, 0, 0.9, 0, 1, 0, -1, 0, 1.3113416e-07, -3.4999998, 3.12, -10.2, 0.8976139, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_oep78"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.092446, 3.117904, 1.1516831e-07, 8.184893, 3.1247847, 3.5)
+instance_count = 2
+mesh = ExtResource("15_lw8jd")
+metadata/foliage_instances = PackedFloat32Array(-3.8247464e-08, 0, 0.875, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, 2.625, 0.6891181, 1, 0.97, 0.9, -3.8247464e-08, 0, -0.875, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, 0.875, 0.4509204, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_adijx"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.6575532, -0.0020958781, -1.2325026e-07, 6.6848936, 3.1247847, 3.842447)
+instance_count = 4
+mesh = ExtResource("15_lw8jd")
+metadata/foliage_instances = PackedFloat32Array(1.0833334, 0, 0, 0, 1, 0, 0, 0, 1, 1.8333333, 0, 3.75, 0.4425467, 1, 0.84, 0.56, 1.0833334, 0, 0, 0, 1, 0, 0, 0, 1, 6.166667, 0, 3.75, 0.18771262, 1, 0.84, 0.56, -4.0979426e-08, 0, 0.9375, 0, 1, 0, -1, 0, -4.371139e-08, 0.75, 0, 0.9375, 0.51596487, 1, 0.84, 0.56, -4.0979426e-08, 0, -0.9375, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, 2.8125, 0.49705315, 1, 0.84, 0.56)
+
+[sub_resource type="MultiMesh" id="MultiMesh_huyw4"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(5.9604645e-08, -0.0020958781, -16.5, 7.3424473, 6.2447844, 16.5)
+instance_count = 8
+mesh = ExtResource("15_lw8jd")
+metadata/foliage_instances = PackedFloat32Array(-3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.4999998, 0, -15.6, 0.5214538, 1, 0.8, 0.74, -1.0833334, 0, 9.4708014e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.8333333, 0, -3.7499998, 0.18798059, 1, 0.84, 0.56, -4.0979426e-08, 0, 0.9375, 0, 1, 0, -1, 0, -4.371139e-08, 0.75000024, 0, -2.8125, 0.92453736, 1, 0.84, 0.56, 0.875, 0, 0, 0, 1, 0, 0, 0, 1, 2.6250002, 3.12, -7.5, 0.416528, 1, 0.8, 0.74, -1.0833334, 0, 9.4708014e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6.166667, 0, -3.7500002, 0.03372743, 1, 0.84, 0.56, -3.934025e-08, 0, -0.9, 0, 1, 0, 1, 0, -4.371139e-08, 3.5000002, 0, -8.400001, 0.031201199, 1, 0.8, 0.74, -4.0979426e-08, 0, -0.9375, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, -0.9375, 0.19442195, 1, 0.84, 0.56, 0.875, 0, 0, 0, 1, 0, 0, 0, 1, 0.8750002, 0, -7.5, 0.03327243, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_ewg0s"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-6.768659e-08, -0.0020958781, -16.592447, 3.5, 6.2447844, 0.4064827)
+instance_count = 2
+mesh = ExtResource("15_lw8jd")
+metadata/foliage_instances = PackedFloat32Array(-0.875, 0, 7.649493e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.8749998, 3.12, -16.5, 0.109077506, 1, 0.8, 0.74, -0.875, 0, 7.649493e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.6249998, 0, -16.5, 0.15220724, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_2df27"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-3.5, -0.0020958781, -16.592447, 3.5, 6.2447844, 0.4064827)
+instance_count = 2
+mesh = ExtResource("15_lw8jd")
+metadata/foliage_instances = PackedFloat32Array(-0.875, 0, 7.649493e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.6250002, 3.12, -16.5, 0.047880422, 1, 0.8, 0.74, -0.875, 0, 7.649493e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.8750002, 0, -16.5, 0.53288037, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_7nbqb"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.177729, -0.007091105, -7.8529415, 8.554428, 6.135627, 4.705883)
+instance_count = 6
+mesh = ExtResource("16_r1clu")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -3.5, 0.3518353, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.4999998, 3.12, -7.5, 0.82155305, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, -3.5, 0.25907788, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 3.12, -3.5, 0.14667696, 1, 1, 1, -1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 3.12, -3.5, 0.045114756, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.4999998, 0, -7.5, 0.7672608, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_mry0v"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.376699, -0.007091105, 3.1470582, 8.554428, 6.135627, 0.72964144)
+instance_count = 4
+mesh = ExtResource("16_r1clu")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, 3.5, 0.02597698, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.12, 3.5, 0.659172, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3.12, 3.5, 0.15891542, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3.5, 0.33990574, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_nq14h"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.57227105, -0.007091105, -7.6991343, 7.0544286, 6.135627, 4.3020763)
+instance_count = 4
+mesh = ExtResource("16_r1clu")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5000002, 3.12, -7.5, 0.78509516, 1, 1, 1, -1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.75, 0, -3.75, 0.34603316, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5000002, 0, -7.5, 0.05042753, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.25, 0, -3.75, 0.97553736, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_s623e"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.37330037, -0.007091105, 3.3970582, 7.0544286, 3.015627, 0.7296412)
+instance_count = 2
+mesh = ExtResource("16_r1clu")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0, 3.75, 0.22124833, 1, 1, 1, -4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.75, 0, 3.75, 0.60953647, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_8587t"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-3.6777291, -0.007091105, -16.8767, 0.53067064, 6.135627, 0.5758343)
+instance_count = 2
+mesh = ExtResource("16_r1clu")
+metadata/foliage_instances = PackedFloat32Array(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.5000002, 0, -16.5, 0.11552538, 1, 1, 1, -1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.5000002, 3.12, -16.5, 0.6758987, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_4yghi"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(3.3008657, -0.007091105, -16.677729, 0.5758338, 6.135627, 0.53067017)
+instance_count = 2
+mesh = ExtResource("16_r1clu")
+metadata/foliage_instances = PackedFloat32Array(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4999998, 3.12, -16.5, 0.6317608, 1, 1, 1, -4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4999998, 0, -16.5, 0.5450087, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_qewhe"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.6391945, 5.555639, -4.149891, 9.302631, 4.9631505, 8.299782)
+instance_count = 1
+mesh = ExtResource("17_g0ty2")
+metadata/foliage_instances = PackedFloat32Array(-4.3976307e-08, 0, -1.0060606, 0, 0.875, 0, 0.9607438, 0, -4.1995445e-08, -6, 6.24, 0, 0.80527973, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_2jir0"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(0.10906196, 2.386756, -4.3998847, 7.802207, 5.317661, 8.799769)
+instance_count = 1
+mesh = ExtResource("17_g0ty2")
+metadata/foliage_instances = PackedFloat32Array(-4.6625484e-08, 0, -1.0666667, 0, 0.9375, 0, 0.8057851, 0, -3.5221987e-08, 4, 3.12, 0, 0.32688236, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_f7w2p"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-4.1498914, 5.555639, -17.164883, 8.299783, 4.9631505, 10.302916)
+instance_count = 1
+mesh = ExtResource("17_g0ty2")
+metadata/foliage_instances = PackedFloat32Array(-1.0060606, 0, 8.7952614e-08, 0, 0.875, 0, -9.302217e-08, 0, -1.0640496, 0, 6.24, -12, 0.3656503, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_w0ib7"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-10.79414, 6.124673, -3.6617405, 9.588281, 3.951311, 7.3234816)
+instance_count = 2
+mesh = ExtResource("18_7vurx")
+metadata/foliage_instances = PackedFloat32Array(-4.780933e-08, 0, 1.09375, 0, 0.875, 0, -1, 0, -4.371139e-08, -10, 6.24, 0, 0.08931401, 1, 0.97, 0.9, -4.780933e-08, 0, -1.09375, 0, 0.875, 0, 1, 0, -4.371139e-08, -2, 6.24, 0, 0.4301436, 1, 0.97, 0.9)
+
+[sub_resource type="MultiMesh" id="MultiMesh_dtgpr"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-0.044140518, 2.9964354, -3.9232934, 8.088281, 4.233547, 7.8465867)
+instance_count = 2
+mesh = ExtResource("18_7vurx")
+metadata/foliage_instances = PackedFloat32Array(-5.1224283e-08, 0, 1.171875, 0, 0.9375, 0, -1, 0, -4.371139e-08, 0.75, 3.12, 0, 0.7984708, 1, 0.84, 0.56, -5.1224283e-08, 0, -1.171875, 0, 0.9375, 0, 1, 0, -4.371139e-08, 7.25, 3.12, 0, 0.2032205, 1, 0.84, 0.56)
+
+[sub_resource type="MultiMesh" id="MultiMesh_dcvdy"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-3.6602538, 6.124673, -7.834964, 7.321995, 3.951311, 1.1291041)
+instance_count = 1
+mesh = ExtResource("18_7vurx")
+metadata/foliage_instances = PackedFloat32Array(1.09375, 0, 0, 0, 0.875, 0, 0, 0, 1, 1.9670125e-07, 6.24, -7.5, 0.9078043, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_o6jbj"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-3.6617408, 6.124673, -17.29414, 7.321995, 3.951311, 1.1291027)
+instance_count = 1
+mesh = ExtResource("18_7vurx")
+metadata/foliage_instances = PackedFloat32Array(-1.09375, 0, 9.561866e-08, 0, 0.875, 0, -8.742278e-08, 0, -1, -1.9670125e-07, 6.24, -16.5, 0.7038467, 1, 0.8, 0.74)
+
+[sub_resource type="MultiMesh" id="MultiMesh_05mie"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(-4.5, 7.44, -1.9000001, 0.94577837, 3.177875, 1.0000002)
+instance_count = 1
+mesh = ExtResource("19_cg862")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7.44, -1.4, 0.08154311, 1, 1, 1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_4g201"]
+transform_format = 1
+use_custom_data = true
+custom_aabb = AABB(1.875, 4.32, -2, 0.94577837, 3.177875, 1)
+instance_count = 1
+mesh = ExtResource("19_cg862")
+metadata/foliage_instances = PackedFloat32Array(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.375, 4.32, -1.5, 0.84190726, 1, 1, 1)
+
+[node name="HouseTest" type="Node3D" unique_id=186117900]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=69230439]
+transform = Transform3D(0.81915206, 0.38379756, -0.42625037, 0, 0.7431448, 0.6691306, 0.57357645, -0.5481197, 0.6087486, 0, 0, 0)
+light_color = Color(1, 0.86, 0.66, 1)
+light_energy = 1.35
+light_angular_distance = 1.2
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_normal_bias = 1.2
+shadow_opacity = 0.82
+shadow_blur = 1.6
+directional_shadow_mode = 1
+directional_shadow_max_distance = 60.0
+
+[node name="@WorldEnvironment@2" type="WorldEnvironment" parent="." unique_id=20842567]
+environment = ExtResource("1_cojfq")
+
+[node name="@MeshInstance3D@3" type="MeshInstance3D" parent="." unique_id=217340064]
+material_override = ExtResource("2_st80p")
+mesh = SubResource("PlaneMesh_mx4mf")
+
+[node name="Kit" type="Node3D" parent="." unique_id=928455480]
+script = ExtResource("3_laesg")
+
+[node name="pkv_wall_plaster_straight_base_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=979115073]
+multimesh = SubResource("MultiMesh_o15lt")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_straight_base_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=61868165]
+multimesh = SubResource("MultiMesh_2qf4m")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_wide_round_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1715617802]
+multimesh = SubResource("MultiMesh_ma7q5")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_wide_round_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=207519633]
+multimesh = SubResource("MultiMesh_ednvf")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_wide_round_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1750915200]
+multimesh = SubResource("MultiMesh_jnywx")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_wide_round_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=547886762]
+multimesh = SubResource("MultiMesh_2er34")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_wide_round_0_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=793811487]
+multimesh = SubResource("MultiMesh_akwho")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_wide_round_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=1763920045]
+multimesh = SubResource("MultiMesh_w7fjs")
+metadata/keep_distance = true
+
+[node name="pkv_window_wide_round1_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=782432838]
+multimesh = SubResource("MultiMesh_pccn1")
+metadata/keep_distance = true
+
+[node name="pkv_window_wide_round1_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=798426772]
+multimesh = SubResource("MultiMesh_gof66")
+metadata/keep_distance = true
+
+[node name="pkv_window_wide_round1_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1497837581]
+multimesh = SubResource("MultiMesh_jfqfn")
+metadata/keep_distance = true
+
+[node name="pkv_window_wide_round1_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=615224981]
+multimesh = SubResource("MultiMesh_ubpoi")
+metadata/keep_distance = true
+
+[node name="pkv_window_wide_round1_0_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=1167513349]
+multimesh = SubResource("MultiMesh_ecauj")
+metadata/keep_distance = true
+
+[node name="pkv_window_wide_round1_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=2098498031]
+multimesh = SubResource("MultiMesh_nscnj")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_wide_round_open_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=656841358]
+multimesh = SubResource("MultiMesh_thp07")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_wide_round_open_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1259797206]
+multimesh = SubResource("MultiMesh_v1x8u")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_wide_round_open_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=2098145486]
+multimesh = SubResource("MultiMesh_6seaj")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_wide_round_open_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1396562948]
+multimesh = SubResource("MultiMesh_62kp5")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_wide_round_open_0_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=863865413]
+multimesh = SubResource("MultiMesh_fwf4b")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_wide_round_open_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=1099555068]
+multimesh = SubResource("MultiMesh_n10tu")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_door_round_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=323282124]
+multimesh = SubResource("MultiMesh_unop6")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_door_round_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=434006427]
+multimesh = SubResource("MultiMesh_v3754")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_door_round_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=664387069]
+multimesh = SubResource("MultiMesh_1piir")
+metadata/keep_distance = true
+
+[node name="pkv_door_1_round_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1252770679]
+multimesh = SubResource("MultiMesh_uef2v")
+metadata/keep_distance = true
+
+[node name="pkv_door_1_round_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=577635969]
+multimesh = SubResource("MultiMesh_5p7t0")
+metadata/keep_distance = true
+
+[node name="pkv_door_1_round_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=547228474]
+multimesh = SubResource("MultiMesh_fiy7k")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_thin_round_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=290427085]
+multimesh = SubResource("MultiMesh_4vx5g")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_thin_round_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1881480706]
+multimesh = SubResource("MultiMesh_7bhrr")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_thin_round_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1134074390]
+multimesh = SubResource("MultiMesh_4plq0")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_thin_round_0_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=2092065288]
+multimesh = SubResource("MultiMesh_2berq")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_window_thin_round_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=1891144942]
+multimesh = SubResource("MultiMesh_q3qfp")
+metadata/keep_distance = true
+
+[node name="pkv_window_thin_round1_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1717840604]
+multimesh = SubResource("MultiMesh_55ovp")
+metadata/keep_distance = true
+
+[node name="pkv_window_thin_round1_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=769244144]
+multimesh = SubResource("MultiMesh_s4ry0")
+metadata/keep_distance = true
+
+[node name="pkv_window_thin_round1_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1224062130]
+multimesh = SubResource("MultiMesh_ft0ea")
+metadata/keep_distance = true
+
+[node name="pkv_window_thin_round1_0_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=231741992]
+multimesh = SubResource("MultiMesh_o2rdk")
+metadata/keep_distance = true
+
+[node name="pkv_window_thin_round1_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=204476549]
+multimesh = SubResource("MultiMesh_3yt3c")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_thin_round_open_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1176536430]
+multimesh = SubResource("MultiMesh_arlhh")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_thin_round_open_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1765693582]
+multimesh = SubResource("MultiMesh_36xea")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_thin_round_open_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=335282504]
+multimesh = SubResource("MultiMesh_0104s")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_thin_round_open_0_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=75804885]
+multimesh = SubResource("MultiMesh_834cu")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_thin_round_open_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=2048287442]
+multimesh = SubResource("MultiMesh_ion3o")
+metadata/keep_distance = true
+
+[node name="pkv_balcony_simple_straight_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=59446343]
+multimesh = SubResource("MultiMesh_dfthj")
+metadata/keep_distance = true
+
+[node name="pkv_balcony_simple_straight_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1649064816]
+multimesh = SubResource("MultiMesh_826gn")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_thin_round_closed_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=459592943]
+multimesh = SubResource("MultiMesh_rb1qo")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_thin_round_closed_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=65557102]
+multimesh = SubResource("MultiMesh_yqee1")
+metadata/keep_distance = true
+
+[node name="pkv_windowshutters_thin_round_closed_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1294904372]
+multimesh = SubResource("MultiMesh_1b7u4")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_straight_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=274898992]
+multimesh = SubResource("MultiMesh_gqhbp")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_straight_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=605874010]
+multimesh = SubResource("MultiMesh_oep78")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_straight_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=49302920]
+multimesh = SubResource("MultiMesh_adijx")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_straight_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1995467561]
+multimesh = SubResource("MultiMesh_huyw4")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_straight_0_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=1945068409]
+multimesh = SubResource("MultiMesh_ewg0s")
+metadata/keep_distance = true
+
+[node name="pkv_wall_plaster_straight_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=1931162804]
+multimesh = SubResource("MultiMesh_2df27")
+metadata/keep_distance = true
+
+[node name="pkv_corner_exterior_brick_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=166110116]
+multimesh = SubResource("MultiMesh_7nbqb")
+metadata/keep_distance = true
+
+[node name="pkv_corner_exterior_brick_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1554896595]
+multimesh = SubResource("MultiMesh_mry0v")
+metadata/keep_distance = true
+
+[node name="pkv_corner_exterior_brick_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=466545564]
+multimesh = SubResource("MultiMesh_nq14h")
+metadata/keep_distance = true
+
+[node name="pkv_corner_exterior_brick_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1368837106]
+multimesh = SubResource("MultiMesh_s623e")
+metadata/keep_distance = true
+
+[node name="pkv_corner_exterior_brick_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=1325531679]
+multimesh = SubResource("MultiMesh_8587t")
+metadata/keep_distance = true
+
+[node name="pkv_corner_exterior_brick_0_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=264904011]
+multimesh = SubResource("MultiMesh_4yghi")
+metadata/keep_distance = true
+
+[node name="pkv_roof_roundtiles_6x8_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1542000367]
+multimesh = SubResource("MultiMesh_qewhe")
+metadata/keep_distance = true
+
+[node name="pkv_roof_roundtiles_6x8_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=453593077]
+multimesh = SubResource("MultiMesh_2jir0")
+metadata/keep_distance = true
+
+[node name="pkv_roof_roundtiles_6x8_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1667707323]
+multimesh = SubResource("MultiMesh_f7w2p")
+metadata/keep_distance = true
+
+[node name="pkv_roof_front_brick6_-1_0" type="MultiMeshInstance3D" parent="Kit" unique_id=120342789]
+multimesh = SubResource("MultiMesh_w0ib7")
+metadata/keep_distance = true
+
+[node name="pkv_roof_front_brick6_0_0" type="MultiMeshInstance3D" parent="Kit" unique_id=1408305106]
+multimesh = SubResource("MultiMesh_dtgpr")
+metadata/keep_distance = true
+
+[node name="pkv_roof_front_brick6_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1157381330]
+multimesh = SubResource("MultiMesh_dcvdy")
+metadata/keep_distance = true
+
+[node name="pkv_roof_front_brick6_-1_-2" type="MultiMeshInstance3D" parent="Kit" unique_id=1562370442]
+multimesh = SubResource("MultiMesh_o6jbj")
+metadata/keep_distance = true
+
+[node name="pkv_prop_chimney_-1_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1338796558]
+multimesh = SubResource("MultiMesh_05mie")
+metadata/keep_distance = true
+
+[node name="pkv_prop_chimney_0_-1" type="MultiMeshInstance3D" parent="Kit" unique_id=1635491477]
+multimesh = SubResource("MultiMesh_4g201")
+metadata/keep_distance = true

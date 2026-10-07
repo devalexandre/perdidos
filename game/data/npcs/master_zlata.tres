@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/master_zlata.tres" id="1_30nh2"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_630k5"]
+
+[resource]
+script = ExtResource("2_630k5")
+id = &"master_zlata"
+name_key = "NPC_MASTER_ZLATA_NAME"
+sprite_base = "res://assets/npcs/npc_master_zlata"
+map_id = &"training_field"
+spawn_marker = &"master_zlata"
+move_speed = 1.6
+dialogue = ExtResource("1_30nh2")

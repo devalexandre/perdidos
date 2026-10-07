@@ -1,0 +1,64 @@
+# Ofensas de ódio (racismo, homofobia, transfobia, intolerância religiosa, assédio) em vários
+# idiomas. SEMPRE severidade 3 (o número abaixo é ignorado): sanção imediata (1 strike).
+# Formato: <severidade> <modo><termo>. Cuidado com palavras curtas/ambíguas: prefira "=" e teste
+# contra whitelist.txt — um falso positivo aqui pune na hora.
+
+# pt-BR
+3 viado
+3 boiola
+3 baitola
+3 sapatao
+3 traveco
+3 macumbeiro
+3 =bugre
+# en
+3 *nigger
+3 nigga
+3 faggot
+3 =fag
+3 =fags
+3 tranny
+3 =kike
+3 =kikes
+3 =spic
+3 =spics
+3 wetback
+3 =gook
+3 =gooks
+3 =coon
+3 =coons
+3 =dyke
+3 =paki
+3 =pakis
+3 towelhead
+3 raghead
+3 =beaner
+3 golliwog
+3 =jap
+3 =japs
+3 heil hitler
+3 sieg heil
+3 gas the jews
+3 kill yourself
+3 =kys
+# es
+3 maricon
+3 =marica
+3 sudaca
+3 =negrata
+# fr
+3 bougnoule
+3 youpin
+3 =bicot
+3 =gouine
+3 =tafiole
+# de
+3 =kanake
+3 =kanaken
+3 kanacke
+3 schwuchtel
+3 =neger
+3 =zigeuner
+# it
+3 frocio
+3 ricchion

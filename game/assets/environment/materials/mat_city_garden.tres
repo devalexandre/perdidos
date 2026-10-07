@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_terrain_decal.gdshader" id="1_biwby"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_cobble.png" id="2_bng5r"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_dirt.png" id="3_olgam"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass_lush.png" id="4_d210j"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="5_ce0c2"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_rock.png" id="6_lkk5y"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_sand.png" id="7_ludyf"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_biwby")
+shader_parameter/tex_grass = ExtResource("4_d210j")
+shader_parameter/tex_grass_alt = ExtResource("4_d210j")
+shader_parameter/tex_dirt = ExtResource("3_olgam")
+shader_parameter/tex_cobble = ExtResource("2_bng5r")
+shader_parameter/tex_sand = ExtResource("7_ludyf")
+shader_parameter/tex_rock = ExtResource("6_lkk5y")
+shader_parameter/tex_noise = ExtResource("5_ce0c2")
+shader_parameter/grass_tile_m = null
+shader_parameter/dirt_tile_m = null
+shader_parameter/cobble_tile_m = null
+shader_parameter/sand_tile_m = null
+shader_parameter/rock_tile_m = null
+shader_parameter/splat_source = 0
+shader_parameter/splat_origin = null
+shader_parameter/splat_size = null
+shader_parameter/macro_scale_m = null
+shader_parameter/macro_warm = null
+shader_parameter/macro_cool = null
+shader_parameter/macro_strength = null
+shader_parameter/grass_alt_amount = null
+shader_parameter/grass_tint = null
+shader_parameter/dirt_tint = null
+shader_parameter/cobble_tint = null
+shader_parameter/sand_tint = null
+shader_parameter/rock_tint = null
+shader_parameter/blend_softness = null
+shader_parameter/edge_noise = null

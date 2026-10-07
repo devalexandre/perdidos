@@ -1,0 +1,722 @@
+[
+  {
+    "id": "ember_mule",
+    "region": "sabia",
+    "name": "Mula de Brasa",
+    "stage": 1,
+    "blend": "blend/ember_mule_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "ember_mule",
+    "region": "sabia",
+    "name": "Mula da Queimada",
+    "stage": 3,
+    "blend": "blend/ember_mule_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "ember_mule",
+    "region": "sabia",
+    "name": "Mula da Noite Ardente",
+    "stage": 4,
+    "blend": "blend/ember_mule_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "buriti_boar",
+    "region": "sabia",
+    "name": "Queixada de Buriti",
+    "stage": 1,
+    "blend": "blend/buriti_boar_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "buriti_boar",
+    "region": "sabia",
+    "name": "Queixada do Veredão",
+    "stage": 3,
+    "blend": "blend/buriti_boar_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "buriti_boar",
+    "region": "sabia",
+    "name": "Queixada das Raízes Negras",
+    "stage": 4,
+    "blend": "blend/buriti_boar_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cinder_serpent",
+    "region": "sabia",
+    "name": "Serpente-Fagulha",
+    "stage": 1,
+    "blend": "blend/cinder_serpent_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cinder_serpent",
+    "region": "sabia",
+    "name": "Serpente do Fogo Errante",
+    "stage": 3,
+    "blend": "blend/cinder_serpent_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cinder_serpent",
+    "region": "sabia",
+    "name": "Serpente da Cinza Viva",
+    "stage": 4,
+    "blend": "blend/cinder_serpent_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "coca_drake",
+    "region": "mouras",
+    "name": "Draguinha da Charneca",
+    "stage": 1,
+    "blend": "blend/coca_drake_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "coca_drake",
+    "region": "mouras",
+    "name": "Dragoa das Ruínas",
+    "stage": 3,
+    "blend": "blend/coca_drake_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "coca_drake",
+    "region": "mouras",
+    "name": "Dragoa do Breu",
+    "stage": 4,
+    "blend": "blend/coca_drake_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "tide_colossus",
+    "region": "mouras",
+    "name": "Pedregulho da Maré",
+    "stage": 1,
+    "blend": "blend/tide_colossus_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "tide_colossus",
+    "region": "mouras",
+    "name": "Colosso do Cabo",
+    "stage": 3,
+    "blend": "blend/tide_colossus_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "tide_colossus",
+    "region": "mouras",
+    "name": "Colosso da Maré Negra",
+    "stage": 4,
+    "blend": "blend/tide_colossus_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "golden_spindle",
+    "region": "mouras",
+    "name": "Fuso Saltitante",
+    "stage": 1,
+    "blend": "blend/golden_spindle_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "golden_spindle",
+    "region": "mouras",
+    "name": "Roca do Tesouro",
+    "stage": 3,
+    "blend": "blend/golden_spindle_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "golden_spindle",
+    "region": "mouras",
+    "name": "Roca dos Fios Sombrios",
+    "stage": 4,
+    "blend": "blend/golden_spindle_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "pond_kappa",
+    "region": "sol",
+    "name": "Kappa da Lagoa",
+    "stage": 1,
+    "blend": "blend/pond_kappa_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "pond_kappa",
+    "region": "sol",
+    "name": "Kappa do Remanso",
+    "stage": 3,
+    "blend": "blend/pond_kappa_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "pond_kappa",
+    "region": "sol",
+    "name": "Kappa do Poço Escuro",
+    "stage": 4,
+    "blend": "blend/pond_kappa_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mountain_tengu",
+    "region": "sol",
+    "name": "Corvo da Montanha",
+    "stage": 1,
+    "blend": "blend/mountain_tengu_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mountain_tengu",
+    "region": "sol",
+    "name": "Tengu do Vendaval",
+    "stage": 3,
+    "blend": "blend/mountain_tengu_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mountain_tengu",
+    "region": "sol",
+    "name": "Tengu da Asa Noturna",
+    "stage": 4,
+    "blend": "blend/mountain_tengu_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "paper_lantern",
+    "region": "sol",
+    "name": "Lanterna Travessa",
+    "stage": 1,
+    "blend": "blend/paper_lantern_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "paper_lantern",
+    "region": "sol",
+    "name": "Lanterna do Desfile",
+    "stage": 3,
+    "blend": "blend/paper_lantern_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "paper_lantern",
+    "region": "sol",
+    "name": "Lanterna da Chama Violeta",
+    "stage": 4,
+    "blend": "blend/paper_lantern_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "rime_wolf",
+    "region": "fiordes",
+    "name": "Lobo da Geada",
+    "stage": 1,
+    "blend": "blend/rime_wolf_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "rime_wolf",
+    "region": "fiordes",
+    "name": "Lobo da Aurora",
+    "stage": 3,
+    "blend": "blend/rime_wolf_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "rime_wolf",
+    "region": "fiordes",
+    "name": "Lobo da Aurora Sombria",
+    "stage": 4,
+    "blend": "blend/rime_wolf_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "fjord_crab",
+    "region": "fiordes",
+    "name": "Caranguejo do Fiorde",
+    "stage": 1,
+    "blend": "blend/fjord_crab_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "fjord_crab",
+    "region": "fiordes",
+    "name": "Couraça do Iceberg",
+    "stage": 3,
+    "blend": "blend/fjord_crab_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "fjord_crab",
+    "region": "fiordes",
+    "name": "Couraça do Abismo Frio",
+    "stage": 4,
+    "blend": "blend/fjord_crab_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "drift_draugr",
+    "region": "fiordes",
+    "name": "Armadura à Deriva",
+    "stage": 1,
+    "blend": "blend/drift_draugr_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "drift_draugr",
+    "region": "fiordes",
+    "name": "Vigia do Naufrágio",
+    "stage": 3,
+    "blend": "blend/drift_draugr_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "drift_draugr",
+    "region": "fiordes",
+    "name": "Vigia do Mar Morto",
+    "stage": 4,
+    "blend": "blend/drift_draugr_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "bronze_bull",
+    "region": "colunas",
+    "name": "Touro de Bronze",
+    "stage": 1,
+    "blend": "blend/bronze_bull_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "bronze_bull",
+    "region": "colunas",
+    "name": "Touro do Labirinto",
+    "stage": 3,
+    "blend": "blend/bronze_bull_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "bronze_bull",
+    "region": "colunas",
+    "name": "Touro da Forja Negra",
+    "stage": 4,
+    "blend": "blend/bronze_bull_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "marsh_hydra",
+    "region": "colunas",
+    "name": "Hidrinha do Charco",
+    "stage": 1,
+    "blend": "blend/marsh_hydra_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "marsh_hydra",
+    "region": "colunas",
+    "name": "Hidra dos Juncos",
+    "stage": 3,
+    "blend": "blend/marsh_hydra_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "marsh_hydra",
+    "region": "colunas",
+    "name": "Hidra do Pântano Negro",
+    "stage": 4,
+    "blend": "blend/marsh_hydra_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cliff_harpy",
+    "region": "colunas",
+    "name": "Harpia do Penhasco",
+    "stage": 1,
+    "blend": "blend/cliff_harpy_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cliff_harpy",
+    "region": "colunas",
+    "name": "Harpia das Colunas",
+    "stage": 3,
+    "blend": "blend/cliff_harpy_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cliff_harpy",
+    "region": "colunas",
+    "name": "Harpia da Tempestade",
+    "stage": 4,
+    "blend": "blend/cliff_harpy_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "glass_scarab",
+    "region": "areias",
+    "name": "Escaravelho de Vidro",
+    "stage": 1,
+    "blend": "blend/glass_scarab_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "glass_scarab",
+    "region": "areias",
+    "name": "Escaravelho das Dunas",
+    "stage": 3,
+    "blend": "blend/glass_scarab_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "glass_scarab",
+    "region": "areias",
+    "name": "Escaravelho do Eclipse",
+    "stage": 4,
+    "blend": "blend/glass_scarab_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "dune_cobra",
+    "region": "areias",
+    "name": "Naja de Areia",
+    "stage": 1,
+    "blend": "blend/dune_cobra_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "dune_cobra",
+    "region": "areias",
+    "name": "Naja da Duna Rubra",
+    "stage": 3,
+    "blend": "blend/dune_cobra_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "dune_cobra",
+    "region": "areias",
+    "name": "Naja da Noite de Vidro",
+    "stage": 4,
+    "blend": "blend/dune_cobra_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "reed_crocodile",
+    "region": "areias",
+    "name": "Crocodilo dos Juncos",
+    "stage": 1,
+    "blend": "blend/reed_crocodile_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "reed_crocodile",
+    "region": "areias",
+    "name": "Crocodilo do Banco de Areia",
+    "stage": 3,
+    "blend": "blend/reed_crocodile_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "reed_crocodile",
+    "region": "areias",
+    "name": "Crocodilo do Lodo Negro",
+    "stage": 4,
+    "blend": "blend/reed_crocodile_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mist_hound",
+    "region": "brumas",
+    "name": "Cão da Bruma",
+    "stage": 1,
+    "blend": "blend/mist_hound_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mist_hound",
+    "region": "brumas",
+    "name": "Cão do Urzal",
+    "stage": 3,
+    "blend": "blend/mist_hound_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mist_hound",
+    "region": "brumas",
+    "name": "Cão da Névoa Negra",
+    "stage": 4,
+    "blend": "blend/mist_hound_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "bog_wisp",
+    "region": "brumas",
+    "name": "Luz do Brejo",
+    "stage": 1,
+    "blend": "blend/bog_wisp_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "bog_wisp",
+    "region": "brumas",
+    "name": "Candeeiro da Turfeira",
+    "stage": 3,
+    "blend": "blend/bog_wisp_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "bog_wisp",
+    "region": "brumas",
+    "name": "Lume da Turfa Negra",
+    "stage": 4,
+    "blend": "blend/bog_wisp_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "heather_cat",
+    "region": "brumas",
+    "name": "Gato do Urzal",
+    "stage": 1,
+    "blend": "blend/heather_cat_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "heather_cat",
+    "region": "brumas",
+    "name": "Gato da Pedra Antiga",
+    "stage": 3,
+    "blend": "blend/heather_cat_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "heather_cat",
+    "region": "brumas",
+    "name": "Gato da Lua Velada",
+    "stage": 4,
+    "blend": "blend/heather_cat_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "ember_bird",
+    "region": "estepe",
+    "name": "Ave-Fagulha",
+    "stage": 1,
+    "blend": "blend/ember_bird_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "ember_bird",
+    "region": "estepe",
+    "name": "Ave da Pluma Ardente",
+    "stage": 3,
+    "blend": "blend/ember_bird_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "ember_bird",
+    "region": "estepe",
+    "name": "Ave da Brasa Azul",
+    "stage": 4,
+    "blend": "blend/ember_bird_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mortar_hopper",
+    "region": "estepe",
+    "name": "Pilão Saltador",
+    "stage": 1,
+    "blend": "blend/mortar_hopper_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mortar_hopper",
+    "region": "estepe",
+    "name": "Pilão da Floresta",
+    "stage": 3,
+    "blend": "blend/mortar_hopper_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "mortar_hopper",
+    "region": "estepe",
+    "name": "Pilão do Bosque Sombrio",
+    "stage": 4,
+    "blend": "blend/mortar_hopper_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "birch_spider",
+    "region": "estepe",
+    "name": "Aranha de Bétula",
+    "stage": 1,
+    "blend": "blend/birch_spider_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "birch_spider",
+    "region": "estepe",
+    "name": "Tecelã do Bosque Branco",
+    "stage": 3,
+    "blend": "blend/birch_spider_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "birch_spider",
+    "region": "estepe",
+    "name": "Tecelã da Geada Negra",
+    "stage": 4,
+    "blend": "blend/birch_spider_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "nian_cub",
+    "region": "jade",
+    "name": "Nian das Colinas",
+    "stage": 1,
+    "blend": "blend/nian_cub_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "nian_cub",
+    "region": "jade",
+    "name": "Nian do Vale Rubro",
+    "stage": 3,
+    "blend": "blend/nian_cub_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "nian_cub",
+    "region": "jade",
+    "name": "Nian da Noite Ruidosa",
+    "stage": 4,
+    "blend": "blend/nian_cub_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "jade_mantis",
+    "region": "jade",
+    "name": "Louva-a-deus de Jade",
+    "stage": 1,
+    "blend": "blend/jade_mantis_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "jade_mantis",
+    "region": "jade",
+    "name": "Foice do Bambuzal",
+    "stage": 3,
+    "blend": "blend/jade_mantis_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "jade_mantis",
+    "region": "jade",
+    "name": "Foice da Jade Negra",
+    "stage": 4,
+    "blend": "blend/jade_mantis_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "ink_carp",
+    "region": "jade",
+    "name": "Carpa de Tinta",
+    "stage": 1,
+    "blend": "blend/ink_carp_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "ink_carp",
+    "region": "jade",
+    "name": "Carpa da Cascata",
+    "stage": 3,
+    "blend": "blend/ink_carp_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "ink_carp",
+    "region": "jade",
+    "name": "Carpa do Rio Noturno",
+    "stage": 4,
+    "blend": "blend/ink_carp_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cenote_hound",
+    "region": "obsidiana",
+    "name": "Cão do Cenote",
+    "stage": 1,
+    "blend": "blend/cenote_hound_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cenote_hound",
+    "region": "obsidiana",
+    "name": "Fera da Cauda-Mão",
+    "stage": 3,
+    "blend": "blend/cenote_hound_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cenote_hound",
+    "region": "obsidiana",
+    "name": "Fera do Cenote Negro",
+    "stage": 4,
+    "blend": "blend/cenote_hound_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "stone_axolotl",
+    "region": "obsidiana",
+    "name": "Axolote de Turquesa",
+    "stage": 1,
+    "blend": "blend/stone_axolotl_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "stone_axolotl",
+    "region": "obsidiana",
+    "name": "Axolote da Gruta",
+    "stage": 3,
+    "blend": "blend/stone_axolotl_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "stone_axolotl",
+    "region": "obsidiana",
+    "name": "Axolote da Fenda Negra",
+    "stage": 4,
+    "blend": "blend/stone_axolotl_s4.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cacao_bat",
+    "region": "obsidiana",
+    "name": "Morcego do Cacau",
+    "stage": 1,
+    "blend": "blend/cacao_bat_s1.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cacao_bat",
+    "region": "obsidiana",
+    "name": "Asa da Caverna",
+    "stage": 3,
+    "blend": "blend/cacao_bat_s3.blend",
+    "runtime_enabled": false
+  },
+  {
+    "id": "cacao_bat",
+    "region": "obsidiana",
+    "name": "Asa da Obsidiana Viva",
+    "stage": 4,
+    "blend": "blend/cacao_bat_s4.blend",
+    "runtime_enabled": false
+  }
+]

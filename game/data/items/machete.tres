@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_machete.png" id="1_xmhor"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_omm6d"]
+
+[resource]
+script = ExtResource("2_omm6d")
+id = &"machete"
+name_key = "ITEM_MACHETE_NAME"
+desc_key = "ITEM_MACHETE_DESC"
+icon = ExtResource("1_xmhor")
+type = 1
+scaling_attribute = &"str"
+weapon_kind = 1
+buy_price = 60
+sell_price = 20
+stats = Dictionary[StringName, int]({
+&"atk": 8
+})
+visual_id = &"blade"

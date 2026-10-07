@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="def"]
+[ext_resource type="Resource" path="res://data/dialogues/tropeiro.tres" id="dialogue"]
+[resource]
+script = ExtResource("def")
+id = &"tropeiro"
+name_key = "NPC_TROPEIRO"
+sprite_base = "res://assets/npcs/npc_boatman"
+map_id = &"city_awakening"
+spawn_marker = &"tropeiro"
+dialogue = ExtResource("dialogue")

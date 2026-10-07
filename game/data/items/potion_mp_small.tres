@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_potion_mp_small.png" id="1_loray"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_fl4ju"]
+
+[resource]
+script = ExtResource("2_fl4ju")
+id = &"potion_mp_small"
+name_key = "ITEM_POTION_MP_SMALL_NAME"
+desc_key = "ITEM_POTION_MP_SMALL_DESC"
+icon = ExtResource("1_loray")
+type = 0
+stackable = true
+max_stack = 99
+buy_price = 20
+sell_price = 6
+use_effect = Dictionary[StringName, Variant]({
+&"heal_mp": 40
+})

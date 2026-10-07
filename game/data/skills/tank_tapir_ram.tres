@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"tank_tapir_ram"
+name_key = "SKILL_TANK_TAPIR_RAM_NAME"
+desc_key = "SKILL_TANK_TAPIR_RAM_DESC"
+school = &"tank"
+region_id = &"brasil"
+effect = 15
+mana_cost = 18
+cooldown_sec = 14.0
+range_cells = 6.0
+base_multiplier = 1.3
+multiplier_per_level = 0.1
+extra = Dictionary[StringName, Variant]({
+&"dash": 1,
+&"knockback_cells": 3
+})
+vfx = &"knock"
+exclusive_to_title = &"sabia_tank_anta"
+icon_text = "TB"
+tree_title = &"sabia_tank_anta"
+tree_order = 3
+required_skill_levels = Dictionary[StringName, int]({
+&"tank_tapir_stomp": 1
+})

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_leather_shield.png" id="1_ga21w"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="2_ya4nk"]
+
+[resource]
+script = ExtResource("2_ya4nk")
+id = &"leather_shield"
+name_key = "ITEM_LEATHER_SHIELD_NAME"
+desc_key = "ITEM_LEATHER_SHIELD_DESC"
+icon = ExtResource("1_ga21w")
+type = 2
+buy_price = 70
+sell_price = 22
+stats = Dictionary[StringName, int]({
+&"def": 4
+})

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"tank_patience"
+name_key = "SKILL_TANK_PATIENCE_NAME"
+desc_key = "SKILL_TANK_PATIENCE_DESC"
+school = &"tank"
+region_id = &"brasil"
+target_type = 5
+effect = 8
+mana_cost = 18
+cooldown_sec = 30.0
+range_cells = 0.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 8.0
+extra = Dictionary[StringName, Variant]({
+&"hot_max_hp_pct": 0.03,
+&"hot_max_hp_pct_per_level": 0.002
+})
+vfx = &"heal"
+exclusive_to_title = &"sabia_tank_jabuti"
+icon_text = "PJ"
+tree_title = &"sabia_tank_jabuti"
+tree_order = 4
+required_skill_levels = Dictionary[StringName, int]({
+&"tank_shell_retreat": 3
+})

@@ -1,0 +1,676 @@
+{
+ "_doc": "Fonte unica do conteudo do marco 'Passeio no Porto do Despertar'. build_content.py gera localization/content.csv; build_content.gd gera data/{items,npcs,dialogues,shops,audio}/*.tres. Textos pt-BR provisorios (GDD 9.2). Precos em Estrelas; personagem novo tem 100.",
+ "items": [
+  {
+   "id": "potion_hp_small",
+   "type": "CONSUMABLE",
+   "stack": 99,
+   "buy": 15,
+   "sell": 5,
+   "use": {
+    "heal_hp": 60,
+    "cooldown_group": "potion"
+   },
+   "name": "Poção de Vida Pequena",
+   "desc": "Frasquinho de xarope de acerola e ervas. Recupera 60 de vida."
+  },
+  {
+   "id": "potion_hp_medium",
+   "type": "CONSUMABLE",
+   "stack": 99,
+   "buy": 45,
+   "sell": 15,
+   "use": {
+    "heal_hp": 180,
+    "cooldown_group": "potion"
+   },
+   "name": "Poção de Vida Média",
+   "desc": "Garrafa de xarope encorpado, receita das curandeiras do porto. Recupera 180 de vida."
+  },
+  {
+   "id": "potion_mp_small",
+   "type": "CONSUMABLE",
+   "stack": 99,
+   "buy": 20,
+   "sell": 6,
+   "use": {
+    "heal_mp": 40,
+    "cooldown_group": "potion"
+   },
+   "name": "Poção de Mana Pequena",
+   "desc": "Chá gelado de flor de maracujá. Recupera 40 de mana."
+  },
+  {
+   "id": "potion_mp_medium",
+   "type": "CONSUMABLE",
+   "stack": 99,
+   "buy": 60,
+   "sell": 20,
+   "use": {
+    "heal_mp": 120,
+    "cooldown_group": "potion"
+   },
+   "name": "Poção de Mana Média",
+   "desc": "Infusão azulada que cintila no escuro. Recupera 120 de mana."
+  },
+  {
+   "id": "machete",
+   "type": "WEAPON",
+   "kind": "BLADE",
+   "buy": 60,
+   "sell": 20,
+   "stats": {
+    "atk": 8
+   },
+   "name": "Facão",
+   "desc": "Lâmina larga e confiável, boa para abrir trilha e para se defender.",
+   "visual_id": "blade"
+  },
+  {
+   "id": "short_sword",
+   "type": "WEAPON",
+   "kind": "BLADE",
+   "rarity": "UNCOMMON",
+   "buy": 150,
+   "sell": 50,
+   "stats": {
+    "atk": 12,
+    "dex": 1
+   },
+   "name": "Espada Curta",
+   "desc": "Espada leve de ferro forjado no porto. Rápida na mão de quem treina.",
+   "visual_id": "blade"
+  },
+  {
+   "id": "wooden_staff",
+   "type": "WEAPON",
+   "kind": "ARCANE",
+   "buy": 80,
+   "sell": 25,
+   "stats": {
+    "matk": 10,
+    "atk": 2
+   },
+   "name": "Cajado de Madeira",
+   "desc": "Cajado de madeira com um pequeno cristal azul na ponta. Ajuda a concentrar o Arcano.",
+   "visual_id": "staff"
+  },
+  {
+   "id": "ipe_wand",
+   "type": "WEAPON",
+   "kind": "ARCANE",
+   "rarity": "UNCOMMON",
+   "buy": 160,
+   "sell": 55,
+   "stats": {
+    "matk": 13,
+    "atk": 1,
+    "int": 1
+   },
+   "name": "Varinha de Ipê",
+   "desc": "Galho caído do ipê da praça, ainda com uma flor amarela presa. Dizem que guarda um pouco da luz do cristal.",
+   "visual_id": "staff"
+  },
+  {
+   "id": "leather_shield",
+   "type": "OFFHAND",
+   "buy": 70,
+   "sell": 22,
+   "stats": {
+    "def": 4
+   },
+   "name": "Escudo de Couro",
+   "desc": "Escudo redondo de couro curtido sobre aro de madeira."
+  },
+  {
+   "id": "simple_tome",
+   "type": "OFFHAND",
+   "buy": 70,
+   "sell": 22,
+   "stats": {
+    "matk": 3,
+    "mdef": 2
+   },
+   "name": "Tomo Simples",
+   "desc": "Caderno de capa de couro com anotações de feitiços básicos."
+  },
+  {
+   "id": "straw_hat",
+   "type": "HEAD",
+   "buy": 40,
+   "sell": 12,
+   "stats": {
+    "def": 1,
+    "mdef": 1
+   },
+   "name": "Chapéu de Palha com Flor",
+   "desc": "Chapéu de palha trançada com uma florzinha na fita. Protege do sol da tarde.",
+   "visual_id": "straw_hat"
+  },
+  {
+   "id": "leather_jerkin",
+   "type": "BODY",
+   "buy": 90,
+   "sell": 30,
+   "stats": {
+    "def": 5
+   },
+   "name": "Gibão de Couro",
+   "desc": "Gibão de couro resistente, com costuras reforçadas nos ombros.",
+   "visual_id": "leather_jerkin"
+  },
+  {
+   "id": "walking_boots",
+   "type": "FEET",
+   "buy": 60,
+   "sell": 20,
+   "stats": {
+    "def": 2
+   },
+   "name": "Botas de Caminhada",
+   "desc": "Botas macias de couro, feitas para longas estradas de terra."
+  },
+  {
+   "id": "seed_necklace",
+   "type": "ACCESSORY",
+   "buy": 50,
+   "sell": 15,
+   "stats": {
+    "spi": 1,
+    "mdef": 1
+   },
+   "name": "Colar de Sementes",
+   "desc": "Colar de sementes vermelhas e pretas enfiadas à mão. Traz calma a quem usa."
+  },
+  {
+   "id": "ribbon_bracelet",
+   "type": "ACCESSORY",
+   "buy": 50,
+   "sell": 15,
+   "stats": {
+    "dex": 1
+   },
+   "name": "Pulseira de Fita",
+   "desc": "Fita colorida amarrada no pulso com três nós. Deixa a mão mais ligeira."
+  },
+  {
+   "id": "spinning_leaf",
+   "type": "MATERIAL",
+   "stack": 99,
+   "buy": 0,
+   "sell": 8,
+   "name": "Folha Rodopiante",
+   "desc": "Folha seca que ainda gira sozinha, como se tivesse um redemoinho dentro. O mercador compra."
+  },
+  {
+   "id": "ipe_flower_crown",
+   "type": "HEAD",
+   "cosmetic": true,
+   "visual_id": "ipe_flower_crown",
+   "buy": 0,
+   "sell": 0,
+   "name": "Coroa de Flores de Ipê",
+   "desc": "Coroa trançada com flores amarelas caídas do ipê da praça. Presente do Tico. Item cosmético: só muda a aparência."
+  }
+ ],
+ "shops": [
+  {
+   "id": "market",
+   "items": [
+    "potion_hp_small",
+    "potion_hp_medium",
+    "potion_mp_small",
+    "potion_mp_medium",
+    "machete",
+    "short_sword",
+    "wooden_staff",
+    "ipe_wand",
+    "leather_shield",
+    "simple_tome",
+    "straw_hat",
+    "leather_jerkin",
+    "walking_boots",
+    "seed_necklace",
+    "ribbon_bracelet"
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "id": "master_brisa",
+   "name": "Mestra Brisa Ferrenha",
+   "routine": "IDLE",
+   "speed": 1.6
+  },
+  {
+   "id": "master_orvalho",
+   "name": "Mestre Orvalho",
+   "routine": "IDLE",
+   "speed": 1.4
+  },
+  {
+   "id": "merchant",
+   "name": "Mercador Anselmo",
+   "routine": "IDLE",
+   "speed": 1.5,
+   "shop": "market"
+  },
+  {
+   "id": "boatman",
+   "name": "Barqueiro Benedito",
+   "routine": "IDLE",
+   "speed": 1.5
+  },
+  {
+   "id": "fruit_vendor",
+   "name": "Dona Jandira",
+   "routine": "WANDER",
+   "wander_radius": 3.5,
+   "speed": 1.2
+  },
+  {
+   "id": "gate_guard",
+   "name": "Guarda Tomé",
+   "routine": "PATROL",
+   "patrol": [
+    "gate_guard_patrol_1",
+    "gate_guard_patrol_2"
+   ],
+   "speed": 1.4
+  },
+  {
+   "id": "fisherman",
+   "name": "Pescador Lindolfo",
+   "routine": "SIT",
+   "speed": 1.3
+  },
+  {
+   "id": "curious_child",
+   "name": "Tico",
+   "routine": "WANDER",
+   "wander_radius": 6.0,
+   "speed": 2.6
+  }
+ ],
+ "dialogues": {
+  "master_brisa": {
+   "start": {
+    "text": "Firme nos pés, Viajante. Sou Brisa Ferrenha, mestra da Escola da Lâmina. Aqui ninguém nasce sabendo: se aprende golpe a golpe.",
+    "options": [
+     [
+      "O que ensina a Escola da Lâmina?",
+      "about"
+     ],
+     [
+      "Tem alguma dica para mim?",
+      "tip"
+     ],
+     [
+      "Até logo, mestra.",
+      ""
+     ]
+    ]
+   },
+   "about": {
+    "text": "A Lâmina é o caminho de quem luta de perto: facão, espada e coragem. Quando você tiver andado um pouco pelos campos, volte aqui. Terei lições para quem quiser aprender.",
+    "options": [
+     [
+      "Tem alguma dica para mim?",
+      "tip"
+     ],
+     [
+      "Voltarei.",
+      ""
+     ]
+    ]
+   },
+   "tip": {
+    "text": "Nunca saia pelos portões sem poções no bolso. O mercador da feira vende. E um facão na mão vale mais que dez na loja.",
+    "options": [
+     [
+      "Obrigado, mestra.",
+      ""
+     ]
+    ]
+   }
+  },
+  "master_orvalho": {
+   "start": {
+    "text": "Oh! Um rosto novo! Não repare nas luzinhas, elas são curiosas como eu. Sou Orvalho, mestre da Escola do Arcano.",
+    "options": [
+     [
+      "O que é o Arcano?",
+      "about"
+     ],
+     [
+      "Que luzes são essas?",
+      "lights"
+     ],
+     [
+      "Até mais, mestre.",
+      ""
+     ]
+    ]
+   },
+   "about": {
+    "text": "O Arcano é conversar com as forças do mundo: faísca, gelo, chama... Tudo tem um ritmo, e a gente aprende a escutar. Logo terei lições para você.",
+    "options": [
+     [
+      "Que luzes são essas?",
+      "lights"
+     ],
+     [
+      "Vou esperar.",
+      ""
+     ]
+    ]
+   },
+   "lights": {
+    "text": "São vaga-lumes encantados dos Campos do Sabiá. Um dia me seguiram até aqui e nunca mais foram embora. Acho que gostam do cheiro das minhas ervas!",
+    "options": [
+     [
+      "Que simpáticos.",
+      ""
+     ]
+    ]
+   }
+  },
+  "merchant": {
+   "start": {
+    "text": "Chegue mais, freguês! Poção fresquinha, facão amolado e roupa boa para a estrada. Tudo pago em Estrelas!",
+    "options": [
+     [
+      "Quero ver suas mercadorias.",
+      "",
+      "open_shop"
+     ],
+     [
+      "Você também compra coisas?",
+      "buy_info"
+     ],
+     [
+      "Só estou olhando.",
+      ""
+     ]
+    ]
+   },
+   "buy_info": {
+    "text": "Compro, sim! Folhas Rodopiantes e tudo o que você trouxer dos campos. Pago um preço justo. É só abrir a loja e me mostrar.",
+    "options": [
+     [
+      "Então vamos às compras.",
+      "",
+      "open_shop"
+     ],
+     [
+      "Obrigado!",
+      ""
+     ]
+    ]
+   }
+  },
+  "boatman": {
+   "start": {
+    "text": "Ô, acordou, afinal! Te achei num bote à deriva, dormindo feito pedra. Bem-vindo ao Porto do Despertar, Viajante.",
+    "options": [
+     [
+      "Onde eu estou?",
+      "where"
+     ],
+     [
+      "Por que me chamou de Viajante?",
+      "traveler"
+     ],
+     [
+      "Obrigado. Vou dar uma volta.",
+      ""
+     ]
+    ]
+   },
+   "where": {
+    "text": "No Porto do Despertar, na Terra do Sabiá. Siga o cais para o oeste até a praça do ipê amarelo. O cristal azul debaixo dele cuida de quem se perde.",
+    "options": [
+     [
+      "Por que me chamou de Viajante?",
+      "traveler"
+     ],
+     [
+      "Entendi, obrigado.",
+      ""
+     ]
+    ]
+   },
+   "traveler": {
+    "text": "É como chamamos quem aparece do nada, com roupa diferente e cara de espanto. Você não é o primeiro. Os Mestres, na casa de azulejos junto da praça, sabem mais sobre isso.",
+    "options": [
+     [
+      "Onde eu estou, afinal?",
+      "where"
+     ],
+     [
+      "Vou procurar os Mestres.",
+      ""
+     ]
+    ]
+   }
+  },
+  "fruit_vendor": {
+   "start": {
+    "text": "Olha a manga, olha o caju, olha o maracujá! Fruta docinha, colhida hoje cedo. Quer ouvir uma história enquanto escolhe?",
+    "options": [
+     [
+      "Conte uma lenda.",
+      "legend_1"
+     ],
+     [
+      "Hoje não, obrigado.",
+      ""
+     ]
+    ]
+   },
+   "legend_1": {
+    "text": "Dizem que nos campos anda um redemoinho travesso de gorrinho vermelho. Ele esconde as coisas dos viajantes e ri no vento. Se sumir alguma coisa sua, já sabe quem foi!",
+    "options": [
+     [
+      "Tem outra?",
+      "legend_2"
+     ],
+     [
+      "Vou ficar de olho.",
+      ""
+     ]
+    ]
+   },
+   "legend_2": {
+    "text": "Lá nas chapadas corre uma serpente de fogo que protege os campos. Quem põe fogo no mato desperta a fúria dela. Por isso aqui a gente respeita a mata.",
+    "options": [
+     [
+      "Que história!",
+      ""
+     ]
+    ]
+   }
+  },
+  "gate_guard": {
+   "start": {
+    "text": "Alto lá, Viajante. Este é o Portão Norte. Lá fora ficam os Campos do Sabiá.",
+    "options": [
+     [
+      "Posso passar?",
+      "gates"
+     ],
+     [
+      "E os outros portões?",
+      "others"
+     ],
+     [
+      "Bom serviço.",
+      ""
+     ]
+    ]
+   },
+   "gates": {
+    "text": "Por enquanto os portões estão fechados por ordem da guarda. Quando abrirem, os Campos são recomendados para o nível 1 a 10. Bichos mansos, na maioria... na maioria.",
+    "options": [
+     [
+      "E os outros portões?",
+      "others"
+     ],
+     [
+      "Vou me preparar.",
+      ""
+     ]
+    ]
+   },
+   "others": {
+    "text": "O Portão Sul leva à Mata Encantada, para quem já tem estrada: nível 8 a 18. O Portão Oeste dá na Arena da Queimada, onde os Viajantes duelam entre si. Vá preparado.",
+    "options": [
+     [
+      "Posso passar pelo Norte?",
+      "gates"
+     ],
+     [
+      "Obrigado pelo aviso.",
+      ""
+     ]
+    ]
+   }
+  },
+  "fisherman": {
+   "start": {
+    "text": "Psiu... fale baixinho, que o peixe escuta. Sente um pouco, Viajante. O rio ensina paciência.",
+    "options": [
+     [
+      "Algum lugar bonito para descansar?",
+      "viewpoint"
+     ],
+     [
+      "Pescou muita coisa hoje?",
+      "fish"
+     ],
+     [
+      "Boa pescaria.",
+      ""
+     ]
+    ]
+   },
+   "viewpoint": {
+    "text": "Tem três bancos que eu gosto: a ponta do píer grande, a prainha aqui ao norte e o banco da praça, de frente para o ipê. No fim da tarde o céu fica cor de goiaba. Vale sentar e olhar.",
+    "options": [
+     [
+      "Pescou muita coisa hoje?",
+      "fish"
+     ],
+     [
+      "Vou conferir.",
+      ""
+     ]
+    ]
+   },
+   "fish": {
+    "text": "Hoje só uns lambaris e uma bota velha. Mas o dia não é do peixe, é do pescador.",
+    "options": [
+     [
+      "Boa pescaria.",
+      ""
+     ]
+    ]
+   }
+  },
+  "curious_child": {
+   "start": {
+    "text": "Ei! Você é Viajante, né? Que roupa diferente! Já viu o cristal debaixo do ipê? Ele brilha até de noite!",
+    "options": [
+     [
+      "O que o cristal faz?",
+      "crystal"
+     ],
+     [
+      "Vamos brincar?",
+      "play"
+     ],
+     [
+      "Tchau, Tico.",
+      ""
+     ]
+    ]
+   },
+   "crystal": {
+    "text": "Minha avó diz que ele cuida de quem se machuca lá fora e traz de volta para cá. E ele zumbe! Chega pertinho que dá para ouvir.",
+    "options": [
+     [
+      "Vamos brincar?",
+      "play"
+     ],
+     [
+      "Vou escutar.",
+      ""
+     ]
+    ]
+   },
+   "play": {
+    "text": "Aposto que você não me pega! Dou três voltas no ipê antes de você dar uma!",
+    "options": [
+     [
+      "Ei, espere!",
+      ""
+     ],
+     [
+      "Antes, me mostre o que você tem aí na mão.",
+      "gift"
+     ]
+    ]
+   },
+   "gift": {
+    "text": "Uma coroa de flores do ipê! Eu mesmo trancei com as flores que caem. Toma, é sua: todo Viajante novo precisa de uma.",
+    "options": [
+     [
+      "Obrigado, Tico! Vou usar.",
+      "",
+      "give_item",
+      {
+       "item_id": "ipe_flower_crown",
+       "qty": 1,
+       "once": true
+      }
+     ],
+     [
+      "Guarde para você.",
+      ""
+     ]
+    ]
+   }
+  }
+ },
+ "audio_zones": [
+  {
+   "id": "city_awakening_default",
+   "music": "mus_city_day",
+   "ambience": [
+    "amb_wind_tree"
+   ],
+   "music_volume_db": -4.0,
+   "priority": 0
+  },
+  {
+   "id": "city_awakening_market",
+   "music": "mus_city_day",
+   "ambience": [
+    "amb_market",
+    "amb_wind_tree"
+   ],
+   "music_volume_db": -4.0,
+   "priority": 1
+  },
+  {
+   "id": "city_awakening_docks",
+   "music": "mus_city_docks",
+   "ambience": [
+    "amb_river",
+    "amb_gulls_bells"
+   ],
+   "music_volume_db": -5.0,
+   "priority": 2
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"support_herb_tea"
+name_key = "SKILL_SUPPORT_HERB_TEA_NAME"
+desc_key = "SKILL_SUPPORT_HERB_TEA_DESC"
+school = &"support"
+region_id = &"brasil"
+target_type = 6
+effect = 7
+mana_cost = 18
+cooldown_sec = 6.0
+range_cells = 8.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+extra = Dictionary[StringName, Variant]({
+&"heal_base": 40,
+&"heal_matk_ratio": 1.6,
+&"heal_per_level": 0.1
+})
+vfx = &"heal"
+exclusive_to_title = &"sabia_support_root"
+icon_text = "CE"
+tree_title = &"sabia_support_root"
+tree_order = 2
+required_skill_levels = Dictionary[StringName, int]({
+&"support_bottle_brew": 1
+})

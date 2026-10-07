@@ -1,0 +1,69 @@
+keys,pt_BR
+COMPANION_HARPY,Harpia
+SK_BOW_COMPANION_HAWK_STRIKE,Garra do Alto
+SK_BOW_COMPANION_HAWK_STRIKE_DESC,"Ataques básicos com arco têm 4% + DES × 0,2% de chance (máximo 20%) de causar 80% ATK, ignorando metade da DEF. Recarga interna: 1,5 s."
+SK_BOW_COMPANION_SKY_EYE,Olho no Céu
+SK_BOW_COMPANION_SKY_EYE_DESC,Revela raros e invisíveis em 12 células por 8 s. O primeiro ataque nesse período recebe +10% de chance crítica.
+COMPANION_GUARA,Guará
+SK_BOW_COMPANION_GUARA_BITE,Mordida do Guará
+SK_BOW_COMPANION_GUARA_BITE_DESC,"Tocaia e Armadilha de Cipó acionam uma mordida de 60% ATK, com lentidão de 20% por 2 s. Recarga interna: 4 s."
+SK_BOW_COMPANION_GUARA_TRACK,Faro do Guará
+SK_BOW_COMPANION_GUARA_TRACK_DESC,"Marca um alvo por 15 s, revelando-o e mostrando-o no minimapa. Fora de combate, também revela coletas em 10 células."
+COMPANION_LUME,Lume
+SK_ARCANE_COMPANION_LUME_LIGHT,Luz que Acompanha
+SK_ARCANE_COMPANION_LUME_LIGHT_DESC,"Ilumina 4 células à noite e nas cavernas. Efeito visual, sem dano."
+SK_ARCANE_COMPANION_LUME_GUIDE,Lume Guia
+SK_ARCANE_COMPANION_LUME_GUIDE_DESC,"Destaca coletas e baús em 15 células por 20 s, sem gastar mana."
+MOUNT_DONKEY,Jumento do Sertão
+ITEM_LOBEIRA,Lobeira
+ITEM_LOBEIRA_DESC,Fruta-do-lobo colhida no cerrado.
+ITEM_GLASS_JAR,Pote de Vidro
+ITEM_GLASS_JAR_DESC,Um pote para transportar luzinhas com cuidado.
+ITEM_DONKEY_GRASS,Capim Fresco
+ITEM_DONKEY_GRASS_DESC,Capim cortado para o jumento do Tropeiro.
+ITEM_RAPADURA,Rapadura
+ITEM_RAPADURA_DESC,Um pedaço de rapadura da banca da vila.
+BOND_LUME_LORE,"Você abre o pote. As luzinhas passeiam pela forja, e uma fica perto da sua mão. Seu Zé sorri: essa luz escolheu acompanhar sua viagem."
+QUEST_BOND_HARPY_STEP_0,Inspecione o ninho caído na Clareira da Mata.
+QUEST_BOND_HARPY_STEP_1,Pegue 6 Penas de Gavião do chão após aceitar esta etapa.
+QUEST_BOND_HARPY_STEP_2,Derrote 3 Harpias Caçadoras (estágio 2).
+QUEST_BOND_HARPY_STEP_3,Dê nome ao filhote em Companheiros e Montarias.
+QUEST_BOND_HARPY,Ninho na Sumaúma
+QUEST_BOND_HARPY_DESC_KEY,Complete a história de vínculo. Não exige nível.
+QUEST_BOND_HARPY_OFFER_TEXT_KEY,Ninho na Sumaúma: podemos começar?
+QUEST_BOND_HARPY_PROGRESS_TEXT_KEY,Siga as etapas no diário. Eu espero seu retorno.
+QUEST_BOND_HARPY_COMPLETE_TEXT_KEY,Vocês agora têm uma estrada para seguir juntos.
+QUEST_BOND_HARPY_OPTION_TEXT_KEY,Ninho na Sumaúma
+QUEST_BOND_GUARA_STEP_0,Colha 8 Lobeiras na Encruzilhada dos Campos.
+QUEST_BOND_GUARA_STEP_1,"Siga o primeiro rastro na Encruzilhada, de dia."
+QUEST_BOND_GUARA_STEP_2,"Siga o segundo rastro, de dia."
+QUEST_BOND_GUARA_STEP_3,"Siga o terceiro rastro, de dia."
+QUEST_BOND_GUARA_STEP_4,Espante 5 Guarás da Alta Mata (estágio 2).
+QUEST_BOND_GUARA_STEP_5,Use Lama no Corpo e espere 10 s parado junto à lobeira.
+QUEST_BOND_GUARA,Fruta-do-Lobo
+QUEST_BOND_GUARA_DESC_KEY,Complete a história de vínculo. Não exige nível.
+QUEST_BOND_GUARA_OFFER_TEXT_KEY,Fruta-do-Lobo: podemos começar?
+QUEST_BOND_GUARA_PROGRESS_TEXT_KEY,Siga as etapas no diário. Eu espero seu retorno.
+QUEST_BOND_GUARA_COMPLETE_TEXT_KEY,Vocês agora têm uma estrada para seguir juntos.
+QUEST_BOND_GUARA_OPTION_TEXT_KEY,Fruta-do-Lobo
+QUEST_BOND_LUME_STEP_0,"À noite, pegue 10 Luzinhas de Vaga-lumes Encantados."
+QUEST_BOND_LUME_STEP_1,Compre um Pote de Vidro no mercado.
+QUEST_BOND_LUME_STEP_2,Leve o pote à forja do Seu Zé e ouça o causo.
+QUEST_BOND_LUME_STEP_3,Conte a Mestre Orvalho como as luzinhas reacenderam a forja.
+QUEST_BOND_LUME,Pote de Luz
+QUEST_BOND_LUME_DESC_KEY,Complete a história de vínculo. Não exige nível.
+QUEST_BOND_LUME_OFFER_TEXT_KEY,Pote de Luz: podemos começar?
+QUEST_BOND_LUME_PROGRESS_TEXT_KEY,Siga as etapas no diário. Eu espero seu retorno.
+QUEST_BOND_LUME_COMPLETE_TEXT_KEY,Vocês agora têm uma estrada para seguir juntos.
+QUEST_BOND_LUME_OPTION_TEXT_KEY,Pote de Luz
+QUEST_MOUNT_DONKEY_STEP_0,Colha 4 porções de capim junto ao Tropeiro.
+QUEST_MOUNT_DONKEY_STEP_1,Pegue 2 rapaduras na banca da vila.
+QUEST_MOUNT_DONKEY_STEP_2,Leve a carga ao ponto de entrega perto do cais.
+QUEST_MOUNT_DONKEY,Um Amigo de Estrada
+QUEST_MOUNT_DONKEY_DESC_KEY,Complete a história de vínculo. Não exige nível.
+QUEST_MOUNT_DONKEY_OFFER_TEXT_KEY,Um Amigo de Estrada: podemos começar?
+QUEST_MOUNT_DONKEY_PROGRESS_TEXT_KEY,Siga as etapas no diário. Eu espero seu retorno.
+QUEST_MOUNT_DONKEY_COMPLETE_TEXT_KEY,Vocês agora têm uma estrada para seguir juntos.
+QUEST_MOUNT_DONKEY_OPTION_TEXT_KEY,Um Amigo de Estrada
+NPC_TROPEIRO,"Seu Benedito, Tropeiro"
+TROPEIRO_GREETING,"Estrada boa se faz com um amigo. Se você já tem dois Causos para contar, posso lhe apresentar um jumento de confiança."

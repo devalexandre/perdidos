@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="1_s0ug8"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="2_yrijh"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="3_4677i"]
+
+[sub_resource type="Resource" id="Resource_o8ya3"]
+script = ExtResource("1_s0ug8")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="Resource_ay7e5"]
+script = ExtResource("3_4677i")
+name_key = "MON_ZMEY_HATCHLING_S1_NAME"
+sprite_base = "res://assets/monsters/zmey_hatchling/mon_zmey_hatchling_s1"
+baked_life = true
+level = 5
+max_hp = 95
+atk = 11
+matk = 8
+def = 3
+mdef = 3
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 38
+stars_min = 2
+stars_max = 6
+drops = Array[ExtResource("1_s0ug8")]([SubResource("Resource_o8ya3")])
+
+[sub_resource type="Resource" id="Resource_tnyji"]
+script = ExtResource("1_s0ug8")
+item_id = &"potion_hp_small"
+chance = 0.2
+
+[sub_resource type="Resource" id="Resource_cs54i"]
+script = ExtResource("3_4677i")
+stage = 2
+name_key = "MON_ZMEY_HATCHLING_S2_NAME"
+sprite_base = "res://assets/monsters/zmey_hatchling/mon_zmey_hatchling_s2"
+baked_life = true
+level = 9
+max_hp = 320
+atk = 23
+matk = 16
+def = 8
+mdef = 8
+walk_ms_per_cell = 420
+attack_interval_ms = 1600
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 120
+stars_min = 5
+stars_max = 12
+drops = Array[ExtResource("1_s0ug8")]([SubResource("Resource_tnyji")])
+
+[resource]
+script = ExtResource("2_yrijh")
+id = &"zmey_hatchling"
+region_id = &"eslavo"
+stages = Array[ExtResource("3_4677i")]([SubResource("Resource_ay7e5"), SubResource("Resource_cs54i")])

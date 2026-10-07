@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_armadillo_shell.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"cera_abelha_mandacaia"
+name_key = "ITEM_CERA_ABELHA_MANDACAIA_NAME"
+desc_key = "ITEM_CERA_ABELHA_MANDACAIA_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 1
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 300
+tradeable = true
+crendice_id = &"cera_abelha_mandacaia"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"def": 8,
+&"mdef": 6
+})
