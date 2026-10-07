@@ -22,3 +22,35 @@ body.portal .world-figure img{width:100%;height:auto;aspect-ratio:4/3;object-fit
 @media(max-width:1100px){body.portal .nav-links{gap:15px}.waitlist-layout{gap:45px}.waitlist-copy h2{font-size:36px}}
 @media(max-width:900px){.waitlist-layout{gap:30px}.waitlist-form{padding:24px}.waitlist-copy h2{font-size:32px}}
 @media(max-width:600px){.waitlist-section{padding-block:45px}.waitlist-layout{grid-template-columns:1fr;gap:26px}.waitlist-copy h2{font-size:34px}.waitlist-copy p{font-size:13px}.waitlist-note{margin-top:15px}.waitlist-form{padding:22px}.waitlist-field input,.waitlist-field select{font-size:16px}}
+/* Tema escuro (padrão): mesma identidade da tela de título do jogo — verde-noite, dourado e creme. */
+.theme-toggle{display:inline-grid;place-items:center;width:44px;height:44px;flex-shrink:0;padding:0;border:1px solid var(--line);border-radius:3px;background:transparent;color:var(--gold);font-size:18px;line-height:1;cursor:pointer;transition:background .2s}.theme-toggle:hover{background:#ae7d3122}
+html[data-theme=dark]{--paper:#0f1f1b;--ink:#f2e6c8;--muted:#b6bea9;--gold:#d9b46a;--line:#2a443c;color-scheme:dark}
+html[data-theme=dark] .skip-link{color:#0f1f1b!important}
+html[data-theme=dark] body.portal .nav{background:#0f1f1bf0}
+html[data-theme=dark] body.portal .btn,html[data-theme=dark] .viewer .close{background:#d9b46a;border-color:#d9b46a;color:#10201b}html[data-theme=dark] body.portal .btn:hover{background:#e8c784}
+html[data-theme=dark] body.portal .btn.outline{background:transparent;color:var(--ink);border-color:#5d7468}html[data-theme=dark] body.portal .btn.outline:hover{background:#1d342e}
+html[data-theme=dark] .text-link{border-color:#6e6448}
+html[data-theme=dark] body.portal .hero{background:#0f1f1b}html[data-theme=dark] body.portal .hero-art{background:linear-gradient(90deg,transparent 10%,#0f1f1b30 42%,#0f1f1bdd 63%,#0f1f1bf2 100%),url('../img/hero.webp') 25% center/cover no-repeat}
+html[data-theme=dark] body.portal .hero-pretitle{color:#b8ad8c}html[data-theme=dark] body.portal .hero h1{color:#f2e6c8}html[data-theme=dark] body.portal .hero h1 em{color:#d9b46a}html[data-theme=dark] body.portal .hero-lead{color:#c3c9b6}html[data-theme=dark] body.portal .platforms{color:#93a08f}
+html[data-theme=dark] body.portal .hero-caption{background:#0f1f1bdd;border-color:#2a443c;color:#a9ae98}
+html[data-theme=dark] .world-strip,html[data-theme=dark] .gallery-section{background:#0a1714;color:#f2e6c8}
+html[data-theme=dark] .news-card,html[data-theme=dark] .downloads article,html[data-theme=dark] .world-figure{background:#162a25}html[data-theme=dark] .news-card:hover{box-shadow:0 12px 24px #0006}
+html[data-theme=dark] .image-tag{background:#0f1f1bf2}html[data-theme=dark] .category,html[data-theme=dark] .world-copy .eyebrow,html[data-theme=dark] .path-copy .eyebrow,html[data-theme=dark] .faq-layout .eyebrow{color:#d0aa62}
+html[data-theme=dark] .world-section,html[data-theme=dark] .path-panel,html[data-theme=dark] .faq-section{background:#132521}
+html[data-theme=dark] .world-figure{border-color:#34524a;box-shadow:12px 12px 0 #0008}html[data-theme=dark] .world-figure figcaption{color:#a59d82}
+html[data-theme=dark] .paths button{color:#a79d84}html[data-theme=dark] .paths button[aria-selected=true]{background:#1d342e}html[data-theme=dark] .paths button:hover{background:#182e29}
+html[data-theme=dark] .path-art{background:radial-gradient(ellipse at 50% 85%,#24403a 0,transparent 55%)}html[data-theme=dark] .path-seal{color:#1c3530}html[data-theme=dark] .path-traits span{background:#1d342e;border-color:#34524a}
+html[data-theme=dark] .downloads small{color:#9aa08c}html[data-theme=dark] .faq-list details{border-color:#2a443c}
+html[data-theme=dark] .site-footer{background:#0b1916}html[data-theme=dark] .footer-bottom{color:#8f9682}
+html[data-theme=dark] .waitlist-section{background:#142f28}html[data-theme=dark] .waitlist-form{background:#162a25;border-color:#3a5a4f}html[data-theme=dark] .waitlist-field label span,html[data-theme=dark] .waitlist-privacy{color:#9aa08c!important}
+html[data-theme=dark] .waitlist-field input,html[data-theme=dark] .waitlist-field select{background:#0f1f1b;border-color:#3a5a4f;color:#f2e6c8}html[data-theme=dark] .waitlist-consent input{accent-color:#d9b46a}
+html[data-theme=dark] .waitlist-status{color:#a6d86a!important}html[data-theme=dark] .waitlist-status[data-error=true]{color:#ff9b85!important}
+html[data-theme=dark] body.guide{--bg:#0e1d1a;--bg-2:#122622;--panel:#172b27;--panel-2:#1f3833;--panel-3:#26463f;--text:#f2e6c8;--dim:#c9b08a;--cream:#f7efda;--gold:#d9b46a;--gold-bright:#fae58c;--line:rgba(217,180,106,.32);--ok:#a6d86a;background:#0e1d1a;color:#f2e6c8}
+html[data-theme=dark] .guide .nav{background:#0e1d1aed}html[data-theme=dark] .guide .alt{background:#122622}html[data-theme=dark] .guide .btn{background:#d9b46a;border-color:#d9b46a;color:#10201b}html[data-theme=dark] .guide .btn.ghost{background:transparent;color:#d9b46a}
+html[data-theme=dark] .guide-heading h1{color:#f7efda}html[data-theme=dark] .guide-heading p{color:#c9b08a}html[data-theme=dark] .guide .tag,html[data-theme=dark] .guide .badge{background:#1f3833}
+html[data-theme=dark] .guide .skilltabs button{color:#f2e6c8;background:#1f3833}html[data-theme=dark] .guide .skilltabs button[aria-selected=true]{background:#26463f}html[data-theme=dark] .guide .tree-title{color:#f2e6c8}
+html[data-theme=dark] .guide .nav.open .nav-links{background:#0e1d1a}
+.guide .theme-toggle{width:38px;height:38px}.theme-toggle .ico-sun,html[data-theme=dark] .theme-toggle .ico-moon{display:none}html[data-theme=dark] .theme-toggle .ico-sun{display:block}
+@media(min-width:901px){body.portal .brand,body.portal .nav nav{margin-right:auto}body.portal .nav-inner{justify-content:flex-start}}
+@media(max-width:900px){html[data-theme=dark] body.portal .nav nav{background:#0f1f1b;box-shadow:0 12px 24px #0008}}
+@media(max-width:600px){html[data-theme=dark] body.portal .hero-art{background:linear-gradient(0deg,#0f1f1b 0%,#0f1f1b 24%,#0f1f1bbb 40%,transparent 68%),url('../img/hero.webp') 24% top/auto 480px no-repeat;background-color:#0f1f1b}html[data-theme=dark] .guide .nav-links{background:#0e1d1a}}

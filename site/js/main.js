@@ -18,6 +18,25 @@
     });
   }
 
+  // Tema claro/escuro (o escuro é o padrão; a escolha fica salva no navegador)
+  var root = document.documentElement;
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    document.querySelectorAll(".theme-toggle").forEach(function (b) {
+      b.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+    });
+    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#0f1f1b" : "#183e34");
+  }
+  applyTheme(root.dataset.theme === "light" ? "light" : "dark");
+  document.querySelectorAll(".theme-toggle").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(next);
+      try { localStorage.setItem("perdidos-theme", next); } catch (e) {}
+    });
+  });
+
   // Pétalas da tela de título (leves; desligadas com "reduzir movimento")
   var petals = document.querySelector(".petals");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
