@@ -1,0 +1,47 @@
+name: Publicar site no GitHub Pages
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'site/**'
+      - '.github/workflows/site-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Obter arquivos do site
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: site
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Preparar site estático
+        run: |
+          test -s site/index.html
+          test -s site/guia.html
+          test -s site/css/portal.css
+          touch site/.nojekyll
+      - name: Enviar apenas o site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

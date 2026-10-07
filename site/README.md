@@ -57,3 +57,9 @@ O bloco `#progressao-areas` apresenta a rota Porto ↔ Campos (1–10) ↔ Mata 
 ## Reformulação de UI/UX (07/10/2026)
 
 Referências de organização: Ragnarok Online (https://ragnarokonline.gungho.jp/) e Tree of Savior (https://treeofsavior.com/page/main/?lang=en). A arte é do próprio Perdidos. O portal reduz a navegação inicial a cinco entradas e mantém a documentação em `guia.html`. Abas de títulos operam por clique e teclas de seta/Home/End; galeria usa diálogo nativo com Escape; FAQ não depende de JavaScript. Nenhuma música toca automaticamente. Testado no Chromium a 390, 768 e 1440 px, incluindo menu, abas, diálogo, imagens e ausência de rolagem horizontal.
+
+## Publicação no GitHub Pages
+
+Site: https://devalexandre.github.io/perdidos/
+
+O workflow `.github/workflows/site-pages.yml` publica somente `site/` quando essa pasta muda na branch `master`. Também pode ser executado manualmente em **Actions → Publicar site no GitHub Pages → Run workflow**. O deploy usa o ambiente `github-pages`; a configuração de Pages deve usar **GitHub Actions** como fonte. Recursos e navegação usam caminhos relativos para funcionar sob `/perdidos/`.
