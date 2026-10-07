@@ -71,10 +71,22 @@ func main() {
 		return
 	}
 
+	defaultAddr := ":8080"
+	if p := os.Getenv("PORT"); p != "" {
+		defaultAddr = ":" + p
+	}
+	defaultGame := "127.0.0.1:7777"
+	if g, ok := os.LookupEnv("PERDIDOS_GAME_ADDR"); ok {
+		defaultGame = g
+	}
+	defaultDB := ".run/accounts.db"
+	if d := os.Getenv("PERDIDOS_DB_PATH"); d != "" {
+		defaultDB = d
+	}
 	waitlistEnv := flag.String("waitlist-env", ".run/waitlist.env", "private waitlist PostgreSQL configuration")
-	addr := flag.String("addr", ":8080", "listen address (API + gatekeeper)")
-	game := flag.String("game", "127.0.0.1:7777", "Godot WebSocket server (host:port); empty disables the proxy")
-	dbPath := flag.String("db", ".run/accounts.db", "SQLite database file")
+	addr := flag.String("addr", defaultAddr, "listen address (API + gatekeeper)")
+	game := flag.String("game", defaultGame, "Godot WebSocket server (host:port); empty disables the proxy")
+	dbPath := flag.String("db", defaultDB, "SQLite database file")
 	latest := flag.String("latest", "build/release/latest.json", "latest.json served at /api/latest")
 	secrets := flag.String("secrets", DefaultSecretsPath(), "secrets.env with "+SecretKey)
 	ttl := flag.Duration("token-ttl", 12*time.Hour, "session token validity")

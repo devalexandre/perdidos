@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: perdidos-waitlist
+    runtime: go
+    plan: free
+    region: oregon
+    rootDir: launcher/server
+    buildCommand: go build -o authgate .
+    startCommand: ./authgate -game=""
+    healthCheckPath: /api/health
+    envVars:
+      - key: PERDIDOS_WAITLIST_DATABASE_URL
+        sync: false
+      - key: PERDIDOS_SITE_ORIGIN
+        value: https://devalexandre.github.io
+      - key: PERDIDOS_JWT_SECRET
+        generateValue: true
+      - key: PERDIDOS_GAME_ADDR
+        value: ""
+

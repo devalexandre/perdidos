@@ -18,6 +18,9 @@ func _ready() -> void:
 	world.mounts = MountService.new(world)
 	world.companions = CompanionService.new(world)
 	var entity := NetEntity.new()
+	var sync := MultiplayerSynchronizer.new()
+	sync.name = NetEntity.SYNC_NODE_NAME
+	entity.add_child(sync)
 	entity.server_setup(7, &"player", "Teste", &"male", &"city_awakening", Vector3(2,0,2))
 	var grid: WalkGrid = WalkGrid.from_ascii(PackedStringArray(["..........","..........","..........","..........","..........","..........","..........","..........","..........",".........."]))
 	entity.server_ensure_mover(grid, 200)

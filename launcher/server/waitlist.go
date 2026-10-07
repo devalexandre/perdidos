@@ -19,7 +19,7 @@ type WaitlistConfig struct {
 
 func (s *Server) handleWaitlist(w http.ResponseWriter, r *http.Request) {
 	origin := r.Header.Get("Origin")
-	if origin != "" && origin != s.cfg.Waitlist.Origin {
+	if origin != "" && !isAllowedOrigin(origin, s.cfg.Waitlist.Origin) {
 		writeError(w, http.StatusForbidden, "origin_denied", "Origem não permitida.")
 		return
 	}
@@ -93,4 +93,16 @@ func (s *Server) handleWaitlist(w http.ResponseWriter, r *http.Request) {
 	}
 	// Same reply for duplicates; no e-mail-address enumeration.
 	writeJSON(w, http.StatusAccepted, map[string]any{"ok": true, "message": "Inscrição recebida! Você está na lista de espera de Perdidos."})
+}
+
+func isAllowedOrigin(origin, allowed string) bool {
+	if allowed == "" || allowed == "*" || origin == allowed {
+		return true
+	}
+	for _, item := range strings.Split(allowed, ",") {
+		if strings.TrimSpace(item) == origin {
+			return true
+		}
+	}
+	return false
 }
