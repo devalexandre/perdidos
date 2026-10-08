@@ -215,7 +215,7 @@ Curtas, uma por pergunta; ensinam GDD §1.2, §8.5, §10.6 e §12 sem aula.
 
 | Pergunta (opção) | Chave | Resposta do Benedito |
 |---|---|---|
-| "Que lugar é este?" | DLG_TUT_LORE_WORLD | "Terra do Sabiá. Um dos reinos deste mundo. Cada reino parece um pedaço do seu mundo, com as histórias de lá... só que aqui as histórias são de verdade." |
+| "Que lugar é este?" | DLG_TUT_LORE_WORLD | "Terra de Pindorama. Um dos reinos deste mundo. Cada reino parece um pedaço do seu mundo, com as histórias de lá... só que aqui as histórias são de verdade." |
 | "Por que eu vim parar aqui?" | DLG_TUT_LORE_WHY | "Viu uma flor dourada caindo, não viu? Todo Viajante vê. A gente chama de Florada. Por que acontece... ninguém sabe. O rio traz, e pronto." |
 | "Quem são os Mestres?" | DLG_TUT_LORE_MASTERS | "Gente que sabe uma arte e ensina. Vocês, Viajantes, chegam em branco e aprendem qualquer coisa — mas só com alguém mostrando. Livro nenhum ensina técnica." |
 | "Eu tenho uma classe?" | DLG_TUT_LORE_TITLES | "Classe? Aqui não tem isso. Tem o que você aprende. Quem junta certas técnicas ganha um título — Facão Firme, Luz de Vaga-lume, cada terra tem os seus — e alguns Mestres só ensinam o melhor pra quem tem título." |

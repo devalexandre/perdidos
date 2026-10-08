@@ -29,7 +29,7 @@ extends Resource
 ## Vale por cima da cor da nacionalidade assim que o título é exibido. Vazio = sem troca.
 @export var cloth_colors: PackedColorArray = PackedColorArray()
 
-## --- Terra do Sabiá v0.4 (TITULOS-E-SKILLS.md §3.0 regras 3–5) ---
+## --- Terra de Pindorama v0.4 (TITULOS-E-SKILLS.md §3.0 regras 3–5) ---
 ## Título de combinação: NÃO é automático. required_titles/required_skills só descrevem (pistas);
 ## ele vem da quest do ancião (QuestDef.reward_title).
 @export var quest_only: bool = false

@@ -67,4 +67,3 @@ respawn_sec = 3600.0
 can_be_rare = false
 atroz_stat_multiplier = 1.0
 story_boss = true
-art_pending = true

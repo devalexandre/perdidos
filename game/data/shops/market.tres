@@ -6,7 +6,7 @@
 script = ExtResource("1_01c2v")
 id = &"market"
 items = Array[StringName]([&"glass_jar", &"potion_hp_small", &"potion_hp_medium", &"potion_mp_small", &"potion_mp_medium", &"return_scroll", &"machete", &"short_sword", &"simple_bow", &"simple_arrow", &"taquara_cane", &"iron_arrow", &"wooden_staff", &"ipe_wand", &"leather_shield", &"simple_tome", &"straw_hat", &"leather_jerkin", &"walking_boots", &"seed_necklace", &"ribbon_bracelet"])
-causos_rank_1_items = Array[StringName]([&"sabia_long_blade", &"buriti_recurve", &"thorn_arrow", &"poison_arrow"])
+causos_rank_1_items = Array[StringName]([&"pindorama_long_blade", &"buriti_recurve", &"thorn_arrow", &"poison_arrow"])
 causos_rank_2_items = Array[StringName]([&"ember_machete", &"firefly_wand", &"fire_arrow"])
 causos_rank_3_items = Array[StringName]([&"moss_crown", &"leather_gloves", &"buriti_ring", &"silver_arrow"])
 causos_rank_4_items = Array[StringName]([&"ipe_circlet", &"cinder_ring", &"lightning_arrow"])

@@ -27,6 +27,7 @@ var _column: VBoxContainer
 
 func _init(p_scale: float = 1.0) -> void:
 	ui_scale = p_scale
+	theme = UIKit.build_window_theme(ui_scale)
 	name = &"GearMenu"
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
@@ -40,6 +41,7 @@ func _init(p_scale: float = 1.0) -> void:
 
 	menu_panel = PanelContainer.new()
 	menu_panel.name = &"MenuPanel"
+	menu_panel.add_theme_stylebox_override(&"panel", UIKit.dark_body_box(ui_scale))
 	menu_panel.visible = false
 	menu_panel.size_flags_horizontal = Control.SIZE_SHRINK_END
 	_column.add_child(menu_panel)
@@ -51,6 +53,7 @@ func _init(p_scale: float = 1.0) -> void:
 
 	emote_panel = PanelContainer.new()
 	emote_panel.name = &"EmotePanel"
+	emote_panel.add_theme_stylebox_override(&"panel", UIKit.dark_body_box(ui_scale))
 	emote_panel.visible = false
 	emote_panel.size_flags_horizontal = Control.SIZE_SHRINK_END
 	_column.add_child(emote_panel)
@@ -126,14 +129,14 @@ func add_entry(key: String, hotkey: String, icon_id: StringName, cb: Callable, i
 	label.name = &"Label"
 	label.text = tr(key)
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	label.add_theme_color_override(&"font_color", UIKit.c_text())
+	label.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_child(label)
 	var hint := Label.new()
 	hint.name = &"Hotkey"
 	hint.text = hotkey
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	hint.add_theme_color_override(&"font_color", UIKit.c_text_dim())
+	hint.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 	hint.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_child(hint)
@@ -141,8 +144,8 @@ func add_entry(key: String, hotkey: String, icon_id: StringName, cb: Callable, i
 	row.offset_left = pad
 	row.offset_right = -pad
 	b.custom_minimum_size = Vector2(0.0, row.get_combined_minimum_size().y + pad * 2)
-	b.mouse_entered.connect(func() -> void: label.add_theme_color_override(&"font_color", UIKit.c_title()))
-	b.mouse_exited.connect(func() -> void: label.add_theme_color_override(&"font_color", UIKit.c_text()))
+	b.mouse_entered.connect(func() -> void: label.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT))
+	b.mouse_exited.connect(func() -> void: label.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT))
 	b.pressed.connect(func() -> void:
 		close_popups()
 		cb.call())

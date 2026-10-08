@@ -26,7 +26,7 @@ Nota: `.work/handoff/grupo.md`.
 Nota: `.work/handoff/monstros.md`.
 - **Pronto:**
   - a evolução e o chefe por 500 abates saíram;
-  - na Chapada (Subida Vermelha), os 3 chefes do Sabiá moram em covis fixos com bando e renascem a cada 10 min;
+  - na Chapada (Subida Vermelha), os 3 chefes de Pindorama moram em covis fixos com bando e renascem a cada 10 min;
   - à noite viram a forma atroz;
   - os documentos foram atualizados.
 - **Falta:** rodar de novo `make test`, que falhou só em `grid_stops_on_cell_center` e `clock_synced`, testes de movimento que já falhavam às vezes. Também falta rodar `run_beta_route.sh`, que parou no meio.

@@ -1,6 +1,6 @@
 {
- "_doc": "Curupira de dia (ARCO-1-TERRA-DO-SABIA.md, cap. 4): um menino comum da Mata Encantada, sem nada de monstruoso. Pele morena, cabelo ruivo espetado, tunica verde-folha, calcao marrom com cinto de cipo, sandalia. Os pes virados NAO aparecem de dia. PREVIA: o corpo de crianca ainda nao funciona neste pipeline (props.q.height < 1 ou kind 'child' soltam as roupas Quaternius do esqueleto: bracos em T e cabeca some), entao saiu na proporcao padrao (rapazote). Chefe atroz a noite: monsters/story_curupira.py.",
- "kind": "adult",
+ "_doc": "Curupira de dia (ARCO-1-TERRA-DE-PINDORAMA.md, cap. 4): um menino comum da Mata Encantada, sem nada de monstruoso. Pele morena, cabelo ruivo espetado, tunica verde-folha, calcao marrom com cinto de cipo, sandalia. Os pes virados NAO aparecem de dia. Corpo de crianca (kind 'child', _bodies.json) desde 07/10: chr_qbase.import_parts mantem a relacao local das pecas com o esqueleto escalado e chr_post usa os olhos pequenos para crianca. A folha do jogo saiu do pipeline por IA (character_pipeline, como o Tico); esta config fica como versao 3D. Chefe atroz a noite: monsters/story_curupira.py.",
+ "kind": "child",
  "body": "male",
  "props": {
   "q": {}

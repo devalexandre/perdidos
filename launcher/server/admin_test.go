@@ -49,14 +49,14 @@ func TestAdminPlayersOverviewAndLogs(t *testing.T) {
 	if err := os.MkdirAll(filepath.Join(dataDir, "server_saves"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	character := `{"name":"Ana","level":7,"stars":321,"hp":88,"home_map":"fields_sabia","inventory":[{}, {"item":"potion","qty":2}]}`
+	character := `{"name":"Ana","level":7,"stars":321,"hp":88,"home_map":"fields_pindorama","inventory":[{}, {"item":"potion","qty":2}]}`
 	if err := os.WriteFile(filepath.Join(dataDir, "server_saves", "ana.json"), []byte(character), 0o600); err != nil {
 		t.Fatal(err)
 	}
 	if err := os.MkdirAll(filepath.Join(dataDir, "server_state"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	live := `{"online_count":1,"players":[{"name":"Ana","level":7,"stars":321,"hp":88,"max_hp":100,"map":"fields_sabia","pos":[1,0,2]}],"instances":["fields_sabia"]}`
+	live := `{"online_count":1,"players":[{"name":"Ana","level":7,"stars":321,"hp":88,"max_hp":100,"map":"fields_pindorama","pos":[1,0,2]}],"instances":["fields_pindorama"]}`
 	if err := os.WriteFile(filepath.Join(dataDir, "server_state", "live_server.json"), []byte(live), 0o600); err != nil {
 		t.Fatal(err)
 	}

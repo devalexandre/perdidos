@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Teste local do transporte WebSocket (o mesmo do `make serve-ngrok`, sem abrir túnel nenhum):
 # servidor --transport=ws + 2 clientes em ws://127.0.0.1:PORT. Os dois se veem no Porto, formam grupo pelo chat
-# (/grupo), entram nos Campos do Sabiá (mapa compartilhado desde 30/09/2026), se veem, lutam, ganham XP e pegam o drop.
+# (/grupo), entram nos Campos de Pindorama (mapa compartilhado desde 30/09/2026), se veem, lutam, ganham XP e pegam o drop.
 # Uso: GODOT=/caminho/godot [OUT=.work/beta/ws] [PORT=8395] game/tests/beta/run_ws_duo.sh   (SHOTS=0 = headless)
 set -uo pipefail
 GODOT="${GODOT:-godot}"

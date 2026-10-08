@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"comp_guara_howl"
+name_key = "CSK_GUARA_HOWL"
+desc_key = "CSK_GUARA_HOWL_DESC"
+school = &"bow"
+element = &""
+region_id = &"brasil"
+target_type = 1
+effect = 6
+mana_cost = 0
+cooldown_sec = 14.0
+range_cells = 1.0
+radius_cells = 3.0
+base_multiplier = 0.0
+multiplier_per_level = 0.0
+duration_sec = 3.0
+extra = Dictionary[StringName, Variant]({&"slow_pct": 0.3})
+counts_for_titles = false
+max_level = 1

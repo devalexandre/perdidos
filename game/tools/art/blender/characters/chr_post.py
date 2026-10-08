@@ -340,14 +340,15 @@ def _paste(dst, design, x0, y0, fn, mirror=False):
                 fn(y, x, ch)
 
 
-def face_plan(anc, ids, dep, head_pids):
-    """Lista de (item, design, x0, y0, mirror) em coordenadas do canvas."""
+def face_plan(anc, ids, dep, head_pids, big_eyes=None):
+    """Lista de (item, design, x0, y0, mirror) em coordenadas do canvas. big_eyes=None segue o estilo (BIG_EYES);
+    NPC crianca (cabeca menor em pixels) usa os desenhos pequenos."""
     view, side = face_view(anc)
     if view is None:
         return []
     out = []
     eyes = []
-    big = "_big" if BIG_EYES else ""
+    big = "_big" if (BIG_EYES if big_eyes is None else big_eyes) else ""
     for nm in ("eye_L", "eye_R"):
         p = anc[nm]
         if view == "side":
@@ -709,6 +710,8 @@ def process_npc(work, npc_id, install=True):
         y0, y1, x0, x1 = box["y0"], box["y1"], box["x0"], box["x1"]
         parts = meta["parts"]
         head_pids = {i for i in range(1, len(parts)) if parts[i]["name"] == "head"}
+        # olhos: "big_eyes" na configuracao; crianca (kind "child", cabeca pequena na folha) usa os desenhos pequenos
+        big_eyes = cfg.get("big_eyes", None if cfg.get("kind", "adult") != "child" else False)
         sheets = {}
         for anim, n in meta["anims"]:
             mat, code, own = render_set(meta, z, anim)
@@ -719,7 +722,7 @@ def process_npc(work, npc_id, install=True):
                 for f in range(n):
                     rgba = colorize(mat[r, f], code[r, f], names)
                     mask = np.zeros_like(rgba)
-                    plan = face_plan(meta["anchors"][anim][r][f], ids[r, f], dep[r, f], head_pids)
+                    plan = face_plan(meta["anchors"][anim][r][f], ids[r, f], dep[r, f], head_pids, big_eyes=big_eyes)
                     draw_base_face(rgba, mask, plan, skin_ramp=skin, hair_ramp=hair)
                     e = np.zeros_like(rgba)
                     draw_eyes(e, plan, closed=f >= n - CLOSED_LAST.get(anim, 0), encode=False, eye_ramp=eyes)

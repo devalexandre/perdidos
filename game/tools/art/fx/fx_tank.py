@@ -1,4 +1,4 @@
-"""Tanque da Terra do Sabia (30/09/2026) — o Velho Tiao do Casco: Casco de Jabuti, Couro de Anta e Furia do
+"""Tanque da Terra de Pindorama (30/09/2026) — o Velho Tiao do Casco: Casco de Jabuti, Couro de Anta e Furia do
 Mapinguari.
 
 Pecas-chave: casco de jabuti batido (toc-toc), cupula de casco fechando, carapaca nas costas, jabutizinho
@@ -13,7 +13,7 @@ import math
 import numpy as np
 
 from fxdraw import Canvas, Frame, Spr, blit, ease_in, ease_out, layer, lerp, piece, rng
-from fxsabia import (BLOOD, BLOOD_LINE, BRONZE, BRONZE_G, BRONZE_GROUND, BRONZE_LINE, CLAW_HAND_PAL, CLAW_HAND_TXT,
+from fxpindorama import (BLOOD, BLOOD_LINE, BRONZE, BRONZE_G, BRONZE_GROUND, BRONZE_LINE, CLAW_HAND_PAL, CLAW_HAND_TXT,
                      D, DUST, DUST_LINE, HIDE, HIDE_LINE, LEAF, LEAF_LINE, LEAFLET_PAL, LEAFLET_TXT, MOUTH_PAL,
                      MOUTH_TXT, MUD, MUD_LINE, RAGE_G, RAGE_GROUND, SHELL, SHELL_LINE, SHELL_PAL, SHELL_TXT, TAPIR_PAL,
                      TAPIR_TXT, TAU, W_GOLD, W_PALE, W_WHITE, WOOD, WOOD_LINE, claw_marks, dither_alpha, drop,

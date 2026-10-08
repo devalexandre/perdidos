@@ -26,9 +26,9 @@ extra = Dictionary[StringName, Variant]({
 })
 requires_melee_weapon = true
 vfx = &"buff"
-exclusive_to_title = &"sabia_blade_machete"
+exclusive_to_title = &"pindorama_blade_machete"
 icon_text = "AF"
-tree_title = &"sabia_blade_machete"
+tree_title = &"pindorama_blade_machete"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"blade_charge": 3

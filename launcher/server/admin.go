@@ -66,6 +66,7 @@ func NewAdminServer(cfg AdminConfig, store Store, log *slog.Logger) *AdminServer
 		itemDropsFile:    filepath.Join(cfg.UserDataDir, "server_state", "custom_item_drops.json"),
 	}
 	as.ensureDefaultEventsFile()
+	as.migrateLegacyEventsFile()
 	return as
 }
 
@@ -114,7 +115,7 @@ func (as *AdminServer) ensureDefaultEventsFile() {
 				Decorations:  []string{"bandeirinhas_juninas", "fogueira_festiva"},
 				Cosmetics:    []string{"straw_hat", "cosmetic_traje_caipira"},
 				Announcement: "🔥 O Arraiá de Perdidos começou! Bônus de 50% de XP e Drops em todos os mapas!",
-				Region:       "Terra do Sabiá", Countries: []string{"Brasil"}, Period: "Junho",
+				Region:       "Terra de Pindorama", Countries: []string{"Brasil"}, Period: "Junho",
 				VisualChange: "Bandeirinhas, fogueira comunitária e barracas de comidas típicas nas praças.",
 			},
 			"dia_folclore": {
@@ -128,7 +129,7 @@ func (as *AdminServer) ensureDefaultEventsFile() {
 				Decorations:  []string{"lanternas_folcloricas", "totem_curupira"},
 				Cosmetics:    []string{"red_cap", "cosmetic_bumbah_mask"},
 				Announcement: "🌿 A magia dos encantos acordou! Semana do Folclore com 2x Drops de essências mágicas!",
-				Region:       "Terra do Sabiá", Countries: []string{"Brasil"}, Period: "22 de agosto",
+				Region:       "Terra de Pindorama", Countries: []string{"Brasil"}, Period: "22 de agosto",
 				VisualChange: "Lanternas, redemoinhos de folhas e totens protetores nas trilhas da mata.",
 			},
 			"florada_ipes": {
@@ -142,7 +143,7 @@ func (as *AdminServer) ensureDefaultEventsFile() {
 				Decorations:  []string{"petalas_ipe", "arcos_florais"},
 				Cosmetics:    []string{"ipe_flower_crown", "ipe_circlet"},
 				Announcement: "🌸 As flores de Ipê cobrem os caminhos! Bênção da Primavera ativada!",
-				Region:       "Terra do Sabiá", Countries: []string{"Brasil"}, Period: "Agosto a setembro",
+				Region:       "Terra de Pindorama", Countries: []string{"Brasil"}, Period: "Agosto a setembro",
 				VisualChange: "Ipês floridos, arcos florais e chuva suave de pétalas nas vilas.",
 			},
 			"lua_lobisomem": {
@@ -208,6 +209,7 @@ func (as *AdminServer) loadEventsConfig() ActiveEventsConfig {
 		return cfg
 	}
 	_ = json.Unmarshal(data, &cfg)
+	migrateEventsConfig(&cfg) // ids/nomes renomeados (legacy_ids.go)
 	if cfg.Events == nil {
 		cfg.Events = map[string]EventItem{}
 	}
@@ -252,10 +254,10 @@ func (as *AdminServer) loadEventsConfig() ActiveEventsConfig {
 
 func additionalEventCatalog() map[string]EventItem {
 	return map[string]EventItem{
-		"carnaval_das_aguas":   {ID: "carnaval_das_aguas", Name: "Carnaval das Águas", Icon: "🎭", Region: "Terra do Sabiá", Countries: []string{"Brasil"}, Period: "Fevereiro ou março", Active: false, XpMult: 1.25, DropMult: 1.25, Description: "Cortejo comunitário no Porto, com música, fitas e barcos ornamentados.", Decorations: []string{"fitas_carnaval", "barcos_festivos", "confetes_folhas"}, Cosmetics: []string{"cosmetic_mascara_carnaval", "cosmetic_capa_fitas"}, VisualChange: "Fitas nas ruas, barcos coloridos e folhas de papel biodegradável; sem caricaturas culturais.", Announcement: "🎭 O Carnaval das Águas chegou ao Porto do Despertar!"},
-		"semana_independencia": {ID: "semana_independencia", Name: "Semana dos Caminhos Livres", Icon: "🟢", Region: "Terra do Sabiá", Countries: []string{"Brasil"}, Period: "7 de setembro", Active: false, XpMult: 1.15, DropMult: 1.15, Description: "Celebra a autonomia das comunidades e os caminhos abertos pelos Viajantes.", Decorations: []string{"estandartes_verde_ouro", "flores_caminhos"}, Cosmetics: []string{"cosmetic_lenco_verde_ouro", "cosmetic_broche_sabia"}, VisualChange: "Estandartes verdes e dourados e canteiros floridos nas entradas das cidades.", Announcement: "🟢 A Semana dos Caminhos Livres começou!"},
-		"dia_criancas":         {ID: "dia_criancas", Name: "Dia das Brincadeiras", Icon: "🪁", Region: "Terra do Sabiá", Countries: []string{"Brasil"}, Period: "12 de outubro", Active: false, XpMult: 1.1, DropMult: 1.1, Description: "Jogos cooperativos, pipas e caça ao tesouro sem competição paga.", Decorations: []string{"pipas_coloridas", "brinquedos_praca"}, Cosmetics: []string{"cosmetic_chapeu_pipa", "cosmetic_mochila_brinquedos"}, VisualChange: "Pipas no céu, amarelinha e brinquedos artesanais na praça.", Announcement: "🪁 As brincadeiras tomaram as praças de Perdidos!"},
-		"reveillon_estrelas":   {ID: "reveillon_estrelas", Name: "Virada das Estrelas", Icon: "🌟", Region: "Terra do Sabiá", Countries: []string{"Brasil"}, Period: "31 de dezembro a 1º de janeiro", Active: false, XpMult: 1.25, DropMult: 1.5, Description: "Celebração à beira-rio com luzes silenciosas, desejos e roupas claras.", Decorations: []string{"lampioes_rio", "estrelas_flutuantes"}, Cosmetics: []string{"cosmetic_roupa_branca", "cosmetic_coroa_estrelas"}, VisualChange: "Lanternas refletidas no rio e céu estrelado reforçado, sem fogos ruidosos.", Announcement: "🌟 Uma nova volta do céu começa na Virada das Estrelas!"},
+		"carnaval_das_aguas":   {ID: "carnaval_das_aguas", Name: "Carnaval das Águas", Icon: "🎭", Region: "Terra de Pindorama", Countries: []string{"Brasil"}, Period: "Fevereiro ou março", Active: false, XpMult: 1.25, DropMult: 1.25, Description: "Cortejo comunitário no Porto, com música, fitas e barcos ornamentados.", Decorations: []string{"fitas_carnaval", "barcos_festivos", "confetes_folhas"}, Cosmetics: []string{"cosmetic_mascara_carnaval", "cosmetic_capa_fitas"}, VisualChange: "Fitas nas ruas, barcos coloridos e folhas de papel biodegradável; sem caricaturas culturais.", Announcement: "🎭 O Carnaval das Águas chegou ao Porto do Despertar!"},
+		"semana_independencia": {ID: "semana_independencia", Name: "Semana dos Caminhos Livres", Icon: "🟢", Region: "Terra de Pindorama", Countries: []string{"Brasil"}, Period: "7 de setembro", Active: false, XpMult: 1.15, DropMult: 1.15, Description: "Celebra a autonomia das comunidades e os caminhos abertos pelos Viajantes.", Decorations: []string{"estandartes_verde_ouro", "flores_caminhos"}, Cosmetics: []string{"cosmetic_lenco_verde_ouro", "cosmetic_broche_pindorama"}, VisualChange: "Estandartes verdes e dourados e canteiros floridos nas entradas das cidades.", Announcement: "🟢 A Semana dos Caminhos Livres começou!"},
+		"dia_criancas":         {ID: "dia_criancas", Name: "Dia das Brincadeiras", Icon: "🪁", Region: "Terra de Pindorama", Countries: []string{"Brasil"}, Period: "12 de outubro", Active: false, XpMult: 1.1, DropMult: 1.1, Description: "Jogos cooperativos, pipas e caça ao tesouro sem competição paga.", Decorations: []string{"pipas_coloridas", "brinquedos_praca"}, Cosmetics: []string{"cosmetic_chapeu_pipa", "cosmetic_mochila_brinquedos"}, VisualChange: "Pipas no céu, amarelinha e brinquedos artesanais na praça.", Announcement: "🪁 As brincadeiras tomaram as praças de Perdidos!"},
+		"reveillon_estrelas":   {ID: "reveillon_estrelas", Name: "Virada das Estrelas", Icon: "🌟", Region: "Terra de Pindorama", Countries: []string{"Brasil"}, Period: "31 de dezembro a 1º de janeiro", Active: false, XpMult: 1.25, DropMult: 1.5, Description: "Celebração à beira-rio com luzes silenciosas, desejos e roupas claras.", Decorations: []string{"lampioes_rio", "estrelas_flutuantes"}, Cosmetics: []string{"cosmetic_roupa_branca", "cosmetic_coroa_estrelas"}, VisualChange: "Lanternas refletidas no rio e céu estrelado reforçado, sem fogos ruidosos.", Announcement: "🌟 Uma nova volta do céu começa na Virada das Estrelas!"},
 		"festival_mouras":      {ID: "festival_mouras", Name: "Vigília das Mouras Encantadas", Icon: "🏰", Region: "Reino das Mouras", Countries: []string{"Portugal"}, Period: "Evento regional", Active: false, XpMult: 1.25, DropMult: 1.4, Description: "Fontes, cantigas e tesouros encantados despertam nas noites do reino.", Decorations: []string{"fontes_mouras", "fitas_azulejo"}, Cosmetics: []string{"cosmetic_coroa_moura", "cosmetic_capa_azulejo"}, VisualChange: "Azulejos luminosos, fontes encantadas e lua refletida nas muralhas.", Announcement: "🏰 As Mouras Encantadas despertaram junto às fontes antigas!"},
 		"hanami_sol":           {ID: "hanami_sol", Name: "Florada das Ilhas", Icon: "🌸", Region: "Ilhas do Sol Nascente", Countries: []string{"Japão"}, Period: "Primavera regional", Active: false, XpMult: 1.2, DropMult: 1.35, Description: "Contemplação das flores e pequenos encontros comunitários nas ilhas.", Decorations: []string{"petalas_cerejeira", "lanternas_ilhas"}, Cosmetics: []string{"cosmetic_presilha_sakura", "cosmetic_manto_hanami"}, VisualChange: "Cerejeiras floridas, pétalas ao vento e lanternas discretas.", Announcement: "🌸 A florada começou nas Ilhas do Sol Nascente."},
 		"solsticio_fiordes":    {ID: "solsticio_fiordes", Name: "Solstício dos Fiordes", Icon: "❄️", Region: "Fiordes de Gelo", Countries: []string{"Noruega", "Islândia"}, Period: "Solstício regional", Active: false, XpMult: 1.25, DropMult: 1.4, Description: "Fogueiras, auroras e histórias atravessam a noite mais longa.", Decorations: []string{"aurora_fiordes", "fogueiras_solsticio"}, Cosmetics: []string{"cosmetic_capa_aurora", "cosmetic_gorro_lanoso"}, VisualChange: "Aurora mais intensa, neve suave e fogueiras comunitárias protegidas do vento.", Announcement: "❄️ As auroras anunciam o Solstício dos Fiordes!"},
@@ -392,6 +394,7 @@ func (as *AdminServer) listAllPlayers() []PlayerSummary {
 		stars := int(getFloat(char, "stars", 0))
 		hp := int(getFloat(char, "hp", 100))
 		homeMap, _ := char["home_map"].(string)
+		homeMap = migrateLegacyID(homeMap) // save ainda não regravado pelo servidor do jogo
 		if homeMap == "" {
 			homeMap = "city_awakening"
 		}

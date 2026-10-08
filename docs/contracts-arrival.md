@@ -83,22 +83,22 @@ Nomes: rodar `make check-names` (GDD §4.0 regra 3, todos os idiomas).
 - **MVP de conteúdo (Q):**
   - Skills L1–L5 e A1–A5 do GDD (tabelas §8.2/§8.3) + as 2 exclusivas iniciais (Roçada e Fogo-Fátuo, de `TITULOS-E-SKILLS.md`).
   - Títulos do MVP.
-  - Quests de título do Campo de Treino para os 2 Mestres da Terra do Sabiá (Lâmina → título inicial "Facão Firme"; Arcano → "Luz de Vaga-lume"), cada uma ensinando a skill 1 da escola.
+  - Quests de título do Campo de Treino para os 2 Mestres da Terra de Pindorama (Lâmina → título inicial "Facão Firme"; Arcano → "Luz de Vaga-lume"), cada uma ensinando a skill 1 da escola.
   - O título inicial define `TitleDef.start_map_id` = `city_awakening`.
 
 ## Mundo (W)
 
 - **`scenes/maps/training_field.tscn`** (`map_id` = `training_field`): grande (~200×200 un.), acampamento central, portal de saída e uma **zona por nação** do GDD §4.0, cada uma com o clima da região: arquitetura, vegetação, paleta e um Mestre.
-  - **MVP:** a zona da **Terra do Sabiá** completa e bonita. As outras 9 zonas com caracterização visual simples (props e paleta), cada uma com o seu Mestre (NPC com diálogo "a travessia para a nossa terra ainda não está aberta") e **2 monstros iniciais da região** (1 estágio visual basta nelas).
+  - **MVP:** a zona da **Terra de Pindorama** completa e bonita. As outras 9 zonas com caracterização visual simples (props e paleta), cada uma com o seu Mestre (NPC com diálogo "a travessia para a nossa terra ainda não está aberta") e **2 monstros iniciais da região** (1 estágio visual basta nelas).
   - Navmesh assado, chão na camada 1, clicáveis na camada 2, `NpcPoints/`, `Spawns/`, `Interactables/` (portal de saída), `AudioZones/`.
-- **Monstros da Terra do Sabiá para o treino**, com os 3 estágios (nome e arte próprios por estágio, §10.6):
+- **Monstros da Terra de Pindorama para o treino**, com os 3 estágios (nome e arte próprios por estágio, §10.6):
   - Redemoinho Arteiro
   - Vaga-lume Encantado
   - Tatu-Pedra (Âncora 3)
 
   Animações idle, walk, attack, hit e death, nas 5 direções, no pipeline aprovado.
 - **Mestres:**
-  - Terra do Sabiá: dois novos para o Campo (ou os mesmos Brisa e Orvalho, a critério de W, desde que não conflitem com a cidade).
+  - Terra de Pindorama: dois novos para o Campo (ou os mesmos Brisa e Orvalho, a critério de W, desde que não conflitem com a cidade).
   - Um Mestre de cada outra nação: idle nas 5 direções.
 - **`data/zones/training_field.tres`:** `kind` TRAINING, `xp_level_cap` = 10, `items_bound_to_zone` = true, `grave_on_death` = false, textura do minimapa. Também **`data/zones/city_awakening.tres`** (CITY, sem combate).
 - **Minimapas:** imagem vista de cima de cada mapa (render ortográfico, estilizado em pixel art), com o `minimap_world_rect` correto.
@@ -180,7 +180,7 @@ Nomes: rodar `make check-names` (GDD §4.0 regra 3, todos os idiomas).
 
 **Dados:** skills em `data/skills/` com os ids de `TITULOS-E-SKILLS.md` §6.1 (`blade_firm_strike`, …, `arcane_star_fall`) + `blade_clearing_sweep` (Roçada) e `arcane_will_o_wisp` (Fogo-Fátuo). Títulos em `data/titles/`. Quests em `data/quests/`.
 
-**NPCs dos Mestres do Campo (W):** Q usa os ids `training_master_blade` (Lâmina, Terra do Sabiá) e `training_master_arcane` (Arcano, Terra do Sabiá) em `QuestDef.giver_npc`. **W, por favor, use esses ids nos `NpcDef`** (ou escreva aqui os ids escolhidos e Q troca). As opções de quest entram **sozinhas** no primeiro nó do diálogo de qualquer NPC que dê/receba quest — W não precisa escrever opção de quest no diálogo. Opcionalmente, o diálogo pode usar as ações `accept_quest` / `turn_in_quest` (`action_args {"quest_id": ...}`) e as condições `quest_available`, `quest_active`, `quest_ready`, `quest_done`, `has_title`, `knows_skill` (valor = id).
+**NPCs dos Mestres do Campo (W):** Q usa os ids `training_master_blade` (Lâmina, Terra de Pindorama) e `training_master_arcane` (Arcano, Terra de Pindorama) em `QuestDef.giver_npc`. **W, por favor, use esses ids nos `NpcDef`** (ou escreva aqui os ids escolhidos e Q troca). As opções de quest entram **sozinhas** no primeiro nó do diálogo de qualquer NPC que dê/receba quest — W não precisa escrever opção de quest no diálogo. Opcionalmente, o diálogo pode usar as ações `accept_quest` / `turn_in_quest` (`action_args {"quest_id": ...}`) e as condições `quest_available`, `quest_active`, `quest_ready`, `quest_done`, `has_title`, `knows_skill` (valor = id).
 
 **Rede (NetProgress, Q):** intenções `send_allocate_stats(dict)`, `send_skill_level_up(skill_id)`, `send_hotbar_set(slot, skill_id)`, `send_cast(skill_id, target_entity_id, ground_pos)`, `send_set_title(title_id)`, `send_quest_abandon(quest_id)`. Eventos para o dono: `progress_changed(dict)`; para a instância: `skill_cast(entity_id, skill_id, target_entity_id, pos)`.
 
@@ -208,7 +208,7 @@ Nomes: rodar `make check-names` (GDD §4.0 regra 3, todos os idiomas).
 **Rede (NetWorld, N):** `send_appearance(dict)` (cliente, logo depois de conectar; o servidor valida com `options.tres` na criação do personagem e ignora depois).
 
 **Adendo Q-1 (Q, depois de ler os dados de W, K e N):**
-- Mestres do Campo da Terra do Sabiá: Q passou a usar os ids que W criou — **`master_jatoba`** (Lâmina) e **`master_candeia`** (Arcano) — no lugar de `training_master_*`.
+- Mestres do Campo da Terra de Pindorama: Q passou a usar os ids que W criou — **`master_jatoba`** (Lâmina) e **`master_candeia`** (Arcano) — no lugar de `training_master_*`.
 - Monstros usados nas quests do Campo: `prank_whirlwind`, `enchanted_firefly`, `stone_armadillo`; itens: `firefly_light`. A provação usa `world.combat.spawn_monster` de K (o Mestre solta um bicho só para o jogador).
 - Para N: `world.progression.initial_title(peer_id) -> StringName` existe (e `start_map_for(peer_id)`).
 - K: as consultas de status já batem com `CombatBridges` (absorb_damage, def_multiplier, is_stunned, move_speed_multiplier).
@@ -235,7 +235,7 @@ Fonte única: `game/tools/art/content/training_src.json` → `build_training.py`
 | `master_xiaoyu` | Mestra Xiaoyu (jian) | `china` |
 | `master_citlali` | Mestra Citlali (obsidiana) | `mexico` |
 
-Diálogos em `data/dialogues/<id>.tres` (nós `start` + `about`/`tip` nos da Terra do Sabiá; `start` com "a travessia ainda não está aberta" + `lore` nos outros). **Q** liga as quests por `QuestDef.giver_npc` (não precisa editar o diálogo). Brisa e Orvalho continuam só na cidade.
+Diálogos em `data/dialogues/<id>.tres` (nós `start` + `about`/`tip` nos da Terra de Pindorama; `start` com "a travessia ainda não está aberta" + `lore` nos outros). **Q** liga as quests por `QuestDef.giver_npc` (não precisa editar o diálogo). Brisa e Orvalho continuam só na cidade.
 
 **Monstros** (`data/monsters/<id>.tres`; nome `MON_<ID>_S<n>_NAME`; folhas `assets/monsters/<id>/mon_<id>_s<n>_{idle,walk,attack,hit,death}.png`, linhas S,SE,L,NE,N, colunas idle 4 / walk 6 / attack 6 / hit 2 / death 6, quadro quadrado = altura/5):
 
@@ -253,11 +253,11 @@ Comportamentos usados em `MonsterStage.behaviors`: `hop_teleport`, `fly_pattern`
 
 **Mapa `training_field`** (X = leste, Z = sul; acampamento na origem; área andável = disco de raio 92):
 - `SpawnPoint` (0,0,4) e `CampRespawn` (-2.5,0,3) no acampamento.
-- `Spawns/<nome>` (Marker3D, metas `monster_id`, `count`, `radius_cells`): 6 na Terra do Sabiá (`sabia_whirlwind_1/2`, `sabia_firefly_1/2`, `sabia_armadillo_1/2`) + 2 por nação (`<regiao>_<monster_id>`).
+- `Spawns/<nome>` (Marker3D, metas `monster_id`, `count`, `radius_cells`): 6 na Terra de Pindorama (`pindorama_whirlwind_1/2`, `pindorama_firefly_1/2`, `pindorama_armadillo_1/2`) + 2 por nação (`<regiao>_<monster_id>`).
 - `Interactables/training_exit`: portal (arco de pedra ao norte do acampamento), metas `interact_type = portal`, `target_map = city_awakening` (N troca pelo `start_map_id` do título), `training_exit = true`, `minimap_icon = &"portal"`, `approach_position`. Mais 3 bancos `sit` (`bench_vereda`, `bench_ipe`, `bench_rancho`).
 - `PointsOfInterest/`: `CampFire`, `ExitPortal`, `Rancho`, `TrainingDummies`, `StoneMark1..3` (marcos de pedra para quests de explorar), `Area_<regiao>` (centro de cada zona).
 - `AudioZones/`: `default`, `camp`, e uma por região (`brasil`, `portugal`, …) com metas `zone_id`, `audio_zone_def = training_field_<zone>` e `name_key` (nome da área, útil para o minimapa/aviso de área).
-- Terra do Sabiá ao sul (centro (0,0,52), rancho dos Mestres em (0,0,36)); as outras nações em volta, a 62 un. do centro, nos ângulos (atan2(z,x), 90 = sul): portugal 145, grecia 177, egito 208, celta 239, nordico 270 (norte), eslavo 301, china 332, japao 3, mexico 34.
+- Terra de Pindorama ao sul (centro (0,0,52), rancho dos Mestres em (0,0,36)); as outras nações em volta, a 62 un. do centro, nos ângulos (atan2(z,x), 90 = sul): portugal 145, grecia 177, egito 208, celta 239, nordico 270 (norte), eslavo 301, china 332, japao 3, mexico 34.
 
 ## Apêndice K — Combate e monstros (Agente K, só acrescentar)
 

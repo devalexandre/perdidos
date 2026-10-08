@@ -2,7 +2,7 @@ class_name ProgressionDebug
 extends RefCounted
 ## Comandos de teste da progressão. Só existe com --progression-autotest ou --dev-commands no
 ## servidor (NetProgress.debug_enabled); nunca em jogo normal. Usado por tests/progression/ e, com
-## --dev-commands, pelo chat: "/dev <comando> [args]" (ChatService). Lista: docs/debug-sabia.md.
+## --dev-commands, pelo chat: "/dev <comando> [args]" (ChatService). Lista: docs/debug-pindorama.md.
 
 const CMD_GRANT_XP: StringName = &"grant_xp"
 const CMD_SET_CAP: StringName = &"set_cap"
@@ -16,7 +16,7 @@ const CMD_RESET_COOLDOWNS: StringName = &"reset_cooldowns"
 const CMD_TELEPORT: StringName = &"teleport"
 ## goto <map_id> [marcador=SpawnPoint]: troca de mapa direto (testes do Pergaminho de Retorno e dos mapas).
 const CMD_GOTO: StringName = &"goto"
-# --- Terra do Sabiá v0.4 (docs/debug-sabia.md)
+# --- Terra de Pindorama v0.4 (docs/debug-pindorama.md)
 ## grant_title <title_id>: concede o título (e os pais, pela herança).
 const CMD_GRANT_TITLE: StringName = &"grant_title"
 ## learn_tree <title_id> [nível=3]: aprende as 5 skills da árvore com pelo menos esse nível.
@@ -50,6 +50,8 @@ const CMD_SKILL_POINTS: StringName = &"skill_points"
 const CMD_HELP: StringName = &"help"
 ## leave_training: marca que o personagem saiu do Campo de Treino (libera o 2º título).
 const CMD_LEAVE_TRAINING: StringName = &"leave_training"
+## companion <id> [nível]: dá o companheiro (e o título dele), ativa e põe no nível (PETS-E-MONTARIAS §0.1).
+const CMD_COMPANION: StringName = &"companion"
 const DEFAULT_TREE_LEVEL: int = 3
 const BOSS_OFFSET_CELLS: float = 3.0
 const MSG_DEV: String = "PROG_DEV_REPLY"
@@ -190,6 +192,15 @@ func _on_debug(peer_id: int, command: StringName, args: Array) -> void:
 			progression.quests.accept(s, StringName(str(_arg(args, 0, ""))))
 		CMD_LEAVE_TRAINING:
 			s.character.left_training = true
+		CMD_COMPANION:
+			var cdef: CompanionDef = Content.companion(StringName(str(_arg(args, 0, ""))))
+			if cdef != null and world.companions != null:
+				s.character.progression.titles[cdef.title_id] = maxi(1, int(s.character.progression.titles.get(cdef.title_id, 0)))
+				if cdef.id not in s.character.companions_owned:
+					s.character.companions_owned.append(cdef.id)
+				s.character.companion_progress[String(cdef.id)] = {
+					"level": clampi(int(_arg(args, 1, 1)), 1, Balance.cfg.companion_max_level), "xp": 0}
+				world.companions._activate(s, cdef.id)
 		CMD_QUEST_TURN_IN:
 			var q: QuestDef = Content.quest(StringName(str(_arg(args, 0, ""))))
 			if q != null:
@@ -222,7 +233,7 @@ func _on_debug(peer_id: int, command: StringName, args: Array) -> void:
 		CMD_HELP:
 			_reply(peer_id, "grant_title learn_tree skill_level skill_points spawn_boss spawn_rare set_hour "
 					+ "kill_variant quest_step quest_accept quest_turn_in quest_trial learn give_item equip_item "
-					+ "grant_xp set_hp set_mp reset_cooldowns teleport hurt_protected kill_protected trial_time")
+					+ "grant_xp set_hp set_mp reset_cooldowns teleport hurt_protected kill_protected trial_time companion")
 		CMD_SET_MP:
 			s.character.mp = int(_arg(args, 0, 0))
 			s.mark_dirty(PlayerSession.DIRTY_STATS)

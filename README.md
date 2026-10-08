@@ -8,7 +8,7 @@ MMORPG 2.5D em pixel art (Godot 4.7.2). Documentos em `docs/` (comece pelo `GDD-
 |---|---|
 | `make run` | Sobe o servidor local e abre o jogo na tela de título. Fechar o jogo derruba o servidor. |
 | `make run-duo` | Servidor + 2 jogos lado a lado (Ana e Bia), para testar multiplayer. |
-| `make run-dev` | Igual ao `run`, com os comandos de teste do dono no chat (`/dev ...` para títulos, árvores e quests dos anciãos; `/chefe`, `/noite`... para chefes). Ver `docs/debug-sabia.md`. |
+| `make run-dev` | Igual ao `run`, com os comandos de teste do dono no chat (`/dev ...` para títulos, árvores e quests dos anciãos; `/chefe`, `/noite`... para chefes). Ver `docs/debug-pindorama.md`. |
 | `make test` | Testes automáticos (servidor + clientes). |
 | `make build` | Gera os executáveis em `build/` (Windows, Linux e servidor dedicado). Na primeira vez baixa os templates de export (~1,3 GB). |
 | `make up` / `make down` | Sobe/derruba o servidor do jogo + PostgreSQL no Docker (`infra/docker-compose.yml`). |

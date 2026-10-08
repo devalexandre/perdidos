@@ -299,6 +299,12 @@ func _on_monster_killed(killer_peer: int, monster_id: StringName, stage: int, xp
 		var xp_award: int = PartyService.xp_for_recipient(xp, peers.size(), xp_mode, index)
 		if xp_award > 0:
 			grant_xp(peer, xp_award, REASON_MONSTER)
+		# Companheiro ativo (PETS-E-MONTARIAS §0.1): bônus de 20% do XP do monstro só para ele, se o
+		# dono participou (é o dono do abate ou bateu no monstro). Não sai do XP do dono.
+		if world.companions != null and (peer == killer_peer or (_first_hit.get(eid, {}) as Dictionary).has(peer)):
+			var owner: PlayerSession = world.get_session(peer)
+			if owner != null:
+				world.companions.grant_kill_xp(owner, xp)
 		var mine: Dictionary = info
 		if peer != killer_peer:
 			mine = info.duplicate()

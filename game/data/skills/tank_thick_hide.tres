@@ -23,7 +23,7 @@ extra = Dictionary[StringName, Variant]({
 &"duration_per_level": 0.5
 })
 vfx = &"guard"
-exclusive_to_title = &"sabia_tank_jabuti"
+exclusive_to_title = &"pindorama_tank_jabuti"
 icon_text = "CU"
-tree_title = &"sabia_tank_anta"
+tree_title = &"pindorama_tank_anta"
 tree_order = 1

@@ -48,6 +48,10 @@ func resolve(session: PlayerSession, target_id: String) -> Dictionary:
 		var e: NetEntity = world.get_entity(raw.to_int())
 		if e == null or e.instance_id != instance_id or e == session.entity or not e.is_npc():
 			return {}
+		# Rotina por horário (NpcDef.presence): fora do horário o NPC não está no mundo.
+		var npc_def: NpcDef = Content.npc(e.def_id)
+		if npc_def != null and not npc_def.is_present_now():
+			return {}
 		return {"kind": &"entity", "position": e.net_position, "entity": e,
 				"approach": e.net_position}
 	if target_id.begins_with(PREFIX_MAP):

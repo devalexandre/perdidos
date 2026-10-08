@@ -35,7 +35,8 @@ func _init(p_scale: float = 1.0, allow_quit: bool = true) -> void:
 	var grid := GridContainer.new()
 	grid.columns = 2
 	grid.add_theme_constant_override(&"h_separation", UIKit.px(UIKit.PADDING * 2, ui_scale))
-	content.add_child(grid)
+	grid.add_theme_constant_override(&"v_separation", UIKit.px(4, ui_scale))
+	_section("UI_SETTINGS_VIDEO", grid)
 	grid.add_child(_label("UI_RESOLUTION"))
 	_resolution = OptionButton.new()
 	for r: Vector2i in GameSettings.RESOLUTIONS:
@@ -72,6 +73,11 @@ func _init(p_scale: float = 1.0, allow_quit: bool = true) -> void:
 		GameSettings.get_instance().mobile_controls_changed.emit(pressed)
 	)
 	grid.add_child(mobile_cb)
+	grid = GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override(&"h_separation", UIKit.px(16, ui_scale))
+	grid.add_theme_constant_override(&"v_separation", UIKit.px(6, ui_scale))
+	_section("UI_SETTINGS_AUDIO", grid)
 	for bus: StringName in GameSettings.BUSES:
 		grid.add_child(_label(BUS_KEYS[bus]))
 		var slider := HSlider.new()
@@ -85,6 +91,10 @@ func _init(p_scale: float = 1.0, allow_quit: bool = true) -> void:
 		slider.value_changed.connect(_on_volume_changed.bind(bus))
 		grid.add_child(slider)
 		_sliders[bus] = slider
+	grid = GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override(&"h_separation", UIKit.px(16, ui_scale))
+	_section("UI_SETTINGS_CONTROLS", grid)
 	grid.add_child(_label("UI_PAD_HELP"))
 	var pad_toggle := Button.new()
 	pad_toggle.name = &"PadHelpToggle"
@@ -169,3 +179,14 @@ func _label(key: String) -> Label:
 	var l := Label.new()
 	l.text = tr(key)
 	return l
+
+
+func _section(key: String, grid: GridContainer) -> void:
+	var card := PanelContainer.new()
+	card.add_theme_stylebox_override(&"panel", UIKit.dark_card_box(ui_scale, 6))
+	content.add_child(card)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override(&"separation", UIKit.px(6, ui_scale))
+	card.add_child(box)
+	box.add_child(UIKit.dark_label(tr(key), ui_scale, UIKit.FONT_SIZE, UIKit.COLOR_GOLD_LIGHT))
+	box.add_child(grid)

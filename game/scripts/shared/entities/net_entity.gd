@@ -34,6 +34,13 @@ const WALK_CYCLE_CELLS: float = 2.0
 const VISUAL_WALK_CYCLE_PROP: StringName = &"walk_cycle_ms"
 ## Servidor: intervalo mínimo entre pings de relógio atendidos por entidade (anti-abuso).
 const CLOCK_PING_MIN_INTERVAL_MSEC: float = 50.0
+## Cliente: quando chega um caminho novo cuja posição no instante atual não bate com a que estava na tela
+## (o caminho começou antes de chegar, com lag; relógio corrigido), o VISUAL compensa a diferença e a desfaz
+## em ~1/VISUAL_CORRECTION_SHARPNESS s, em vez de dar um tranco. A posição lógica (e a câmera) segue o caminho.
+## Acima de VISUAL_CORRECTION_MAX_CELLS (teleporte, banco, renascer) salta direto.
+const VISUAL_CORRECTION_SHARPNESS: float = 16.0
+const VISUAL_CORRECTION_MAX_CELLS: float = 1.25
+const VISUAL_CORRECTION_EPSILON: float = 0.001
 
 ## Cliente: o caminho replicado mudou (novo pedido aceito, parada, teleporte).
 signal path_changed
@@ -79,6 +86,8 @@ var title_id: StringName = &"":
 var _visual: Node3D = null
 var _client_path: MovePath = null
 var _last_walk_cycle_ms: float = -1.0
+## Deslocamento só visual que esconde o salto de um caminho novo (ver VISUAL_CORRECTION_SHARPNESS).
+var _visual_correction: Vector3 = Vector3.ZERO
 # --- servidor
 var _last_clock_ping_msec: float = -INF
 
@@ -302,19 +311,41 @@ func _set_move_state(value: Array) -> void:
 	var p: MovePath = MovePath.from_state(value)
 	if p == null:
 		return
+	var had_path: bool = _client_path != null and is_inside_tree()
+	var shown_before: Vector3 = position + _visual_correction
 	_client_path = p
 	if is_inside_tree():
 		_update_from_path()
+	if had_path:
+		var gap: Vector3 = shown_before - position
+		var cell: float = Balance.cfg.cell_size if Balance.cfg != null else 1.0
+		_visual_correction = gap if gap.length() <= VISUAL_CORRECTION_MAX_CELLS * cell else Vector3.ZERO
+		_apply_visual_correction()
 	path_changed.emit()
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Net.is_server:
 		return
 	if is_local_player() and NetClock.should_ping():
 		NetClock.mark_ping_sent()
 		_srv_clock_ping.rpc_id(Net.SERVER_PEER_ID, NetClock.local_now_msec())
 	_update_from_path()
+	if _visual_correction != Vector3.ZERO:
+		_visual_correction *= exp(-VISUAL_CORRECTION_SHARPNESS * delta)
+		if _visual_correction.length() < VISUAL_CORRECTION_EPSILON:
+			_visual_correction = Vector3.ZERO
+		_apply_visual_correction()
+
+
+## Deslocamento visual atual do salto de caminho desfeito aos poucos (ZERO = visual na posição lógica).
+func get_visual_correction() -> Vector3:
+	return _visual_correction
+
+
+func _apply_visual_correction() -> void:
+	if _visual != null:
+		_visual.position = _visual_correction
 
 
 ## Cliente: posição/direção/anim no relógio do servidor, direto do caminho (sem atraso).

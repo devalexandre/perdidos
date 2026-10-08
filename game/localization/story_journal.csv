@@ -1,0 +1,34 @@
+keys,pt_BR
+JOURNAL_TAB_QUESTS,Missões
+JOURNAL_TAB_FRAGMENTS,Fragmentos
+JOURNAL_FRAGMENTS_INTRO,"Pedaços de uma história que alguém tentou apagar. Encontrados: %d de %d."
+JOURNAL_FRAGMENT_UNKNOWN,???
+JOURNAL_FRAGMENT_UNKNOWN_LORE,Um pedaço desta história que você ainda não encontrou.
+JOURNAL_FRAGMENT_KIND_OBJECT,O objeto
+JOURNAL_FRAGMENT_KIND_SYMBOL,O símbolo
+JOURNAL_FRAGMENT_KIND_WITNESS,A testemunha
+JOURNAL_FRAGMENT_KIND_MEMORY,A memória
+JOURNAL_FRAGMENT_COMB_LORE,"A Iara guardou este pente no fundo do rio por muitos anos, sem saber de quem era. Madrepérola fina, nenhum dente quebrado, um golfinho entalhado no topo. Quem o perdeu não era da beira do rio, e cuidava dele como quem cuida de uma lembrança."
+JOURNAL_FRAGMENT_DOLPHIN_LORE,"Na sala dos registros de Ratanabá, a pedra lembra de uma mulher que andava de vilarejo em vilarejo atrás de histórias e de festa, e de um homem do rio que nunca saía do lado dela. Ao pé do registro, gravado fundo, o mesmo golfinho do pente."
+JOURNAL_FRAGMENT_BOIUNA_LORE,"""Ela subiu o rio. Não estava sozinha. Não estava com medo."" A grande cobra não disse mais nada. Alguém a pôs de vigia naquele trecho do rio, para que ninguém chegasse até ali e ouvisse o que ela viu."
+JOURNAL_FRAGMENT_MEMORY_LORE,"Uma mulher caminha junto a um grande rio, sorrindo. Ao lado dela, um homem que você não conhece; por um instante, os olhos dele brilham em rosa. A voz do Boitatá ainda ecoa: a filha do Devorador nunca morreu. Ela escolheu desaparecer."
+JOURNAL_GOALS_TITLE,Objetivo da história
+JOURNAL_GOAL_WHERE_IS_MARIA,Onde está Maria?
+JOURNAL_GOAL_WHERE_IS_MARIA_DESC,"A filha do Devorador está viva e escolheu desaparecer. Se alguém pode acabar com esta guerra, é ela. Os bichos mais velhos lembram de um pente de golfinho e de um rio largo. Comece por aí."
+JOURNAL_GOAL_OPEN,Em aberto: a história continua.
+STORY_SCENE_CONTINUE,Continuar
+STORY_SCENE_FRAGMENT,Fragmento recebido: %s
+STORY_LEGEND_SACI,Saci
+STORY_LEGEND_MULA,Mula-sem-Cabeça
+STORY_LEGEND_LOBISOMEM,Lobisomem
+STORY_LEGEND_CURUPIRA,Curupira
+STORY_LEGEND_PISADEIRA,Pisadeira
+STORY_LEGEND_IARA,Iara
+STORY_LEGEND_MAPINGUARI,Mapinguari
+STORY_LEGEND_CUCA,Cuca
+STORY_LEGEND_BOIUNA,Boiúna
+STORY_LEGEND_BOITATA,Boitatá
+STORY_MEMORY_INTRO,"O fogo negro se apaga, escama por escama. O Boitatá não morre: os olhos dele clareiam, um por um, e ele lhe mostra uma lembrança."
+STORY_MEMORY_VISION,"Uma mulher caminha junto a um grande rio, sorrindo. Ao lado dela, um homem desconhecido. Por alguns segundos, os olhos dele brilham em rosa."
+STORY_MEMORY_LINE_1,A filha do Devorador nunca morreu.
+STORY_MEMORY_LINE_2,Ela escolheu desaparecer.

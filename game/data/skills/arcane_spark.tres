@@ -16,5 +16,5 @@ range_cells = 12.0
 base_multiplier = 1.3
 vfx = &"spark"
 icon_text = "FA"
-tree_title = &"sabia_arcane_firefly"
+tree_title = &"pindorama_arcane_firefly"
 tree_order = 1

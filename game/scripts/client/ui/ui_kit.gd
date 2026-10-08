@@ -136,7 +136,7 @@ const EMOTES: Array[StringName] = [&"wave", &"sit", &"laugh", &"cry", &"angry", 
 const EQUIP_SLOTS: Array[StringName] = [
 	&"weapon", &"offhand", &"head", &"body", &"gloves", &"feet", &"accessory_1", &"accessory_2"]
 const INVENTORY_SIZE: int = 40
-const INVENTORY_COLUMNS: int = 8
+const INVENTORY_COLUMNS: int = 10
 
 ## Fornecedor de ItemDef (testes trocam por dados falsos). Vazio = autoload Content.
 static var item_provider: Callable = Callable()
@@ -247,6 +247,31 @@ static func world_font() -> Font:
 # --- Tema -----------------------------------------------------------------------------------------
 
 ## Tema completo da interface na escala dada.
+static func build_window_theme(ui_scale: float) -> Theme:
+	var t: Theme = build_theme(ui_scale)
+	t.set_color(&"font_color", &"Label", COLOR_TEXT)
+	t.set_color(&"default_color", &"RichTextLabel", COLOR_TEXT)
+	t.set_color(&"font_color", &"CheckBox", COLOR_TEXT)
+	# Mesmo vocabulário da mochila: bronze discreto, ouro na seleção e texto claro.
+	for type_name: StringName in [&"Button", &"OptionButton", &"MenuButton"]:
+		for state: StringName in [&"normal", &"hover", &"pressed", &"hover_pressed", &"disabled"]:
+			var active: bool = state in [&"pressed", &"hover_pressed"]
+			var bg: Color = COLOR_SLOT_DARK_HOVER if state == &"hover" or active else COLOR_SLOT_DARK_EMPTY
+			var edge: Color = COLOR_GOLD if active else COLOR_SLOT_DARK_EDGE
+			if state == &"hover":
+				edge = COLOR_GOLD_AGED
+			var sb: StyleBoxFlat = chamfer_box(bg, edge, maxi(1, px(1, ui_scale)), px(6, ui_scale), px(3, ui_scale))
+			t.set_stylebox(state, type_name, sb)
+			t.set_color(&"font_disabled_color", type_name, COLOR_TEXT_DISABLED)
+			t.set_constant(&"outline_size", type_name, 0)
+	for type_name: StringName in [&"Label", &"RichTextLabel"]:
+		t.set_constant(&"outline_size", type_name, 0)
+	for type_name: StringName in [&"HScrollBar", &"VScrollBar"]:
+		t.set_stylebox(&"scroll", type_name, flat_box(COLOR_DARK_PANEL, COLOR_SLOT_DARK_EDGE, 0, 0))
+		t.set_stylebox(&"grabber", type_name, chamfer_box(COLOR_WOOD_LIGHT, COLOR_GOLD_AGED, 1, 0, 2))
+	return t
+
+
 static func build_theme(ui_scale: float) -> Theme:
 	var t := Theme.new()
 	t.default_font = read_font()
@@ -783,3 +808,392 @@ static func _square_icon(size: int, color: Color) -> Texture2D:
 	var img := Image.create(maxi(1, size), maxi(1, size), false, Image.FORMAT_RGBA8)
 	img.fill(color)
 	return ImageTexture.create_from_image(img)
+
+
+# --- Inventário moderno (07/10/2026) --------------------------------------------------------------
+## Painel escuro com filete de ouro e cantos chanfrados (referência: mochila "moderna" com DNA do RO).
+## Usado pelo inventário (miolo escuro dentro da moldura de madeira) e pela dica rica de item.
+const COLOR_DARK_PANEL: Color = Color8(27, 19, 14)
+const COLOR_DARK_PANEL_EDGE: Color = Color8(118, 84, 36)
+const COLOR_DARK_CARD: Color = Color8(37, 26, 19)
+const COLOR_SLOT_DARK: Color = Color8(45, 32, 23)
+const COLOR_SLOT_DARK_EMPTY: Color = Color8(34, 24, 17)
+const COLOR_SLOT_DARK_EDGE: Color = Color8(66, 48, 33)
+const COLOR_SLOT_DARK_HOVER: Color = Color8(58, 42, 29)
+## Borda por raridade nos espaços escuros (comum = bronze discreto; demais = rampa de RARITY_COLORS).
+const RARITY_EDGE_COLORS: Array[Color] = [
+	Color8(104, 82, 60), Color8(98, 168, 74), Color8(80, 132, 220), Color8(170, 120, 226)]
+const COLOR_STAT_GOOD: Color = Color8(166, 216, 106)
+const COLOR_STAT_BAD: Color = Color8(245, 154, 106)
+## Chanfro dos cantos (px na escala 1,0).
+const CHAMFER: int = 4
+## Largura da dica rica de item (px na escala 1,0).
+const TOOLTIP_WIDTH: int = 280
+
+static var _icon_cache: Dictionary[String, Texture2D] = {}
+
+
+## Lado dos ícones 32x32 no inventário, em px. Desktop a 720p: 40 px (1,25x); acima disso, 3/4 do fator inteiro
+## da escala (1080p = 48 px). O dono pediu a janela menor (08/10/2026; antes 48/64). Toque: no mínimo 2x (dedo).
+static func inventory_icon_px(ui_scale: float) -> int:
+	var k: int = texture_scale(ui_scale)
+	if is_touch_layout():
+		return ICON_SIZE * maxi(2, k)
+	return ICON_SIZE * k * 3 / 4 if k >= 2 else ICON_SIZE * 5 / 4
+
+
+## Caixa escura chanfrada (corner_detail 1 = canto cortado em diagonal, sem arredondar).
+static func chamfer_box(bg: Color, edge: Color, border: int, padding: int, chamfer: int) -> StyleBoxFlat:
+	var sb: StyleBoxFlat = flat_box(bg, edge, border, padding)
+	sb.set_corner_radius_all(chamfer)
+	sb.corner_detail = 1
+	return sb
+
+
+## Miolo escuro do inventário (no lugar do pergaminho).
+static func dark_body_box(ui_scale: float) -> StyleBoxFlat:
+	return chamfer_box(COLOR_DARK_PANEL, COLOR_DARK_PANEL_EDGE, maxi(1, px(1, ui_scale)), px(8, ui_scale),
+			px(CHAMFER, ui_scale))
+
+
+## Cartão escuro (detalhe do item, dica).
+static func dark_card_box(ui_scale: float, padding: float = 8.0) -> StyleBoxFlat:
+	var sb: StyleBoxFlat = chamfer_box(COLOR_DARK_CARD, COLOR_SLOT_DARK_EDGE, maxi(1, px(1, ui_scale)),
+			px(padding, ui_scale), px(CHAMFER, ui_scale))
+	return sb
+
+
+## Espaço de item escuro: vazio bem discreto; cheio com borda da raridade (incomum+ com brilho);
+## selecionado com aro de ouro claro; hover com miolo um pouco mais claro.
+static func dark_slot_box(ui_scale: float, rarity: int, selected: bool, hovered: bool = false) -> StyleBoxFlat:
+	var line: int = maxi(1, px(1, ui_scale))
+	var empty: bool = rarity < 0
+	var bg: Color = COLOR_SLOT_DARK_EMPTY if empty else COLOR_SLOT_DARK
+	if hovered:
+		bg = COLOR_SLOT_DARK_HOVER
+	var edge: Color = COLOR_SLOT_DARK_EDGE if empty else RARITY_EDGE_COLORS[clampi(rarity, 0, RARITY_EDGE_COLORS.size() - 1)]
+	var border: int = line if empty or rarity == 0 else maxi(2, px(2, ui_scale))
+	if selected:
+		edge = COLOR_GOLD_LIGHT
+		border = maxi(2, px(2, ui_scale))
+	var sb: StyleBoxFlat = chamfer_box(bg, edge, border, 0, px(3, ui_scale))
+	if not empty and rarity > 0 and not selected:
+		sb.shadow_color = Color(edge, 0.35)
+		sb.shadow_size = maxi(1, px(2, ui_scale))
+	elif selected:
+		sb.shadow_color = Color(COLOR_GOLD, 0.45)
+		sb.shadow_size = maxi(2, px(3, ui_scale))
+	return sb
+
+
+## Botão-aba das categorias do inventário: madeira escura; ativa com borda de ouro e miolo mais claro.
+static func style_pill_tab(b: Button, ui_scale: float) -> void:
+	var line: int = maxi(1, px(1, ui_scale))
+	var pad: int = px(6, ui_scale)
+	var normal: StyleBoxFlat = chamfer_box(COLOR_SLOT_DARK_EMPTY, COLOR_SLOT_DARK_EDGE, line, pad, px(3, ui_scale))
+	var hover: StyleBoxFlat = chamfer_box(COLOR_SLOT_DARK_HOVER, COLOR_GOLD_AGED, line, pad, px(3, ui_scale))
+	var active: StyleBoxFlat = chamfer_box(Color8(66, 46, 26), COLOR_GOLD, maxi(1, px(1, ui_scale)), pad, px(3, ui_scale))
+	active.border_width_bottom = maxi(2, px(2, ui_scale))
+	for sb: StyleBoxFlat in [normal, hover, active]:
+		sb.content_margin_left = px(10, ui_scale)
+		sb.content_margin_right = px(10, ui_scale)
+		sb.content_margin_top = px(4, ui_scale)
+		sb.content_margin_bottom = px(4, ui_scale)
+	b.add_theme_stylebox_override(&"normal", normal)
+	b.add_theme_stylebox_override(&"hover", hover)
+	b.add_theme_stylebox_override(&"pressed", active)
+	b.add_theme_stylebox_override(&"hover_pressed", active)
+	b.add_theme_stylebox_override(&"focus", chamfer_box(Color.TRANSPARENT, COLOR_GOLD_LIGHT, line, pad, px(3, ui_scale)))
+	b.add_theme_color_override(&"font_color", COLOR_TEXT_DIM)
+	b.add_theme_color_override(&"font_hover_color", COLOR_PARCHMENT)
+	b.add_theme_color_override(&"font_pressed_color", COLOR_GOLD_LIGHT)
+	b.add_theme_color_override(&"font_hover_pressed_color", COLOR_GOLD_LIGHT)
+	b.add_theme_color_override(&"font_focus_color", COLOR_PARCHMENT)
+	b.add_theme_color_override(&"font_outline_color", COLOR_OUTLINE)
+	b.add_theme_constant_override(&"outline_size", maxi(1, px(2, ui_scale)))
+
+
+## Nome traduzido da raridade (Comum, Incomum, Raro, Épico).
+static func rarity_name(def: ItemDef) -> String:
+	if def == null:
+		return ""
+	return TranslationServer.translate("RARITY_%s" % ItemDef.Rarity.keys()[clampi(def.rarity, 0, 3)])
+
+
+## Tipo traduzido do item (crendice/munição/cosmético com nome próprio).
+static func item_type_name(def: ItemDef) -> String:
+	if def == null:
+		return ""
+	return TranslationServer.translate("ITEM_TYPE_%s" % ItemDef.ItemType.keys()[def.type])
+
+
+## Linhas de atributo do item: [{label, value, good}] (bônus fixos e % de redução).
+static func item_stat_lines(def: ItemDef) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	if def == null:
+		return out
+	for stat: StringName in def.stats:
+		var v: int = def.stats[stat]
+		if stat in PERCENT_REDUCTION_STATS:
+			out.append({"label": stat_label(stat), "value": "−%d%%" % v, "good": v >= 0})
+		else:
+			out.append({"label": stat_label(stat), "value": "%s%d" % ["+" if v >= 0 else "−", absi(v)], "good": v >= 0})
+	for stat: StringName in def.stat_percent:
+		var p: int = def.stat_percent[stat]
+		out.append({"label": stat_label(stat), "value": "%s%d%%" % ["+" if p >= 0 else "−", absi(p)], "good": p >= 0})
+	return out
+
+
+## Efeitos de uso e tempo (consumíveis), já traduzidos.
+static func item_effect_lines(def: ItemDef) -> PackedStringArray:
+	var lines: PackedStringArray = []
+	if def == null:
+		return lines
+	if def.use_effect.has(&"heal_hp"):
+		lines.append(TranslationServer.translate("ITEM_HEAL_HP") % int(def.use_effect[&"heal_hp"]))
+	if def.use_effect.has(&"heal_mp"):
+		lines.append(TranslationServer.translate("ITEM_HEAL_MP") % int(def.use_effect[&"heal_mp"]))
+	if def.use_effect.has(&"def_buff_pct"):
+		lines.append(TranslationServer.translate("ITEM_DEF_BUFF") % [roundi(float(def.use_effect[&"def_buff_pct"]) * 100.0),
+				roundi(float(def.use_effect.get(&"buff_sec", 0.0)))])
+	if def.type == ItemDef.ItemType.CONSUMABLE:
+		if CastTiming.is_instant_item(def):
+			lines.append(TranslationServer.translate("UI_ITEM_INSTANT"))
+		else:
+			lines.append(TranslationServer.translate("UI_ITEM_TIMING") % [
+					seconds_text(CastTiming.item_base_cast_sec(def)),
+					seconds_text(CastTiming.item_base_cooldown_sec(def))])
+	return lines
+
+
+## Número com separador de milhar ("12.480").
+static func thousands(n: int) -> String:
+	var s: String = str(absi(n))
+	var out: String = ""
+	while s.length() > 3:
+		out = "." + s.right(3) + out
+		s = s.left(s.length() - 3)
+	return ("-" if n < 0 else "") + s + out
+
+
+## Texto das Estrelas com milhar ("12.480 Estrelas"), a partir de UI_STARS ("%d Estrelas").
+static func stars_text(stars: int) -> String:
+	return TranslationServer.translate("UI_STARS").replace("%d", thousands(stars))
+
+
+## Rótulo pronto (fonte, cor, contorno) para painéis escuros.
+static func dark_label(text: String, ui_scale: float, size: int = FONT_SIZE_SMALL, color: Color = COLOR_TEXT) -> Label:
+	var l := Label.new()
+	l.text = text
+	l.add_theme_font_size_override(&"font_size", px(size, ui_scale))
+	l.add_theme_color_override(&"font_color", color)
+	l.add_theme_color_override(&"font_outline_color", COLOR_OUTLINE)
+	l.add_theme_constant_override(&"outline_size", maxi(1, px(2, ui_scale)))
+	return l
+
+
+## Ficha do item (dica rica): cabeçalho, atributos, efeitos, descrição e rodapé de preço, empilhados.
+## width = largura do texto (px na escala 1,0). O inventário monta as mesmas peças em duas colunas.
+static func item_card(def: ItemDef, qty: int, ui_scale: float, width: float = TOOLTIP_WIDTH,
+		show_sell_price: bool = true, show_icon: bool = true) -> VBoxContainer:
+	var box := VBoxContainer.new()
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	box.add_theme_constant_override(&"separation", px(4, ui_scale))
+	if def == null:
+		return box
+	box.add_child(item_card_head(def, qty, ui_scale, width, show_icon))
+	var stats: Control = item_card_stats(def, ui_scale, width)
+	if stats != null:
+		box.add_child(_gold_rule(ui_scale))
+		box.add_child(stats)
+	var desc: Control = item_card_desc(def, ui_scale, width)
+	if desc != null:
+		box.add_child(_gold_rule(ui_scale))
+		box.add_child(desc)
+	var foot: Control = item_card_footer(def, ui_scale, show_sell_price)
+	if foot != null:
+		box.add_child(foot)
+	return box
+
+
+## Cabeçalho da ficha: ícone 2x num espaço da raridade, nome na cor da raridade e "Raridade · Tipo".
+static func item_card_head(def: ItemDef, qty: int, ui_scale: float, width: float, show_icon: bool = true) -> HBoxContainer:
+	var head := HBoxContainer.new()
+	head.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	head.add_theme_constant_override(&"separation", px(8, ui_scale))
+	var text_w: float = width
+	if show_icon:
+		var frame := PanelContainer.new()
+		var fb: StyleBoxFlat = dark_slot_box(ui_scale, def.rarity, false)
+		fb.set_content_margin_all(px(3, ui_scale))
+		frame.add_theme_stylebox_override(&"panel", fb)
+		frame.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		head.add_child(frame)
+		var icon := TextureRect.new()
+		icon.texture = item_icon(def)
+		icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		var ip: int = inventory_icon_px(ui_scale)
+		icon.custom_minimum_size = Vector2(ip, ip)
+		frame.add_child(icon)
+		text_w -= (ip + px(6, ui_scale) + px(8, ui_scale)) / ui_scale
+	var titles := VBoxContainer.new()
+	titles.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	titles.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	titles.add_theme_constant_override(&"separation", px(1, ui_scale))
+	head.add_child(titles)
+	var title: String = item_name(def) + ("  ×%d" % qty if qty > 1 else "")
+	var name_l: Label = dark_label(title, ui_scale, FONT_SIZE + 1, rarity_color(def))
+	name_l.name = &"ItemName"
+	name_l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	name_l.custom_minimum_size.x = px(maxf(80.0, text_w), ui_scale)
+	titles.add_child(name_l)
+	var sub: Label = dark_label("%s · %s" % [rarity_name(def), item_type_name(def)], ui_scale, FONT_SIZE_SMALL - 1,
+			COLOR_TEXT_DIM)
+	sub.name = &"ItemKind"
+	titles.add_child(sub)
+	return head
+
+
+## Atributos em pares (rótulo apagado, valor verde/laranja) e efeitos de uso; null se não há nada.
+static func item_card_stats(def: ItemDef, ui_scale: float, width: float, columns: int = 2) -> Control:
+	var stats: Array[Dictionary] = item_stat_lines(def)
+	var effects: PackedStringArray = item_effect_lines(def)
+	if stats.is_empty() and effects.is_empty():
+		return null
+	var box := VBoxContainer.new()
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	box.add_theme_constant_override(&"separation", px(2, ui_scale))
+	if not stats.is_empty():
+		var grid := GridContainer.new()
+		grid.columns = columns * 2
+		grid.add_theme_constant_override(&"h_separation", px(10, ui_scale))
+		grid.add_theme_constant_override(&"v_separation", px(1, ui_scale))
+		box.add_child(grid)
+		for s: Dictionary in stats:
+			grid.add_child(dark_label(String(s["label"]), ui_scale, FONT_SIZE_SMALL, COLOR_TEXT_DIM))
+			var v: Label = dark_label(String(s["value"]), ui_scale, FONT_SIZE_SMALL,
+					COLOR_STAT_GOOD if bool(s["good"]) else COLOR_STAT_BAD)
+			v.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			v.custom_minimum_size.x = px(36, ui_scale)
+			grid.add_child(v)
+	for e: String in effects:
+		var el: Label = dark_label(e, ui_scale, FONT_SIZE_SMALL, COLOR_STAT_GOOD)
+		el.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		el.custom_minimum_size.x = px(width, ui_scale)
+		box.add_child(el)
+	return box
+
+
+## Descrição (lenda do item) quebrada na largura dada; null se não há.
+static func item_card_desc(def: ItemDef, ui_scale: float, width: float) -> Label:
+	if def.desc_key.is_empty():
+		return null
+	var d: Label = dark_label(TranslationServer.translate(def.desc_key), ui_scale, FONT_SIZE_SMALL,
+			COLOR_PARCHMENT_SHADE)
+	d.name = &"ItemDesc"
+	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	d.custom_minimum_size.x = px(width, ui_scale)
+	return d
+
+
+## Rodapé: preço de venda com a estrela e "Não negociável"; null se não há nada.
+static func item_card_footer(def: ItemDef, ui_scale: float, show_sell_price: bool = true) -> HBoxContainer:
+	var price_on: bool = show_sell_price and def.sell_price > 0
+	if not price_on and def.tradeable:
+		return null
+	var foot := HBoxContainer.new()
+	foot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	foot.add_theme_constant_override(&"separation", px(4, ui_scale))
+	if price_on:
+		foot.add_child(star_icon_rect(ui_scale))
+		foot.add_child(dark_label(TranslationServer.translate("UI_ITEM_SELLS_FOR") % thousands(def.sell_price),
+				ui_scale, FONT_SIZE_SMALL, COLOR_GOLD))
+	if not def.tradeable:
+		var spacer := Control.new()
+		spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		foot.add_child(spacer)
+		foot.add_child(dark_label(TranslationServer.translate("UI_ITEM_BOUND"), ui_scale, FONT_SIZE_SMALL - 1,
+				COLOR_STAT_BAD))
+	return foot
+
+
+## Dica rica (painel escuro chanfrado com filete de ouro) para qualquer espaço de item.
+static func item_tooltip_panel(def: ItemDef, qty: int, ui_scale: float, show_sell_price: bool = true) -> Control:
+	var panel := PanelContainer.new()
+	var sb: StyleBoxFlat = chamfer_box(Color(COLOR_DARK_PANEL, 0.97), COLOR_GOLD_AGED, maxi(1, px(1, ui_scale)),
+			px(9, ui_scale), px(CHAMFER, ui_scale))
+	sb.shadow_color = COLOR_SHADOW
+	sb.shadow_size = px(6, ui_scale)
+	panel.add_theme_stylebox_override(&"panel", sb)
+	panel.add_child(item_card(def, qty, ui_scale, TOOLTIP_WIDTH, show_sell_price))
+	return panel
+
+
+static func _gold_rule(ui_scale: float) -> Control:
+	var r := ColorRect.new()
+	r.color = Color(COLOR_GOLD_AGED, 0.55)
+	r.custom_minimum_size = Vector2(0, maxi(1, px(1, ui_scale)))
+	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return r
+
+
+## Estrela pixel-art (moeda do jogo) ampliada por fator inteiro.
+static func star_icon(ui_scale: float) -> Texture2D:
+	return _pixel_icon("star", [
+		"....##....",
+		"....##....",
+		"...#oo#...",
+		"####oo####",
+		"#oooooooo#",
+		".#oooooo#.",
+		"..#oooo#..",
+		"..#o##o#..",
+		".#o#..#o#.",
+		".##....##.",
+	], {"#": Color8(140, 86, 18), "o": COLOR_GOLD}, texture_scale(ui_scale) + 1)
+
+
+## Losango do título das janelas modernas.
+static func diamond_icon(ui_scale: float) -> Texture2D:
+	return _pixel_icon("diamond", [
+		"...#...",
+		"..#o#..",
+		".#ooo#.",
+		"#ooOoo#",
+		".#ooo#.",
+		"..#o#..",
+		"...#...",
+	], {"#": COLOR_GOLD_AGED, "o": COLOR_GOLD, "O": COLOR_GOLD_LIGHT}, texture_scale(ui_scale) + 1)
+
+
+static func star_icon_rect(ui_scale: float) -> TextureRect:
+	var r := TextureRect.new()
+	r.texture = star_icon(ui_scale)
+	r.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	r.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	r.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return r
+
+
+static func _pixel_icon(key: String, rows: Array, colors: Dictionary, factor: int) -> Texture2D:
+	var cache_key: String = "%s@%d" % [key, factor]
+	if _icon_cache.has(cache_key):
+		return _icon_cache[cache_key]
+	var w: int = String(rows[0]).length()
+	var img := Image.create(w, rows.size(), false, Image.FORMAT_RGBA8)
+	img.fill(Color.TRANSPARENT)
+	for y: int in rows.size():
+		var row: String = rows[y]
+		for x: int in mini(w, row.length()):
+			var ch: String = row[x]
+			if colors.has(ch):
+				img.set_pixel(x, y, colors[ch])
+	if factor > 1:
+		img.resize(w * factor, rows.size() * factor, Image.INTERPOLATE_NEAREST)
+	var tex := ImageTexture.create_from_image(img)
+	_icon_cache[cache_key] = tex
+	return tex

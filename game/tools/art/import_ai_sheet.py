@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Importa a prancha que o ChatGPT (ou outra IA) devolve a partir das NOSSAS pranchas-guia de pose e escreve as folhas
-de roupa do jogo (corpo sem cabeca), com o anchors.json do pescoco. Kit do dono: docs/kit-chatgpt-student-sabia.md.
+de roupa do jogo (corpo sem cabeca), com o anchors.json do pescoco. Kit do dono: docs/kit-chatgpt-student-pindorama.md.
 
     python3 tools/art/import_ai_sheet.py <body> <outfit_id> <imagem_p1> <imagem_p2> ... [--out DIR] [--work DIR]
             [--colors 32] [--compose-head] [--preview]

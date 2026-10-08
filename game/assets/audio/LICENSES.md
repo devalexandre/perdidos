@@ -35,13 +35,30 @@ Todos: convertidos para mono, silêncio inicial removido, cortados no tamanho m�
 | sfx_step_grass_1..4.ogg | Impact Sounds — `footstep_grass_000..003.ogg` | https://kenney.nl/assets/impact-sounds | Kenney | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | Cortado em 0,4 s com fade. |
 | sfx_step_sand_1..4.ogg | Fantozzi's Footsteps (Grass/Sand & Stone) — `Fantozzi-SandL1, SandR1, SandL2, SandR2.flac` | https://opengameart.org/content/fantozzis-footsteps-grasssand-stone (origem: https://freesound.org/people/Fantozzi/packs/10338/) | Fantozzi (enviado por qubodup) | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | High-pass 80 Hz, cortado em ≤0,35 s. |
 
+## Skills — energia: carga, liberação e impacto (08/10/2026)
+
+Gerados por `tools/audio/gen_skill_energy.py` (numpy + ffmpeg; `--kenney <pasta>` com os zips da Kenney extraídos). OGG Vorbis q6, 44,1 kHz, mono, pico ≤ −3 dBFS, rampas de entrada/saída sem clique. Inspirados no *caráter* dos efeitos de anime de luta (zumbido elétrico com grave rugindo e crepitar; estouro com whoosh; estalo seco com grave), descrito a partir de espectrograma de uma referência só ouvida/analisada — **nenhum trecho de áudio da referência foi usado** (o arquivo de análise foi apagado).
+
+| Arquivo | Origem | URL | Licença | O que foi feito |
+|---|---|---|---|---|
+| sfx_skill_charge_loop.ogg | Original do projeto (síntese) | — | Original do projeto | Laço de 2 s sem emenda (todas as frequências múltiplas de 0,5 Hz, filtros circulares): grave rugindo (ruído 25–220 Hz + sub saturado), serra 82 Hz com vibrato, banda "uá-uá" 2,2–4,2 kHz pulsando a 3 Hz, crepitar e assobio 1,76 kHz. Substitui a versão de 24 kHz de mais cedo. Escolas sem laço próprio (arco etc.). |
+| sfx_skill_charge_loop_blade.ogg | Original do projeto (síntese) | — | Original do projeto | Mesmo método, mais grave e rugindo (serra 55 Hz, grave reforçado, saturação). Lâmina e tanque. |
+| sfx_skill_charge_loop_arcane.ogg | Original do projeto (síntese) | — | Original do projeto | Mesmo método, brilhante e elétrico (110 Hz, banda 3–6,5 kHz a 4 Hz, crepitar denso). Arcano e híbrido. |
+| sfx_skill_charge_loop_support.ogg | Original do projeto (síntese) | — | Original do projeto | Suave: acorde de senos 220–880 Hz respirando, ar e brilho leves. Suporte. |
+| sfx_skill_release.ogg | Kenney Sci-Fi Sounds — `lowFrequency_explosion_001.ogg` + síntese | https://kenney.nl/assets/sci-fi-sounds | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | Explosão como camada de ataque + whoosh (ruído em passa-faixa deslizando 5,5 kHz→600 Hz), zap descendente, boom 85→38 Hz, estalo; saturação leve e reverb curto. 0,95 s. |
+| sfx_skill_release_2.ogg | Kenney Sci-Fi Sounds — `explosionCrunch_000.ogg` + síntese | https://kenney.nl/assets/sci-fi-sounds | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | Variação pesada do anterior (boom mais longo, whoosh mais grave). 1,15 s. |
+| sfx_skill_release_support.ogg | Kenney Sci-Fi Sounds — `forceField_001.ogg` + síntese | https://kenney.nl/assets/sci-fi-sounds | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | Liberação suave: brilho subindo 520→1900 Hz, ar e campo de força; reverb. 0,9 s. |
+| sfx_skill_impact.ogg | Kenney Impact Sounds — `impactPunch_heavy_001.ogg` + síntese | https://kenney.nl/assets/impact-sounds | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | Soco como base + grave 95→42 Hz, estalo de ruído agudo, corpo médio, saturação e reverb curto. 0,48 s. |
+| sfx_skill_impact_2.ogg | Kenney Impact Sounds — `impactPunch_heavy_003.ogg` + síntese | https://kenney.nl/assets/impact-sounds | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | Idem, grave 80 Hz e estalo mais forte. |
+| sfx_skill_impact_3.ogg | Kenney Impact Sounds — `impactPunch_heavy_004.ogg` + síntese | https://kenney.nl/assets/impact-sounds | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | Idem, grave 110 Hz. |
+
 ## Atribuições obrigatórias
 
 Nenhuma. Todos os arquivos entregues são CC0, domínio público ou originais do projeto. Não há itens CC-BY.
 
 Créditos opcionais (os autores agradecem a menção):
 - Música: **RandomMind** (OpenGameArt) — "Medieval: Exploration", "Medieval: Market Day", "Medieval: The Bard's Tale".
-- Efeitos: **Kenney** (www.kenney.nl) — RPG Audio, Interface Sounds, UI Audio, Impact Sounds.
+- Efeitos: **Kenney** (www.kenney.nl) — RPG Audio, Interface Sounds, UI Audio, Impact Sounds, Sci-Fi Sounds.
 - Ambientes: **Thimras** (Park ambiences), **Rango Mango** (gaivotas), **stephan / pdsounds.org** (restaurante), **Fantozzi / qubodup** (passos na areia).
 
 ## Combate — provisórios CC0 (Kenney Impact Sounds), até os sons do ElevenLabs
@@ -222,3 +239,5 @@ Prompt da música `mus_werewolf_death.ogg`: "Original instrumental tragic folk-f
 | sfx_upgrade_fail.ogg | ElevenLabs (sfx) | Plano pago — licença comercial, sem atribuição | 2026-09-28 | Item enhancement failure: metallic hammer strike that cracks and shatters with a dull falling tone, disappointing but not harsh, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice |
 | sfx_boss_boitata_roar.ogg | ElevenLabs (sfx) | Plano pago — licença comercial, sem atribuição | 2026-09-28 | Giant fire serpent spirit roar: deep hissing roar mixed with roaring flames and crackling sparks, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice |
 | sfx_boss_boitata_breath.ogg | ElevenLabs (sfx) | Plano pago — licença comercial, sem atribuição | 2026-09-28 | Giant serpent breathing a cone of fire: long roaring flame blast, short crisp bright sound, classic 2000s fantasy MMORPG style, clean, not overproduced, no voice |
+
+- `ambience/amb_cave_waterfall.wav`: ruído de água gerado proceduralmente para este projeto (semente 8421, síntese espectral periódica; sem gravações de terceiros).

@@ -12,5 +12,5 @@ grave_on_death = false
 minimap_texture = ExtResource("1_0810i")
 minimap_world_rect = Rect2(-80, -80, 160, 160)
 
-region_id = &"sabia"
-connected_maps = Array[StringName]([&"fields_sabia"])
+region_id = &"pindorama"
+connected_maps = Array[StringName]([&"fields_pindorama"])

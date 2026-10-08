@@ -205,7 +205,7 @@ O dono reprovou o "brócolis" procedural. Agora:
 - Sprites não projetam mais a sombra "risco" (`directional_sprite_3d.gd`, cast_shadow OFF; só a sombra redonda).
 
 Capturas (1920×1080, com a referência 1 ao lado): `docs/arte-cenario/v2/*_ref_antes_depois.jpg` (clareira, praça,
-docas, feira, acampamento, Terra do Sabiá, Japão, Grécia) e `v2/*_1920x1080.jpg`.
+docas, feira, acampamento, Terra de Pindorama, Japão, Grécia) e `v2/*_1920x1080.jpg`.
 
 Desempenho (RTX 2060, 1920×1026, câmera girando): praça da cidade Alta 10,5 ms (~95 fps) / Baixa 3,9 ms;
 campo de treino Alta 9,9 ms / Baixa 3,0 ms; clareira Alta 9,6 ms / Baixa 2,9 ms. Draw calls na câmera: cidade ~190–215
@@ -222,15 +222,15 @@ campo de treino Alta 9,9 ms / Baixa 3,0 ms; clareira Alta 9,6 ms / Baixa 2,9 ms.
   era descartada pelo sentido dos triângulos e a borda ficava dura).
 - **`_dress()` em `build_training_field.gd`** (só enfeites baixos/atravessáveis ou encostados em obstruções que já
   existem — navmesh idêntico): seixos e capim alto nas bordas das trilhas; juncos (`reeds_card`, card da Bria),
-  pedras com musgo e seixos nas margens do riacho; Terra do Sabiá densa (capim dourado, flores do cerrado,
+  pedras com musgo e seixos nas margens do riacho; Terra de Pindorama densa (capim dourado, flores do cerrado,
   arbustinhos secos, seixos, pedrinhas com musgo e cogumelos ao pé de árvores/cupinzeiros); acampamento com bancos,
   sacos, barris, caixote, toras, bonecos de treino e capim na borda; Japão com trevos, pedras de passagem e
   samambaias sobre gramado com cascalho; México com chão de mata verde (samambaias, plantas, flores, cogumelos);
   Egito com dunas baixas e ruínas caídas (obelisco quebrado, blocos); Grécia com colunas tombadas e degraus quebrados.
 - Marcos com pedra de facetas grandes (`tex_rock`) em vez do padrão de "calçada".
 
-Capturas (1920×1080, referência 1 | antes | depois): `docs/arte-cenario/v3/tf_{camp,sabia,japao,mexico,egito,grecia}_ref_antes_depois.jpg`.
-Desempenho na Terra do Sabiá: Alta 12,1 ms (103 draw calls) / Baixa 3,7 ms (70).
+Capturas (1920×1080, referência 1 | antes | depois): `docs/arte-cenario/v3/tf_{camp,pindorama,japao,mexico,egito,grecia}_ref_antes_depois.jpg`.
+Desempenho na Terra de Pindorama: Alta 12,1 ms (103 draw calls) / Baixa 3,7 ms (70).
 
 ---
 

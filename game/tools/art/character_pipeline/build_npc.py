@@ -42,6 +42,7 @@ def autopick(npc):
     json.dump(P, open(pp, 'w'), indent=1)
 
 
+SHADOW = set()  # arquivos (rb_*) com sombra de chao da IA: picks.json "shadow_fix": [...] (apaga cinza claro nos pes)
 HAIR = {}  # arquivo -> {"frac", "lo", "hi"}: recolore cabelo escuro-azulado (topo da figura) para outra rampa
 
 
@@ -59,6 +60,10 @@ def load(path, flip):
     im = Image.open(path).convert('RGBA'); a = np.asarray(im).copy()
     if os.path.basename(path) in HAIR: a = hair_fix(a, HAIR[os.path.basename(path)])
     a[..., 3] = np.where(a[..., 3] > 150, 255, 0)
+    if os.path.basename(path) in SHADOW:  # sombra eliptica no chao: pixels claros e pouco saturados nas linhas dos pes
+        ys = np.nonzero(a[..., 3].any(1))[0]; top, bot = ys.min(), ys.max(); lim = bot - int((bot - top) * 0.07)
+        rgb = a[..., :3].astype(int); L = rgb.mean(2); sat = rgb.max(2) - rgb.min(2)
+        m = np.zeros(L.shape, bool); m[lim:] = True; a[m & (L > 95) & (sat < 45), 3] = 0
     lab, n = label(a[..., 3] > 0)
     if n > 1:
         sz = np.bincount(lab.ravel()); keep = sz >= sz[1:].max() * 0.004; keep[0] = False; a[~keep[lab]] = 0
@@ -90,11 +95,41 @@ def bob(fr, dy):
     o = Image.new('RGBA', (FR, FR)); o.alpha_composite(fr, (0, dy)); return o
 
 
-def quantizer(frames, palette_from=None, n=48, head_colors=0):
+def quantizer(frames, palette_from=None, n=48, head_colors=0, accent_colors=0):
     """Paleta unica (n cores) da folha. head_colors > 0 (picks.json "head_colors"): reserva essa quantidade de cores
     para a cabeca (terco de cima de cada quadro) -> pele e cabelo nao herdam o tom da roupa (ex.: pescador, cuja pele
-    e cabelo grisalho saiam esverdeados pela camisa verde)."""
-    if head_colors and not palette_from:
+    e cabelo grisalho saiam esverdeados pela camisa verde). accent_colors > 0 (picks.json "accent_colors"): reserva
+    cores para os pixels muito saturados (chama do lampiao, lenco vermelho), que a mediana do corpo engolia; nesse modo
+    o fundo preto da tira nao entra na paleta."""
+    if accent_colors and not palette_from:
+        opq = np.concatenate([np.asarray(f)[np.asarray(f)[..., 3] > 0][:, :3] for f in frames]).astype(np.uint8)
+        def cols_px(px, k):
+            if len(px) == 0 or k <= 0: return []
+            p = Image.fromarray(px[None, :, :], 'RGB').quantize(k, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).getpalette()[:3 * k]
+            return [tuple(p[i:i + 3]) for i in range(0, len(p), 3)]
+        hpx = []
+        for f in frames:
+            a = np.asarray(f); ys = np.nonzero(a[..., 3].any(1))[0]
+            if not len(ys): continue
+            h = a[:ys.min() + int((ys.max() - ys.min()) * 0.3)]; hpx.append(h[h[..., 3] > 0][:, :3])
+        hpx = np.concatenate(hpx).astype(np.uint8)
+        c = opq.astype(int); sat = c.max(1) - c.min(1)
+        acc = opq[(sat >= 110) & (c.max(1) >= 170)]
+        allc = list(dict.fromkeys(cols_px(opq, n - head_colors - accent_colors) + cols_px(hpx, head_colors) + cols_px(acc, accent_colors)))[:n]
+        # refinamento k-means (Lloyd, 8 passos) a partir da mediana: as cores grandes e pouco saturadas (blusa lilas,
+        # saia) deixam de virar cinza; as cores de destaque ficam fixas.
+        nfix = len(cols_px(acc, accent_colors)) if accent_colors else 0
+        C = np.array(allc, float); X = opq.astype(float)
+        if len(X) > 60000: X = X[np.random.default_rng(0).choice(len(X), 60000, replace=False)]
+        for _ in range(8):
+            lab_ = ((X[:, None, :] - C[None]) ** 2).sum(2).argmin(1)
+            for j in range(len(C) - nfix):
+                sel = X[lab_ == j]
+                if len(sel): C[j] = sel.mean(0)
+        allc = list(dict.fromkeys(tuple(int(round(v)) for v in c) for c in C))
+        allc += [allc[0]] * (256 - len(allc))  # sem preto de enchimento (contaria como cor a mais)
+        pal = Image.new('P', (1, 1)); pal.putpalette([v for c in allc for v in c])
+    elif head_colors and not palette_from:
         def strip_of(fs):
             st = Image.new('RGB', (FR * len(fs), FR), (0, 0, 0))
             for i, f in enumerate(fs): st.paste(f.convert('RGB'), (i * FR, 0), f)
@@ -128,7 +163,7 @@ def build(npc, out=None, height=None, palette_from=None, only=None):
     wd = work(npc); P = json.load(open(os.path.join(wd, 'picks.json')))
     H = height or CFG[npc]['height']; out = out or os.path.join(GAME, 'assets', 'npcs', f'npc_{npc}')
     rb = lambda f: os.path.join(wd, 'rb_' + f.lstrip('!'))
-    HAIR.clear()
+    HAIR.clear(); SHADOW.clear(); SHADOW.update('rb_' + f for f in P.get('shadow_fix', []))
     for hf in P.get('hair_fix', []):
         for f in hf['files']: HAIR['rb_' + f] = hf
     fx = lambda f, fl: fl != f.startswith('!')  # prefixo "!" = espelhar so este quadro
@@ -151,7 +186,7 @@ def build(npc, out=None, height=None, palette_from=None, only=None):
         sf = set(P.get('sit_flip', []))
         sheets['sit'] = [[place(scale(load(rb(P['sit'][d]), d in sf), -round(H * P.get('sit_scale', 0.72))))] for d in DIRS]
     allf = [f for rows in sheets.values() for r in rows for f in r]
-    q = quantizer(allf, palette_from, head_colors=P.get('head_colors', 0))
+    q = quantizer(allf, palette_from, head_colors=P.get('head_colors', 0), accent_colors=P.get('accent_colors', 0))
     for name, rows in sheets.items():
         sh = Image.new('RGBA', (FR * len(rows[0]), FR * 5))
         for r, row in enumerate(rows):

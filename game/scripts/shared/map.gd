@@ -125,22 +125,27 @@ func get_audio_zone_ids_at(pos: Vector3) -> Array[StringName]:
 
 
 func _ready() -> void:
-	# Objetos sem bloqueio de navegação, idênticos no servidor e no cliente.
-	var items: Array = []
-	match map_id:
-		&"city_awakening":
-			items = [[&"donkey_grass", Vector3(-9, 0, 10), 4], [&"rapadura", Vector3(-6, 0, 6), 2]]
-		&"fields_sabia_crossroads":
-			items = [[&"lobeira", Vector3(-8, 0, -4), 4], [&"lobeira", Vector3(-10, 0, 8), 4]]
-	var parent: Node = get_node_or_null(^"Interactables")
-	if parent == null and not items.is_empty():
-		parent = Node3D.new()
-		parent.name = &"Interactables"
-		add_child(parent)
-	for i: int in items.size():
-		var gather := FollowerGather.new()
-		gather.item_id = items[i][0]
-		gather.position = items[i][1]
-		gather.quantity = items[i][2]
-		gather.gather_id = "bond_gather_%d" % i
-		parent.add_child(gather)
+	if map_id == &"training_field" and DisplayServer.get_name() != "headless" and not DayNight.is_server:
+		var atmosphere: Node3D = (load("res://scripts/client/env/living_environment.gd") as Script).new()
+		atmosphere.name = &"LivingEnvironment"
+		add_child(atmosphere)
+	# Vida de ambiente de todo mapa externo (só cliente): passarinhos e sinais de uso perto das moradias.
+	if DisplayServer.get_name() != "headless" and not DayNight.is_server:
+		var fauna: Script = load("res://scripts/client/env/ambient_life.gd")
+		if fauna.call(&"supports", map_id):
+			var life: Node3D = fauna.new()
+			life.set(&"map_id", map_id)
+			add_child(life)
+			var dressing: Node3D = (load("res://scripts/client/env/camp_dressing.gd") as Script).new()
+			dressing.set(&"map_id", map_id)
+			add_child(dressing)
+		# Cenário vivo de todo mapa (só cliente): plantas balançando, sombra de nuvem, partículas de ar, caverna.
+		var scenery: Node3D = (load("res://scripts/client/env/scenery_life.gd") as Script).new()
+		scenery.set(&"map_id", map_id)
+		scenery.name = &"SceneryLife"
+		add_child(scenery)
+
+		if String(map_id).begins_with("cave_reino_encoberto"):
+			var cave: Node3D = (load("res://scripts/client/env/cave_atmosphere.gd") as Script).new()
+			cave.name = &"CaveAtmosphere"
+			add_child(cave)

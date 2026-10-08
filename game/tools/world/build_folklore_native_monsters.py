@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build and register Brazilian fauna & flora monsters for Nação Sabiá:
+"""Build and register Brazilian fauna & flora monsters for Nação Pindorama:
 - 8 new species across native fauna & flora:
   1. spider_goliath (Aranha-Caranguejeira-Golias) - Boss Aranha
   2. river_anaconda (Sucuri dos Remansos / Cobra-Grande) - Boss Serpente
@@ -125,7 +125,7 @@ SPECIES_DATA = [
     ),
     (
         "harpy_eagle",
-        ["Gavião da Mata", "Harpia Caçadora", "Soberana das Alturas", "Harpia-Real Atroz"],
+        ["Harpia Jovem", "Harpia Caçadora", "Soberana das Alturas", "Harpia-Real Atroz"],
         "harpy_feather",
         [19, 27, 36, 43],
         "fly_pattern",
@@ -164,8 +164,14 @@ SPECIES_DATA = [
 # para o recolor derivado manter o tamanho na tela de antes, o visual_scale do s3/s4 encolhe na mesma proporcao.
 SRC_BOSS_240 = {"wandering_spider"}
 
+# Espécies com arte própria do Blender (game/tools/art/blender/monsters/<id>.py): o gerador não recolore as folhas
+# delas e usa visual_scale 1,0 (o tamanho já vem do modelo). Harpia refeita em 08/10/2026 (harpia mitológica).
+BLENDER_SPECIES = {"harpy_eagle"}
 
-def stage_visual_scale(src_mid, st, scale):
+
+def stage_visual_scale(src_mid, st, scale, mid=""):
+    if mid in BLENDER_SPECIES:
+        return 1.0
     if src_mid in SRC_BOSS_240 and st >= 3:
         return round(scale * 144 / 240, 3)
     return scale
@@ -217,6 +223,8 @@ def generate_sprites():
     mon_assets_dir = GAME_DIR / "assets/monsters"
 
     for mid, names, drop, levels, behavior, src_mid, tints, scales in SPECIES_DATA:
+        if mid in BLENDER_SPECIES:
+            continue
         dest_dir = mon_assets_dir / mid
         dest_dir.mkdir(parents=True, exist_ok=True)
         src_dir = mon_assets_dir / src_mid
@@ -361,7 +369,7 @@ stage = {st}
 name_key = "{key}"
 sprite_base = "res://assets/monsters/{mid}/mon_{mid}_s{st}"
 baked_life = true
-visual_scale = {stage_visual_scale(src_mid, st, scales[st - 1])}
+visual_scale = {stage_visual_scale(src_mid, st, scales[st - 1], mid)}
 level = {level}
 max_hp = {hp}
 atk = {atk}
@@ -385,7 +393,7 @@ drops = Array[ExtResource("drop")]([{", ".join(drops_list)}])"""
             "[resource]",
             f"""script = ExtResource("monster")
 id = &"{mid}"
-region_id = &"sabia"
+region_id = &"pindorama"
 creature_type = &"beast"
 stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])""",
         ]
@@ -504,7 +512,7 @@ def update_localizations():
 # Main
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    print("=== Building Brazilian Fauna & Flora Monsters for Nação Sabiá ===")
+    print("=== Building Brazilian Fauna & Flora Monsters for Nação Pindorama ===")
     generate_sprites()
     write_items()
     generate_monster_defs()

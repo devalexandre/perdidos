@@ -174,6 +174,14 @@ recolorida, `skin` = parte do corpo como pele ou roupa justa, `shirt`, `vest`, `
 `staff`, `lights`, `pockets`), `colors` (rampas de pele, cabelo, olhos + famílias novas) e `anims`.
 Sai uma folha inteira por animação em `assets/npcs/npc_<id>_<anim>.png` (sem camadas).
 
+**Corpo de criança (07/10/2026):** `kind: "child"` (`blender/npcs/configs/_bodies.json`: altura 0.70, cabeça 1.08)
+funciona. A causa do defeito (roupas soltas, braços em T, cabeça sumindo) era `chr_qbase.import_parts` copiar a
+posição no MUNDO das peças modulares ao religá-las ao esqueleto já escalado (`arm.scale = g`); com `g` longe de 1 a
+peça ficava no espaço errado do modificador Armature. Agora a relação LOCAL com o esqueleto é mantida (adultos saem
+idênticos, conferido pixel a pixel no Jatobá). `chr_post.process_npc` usa os olhos pequenos (`front`/`far`/`side`)
+para criança (`big_eyes` na config sobrepõe). Cabeça acima de ~1.1 deforma o rosto nas vistas de lado (olho fora da
+cabeça): não aumentar.
+
 Feitos: `master_jatoba`, `master_candeia` (Campo de Treino), `master_brisa`, `master_orvalho`, `merchant` (Anselmo).
 **Fila** (mesmo formato): `boatman`, `curious_child`, `fisherman` (+ `sit`), `fruit_vendor`, `gate_guard`,
 `master_citlali`, `master_ewan`, `master_guiomar`, `master_nicandro`, `master_seneb`, `master_solveig`,

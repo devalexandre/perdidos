@@ -22,9 +22,9 @@ extra = Dictionary[StringName, Variant]({
 &"zone_heal_received_pct": -0.5
 })
 vfx = &"poison"
-exclusive_to_title = &"sabia_support_matinta"
+exclusive_to_title = &"pindorama_support_matinta"
 icon_text = "FU"
-tree_title = &"sabia_support_matinta"
+tree_title = &"pindorama_support_matinta"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"support_owl_cry": 3

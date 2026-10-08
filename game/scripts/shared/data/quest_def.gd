@@ -46,7 +46,7 @@ extends Resource
 @export var reward_mount: StringName = &""
 @export var turn_in_stars: int = 0
 
-## --- Arco 1 da história (ARCO-1-TERRA-DO-SABIA.md) ---
+## --- Arco 1 da história (ARCO-1-TERRA-DE-PINDORAMA.md) ---
 ## false = conteúdo pronto mas ainda desligado (arte do chefe aguardando aprovação do dono): nunca é oferecida.
 @export var released: bool = true
 ## Histórias (story_id) que precisam estar concluídas, por qualquer desfecho (ex.: &"lobisomem_arc").

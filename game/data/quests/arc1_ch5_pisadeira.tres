@@ -71,7 +71,7 @@ script = ExtResource("1_quest")
 id = &"arc1_ch5_pisadeira"
 name_key = "QUEST_ARC1_CH5_NAME"
 giver_npc = &"firmino_insone"
-region_id = &"sabia"
+region_id = &"pindorama"
 steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4"), SubResource("step_5"), SubResource("step_6")])
 reward_items = Dictionary[StringName, int]({
 &"light_sleep_cloak": 1

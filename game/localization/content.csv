@@ -11,8 +11,8 @@ ITEM_MACHETE_NAME,Facão
 ITEM_MACHETE_DESC,"Lâmina larga e confiável, boa para abrir trilha e para se defender."
 ITEM_SHORT_SWORD_NAME,Espada Curta
 ITEM_SHORT_SWORD_DESC,Espada leve de ferro forjado no porto. Rápida na mão de quem treina.
-ITEM_SABIA_LONG_BLADE_NAME,Lâmina Longa do Sabiá
-ITEM_SABIA_LONG_BLADE_DESC,Espada de ipê reforçada com ferro do porto. Um corte firme que abre caminho nas veredas.
+ITEM_PINDORAMA_LONG_BLADE_NAME,Lâmina Longa de Pindorama
+ITEM_PINDORAMA_LONG_BLADE_DESC,Espada de ipê reforçada com ferro do porto. Um corte firme que abre caminho nas veredas.
 ITEM_BURITI_RECURVE_NAME,Arco Recurvo de Buriti
 ITEM_BURITI_RECURVE_DESC,"Arco de buriti temperado na fumaça, leve na puxada e certeiro de longe."
 ITEM_EMBER_MACHETE_NAME,Facão de Brasa
@@ -30,7 +30,7 @@ ITEM_IPE_CIRCLET_DESC,Flores de ipê guardadas em um aro encantado. Amplifica a 
 ITEM_CINDER_RING_NAME,Anel de Cinza Viva
 ITEM_CINDER_RING_DESC,Um fragmento de brasa preso num aro escuro. A cinza ainda pulsa com energia arcana.
 ITEM_MITO_SABER_NAME,Sabre do Mito
-ITEM_MITO_SABER_DESC,"Lâmina lendária do Sabiá, equilibrada para um golpe certeiro e decisivo."
+ITEM_MITO_SABER_DESC,"Lâmina lendária de Pindorama, equilibrada para um golpe certeiro e decisivo."
 ITEM_ROOTWEAVE_STAFF_NAME,Cajado Trama-Raiz
 ITEM_ROOTWEAVE_STAFF_DESC,"Cajado tecido com raiz antiga, Brasa Eterna e luz de vaga-lume. Obra de mestre do Seu Zé."
 ITEM_BOSS_GALE_BLADE_NAME,Lâmina do Vendaval
@@ -83,7 +83,7 @@ DLG_MASTER_ORVALHO_START_OPT2,"Até mais, mestre."
 DLG_MASTER_ORVALHO_ABOUT,"O Arcano é conversar com as forças do mundo: faísca, gelo, chama... Tudo tem um ritmo, e a gente aprende a escutar. Posso ensinar a Faísca e abrir o caminho da Luz de Vaga-lume, mesmo que você tenha escolhido outra escola no treino."
 DLG_MASTER_ORVALHO_ABOUT_OPT0,Que luzes são essas?
 DLG_MASTER_ORVALHO_ABOUT_OPT1,Quero conhecer suas lições.
-DLG_MASTER_ORVALHO_LIGHTS,São vaga-lumes encantados dos Campos do Sabiá. Um dia me seguiram até aqui e nunca mais foram embora. Acho que gostam do cheiro das minhas ervas!
+DLG_MASTER_ORVALHO_LIGHTS,São vaga-lumes encantados dos Campos de Pindorama. Um dia me seguiram até aqui e nunca mais foram embora. Acho que gostam do cheiro das minhas ervas!
 DLG_MASTER_ORVALHO_LIGHTS_OPT0,Que simpáticos.
 DLG_MERCHANT_START,"Chegue mais, freguês! Poção fresquinha, facão amolado e roupa boa para a estrada. Tudo pago em Estrelas!"
 DLG_MERCHANT_START_OPT0,Quero ver suas mercadorias.
@@ -96,7 +96,7 @@ DLG_BOATMAN_START,"Ô, acordou, afinal! Te achei num bote à deriva, coberto de 
 DLG_BOATMAN_START_OPT0,Onde eu estou?
 DLG_BOATMAN_START_OPT1,Por que me chamou de Viajante?
 DLG_BOATMAN_START_OPT2,Obrigado. Vou dar uma volta.
-DLG_BOATMAN_WHERE,"No Porto do Despertar, na Terra do Sabiá. O mesmo ipê dourado que abriu sua passagem cresce na praça; suas raízes alcançam os cristais que guardam estas terras. Siga o cais para o oeste: o cristal azul debaixo dele traz de volta quem se perde."
+DLG_BOATMAN_WHERE,"No Porto do Despertar, na Terra de Pindorama. O mesmo ipê dourado que abriu sua passagem cresce na praça; suas raízes alcançam os cristais que guardam estas terras. Siga o cais para o oeste: o cristal azul debaixo dele traz de volta quem se perde."
 DLG_BOATMAN_WHERE_OPT0,Por que me chamou de Viajante?
 DLG_BOATMAN_WHERE_OPT1,"Entendi, obrigado."
 DLG_BOATMAN_TRAVELER,"É como chamamos quem a Árvore encontra entre mundos. Você não é o primeiro: cada Viajante chega por um rio diferente, mas todos carregam uma pétala que não murcha. Os Mestres, na casa de azulejos junto da praça, estudam essas chegadas."
@@ -147,7 +147,7 @@ DLG_CURIOUS_CHILD_PLAY_OPT1,"Antes, me mostre o que você tem aí na mão."
 DLG_CURIOUS_CHILD_GIFT,"Uma coroa de flores do ipê! Eu mesmo trancei com as flores que caem. Toma, é sua: todo Viajante novo precisa de uma."
 DLG_CURIOUS_CHILD_GIFT_OPT0,"Obrigado, Tico! Vou usar."
 DLG_CURIOUS_CHILD_GIFT_OPT1,Guarde para você.
-REGION_BRASIL_NAME,Terra do Sabiá
+REGION_BRASIL_NAME,Terra de Pindorama
 REGION_PORTUGAL_NAME,Reino das Mouras
 REGION_JAPAO_NAME,Ilhas do Sol Nascente
 REGION_NORDICO_NAME,Fiordes de Gelo

@@ -1,17 +1,17 @@
 keys,pt_BR
 COMPANION_HARPY,Harpia
 SK_BOW_COMPANION_HAWK_STRIKE,Garra do Alto
-SK_BOW_COMPANION_HAWK_STRIKE_DESC,"Ataques básicos com arco têm 4% + DES × 0,2% de chance (máximo 20%) de causar 80% ATK, ignorando metade da DEF. Recarga interna: 1,5 s."
+SK_BOW_COMPANION_HAWK_STRIKE_DESC,"Os mergulhos da harpia ignoram metade da DEF. No ataque básico com arco, 4% + DES × 0,2% de chance (máximo 20%) de a harpia adiantar o próximo mergulho. Recarga interna: 1,5 s."
 SK_BOW_COMPANION_SKY_EYE,Olho no Céu
 SK_BOW_COMPANION_SKY_EYE_DESC,Revela raros e invisíveis em 12 células por 8 s. O primeiro ataque nesse período recebe +10% de chance crítica.
 COMPANION_GUARA,Guará
 SK_BOW_COMPANION_GUARA_BITE,Mordida do Guará
-SK_BOW_COMPANION_GUARA_BITE_DESC,"Tocaia e Armadilha de Cipó acionam uma mordida de 60% ATK, com lentidão de 20% por 2 s. Recarga interna: 4 s."
+SK_BOW_COMPANION_GUARA_BITE_DESC,"Tocaia e Armadilha de Cipó fazem o guará adiantar a próxima mordida, com lentidão de 20% por 2 s. Recarga interna: 4 s."
 SK_BOW_COMPANION_GUARA_TRACK,Faro do Guará
 SK_BOW_COMPANION_GUARA_TRACK_DESC,"Marca um alvo por 15 s, revelando-o e mostrando-o no minimapa. Fora de combate, também revela coletas em 10 células."
 COMPANION_LUME,Lume
 SK_ARCANE_COMPANION_LUME_LIGHT,Luz que Acompanha
-SK_ARCANE_COMPANION_LUME_LIGHT_DESC,"Ilumina 4 células à noite e nas cavernas. Efeito visual, sem dano."
+SK_ARCANE_COMPANION_LUME_LIGHT_DESC,"Ilumina 4 células à noite e nas cavernas (só visual). A Lume luta com magias: Centelha, Luz que Cura e Enxame."
 SK_ARCANE_COMPANION_LUME_GUIDE,Lume Guia
 SK_ARCANE_COMPANION_LUME_GUIDE_DESC,"Destaca coletas e baús em 15 células por 20 s, sem gastar mana."
 MOUNT_DONKEY,Jumento do Sertão
@@ -34,7 +34,7 @@ QUEST_BOND_HARPY_OFFER_TEXT_KEY,Ninho na Sumaúma: podemos começar?
 QUEST_BOND_HARPY_PROGRESS_TEXT_KEY,Siga as etapas no diário. Eu espero seu retorno.
 QUEST_BOND_HARPY_COMPLETE_TEXT_KEY,Vocês agora têm uma estrada para seguir juntos.
 QUEST_BOND_HARPY_OPTION_TEXT_KEY,Ninho na Sumaúma
-QUEST_BOND_GUARA_STEP_0,Colha 8 Lobeiras na Encruzilhada dos Campos.
+QUEST_BOND_GUARA_STEP_0,Peça 8 frutos de lobeira ao Mestre Taquari.
 QUEST_BOND_GUARA_STEP_1,"Siga o primeiro rastro na Encruzilhada, de dia."
 QUEST_BOND_GUARA_STEP_2,"Siga o segundo rastro, de dia."
 QUEST_BOND_GUARA_STEP_3,"Siga o terceiro rastro, de dia."
@@ -56,8 +56,8 @@ QUEST_BOND_LUME_OFFER_TEXT_KEY,Pote de Luz: podemos começar?
 QUEST_BOND_LUME_PROGRESS_TEXT_KEY,Siga as etapas no diário. Eu espero seu retorno.
 QUEST_BOND_LUME_COMPLETE_TEXT_KEY,Vocês agora têm uma estrada para seguir juntos.
 QUEST_BOND_LUME_OPTION_TEXT_KEY,Pote de Luz
-QUEST_MOUNT_DONKEY_STEP_0,Colha 4 porções de capim junto ao Tropeiro.
-QUEST_MOUNT_DONKEY_STEP_1,Pegue 2 rapaduras na banca da vila.
+QUEST_MOUNT_DONKEY_STEP_0,Peça 4 porções de capim ao Tropeiro.
+QUEST_MOUNT_DONKEY_STEP_1,Peça 2 rapaduras ao Tropeiro para a entrega.
 QUEST_MOUNT_DONKEY_STEP_2,Leve a carga ao ponto de entrega perto do cais.
 QUEST_MOUNT_DONKEY,Um Amigo de Estrada
 QUEST_MOUNT_DONKEY_DESC_KEY,Complete a história de vínculo. Não exige nível.
@@ -94,3 +94,32 @@ FOLLOWER_ASSIGN,Colocar no atalho
 FOLLOWER_CHANNEL,Chamando… %.1f s. Fique parado.
 FOLLOWER_SWAP_TIMER,Próxima troca em %d s.
 FOLLOWER_WINDOW_HINT,Companheiros seguem você. Montarias de viagem desmontam ao lutar.
+COMPANION_LEVEL_SHORT,Nv %d
+COMPANION_LEVEL_UP,%s subiu para o nível %d!
+COMPANION_EVOLVED,%s cresceu! (nível %d)
+FOLLOWER_LEVEL,"Nível %d · XP %d / %d"
+FOLLOWER_LEVEL_MAX,Nível %d (máximo)
+FOLLOWER_SPELLS,Magias: %s
+FOLLOWER_NEXT_SPELL,Próxima magia no nível %d
+FOLLOWER_COMBAT_HINT,"Luta sozinho contra o alvo atual. Ganha 20% do XP dos monstros, sem tirar o seu."
+CSK_HARPY_FEATHER_GUST,Rajada de Penas
+CSK_HARPY_FEATHER_GUST_DESC,"A harpia sacode as asas sobre o alvo: 130% do poder em área pequena (1,5 célula). Recarga 9 s."
+CSK_HARPY_HIGH_CRY,Grito do Alto
+CSK_HARPY_HIGH_CRY_DESC,"Grito que assusta o alvo: 60% do poder e −15% de esquiva por 6 s. Recarga 15 s."
+CSK_HARPY_ROYAL_DIVE,Mergulho Real
+CSK_HARPY_ROYAL_DIVE_DESC,"Mergulho do alto: 220% do poder, ignorando toda a DEF. Recarga 18 s."
+CSK_GUARA_HOWL,Uivo do Cerrado
+CSK_GUARA_HOWL_DESC,"Uivo longo: lentidão de 30% por 3 s em 3 células em volta do alvo. Recarga 14 s."
+CSK_GUARA_POUNCE,Bote
+CSK_GUARA_POUNCE_DESC,"Salto no alvo: 160% do poder e atordoamento de 0,8 s. Recarga 12 s."
+CSK_GUARA_DEEP_BITE,Dentada Funda
+CSK_GUARA_DEEP_BITE_DESC,"Mordida que não solta: 200% do poder. Recarga 16 s."
+CSK_LUME_SPARK,Centelha
+CSK_LUME_SPARK_DESC,"Faísca de luz: 100% do poder em dano mágico. Recarga 3 s."
+CSK_LUME_HEAL,Luz que Cura
+CSK_LUME_HEAL_DESC,"Com o dono abaixo de 70% da vida em combate, cura 80% do poder. Recarga 15 s."
+CSK_LUME_SWARM,Enxame
+CSK_LUME_SWARM_DESC,"As luzinhas cercam o alvo: 100% do poder em dano mágico em 2 células. Recarga 12 s."
+TROPEIRO_SUPPLY_GRASS,Separar o capim para a entrega.
+TROPEIRO_SUPPLY_RAPADURA,Separar as rapaduras para a entrega.
+TAQUARI_SUPPLY_LOBEIRA,Separar a lobeira para o Guará.

@@ -1,21 +1,23 @@
 """Iara Atroz (story_iara) — chefe da historia do Arco 1, capitulo 6 (rio da Cidade Perdida de Z).
 Sereia de rio (agua doce, Amazonia) corrompida por Erevos: so existe na forma atroz (estagio 4, a noite).
-Chibi, sem sensualizacao: corpete de conchas/escamas fechado ate o pescoco, cauda de peixe de rio enrolada no chao,
-cabelo verde-escuro comprido que arrasta ate a agua com as pontas queimando em fogo negro (pontas violeta),
-barbatanas nas orelhas, pente de madreperola no cabelo (o pente que ela deixa ao ser vencida), olhos de luz fria.
-  idle: canta baixinho (boca abre e fecha, notas boiando), cabelo e cauda ondulam;
-  walk: desliza na poca de agua que vai com ela (cauda em onda);
+Chibi, sem sensualizacao: corpete de escamas fechado ate o pescoco com conchas douradas. Sentada numa pedra de rio
+dentro de uma poca simples: a cauda de peixe de rio (escamas em meia-lua) desce pela frente da pedra e se deita na
+agua, com a nadadeira caudal em leque erguida de frente para a camera; cabelo verde-escuro comprido deitado na pedra,
+mechas da frente com a ponta em fogo negro (pontas violeta, a corrupcao), tambem nas pontas da nadadeira;
+barbatanas nas orelhas, pente de madreperola no cabelo (o pente que ela deixa ao ser vencida), olhos violeta.
+  idle: canta baixinho (boca abre e fecha, notas boiando), cabelo e nadadeira ondulam;
+  walk: desliza com a agua (cauda em onda);
   attack: puxa o ar, inclina para a frente e solta o canto (aneis de som e notas de agua saindo da boca);
-  hit: encolhe, olhos apertados, cabelo voa;
-  death: o fogo negro apaga e ela deita sobre a cauda, de olhos fechados (volta ao fundo do rio, nao morre).
+  hit: recua, olhos apertados, cabelo voa;
+  death: o fogo negro apaga e ela deita de lado sobre a pedra, olhos fechados (volta ao fundo do rio, nao morre).
 Modelo proprio por script; rosto no desenho do Tatu-Pedra / piloto do Sol (sol_common.eye/brow)."""
 import math
-from mathutils import Vector
+from mathutils import Vector, Matrix
 import mon_rig as R
 import sol_common as S
 import story_common_l2 as C
 
-SCALE = {4: 2.85}
+SCALE = {4: 2.6}
 FRAME = {4: 240}
 STAGES = (4,)
 ANIMS = [("idle", 8), ("walk", 8), ("attack", 8), ("hit", 4), ("death", 8)]
@@ -27,6 +29,8 @@ HR = (0.25, 0.21, 0.23)
 BC = Vector((0, 0.0, 0.52))
 BR = (0.14, 0.11, 0.15)
 MOUTH = HC + Vector((0, -0.2, -0.13))
+LIFT = 0.24                                 # ela fica sentada na pedra: o corpo (pivo body) sobe LIFT
+MOUTH_W = MOUTH + Vector((0, 0, LIFT))      # boca nas coordenadas do root (notas e aneis de som)
 
 
 def build(stage):
@@ -38,44 +42,63 @@ def build(stage):
     rig.turn.scale = (SCALE[stage],) * 3
     rig.set_lean(LEAN)
     root = rig.root
-    # ---- poca de agua escura que vai com ela (le no chao; brilho frio na borda)
-    pond = rig.empty("pond", (0.1, 0.04, 0.0), root)
-    rig.add_mesh(R.ellipsoid("pond", (0.08, 0.06, 0.008), (0.42, 0.34, 0.008), seg=40), "pond", "kappa_skin_n", pond,
+    # ---- poca simples de agua escura do rio com uma ondinha clara, e a pedra de rio onde ela senta
+    pond = rig.empty("pond", (0.05, -0.02, 0.0), root)
+    rig.add_mesh(R.ellipsoid("pond", (0.05, -0.04, 0.006), (0.56, 0.42, 0.006), seg=40), "pond", "kappa_skin_n", pond,
                  noline=True, prio=0.8)
-    for k in range(5):
-        a = math.tau * k / 5 + 0.5
-        p = Vector((0.08 + 0.4 * math.cos(a), 0.06 + 0.32 * math.sin(a), 0.01))
-        rig.add_mesh(R.cone(f"crest{k}", p, p + Vector((0.03 * math.cos(a), 0.03 * math.sin(a), 0.07)), 0.035, 0.004,
-                            seg=6, rings=2), "crest", "cold", pond, unlit=True, noline=True, prio=1.2)
+    rig.add_mesh(S.torus("ripple", (0.05, -0.04, 0.012), 0.47, 0.01, nu=40, yscale=0.36 / 0.47), "ripple", "cold", pond,
+                 unlit=True, noline=True, prio=1.0)
+    rock = rig.empty("rock", (0, 0.12, 0.0), root)
+    rig.add_mesh(R.ellipsoid("rock", (0, 0.14, 0.24), (0.36, 0.3, 0.27), seg=20, rings=12), "rock", "basalt_n", rock)
+    rig.add_mesh(R.ellipsoid("rock2", (-0.3, 0.02, 0.07), (0.13, 0.11, 0.08), seg=14, rings=8), "rock2", "basalt_n", rock)
+    rig.add_mesh(R.ellipsoid("rock3", (0.27, 0.26, 0.08), (0.12, 0.1, 0.09), seg=14, rings=8), "rock3", "basalt_n", rock)
+    rig.add_mesh(R.ellipsoid("rmoss", (-0.18, 0.26, 0.42), (0.13, 0.1, 0.05), rot=(0.5, -0.4, 0)), "rmoss", "moss_n", rock)
     body = rig.empty("body", (0, 0.04, 0.36), root)
-    # ---- cauda de peixe de rio: enrolada na frente dela (pose de sereia sentada), barbatana erguida a direita
-    pts = [(0, 0.04, 0.38), (0.0, -0.02, 0.22), (0.05, -0.12, 0.12), (0.16, -0.19, 0.085), (0.28, -0.17, 0.085),
-           (0.32, -0.09, 0.12), (0.34, -0.01, 0.24)]
-    rad = [0.15, 0.15, 0.135, 0.115, 0.095, 0.075, 0.055]
-    rig.tail = C.chain(rig, "tail", pts, rad, body, "iara_scale_l2", ring_mat="iara_hair_l2")
+    # ---- cauda de peixe de rio: sai do quadril, desce pela frente da pedra e se deita na agua para a direita;
+    # escamas em meia-lua, nadadeira caudal em leque erguida de frente para a camera
+    hip = LIFT
+    pts = [(0, 0.03, 0.38 + hip), (0.02, -0.1, 0.33 + hip), (0.06, -0.2, 0.42), (0.1, -0.27, 0.27), (0.17, -0.31, 0.13),
+           (0.28, -0.31, 0.065), (0.37, -0.25, 0.065), (0.43, -0.17, 0.1)]
+    rad = [0.14, 0.135, 0.125, 0.115, 0.1, 0.085, 0.068, 0.05]
+    rig.tail = C.chain(rig, "tail", pts, rad, root, "iara_scale_l2", group="tail")
+    for i in range(len(pts) - 1):   # escamas em meia-lua (2 fileiras por segmento, viradas para cima/camera)
+        a, b = Vector(pts[i]), Vector(pts[i + 1])
+        d = (b - a).normalized()
+        o = (Vector((0, -0.6, 1.0)) - d * Vector((0, -0.6, 1.0)).dot(d)).normalized()
+        sd = d.cross(o).normalized()
+        rr = (rad[i] + rad[i + 1]) * 0.5
+        for k, (u, w) in enumerate(((0.2, -0.5), (0.2, 0.5), (0.55, -0.9), (0.55, 0.0), (0.55, 0.9), (0.9, -0.5),
+                                    (0.9, 0.5))):
+            q = a + (b - a) * u
+            n = (o * math.cos(w) + sd * math.sin(w)).normalized()
+            c = q + n * rr * 0.99
+            M = Matrix((sd, d, n)).transposed()
+            rig.add_mesh(R.ellipsoid(f"scale{i}{k}", c, (rr * 0.34, rr * 0.26, rr * 0.1), rot=M.to_euler()), "tscale",
+                         "iara_scale_l2", rig.n(rig.tail[i]), prio=1.2)   # mesma cor: so o contorno desenha a escama
     end = rig.n(rig.tail[-1])
     ep = Vector(pts[-1])
     fin = rig.empty("fin", ep, end)
-    # barbatana em leque (superficie aberta) erguida, de frente para a camera, com raios e bordas queimando
-    d0 = Vector((0.12, 0.6, 0.8)).normalized()
-    s0 = d0.cross(Vector((0, -1, 0))).normalized()
+    camf = Vector((0, 0.57, -0.82))
+    d0 = Vector((0.62, 0.62, 0.43)).normalized()
+    d0 = (d0 - camf * d0.dot(camf)).normalized()        # no plano de frente para a camera
+    s0 = camf.cross(d0).normalized()
 
     def ffn(u, v):
-        th = -0.6 + 1.2 * u
-        r = 0.04 + v * 0.34 * (0.45 + 0.55 * abs(th) / 0.6)   # cauda bifurcada (V)
-        return ep + (d0 * math.cos(th) + s0 * math.sin(th)) * r + Vector((0, -0.01, 0)) * math.sin(math.pi * v)
-    rig.add_mesh(R.surface("fin", ffn, 24, 6, ep + Vector((0, 0.3, 0))), "fin", "wing_n", fin)
-    for k in range(5):
-        th = -0.52 + 1.04 * k / 4
+        th = -0.7 + 1.4 * u
+        r = 0.03 + v * 0.3 * (0.55 + 0.45 * abs(th) / 0.7)   # nadadeira caudal em leque com entalhe no meio
+        return ep + (d0 * math.cos(th) + s0 * math.sin(th)) * r
+    rig.add_mesh(R.surface("fin", ffn, 24, 6, ep - camf * 0.3), "fin", "wing_n", fin)
+    for k in range(7):
+        th = -0.62 + 1.24 * k / 6
         dd = d0 * math.cos(th) + s0 * math.sin(th)
-        ln = 0.34 * (0.45 + 0.55 * abs(th) / 0.6) - 0.03
-        rig.add_mesh(R.cone(f"finr{k}", ep + dd * 0.05 + Vector((0, -0.012, 0)), ep + dd * ln + Vector((0, -0.012, 0)),
-                            0.009, 0.004, seg=5, rings=1), "finray", "bfire_core_l2", fin, noline=True, unlit=True,
-                     prio=1.6)
-    for k, th in enumerate((-0.58, 0.58)):
+        ln = 0.3 * (0.55 + 0.45 * abs(th) / 0.7) - 0.02
+        rig.add_mesh(R.cone(f"finr{k}", ep + dd * 0.04 - camf * 0.01, ep + dd * ln - camf * 0.01, 0.008, 0.004, seg=5,
+                            rings=1), "finray", "pale_n", fin, noline=True, unlit=True, prio=1.6)
+    for k, th in enumerate((-0.66, 0.66)):
         dd = d0 * math.cos(th) + s0 * math.sin(th)
-        C.black_flame(rig, f"ffl{k}", ep + dd * 0.36, dd * 0.3 + Vector((0, 0, 0.8)), 0.2, 0.055, fin, phase=0.4 * k,
-                      bend=-0.3)
+        ln = 0.3 * (0.55 + 0.45 * abs(th) / 0.7)
+        C.black_flame(rig, f"ffl{k}", ep + dd * ln * 0.9, dd * 0.3 + Vector((0, 0, 0.8)), 0.13, 0.04, fin, phase=0.4 * k,
+                      bend=0.3 if k else -0.3)
     # babado de barbatanas na cintura (esconde a juncao do corpete com a cauda)
     for k in range(10):
         a = math.tau * k / 10
@@ -134,7 +157,6 @@ def build(stage):
     # cabelo comprido: um manto de cabelo preso atras da cabeca (ja inclinada) que desce ate o chao e se abre atras da
     # cauda, borda de mechas em zigue-zague; fica no pivo "mane" do corpo (a inclinacao da cabeca nao o empurra)
     neck = Vector((0, -0.01, 0.66))
-    from mathutils import Matrix
     Rx = Matrix.Rotation(HEAD_TILT, 3, "X")
 
     def hrot(p):
@@ -144,13 +166,10 @@ def build(stage):
     for j in range(7):
         a = -1.55 + 3.1 * j / 6
         top = hrot(HC + Vector((math.sin(a) * HR[0] * 0.8, math.cos(a) * HR[1] * 0.85 + 0.03, 0.02)))
-        bot = Vector((math.sin(a) * 0.36, 0.2 + math.cos(a) * 0.2, 0.05 + 0.03 * (j % 2)))
+        bot = Vector((math.sin(a) * 0.34, 0.2 + math.cos(a) * 0.2, 0.2 + 0.03 * (j % 2)))   # deita na pedra
         out = Vector((math.sin(a), math.cos(a) * 0.7, 0)).normalized()
         rig.add_mesh(R.cone(f"strand{j}", top, bot, 0.1, 0.01, seg=10, rings=6, bend=out * 0.1), f"strand{j}",
                      "iara_hair_l2", mane, group="mane")
-        if j in (0, 2, 4, 6):
-            C.black_flame(rig, f"mfl{j}", top + (bot - top) * 0.82 + out * 0.08, out * 0.5 + Vector((0, 0, 1.0)), 0.24, 0.055, mane,
-                          phase=0.21 * j + 0.1)
     rig.locks = ["mane"]
     # mechas laterais (de tras das orelhas ate a cintura), emolduram o rosto sem cobri-lo; pontas em fogo negro
     for j, sx in enumerate((1, -1)):
@@ -159,7 +178,7 @@ def build(stage):
         lk = rig.empty(f"lock{j}", a, body)
         rig.add_mesh(R.cone(f"lock{j}", a, tip, 0.075, 0.04, seg=10, rings=5, bend=(0.05 * sx, -0.02, 0.0)), f"lock{j}",
                      "iara_hair_l2", lk)
-        C.black_flame(rig, f"hfl{j}", tip + Vector((0.02 * sx, -0.02, -0.03)), (0.35 * sx, -0.1, 1.0), 0.28, 0.06, lk,
+        C.black_flame(rig, f"hfl{j}", tip + Vector((0.02 * sx, -0.02, -0.03)), (0.35 * sx, -0.1, 1.0), 0.2, 0.045, lk,
                       phase=0.3 * j)
     # pente de madreperola com golfinho (fragmento de Maria) preso do lado esquerdo
     cp = HC + Vector((0.15, -0.04, 0.19))
@@ -168,22 +187,23 @@ def build(stage):
                  "combd", "wisp_c2", hairp, noline=True, unlit=True, prio=3.0)
     head.rotation_euler.x += HEAD_TILT
     # ---- particulas: gotas de luz fria subindo, 2 notas boiando, notas/aneis do canto, respingo
-    S.add_motes(rig, "rise", [(0.1 + 0.4 * math.cos(k * 1.9), 0.04 + 0.32 * math.sin(k * 1.9), 0.04) for k in range(7)],
+    S.add_motes(rig, "rise", [(0.05 + 0.45 * math.cos(k * 1.9), -0.04 + 0.34 * math.sin(k * 1.9), 0.03) for k in range(7)],
                 ["cold_hot", "wisp_v", "cold"], size=0.022, parent=root)
     rig.hum = []
-    for j, p in enumerate(((0.42, -0.05, 1.05), (-0.4, 0.0, 0.92))):
+    for j, p in enumerate(((0.42, -0.05, 1.05 + LIFT), (-0.4, 0.0, 0.92 + LIFT))):
         C.note(rig, f"hum{j}", p, root, mat="cold_hot" if j == 0 else "wisp_v", k=0.85, double=j == 1)
         rig.hum.append(f"hum{j}")
     rig.sing = []
     for j in range(3):
-        C.sound_ring(rig, f"ring{j}", MOUTH + Vector((0, -0.06, 0)), root, 0.11, mat="cold_hot" if j % 2 == 0 else "cold")
+        C.sound_ring(rig, f"ring{j}", MOUTH_W + Vector((0, -0.06, 0)), root, 0.11, mat="cold_hot" if j % 2 == 0 else "cold")
         rig.sing.append(f"ring{j}")
     rig.notes = []
     for j in range(4):
-        C.note(rig, f"note{j}", MOUTH + Vector((0, -0.08, 0)), root, mat=("cold_hot", "wisp_v", "cold", "wisp_v")[j], k=0.9,
+        C.note(rig, f"note{j}", MOUTH_W + Vector((0, -0.08, 0)), root, mat=("cold_hot", "wisp_v", "cold", "wisp_v")[j], k=0.9,
                double=j % 2 == 1)
         rig.notes.append(f"note{j}")
     S.add_motes(rig, "drop", [(0, 0, 0.5)] * 7, ["drop", "drop2", "cold"], size=0.024, parent=root)
+    body.location.z += LIFT   # sentada na pedra
     rig.save_rest()
     for nm in rig.sing + rig.notes:
         rig.n(nm).scale = (0.0001,) * 3
@@ -261,7 +281,7 @@ def pose(rig, anim, i, n, stage):
         rig.n("pond").rotation_euler.z += 0.15 * math.sin(math.tau * t)
     elif anim == "attack":
         _attack(rig, i)
-        C.flames(rig, t, k=[1.0, 1.15, 1.35, 1.4, 1.3, 1.2, 1.1, 1.0][i])
+        C.flames(rig, t, k=[1.0, 1.08, 1.15, 1.2, 1.15, 1.1, 1.05, 1.0][i])
     elif anim == "hit":
         R.squash(body, [0.86, 1.08, 0.97, 1.0][i])
         body.rotation_euler.x += [-0.12, 0.05, 0.02, 0][i]
@@ -271,8 +291,8 @@ def pose(rig, anim, i, n, stage):
         _arms(rig, [-0.8, -0.4, -0.2, -0.15][i], [0.6, 0.3, 0.1, 0.1][i])
         _hair(rig, 0.0, 1.0, [0.35, 0.2, 0.05, 0.0][i])
         _hum(rig, t, on=False)
-        C.flames(rig, i / 4.0, k=[1.3, 1.1, 1.0, 1.0][i])
-        S.splash(rig, "drop", [0.12, 0.3, 0.48, 0.7][i], Vector((0, -0.05, 0.5)),
+        C.flames(rig, i / 4.0, k=[1.12, 1.05, 1.0, 1.0][i])
+        S.splash(rig, "drop", [0.12, 0.3, 0.48, 0.7][i], Vector((0, -0.05, 0.5 + LIFT)),
                  [(-0.4, 0.1, 0.9), (0.4, 0.05, 0.85), (0.0, 0.3, 1.0), (-0.2, -0.2, 0.7), (0.25, -0.15, 0.75),
                   (0.4, 0.25, 0.6), (-0.4, 0.25, 0.65)], g=3.0, shrink=0.9)
     elif anim == "death":
@@ -322,10 +342,10 @@ def _attack(rig, i):
 def _death(rig, i):
     """O fogo negro apaga, ela amolece e deita de lado sobre a cauda, olhos fechados (volta ao fundo do rio)."""
     root, body, head = rig.root, rig.n("body"), rig.n("head")
-    C.flames(rig, i / 8, k=[1.2, 0.9, 0.6, 0.35, 0.15, 0.0, 0.0, 0.0][i])
+    C.flames(rig, i / 8, k=[1.05, 0.85, 0.6, 0.35, 0.15, 0.0, 0.0, 0.0][i])
     _hum(rig, 0, on=False)
     S.motes(rig, "rise", i / 8, rise=0.5, spread=0.8, fade=max(0.0001, 1.0 - i / 5))
-    side = [0.0, 0.1, 0.35, 0.75, 1.05, 1.18, 1.12, 1.15][i]
+    side = [0.0, 0.1, 0.3, 0.6, 0.85, 0.95, 0.91, 0.93][i]
     body.rotation_euler.y += side
     body.location.z -= 0.2 * (1 - math.cos(side))
     body.rotation_euler.x += [0.2, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0][i]

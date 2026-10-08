@@ -4,11 +4,19 @@ extends MeshInstance3D
 ## Criada pelo SkillFx. Em pé (billboard, virada para a câmera) ou deitada no chão (flat). Pode seguir
 ## uma entidade (e some quando ela morre ou sai da cena), girar na direção de um voo na tela e
 ## ficar em laço por um tempo. Tudo só visual.
+## Efeitos "anime" (07/10/2026, docs/fx-anime.md): folhas em alta de assets/fx/anime/ (<peça>.json com
+## "filter": "linear" e "cols"), em grade, com filtro linear + mipmaps; blend "glow" = só aditivo.
 
 const ADD_SHADER: String = "res://assets/shaders/skill_fx_add.gdshader"
 const MIX_SHADER: String = "res://assets/shaders/skill_fx_mix.gdshader"
+const ADD_SMOOTH_SHADER: String = "res://assets/shaders/skill_fx_add_smooth.gdshader"
+const MIX_SMOOTH_SHADER: String = "res://assets/shaders/skill_fx_mix_smooth.gdshader"
+## Folhas dos efeitos "anime" (alta resolução, degradê e alfa suaves; fora da regra de paleta da pixel art).
+const ANIME_DIR: String = "res://assets/fx/anime/"
 const PLANE_FLAT: StringName = &"flat"
 const BLEND_ADD: StringName = &"add"
+## Só a camada aditiva (brilho puro, sem o corpo em blend normal por baixo).
+const BLEND_GLOW: StringName = &"glow"
 ## Depois das manchas de chão (≤ 5) e da sombra dos pés (6); as peças em pé por cima das deitadas.
 const PRIORITY_FLAT: int = 7
 const PRIORITY_UPRIGHT: int = 8
@@ -46,6 +54,7 @@ var _mat: ShaderMaterial
 var _glow_mat: ShaderMaterial = null
 var _stop_at: float = -1.0
 var _flat: bool = false
+var _follows: bool = false
 
 
 ## Cria a peça pelo nome da tabela. null se a folha não existir.
@@ -69,10 +78,18 @@ static func create(piece_name: StringName) -> SkillFxSprite:
 	var r: float = maxf(size.x, size.y) * 1.5
 	s.custom_aabb = AABB(Vector3(-r, -r, -r), Vector3(r, r, r) * 2.0)
 	var prio: int = PRIORITY_FLAT if s._flat else PRIORITY_UPRIGHT
-	s._mat = _make_mat(&"mix", tex, s.frames, not s._flat, prio)
+	var smooth: bool = bool(info.get("smooth", false))
+	var cols: int = int(info.get("cols", 0))
+	var hf: int = cols if cols > 0 else s.frames
+	var vf: int = ceili(float(s.frames) / hf)
+	if info["blend"] == BLEND_GLOW:
+		s._mat = _make_mat(BLEND_ADD, tex, hf, not s._flat, prio + 1, smooth, vf)
+		s.material_override = s._mat
+		return s
+	s._mat = _make_mat(&"mix", tex, hf, not s._flat, prio, smooth, vf)
 	s.material_override = s._mat
 	if info["blend"] == BLEND_ADD:
-		s._glow_mat = _make_mat(BLEND_ADD, tex, s.frames, not s._flat, prio + 1)
+		s._glow_mat = _make_mat(BLEND_ADD, tex, hf, not s._flat, prio + 1, smooth, vf)
 		s._glow_mat.set_shader_parameter(&"tint", Color(GLOW_GAIN, GLOW_GAIN, GLOW_GAIN, 1.0))
 		var g := MeshInstance3D.new()
 		g.name = &"Glow"
@@ -84,11 +101,13 @@ static func create(piece_name: StringName) -> SkillFxSprite:
 	return s
 
 
-static func _make_mat(blend: StringName, tex: Texture2D, n: int, billboard: bool, prio: int) -> ShaderMaterial:
+static func _make_mat(blend: StringName, tex: Texture2D, n: int, billboard: bool, prio: int,
+		smooth: bool = false, rows: int = 1) -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
-	mat.shader = _shader(blend)
+	mat.shader = _shader(blend, smooth)
 	mat.set_shader_parameter(&"sheet", tex)
 	mat.set_shader_parameter(&"hframes", n)
+	mat.set_shader_parameter(&"vframes", rows)
 	mat.set_shader_parameter(&"billboard", billboard)
 	mat.render_priority = prio
 	return mat
@@ -100,17 +119,28 @@ func _param(key: StringName, value: Variant) -> void:
 		_glow_mat.set_shader_parameter(key, value)
 
 
+## Preserva luz e recortes da folha ao trocar a cor da preparação, inclusive nas peças quentes.
+func set_charge_color(color: Color) -> void:
+	_param(&"charge_color", color)
+	_param(&"charge_recolor", true)
+
+
 static func has_piece(piece_name: StringName) -> bool:
 	return not sheet_info(piece_name).is_empty() and _texture(piece_name) != null
 
 
 ## Dados da folha. Uma folha importada de GIF (tools/art/fx/import_fx_gif.py) traz <peça>.json ao
-## lado e tem preferência sobre a tabela gerada (SkillFxSheets).
+## lado e tem preferência sobre a tabela gerada (SkillFxSheets). As folhas "anime" (ANIME_DIR) também
+## vêm com .json: "cols" (grade) e "filter": "linear" (smooth).
 static func sheet_info(piece_name: StringName) -> Dictionary:
 	if _infos.has(piece_name):
 		return _infos[piece_name]
 	var info: Dictionary = SkillFxSheets.SHEETS.get(piece_name, {}).duplicate()
-	var jpath: String = SkillFxSheets.DIR + String(piece_name) + ".json"
+	var dir: String = SkillFxSheets.DIR
+	var jpath: String = dir + String(piece_name) + ".json"
+	if not FileAccess.file_exists(jpath) and FileAccess.file_exists(ANIME_DIR + String(piece_name) + ".json"):
+		dir = ANIME_DIR
+		jpath = dir + String(piece_name) + ".json"
 	if FileAccess.file_exists(jpath):
 		var j: Variant = JSON.parse_string(FileAccess.get_file_as_string(jpath))
 		if j is Dictionary:
@@ -120,22 +150,27 @@ static func sheet_info(piece_name: StringName) -> Dictionary:
 				"pivot": Vector2(float(d["pivot"][0]), float(d["pivot"][1])),
 				"blend": StringName(str(d.get("blend", "add"))), "plane": StringName(str(d.get("plane", "billboard"))),
 				"fps": float(d.get("fps", 12.0)), "loop": bool(d.get("loop", false)),
-				"texel": float(d.get("texel", 1.0 / 48.0)), "imported": true}
+				"texel": float(d.get("texel", 1.0 / 48.0)), "imported": true,
+				"cols": int(d.get("cols", 0)), "smooth": str(d.get("filter", "nearest")) == "linear", "dir": dir}
 	_infos[piece_name] = info
 	return info
 
 
 static func _texture(piece_name: StringName) -> Texture2D:
 	if not _textures.has(piece_name):
-		var path: String = SkillFxSheets.DIR + String(piece_name) + ".png"
+		var path: String = str(sheet_info(piece_name).get("dir", SkillFxSheets.DIR)) + String(piece_name) + ".png"
 		_textures[piece_name] = load(path) as Texture2D if ResourceLoader.exists(path) else null
 	return _textures[piece_name]
 
 
-static func _shader(blend: StringName) -> Shader:
-	if not _shaders.has(blend):
-		_shaders[blend] = load(ADD_SHADER if blend == BLEND_ADD else MIX_SHADER) as Shader
-	return _shaders[blend]
+static func _shader(blend: StringName, smooth: bool = false) -> Shader:
+	var key: StringName = StringName(String(blend) + ("_smooth" if smooth else ""))
+	if not _shaders.has(key):
+		var path: String = ADD_SHADER if blend == BLEND_ADD else MIX_SHADER
+		if smooth:
+			path = ADD_SMOOTH_SHADER if blend == BLEND_ADD else MIX_SMOOTH_SHADER
+		_shaders[key] = load(path) as Shader
+	return _shaders[key]
 
 
 ## Quad com o pivô da folha na origem. Em pé: plano XY (y para cima). Deitado: plano XZ, com o
@@ -215,7 +250,10 @@ func _process(delta: float) -> void:
 
 
 func _apply(_delta: float) -> void:
+	# (um seguido já liberado compara igual a null: a marca guarda que havia alguém para seguir)
 	if follow != null:
+		_follows = true
+	if _follows:
 		if not is_instance_valid(follow) or not follow.is_inside_tree():
 			queue_free()
 			follow = null

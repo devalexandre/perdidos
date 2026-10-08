@@ -1,6 +1,6 @@
 extends Node
 
-const TITLE_ID: StringName = &"sabia_blade_machete"
+const TITLE_ID: StringName = &"pindorama_blade_machete"
 const SKILLS_WINDOW_SCRIPT: GDScript = preload("res://scripts/client/ui/skills_window.gd")
 const HOTBAR_SCRIPT: GDScript = preload("res://scripts/client/ui/hotbar.gd")
 

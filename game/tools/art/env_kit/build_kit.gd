@@ -151,6 +151,7 @@ func _make_materials() -> void:
 	mush["base_darken"] = 0.25
 	var reeds_extra := grass_extra.duplicate()
 	reeds_extra["base_darken"] = 0.3
+	reeds_extra["wind_strength"] = 0.18
 	_foliage("card_reeds_real", CARDS + "card_reeds.png", Color(1, 1, 1), reeds_extra)
 	_foliage("card_mushrooms", CARDS + "card_mushrooms.png", Color(1, 1, 1), mush)
 	_foliage("card_mushrooms_b", CARDS + "card_mushrooms_b.png", Color(1, 1, 1), mush)
@@ -431,7 +432,8 @@ func _make_variants() -> void:
 	_tint_of("card_conifer", "card_conifer_snow", Color(1.0, 1.05, 1.1))
 	_tint_of("bark", "bark_birch", Color(1.5, 1.45, 1.35))
 	_tint_of("card_grass", "card_grass_golden", Color(1.1, 0.95, 0.55))
-	_tint_of("card_grass_b", "card_reeds", Color(0.7, 0.85, 0.55))
+	# juncos da margem balançam mais que o capim (08/10/2026)
+	_tint_of("card_grass_b", "card_reeds", Color(0.7, 0.85, 0.55), {"wind_strength": 0.18})
 	_tint_of("card_grass_b", "card_fern", Color(0.55, 0.78, 0.5))
 	_tint_of("card_flowers", "card_flowers_purple", Color(0.85, 0.7, 1.1))
 	_tint_of("rock", "rock_red", Color(1.1, 0.72, 0.55))

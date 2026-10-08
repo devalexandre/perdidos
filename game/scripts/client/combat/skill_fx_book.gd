@@ -1,6 +1,6 @@
 class_name SkillFxBook
 extends RefCounted
-## Receitas dos efeitos das skills da Terra do Sabiá v0.4 (TITULOS-E-SKILLS.md §3.4) e dos estados
+## Receitas dos efeitos das skills da Terra de Pindorama v0.4 (TITULOS-E-SKILLS.md §3.4) e dos estados
 ## (NetProgress.status_changed). Só dados: o SkillFx interpreta. Folhas em assets/fx/skills/
 ## (tools/art/fx/fx_*.py). Cada skill tem uma peça-chave própria (prefixo = id da skill).
 ##
@@ -130,6 +130,30 @@ const BOOK: Dictionary[StringName, Array] = {
 	&"tank_battle_thirst": [{"do": "converge", "piece": &"tank_battle_thirst_drop", "n": 4, "dist": 2.2},
 		{"do": "look", "on": "self"}],
 	&"tank_last_blow": [{"do": "on_target", "piece": &"tank_last_blow_smash", "bias": F}],
+	# ---------------------------------------------------------------- Companheiros (PETS-E-MONTARIAS §0.1)
+	# Só peças que já existem (reaproveitadas): vínculo do dono e magias automáticas dos bichos.
+	&"bow_companion_hawk_strike": [{"do": "drop", "piece": &"bow_hawk_dive_hawk", "impact": &"bow_hawk_dive_impact",
+		"fall": 0.35, "height": 5.0}],
+	&"bow_companion_sky_eye": [{"do": "self", "piece": &"bow_still_eye_eye", "bias": F}],
+	&"bow_companion_guara_bite": [{"do": "on_target", "piece": &"blade_claw_rake_claws", "h": 0.3, "bias": F}],
+	&"bow_companion_guara_track": [{"do": "shot", "piece": &"bow_warning_arrow_arrow", "impact": &"bow_arrow_impact",
+		"speed": 24.0, "arrive_look": true}],
+	&"arcane_companion_lume_light": [{"do": "loop_self", "piece": &"arcane_crystal_glow_gem", "sec": 1.6, "bias": F}],
+	&"arcane_companion_lume_guide": [{"do": "burst", "piece": &"arcane_firefly_swarm_bug", "n": 5, "dist": 2.6}],
+	&"comp_harpy_feather_gust": [{"do": "scatter", "piece": &"bow_arrow_flock_stuck", "fall": &"bow_arrow_flock_fall",
+		"n": 5, "over": 0.3, "fill": 0.8, "stay": 0.8}],
+	&"comp_harpy_high_cry": [{"do": "on_target", "piece": &"bow_still_eye_eye", "h": 0.9, "bias": F},
+		{"do": "look", "on": "target"}],
+	&"comp_harpy_royal_dive": [{"do": "drop", "piece": &"bow_hawk_dive_hawk", "impact": &"bow_hawk_dive_impact",
+		"fall": 0.45, "height": 6.5}],
+	&"comp_guara_howl": [{"do": "flat_pos", "piece": &"blade_root_grip_roots", "r": 2.5}],
+	&"comp_guara_pounce": [{"do": "on_target", "piece": &"blade_jaguar_leap_impact", "h": 0.45, "bias": F}],
+	&"comp_guara_deep_bite": [{"do": "on_target", "piece": &"blade_claw_rake_claws", "h": 0.35, "bias": F, "flip": true}],
+	&"comp_lume_spark": [{"do": "shot", "piece": &"arcane_firefly_swarm_bug", "impact": &"arcane_firefly_swarm_pop",
+		"speed": 10.0, "arc": 0.5}],
+	&"comp_lume_heal": [{"do": "loop_self", "piece": &"arcane_crystal_glow_gem", "sec": 1.0, "bias": F}],
+	&"comp_lume_swarm": [{"do": "shot", "piece": &"arcane_firefly_swarm_bug", "impact": &"arcane_firefly_swarm_pop",
+		"speed": 8.0, "count": 4, "every": 0.13, "arc": 0.7, "spread": 0.35}],
 }
 
 ## Visual de estado de cada skill (em quem recebe o efeito): peças, alturas (fração) e profundidade.
@@ -149,6 +173,7 @@ const LOOK: Dictionary[StringName, Dictionary] = {
 	&"arcane_crystal_glow": {"p": [&"status_aura_mana"], "b": [F]},
 	&"arcane_ember_eyes": {"p": [&"status_aura_matk", &"arcane_ember_eyes_glow"], "b": [F, F]},
 	&"bow_warning_arrow": {"mark": &"vuln"},
+	&"comp_harpy_high_cry": {"mark": &"vuln"},
 	&"bow_mud_skin": {"p": [&"status_aura_evade"], "b": [F]},
 	&"bow_thorn_arrow": {"mark": &"poison"},
 	&"bow_still_eye": {"p": [&"status_aura_crit"], "b": [F]},

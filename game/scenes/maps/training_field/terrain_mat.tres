@@ -48,3 +48,4 @@ shader_parameter/slope_rock_start = 0.86
 shader_parameter/slope_rock_end = 0.66
 shader_parameter/heather_tint = Color(0.86, 0.78, 0.95, 1)
 shader_parameter/wet_depth = 0.6
+shader_parameter/camp_surface_strength = 0.85

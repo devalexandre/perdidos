@@ -26,7 +26,7 @@ const CMD_TRADE: Array[String] = ["/troca", "/trade"]
 ## Personagem com perda aprovada: tempo para a mensagem chegar antes de desconectar.
 const LOST_KICK_DELAY_SEC: float = 1.0
 ## Servidor com --dev-commands: "/dev <comando> [args]" vai para o ProgressionDebug (nunca em produção;
-## ver docs/debug-sabia.md). Não passa pelo filtro nem aparece para ninguém.
+## ver docs/debug-pindorama.md). Não passa pelo filtro nem aparece para ninguém.
 const DEV_PREFIX: String = "/dev"
 const MAX_DEV_ARGS: int = 8
 
@@ -192,7 +192,7 @@ func emote(session: PlayerSession, emote_id: StringName) -> void:
 			"anim": String(e.anim), "recipients": peers.size()})
 
 
-## "/dev learn_tree sabia_bow_cerrado 5" -> NetProgress.debug_intent(peer, &"learn_tree", ["sabia_bow_cerrado", 5]).
+## "/dev learn_tree pindorama_bow_cerrado 5" -> NetProgress.debug_intent(peer, &"learn_tree", ["pindorama_bow_cerrado", 5]).
 func _dev_command(session: PlayerSession, rest: String) -> void:
 	var parts: PackedStringArray = rest.strip_edges().split(" ", false)
 	if parts.is_empty():

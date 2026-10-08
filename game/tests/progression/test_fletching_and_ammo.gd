@@ -6,16 +6,16 @@ extends Node
 
 ## skill -> [título que concede, ramos que herdam, item feito, {material: qtd}, qtd nv1, nv3, nv10]
 const CRAFTS: Dictionary = {
-	&"blade_field_dressing": [&"sabia_blade_machete", [&"sabia_blade_aroeira", &"sabia_blade_jaguar"],
+	&"blade_field_dressing": [&"pindorama_blade_machete", [&"pindorama_blade_aroeira", &"pindorama_blade_jaguar"],
 			&"potion_hp_small", {&"spinning_leaf": 3}, 2, 3, 6],
-	&"arcane_bottle_light": [&"sabia_arcane_firefly", [&"sabia_arcane_crystal", &"sabia_arcane_boitata"],
+	&"arcane_bottle_light": [&"pindorama_arcane_firefly", [&"pindorama_arcane_crystal", &"pindorama_arcane_boitata"],
 			&"potion_mp_small", {&"firefly_light": 3}, 2, 3, 6],
-	&"bow_poison_tips": [&"sabia_bow_brejo", [], &"poison_arrow", {&"simple_arrow": 10, &"venom_gland": 1}, 10, 11, 14],
-	&"bow_feathering": [&"sabia_bow_gaviao", [], &"iron_arrow", {&"simple_arrow": 10, &"harpy_feather": 1}, 10, 11, 14],
-	&"hybrid_ember_tips": [&"sabia_hybrid_ember", [], &"fire_arrow", {&"simple_arrow": 10, &"eternal_ember": 1}, 10, 11, 14],
-	&"support_garrafada": [&"sabia_support_root", [&"sabia_support_buriti", &"sabia_support_matinta"],
+	&"bow_poison_tips": [&"pindorama_bow_brejo", [], &"poison_arrow", {&"simple_arrow": 10, &"venom_gland": 1}, 10, 11, 14],
+	&"bow_feathering": [&"pindorama_bow_gaviao", [], &"iron_arrow", {&"simple_arrow": 10, &"harpy_feather": 1}, 10, 11, 14],
+	&"hybrid_ember_tips": [&"pindorama_hybrid_ember", [], &"fire_arrow", {&"simple_arrow": 10, &"eternal_ember": 1}, 10, 11, 14],
+	&"support_garrafada": [&"pindorama_support_root", [&"pindorama_support_buriti", &"pindorama_support_matinta"],
 			&"potion_hp_medium", {&"pequi_root": 1, &"wild_honeycomb": 1}, 2, 3, 6],
-	&"tank_shell_salve": [&"sabia_tank_jabuti", [&"sabia_tank_anta", &"sabia_tank_mapinguari"],
+	&"tank_shell_salve": [&"pindorama_tank_jabuti", [&"pindorama_tank_anta", &"pindorama_tank_mapinguari"],
 			&"shell_salve", {&"armadillo_shell": 2, &"thick_leather": 1}, 1, 1, 4],
 }
 ## Materiais que hoje não caem de monstro posicionado em mapa nem são vendidos (avisados ao dono).
@@ -60,11 +60,11 @@ func _test_fletching_skill() -> void:
 	_check(SkillCaster.craft_qty(def, 1) == 10 and SkillCaster.craft_qty(def, 5) == 18,
 			"10 flechas no nível 1, +2 por nível", [SkillCaster.craft_qty(def, 1), SkillCaster.craft_qty(def, 5)])
 	_check(not SkillCaster.is_offensive(def), "ofício não é ofensivo (pode na cidade)")
-	_check(&"bow_fletching" in TitleService.bonus_skills_for_title(&"sabia_bow_cerrado"),
+	_check(&"bow_fletching" in TitleService.bonus_skills_for_title(&"pindorama_bow_cerrado"),
 			"título inicial do arco concede Fazer Flechas")
-	_check(&"bow_fletching" in TitleService.bonus_skills_for_title(&"sabia_bow_brejo"),
+	_check(&"bow_fletching" in TitleService.bonus_skills_for_title(&"pindorama_bow_brejo"),
 			"ramos do arco herdam o ofício")
-	_check(&"bow_fletching" not in TitleService.skills_for_title(&"sabia_bow_cerrado"),
+	_check(&"bow_fletching" not in TitleService.skills_for_title(&"pindorama_bow_cerrado"),
 			"o ofício fica fora da árvore de 5")
 	var whirl: MonsterDef = Content.monster(&"prank_whirlwind")
 	var drops_it: bool = false
@@ -141,16 +141,16 @@ func _test_title_crafts() -> void:
 			else:
 				_check(src, "%s: '%s' cai de monstro posicionado ou é vendido" % [id, m])
 	# Herança dos ramos do arco: ficam com Fazer Flechas e ganham o próprio.
-	for pair: Array in [[&"sabia_bow_brejo", &"bow_poison_tips"], [&"sabia_bow_gaviao", &"bow_feathering"]]:
+	for pair: Array in [[&"pindorama_bow_brejo", &"bow_poison_tips"], [&"pindorama_bow_gaviao", &"bow_feathering"]]:
 		var got: Array[StringName] = TitleService.bonus_skills_for_title(pair[0])
 		_check(&"bow_fletching" in got and pair[1] in got, "%s: Fazer Flechas + o próprio ofício" % pair[0], got)
-	var jaguar: Array[StringName] = TitleService.bonus_skills_for_title(&"sabia_blade_jaguar")
+	var jaguar: Array[StringName] = TitleService.bonus_skills_for_title(&"pindorama_blade_jaguar")
 	_check(&"blade_field_dressing" in jaguar and &"blade_pilfer" in jaguar, "Garra da Onça: Curativo + Surrupiar", jaguar)
-	_check(&"blade_pilfer" not in TitleService.bonus_skills_for_title(&"sabia_blade_aroeira"),
+	_check(&"blade_pilfer" not in TitleService.bonus_skills_for_title(&"pindorama_blade_aroeira"),
 			"Surrupiar é só da Onça (a Aroeira não tem)")
 	# Títulos de combinação não herdam o ofício dos títulos exigidos para eles.
-	for pair2: Array in [[&"sabia_hybrid_ember", &"hybrid_ember_tips"], [&"sabia_support_root", &"support_garrafada"],
-			[&"sabia_tank_jabuti", &"tank_shell_salve"]]:
+	for pair2: Array in [[&"pindorama_hybrid_ember", &"hybrid_ember_tips"], [&"pindorama_support_root", &"support_garrafada"],
+			[&"pindorama_tank_jabuti", &"tank_shell_salve"]]:
 		var got2: Array[StringName] = TitleService.bonus_skills_for_title(pair2[0])
 		_check(got2.size() == 1 and got2[0] == pair2[1], "%s: só o próprio ofício (não herda dos exigidos)" % pair2[0], got2)
 
@@ -182,7 +182,7 @@ func _test_pilfer() -> void:
 	var high: float = SkillCaster.steal_chance(def, 1, 40, 20)
 	_check(high > base_stats and base_stats > c1, "DES e SOR aumentam a chance", [base_stats, high])
 	_check(SkillCaster.steal_chance(def, 10, 999, 999) <= SkillCaster.STEAL_MAX_CHANCE, "chance tem teto")
-	_check(&"blade_pilfer" in TitleService.bonus_skills_for_title(&"sabia_blade_jaguar")
+	_check(&"blade_pilfer" in TitleService.bonus_skills_for_title(&"pindorama_blade_jaguar")
 			and ResourceLoader.exists("res://assets/skills/blade_pilfer.png")
 			and SkillFx.recipe_for(def) == &"steal" and SkillFxSprite.has_piece(SkillFx.STEAL_PIECE),
 			"título da Onça concede; ícone e efeito (brilho no alvo)")

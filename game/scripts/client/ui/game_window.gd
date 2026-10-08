@@ -1,7 +1,7 @@
 class_name GameWindow
 extends PanelContainer
 ## Janela base do UIKit: moldura de madeira, cabeçalho arrastável com título dourado, botão fechar e
-## miolo de pergaminho. O conteúdo vai em `content` (VBoxContainer) dentro de uma rolagem: a janela
+## miolo escuro legível. O conteúdo vai em `content` (VBoxContainer) dentro de uma rolagem: a janela
 ## nunca passa da área útil da tela (GameUI.work_rect: sem cobrir a barra de atalhos) — o que não
 ## couber rola em vez de ser cortado. Funciona com mouse e toque (sem depender de hover); no modo de
 ## toque o botão de fechar é grande e a janela abre centrada na área útil.
@@ -36,6 +36,7 @@ var _fit_queued: bool = false
 func _init(title_key: String = "", p_scale: float = 1.0) -> void:
 	_title_key = title_key
 	ui_scale = p_scale
+	theme = UIKit.build_window_theme(ui_scale)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	visible = false
 	add_theme_stylebox_override(&"panel", UIKit.window_frame(ui_scale))
@@ -74,7 +75,7 @@ func _init(title_key: String = "", p_scale: float = 1.0) -> void:
 	bar.add_child(close_button)
 	var body := PanelContainer.new()
 	body.name = &"PaperBody"
-	body.add_theme_stylebox_override(&"panel", UIKit.paper_box(ui_scale))
+	body.add_theme_stylebox_override(&"panel", UIKit.dark_body_box(ui_scale))
 	root.add_child(body)
 	scroll = ScrollContainer.new()
 	scroll.name = &"BodyScroll"
@@ -87,7 +88,7 @@ func _init(title_key: String = "", p_scale: float = 1.0) -> void:
 	content.mouse_filter = Control.MOUSE_FILTER_PASS
 	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	content.add_theme_constant_override(&"separation", UIKit.px(6, ui_scale))
+	content.add_theme_constant_override(&"separation", UIKit.px(8, ui_scale))
 	content.minimum_size_changed.connect(_queue_fit)
 	scroll.add_child(content)
 

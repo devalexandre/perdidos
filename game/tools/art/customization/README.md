@@ -81,7 +81,7 @@ Já ligado: `CharacterLayers.layer_specs` devolve `Base, [Outfit], Eyes, [Hair],
 
 Enquanto a região não tem folha de roupa própria (`nationality_outfits` em `data/customization/options.tres`),
 a roupa do Viajante é recolorida pelas cores da região (`nationality_colors`: [tecido, detalhe]). O tecido azul vira
-"tecido" e o vermelho/marrom vira "detalhe", mantendo o sombreado. Terra do Sabiá fica com as cores originais.
+"tecido" e o vermelho/marrom vira "detalhe", mantendo o sombreado. Terra de Pindorama fica com as cores originais.
 
 - Regra única em três lugares: `CharacterLayers.recolor_cloth` (CPU), `char_palette_swap.gdshader` (prévia 2D) e
   `char_palette_swap_3d.gdshader` (mundo).

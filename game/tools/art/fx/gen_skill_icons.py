@@ -39,7 +39,7 @@ PICKS = {
 SCHOOL = {
     'blade': ((28, 22, 18), (74, 58, 40), (214, 160, 74)),
     'arcane': ((16, 22, 40), (34, 62, 84), (92, 206, 196)),
-    # Terra do Sabia v0.4 (30/09/2026): arco verde-oliva, suporte verde-folha, tanque bronze, hibrido brasa.
+    # Terra de Pindorama v0.4 (30/09/2026): arco verde-oliva, suporte verde-folha, tanque bronze, hibrido brasa.
     'bow': ((22, 26, 14), (60, 70, 32), (160, 172, 64)),
     'support': ((14, 30, 20), (38, 82, 46), (112, 200, 84)),
     'tank': ((30, 22, 14), (82, 58, 34), (196, 136, 64)),
@@ -158,7 +158,7 @@ def compose(skill: str, sheet: str, blend: str) -> Image.Image:
             img = weapon(src, px)
         elif kind == 'piece':
             img = fit(biggest_piece(best_frame(src)), px)
-        elif kind == 'spr':  # sprite desenhado a mao (fxsabia), em pixel nativo; px = escala inteira
+        elif kind == 'spr':  # sprite desenhado a mao (fxpindorama), em pixel nativo; px = escala inteira
             img = sprite_img(src() if callable(src) else src)
             if px != 1:
                 img = img.resize((img.width * px, img.height * px), Image.NEAREST)
@@ -176,11 +176,11 @@ def compose(skill: str, sheet: str, blend: str) -> Image.Image:
     return Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), 'RGBA')
 
 
-# ------------------------------------------------------------------ Terra do Sabia v0.4 (68 skills novas)
+# ------------------------------------------------------------------ Terra de Pindorama v0.4 (68 skills novas)
 import sys  # noqa: E402
 
 sys.path.insert(0, HERE)
-import fxsabia as SB  # noqa: E402
+import fxpindorama as SB  # noqa: E402
 
 # largura do quadro das folhas que nao sao quadradas (flechas, projeteis, laco das bandeirinhas...)
 SHEET_W = {}

@@ -57,7 +57,7 @@ crisp pixels, no text, no writing, no labels
 
 ## Capturas de tela
 
-`source/atlas_1080_fit.png`, `source/atlas_720_fit.png`, `source/atlas_1080_zoom_sabia.png`
+`source/atlas_1080_fit.png`, `source/atlas_720_fit.png`, `source/atlas_1080_zoom_pindorama.png`
 (geradas por `scripts/client/ui/world_atlas_test.gd`).
 
 ## Checklist (GDD §17.10, resumido)

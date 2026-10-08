@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Capturas no cliente real de dia, noite, chefe e forma atroz (docs/chefes-dia-noite.md): Porto do Despertar e
-# Campo de Treino (Terra do Sabiá). Servidor com --dev-commands; clientes em janela (xvfb) com
+# Campo de Treino (Terra de Pindorama). Servidor com --dev-commands; clientes em janela (xvfb) com
 # tests/monsters/night_capture.gd. Depois monta pranchas lado a lado (chefe de dia | atroz de noite).
 # Uso: GODOT=/caminho/godot [OUT=.work/monsters_night] [PORT=8181] [ONLY=covis] tests/monsters/run_night_capture.sh
 set -uo pipefail
@@ -70,7 +70,7 @@ def pair(a, b, name, la, lb):
     d = ImageDraw.Draw(W); d.text((8, 8), la, fill=(255, 240, 200)); d.text((A.width + 16, 8), lb, fill=(200, 215, 255))
     W.save(os.path.join(out, name)); print("prancha", name)
 pair("porto_dia.png", "porto_noite.png", "prancha_porto_dia_noite.png", "Porto - dia", "Porto - noite")
-pair("campo_dia.png", "campo_noite_forcada.png", "prancha_campo_dia_noite.png", "Campo (Sabia) - dia", "Campo - noite forcada (/noite)")
+pair("campo_dia.png", "campo_noite_forcada.png", "prancha_campo_dia_noite.png", "Campo (Pindorama) - dia", "Campo - noite forcada (/noite)")
 for sp in ("tatu", "vagalume", "redemoinho"):
     pair(f"{sp}_chefe_dia.png", f"{sp}_atroz_noite.png", f"prancha_{sp}_chefe_dia_atroz_noite.png",
          f"{sp}: chefe de dia", f"{sp}: forma atroz de noite")

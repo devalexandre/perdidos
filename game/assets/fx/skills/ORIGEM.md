@@ -15,11 +15,11 @@
 Para refazer: `python3 game/tools/art/fx/gen_skill_fx.py` (gera as folhas, os `.import` e a tabela
 `game/scripts/client/combat/skill_fx_sheets.gd`; prévias em `.work/fx/sheets/`).
 
-## Terra do Sabiá v0.4 (30/09/2026)
+## Terra de Pindorama v0.4 (30/09/2026)
 
 As 119 folhas novas (estados, flecha do arco e as 68 skills das árvores) e os 68 ícones novos em
 `game/assets/skills/` também são **desenhados por script, sem imagem de entrada**: campos de intensidade
-(`fxdraw.py`) e sprites desenhados à mão em texto, 1 caractere = 1 pixel (`fxsabia.py`: onça, gavião,
+(`fxdraw.py`) e sprites desenhados à mão em texto, 1 caractere = 1 pixel (`fxpindorama.py`: onça, gavião,
 coruja, passarinho, vaga-lume, anta, jabuti, casco, garrafa, cuia, coco, pequi, bigorna, martelo, facão,
 olhos, boca do Mapinguari, mão de garras, flecha, penas, folhas). Módulos: `fx_status.py`, `fx_melee.py`,
 `fx_arcane2.py`, `fx_bow.py`, `fx_hybrid.py`, `fx_support.py`, `fx_tank.py`. Licença: do projeto.

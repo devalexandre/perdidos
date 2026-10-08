@@ -14,7 +14,9 @@ const FLY_PATTERN: StringName = &"fly_pattern"
 const ROLL_CHARGE: StringName = &"roll_charge"
 const RANGED: StringName = &"ranged"
 const BOSS: StringName = &"boss"
-const KNOWN: Array[StringName] = [HOP_TELEPORT, FLY_PATTERN, ROLL_CHARGE, RANGED, BOSS]
+## Luta por fases do Boitatá (BoitataFight).
+const BOITATA_PHASES: StringName = &"boitata_phases"
+const KNOWN: Array[StringName] = [HOP_TELEPORT, FLY_PATTERN, ROLL_CHARGE, RANGED, BOSS, BOITATA_PHASES]
 
 ## hop_teleport: chance de cada passeio ser um "pulo" (teleporte curto) em vez de andar.
 const HOP_CHANCE: float = 0.5
@@ -64,6 +66,7 @@ static func on_damaged(brain: MonsterBrain) -> void:
 ## Tempo por célula efetivo (investida acelera).
 static func ms_per_cell(brain: MonsterBrain) -> int:
 	var base: int = brain.stage.walk_ms_per_cell if brain.stage != null else Balance.cfg.walk_ms_per_cell
+	base = maxi(1, roundi(float(base) * brain.step_factor))
 	if brain.charge_left_sec > 0.0:
 		return maxi(1, roundi(float(base) * ROLL_SPEED_FACTOR))
 	return base

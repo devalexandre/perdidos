@@ -1,4 +1,8 @@
 // Corpo comum de env_painted.gdshader (face única) e env_painted_2s.gdshader (duas faces).
+// Cenário vivo (08/10/2026): globais de clima (env_weather.gdshaderinc) — sombra de nuvem passando, superfícies
+// viradas para cima escurecem com a umidade (env_wetness) — e balanço de planta por nó (instance uniform veg_bend:
+// troncos e galhos de árvore/palmeira, sempre 0 em construção e pedra). Tudo neutro com os globais em 0.
+#include "res://assets/shaders/env_wind.gdshaderinc"
 
 uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform vec3 tint : source_color = vec3(1.0);
@@ -25,6 +29,9 @@ uniform float roughness = 1.0;
 uniform float detail : hint_range(0.0, 1.0) = 1.0;
 // Cor por instância do MultiMesh (INSTANCE_CUSTOM.gba): paredes de cores diferentes com 1 draw call.
 uniform bool use_instance_tint = false;
+// Balanço da planta inteira (por nó, SceneryLife.apply_plant_wind): metros no topo e altura da planta.
+instance uniform float veg_bend = 0.0;
+instance uniform float veg_height = 6.0;
 
 varying vec3 wpos;
 varying vec3 wnrm;
@@ -36,6 +43,11 @@ void vertex() {
 	wnrm = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz);
 	vcolor = COLOR;
 	inst_tint = use_instance_tint ? INSTANCE_CUSTOM.gba : vec3(1.0);
+	if (veg_bend > 0.0) {
+		vec3 origin = MODEL_MATRIX[3].xyz;
+		vec2 bend = environment_plant_bend(wpos.xz, wpos.y - origin.y, veg_height, veg_bend, TIME);
+		VERTEX += (inverse(MODEL_MATRIX) * vec4(bend.x, 0.0, bend.y, 0.0)).xyz;
+	}
 }
 
 vec3 tri(sampler2D t, vec3 p, vec3 n, float scale) {
@@ -91,6 +103,13 @@ void fragment() {
 	if (use_vertex_ao && dot(vcolor.rgb, vcolor.rgb) > 0.001) {
 		col *= vcolor.rgb;
 	}
+	// chuva: topo de pedra, piso, telhado e degrau ficam mais escuros e saturados (paredes quase não mudam)
+	if (env_wetness > 0.001) {
+		float wet = clamp(env_wetness, 0.0, 1.0) * smoothstep(0.45, 0.85, wnrm.y);
+		float l = dot(col, vec3(0.299, 0.587, 0.114));
+		col = mix(col, mix(vec3(l), col, 1.15) * 0.74, wet * 0.85);
+	}
+	col *= env_cloud_shade(wpos.xz, TIME);
 	ALBEDO = col;
 #ifdef DECAL
 	float en = texture(tex_noise, wpos.xz / 4.0).r * 0.6 + texture(tex_noise, wpos.xz / 1.3).r * 0.4;

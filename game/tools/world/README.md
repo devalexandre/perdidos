@@ -24,6 +24,9 @@ Alto das Brasas à Serra Dourada). Por isso `build_all.py` roda a cadeia inteira
 só (`PIPELINE`). Rodar só `build_hunt_areas.py`, sem os seguintes, volta campos, mata e Chapada ao rascunho.
 `build_plateau.py` pinta o chão da Chapada com `env_terrain_world.gdshader` e mapas de mistura próprios
 (`assets/environment/painted/terrain/<mapa>_splat_{a,b,c}.png`, material `mat_ground_<mapa>.tres`).
+`build_fields.py` faz o mesmo nos Campos de Pindorama (grama verde com manchas de capim seco e viçoso, terra batida só
+na Estrada dos Viajantes e nas trilhas) e põe a folhagem pequena em pedaços de MultiMesh sob um `FoliageScatter`
+(densidade e distância do `EnvQuality`).
 
 Cada mapa tem um dono. A Serra Dourada (cidade-polo) é gerada só por `build_ratanaba_expansion.py`,
 com todos os portões dela (Chapada, Ratanabá, Z e Sumidouro). Os geradores de Z e de Hoer Verde só

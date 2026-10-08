@@ -1,4 +1,4 @@
-"""Saci Atroz (story_saci) — chefe da historia, Arco 1 cap. 1 (ARCO-1-TERRA-DO-SABIA.md). So existe na forma atroz
+"""Saci Atroz (story_saci) — chefe da historia, Arco 1 cap. 1 (ARCO-1-TERRA-DE-PINDORAMA.md). So existe na forma atroz
 (estagio 4, quadro 240): o Saci tomado pela corrupcao de Erevos.
 Menino chibi de uma perna so, de calcao, de pe dentro de um redemoinho escuro de fitas de fumaca (o menino e a
 figura principal; o vento e um anel em volta da perna — diferente do prank_whirlwind, que e o proprio tornado com

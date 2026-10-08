@@ -10,10 +10,10 @@ var shots := [
 	["overview", Vector3(0, 0, 0), 0.0, 190.0, 50.0],
 	["camp", Vector3(0, 0, 0), 20.0, 24.0, 50.0],
 	["portal", Vector3(5.5, 1, -14), 160.0, 14.0, 50.0],
-	["sabia_rancho", Vector3(0, 1, 36), 15.0, 22.0, 50.0],
-	["sabia_vereda", Vector3(-12, 0, 56), -25.0, 22.0, 50.0],
-	["sabia_south", Vector3(0, 0, 74), 10.0, 26.0, 50.0],
-	["sabia_wide", Vector3(0, 0, 55), 0.0, 60.0, 50.0],
+	["pindorama_rancho", Vector3(0, 1, 36), 15.0, 22.0, 50.0],
+	["pindorama_vereda", Vector3(-12, 0, 56), -25.0, 22.0, 50.0],
+	["pindorama_south", Vector3(0, 0, 74), 10.0, 26.0, 50.0],
+	["pindorama_wide", Vector3(0, 0, 55), 0.0, 60.0, 50.0],
 ]
 
 

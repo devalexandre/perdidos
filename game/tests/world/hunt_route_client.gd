@@ -20,9 +20,9 @@ func _placed(placed_entity: Node3D) -> void:
 		return
 	started = true
 	await get_tree().create_timer(2).timeout
-	for step: Array in [["gate_north", &"fields_sabia"],
-			["forward", &"fields_sabia_buriti"],
-			["forward", &"fields_sabia_crossroads"],
+	for step: Array in [["gate_north", &"fields_pindorama"],
+			["forward", &"fields_pindorama_buriti"],
+			["forward", &"fields_pindorama_crossroads"],
 			["forward", &"enchanted_forest"],
 			["forward", &"enchanted_forest_glade"],
 			["forward", &"enchanted_forest_roots"],
@@ -46,9 +46,9 @@ func _placed(placed_entity: Node3D) -> void:
 			["back", &"enchanted_forest_roots"],
 			["back", &"enchanted_forest_glade"],
 			["back", &"enchanted_forest"],
-			["back", &"fields_sabia_crossroads"],
-			["back", &"fields_sabia_buriti"],
-			["back", &"fields_sabia"],
+			["back", &"fields_pindorama_crossroads"],
+			["back", &"fields_pindorama_buriti"],
+			["back", &"fields_pindorama"],
 			["back", &"city_awakening"]]:
 		var previous: NetEntity = player
 		var walk_portals: bool = "--walk-portals" in OS.get_cmdline_user_args()

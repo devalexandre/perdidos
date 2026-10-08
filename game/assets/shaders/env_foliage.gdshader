@@ -7,6 +7,8 @@ shader_type spatial;
 // - Variação de cor por instância: pela posição no mundo (hash) ou INSTANCE_CUSTOM (MultiMesh).
 render_mode diffuse_lambert_wrap, specular_disabled, cull_disabled;
 
+#include "res://assets/shaders/env_wind.gdshaderinc"
+
 uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform vec3 tint : source_color = vec3(1.0);
 uniform vec2 uv_scale = vec2(1.0);
@@ -40,8 +42,14 @@ uniform float speckle_amount : hint_range(0.0, 1.0) = 0.0;
 uniform vec3 speckle_color : source_color = vec3(0.35, 0.55, 0.2);
 uniform float speckle_scale = 9.0;
 
+// Balanço da planta inteira (por nó, SceneryLife.apply_plant_wind): metros no topo e altura da planta. 0 = só o
+// vento de folha de sempre (COLOR.a).
+instance uniform float veg_bend = 0.0;
+instance uniform float veg_height = 6.0;
+
 varying vec4 vcolor;
 varying float var_seed;
+varying vec2 var_wxz;
 varying float var_dist;
 varying float var_wy;
 
@@ -59,11 +67,21 @@ void vertex() {
 	float phase = dot(wpos.xz, wind_dir) * 0.35 + var_seed * 6.2831;
 	float gust = 0.6 + 0.4 * sin(TIME * 0.37 + dot(origin.xz, vec2(wind_gust_scale)));
 	float sway = sin(TIME * wind_speed + phase) * 0.7 + sin(TIME * wind_speed * 2.3 + phase * 1.7) * 0.3;
-	vec3 disp = vec3(wind_dir.x, 0.0, wind_dir.y) * sway * wind_strength * gust * COLOR.a;
+	vec2 breeze = environment_breeze(wpos.xz, TIME * wind_speed / 1.3);
+	vec2 drift = breeze + wind_dir * sway * gust * 0.25 * environment_storm();
+	// tremor fino nas pontas (folhas/juncos "vivos" mesmo na brisa fraca), de lado em relação ao vento
+	float flutter = sin(TIME * wind_speed * 3.7 + phase * 2.3) * (0.10 + 0.08 * clamp(env_rain, 0.0, 1.0));
+	drift += vec2(-wind_dir.y, wind_dir.x) * flutter * COLOR.a;
+	vec3 disp = vec3(drift.x, 0.0, drift.y) * wind_strength * COLOR.a;
+	if (veg_bend > 0.0) {
+		vec2 bend = environment_plant_bend(wpos.xz, wpos.y - origin.y, veg_height, veg_bend, TIME);
+		disp += vec3(bend.x, 0.0, bend.y);
+	}
 	// Deslocamento no espaço do mundo convertido para o do modelo (escala/rotação da instância).
 	VERTEX += (inverse(MODEL_MATRIX) * vec4(disp, 0.0)).xyz;
 	var_dist = length((MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz);
 	var_wy = (MODEL_MATRIX * vec4(VERTEX, 1.0)).y;
+	var_wxz = wpos.xz;
 	UV *= uv_scale;
 }
 
@@ -112,7 +130,7 @@ void fragment() {
 		float b = smoothstep(0.45, 1.0, UV.y / uv_scale.y);
 		col = mix(col, base_color, b * base_darken);
 	}
-	ALBEDO = col;
+	ALBEDO = col * env_cloud_shade(var_wxz, TIME);
 	ROUGHNESS = 1.0;
 	SPECULAR = 0.0;
 	BACKLIGHT = backlight_color;

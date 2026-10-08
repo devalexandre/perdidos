@@ -56,3 +56,9 @@ html[data-theme=dark] .guide .nav.open .nav-links{background:#0e1d1a}
 @media(max-width:600px){html[data-theme=dark] body.portal .hero-art{background:linear-gradient(0deg,#0f1f1b 0%,#0f1f1b 24%,#0f1f1bbb 40%,transparent 68%),url('../img/hero.webp') 24% top/auto 480px no-repeat;background-color:#0f1f1b}html[data-theme=dark] .guide .nav-links{background:#0e1d1a}}
 
 body.portal .lore-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.9fr);gap:64px;align-items:start}body.portal .lore-copy h2{margin:10px 0 22px}body.portal .lore-copy p{max-width:62ch}body.portal .lore-copy strong{color:var(--ink);font-weight:600}body.portal .lore-quote{margin:26px 0;padding:6px 0 6px 22px;border-left:3px solid var(--gold)}body.portal .lore-quote p{margin:0;font:italic 26px/1.3 Georgia,'Times New Roman',serif;color:var(--ink)}body.portal .lore-quote cite{display:block;margin-top:8px;font-style:normal;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}body.portal .lore-notes{display:grid;gap:14px;padding-top:6px}body.portal .lore-note{border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}body.portal .lore-note h3{font-size:20px;margin-bottom:6px;color:var(--ink)}body.portal .lore-note p{margin:0;font-size:14px}@media(max-width:900px){body.portal .lore-layout{grid-template-columns:1fr;gap:36px}body.portal .lore-quote p{font-size:22px}}
+
+/* títulos animados (08/10/2026): <picture> com WebP animado não muda o layout das imagens */
+.path-art picture,.st-art picture{display:contents}
+/* Lista curta do card de atualização (08/10/2026). */
+.news-list{margin:-10px 0 22px;padding-left:18px;font-size:12px;line-height:1.55}.news-list li{margin:2px 0}.news-list li::marker{color:var(--gold)}
+@media(max-width:600px){.news-list{font-size:13px}}

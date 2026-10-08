@@ -1,4 +1,4 @@
-"""Suporte da Terra do Sabia (30/09/2026) — a raizeira Vo Aninha: Raiz do Cerrado, Seiva do Buriti e o
+"""Suporte da Terra de Pindorama (30/09/2026) — a raizeira Vo Aninha: Raiz do Cerrado, Seiva do Buriti e o
 debuff do Assobio da Matinta.
 
 Pecas-chave: garrafada derramando e o chao de ervas, cuia de cha fumegando, folhas enrolando como emplastro,
@@ -13,7 +13,7 @@ import math
 import numpy as np
 
 from fxdraw import Canvas, Frame, Spr, blit, ease_in, ease_out, layer, lerp, piece, rng
-from fxsabia import (BIRD_DOWN, BIRD_PAL, BIRD_UP, BITTER, BITTER_LINE, BOTTLE_PAL, BOTTLE_TXT, COCO_PAL, COCO_TXT,
+from fxpindorama import (BIRD_DOWN, BIRD_PAL, BIRD_UP, BITTER, BITTER_LINE, BOTTLE_PAL, BOTTLE_TXT, COCO_PAL, COCO_TXT,
                      CUIA_PAL, CUIA_TXT, D, FEATHER_DARK, FEATHER_WHITE, GOO, GOO_LINE, LEAF, LEAF_G, LEAF_LINE,
                      LEAFLET_PAL, LEAFLET_TXT, MANA_G, MATINTA_G, MATINTA_GROUND, OWL_PAL, OWL_TXT, PEQUI_PAL,
                      PEQUI_TXT, SAP_G, SMOKE, SMOKE_LINE, TAU, W_GOLD, W_WHITE, WATER_G, WOOD, WOOD_LINE,
@@ -166,7 +166,7 @@ def pequi_shade():
         sv = Canvas(128)  # sombra no chao (pontilhada, nao um disco liso)
         sv.ellipse(64, 120, 38, 7, 0.5)
         sv.noise_erode(0.3, seed=5110)
-        from fxsabia import SHADOW
+        from fxpindorama import SHADOW
         fr.paint_canvas(sv, SHADOW)
         cv = Canvas(128)
         for (dx, dy, p) in sorted(tufts, key=lambda t: t[1]):

@@ -42,10 +42,30 @@ const ANIM_FRAME_MS: Dictionary[StringName, int] = { ANIM_IDLE: 200, ANIM_WALK: 
 ## Quadros de referência do ciclo (GDD §17.3): folhas com MAIS quadros tocam o mesmo ciclo mais fluido
 ## (idle 4 × 200 ms = 0,8 s; hit 2 × 120 ms = 0,24 s). Golpe e morte com mais quadros ficam mais longos (preparação).
 const ANIM_REF_FRAMES: Dictionary[StringName, int] = { ANIM_IDLE: 4, ANIM_HIT: 2 }
+## Viajante com mais quadros (piloto 07/10/2026, folhas desenhadas por partes): acima de TRAVELER_REF_FRAMES a
+## animação dura TRAVELER_CYCLE_MS no total (idle 12 × ~117 ms, cast 16 × ~56 ms, golpes 12 × 35/40 ms com o quadro
+## de impacto no mesmo instante de antes). Folhas antigas (idle 4, golpes/cast 6) seguem ANIM_FRAME_MS.
+const TRAVELER_REF_FRAMES: Dictionary[StringName, int] = { ANIM_IDLE: 4, ANIM_CAST: 6, ANIM_ATTACK_UNARMED: 6,
+		ANIM_ATTACK_BLADE: 6, ANIM_ATTACK_STAFF: 6, ANIM_ATTACK_BOW: 6 }
+const TRAVELER_CYCLE_MS: Dictionary[StringName, int] = { ANIM_IDLE: 1400, ANIM_CAST: 900, ANIM_ATTACK_UNARMED: 420,
+		ANIM_ATTACK_BLADE: 420, ANIM_ATTACK_STAFF: 420, ANIM_ATTACK_BOW: 480 }
+## Vida dos companheiros com o dono parado (follower_visual.gd): planar (asas abertas paradas) e olhar em volta.
+const ANIM_GLIDE: StringName = &"glide"
+const ANIM_LOOK: StringName = &"look"
+## Vida dos pets 2D (folhas <base>_life_*.png; cada uma começa e termina na pose parada): Guará e Lume.
+const LIFE_ANIMS: Array[StringName] = [&"life_sit", &"life_lie", &"life_scratch", &"life_sniff", &"life_wag",
+		&"life_spiral", &"life_split", &"life_pulse", &"life_orbit"]
+## Pets 2D (folhas em res://assets/companions/): ms por quadro, independente da contagem da folha (idle 16, golpe 12...).
+## Viajante, NPCs e monstros não mudam. Animação de vida sem entrada aqui usa PET_LIFE_FRAME_MS.
+const COMPANION_ASSET_DIR: String = "res://assets/companions/"
+const PET_FRAME_MS: Dictionary[StringName, int] = { ANIM_IDLE: 100, ANIM_ATTACK: 70, ANIM_CAST: 90 }
+const PET_LIFE_FRAME_MS: int = 100
 ## Folhas obrigatórias (placeholder se faltarem) e opcionais (caem para idle se faltarem).
 const REQUIRED_ANIMS: Array[StringName] = [ANIM_IDLE, ANIM_WALK]
 const OPTIONAL_ANIMS: Array[StringName] = [ANIM_SIT, ANIM_ATTACK, ANIM_HIT, ANIM_DEATH,
-		ANIM_ATTACK_UNARMED, ANIM_ATTACK_BLADE, ANIM_ATTACK_STAFF, ANIM_ATTACK_BOW, ANIM_CAST]
+		ANIM_ATTACK_UNARMED, ANIM_ATTACK_BLADE, ANIM_ATTACK_STAFF, ANIM_ATTACK_BOW, ANIM_CAST, ANIM_GLIDE, ANIM_LOOK,
+		&"life_sit", &"life_lie", &"life_scratch", &"life_sniff", &"life_wag", &"life_spiral", &"life_split",
+		&"life_pulse", &"life_orbit"]
 ## Avanço do golpe (fração da célula) e o perfil no tempo do golpe (0..1): recua um pouco na
 ## preparação, avança no impacto, segura e volta.
 const LUNGE_CELLS: float = 0.3
@@ -55,10 +75,31 @@ const KNOCKBACK_CELLS: float = 0.12
 const KNOCKBACK_SEC: float = 0.22
 const KNOCKBACK_SHAKES: float = 3.0
 const LUNGE_FALLBACK_SEC: float = 0.3
+## Liberação da skill: estica (pose de disparo) e recua um pouco para trás do alvo (fração da célula).
+const RELEASE_SEC: float = 0.18
+const RECOIL_CELLS: float = 0.08
+const RECOIL_SEC: float = 0.14
+## Pausa de impacto (hitstop) mais longa aceita: o quadro e o avanço/empurrão congelam, o flash não.
+const HITSTOP_MAX_SEC: float = 0.09
 ## Animações que param no último quadro em vez de repetir.
 const HOLD_LAST_FRAME_ANIMS: Array[StringName] = [ANIM_DEATH]
 ## Passos por ciclo da animação de andar (um por pé).
 const STEPS_PER_WALK_CYCLE: int = 2
+## Virada suave (referência Samsara, 08/10/2026): quando a direção alvo pula mais de 1 setor, o sprite passa
+## pelos setores do meio (frente → 3/4 → lado → 3/4 costas → costas), TURN_STEP_MS por setor, pelo lado mais
+## curto (empate de 180°: pelo lado que mostra mais a frente). Só visual: facing_yaw, rede e lógica não mudam.
+const TURN_STEP_MS: float = 55.0
+## Durante golpe/cast (animação de uma vez) a virada anda mais rápido, para o impacto sair na direção certa.
+const TURN_STEP_ONESHOT_FACTOR: float = 0.5
+## Começar a andar: o ciclo começa nesta fração (0,25 = quadro de "passagem", pernas juntas, o mais
+## parecido com o idle), e o balanço do passo entra em WALK_EASE_IN_SEC em vez de saltar 1 px.
+const WALK_START_PHASE: float = 0.25
+const WALK_EASE_IN_SEC: float = 0.12
+## Andar de novo até WALK_RESUME_SEC depois de parar (novo clique de destino) continua o ciclo de onde parou.
+const WALK_RESUME_SEC: float = 0.35
+## Parar de andar: assenta (achata um pouco e volta) em STOP_SETTLE_SEC; amplitude = step_squash do perfil × fator.
+const STOP_SETTLE_SEC: float = 0.16
+const STOP_SETTLE_FACTOR: float = 1.6
 const TRAVELER_PREFIX: String = "chr_traveler_"
 const SHADOW_FILE: String = "chr_shadow.png"
 ## Linhas desenhadas na folha (S, SE, E, NE, N).
@@ -136,9 +177,20 @@ var facing_yaw: float = 0.0
 var anim: StringName = ANIM_IDLE:
 	set(value):
 		if value != anim:
+			var prev: StringName = anim
+			if prev == ANIM_WALK:
+				_walk_left_at = _life_t
+				_walk_saved_time = _anim_time
 			anim = value
 			_anim_time = 0.0
+			if value == ANIM_WALK:
+				_anim_time = _walk_entry_time()
+				_walk_since = 0.0
+			elif prev == ANIM_WALK and value == ANIM_IDLE:
+				_settle_t = 0.0
 			_apply_anim_texture()
+## Duração (ms) de cada setor intermediário da virada suave; 0 = vira na hora (ver TURN_STEP_MS).
+@export var turn_step_ms: float = TURN_STEP_MS
 ## Duração (ms) de um ciclo completo da animação de andar. 0 = usa ANIM_FRAME_MS. A entidade define
 ## a partir da velocidade (GDD §10.1: um ciclo a cada 2 células), para os pés não deslizarem.
 var walk_cycle_ms: float = 0.0:
@@ -163,11 +215,27 @@ var _textures: Dictionary[StringName, Texture2D] = {}
 var _frame_counts: Dictionary[StringName, int] = {}
 var _anim_time: float = 0.0
 var _current_sector: int = Dir.S
+## Virada suave: setor para onde a entidade olha de fato (o exibido, _current_sector, chega nele em passos),
+## tempo até o próximo passo, e se o setor exibido já foi definido alguma vez (o primeiro quadro não anima).
+var _target_sector: int = Dir.S
+var _turn_left: float = 0.0
+var _sector_ready: bool = false
+## Continuidade do andar: quando parou (relógio _life_t), em que ponto do ciclo, e há quanto tempo anda.
+var _walk_left_at: float = -INF
+var _walk_saved_time: float = 0.0
+var _walk_since: float = 10.0
+## Tempo desde que parou de andar (assentar); começa "acabado".
+var _settle_t: float = 10.0
 var _last_col: int = -1
 var _overlays: Array[Overlay] = []
 ## Animação de uma vez só (attack/hit) por cima da atual; &"" = nenhuma.
 var _oneshot: StringName = &""
 var _oneshot_left: float = 0.0
+var _cast_duration_sec: float = 0.0
+var _release_t: float = 0.0
+var _recoil_dir: Vector3 = Vector3.ZERO
+var _recoil_t: float = 0.0
+var _hitstop_t: float = 0.0
 ## Estilo do golpe (&"unarmed", &"blade", &"staff"...): ANIM_ATTACK vira attack_<estilo> se a folha existir.
 var attack_style: StringName = &""
 ## Deslocamento só visual (avanço do golpe / empurrão ao ser atingido); o nó e a posição de rede não mudam.
@@ -187,6 +255,8 @@ var _body_material: ShaderMaterial = null
 var _body_masks: Dictionary[StringName, Texture2D] = {}
 ## Vida procedural (GDD §17.0.C).
 var life: int = Life.HUMAN
+## Altura fixa (m) somada à "vida" (companheiro voador: CompanionDef.fly_lift_m); a sombra fica no chão, menor.
+var extra_lift_m: float = 0.0
 ## Escala visual (estágio do monstro etc.); a compensação de inclinação e a vida multiplicam por cima.
 var visual_scale: float = 1.0:
 	set(value):
@@ -206,6 +276,13 @@ var _lift: float = 0.0
 var _sent_lift: float = 0.0
 var _sent_flash: float = 0.0
 var _sent_fade: float = 1.0
+## Presença (0..1) multiplicada no apagar em pontilhado: NPC que some/volta por horário (EntityVisual).
+var presence: float = 1.0
+
+
+## Cache de is_traveler_sheet() (sprite_base de quando foi calculado).
+var _traveler_base: String = "<unset>"
+var _traveler: bool = false
 
 
 ## Uma camada sobreposta alinhada quadro a quadro com o corpo.
@@ -396,20 +473,30 @@ func set_tint(color: Color) -> void:
 func _process(delta: float) -> void:
 	if _textures.is_empty():
 		return
-	_anim_time += delta
+	# Hitstop: o quadro, o tempo da animação de uma vez e o avanço/empurrão param; a vida segue.
+	var anim_delta: float = delta
+	if _hitstop_t > 0.0:
+		_hitstop_t = maxf(0.0, _hitstop_t - delta)
+		anim_delta = 0.0
+	_anim_time += anim_delta
 	_life_t += delta
 	var cam: Camera3D = _find_camera()
 	# Fora da tela: só o relógio da animação anda (o mapa replica centenas de entidades; GDD §17.0.C fluidez).
 	if cull_offscreen and cam != null and not _on_screen(cam):
 		_offscreen = true
+		_sector_ready = false # ao voltar à tela, entra já na direção certa (sem virada)
 		return
 	_offscreen = false
+	if anim == ANIM_WALK:
+		_walk_since += delta
+	else:
+		_settle_t += delta
 	if cam != null:
 		var to_camera: Vector3 = cam.global_position - global_position
-		_current_sector = compute_sector(facing_yaw, to_camera)
+		_update_turn(compute_sector(facing_yaw, to_camera), delta)
 		# A elipse da sombra dos pés é orientada pela câmera no próprio shader (char_blob_shadow).
 	if not _oneshot.is_empty():
-		_oneshot_left -= delta
+		_oneshot_left -= anim_delta
 		if _oneshot_left <= 0.0:
 			_oneshot = &""
 			_anim_time = 0.0
@@ -420,9 +507,11 @@ func _process(delta: float) -> void:
 	var col: int = int(_anim_time / frame_sec) % frames
 	if shown in HOLD_LAST_FRAME_ANIMS:
 		col = mini(int(_anim_time / frame_sec), frames - 1)
+	if shown == ANIM_CAST and _cast_duration_sec > 0.0 and _oneshot == ANIM_CAST:
+		col = _timed_cast_frame(frames, frame_sec)
 	_sprite.frame = sheet_row_for_sector(_current_sector) * frames + col
 	_sprite.flip_h = frame_mirrored(shown, col, _current_sector)
-	_update_motion(delta)
+	_update_motion(anim_delta)
 	_update_life(delta, shown, frames, frame_sec)
 	_update_overlays(shown, col)
 	if col != _last_col:
@@ -432,11 +521,36 @@ func _process(delta: float) -> void:
 			footstep.emit()
 
 
-## Duração (s) de um quadro da animação: andar segue walk_cycle_ms (ciclo inteiro dividido pelos
-## quadros da folha); as outras usam ANIM_FRAME_MS (GDD §17.3).
+## Mantém a cadência de preparar e liberar, sustentando o miolo nas conjurações longas.
+func _timed_cast_frame(frames: int, frame_sec: float) -> int:
+	if frames < 4 or _cast_duration_sec <= frames * frame_sec:
+		return mini(frames - 1, int(_anim_time / _cast_duration_sec * frames))
+	# Carga longa: reunir as mãos e liberar mantêm o ritmo da folha; o miolo sustenta a energia.
+	var gathered: int = maxi(1, floori(frames * 0.35))
+	var hold_end: int = maxi(gathered + 1, floori(frames * 0.48))
+	var release_first: int = maxi(hold_end + 1, floori(frames * 0.50))
+	var windup_sec: float = gathered * frame_sec
+	var release_sec: float = (frames - release_first) * frame_sec
+	if _anim_time < windup_sec:
+		return int(_anim_time / frame_sec)
+	if _anim_time >= _cast_duration_sec - release_sec:
+		return mini(frames - 1, release_first + int((_anim_time - _cast_duration_sec + release_sec) / frame_sec))
+	var span: int = hold_end - gathered
+	var step: int = int((_anim_time - windup_sec) / frame_sec) % (span * 2)
+	return gathered + (step if step <= span else span * 2 - step)
+
+
+## Duração (s) de um quadro: andar segue walk_cycle_ms; as outras usam ANIM_FRAME_MS.
 func get_frame_sec(anim_name: StringName, frames: int) -> float:
 	if anim_name == ANIM_WALK and walk_cycle_ms > 0.0 and frames > 0:
 		return walk_cycle_ms / frames / MS_PER_SEC
+	if sprite_base.begins_with(COMPANION_ASSET_DIR):
+		if PET_FRAME_MS.has(anim_name):
+			return PET_FRAME_MS[anim_name] / MS_PER_SEC
+		if anim_name in LIFE_ANIMS:
+			return PET_LIFE_FRAME_MS / MS_PER_SEC
+	if frames > TRAVELER_REF_FRAMES.get(anim_name, 1 << 30) and is_traveler_sheet():
+		return float(TRAVELER_CYCLE_MS[anim_name]) / frames / MS_PER_SEC
 	var ms: float = ANIM_FRAME_MS.get(anim_name, ANIM_FRAME_MS[ANIM_IDLE])
 	# Folhas com mais quadros que o padrão (monstros do Blender: idle 8, hit 4) mantêm a duração do ciclo.
 	var ref: int = ANIM_REF_FRAMES.get(anim_name, 0)
@@ -452,11 +566,79 @@ func play_oneshot(anim_name: StringName) -> bool:
 	if not _textures.has(anim_name):
 		return false
 	_oneshot = anim_name
+	_cast_duration_sec = 0.0
 	var frames: int = _frame_counts[anim_name]
 	_oneshot_left = get_frame_sec(anim_name, frames) * frames
 	_anim_time = 0.0
 	_apply_anim_texture()
 	return true
+
+
+## Os quadros desenhados acompanham a carga inteira, em vez de voltar ao idle antes da liberação.
+func play_cast_duration(duration_sec: float) -> bool:
+	if not play_oneshot(ANIM_CAST):
+		return false
+	if duration_sec > 0.0:
+		_cast_duration_sec = maxf(0.08, duration_sec)
+		_oneshot_left = _cast_duration_sec
+	return true
+
+
+func cancel_cast() -> void:
+	if _oneshot != ANIM_CAST:
+		return
+	_oneshot = &""
+	_oneshot_left = 0.0
+	_cast_duration_sec = 0.0
+	_anim_time = 0.0
+	_apply_anim_texture()
+
+
+## Disparo da skill: sai da pose de conjuração, estica e recua um pouco para longe de world_dir (do
+## conjurador para o alvo; ZERO = para onde olha). end_cast = false mantém a folha cast tocando. Só visual.
+func play_skill_release(world_dir: Vector3 = Vector3.ZERO, end_cast: bool = true) -> void:
+	if end_cast:
+		cancel_cast()
+	_release_t = RELEASE_SEC
+	var d := Vector3(world_dir.x, 0.0, world_dir.z)
+	if d.length_squared() < 0.0001:
+		d = Vector3(-sin(facing_yaw), 0.0, -cos(facing_yaw))
+	_recoil_dir = -d.normalized()
+	_recoil_t = RECOIL_SEC
+
+
+## Pausa de impacto: congela o quadro e o avanço/empurrão por sec (40–70 ms). Só visual.
+func play_hitstop(sec: float) -> void:
+	_hitstop_t = maxf(_hitstop_t, clampf(sec, 0.0, HITSTOP_MAX_SEC))
+
+
+func is_hitstopped() -> bool:
+	return _hitstop_t > 0.0
+
+
+## Imagem residual (avanço, referência Samsara "Lunge Step"): cópia parada do quadro atual — corpo e
+## camadas visíveis, mesmo quadro e direção — desenhada pelo Sprite3D comum com transparência de verdade
+## (o shader do personagem some em pontilhado, que vira uma faixa de pontos). Quem chama põe no mundo com o
+## global_transform deste nó, tinge e apaga pelo modulate.a. Só visual.
+func make_afterimage() -> Node3D:
+	var root := Node3D.new()
+	root.name = &"Afterimage"
+	var sprites: Array[Sprite3D] = [_sprite]
+	for o: Overlay in _overlays:
+		if o.sprite.visible:
+			sprites.append(o.sprite)
+	for sp: Sprite3D in sprites:
+		var g: Sprite3D = sp.duplicate(0) as Sprite3D
+		g.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		g.material_override = null
+		g.transparent = true
+		g.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED
+		g.shaded = false
+		g.double_sided = true
+		g.modulate = Color.WHITE
+		g.transform = sp.transform
+		root.add_child(g)
+	return root
 
 
 func has_anim(anim_name: StringName) -> bool:
@@ -577,13 +759,15 @@ func _update_life(delta: float, shown: StringName, frames: int, frame_sec: float
 			sy *= 1.0 + 0.08 * air
 			sx *= 1.0 - 0.05 * air
 		else:
-			# Dois passos por ciclo: sobe no meio do passo, achata um pouco no contato.
+			# Dois passos por ciclo: sobe no meio do passo, achata um pouco no contato. Ao começar a andar o
+			# balanço entra suave (WALK_EASE_IN_SEC), sem saltar do idle.
+			var ease_in: float = smoothstep(0.0, WALK_EASE_IN_SEC, _walk_since)
 			var step: float = absf(sin(TAU * phase))
-			lift = float(p["bob_px"]) * px_m * step
+			lift = float(p["bob_px"]) * px_m * step * ease_in
 			var contact: float = 1.0 - step
-			sy *= 1.0 - float(p["step_squash"]) * contact * contact
-			sx *= 1.0 + float(p["step_squash"]) * 0.6 * contact * contact
-	elif not dead:
+			sy *= 1.0 - float(p["step_squash"]) * contact * contact * ease_in
+			sx *= 1.0 + float(p["step_squash"]) * 0.6 * contact * contact * ease_in
+	elif not dead and not _drawn_breath(shown, frames):
 		var breath: float = sin(TAU * _life_t / float(p["breath_sec"]))
 		sy *= 1.0 + float(p["breath"]) * breath
 		sx *= 1.0 - float(p["breath"]) * 0.5 * breath
@@ -595,9 +779,20 @@ func _update_life(delta: float, shown: StringName, frames: int, frame_sec: float
 				_land_t = 0.0
 			_hop_phase_prev = hp
 			lift = idle_hop * px_m * 4.0 * hp * (1.0 - hp)
+	# Parou de andar: assenta (achata um pouco e volta), em vez de cortar seco para o idle.
+	if not walking and not dead and _settle_t < STOP_SETTLE_SEC:
+		var settle: float = float(p["step_squash"]) * STOP_SETTLE_FACTOR * sin(PI * _settle_t / STOP_SETTLE_SEC)
+		sy *= 1.0 - settle
+		sx *= 1.0 + settle * 0.6
 	var hover: float = float(p["hover_m"])
 	if hover > 0.0 and not dead:
 		lift += hover * (1.0 + 0.3 * sin(TAU * _life_t / 1.6))
+	lift += extra_lift_m
+	if _release_t > 0.0:
+		_release_t = maxf(0.0, _release_t - delta)
+		var release: float = sin(_release_t / RELEASE_SEC * PI)
+		sy *= 1.0 + release * 0.035
+		sx *= 1.0 - release * 0.025
 	# Aterrissagem: achata e volta com um pequeno repique.
 	_land_t += delta
 	if _land_t < LAND_SQUASH_SEC:
@@ -626,6 +821,7 @@ func _update_life(delta: float, shown: StringName, frames: int, frame_sec: float
 		sy *= lerpf(1.0, 0.55, ease_s)
 		sx *= lerpf(1.0, 1.25, ease_s)
 		fade = 1.0 - clampf((_death_t - DEATH_SQUASH_SEC * 0.5) / DEATH_FADE_SEC, 0.0, 1.0)
+	fade *= clampf(presence, 0.0, 1.0)
 	_lift = lift
 	_sprite.scale = _base_scale * Vector3(sx, sy, 1.0)
 	_sprite.position.y = _motion_offset().y + lift
@@ -634,7 +830,7 @@ func _update_life(delta: float, shown: StringName, frames: int, frame_sec: float
 	var frame_h: int = get_frame_height()
 	var bk: float = (float(frame_h) / Balance.cfg.character_frame_size if frame_h > 0 else 1.0) * visual_scale
 	_shadow.scale = Vector3(bk * blob_k * sx, 1.0, bk * blob_k * sx)
-	if _death_t >= 0.0:
+	if _death_t >= 0.0 or presence < 1.0:
 		_shadow.visible = fade > 0.05
 	_push_life_params(lift, flash, fade)
 
@@ -686,6 +882,8 @@ func _update_motion(delta: float) -> void:
 			_knock_delay -= delta
 		else:
 			_knock_t -= delta
+	if _recoil_t > 0.0:
+		_recoil_t = maxf(0.0, _recoil_t - delta)
 	var off: Vector3 = _motion_offset()
 	_sprite.position = off + Vector3(0.0, _lift, 0.0)
 	_shadow.position = Vector3(off.x, SHADOW_GROUND_OFFSET, off.z)
@@ -701,12 +899,79 @@ func _motion_offset() -> Vector3:
 		var shake: float = sin((1.0 - k) * PI * 2.0 * KNOCKBACK_SHAKES)
 		var side := Vector3(-_knock_dir.z, 0.0, _knock_dir.x)
 		off += (_knock_dir * (0.6 + 0.4 * shake) + side * 0.35 * shake) * KNOCKBACK_CELLS * cell * k
+	if _recoil_t > 0.0:
+		# Recuo do disparo: sai rápido e volta (meia senoide puxada para o começo).
+		var u: float = 1.0 - _recoil_t / RECOIL_SEC
+		off += _recoil_dir * RECOIL_CELLS * cell * sin(PI * sqrt(u))
 	return off
 
 
-## Setor exibido atualmente (Dir), útil para depuração/testes.
+## Setor exibido atualmente (Dir), útil para depuração/testes. Durante a virada suave é um setor do meio.
 func get_sector() -> int:
 	return _current_sector
+
+
+## Setor para onde a entidade olha de fato (fim da virada suave).
+func get_target_sector() -> int:
+	return _target_sector
+
+
+## Está passando pelos setores do meio de uma virada?
+func is_turning() -> bool:
+	return _sector_ready and _current_sector != _target_sector
+
+
+## Virada suave: diferença de 1 setor (ou câmera girando) entra na hora; mais que isso anda um setor por vez,
+## turn_step_ms cada (metade durante golpe/cast). O primeiro quadro (e a volta à tela) entra direto.
+func _update_turn(target: int, delta: float) -> void:
+	_target_sector = target
+	_turn_left -= delta
+	if not _sector_ready or turn_step_ms <= 0.0:
+		_sector_ready = true
+		_current_sector = target
+		_turn_left = 0.0
+		return
+	if _current_sector == target or _turn_left > 0.0:
+		return
+	_current_sector = turn_step_toward(_current_sector, target)
+	var step_sec: float = turn_step_ms / MS_PER_SEC
+	if not _oneshot.is_empty():
+		step_sec *= TURN_STEP_ONESHOT_FACTOR
+	_turn_left = step_sec if _current_sector != target else 0.0
+
+
+## Distância em setores (0..4) entre dois setores, pelo lado mais curto.
+static func sector_distance(a: int, b: int) -> int:
+	var d: int = posmod(b - a, DIRECTION_COUNT)
+	return mini(d, DIRECTION_COUNT - d)
+
+
+## Próximo setor de from em direção a to, pelo lado mais curto. Empate (180°): pelo lado cujos setores do meio
+## mostram mais a frente do personagem (ex.: E → SE → S → SW → W); S ↔ N vai pelo leste.
+static func turn_step_toward(from: int, to: int) -> int:
+	var d: int = posmod(to - from, DIRECTION_COUNT)
+	if d == 0:
+		return from
+	if d * 2 == DIRECTION_COUNT:
+		var cw_rows: int = 0
+		var ccw_rows: int = 0
+		for i: int in range(1, d):
+			cw_rows += sheet_row_for_sector(posmod(from + i, DIRECTION_COUNT))
+			ccw_rows += sheet_row_for_sector(posmod(from - i, DIRECTION_COUNT))
+		return posmod(from + (1 if cw_rows <= ccw_rows else -1), DIRECTION_COUNT)
+	return posmod(from + (1 if d * 2 < DIRECTION_COUNT else -1), DIRECTION_COUNT)
+
+
+## Ponto do ciclo (s) ao entrar no andar: retoma de onde parou se voltou a andar logo (novo clique de destino);
+## senão começa no quadro de passagem (WALK_START_PHASE), que sai do idle sem salto.
+func _walk_entry_time() -> float:
+	if _life_t - _walk_left_at <= WALK_RESUME_SEC:
+		return _walk_saved_time
+	var frames: int = _frame_counts.get(ANIM_WALK, 0)
+	if frames <= 0:
+		return 0.0
+	# + 1 µs: o quadro de início não cai no anterior por arredondamento.
+	return get_frame_sec(ANIM_WALK, frames) * frames * WALK_START_PHASE + 0.000001
 
 
 # --- Camadas (paper doll) ---
@@ -819,12 +1084,22 @@ func _update_overlays(shown: StringName, col: int) -> void:
 			o.material.set_shader_parameter(&"frame_px", float(_frame_height(tex)))
 		o.sprite.hframes = frames
 		o.sprite.offset = Vector2(0.0, _frame_height(tex) * 0.5)
-		o.sprite.frame = row * frames + col % frames
+		o.sprite.frame = row * frames + overlay_column(col, _frame_counts.get(shown, frames), frames)
 		o.sprite.flip_h = _sprite.flip_h
 		o.sprite.modulate = _sprite.modulate
 		o.sprite.scale = _sprite.scale
 		o.sprite.pixel_size = _sprite.pixel_size
 		o.sprite.position = motion + toward_cam * LAYER_DEPTH_STEP * o.order
+
+
+## Coluna da camada para a coluna do corpo: mesma contagem = mesma coluna; camada com outra contagem (ex.: arma de
+## 6 quadros sobre cast de 10, piloto de quadros 07/10/2026) acompanha o tempo proporcional do ciclo.
+static func overlay_column(body_col: int, body_frames: int, layer_frames: int) -> int:
+	if layer_frames <= 0:
+		return 0
+	if body_frames == layer_frames or body_frames <= 0:
+		return body_col % layer_frames
+	return clampi(body_col * layer_frames / body_frames, 0, layer_frames - 1)
 
 
 static func _warn_once(message: String, key: String) -> void:
@@ -948,11 +1223,27 @@ func _load_texture(path: String) -> Texture2D:
 ## monstros mantêm suas próprias folhas. Retirar esta correção ao substituir as fontes afetadas.
 func frame_mirrored(shown: StringName, column: int, sector: int) -> bool:
 	var mirrored: bool = is_sector_mirrored(sector)
-	if not sprite_base.begins_with("res://assets/characters/"):
-		return mirrored
-	var filename: String = sprite_base.get_file()
-	var traveler: bool = filename.begins_with("chr_traveler_") or filename.begins_with("chr_male_") or filename.begins_with("chr_female_")
-	return traveler_frame_mirrored(shown, column, sector) if traveler else mirrored
+	return traveler_frame_mirrored(shown, column, sector) if is_traveler_sheet() else mirrored
+
+
+## O Viajante com idle de mais quadros já traz a respiração desenhada: a procedural (perfil HUMAN, escala) brigaria
+## com ela, então fica desligada nas animações paradas (idle e as de uma vez por cima dele).
+func _drawn_breath(shown: StringName, frames: int) -> bool:
+	if not is_traveler_sheet():
+		return false
+	var n: int = frames if shown == ANIM_IDLE else _frame_counts.get(ANIM_IDLE, 0)
+	return n > int(TRAVELER_REF_FRAMES[ANIM_IDLE])
+
+
+## As folhas são do Viajante (composto, corpo-base ou roupa de corpo inteiro em assets/characters/)?
+func is_traveler_sheet() -> bool:
+	if _traveler_base != sprite_base:
+		_traveler_base = sprite_base
+		var filename: String = sprite_base.get_file()
+		_traveler = (sprite_base.begins_with(asset_dir) or sprite_base.begins_with("res://assets/characters/")) \
+				and (filename.begins_with("chr_traveler_") or filename.begins_with("chr_male_")
+					or filename.begins_with("chr_female_"))
+	return _traveler
 
 
 ## Correção das folhas ATUAIS do Viajante (desenhadas por IA): a pose neutra SE foi exportada olhando para o lado

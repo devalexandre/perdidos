@@ -72,6 +72,8 @@ var trade_request: PartyInviteDialog
 var net_trade: Object = null
 ## Sistema de Crendices: Altar de consagração e encaixe de amuletos folclóricos
 var crendice_altar: CrendiceAltarWindow = null
+## Cena da fala da lenda depois da vitória de história (NetProgress.story_scene). Sobrevive ao _rebuild.
+var story_scene: StoryScene = null
 var net_crendice: Object = null
 const MOBILE_CONTROLS_OVERLAY_SCRIPT: GDScript = preload("res://scripts/client/ui/mobile_controls_overlay.gd")
 
@@ -118,6 +120,9 @@ func _ready() -> void:
 	var settings: GameSettings = GameSettings.get_instance()
 	_chat_minimized = settings.mobile_controls
 	settings.mobile_controls_changed.connect(set_mobile_mode)
+	story_scene = StoryScene.new()
+	if not NetProgress.story_scene.is_connected(story_scene.play):
+		NetProgress.story_scene.connect(story_scene.play)
 	_rebuild()
 
 
@@ -132,6 +137,9 @@ func bind_net(p_net: Object) -> void:
 
 ## Fecha tudo o que está aberto; retorna true se havia algo aberto.
 func close_top() -> bool:
+	if story_scene != null and story_scene.is_playing():
+		story_scene.skip()
+		return true
 	if gear != null and gear.close_popups():
 		return true
 	if player_menu != null and player_menu.visible:
@@ -489,7 +497,8 @@ func _rebuild() -> void:
 		_save_chat()
 	for child: Node in get_children():
 		remove_child(child)
-		child.queue_free()
+		if child != story_scene:
+			child.queue_free()
 	theme = UIKit.build_theme(ui_scale)
 	var layer := WindowsLayer.new()
 	layer.ui = self
@@ -651,6 +660,9 @@ func _rebuild() -> void:
 	equipment.set_stars(_stars)
 	shop.set_stars(_stars)
 	shop.set_shop(_shop_id, _shop_items)
+	# Cena da história por cima de tudo (mantida entre reconstruções).
+	if story_scene != null:
+		add_child(story_scene)
 	_built = true
 	# Posições iniciais depois do primeiro layout.
 	await get_tree().process_frame

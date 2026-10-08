@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ZoneDef" format=3]
+[ext_resource type="Script" path="res://scripts/shared/data/zone_def.gd" id="zone"]
+[resource]
+script = ExtResource("zone")
+map_id = &"fields_pindorama_crossroads"
+kind = 2
+name_key = "WA_FIELDS_CROSSROADS"
+region_id = &"pindorama"
+recommended_level_min = 1
+recommended_level_max = 10
+monster_stage_cap = 1
+bosses_allowed = false
+connected_maps = Array[StringName]([&"fields_pindorama_buriti", &"enchanted_forest"])

@@ -1,10 +1,10 @@
 # Regiões de caça com vários mapas
 
-A Terra do Sabiá tem dez mapas de caça carregados separadamente, ligados por portais de ida e volta. Cada lugar do atlas agrupa seus setores por `WorldPlaceDef.map_ids`; os nomes dos setores aparecem no HUD e no minimapa.
+A Terra de Pindorama tem dez mapas de caça carregados separadamente, ligados por portais de ida e volta. Cada lugar do atlas agrupa seus setores por `WorldPlaceDef.map_ids`; os nomes dos setores aparecem no HUD e no minimapa.
 
 | Lugar | Setores, na ordem da travessia | Níveis | Chefes |
 |---|---|---|---|
-| Campos do Sabiá | Estrada dos Viajantes → Veredas do Buriti → Passo dos Ipês | 1–10 | Não; estágio máximo 1 |
+| Campos de Pindorama | Estrada dos Viajantes → Veredas do Buriti → Passo dos Ipês | 1–10 | Não; estágio máximo 1 |
 | Mata Encantada | Entrada da Mata → Clareira dos Vaga-lumes → Bosque das Raízes → Coração da Mata | 6–12 | Não; estágio máximo 2 |
 | Chapada do Céu Partido | Subida Vermelha → Cristas do Vento → Alto das Brasas | 12–25 | Sim: chefes fixos nos covis; formas atrozes à noite |
 
@@ -31,7 +31,7 @@ Decisão do dono (30/09/2026): não há evolução nem chefe por contagem de aba
 
 | Setor | Covis |
 |---|---|
-| Subida Vermelha | Tatu-Montanha (leste), Rainha-Lume do Brejo (centro), Ventania do Gorro Vermelho (oeste); os três chefes do Sabiá pedidos pelos anciãos |
+| Subida Vermelha | Tatu-Montanha (leste), Rainha-Lume do Brejo (centro), Ventania do Gorro Vermelho (oeste); os três chefes de Pindorama pedidos pelos anciãos |
 | Cristas do Vento | Queixada de Buriti |
 | Alto das Brasas | Serpente-Fagulha (leste), Mula de Brasa (oeste) |
 
@@ -44,7 +44,7 @@ Na raiz do projeto:
 
 ```bash
 # Reexportar arte, somente se os modelos mudarem:
-bash game/tools/world/export_sabia_monsters.sh
+bash game/tools/world/export_pindorama_monsters.sh
 # Regerar cenas, zonas, minimapas, nomes e dados das espécies:
 python3 game/tools/world/build_hunt_areas.py
 # O gerador do atlas também preserva o agrupamento dos setores:

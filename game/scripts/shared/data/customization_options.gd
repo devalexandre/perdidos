@@ -35,7 +35,7 @@ const NO_EARRINGS: StringName = &""
 ## id → outfit_id da roupa-base (assets/characters/outfits/chr_<corpo>_<outfit>_*.png).
 ## Nacionalidade sem entrada (ou sem folhas) usa o Viajante.
 @export var nationality_outfits: Dictionary[StringName, StringName] = {}
-@export var default_nationality: StringName = &"sabia"
+@export var default_nationality: StringName = &"pindorama"
 ## Enquanto a região não tem folha própria: [tecido, detalhe] que recolorem a roupa do Viajante (o azul vira
 ## "tecido", o vermelho vira "detalhe", mantendo o sombreado). Sem entrada = cores originais.
 @export var nationality_colors: Dictionary[StringName, PackedColorArray] = {}
@@ -127,8 +127,10 @@ func sanitize(appearance: Dictionary) -> Dictionary:
 	if (ear is StringName or ear is String) and StringName(ear) in earring_choices():
 		out[KEY_EARRINGS] = StringName(ear)
 	var nat: Variant = appearance.get(KEY_NATIONALITY)
-	if (nat is StringName or nat is String) and StringName(nat) in nationalities:
-		out[KEY_NATIONALITY] = StringName(nat)
+	if nat is StringName or nat is String:
+		nat = LegacyIds.sname(StringName(nat)) # ids renomeados (LegacyIds)
+	if nat is StringName and nat in nationalities:
+		out[KEY_NATIONALITY] = nat
 	return out
 
 

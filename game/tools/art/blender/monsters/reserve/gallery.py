@@ -4,7 +4,7 @@ import json, html
 from PIL import Image, ImageDraw, ImageFont
 HERE=Path(__file__).resolve().parent
 cat=json.loads((HERE/'catalog.json').read_text())
-regions=dict(sabia='Terra do Sabiá',mouras='Reino das Mouras',sol='Ilhas do Sol Nascente',fiordes='Fiordes de Gelo',colunas='Costa das Colunas',areias='Areias do Nilo',brumas='Brumas Verdes',estepe='Estepe de Ferro',jade='Império de Jade',obsidiana='Selvas de Obsidiana')
+regions=dict(pindorama='Terra de Pindorama',mouras='Reino das Mouras',sol='Ilhas do Sol Nascente',fiordes='Fiordes de Gelo',colunas='Costa das Colunas',areias='Areias do Nilo',brumas='Brumas Verdes',estepe='Estepe de Ferro',jade='Império de Jade',obsidiana='Selvas de Obsidiana')
 font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',15)
 page=['<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Novos monstros regionais</title><style>body{background:#171c27;color:#edf0f4;font:16px system-ui;max-width:1200px;margin:auto;padding:24px}h1{font-size:30px}nav{display:flex;flex-wrap:wrap;gap:14px}a{color:#83d6c8}.forms{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}img{width:100%;border-radius:12px}figure{margin:0}article{margin:30px 0 46px}figcaption{padding:8px}small,p{color:#bac4d4}@media(max-width:650px){.forms{grid-template-columns:1fr}}</style><h1>30 novos monstros regionais</h1><p>Modelos Blender editáveis · Normal, Boss e Atroz · Arte preparada, sem spawns ativos.</p><p>As prévias mostram a modelagem 3D. Os sprites pixel art são produzidos pelo renderizador nativo quando necessário. Escala das imagens ajustada para revisão de detalhes.</p><nav>']
 page += [f'<a href="#{key}">{name}</a>' for key,name in regions.items()]

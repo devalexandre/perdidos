@@ -4,7 +4,8 @@
 - icones (32x32), enfeites, UI e emotes: so cores da paleta mestra e alfa binario (tools/art/palette.py);
 - folhas de personagem (NPCs, Viajante sit, roupas): quadros 96x96 (idle 4, walk 8, sit 1 coluna; 5 linhas),
   no maximo 48 cores (paleta propria por personagem, como o Viajante v2), conteudo dentro do quadro;
-- camadas de equipamento: mesmo formato das folhas do corpo, no maximo 32 cores."""
+- camadas de equipamento: mesmo formato das folhas do corpo, no maximo 32 cores;
+- pets 2D (assets/companions/<pet>/): quadro 96, 5 linhas, 2 a 32 colunas por animacao, alfa binario, ate 40 cores."""
 import glob, os, sys
 import numpy as np
 from PIL import Image
@@ -19,8 +20,9 @@ COLS.update({'attack_unarmed': 6, 'attack_blade': 6, 'attack_staff': 6, 'cast': 
 COLS['attack_bow'] = 6
 # C3 (28/09/2026, GDD §17.0.B): personagem jogavel do pipeline 3D (tools/art/blender/characters) com mais quadros:
 # idle 8, golpes/cast/morte 8, hit 4. As folhas antigas (NPCs) continuam valendo com as contagens acima.
-COLS_ALT = {'idle': (4, 8), 'attack_unarmed': (6, 8), 'attack_blade': (6, 8), 'attack_staff': (6, 8), 'cast': (6, 8),
-            'death': (6, 8), 'hit': (2, 4)}
+# Piloto de quadros do Viajante (07/10/2026, .work/char-frames-pilot): idle 12, golpes 12, cast 10/16.
+COLS_ALT = {'idle': (4, 8, 12), 'attack_unarmed': (6, 8, 12), 'attack_blade': (6, 8, 12), 'attack_staff': (6, 8, 12),
+            'attack_bow': (6, 12), 'cast': (6, 8, 10, 16), 'death': (6, 8), 'hit': (2, 4)}
 COLS.setdefault('hit', 4)
 
 
@@ -85,6 +87,26 @@ for f in glob.glob(f'{GAME}/assets/monsters/*/*.png'):
     for r in range(5):
         for c in range(cols):
             if not (a[r * F:(r + 1) * F, c * F:(c + 1) * F, 3] > 0).any(): err(f, f'quadro vazio linha {r} coluna {c}')
+# Pets 2D dos companheiros (assets/companions/<pet>/, PETS-E-MONTARIAS §2.3.1): quadro 96, 5 linhas (S, SE, E, NE, N),
+# alfa binario, ate 40 cores por folha, nenhum quadro vazio; colunas livres por animacao (2 a 32), idle e walk obrigatorias.
+PET_ANIMS = {'idle', 'walk', 'attack', 'cast', 'glide', 'look', 'hit', 'death'}
+for d in glob.glob(f'{GAME}/assets/companions/*/'):
+    names = {os.path.basename(f) for f in glob.glob(d + '*.png')}
+    for need in ('idle', 'walk'):
+        if not any(n.endswith(f'_{need}.png') for n in names): err(d, f'falta a folha {need}')
+    for f in sorted(glob.glob(d + '*.png')):
+        stem = os.path.basename(f)[:-4]
+        anim = next((a for a in PET_ANIMS if stem.endswith('_' + a)), None) or ('life' if '_life_' in stem else None)
+        if anim is None: err(f, 'animacao desconhecida (idle, walk, attack, cast, glide, look, hit, death ou life_*)'); continue
+        im = Image.open(f).convert('RGBA'); a = np.asarray(im); cols = im.width // 96
+        if im.height != 480 or im.width % 96 or not 2 <= cols <= 32:
+            err(f, f'tamanho {im.size} (quadro 96, 5 linhas, 2 a 32 colunas)'); continue
+        if ((a[..., 3] > 0) & (a[..., 3] < 255)).any(): err(f, 'alfa semitransparente')
+        n = len({tuple(c) for c in a[a[..., 3] > 0][:, :3]})
+        if n > 40: err(f, f'{n} cores > 40')
+        for r in range(5):
+            for c in range(cols):
+                if not (a[r * 96:(r + 1) * 96, c * 96:(c + 1) * 96, 3] > 0).any(): err(f, f'quadro vazio linha {r} coluna {c}')
 # crianca visivelmente menor que os adultos
 def height(f):
     a = np.asarray(Image.open(f).convert('RGBA'))[0:96, 0:96, 3] > 0; ys = np.nonzero(a.any(1))[0]; return ys.max() - ys.min() + 1

@@ -1729,10 +1729,19 @@ metadata/radius_cells = 3
 metadata/respawn_sec = 100.0
 
 [node name="BoatmanHat" type="Marker3D" parent="."]
-position = Vector3(-20, 0, 10)
+position = Vector3(-16, 0, 14)
 
 [node name="BoatmanOar" type="Marker3D" parent="."]
 position = Vector3(0, 0, -10)
 
 [node name="BoatmanNet" type="Marker3D" parent="."]
-position = Vector3(20, 0, 5)
+position = Vector3(22, 0, 2)
+
+[node name="StoryLairs" type="Node3D" parent="."]
+
+[node name="iara" type="Marker3D" parent="StoryLairs"]
+position = Vector3(-8, 0, 2)
+metadata/monster_id = &"story_iara"
+metadata/radius_cells = 6
+metadata/escort = {"river_anaconda": 5, "black_caiman": 5}
+metadata/escort_stage = 2

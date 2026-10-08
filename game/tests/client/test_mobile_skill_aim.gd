@@ -66,6 +66,10 @@ func _ready() -> void:
 	skill.range_cells = 10
 	skill.radius_cells = 2
 	aim.begin(skill, player, true)
+	var area_mesh: MeshInstance3D = aim._preview.get_child(0)
+	check(area_mesh.mesh is PlaneMesh and is_equal_approx((area_mesh.mesh as PlaneMesh).size.x, skill.radius_cells * Balance.cfg.cell_size * 2.08), "Rune preview preserves skill radius plus transparent margin")
+	var rune_material: ShaderMaterial = area_mesh.material_override
+	check(rune_material.get_shader_parameter(&"color") == SkillFx.charge_color_for(skill), "Preview runes use skill color")
 	check(not aim.handle_input(touch(1, Vector2.ZERO, true)), "Other fingers do not confirm world aim")
 	aim.update_mobile_direction(Vector2(0.5, 0))
 	player.position = Vector3(2, 0, 3)
@@ -76,6 +80,13 @@ func _ready() -> void:
 	check(is_equal_approx(aim._mobile_point().distance_to(player.position), 10 * Balance.cfg.cell_size), "Area stays inside range")
 	aim.finish_mobile(true)
 	check(casts.size() == 1 and not aim.is_aiming(), "Cancellation sends no cast")
+	for skill_id: StringName in [&"arcane_creeping_flame", &"arcane_star_fall", &"support_bottle_brew"]:
+		var colored_skill: SkillDef = Content.skill(skill_id)
+		aim.begin(colored_skill, player, true)
+		var mesh: MeshInstance3D = aim._preview.get_child(0)
+		var material: ShaderMaterial = mesh.material_override
+		check(material.get_shader_parameter(&"color") == SkillFx.charge_color_for(colored_skill), "%s preview matches casting color" % skill_id)
+		aim.cancel(false)
 	skill.target_type = SkillDef.TargetType.CONE
 	view.camera_yaw = PI / 2
 	aim.begin(skill, player, true)

@@ -1,7 +1,7 @@
 [
   {
     "id": "ember_mule",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Mula de Brasa",
     "stage": 1,
     "blend": "blend/ember_mule_s1.blend",
@@ -9,7 +9,7 @@
   },
   {
     "id": "ember_mule",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Mula da Queimada",
     "stage": 3,
     "blend": "blend/ember_mule_s3.blend",
@@ -17,7 +17,7 @@
   },
   {
     "id": "ember_mule",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Mula da Noite Ardente",
     "stage": 4,
     "blend": "blend/ember_mule_s4.blend",
@@ -25,7 +25,7 @@
   },
   {
     "id": "buriti_boar",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Queixada de Buriti",
     "stage": 1,
     "blend": "blend/buriti_boar_s1.blend",
@@ -33,7 +33,7 @@
   },
   {
     "id": "buriti_boar",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Queixada do Veredão",
     "stage": 3,
     "blend": "blend/buriti_boar_s3.blend",
@@ -41,7 +41,7 @@
   },
   {
     "id": "buriti_boar",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Queixada das Raízes Negras",
     "stage": 4,
     "blend": "blend/buriti_boar_s4.blend",
@@ -49,7 +49,7 @@
   },
   {
     "id": "cinder_serpent",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Serpente-Fagulha",
     "stage": 1,
     "blend": "blend/cinder_serpent_s1.blend",
@@ -57,7 +57,7 @@
   },
   {
     "id": "cinder_serpent",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Serpente do Fogo Errante",
     "stage": 3,
     "blend": "blend/cinder_serpent_s3.blend",
@@ -65,7 +65,7 @@
   },
   {
     "id": "cinder_serpent",
-    "region": "sabia",
+    "region": "pindorama",
     "name": "Serpente da Cinza Viva",
     "stage": 4,
     "blend": "blend/cinder_serpent_s4.blend",

@@ -19,9 +19,9 @@ func _run() -> void:
 	await _dbg(&"set_hp", [99999])
 	await _dbg(&"set_hour", [12])
 	await _porto()
-	await _dbg(&"goto", [&"fields_sabia_crossroads"])
-	var arrived: bool = await _wait(func() -> bool: return NetWorld.client_map_id == &"fields_sabia_crossroads", 30.0)
-	_map_label = "fields_sabia_crossroads"
+	await _dbg(&"goto", [&"fields_pindorama_crossroads"])
+	var arrived: bool = await _wait(func() -> bool: return NetWorld.client_map_id == &"fields_pindorama_crossroads", 30.0)
+	_map_label = "fields_pindorama_crossroads"
 	_check("chegou_passo_dos_ipes", arrived, NetWorld.client_map_id)
 	await _sleep(3.0)
 	var lair: Vector3 = _marker("StoryLairs/saci")
@@ -80,6 +80,8 @@ func _run() -> void:
 	_check("entrega_da_causo_e_gorro", int(_progress.get("causos", 0)) > causos and _count_item(&"whirlwind_cap") == 1,
 			[_progress.get("causos"), _count_item(&"whirlwind_cap")])
 	await _cave()
+	await _released_lairs()
+	await _boitata()
 	_finish()
 
 
@@ -133,6 +135,78 @@ func _cave() -> void:
 	_check("noite_chefe_de_especie_cede_o_lugar", _species_boss(&"cave_werewolf") == null)
 	await _dbg(&"set_hour", [12])
 	await _sleep(1.0)
+
+
+## Chefes liberados nesta etapa nascem à noite nos covis deles (Mula, Mapinguari, Cuca, Boiúna).
+func _released_lairs() -> void:
+	await _dbg(&"set_hour", [22])
+	for spec: Array in [[&"split_sky_plateau_summit", &"story_mula"], [&"ruins_ratanaba_4", &"story_mapinguari"],
+			[&"hollow_earth_cauldron", &"story_cuca"], [&"sumidouro_abyss", &"story_boiuna"], [&"jungle_z_river", &"story_iara"]]:
+		var map_id: StringName = spec[0]
+		await _dbg(&"goto", [map_id])
+		var ok: bool = await _wait(func() -> bool: return NetWorld.client_map_id == map_id, 30.0)
+		_map_label = String(map_id)
+		await _sleep(2.0)
+		_check("noite_%s_nasce" % spec[1], ok and await _wait(func() -> bool: return _story(spec[1]).size() == 1, 10.0))
+	# A passagem do andar 4 só abre para quem tem o final: sem os capítulos, fica selada.
+	await _dbg(&"goto", [&"cave_reino_encoberto_4"])
+	await _wait(func() -> bool: return NetWorld.client_map_id == &"cave_reino_encoberto_4", 30.0)
+	_map_label = "cave_reino_encoberto_4"
+	await _sleep(2.0)
+	await _dbg(&"set_hour", [12])
+	var mark: int = _system.size()
+	var m: Node = _map()
+	var area: Node3D = m.get_node_or_null(^"Interactables/DeepPassagePortal") as Node3D if m != null else null
+	_check("passagem_existe", area != null)
+	if area != null:
+		await _tp(area.get_meta(&"approach_position", area.global_position))
+		Net.send_interact("m:" + str(area.get_meta(&"interact_id", "")))
+		_check("passagem_selada_sem_o_final", await _wait(func() -> bool:
+				return "SYS_STORY_PASSAGE_SEALED" in _system.slice(mark), 6.0) \
+				and NetWorld.client_map_id == &"cave_reino_encoberto_4")
+
+
+## Fases do Boitatá no andar 5 (o chefe ainda sem arte nasce pelo comando de teste).
+func _boitata() -> void:
+	var casts: Array[String] = []
+	NetProgress.skill_cast.connect(func(_e: int, skill_id: StringName, _t: int, _p: Vector3, _ms: int) -> void:
+		casts.append(String(skill_id)))
+	await _dbg(&"goto", [&"cave_reino_encoberto_5"])
+	var ok: bool = await _wait(func() -> bool: return NetWorld.client_map_id == &"cave_reino_encoberto_5", 30.0)
+	_map_label = "cave_reino_encoberto_5"
+	_check("andar_5_existe", ok)
+	await _sleep(2.0)
+	await _dbg(&"set_hour", [22])
+	await _tp(Vector3(0, 0, -6))
+	await _dbg(&"set_hp", [999999])
+	await _chat("/imortal")
+	# À noite o Boitatá nasce sozinho no covil da Câmara da Fogueira.
+	var born: bool = await _wait(func() -> bool: return _story(&"story_boitata").size() == 1, 10.0)
+	_check("boitata_nasce_no_covil", born)
+	if not born:
+		return
+	var boss: Node3D = _story(&"story_boitata")[0]
+	NetCombat.send_attack(int(boss.get(&"entity_id")))
+	_check("fase1_sopro_com_aviso", await _wait(func() -> bool: return "boitata_breath" in casts, 12.0), casts)
+	var mark: int = _system.size()
+	await _chat("/vida 50")
+	_check("fase2_anuncio", await _wait(func() -> bool: return "SYS_BOITATA_PHASE_2" in _system.slice(mark), 6.0))
+	_check("fase2_tres_fogos_fatuos", await _wait(func() -> bool: return _story(&"boitata_wisp").size() == 3, 6.0),
+			_story(&"boitata_wisp").size())
+	_check("fase2_rastro_de_fogo", await _wait(func() -> bool: return "boitata_fire_trail" in casts, 8.0))
+	await _dbg(&"set_hp", [999999])
+	mark = _system.size()
+	await _chat("/vida 25")
+	_check("fase3_anuncio", await _wait(func() -> bool: return "SYS_BOITATA_PHASE_3" in _system.slice(mark), 6.0))
+	_check("fase3_aneis_de_fogo", await _wait(func() -> bool: return "boitata_fire_ring" in casts, 12.0))
+	await _dbg(&"set_hp", [999999])
+	mark = _system.size()
+	await _chat("/vida 5")
+	_check("fase4_chama_negra", await _wait(func() -> bool:
+			return "SYS_BOITATA_PHASE_4" in _system.slice(mark) and AtrozVisual.is_black_flame(boss), 6.0))
+	await _chat("/derrubar chefe")
+	_check("derrotado_some_com_os_fogos", await _wait(func() -> bool: return _story(&"boitata_wisp").is_empty(), 8.0))
+	await _dbg(&"set_hour", [12])
 
 
 func _story(mid: StringName) -> Array[Node3D]:

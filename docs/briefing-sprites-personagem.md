@@ -8,7 +8,7 @@
 - Motivo: as pranchas "estudante-base" e "títulos" de 28/09 (ChatGPT) repetem a folha do Novice do Ragnarok **pose por pose, na mesma grade e ordem**. Isso é obra derivada da Gravity e não pode ser publicado. Elas ficam em `game/downloads/` (ignorado pelo Godot, git e Docker) apenas como registro, **fora do jogo**.
 - Referência permitida: **as nossas próprias poses** (guias de pose renderizados no Blender pelo `.work/d/tools/guide_render.py`), a prancha `game/assets/_reference/wardrobe/title-evolution-v1.png` e descrições em texto do estilo ("chibi, ~3 cabeças, contorno colorido, luz de cima-esquerda").
 - Cada entrega vem com um arquivo `ORIGEM.md`: ferramenta, prompt, imagens de entrada usadas e autor.
-- **(Arquivado em 28/09: o dono preferiu o Viajante recolorido.)** Para gerar no ChatGPT, use o kit `docs/kit-chatgpt-student-sabia.md`.** Ele traz as nossas pranchas-guia (`docs/guias/student_sabia/`), o prompt exato e o importador (`game/tools/art/import_ai_sheet.py`), que transforma a imagem devolvida nas folhas do jogo. O kit substitui a folha do Novice.
+- **(Arquivado em 28/09: o dono preferiu o Viajante recolorido.)** Para gerar no ChatGPT, use o kit `docs/kit-chatgpt-student-pindorama.md`.** Ele traz as nossas pranchas-guia (`docs/guias/student_pindorama/`), o prompt exato e o importador (`game/tools/art/import_ai_sheet.py`), que transforma a imagem devolvida nas folhas do jogo. O kit substitui a folha do Novice.
 
 ## 1. Formato técnico (o que o jogo lê hoje)
 
@@ -30,11 +30,11 @@ Nome do arquivo: `game/assets/characters/outfits/chr_<corpo>_<roupa>_<anim>.png`
 
 O jogador escolhe a nacionalidade na criação. A escolha é validada no servidor e salva.
 
-**Decisão do dono (28/09): a roupa por nacionalidade é o Viajante recolorido com as cores da região**, e não folhas geradas no ChatGPT. As cores ficam em `nationality_colors` (`game/data/customization/options.tres`), no formato [tecido, detalhe]. Terra do Sabiá mantém as cores originais. A troca aparece na prévia da tela de criação e no mundo. Um quadro abaixo da prévia mostra o nome da região, a frase do atlas e as duas cores. Detalhes técnicos: `game/tools/art/customization/README.md`, seção "Roupa por nacionalidade". O campo `nationality_outfits` continua disponível se um dia uma região ganhar folha própria.
+**Decisão do dono (28/09): a roupa por nacionalidade é o Viajante recolorido com as cores da região**, e não folhas geradas no ChatGPT. As cores ficam em `nationality_colors` (`game/data/customization/options.tres`), no formato [tecido, detalhe]. Terra de Pindorama mantém as cores originais. A troca aparece na prévia da tela de criação e no mundo. Um quadro abaixo da prévia mostra o nome da região, a frase do atlas e as duas cores. Detalhes técnicos: `game/tools/art/customization/README.md`, seção "Roupa por nacionalidade". O campo `nationality_outfits` continua disponível se um dia uma região ganhar folha própria.
 
 | Nacionalidade (id) | Região | Roupa (id sugerido) |
 |---|---|---|
-| sabia | Terra do Sabiá (Brasil) — **MVP** | student_sabia |
+| pindorama | Terra de Pindorama (Brasil) — **MVP** | student_pindorama |
 | mouras | Reino das Mouras (Portugal) | student_mouras |
 | sol | Ilhas do Sol Nascente (Japão) | student_sol |
 | fiordes | Fiordes de Gelo (Noruega/Islândia) | student_fiordes |
@@ -47,14 +47,14 @@ O jogador escolhe a nacionalidade na criação. A escolha é validada no servido
 
 Regras culturais (GDD §4.0): inspiração e não caricatura; nada de símbolo religioso vivo na roupa. As regiões são as do GDD; "África", "Europa", "Oriente Médio" e similares como bloco único não entram.
 
-**Prioridade:** `student_sabia`, masculino e feminino, todas as animações.
+**Prioridade:** `student_pindorama`, masculino e feminino, todas as animações.
 
-**Arquivado** (o dono preferiu o recolor). Se um dia for preciso: o kit `docs/kit-chatgpt-student-sabia.md` traz as pranchas-guia `docs/guias/student_sabia/<corpo>_p1_parado|p2_andar|p3_combate|p4_dano.png`, o prompt, o passo a passo e onde salvar (`game/downloads/sprits/student_sabia/<corpo>_<parte>.png`). O importador é `game/tools/art/import_ai_sheet.py`. A instalação ainda depende da camada de cabeça por âncora: ver "Instalar no jogo" no kit.
+**Arquivado** (o dono preferiu o recolor). Se um dia for preciso: o kit `docs/kit-chatgpt-student-pindorama.md` traz as pranchas-guia `docs/guias/student_pindorama/<corpo>_p1_parado|p2_andar|p3_combate|p4_dano.png`, o prompt, o passo a passo e onde salvar (`game/downloads/sprits/student_pindorama/<corpo>_<parte>.png`). O importador é `game/tools/art/import_ai_sheet.py`. A instalação ainda depende da camada de cabeça por âncora: ver "Instalar no jogo" no kit.
 
 ## 3. Roupas por título
 
 Uma roupa por título. A do título exibido substitui a de nacionalidade. **Regra do dono: cada roupa muda a forma, e não só
-a cor.** As 16 roupas da Terra do Sabiá estão prontas nos dois corpos e em todas as animações do corpo-base, com máscara
+a cor.** As 16 roupas da Terra de Pindorama estão prontas nos dois corpos e em todas as animações do corpo-base, com máscara
 (pele, olhos e cabelo continuam personalizáveis). O título liga a roupa por `outfit_id` em `data/titles/<id>.tres`.
 
 - **Como foram feitas:** `game/tools/art/title_outfits/` (README). Cada pose-chave do corpo-base é editada pela IA (Bria),
@@ -64,22 +64,22 @@ a cor.** As 16 roupas da Terra do Sabiá estão prontas nos dois corpos e em tod
 
 | Título (id) | outfit_id | Caminho | Roupa |
 |---|---|---|---|
-| sabia_blade_machete (Facão Firme) | title_machete | Lâmina, base | túnica de lona cinza, cinto com facão, bandagem no braço |
-| sabia_blade_aroeira (Tronco de Aroeira) | title_aroeira | Lâmina, ramo A | gibão acolchoado cor de casca, ombreiras de madeira, faixa musgo |
-| sabia_blade_jaguar (Garra da Onça) | title_jaguar | Lâmina, ramo B | colete ocre com rosetas de onça, braçadeiras, faixa preta |
-| sabia_arcane_firefly (Luz de Vaga-lume) | title_firefly | Arcano, base | capa curta índigo, túnica com barra verde, pingentes de vaga-lume |
-| sabia_arcane_crystal (Guarda do Cristal) | title_crystal | Arcano, ramo A | sobretudo azul-gelo de gola alta, placas de cristal nos ombros |
-| sabia_arcane_boitata (Olho do Boitatá) | title_boitata | Arcano, ramo B | manto azul-noite com chamas na barra, faixa com olho laranja |
-| sabia_hybrid_ember (Brasa no Facão) | title_ember | híbrido | casaco carvão com costura em brasa, meia capa vermelha |
-| sabia_bow_cerrado (Flecha do Cerrado) | title_cerrado | Arco, base | gibão curto de couro cru, aljava de taquara nas costas, faixa de palha, braçadeiras |
-| sabia_bow_brejo (Tocaia do Brejo) | title_brejo | Arco, ramo A | capa de folhas e barro seco, capuz de palha abaixado, tons de lama e musgo |
-| sabia_bow_gaviao (Gavião-Real) | title_gaviao | Arco, ramo B | casaco claro, ombreiras de penas cinza e brancas, luva de falcoeiro, faixa de penas |
-| sabia_support_root (Raiz do Cerrado) | title_root | Suporte | avental de raizeira com bolsos de ervas, xale, cordões de sementes, garrafa na cintura |
-| sabia_support_buriti (Seiva do Buriti) | title_buriti | Suporte, cura | túnica clara de palha de buriti trançada, faixa verde, folhas na barra |
-| sabia_support_matinta (Assobio da Matinta) | title_matinta | Suporte, debuff | manto escuro longo com penas de coruja, capuz abaixado, franjas |
-| sabia_tank_jabuti (Casco de Jabuti) | title_jabuti | Tanque | peitoral e costas em placas de casco, ombreiras redondas |
-| sabia_tank_anta (Couro de Anta) | title_anta | Tanque, guerreiro pesado | couro grosso em camadas, cinturão largo, saiote de couro, grevas |
-| sabia_tank_mapinguari (Fúria do Mapinguari) | title_mapinguari | Tanque, berserker | colete de pele desgrenhada sem camisa, garras de osso, marcas vermelhas |
+| pindorama_blade_machete (Facão Firme) | title_machete | Lâmina, base | túnica de lona cinza, cinto com facão, bandagem no braço |
+| pindorama_blade_aroeira (Tronco de Aroeira) | title_aroeira | Lâmina, ramo A | gibão acolchoado cor de casca, ombreiras de madeira, faixa musgo |
+| pindorama_blade_jaguar (Garra da Onça) | title_jaguar | Lâmina, ramo B | colete ocre com rosetas de onça, braçadeiras, faixa preta |
+| pindorama_arcane_firefly (Luz de Vaga-lume) | title_firefly | Arcano, base | capa curta índigo, túnica com barra verde, pingentes de vaga-lume |
+| pindorama_arcane_crystal (Guarda do Cristal) | title_crystal | Arcano, ramo A | sobretudo azul-gelo de gola alta, placas de cristal nos ombros |
+| pindorama_arcane_boitata (Olho do Boitatá) | title_boitata | Arcano, ramo B | manto azul-noite com chamas na barra, faixa com olho laranja |
+| pindorama_hybrid_ember (Brasa no Facão) | title_ember | híbrido | casaco carvão com costura em brasa, meia capa vermelha |
+| pindorama_bow_cerrado (Flecha do Cerrado) | title_cerrado | Arco, base | gibão curto de couro cru, aljava de taquara nas costas, faixa de palha, braçadeiras |
+| pindorama_bow_brejo (Tocaia do Brejo) | title_brejo | Arco, ramo A | capa de folhas e barro seco, capuz de palha abaixado, tons de lama e musgo |
+| pindorama_bow_gaviao (Gavião-Real) | title_gaviao | Arco, ramo B | casaco claro, ombreiras de penas cinza e brancas, luva de falcoeiro, faixa de penas |
+| pindorama_support_root (Raiz do Cerrado) | title_root | Suporte | avental de raizeira com bolsos de ervas, xale, cordões de sementes, garrafa na cintura |
+| pindorama_support_buriti (Seiva do Buriti) | title_buriti | Suporte, cura | túnica clara de palha de buriti trançada, faixa verde, folhas na barra |
+| pindorama_support_matinta (Assobio da Matinta) | title_matinta | Suporte, debuff | manto escuro longo com penas de coruja, capuz abaixado, franjas |
+| pindorama_tank_jabuti (Casco de Jabuti) | title_jabuti | Tanque | peitoral e costas em placas de casco, ombreiras redondas |
+| pindorama_tank_anta (Couro de Anta) | title_anta | Tanque, guerreiro pesado | couro grosso em camadas, cinturão largo, saiote de couro, grevas |
+| pindorama_tank_mapinguari (Fúria do Mapinguari) | title_mapinguari | Tanque, berserker | colete de pele desgrenhada sem camisa, garras de osso, marcas vermelhas |
 
 ### 3.1 Arco (item `simple_bow`, estilo de golpe `bow`)
 
@@ -120,9 +120,9 @@ Folhas separadas do corpo, desenhadas pelo jogo por cima do mundo. Quadro 96 × 
 
 **Trocar ou acrescentar uma animação por GIF (opcional):** `python3 game/tools/art/fx/import_fx_gif.py arquivo.gif <skill>_<peça> [--size 96|192] [--colors 24] [--anchor center|bottom] [--blend add|mix] [--plane billboard|flat] [--loop]`. O importador recorta pelo alfa (ou pela cor dos cantos / `--bg`), centraliza, reduz com nearest e paleta limitada e grava a folha `.png` + um `.json` com a duração de cada quadro. Quando o `.json` existe, o jogo usa essa folha no lugar da gerada e o `gen_skill_fx.py` não a sobrescreve. Prefira GIF com fundo transparente: fundo de cor deixa franja no halo. **Regra:** só GIFs próprios (feitos por nós) ou com licença CC0/CC-BY conferida e registrada em `game/assets/fx/skills/ORIGEM.md`; **nunca** GIFs de Ragnarok, Samsara ou de qualquer outro jogo.
 
-### 4.1 Terra do Sabiá v0.4 — as 68 skills novas, estados e ícones — **feito em 30/09/2026** (esperando o olhar do dono)
+### 4.1 Terra de Pindorama v0.4 — as 68 skills novas, estados e ícones — **feito em 30/09/2026** (esperando o olhar do dono)
 
-Mesmo método (tudo por script, quadro a quadro, sem imagem de entrada), agora com **sprites desenhados à mão pixel a pixel** (texto → pixel, `game/tools/art/fx/fxsabia.py`) para as peças-chave: onça, gavião-real, rasga-mortalha, passarinho da Matinta, vaga-lume, anta, jabuti, casco, garrafada, cuia, coco de canudinho, pequi, bigorna e martelo, facão, pedra de amolar, olhos (cobra de fogo, gavião, onça), boca do Mapinguari, mão de garras, flecha de taquara, penas e folhas. Peças maiores que as do MVP: quadro 128 (em pé, pivô nos pés) e 192/256 no chão, desenhadas para ler na câmera atual. **Nada de símbolo religioso:** sem cruz, hexagrama ou pentagrama; as runas do círculo de conjuração e da Barreira viraram semente, broto e ziguezague (a antiga tinha forma de "+").
+Mesmo método (tudo por script, quadro a quadro, sem imagem de entrada), agora com **sprites desenhados à mão pixel a pixel** (texto → pixel, `game/tools/art/fx/fxpindorama.py`) para as peças-chave: onça, gavião-real, rasga-mortalha, passarinho da Matinta, vaga-lume, anta, jabuti, casco, garrafada, cuia, coco de canudinho, pequi, bigorna e martelo, facão, pedra de amolar, olhos (cobra de fogo, gavião, onça), boca do Mapinguari, mão de garras, flecha de taquara, penas e folhas. Peças maiores que as do MVP: quadro 128 (em pé, pivô nos pés) e 192/256 no chão, desenhadas para ler na câmera atual. **Nada de símbolo religioso:** sem cruz, hexagrama ou pentagrama; as runas do círculo de conjuração e da Barreira viraram semente, broto e ziguezague (a antiga tinha forma de "+").
 
 Geradores: `gen_skill_fx.py` (entrada; chama os módulos) + `fx_status.py` (estados e flecha), `fx_melee.py`, `fx_arcane2.py`, `fx_bow.py`, `fx_hybrid.py`, `fx_support.py`, `fx_tank.py`. `--only nome1,nome2` refaz só essas peças e mescla a tabela. Receitas (dados): `game/scripts/client/combat/skill_fx_book.gd` (`SkillFxBook.BOOK` = passos por skill; `LOOK` = visual do estado; `HIT` = impacto por golpe).
 
@@ -151,7 +151,7 @@ Geradores: `gen_skill_fx.py` (entrada; chama os módulos) + `fx_status.py` (esta
 
 **Forma atroz** (chefe à noite): nome em vermelho-escuro (cor do estágio 4 em `CombatVisuals.STAGE_COLORS`) e aura noturna vermelho-escura pulsando com brasas (`AtrozVisual`, não tinge o sprite), lendo `appearance["atroz"]`; o `CombatFx` refaz o visual quando a forma muda.
 
-**Círculo mágico da praça do Porto** (`game/tools/art/gen_textures.py`, `magic_circle()`): o hexagrama saiu; agora é a flor de ipê de 5 pétalas com runas do Sabiá (semente, broto e ziguezague), a mesma linguagem do círculo de conjuração.
+**Círculo mágico da praça do Porto** (`game/tools/art/gen_textures.py`, `magic_circle()`): o hexagrama saiu; agora é a flor de ipê de 5 pétalas com runas de Pindorama (semente, broto e ziguezague), a mesma linguagem do círculo de conjuração.
 
 **Cura** (`NetCombat.healed(source_id, target_id, amount)`): número **verde "+N"** subindo (`CombatFx`) e folhinhas e sementes subindo em espiral no curado (`SkillFx`, no máximo uma a cada 0,8 s por alvo). **Arco:** o ataque básico com arco (estilo de golpe `bow`) solta a flecha de taquara do arqueiro até o alvo, com estalo de lascas.
 

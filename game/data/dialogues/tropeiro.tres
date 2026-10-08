@@ -1,10 +1,27 @@
 [gd_resource type="Resource" script_class="DialogueDef" format=3]
 [ext_resource type="Script" path="res://scripts/shared/data/dialogue_def.gd" id="def"]
 [ext_resource type="Script" path="res://scripts/shared/data/dialogue_node.gd" id="node"]
+[ext_resource type="Script" path="res://scripts/shared/data/dialogue_option.gd" id="option"]
+
+[sub_resource type="Resource" id="grass"]
+script = ExtResource("option")
+text_key = "TROPEIRO_SUPPLY_GRASS"
+action = &"give_item"
+conditions = {&"quest_active": &"quest_mount_donkey"}
+action_args = {&"item_id": &"donkey_grass", &"qty": 4, &"once": true}
+
+[sub_resource type="Resource" id="rapadura"]
+script = ExtResource("option")
+text_key = "TROPEIRO_SUPPLY_RAPADURA"
+action = &"give_item"
+conditions = {&"quest_active": &"quest_mount_donkey"}
+action_args = {&"item_id": &"rapadura", &"qty": 2, &"once": true}
+
 [sub_resource type="Resource" id="greeting"]
 script = ExtResource("node")
 id = &"start"
 text_key = "TROPEIRO_GREETING"
+options = Array[ExtResource("option")]([SubResource("grass"), SubResource("rapadura")])
 [resource]
 script = ExtResource("def")
 id = &"tropeiro"

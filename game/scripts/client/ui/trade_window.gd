@@ -17,7 +17,7 @@ const COLUMN_WIDTH_PX: float = 250.0
 const LIST_HEIGHT_PX: float = 196.0
 ## Espera depois de mexer nas Estrelas antes de mandar (evita um pedido por clique na setinha).
 const STARS_DEBOUNCE_SEC: float = 0.5
-const COLOR_OK: Color = UIKit.COLOR_INK_GOOD
+const COLOR_OK: Color = UIKit.COLOR_STAT_GOOD
 
 var state: Dictionary = {}
 var my_stars: int = 0
@@ -59,7 +59,7 @@ func _init(p_scale: float = 1.0) -> void:
 	mine_list.name = &"MineList"
 	var stars_row := HBoxContainer.new()
 	left.add_child(stars_row)
-	var sl := _label(tr("UI_TRADE_STARS"), UIKit.c_stars())
+	var sl := _label(tr("UI_TRADE_STARS"), UIKit.COLOR_STARS)
 	stars_row.add_child(sl)
 	stars_spin = SpinBox.new()
 	stars_spin.name = &"Stars"
@@ -69,7 +69,7 @@ func _init(p_scale: float = 1.0) -> void:
 	stars_spin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	stars_spin.value_changed.connect(_on_stars_changed)
 	stars_row.add_child(stars_spin)
-	mine_status = _label("", UIKit.c_text_dim())
+	mine_status = _label("", UIKit.COLOR_TEXT_DIM)
 	mine_status.name = &"MineStatus"
 	left.add_child(mine_status)
 	# --- lado do outro
@@ -84,10 +84,10 @@ func _init(p_scale: float = 1.0) -> void:
 	right.add_child(theirs_area)
 	theirs_list = _list(theirs_area)
 	theirs_list.name = &"TheirsList"
-	theirs_stars = _label("", UIKit.c_stars())
+	theirs_stars = _label("", UIKit.COLOR_STARS)
 	theirs_stars.name = &"TheirsStars"
 	right.add_child(theirs_stars)
-	theirs_status = _label("", UIKit.c_text_dim())
+	theirs_status = _label("", UIKit.COLOR_TEXT_DIM)
 	theirs_status.name = &"TheirsStatus"
 	right.add_child(theirs_status)
 	# --- botões
@@ -174,8 +174,8 @@ func _refresh() -> void:
 	var theirs_ok: bool = bool(_theirs().get(NetTrade.K_CONFIRMED, false))
 	mine_status.text = _status_text(_mine())
 	theirs_status.text = _status_text(_theirs())
-	mine_status.add_theme_color_override(&"font_color", COLOR_OK if mine_ok else UIKit.c_text_dim())
-	theirs_status.add_theme_color_override(&"font_color", COLOR_OK if theirs_ok else UIKit.c_text_dim())
+	mine_status.add_theme_color_override(&"font_color", COLOR_OK if mine_ok else UIKit.COLOR_TEXT_DIM)
+	theirs_status.add_theme_color_override(&"font_color", COLOR_OK if theirs_ok else UIKit.COLOR_TEXT_DIM)
 	confirm_button.text = tr("UI_TRADE_UNCONFIRM") if mine_ok else tr("UI_TRADE_CONFIRM")
 	commit_button.disabled = not (mine_ok and theirs_ok) or bool(_mine().get(NetTrade.K_COMMITTED, false))
 	stars_spin.editable = not mine_ok
@@ -206,6 +206,7 @@ func _fill(list: VBoxContainer, items: Array, mine: bool) -> void:
 		var row := HBoxContainer.new()
 		row.mouse_filter = Control.MOUSE_FILTER_PASS
 		var slot := ItemSlot.new(ItemSlot.SOURCE_SHOP, int(d.get(NetTrade.K_SLOT, -1)), ui_scale)
+		slot.set_dark_style(true)
 		slot.mouse_filter = Control.MOUSE_FILTER_PASS
 		slot.set_item(StringName(str(d.get(NetTrade.K_ITEM, ""))), int(d.get(NetTrade.K_QTY, 1)))
 		row.add_child(slot)
@@ -251,7 +252,7 @@ func _list(parent: Control) -> VBoxContainer:
 
 
 func _title(text: String) -> Label:
-	var l := _label(text, UIKit.c_title())
+	var l := _label(text, UIKit.COLOR_TITLE)
 	l.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE, ui_scale))
 	return l
 

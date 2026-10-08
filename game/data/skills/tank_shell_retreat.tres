@@ -24,9 +24,9 @@ extra = Dictionary[StringName, Variant]({
 &"self_slow_pct": 0.5
 })
 vfx = &"guard"
-exclusive_to_title = &"sabia_tank_jabuti"
+exclusive_to_title = &"pindorama_tank_jabuti"
 icon_text = "RC"
-tree_title = &"sabia_tank_jabuti"
+tree_title = &"pindorama_tank_jabuti"
 tree_order = 2
 required_skill_levels = Dictionary[StringName, int]({
 &"tank_shell_knock": 1

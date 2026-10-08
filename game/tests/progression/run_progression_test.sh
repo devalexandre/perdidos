@@ -66,7 +66,7 @@ try:
     s = json.load(open(path))
     p = s.get("progression", {})
     good = s.get("level") == 10 and "blade_firm_strike" in p.get("skills", {}) \
-        and "sabia_blade_machete" in p.get("titles", {}) and "tf_blade_title" in p.get("quests_done", {}) \
+        and "pindorama_blade_machete" in p.get("titles", {}) and "tf_blade_title" in p.get("quests_done", {}) \
         and len(p.get("hotbar", [])) == 10
 except Exception as e:
     good = False
@@ -98,12 +98,12 @@ if "$GODOT" --headless --path "$GAME_DIR" res://tests/progression/test_cast_timi
 else
 	echo "  [FAIL] fórmulas de tempo de uso (ver $LOG_DIR/cast_timing.log)"; grep FAIL "$LOG_DIR/cast_timing.log" | head; fail=1
 fi
-echo "=== Terra do Sabiá: árvores, anciãos, variantes e mecânicas (tests/progression/test_sabia_trees.tscn)"
-if "$GODOT" --headless --path "$GAME_DIR" res://tests/progression/test_sabia_trees.tscn >"$LOG_DIR/sabia_trees.log" 2>&1 \
-		&& grep -q 'RESULT: PASS' "$LOG_DIR/sabia_trees.log"; then
-	echo "  [pass] $(grep 'test_sabia_trees:' "$LOG_DIR/sabia_trees.log")"
+echo "=== Terra de Pindorama: árvores, anciãos, variantes e mecânicas (tests/progression/test_pindorama_trees.tscn)"
+if "$GODOT" --headless --path "$GAME_DIR" res://tests/progression/test_pindorama_trees.tscn >"$LOG_DIR/pindorama_trees.log" 2>&1 \
+		&& grep -q 'RESULT: PASS' "$LOG_DIR/pindorama_trees.log"; then
+	echo "  [pass] $(grep 'test_pindorama_trees:' "$LOG_DIR/pindorama_trees.log")"
 else
-	echo "  [FAIL] árvores do Sabiá (ver $LOG_DIR/sabia_trees.log)"; grep FAIL "$LOG_DIR/sabia_trees.log" | head -20; fail=1
+	echo "  [FAIL] árvores de Pindorama (ver $LOG_DIR/pindorama_trees.log)"; grep FAIL "$LOG_DIR/pindorama_trees.log" | head -20; fail=1
 fi
 echo "=== capturas em $SHOT_DIR"; ls "$SHOT_DIR" 2>/dev/null | sed 's/^/  /'
 [[ $fail -eq 0 ]] && echo "RESULTADO: PASSOU" || echo "RESULTADO: FALHOU"

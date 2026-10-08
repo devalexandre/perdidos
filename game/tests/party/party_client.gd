@@ -3,7 +3,7 @@ extends Node
 ## Criado pelo main.gd com --autotest --autotest-script=res://tests/party/party_client.gd e:
 ##   --party-role=ana|bia|caio   papel no roteiro (o nome do personagem vem de --name)
 ##   --party-names=A,B,C         nomes dos três (na ordem ana, bia, caio)
-##   --party-phase=training|hunt roteiro (Campo de Treino com personagens novos | Porto → Campos do Sabiá)
+##   --party-phase=training|hunt roteiro (Campo de Treino com personagens novos | Porto → Campos de Pindorama)
 ##   --sync-dir=DIR              pasta das barreiras entre os processos (um arquivo por papel e passo)
 ##   --shot-dir=DIR              capturas (só com janela; sem janela não captura)
 ## Servidor: --dev-commands (atalhos de teleporte, XP e provação) e --drop-chance-mult (drop sempre cai).
@@ -735,7 +735,7 @@ func _leadership() -> void:
 			await _barrier("expulso")
 
 
-## Porto → Campos do Sabiá (saves prontos): grupo pelo chat no Porto, painel mostra o mapa do outro, os dois
+## Porto → Campos de Pindorama (saves prontos): grupo pelo chat no Porto, painel mostra o mapa do outro, os dois
 ## se veem nos Campos, lutam juntos e a XP sai dividida.
 func _hunt() -> void:
 	_check("comeca_no_porto", NetWorld.client_map_id == &"city_awakening", NetWorld.client_map_id)
@@ -753,7 +753,7 @@ func _hunt() -> void:
 	await _barrier("grupo_porto")
 	# Ana vai primeiro: o painel de cada um mostra o mapa do outro.
 	if _role == ROLE_ANA:
-		await _portal("gate_north", &"fields_sabia")
+		await _portal("gate_north", &"fields_pindorama")
 		_put("ana_nos_campos")
 	elif _role == ROLE_BIA:
 		await _wait_from(ROLE_ANA, "ana_nos_campos", 120.0)
@@ -792,7 +792,7 @@ func _hunt() -> void:
 		_check("xp_nao_vai_para_membro_em_outro_mapa", _total_xp() == xp_b, _total_xp() - xp_b)
 	await _barrier("ana_foi")
 	if _role != ROLE_ANA:
-		await _portal("gate_north", &"fields_sabia")
+		await _portal("gate_north", &"fields_pindorama")
 	await _barrier("campos")
 	var others: Array[String] = []
 	for r: String in _roles():
@@ -855,7 +855,7 @@ func _hunt() -> void:
 		var maps_ok: bool = _lists.size() > n
 		if maps_ok:
 			for e: Variant in _lists[-1]["entries"]:
-				maps_ok = maps_ok and str((e as Dictionary).get("map", "")) == "fields_sabia"
+				maps_ok = maps_ok and str((e as Dictionary).get("map", "")) == "fields_pindorama"
 		_check("online_mostra_o_mapa_de_caca", maps_ok, _lists[-1] if _lists.size() > n else null)
 	await _barrier("fim_campos")
 

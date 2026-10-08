@@ -34,8 +34,10 @@ func load_character(char_name: String) -> CharacterData:
 		push_error("Corrupted character save: %s" % path)
 		return null
 	var character: CharacterData = CharacterData.from_save(parsed)
-	if character != null and character.starting_kit_migration_pending and save_character(character):
+	if character != null and (character.starting_kit_migration_pending or character.legacy_ids_migration_pending) \
+			and save_character(character):
 		character.starting_kit_migration_pending = false
+		character.legacy_ids_migration_pending = false
 	return character
 
 

@@ -1,4 +1,4 @@
-# Ficha da região — Terra do Sabiá (Brasil)
+# Ficha da região — Terra de Pindorama (Brasil)
 
 Ficha exigida pelo GDD §4.0, regra 5. Status: `[PROVISÓRIO]`. Serve de base para mapas, monstros, Mestres,
 itens, música e arte da região do MVP. Qualquer conteúdo novo da região deve ser conferido contra esta
@@ -87,7 +87,7 @@ azulado, névoa rosada leve no horizonte.
 
 - **Cidade (Porto do Despertar):** choro e seresta calmos — violão de 7 cordas, cavaquinho, flauta;
   andamento tranquilo, acolhedor.
-- **Campos do Sabiá:** baião leve / toada de viola caipira, triângulo e zabumba suaves; canto de sabiá e
+- **Campos de Pindorama:** baião leve / toada de viola caipira, triângulo e zabumba suaves; canto de sabiá e
   bem-te-vi no ambiente.
 - **Mata Encantada:** sons de mata (sapos, cigarras, igarapé), rabeca e flautas misteriosas, percussão
   grave.
@@ -137,5 +137,5 @@ cristal azul, chapéu de palha com flor (acessório de cabeça), gibão de couro
 Praça em calçada portuguesa com o **ipê amarelo gigante** e o **cristal azul** (renascimento) sobre um
 círculo mágico dourado; feira de frutas e ervas na praça; **Casa dos Mestres** (sobrado com torre e
 painéis de azulejo, noroeste da praça); casario colorido; cais com 3 píeres e barcos de vela no rio (leste);
-portões: norte → Campos do Sabiá, sul → Mata Encantada/Chapada, oeste → Arena da Queimada.
+portões: norte → Campos de Pindorama, sul → Mata Encantada/Chapada, oeste → Arena da Queimada.
 Pontos de vista (GDD §17.11): ponta do píer principal, banco da praça olhando o ipê, prainha ao norte.

@@ -10,9 +10,9 @@ const ARG_MOBILE: String = "ui-mobile"
 const ARG_TAG: String = "ui-tag"
 const SETTLE_SEC: float = 4.0
 const STEP_SEC: float = 0.6
-const SAMPLE_TITLES: Array[StringName] = [&"sabia_blade_machete", &"sabia_blade_jaguar", &"sabia_bow_cerrado",
-	&"sabia_arcane_firefly", &"sabia_support_buriti", &"sabia_tank_jabuti", &"sabia_hybrid_ember",
-	&"sabia_arcane_boitata", &"sabia_tank_mapinguari"]
+const SAMPLE_TITLES: Array[StringName] = [&"pindorama_blade_machete", &"pindorama_blade_jaguar", &"pindorama_bow_cerrado",
+	&"pindorama_arcane_firefly", &"pindorama_support_buriti", &"pindorama_tank_jabuti", &"pindorama_hybrid_ember",
+	&"pindorama_arcane_boitata", &"pindorama_tank_mapinguari"]
 const SAMPLE_ITEMS: Array[StringName] = [&"potion_hp_small", &"potion_mp_small", &"machete", &"simple_bow",
 	&"straw_hat", &"leather_jerkin", &"seed_necklace", &"return_scroll", &"simple_arrow"]
 const DIALOGUE_NPC: StringName = &"fruit_vendor"
@@ -74,7 +74,7 @@ func _on_spawned(_p: Node3D) -> void:
 	progress["skills"] = skills
 	# Diário: algumas missões reais e causos.
 	var quests: Array = []
-	for id: Variant in [&"tf_blade_title", &"tf_arcane_title", &"sabia_blade_aroeira_title", &"lesson_arcane_spark"]:
+	for id: Variant in [&"tf_blade_title", &"tf_arcane_title", &"pindorama_blade_aroeira_title", &"lesson_arcane_spark"]:
 		if Content.quest(id) != null:
 			quests.append({"id": String(id), "step": 2, "count": 3, "need": 8})
 	if not quests.is_empty():
@@ -92,7 +92,7 @@ func _on_spawned(_p: Node3D) -> void:
 	# Ofício na árvore de um título (06/10/2026): Garra da Onça com o Surrupiar selecionado.
 	hud.skills_window.open()
 	await _wait(STEP_SEC)
-	hud.skills_window._select_tree(&"sabia_blade_jaguar")
+	hud.skills_window._select_tree(&"pindorama_blade_jaguar")
 	await _wait(0.3)
 	hud.skills_window._select(&"blade_pilfer")
 	await _wait(STEP_SEC)
@@ -132,6 +132,17 @@ func _on_spawned(_p: Node3D) -> void:
 		await _wait(STEP_SEC)
 		await _shot("dialogue")
 		_ui._on_dialogue_closed()
+
+	# Demais menus usam o mesmo tema e são conferidos com dados representativos.
+	hud.followers_window.set_progress({"companions": {"owned": ["pindorama_companion_lume"], "active": "pindorama_companion_lume"}})
+	await _show(hud.followers_window, "followers")
+	_ui.trade_window.set_state({"partner": "Viajante", "mine": {"items": [{"item": "potion_hp_small", "qty": 3, "slot": 0}], "stars": 10},
+		"theirs": {"items": [{"item": "simple_arrow", "qty": 20}], "stars": 0, "confirmed": true}}, 100)
+	await _show(_ui.trade_window, "trade")
+	_ui.crendice_altar.set_equipment_data({"weapon": "boss_gale_blade", "head": "straw_hat"})
+	_ui.crendice_altar.set_inventory_data([{"item": "figa_de_madeira", "qty": 1}])
+	_ui.crendice_altar._show_amulet_details(CrendiceDatabase.get_crendice(&"figa_de_madeira"))
+	await _show(_ui.crendice_altar, "altar")
 	# Configurações: esconde sem close() (close() grava o settings.cfg do jogador).
 	_ui.settings.open()
 	await _wait(STEP_SEC)

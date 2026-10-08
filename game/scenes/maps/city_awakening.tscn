@@ -2044,11 +2044,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5865, 0, -12.5865)
 
 [node name="GateNorth" type="Marker3D" parent="PointsOfInterest" unique_id=1206134518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -57)
-metadata/target_map = &"fields_sabia"
+metadata/target_map = &"fields_pindorama"
 
 [node name="GateSouth" type="Marker3D" parent="PointsOfInterest" unique_id=1651574374]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57)
-metadata/target_map = &"fields_sabia"
+metadata/target_map = &"fields_pindorama"
 
 [node name="GateWest" type="Marker3D" parent="PointsOfInterest" unique_id=630153296]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 0, 0)
@@ -2195,7 +2195,7 @@ monitorable = false
 metadata/interact_id = &"gate_north"
 metadata/target_id = "m:gate_north"
 metadata/interact_type = &"portal"
-metadata/target_map = &"fields_sabia"
+metadata/target_map = &"fields_pindorama"
 metadata/recommended_level = "1–10"
 metadata/approach_position = Vector3(0, 0, -57)
 
@@ -2211,7 +2211,7 @@ monitorable = false
 metadata/interact_id = &"gate_south"
 metadata/target_id = "m:gate_south"
 metadata/interact_type = &"portal"
-metadata/target_map = &"fields_sabia"
+metadata/target_map = &"fields_pindorama"
 metadata/recommended_level = "1–10"
 metadata/approach_position = Vector3(0, 0, 57)
 

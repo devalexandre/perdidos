@@ -130,7 +130,7 @@ Playtest fechado com a comunidade (Discord e canal do YouTube do autor). Métric
 
 | Região | Inspiração | Lendas e elementos | Chefe possível | Armas típicas |
 |---|---|---|---|---|
-| **Terra do Sabiá (MVP)** | Brasil | Saci, Curupira, Boitatá, Iara, Mula sem Cabeça, Lobisomem, Corpo-Seco, Mapinguari | Boitatá | facão, borduna, bodoque |
+| **Terra de Pindorama (MVP)** | Brasil | Saci, Curupira, Boitatá, Iara, Mula sem Cabeça, Lobisomem, Corpo-Seco, Mapinguari | Boitatá | facão, borduna, bodoque |
 | Reino das Mouras | Portugal | mouras encantadas, Coca, gigante Adamastor | Adamastor | alabarda, espada de marinheiro |
 | Ilhas do Sol Nascente | Japão | kappa, tengu, kitsune, oni | Yamata no Orochi | katana, naginata |
 | Fiordes de Gelo | Noruega/Islândia | trolls, draugr, lindworm, Fenrir | Fenrir | machado, escudo redondo |
@@ -160,14 +160,14 @@ A ordem de lançamento e os detalhes de cada região serão definidos depois do 
 
 Sem cópia por grupo: o grupo divide XP, crédito e drops (seção 5).
 
-### 4.2 Mapas do MVP — região Terra do Sabiá (Brasil) `[PROVISÓRIO — nomes podem mudar]`
+### 4.2 Mapas do MVP — região Terra de Pindorama (Brasil) `[PROVISÓRIO — nomes podem mudar]`
 
 Fantasia medieval com alma brasileira: muros caiados, telhados de telha, azulejos, janelas coloridas, feiras cheias de frutas, ipês floridos, rios largos e matas densas.
 
 **Cidade — "Porto do Despertar"**
 Cidade portuária à beira de um grande rio, onde os Viajantes costumam aparecer. Praça central com um grande cristal (ponto de renascimento) sob um ipê amarelo gigante, casario colonial-medieval colorido, feira de frutas e ervas, docas com barcos de vela, casa dos Mestres, portões para os mapas de caça e para a arena. Tamanho aproximado: 120 x 120 unidades.
 
-**Caça 1 — "Campos do Sabiá"** (nível 1 a 10)
+**Caça 1 — "Campos de Pindorama"** (nível 1 a 10)
 Campos abertos de cerrado, com ipês amarelos e roxos em flor, buritis, riachos claros e cupinzeiros. Monstros fracos e passivos. Mestres das quests iniciais mandam o jogador para cá.
 
 **Caça 2 — "Mata Encantada"** (nível 8 a 18)
@@ -195,7 +195,7 @@ Ao morrer, o jogador renasce no cristal da cidade com 50% de vida e mana.
 
 ### 5.1 Regra de instância: um mapa, uma instância `[FECHADO em 30/09/2026]`
 
-- **Todo mapa tem uma instância só**, compartilhada por todos: `instance_id = map_id` (ex.: `"fields_sabia"`). Vale para cidade, Campo de Treino, mapas de caça (Campos, Mata, Chapada e os que vierem) e PVP.
+- **Todo mapa tem uma instância só**, compartilhada por todos: `instance_id = map_id` (ex.: `"fields_pindorama"`). Vale para cidade, Campo de Treino, mapas de caça (Campos, Mata, Chapada e os que vierem) e PVP.
 - Todos os jogadores do mesmo mapa se veem. Monstros, drops e chefes são os mesmos para todos.
 - O grupo **não** cria cópia de mapa. Ele serve para dividir XP e crédito de abate, para a posse dos drops, para as skills de suporte e para o chat do grupo (5.2–5.5).
 
@@ -378,8 +378,8 @@ Não existem classes, mas o caminho do jogador é reconhecido por **títulos**:
 - Um título **desbloqueia coisas específicas**: quests de outros títulos, e no futuro itens, cosméticos e diálogos próprios.
 - Um personagem pode ter **vários títulos ao mesmo tempo** (generalistas acumulam títulos de escolas diferentes); escolhe um para exibir sob o nome.
 - Títulos combinados (skills de mais de uma escola) podem liberar caminhos híbridos.
-- **Títulos são regionais** `[FECHADO em 27/09/2026]`: o nome vem da cultura da região onde o título é conquistado (ex.: no reino inspirado no Japão, títulos como ninja e samurai; na Terra do Sabiá, nomes de origem tupi e do folclore brasileiro). Um arqueiro da Terra do Sabiá tem **skills diferentes** de um arqueiro de outra nação.
-- **Títulos evoluem em ramos:** o primeiro título de um caminho numa região abre **ramificações** (ex.: arqueiro da Terra do Sabiá → ramo de camuflagem e emboscada **ou** ramo de tiro certeiro), cada uma com suas skills exclusivas. Quem tem o título pode buscar as evoluções; nenhuma exige nível.
+- **Títulos são regionais** `[FECHADO em 27/09/2026]`: o nome vem da cultura da região onde o título é conquistado (ex.: no reino inspirado no Japão, títulos como ninja e samurai; na Terra de Pindorama, nomes de origem tupi e do folclore brasileiro). Um arqueiro da Terra de Pindorama tem **skills diferentes** de um arqueiro de outra nação.
+- **Títulos evoluem em ramos:** o primeiro título de um caminho numa região abre **ramificações** (ex.: arqueiro da Terra de Pindorama → ramo de camuflagem e emboscada **ou** ramo de tiro certeiro), cada uma com suas skills exclusivas. Quem tem o título pode buscar as evoluções; nenhuma exige nível.
 - **Nomes seguem as regras culturais (§4.0):** conferidos em fontes do próprio povo (ex.: dicionários de tupi antigo); **nomes próprios de divindades de religiões vivas não viram títulos** (ex.: Tupã, Nhanderu, Rudá, Guaraci, Jaci como entidades) — usar palavras descritivas (sol, lua, trovão, gavião, flecha).
 - A lista de títulos, as skills que concedem cada um e as skills exclusivas de cada título ficam no documento **`TITULOS-E-SKILLS.md`** (raiz do projeto) e depois em dados (`data/titles/*.tres`).
 
@@ -432,13 +432,13 @@ Depois da cinemática o Viajante **não cai direto na cidade**: ele acorda no **
 - **Um Mestre de cada nação** espalhado pela área, cada um no seu canto com o clima da sua região (arquitetura, vegetação, monstros).
 - **Monstros iniciais de todas as regiões**, cada grupo perto do Mestre da sua nação. Servem para aprender o combate e conhecer o estilo de cada região. Têm formas normal e média (seção 10.6); não há evolução nem chefe ali.
 - **Mestres no nível 10** `[novo em 27/09/2026]`: ao chegar ao nível 10, **cada Mestre ganha uma opção de conversa sobre o título que ele passa** (o que é, estilo de jogo, skills que libera, cidade inicial), para o jogador escolher com informação.
-- **Uma quest de título.** No Campo de Treino o jogador pode fazer **uma** quest de título com um dos Mestres. O **título inicial define a cidade onde ele começa**: título de um Mestre da Terra do Sabiá → começa no Porto do Despertar; de outra nação → começa na cidade daquela nação.
+- **Uma quest de título.** No Campo de Treino o jogador pode fazer **uma** quest de título com um dos Mestres. O **título inicial define a cidade onde ele começa**: título de um Mestre da Terra de Pindorama → começa no Porto do Despertar; de outra nação → começa na cidade daquela nação.
 - **Saída:** quando quiser (depois de conquistar o título inicial), o jogador atravessa o portal/ponte do Campo e vai para a cidade do seu título. Não há volta ao Campo de Treino com o mesmo personagem.
 - Ensina, ao longo do caminho: **comandos básicos** (andar, câmera, minimapa, falar), **itens** (pegar, inventário, equipar, poção), **combate** (ataque, alvo, barra 1 a 0, primeira skill do título), **pontos** de atributo e de skill, **morte e Marca da Alma** (explicada), e a **lore** (seção 1.2 e `docs/lore/`).
 - Instância: **uma só, compartilhada** por todos os novatos (decisão do dono em 30/09/2026): todos se veem e os monstros são os mesmos para todos, com a disputa justa da seção 5.2. As provações continuam individuais (o monstro da provação só luta com o dono e o grupo dele).
 
 **Padrões para implementar agora `[EM ABERTO]`:**
-- **MVP:** só a Terra do Sabiá existe como cidade. Os Mestres e monstros das outras nações aparecem no Campo (para o mundo parecer grande), mas **só as quests de título da Terra do Sabiá** ficam jogáveis; os outros Mestres dizem que "a travessia para a terra deles ainda não está aberta".
+- **MVP:** só a Terra de Pindorama existe como cidade. Os Mestres e monstros das outras nações aparecem no Campo (para o mundo parecer grande), mas **só as quests de título da Terra de Pindorama** ficam jogáveis; os outros Mestres dizem que "a travessia para a terra deles ainda não está aberta".
 - Morte no Campo de Treino: renasce no acampamento central, **sem Marca da Alma** (não há equipamento permanente a perder).
 - Monstros do Campo vão só até o estágio 2 (médio); o estágio 3 (chefe com bando) mora nos covis fixos da Chapada (seção 10.6.1).
 
@@ -555,7 +555,7 @@ O chefe de uma espécie é o **estágio 3** dela. Ele **mora num covil fixo**: u
 - **Os covis são independentes.** Vários chefes de espécies diferentes podem estar vivos no mesmo mapa.
 - **Não existe chefe por contagem de abates.** A regra dos "500 abates" saiu junto com a evolução.
 - **Covis só na Chapada do Céu Partido** (mapas com `bosses_allowed` e teto de estágio 3):
-  - **Subida Vermelha:** Tatu-Montanha, Rainha-Lume do Brejo e Ventania do Gorro Vermelho, os 3 chefes do Sabiá que as
+  - **Subida Vermelha:** Tatu-Montanha, Rainha-Lume do Brejo e Ventania do Gorro Vermelho, os 3 chefes de Pindorama que as
     quests dos anciãos pedem;
   - **Cristas do Vento:** Queixada;
   - **Alto das Brasas:** Serpente-Fagulha e Mula de Brasa.

@@ -1,5 +1,5 @@
 """Pecas compartilhadas dos chefes da historia do Arco 1 (lote 2: Iara, Mapinguari, Cuca, Boiuna, Boitata).
-Ver ARCO-1-TERRA-DO-SABIA.md. Os chefes da historia so existem na forma atroz (estagio 4, quadro 240, paleta noturna).
+Ver ARCO-1-TERRA-DE-PINDORAMA.md. Os chefes da historia so existem na forma atroz (estagio 4, quadro 240, paleta noturna).
   - fogo negro da corrupcao de Erevos: lingua de fogo preta (contorno violeta) com miolo roxo e ponta violeta;
     sinal comum a todos os chefes da historia (black_flame + flames para tremular/apagar);
   - corrente de segmentos (serpente, cauda de peixe, cabelo comprido): cada segmento e um pivo filho do anterior,
@@ -71,6 +71,59 @@ def black_flame(rig, nm, base, up, h, w, parent, phase=0.0, bend=0.55, mats=("bf
     rig.add_mesh(_flame_shape(f"{nm}_k", base + fwd * (w * 0.3), up, side, fwd, h * 0.42, w * 0.5, 0.0, 1.0, off=w * 0.3,
                               lobes=1, curl=bend * 0.5, ph=ph), f"{nm}_core", core, piv, unlit=True, noline=True,
                  prio=prio + 0.4)
+    if not hasattr(rig, "flames"):
+        rig.flames = []
+    rig.flames.append((nm, phase))
+    return piv
+
+
+def _fire_shape(name, base, up, side, fwd, h, w, v0=0.0, v1=1.0, grow=1.0, off=0.0, curl=0.3, ph=0.0, flat=0.75):
+    """Labareda larga (fogo vivo): bojo redondo embaixo, borda ondulada que tremula, ponta curvada para o lado.
+    flat < 1 achata na direcao da camera (a lingua fica larga de frente, como no desenho 2D)."""
+    def rad(v):
+        bulb = math.sin(math.pi * 0.5 * min(1.0, v / 0.32)) ** 0.45
+        return w * bulb * (1.0 - v) ** 0.55 * (1.0 + 0.2 * math.sin(math.pi * 3.2 * v + ph)) * grow
+
+    def fn(u, v):
+        th = math.tau * u
+        vv = v0 + (v1 - v0) * v
+        r = rad(vv)
+        c = base + up * (h * vv) + side * (curl * h * vv * vv) + fwd * off
+        return c + (side * math.cos(th) + fwd * (math.sin(th) * flat)) * r
+    return R.surface(name, fn, 18, 9, base + up * (h * (v0 + v1) * 0.5) + side * (curl * h * 0.3))
+
+
+def fire_flame(rig, nm, base, up, h, w, parent, phase=0.0, bend=0.4, tongues=3, share=True, tip=0.74, prio=2.0):
+    """Fogo vivo da serpente de fogo (Boitata): miolo amarelo-claro -> amarelo -> laranja-avermelhado, e so as
+    PONTAS pretas com borda violeta (a corrupcao de Erevos). Linguas largas e onduladas, nao laminas.
+    share=True: todas as chamas usam as mesmas 4 pecas (economiza ids). Pivo = nm; anima com flames()."""
+    base = Vector(base)
+    up = Vector(up).normalized()
+    side = up.cross(Vector((0, -1, 0)))
+    if side.length < 1e-3:
+        side = Vector((1, 0, 0))
+    side.normalize()
+    fwd = side.cross(up).normalized()
+    piv = rig.empty(nm, base, parent)
+    pn = (lambda k: f"fire_{k}") if share else (lambda k: f"{nm}_{k}")
+    ph = phase * 5.0
+    tg = [(0.0, 1.0, 1.0, bend)]
+    if tongues >= 2:
+        tg.append((0.7, 0.66, 0.68, bend + 0.5))
+    if tongues >= 3:
+        tg.append((-0.7, 0.56, 0.62, -bend - 0.35))
+    for k, (dx, hh, ww, cu) in enumerate(tg):
+        b = base + side * (dx * w) - fwd * (0.05 * w * k)
+        rig.add_mesh(_fire_shape(f"{nm}_b{k}", b, up, side, fwd, h * hh, w * ww, 0.0, 1.0, curl=cu, ph=ph + k),
+                     pn("body"), "ember", piv, unlit=True, noline=True, prio=prio)
+        rig.add_mesh(_fire_shape(f"{nm}_t{k}", b, up, side, fwd, h * hh, w * ww, tip, 1.0, grow=1.12, off=w * 0.06,
+                                 curl=cu, ph=ph + k), pn("tip"), "bfire_l2", piv, unlit=True, noline=True,
+                     prio=prio + 0.6)
+    # miolo: amarelo e amarelo-claro na frente da lingua grande
+    rig.add_mesh(_fire_shape(f"{nm}_m", base + fwd * (w * 0.3), up, side, fwd, h * 0.62, w * 0.72, 0.0, 1.0, off=w * 0.3,
+                             curl=bend * 0.6, ph=ph), pn("mid"), "ember_hot", piv, unlit=True, noline=True, prio=prio + 0.3)
+    rig.add_mesh(_fire_shape(f"{nm}_k", base + fwd * (w * 0.5), up, side, fwd, h * 0.36, w * 0.45, 0.0, 1.0, off=w * 0.5,
+                             curl=bend * 0.4, ph=ph), pn("core"), "ember_core", piv, unlit=True, noline=True, prio=prio + 0.5)
     if not hasattr(rig, "flames"):
         rig.flames = []
     rig.flames.append((nm, phase))

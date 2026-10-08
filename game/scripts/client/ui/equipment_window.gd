@@ -62,14 +62,14 @@ func _init(p_scale: float = 1.0) -> void:
 	for row: Array in STAT_ROWS:
 		var name_label := Label.new()
 		name_label.text = tr(row[0])
-		name_label.add_theme_color_override(&"font_color", UIKit.c_text_dim())
+		name_label.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 		stats.add_child(name_label)
 		var value := Label.new()
 		value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		stats.add_child(value)
 		_stat_values[row[1]] = value
 	_stars_label = Label.new()
-	_stars_label.add_theme_color_override(&"font_color", UIKit.c_stars())
+	_stars_label.add_theme_color_override(&"font_color", UIKit.COLOR_STARS)
 	right.add_child(_stars_label)
 	set_stars(0)
 	set_stats({})
@@ -123,7 +123,7 @@ func _stat(key: StringName) -> int:
 func _section_label(key: String) -> Label:
 	var l := Label.new()
 	l.text = tr(key)
-	l.add_theme_color_override(&"font_color", UIKit.c_title())
+	l.add_theme_color_override(&"font_color", UIKit.COLOR_TITLE)
 	return l
 
 
@@ -133,6 +133,7 @@ func _slot_grid(slot_names: Array[StringName]) -> GridContainer:
 	for slot_name: StringName in slot_names:
 		var cell := HBoxContainer.new()
 		var slot := ItemSlot.new(ItemSlot.SOURCE_EQUIPMENT, -1, ui_scale)
+		slot.set_dark_style(true)
 		slot.name = String(slot_name)
 		slot.equip_slot = slot_name
 		slot.empty_hint = ""
@@ -144,7 +145,7 @@ func _slot_grid(slot_names: Array[StringName]) -> GridContainer:
 		var l := Label.new()
 		l.text = tr("EQUIP_SLOT_%s" % String(slot_name).to_upper())
 		l.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
-		l.add_theme_color_override(&"font_color", UIKit.c_text_dim())
+		l.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 		l.custom_minimum_size.x = UIKit.px(UIKit.SLOT_SIZE * 2, ui_scale)
 		l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		cell.add_child(l)
@@ -201,9 +202,9 @@ func _refresh_selection() -> void:
 	var def: ItemDef = UIKit.item(slot.item_id) if slot != null else null
 	if def == null:
 		_selected_name.text = tr("UI_EQUIPMENT_HINT")
-		_selected_name.add_theme_color_override(&"font_color", UIKit.c_text_dim())
+		_selected_name.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 		_unequip_button.visible = false
 		return
 	_selected_name.text = UIKit.item_tooltip_text(def, 1, false)
-	_selected_name.add_theme_color_override(&"font_color", UIKit.rarity_color_on_panel(def))
+	_selected_name.add_theme_color_override(&"font_color", UIKit.rarity_color(def))
 	_unequip_button.visible = true

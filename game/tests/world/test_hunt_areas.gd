@@ -2,7 +2,7 @@ extends Node
 
 var failures: int = 0
 var checks: int = 0
-const MAPS: Array[StringName] = [&"fields_sabia", &"fields_sabia_buriti", &"fields_sabia_crossroads", &"enchanted_forest", &"enchanted_forest_glade", &"enchanted_forest_roots", &"enchanted_forest_heart", &"split_sky_plateau", &"split_sky_plateau_ridges", &"split_sky_plateau_summit"]
+const MAPS: Array[StringName] = [&"fields_pindorama", &"fields_pindorama_buriti", &"fields_pindorama_crossroads", &"enchanted_forest", &"enchanted_forest_glade", &"enchanted_forest_roots", &"enchanted_forest_heart", &"split_sky_plateau", &"split_sky_plateau_ridges", &"split_sky_plateau_summit"]
 
 func check(ok: bool, message: String) -> void:
 	checks += 1
@@ -59,7 +59,7 @@ func _ready() -> void:
 		var advanced: bool = String(map_id).begins_with("split_sky_plateau")
 		check(MonsterSpawner.zone_allows_bosses(zone, CombatBridges.stage_cap_for_zone(zone)) == advanced, "only advanced maps host boss lairs")
 		check(map.has_node("BossLairs") == advanced, "boss lairs only in the Chapada")
-		check(CombatBridges.stage_cap_for_zone(zone) == (3 if advanced else (1 if String(map_id).begins_with("fields_sabia") else 2)), "stage ceiling")
+		check(CombatBridges.stage_cap_for_zone(zone) == (3 if advanced else (1 if String(map_id).begins_with("fields_pindorama") else 2)), "stage ceiling")
 		check(not MapTransfer.portal_allowed(zone, &"training_field"), "no return to training")
 		check(not MapTransfer.portal_allowed(zone, &"nonexistent"), "reject missing destination")
 		var atlas: WorldAtlasDef = load(WorldAtlasDef.DEFAULT_PATH)

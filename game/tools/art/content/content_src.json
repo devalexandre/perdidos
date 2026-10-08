@@ -366,7 +366,7 @@
     ]
    },
    "lights": {
-    "text": "São vaga-lumes encantados dos Campos do Sabiá. Um dia me seguiram até aqui e nunca mais foram embora. Acho que gostam do cheiro das minhas ervas!",
+    "text": "São vaga-lumes encantados dos Campos de Pindorama. Um dia me seguiram até aqui e nunca mais foram embora. Acho que gostam do cheiro das minhas ervas!",
     "options": [
      [
       "Que simpáticos.",
@@ -428,7 +428,7 @@
     ]
    },
    "where": {
-    "text": "No Porto do Despertar, na Terra do Sabiá. Siga o cais para o oeste até a praça do ipê amarelo. O cristal azul debaixo dele cuida de quem se perde.",
+    "text": "No Porto do Despertar, na Terra de Pindorama. Siga o cais para o oeste até a praça do ipê amarelo. O cristal azul debaixo dele cuida de quem se perde.",
     "options": [
      [
       "Por que me chamou de Viajante?",
@@ -493,7 +493,7 @@
   },
   "gate_guard": {
    "start": {
-    "text": "Alto lá, Viajante. Este é o Portão Norte. Lá fora ficam os Campos do Sabiá.",
+    "text": "Alto lá, Viajante. Este é o Portão Norte. Lá fora ficam os Campos de Pindorama.",
     "options": [
      [
       "Posso passar?",

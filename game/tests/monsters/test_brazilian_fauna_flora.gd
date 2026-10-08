@@ -1,5 +1,5 @@
 extends Node
-## Teste de validação das espécies nativas da fauna e flora brasileira para a Nação Sabiá
+## Teste de validação das espécies nativas da fauna e flora brasileira para a Nação Pindorama
 ## Inclui a Caranguejeira-Golias (Boss Aranha), a Sucuri/Cobra-Grande (Boss Serpente),
 ## Tamanduá-Bandeira, Lobo-Guará, Jacaré-Açu, Harpia-Real, Cipó-Matador e Mandacaru.
 
@@ -35,7 +35,7 @@ var _failures: int = 0
 
 
 func _ready() -> void:
-	print("--- TESTE DA FAUNA E FLORA BRASILEIRA (NAÇÃO SABIÁ) ---")
+	print("--- TESTE DA FAUNA E FLORA BRASILEIRA (NAÇÃO PINDORAMA) ---")
 	_test_items()
 	_test_monsters()
 	_test_boss_crendices()

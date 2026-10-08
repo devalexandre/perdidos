@@ -1,0 +1,46 @@
+[gd_resource type="ShaderMaterial" load_steps=17 format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/env_terrain_world.gdshader" id="shader"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/materials/tex_env_noise.tres" id="noise"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass.png" id="t_grass"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_grass_lush.png" id="t_lush"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_dirt.png" id="t_dirt"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_paving.png" id="t_paving"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_sand.png" id="t_sand"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_rock.png" id="t_rock"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_snow.png" id="t_snow"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_dry_grass.png" id="t_dry"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_jungle_floor.png" id="t_jungle"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_gravel.png" id="t_gravel"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/textures/tex_red_earth.png" id="t_red"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/terrain/fields_pindorama_crossroads_splat_a.png" id="splat_a"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/terrain/fields_pindorama_crossroads_splat_b.png" id="splat_b"]
+[ext_resource type="Texture2D" path="res://assets/environment/painted/terrain/fields_pindorama_crossroads_splat_c.png" id="splat_c"]
+
+[resource]
+shader = ExtResource("shader")
+shader_parameter/tex_grass = ExtResource("t_grass")
+shader_parameter/tex_lush = ExtResource("t_lush")
+shader_parameter/tex_dirt = ExtResource("t_dirt")
+shader_parameter/tex_paving = ExtResource("t_paving")
+shader_parameter/tex_sand = ExtResource("t_sand")
+shader_parameter/tex_rock = ExtResource("t_rock")
+shader_parameter/tex_snow = ExtResource("t_snow")
+shader_parameter/tex_dry = ExtResource("t_dry")
+shader_parameter/tex_jungle = ExtResource("t_jungle")
+shader_parameter/tex_gravel = ExtResource("t_gravel")
+shader_parameter/tex_red = ExtResource("t_red")
+shader_parameter/splat_a = ExtResource("splat_a")
+shader_parameter/splat_b = ExtResource("splat_b")
+shader_parameter/splat_c = ExtResource("splat_c")
+shader_parameter/tex_noise = ExtResource("noise")
+shader_parameter/splat_origin = Vector2(-50, -50)
+shader_parameter/splat_size = Vector2(100, 100)
+shader_parameter/tile_m = 5.0
+shader_parameter/blend_softness = 0.24
+shader_parameter/edge_noise = 0.36
+shader_parameter/macro_warm = Color(1.14, 1.06, 0.76, 1)
+shader_parameter/macro_cool = Color(0.9, 1.04, 0.86, 1)
+shader_parameter/macro_strength = 0.32
+shader_parameter/heather_tint = Color(1.04, 1.1, 0.84, 1)
+shader_parameter/brush_strength = 0.09

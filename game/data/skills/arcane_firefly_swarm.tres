@@ -20,9 +20,9 @@ extra = Dictionary[StringName, Variant]({
 &"hits": 4
 })
 vfx = &"spark"
-exclusive_to_title = &"sabia_arcane_firefly"
+exclusive_to_title = &"pindorama_arcane_firefly"
 icon_text = "EV"
-tree_title = &"sabia_arcane_firefly"
+tree_title = &"pindorama_arcane_firefly"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"arcane_will_o_wisp": 3

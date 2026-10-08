@@ -4,7 +4,7 @@
 # os GIFs (tools/art/fx/fx_board.py).
 # Uso:  GODOT=/caminho/godot xvfb-run -a tests/client/run_skill_fx_capture.sh [SAIDA]   (padrão: ../.work/fx)
 #       ONLY=bow_,tank_ ...  captura só as skills com esses prefixos (bow_basic_attack = ataque básico com arco).
-# 30/09/2026: cobre as 12 do MVP, as da Terra do Sabiá v0.4 que já têm .tres e o ataque básico com arco.
+# 30/09/2026: cobre as 12 do MVP, as da Terra de Pindorama v0.4 que já têm .tres e o ataque básico com arco.
 set -uo pipefail
 GODOT="${GODOT:-godot}"
 GAME_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
@@ -22,6 +22,9 @@ PIDS+=($!)
 sleep 3
 EXTRA=()
 [ -n "${ONLY:-}" ] && EXTRA+=("--fx-only=$ONLY")
+# MONSTER=buriti_boar: a Faísca cai num monstro de verdade; CLIENT_ARGS="--classic-fx" volta aos FX em pixel art.
+[ -n "${MONSTER:-}" ] && EXTRA+=("--fx-monster=$MONSTER")
+[ -n "${CLIENT_ARGS:-}" ] && EXTRA+=($CLIENT_ARGS)
 "$GODOT" --path "$GAME_DIR" --resolution 1280x720 -- --name=Viajante --port="$PORT" --skill-fx-capture \
 	--fx-shots="$SHOTS" "${EXTRA[@]}" >"$LOG_DIR/client.log" 2>&1 &
 CLIENT=$!; PIDS+=($CLIENT)

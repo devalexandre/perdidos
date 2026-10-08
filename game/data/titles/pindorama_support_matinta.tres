@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_title"]
+
+[resource]
+script = ExtResource("1_title")
+id = &"pindorama_support_matinta"
+name_key = "TITLE_PINDORAMA_SUPPORT_MATINTA_NAME"
+archetype = &"support"
+tier = 2
+parent_title = &"pindorama_support_root"
+branch = &"b"
+required_skills = Array[StringName]([&"support_ill_whistle"])
+required_titles = Array[StringName]([&"pindorama_support_root"])
+color = Color(0.5568628, 0.4, 0.76862746, 1)
+desc_key = "TITLE_PINDORAMA_SUPPORT_MATINTA_DESC"
+sort_order = 52
+outfit_id = &"title_matinta"
+cloth_colors = PackedColorArray(0.1647, 0.1569, 0.2275, 1, 0.4196, 0.2863, 0.5412, 1)
+master_npc = &"elder_aninha"

@@ -33,8 +33,8 @@ func _test_no_level_requirement() -> void:
 		var q: QuestDef = Content.quest(qid)
 		_check(q != null and progression.quests.missing_requirements(session, q).is_empty(),
 				"%s disponível no nível 1" % qid)
-	novice.progression.titles[&"sabia_blade_machete"] = 1
-	var aroeira: QuestDef = Content.quest(&"sabia_blade_aroeira_title")
+	novice.progression.titles[&"pindorama_blade_machete"] = 1
+	var aroeira: QuestDef = Content.quest(&"pindorama_blade_aroeira_title")
 	# No Campo de Treino só um título: o 2º (de qualquer Mestre, inclusive lição que dá título) espera a saída.
 	novice.left_training = false
 	var blocked_in_training := false
@@ -60,7 +60,7 @@ func _test_single_training_title_rule() -> void:
 	var char_done := CharacterData.create_new("TrainedHero", &"male")
 	char_done.level = 5
 	char_done.progression.quests_done[&"tf_blade_title"] = 1
-	char_done.progression.titles[&"sabia_blade_machete"] = 1
+	char_done.progression.titles[&"pindorama_blade_machete"] = 1
 	var session := PlayerSession.new(3, null, char_done)
 
 	_check(progression.quests.training_title_done(session), "training_title_done is true")
@@ -81,8 +81,8 @@ func _test_single_training_title_rule() -> void:
 func _test_outside_title_scaling() -> void:
 	var world := ServerWorld.new()
 	var progression := Progression.new(world)
-	var q: QuestDef = Content.quest(&"sabia_blade_aroeira_title")
-	_check(q != null, "sabia_blade_aroeira_title existe")
+	var q: QuestDef = Content.quest(&"pindorama_blade_aroeira_title")
+	_check(q != null, "pindorama_blade_aroeira_title existe")
 	if q == null:
 		return
 	var n1: Array[int] = QuestService.needs_for(q, 1)
@@ -104,7 +104,7 @@ func _test_outside_title_scaling() -> void:
 			"2º título já pede relíquias (itens raros)")
 	# Save antigo (4 etapas de base, na 4ª = provação): continua na provação, sem as etapas novas.
 	var c := CharacterData.create_new("OldSave", &"male")
-	c.progression.titles[&"sabia_blade_machete"] = 1
+	c.progression.titles[&"pindorama_blade_machete"] = 1
 	c.progression.quests[q.id] = {ProgressionData.Q_STEP: 3, ProgressionData.Q_COUNT: 0,
 			ProgressionData.Q_NEEDS: [1, 4, 6, 1]}
 	var s := PlayerSession.new(5, null, c)
@@ -114,8 +114,8 @@ func _test_outside_title_scaling() -> void:
 	var elder: QuestDef = Content.quest(&"elder_ze_steel_song")
 	var hero := CharacterData.create_new("Hero", &"male")
 	hero.left_training = true
-	hero.progression.titles[&"sabia_blade_machete"] = 1
-	hero.progression.titles[&"sabia_arcane_firefly"] = 1
+	hero.progression.titles[&"pindorama_blade_machete"] = 1
+	hero.progression.titles[&"pindorama_arcane_firefly"] = 1
 	var hs := PlayerSession.new(6, null, hero)
 	var blocked := false
 	for m: Array in progression.quests.missing_requirements(hs, elder):
@@ -135,12 +135,12 @@ func _test_outside_title_scaling() -> void:
 
 func _test_all_titles_have_quests() -> void:
 	var expected_titles: Array[StringName] = [
-		&"sabia_blade_machete", &"sabia_blade_aroeira", &"sabia_blade_jaguar",
-		&"sabia_arcane_firefly", &"sabia_arcane_crystal", &"sabia_arcane_boitata",
-		&"sabia_bow_cerrado", &"sabia_bow_brejo", &"sabia_bow_gaviao",
-		&"sabia_hybrid_ember",
-		&"sabia_support_root", &"sabia_support_buriti", &"sabia_support_matinta",
-		&"sabia_tank_jabuti", &"sabia_tank_anta", &"sabia_tank_mapinguari"
+		&"pindorama_blade_machete", &"pindorama_blade_aroeira", &"pindorama_blade_jaguar",
+		&"pindorama_arcane_firefly", &"pindorama_arcane_crystal", &"pindorama_arcane_boitata",
+		&"pindorama_bow_cerrado", &"pindorama_bow_brejo", &"pindorama_bow_gaviao",
+		&"pindorama_hybrid_ember",
+		&"pindorama_support_root", &"pindorama_support_buriti", &"pindorama_support_matinta",
+		&"pindorama_tank_jabuti", &"pindorama_tank_anta", &"pindorama_tank_mapinguari"
 	]
 
 	var all_quests: Dictionary = Content.all(&"quests")

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CompanionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/companion_def.gd" id="def"]
+
+[resource]
+script = ExtResource("def")
+id = &"pindorama_companion_guara"
+name_key = "COMPANION_GUARA"
+title_id = &"pindorama_bow_brejo"
+bond_quest_id = &"quest_bond_guara"
+sprite_base = "res://assets/companions/guara/pet_guara"
+visual_scale = 1.0
+flies = false
+idle_moves = Array[StringName]([&"wander", &"swap_side", &"life_wag", &"life_sniff", &"life_sit", &"life_scratch", &"life_lie"])
+bond_skills = Array[StringName]([&"bow_companion_guara_bite", &"bow_companion_guara_track"])
+attack_interval_sec = 1.8
+attack_range_cells = 1.0
+chase_cells = 5.0
+attack_mult = 1.0
+damage_kind = &"physical"
+power_base = 3.0
+power_per_level = 1.3
+owner_attribute = &"str"
+attribute_frac = 0.4
+spells = Array[StringName]([&"comp_guara_howl", &"comp_guara_pounce", &"comp_guara_deep_bite"])

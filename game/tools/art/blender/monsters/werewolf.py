@@ -1,4 +1,4 @@
-"""A Fera da Mata: homem amaldiçoado de silhueta lupina, criado do zero para a Terra do Sabia."""
+"""A Fera da Mata: homem amaldiçoado de silhueta lupina, criado do zero para a Terra de Pindorama."""
 import math
 from mathutils import Vector
 import mon_rig as R

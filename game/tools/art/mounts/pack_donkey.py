@@ -11,7 +11,7 @@ import post
 
 def main():
     work = Path(sys.argv[1] if len(sys.argv) > 1 else '.work/mounts')
-    base = work / 'npz/sabia_donkey_s1'
+    base = work / 'npz/pindorama_donkey_s1'
     meta = json.loads(base.with_suffix('.json').read_text())
     raw = np.load(base.with_suffix('.npz'))
     parts = meta['parts']
@@ -36,7 +36,7 @@ def main():
     low = max(int(np.nonzero((a[..., 3] > 0).any((0, 1)).any(1))[0].max()) for a in shaded.values())
     y1 = min(canvas, max(frame_px, low + 2)); y0 = y1 - frame_px
     x0 = canvas // 2 - frame_px // 2
-    dest = GAME / 'assets/mounts/sabia_mount_donkey'
+    dest = GAME / 'assets/mounts/pindorama_mount_donkey'
     dest.mkdir(parents=True, exist_ok=True)
     for layer, arrays in [('back', shaded), ('front', fronts)]:
         for anim, pixels in arrays.items():

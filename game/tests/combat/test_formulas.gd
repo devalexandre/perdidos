@@ -223,7 +223,9 @@ func _test_real_monster_data() -> void:
 		return
 	for id: Variant in all:
 		var def: MonsterDef = all[id]
-		var ok: bool = def.stages.size() >= 1 and def.stages[0].stage == 1
+		# Chefe da história só existe na forma atroz: começa no estágio 3 (atributos) e não tem 1/2.
+		var first: int = 3 if def.story_boss else 1
+		var ok: bool = def.stages.size() >= 1 and def.stages[0].stage == first
 		for i: int in range(1, def.stages.size()):
 			ok = ok and def.stages[i].stage > def.stages[i - 1].stage
 		_check(ok, "MonsterDef %s: estágios em ordem" % id)
@@ -425,10 +427,10 @@ func _test_attribute_scaling() -> void:
 	_check(CharacterStats.atk_attribute(eq_wand) == &"int", "firefly_wand sem título sagrado escala com INT")
 
 	# 4. Título sagrado faz ataque escalar com Sabedoria (spi)
-	_check(CharacterStats.atk_attribute(eq_unarmed, &"sabia_support_root") == &"spi", "desarmado com título sagrado escala com SPI")
-	_check(CharacterStats.atk_attribute(eq_wand, &"sabia_support_root") == &"spi", "arma arcana com título sagrado escala com SPI")
-	_check(CharacterStats.atk_attribute(eq_bow, &"sabia_support_root") == &"dex", "arco com título sagrado ainda escala com DEX")
-	_check(CharacterStats.atk_attribute(eq_sword, &"sabia_support_root") == &"str", "espada com título sagrado ainda escala com STR")
+	_check(CharacterStats.atk_attribute(eq_unarmed, &"pindorama_support_root") == &"spi", "desarmado com título sagrado escala com SPI")
+	_check(CharacterStats.atk_attribute(eq_wand, &"pindorama_support_root") == &"spi", "arma arcana com título sagrado escala com SPI")
+	_check(CharacterStats.atk_attribute(eq_bow, &"pindorama_support_root") == &"dex", "arco com título sagrado ainda escala com DEX")
+	_check(CharacterStats.atk_attribute(eq_sword, &"pindorama_support_root") == &"str", "espada com título sagrado ainda escala com STR")
 
 	# 5. Cálculo de estatísticas: INT aumenta max_mp e matk, SPI aumenta holy_matk mas NÃO max_mp
 	var base_low: Dictionary[StringName, int] = {
@@ -475,8 +477,8 @@ func _test_attribute_scaling() -> void:
 	_check(st_str_sword[CharacterStats.K_ATK] == st_low_sword[CharacterStats.K_ATK] + 40, "STR aumenta ATK com espada (+40)")
 
 	# SPI aumenta ATK quando título sagrado está equipado desarmado/arcano:
-	var st_holy_title_low: Dictionary = CharacterStats.compute(1, base_low, eq_unarmed, &"sabia_support_root")
-	var st_holy_title_spi: Dictionary = CharacterStats.compute(1, base_high_spi, eq_unarmed, &"sabia_support_root")
+	var st_holy_title_low: Dictionary = CharacterStats.compute(1, base_low, eq_unarmed, &"pindorama_support_root")
+	var st_holy_title_spi: Dictionary = CharacterStats.compute(1, base_high_spi, eq_unarmed, &"pindorama_support_root")
 	_check(st_holy_title_spi[CharacterStats.K_ATK] == st_holy_title_low[CharacterStats.K_ATK] + 40, "SPI aumenta ATK de título sagrado (+40)")
 	_check(st_holy_title_spi[CharacterStats.K_ATK_ATTR] == CharacterStats.ATTRIBUTES.find(&"spi"), "atk_attr de título sagrado é SPI")
 

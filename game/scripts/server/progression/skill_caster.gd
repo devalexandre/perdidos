@@ -39,7 +39,7 @@ const X_SHIELD_MATK_RATIO: StringName = &"shield_matk_ratio"
 const X_SHIELD_PER_LEVEL: StringName = &"shield_per_level"
 const X_KNOCKBACK_CELLS: StringName = &"knockback_cells"
 const X_DAMAGE_KIND: StringName = &"damage_kind"
-# --- Terra do Sabiá v0.4 (TITULOS-E-SKILLS.md §3.5). Toda chave aceita "<chave>_per_level".
+# --- Terra de Pindorama v0.4 (TITULOS-E-SKILLS.md §3.5). Toda chave aceita "<chave>_per_level".
 ## Riders de golpe (qualquer efeito com dano, e ROOT/STUN/KNOCKBACK/PULL mesmo sem dano).
 const X_ROOT_SEC: StringName = &"root_sec"
 const X_PULL_CELLS: StringName = &"pull_cells"

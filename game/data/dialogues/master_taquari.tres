@@ -19,11 +19,18 @@ script = ExtResource("1_opt")
 text_key = "DLG_MASTER_TAQUARI_START_OPT2"
 action = &"close"
 
+[sub_resource type="Resource" id="guara_supplies"]
+script = ExtResource("1_opt")
+text_key = "TAQUARI_SUPPLY_LOBEIRA"
+action = &"give_item"
+conditions = {&"quest_active": &"quest_bond_guara"}
+action_args = {&"item_id": &"lobeira", &"qty": 8, &"once": true, &"quest_supply": true}
+
 [sub_resource type="Resource" id="node_start"]
 script = ExtResource("2_node")
 id = &"start"
 text_key = "DLG_MASTER_TAQUARI_START"
-options = Array[ExtResource("1_opt")]([SubResource("opt_1"), SubResource("opt_2"), SubResource("opt_3")])
+options = Array[ExtResource("1_opt")]([SubResource("opt_1"), SubResource("opt_2"), SubResource("guara_supplies"), SubResource("opt_3")])
 
 [sub_resource type="Resource" id="opt_4"]
 script = ExtResource("1_opt")

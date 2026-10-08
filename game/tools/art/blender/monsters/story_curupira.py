@@ -1,4 +1,4 @@
-"""Curupira Atroz (story_curupira) — chefe da historia, Arco 1 cap. 4 (ARCO-1-TERRA-DO-SABIA.md). So existe na forma
+"""Curupira Atroz (story_curupira) — chefe da historia, Arco 1 cap. 4 (ARCO-1-TERRA-DE-PINDORAMA.md). So existe na forma
 atroz (estagio 4, quadro 240); de dia ele e um menino comum (NPC, sem pes virados).
 O protetor da mata virado cacador feral, mas ainda um MENINO chibi (sem gore): cabelo vermelho-fogo em chamas que
 escurecem ate ficar pretas nas pontas, com borda violeta (o sinal de Erevos), olhos acesos de verde-folha, sobrancelha

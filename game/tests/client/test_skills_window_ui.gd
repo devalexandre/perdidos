@@ -1,6 +1,6 @@
 extends Node
 
-const TITLE_ID: StringName = &"sabia_blade_machete"
+const TITLE_ID: StringName = &"pindorama_blade_machete"
 const SKILLS_WINDOW_SCRIPT: GDScript = preload("res://scripts/client/ui/skills_window.gd")
 
 var _failures: int = 0
@@ -61,19 +61,19 @@ func _ready() -> void:
 			await _frames(2)
 			_check(StringName(str(window.get("_tree"))) == trees[next_tab], "trocar aba seleciona a árvore correta")
 	# 06/10/2026: ofício do título (bonus_skills) fica na árvore dele; não abre "Outras" e clicar não muda de aba.
-	var craft_progress := {"skill_points": 0, "titles": [&"sabia_blade_jaguar"], "displayed_title": &"sabia_blade_jaguar",
+	var craft_progress := {"skill_points": 0, "titles": [&"pindorama_blade_jaguar"], "displayed_title": &"pindorama_blade_jaguar",
 			"skills": {"blade_pilfer": 1, "blade_field_dressing": 1}}
 	window.set_progress(craft_progress)
 	await _frames(2)
 	var craft_trees: Array[StringName] = SkillsWindow.trees_for(craft_progress)
 	_check(SkillsWindow.OTHER_TREE not in craft_trees and &"blade_pilfer" in SkillsWindow.tree_entries(
-			&"sabia_blade_jaguar", craft_progress.skills) and &"blade_field_dressing" in SkillsWindow.tree_entries(
+			&"pindorama_blade_jaguar", craft_progress.skills) and &"blade_field_dressing" in SkillsWindow.tree_entries(
 			TITLE_ID, craft_progress.skills), "ofícios aparecem nas árvores dos títulos, sem aba Outras")
-	window._select_tree(&"sabia_blade_jaguar")
+	window._select_tree(&"pindorama_blade_jaguar")
 	await _frames(2)
 	window._select(&"blade_pilfer")
 	await _frames(2)
-	_check(StringName(str(window.get("_tree"))) == &"sabia_blade_jaguar" and window.get("_selected") == &"blade_pilfer",
+	_check(StringName(str(window.get("_tree"))) == &"pindorama_blade_jaguar" and window.get("_selected") == &"blade_pilfer",
 			"selecionar o ofício mantém a árvore do título")
 	window._select(&"blade_field_dressing")
 	await _frames(2)

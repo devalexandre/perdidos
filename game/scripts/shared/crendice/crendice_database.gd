@@ -88,7 +88,7 @@ static func _init_database() -> void:
 	}
 	onca.superstition_rule = &"night_or_forest"
 	onca.drop_rules = {
-		"monster_ids": [&"sabia_jaguar", &"jaguar_cub"],
+		"monster_ids": [&"pindorama_jaguar", &"jaguar_cub"],
 		"chance": 0.025,
 		"night_or_forest": true
 	}
@@ -545,7 +545,7 @@ static func _init_database() -> void:
 	olho_cobra.synergy_group = &"ancestralidade_mistica"
 	_cache[olho_cobra.id] = olho_cobra
 
-	# --- Arco 1 da história (ARCO-1-TERRA-DO-SABIA.md 6.2) ---
+	# --- Arco 1 da história (ARCO-1-TERRA-DE-PINDORAMA.md 6.2) ---
 	# 25. Nó de Crina Trançada (Saci Atroz, Arco 1)
 	var no_crina := CrendiceDef.new()
 	no_crina.id = &"no_de_crina_trancada"
@@ -823,13 +823,13 @@ static func _init_database() -> void:
 	}
 	comigo.superstition_rule = &"low_hp_double"
 	comigo.drop_rules = {
-		"monster_ids": [&"strangler_vine", &"coral_snake", &"harpy_eagle", &"sabia_jaguar"],
+		"monster_ids": [&"strangler_vine", &"coral_snake", &"harpy_eagle", &"pindorama_jaguar"],
 		"chance": 0.03
 	}
 	comigo.synergy_group = &"protecao_total"
 	_cache[comigo.id] = comigo
 
-	# 37. Trevo de Quatro Folhas (popular, Campos do Sabiá)
+	# 37. Trevo de Quatro Folhas (popular, Campos de Pindorama)
 	var trevo := CrendiceDef.new()
 	trevo.id = &"trevo_de_quatro_folhas"
 	trevo.name_key = "CRENDICE_TREVO_DE_QUATRO_FOLHAS_NAME"
@@ -904,7 +904,7 @@ static func _init_synergies() -> void:
 		}
 	}
 
-	# Arco 1 (ARCO-1-TERRA-DO-SABIA.md 6.2): 3 crendices dos chefes da história ao mesmo tempo.
+	# Arco 1 (ARCO-1-TERRA-DE-PINDORAMA.md 6.2): 3 crendices dos chefes da história ao mesmo tempo.
 	# Sinergias só dão special_effects; "todos os atributos" virou defesa + dano físico/mágico + crítico.
 	_synergies[&"lendas_libertas"] = {
 		"name_key": "SYNERGY_LENDAS_LIBERTAS_NAME",

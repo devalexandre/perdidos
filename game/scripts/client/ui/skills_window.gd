@@ -4,7 +4,7 @@ extends GameWindow
 ## ponto de skill, detalhes da selecionada; e os títulos conquistados (GDD §8.5) com "Exibir".
 ## Detalhes e dica de cada skill mostram a conjuração e a recarga EFETIVAS (GDD §8.1: nível da skill,
 ## DES/INT, Espírito e cast_reduction/cooldown_reduction dos itens), calculadas por CastTiming.
-## Terra do Sabiá v0.4 (TITULOS-E-SKILLS.md §3.0): as skills aparecem por ÁRVORE de título (5 cada),
+## Terra de Pindorama v0.4 (TITULOS-E-SKILLS.md §3.0): as skills aparecem por ÁRVORE de título (5 cada),
 ## escolhida nas abas por título: as conhecidas com nível e "+1"; as que faltam, apagadas, com o que
 ## falta (pré-requisitos, título e o Mestre que ensina). Herança: o título de ramo mostra a árvore do pai.
 ## Atalho K.
@@ -88,7 +88,7 @@ func _init(p_scale: float = 1.0) -> void:
 	# Coluna 2: árvore do título escolhido (cabeçalho + skills).
 	var left_card := PanelContainer.new()
 	left_card.name = &"TreeCard"
-	left_card.add_theme_stylebox_override(&"panel", UIKit.card_box(ui_scale))
+	left_card.add_theme_stylebox_override(&"panel", UIKit.dark_card_box(ui_scale))
 	columns.add_child(left_card)
 	var left := VBoxContainer.new()
 	left.add_theme_constant_override(&"separation", UIKit.px(6, ui_scale))
@@ -102,27 +102,26 @@ func _init(p_scale: float = 1.0) -> void:
 	_hint.custom_minimum_size.x = UIKit.px(ROW_WIDTH_PX * LIST_COLUMNS, ui_scale)
 	_hint.add_theme_font_override(&"font", UIKit.read_font())
 	_hint.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
-	_hint.add_theme_color_override(&"font_color", UIKit.COLOR_INK_DIM)
+	_hint.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 	left.add_child(_hint)
 
 	# Coluna 3: detalhe da skill e ações do título.
 	var right_card := PanelContainer.new()
 	right_card.name = &"DetailCard"
-	right_card.add_theme_stylebox_override(&"panel", UIKit.card_box(ui_scale))
+	right_card.add_theme_stylebox_override(&"panel", UIKit.dark_card_box(ui_scale))
 	columns.add_child(right_card)
 	var right := VBoxContainer.new()
 	right.add_theme_constant_override(&"separation", UIKit.px(8, ui_scale))
 	right_card.add_child(right)
 	var det_box := PanelContainer.new()
-	det_box.add_theme_stylebox_override(&"panel", UIKit.flat_box(UIKit.COLOR_PARCHMENT, UIKit.COLOR_PARCHMENT_EDGE,
-			maxi(1, UIKit.px(1, ui_scale)), UIKit.px(7, ui_scale)))
+	det_box.add_theme_stylebox_override(&"panel", UIKit.dark_card_box(ui_scale, 7))
 	right.add_child(det_box)
 	_detail = Label.new()
 	_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_detail.custom_minimum_size.x = UIKit.px(DETAIL_WIDTH_PX, ui_scale)
 	_detail.add_theme_font_override(&"font", UIKit.read_font())
 	_detail.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
-	_detail.add_theme_color_override(&"font_color", UIKit.COLOR_INK)
+	_detail.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
 	det_box.add_child(_detail)
 
 	var title_actions := HFlowContainer.new()
@@ -298,12 +297,9 @@ static func teacher_name(def: SkillDef) -> String:
 	return TranslationServer.translate(npc.name_key) if npc != null else ""
 
 
-## Cor do título como tinta legível no pergaminho (escurece até ter contraste).
+## Preserva a identidade do título com contraste no painel escuro.
 func _title_text_color(color: Color) -> Color:
-	var c: Color = color.darkened(0.4)
-	while c.get_luminance() > 0.28:
-		c = c.darkened(0.15)
-	return c
+	return color.lerp(UIKit.COLOR_TEXT, 0.4)
 
 
 func _rebuild_tree_tabs(trees: Array[StringName]) -> void:
@@ -333,7 +329,7 @@ func _rebuild_tree_tabs(trees: Array[StringName]) -> void:
 		tab.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		tab.custom_minimum_size = Vector2(UIKit.px(TAB_WIDTH_PX - 12.0, ui_scale), UIKit.px(TAB_HEIGHT_PX, ui_scale))
 		tab.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
-		UIKit.style_tab(tab, ui_scale, td.color if td != null else UIKit.COLOR_GOLD_AGED, true)
+		UIKit.style_pill_tab(tab, ui_scale)
 		tab.pressed.connect(_select_tree.bind(t))
 		_tree_tab_row.add_child(tab)
 		_tree_tab_buttons[t] = tab
@@ -395,7 +391,7 @@ func _refresh_tree_header(tree: StringName) -> void:
 	var td: TitleDef = Content.title(tree)
 	if td == null:
 		header.text = tr("UI_SKILL_TREE_OTHER") if tree == OTHER_TREE else ""
-		header.add_theme_color_override(&"font_color", UIKit.COLOR_INK_TITLE)
+		header.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT)
 		return
 	var parts: PackedStringArray = [tr("UI_SKILL_TREE_OF") % tr(td.name_key)]
 	var npc: NpcDef = Content.npc(td.master_npc)
@@ -500,7 +496,7 @@ func _locked_row(id: StringName) -> SkillRow:
 	name_label.mouse_filter = Control.MOUSE_FILTER_PASS
 	name_label.text = tr(def.name_key) if def != null else String(id)
 	name_label.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE, ui_scale))
-	name_label.add_theme_color_override(&"font_color", UIKit.COLOR_INK_TITLE if id == _selected else UIKit.COLOR_INK)
+	name_label.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT if id == _selected else UIKit.COLOR_TEXT)
 	col.add_child(name_label)
 	var miss := Label.new()
 	miss.name = &"Missing"
@@ -510,7 +506,7 @@ func _locked_row(id: StringName) -> SkillRow:
 	miss.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	miss.custom_minimum_size.x = UIKit.px(ROW_WIDTH_PX - UIKit.ICON_SIZE * 1.5, ui_scale)
 	miss.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
-	miss.add_theme_color_override(&"font_color", UIKit.COLOR_INK_DIM)
+	miss.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 	col.add_child(miss)
 	if def != null:
 		var tip: String = "\n".join([tr(def.name_key), tr(def.desc_key)] + Array(lines))
@@ -556,14 +552,14 @@ func _skill_row(id: StringName, level: int, can_raise: bool) -> SkillRow:
 	name_label.mouse_filter = Control.MOUSE_FILTER_PASS
 	name_label.text = tr(def.name_key) if def != null else String(id)
 	name_label.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE, ui_scale))
-	name_label.add_theme_color_override(&"font_color", UIKit.COLOR_INK_TITLE if id == _selected else UIKit.COLOR_INK)
+	name_label.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT if id == _selected else UIKit.COLOR_TEXT)
 	col.add_child(name_label)
 	var lvl := Label.new()
 	lvl.mouse_filter = Control.MOUSE_FILTER_PASS
 	var max_level: int = mini(def.max_level, Balance.cfg.max_skill_level) if def != null else level
 	lvl.text = tr("UI_SKILL_LEVEL") % [level, max_level]
 	lvl.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
-	lvl.add_theme_color_override(&"font_color", UIKit.COLOR_INK_DIM)
+	lvl.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 	col.add_child(lvl)
 	var up := Button.new()
 	up.name = &"LevelUp"
@@ -597,7 +593,7 @@ func _update_row_selection() -> void:
 			var name_label: Label = row.find_child("NameLabel", true, false) as Label
 			if name_label != null:
 				var is_sel: bool = StringName(row.name) == _selected
-				name_label.add_theme_color_override(&"font_color", UIKit.COLOR_INK_TITLE if is_sel else UIKit.COLOR_INK)
+				name_label.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT if is_sel else UIKit.COLOR_TEXT)
 
 
 func _refresh_detail() -> void:

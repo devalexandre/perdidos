@@ -1,5 +1,5 @@
 """Build the first connected hunting route; run from any directory with Python 3.
-Includes the new Sabia wildlife exported by the native Blender pipeline.
+Includes the new Pindorama wildlife exported by the native Blender pipeline.
 """
 from pathlib import Path
 import math, re, csv, io
@@ -11,8 +11,8 @@ ROOT=Path(__file__).resolve().parents[3]
 GAME=ROOT/'game'
 CAVE_MAP_ID='cave_reino_encoberto'
 AREAS=[
- dict(id='fields_sabia',key='WA_P_CAMPOS_SABIA',levels=(1,10),cap=1,boss=False,ground='dry_grass',color='0.57, 0.55, 0.29',previous='city_awakening',next='enchanted_forest',spawns=[('prank_whirlwind',1,6,-18,17),('enchanted_firefly',1,5,18,1),('stone_armadillo',1,4,-18,-20)]),
- dict(id='enchanted_forest',key='WA_P_MATA_ENCANTADA',levels=(6,12),cap=2,boss=False,ground='jungle_floor',color='0.19, 0.38, 0.23',previous='fields_sabia',next='split_sky_plateau',spawns=[('prank_whirlwind',2,6,-18,16),('enchanted_firefly',2,6,18,0),('stone_armadillo',2,5,-18,-20)]),
+ dict(id='fields_pindorama',key='WA_P_CAMPOS_PINDORAMA',levels=(1,10),cap=1,boss=False,ground='dry_grass',color='0.57, 0.55, 0.29',previous='city_awakening',next='enchanted_forest',spawns=[('prank_whirlwind',1,6,-18,17),('enchanted_firefly',1,5,18,1),('stone_armadillo',1,4,-18,-20)]),
+ dict(id='enchanted_forest',key='WA_P_MATA_ENCANTADA',levels=(6,12),cap=2,boss=False,ground='jungle_floor',color='0.19, 0.38, 0.23',previous='fields_pindorama',next='split_sky_plateau',spawns=[('prank_whirlwind',2,6,-18,16),('enchanted_firefly',2,6,18,0),('stone_armadillo',2,5,-18,-20)]),
  dict(id='split_sky_plateau',key='WA_P_CHAPADA_CEU_PARTIDO',levels=(12,25),cap=3,boss=True,ground='red_earth',color='0.59, 0.31, 0.19',previous='enchanted_forest',next=None,spawns=[('highland_prank_whirlwind',1,5,-18,16),('highland_enchanted_firefly',1,5,18,0),('highland_stone_armadillo',1,4,-18,-12)])]
 
 # One named forest, four independently loaded hunting maps.
@@ -26,7 +26,7 @@ base = AREAS[1]
 forest = []
 for i, (mid, key, title, bends) in enumerate(FOREST):
  a = dict(base, id=mid, key='WA_FOREST_'+key, bends=bends, variant=i)
- a['previous'] = 'fields_sabia' if i == 0 else FOREST[i-1][0]
+ a['previous'] = 'fields_pindorama' if i == 0 else FOREST[i-1][0]
  a['next'] = 'split_sky_plateau' if i == 3 else FOREST[i+1][0]
  # Distinct hunting clearings, with the same regional difficulty.
  a['spawns'] = [(m, st, count+(i+j)%3, x, z) for j,(m,st,count,x,z) in enumerate(base['spawns'])]
@@ -35,9 +35,9 @@ AREAS = [AREAS[0]] + forest + [dict(AREAS[2], previous=FOREST[-1][0])]
 
 
 FIELDS = [
- ('fields_sabia', 'WA_FIELDS_ENTRANCE', 'Campos do Sabiá · Estrada dos Viajantes', [0, 3, 8, 0, -8, -3, 0]),
- ('fields_sabia_buriti', 'WA_FIELDS_BURITI', 'Campos do Sabiá · Veredas do Buriti', [0, -3, -12, -5, 10, 4, 0]),
- ('fields_sabia_crossroads', 'WA_FIELDS_CROSSROADS', 'Campos do Sabiá · Passo dos Ipês', [0, 5, 14, 3, -10, -4, 0]),
+ ('fields_pindorama', 'WA_FIELDS_ENTRANCE', 'Campos de Pindorama · Estrada dos Viajantes', [0, 3, 8, 0, -8, -3, 0]),
+ ('fields_pindorama_buriti', 'WA_FIELDS_BURITI', 'Campos de Pindorama · Veredas do Buriti', [0, -3, -12, -5, 10, 4, 0]),
+ ('fields_pindorama_crossroads', 'WA_FIELDS_CROSSROADS', 'Campos de Pindorama · Passo dos Ipês', [0, 5, 14, 3, -10, -4, 0]),
 ]
 HIGHLANDS = [
  ('split_sky_plateau', 'WA_HIGHLANDS_ASCENT', 'Chapada do Céu Partido · Subida Vermelha', [0, -5, -12, -4, 9, 3, 0]),
@@ -54,9 +54,9 @@ AREAS = fields + [dict(a, scenery='forest') for a in forest] + highlands
 # não pode cair ao longo da rota (tests/world/test_hunt_areas), por isso nível < 6 só na Entrada da Mata.
 VENOM_PACKS = {
  # Veredas do Buriti: abelhas nos buritis, mosquito na água parada do brejo, jararaca na folhagem.
- 'fields_sabia_buriti': [('killer_bee',1,5,22,22), ('aedes_mosquito',1,4,-28,-6), ('jararaca_serpent',1,3,26,-26)],
+ 'fields_pindorama_buriti': [('killer_bee',1,5,22,22), ('aedes_mosquito',1,4,-28,-6), ('jararaca_serpent',1,3,26,-26)],
  # Passo dos Ipês: escorpião no entulho das pedras, taturana nos troncos de ipê.
- 'fields_sabia_crossroads': [('yellow_scorpion',1,4,26,16), ('lonomia_caterpillar',1,3,-26,-6)],
+ 'fields_pindorama_crossroads': [('yellow_scorpion',1,4,26,16), ('lonomia_caterpillar',1,3,-26,-6)],
  # Mata Encantada: aranhas nos arbustos e nos ocos, serpentes da mata fechada e das clareiras.
  'enchanted_forest': [('wandering_spider',1,3,26,14), ('brown_recluse',1,3,-28,-6)],
  'enchanted_forest_glade': [('coral_snake',1,3,26,14), ('rattlesnake',1,3,-28,-6)],
@@ -72,7 +72,7 @@ for i,a in enumerate(AREAS):
  a['spawns'] = list(a['spawns']) + VENOM_PACKS.get(a['id'], []) + [(('highland_' if advanced else '') + mid, 2 if a['scenery']=='forest' else 1, 4 if j==a['variant']%3 else 2, x,z) for j,(mid,(x,z)) in enumerate(zip(new_species,[(-12,8),(12,-10),(-12,-27)]))]
  # Chefes fixos (decisão do dono, 30/09/2026: sem evolução e sem chefe por contagem de abates). Cada covil
  # (BossLairs/) é a casa de UM chefe, com bando fixo; renasce em Balance.boss_respawn_sec. Subida Vermelha: os 3
- # chefes do Sabiá pedidos pelos anciãos; Cristas: Queixada; Alto das Brasas: Serpente-Fagulha e Mula de Brasa.
+ # chefes de Pindorama pedidos pelos anciãos; Cristas: Queixada; Alto das Brasas: Serpente-Fagulha e Mula de Brasa.
  a['lairs'] = {0: [('highland_prank_whirlwind',-22,-28),('highland_enchanted_firefly',-1,-28),('highland_stone_armadillo',20,-28)],
                1: [('highland_buriti_boar',20,-28)],
                2: [('highland_cinder_serpent',20,-28),('highland_ember_mule',-22,-28)]}[a['variant']] if advanced else []
@@ -214,10 +214,10 @@ def write_scene(a):
  node('NavigationRegion3D','NavigationRegion3D',props='navigation_mesh = SubResource("nav")')
  node('SpawnPoint','Marker3D',props='position = Vector3(0, 0, 33)')
  node('NorthArrival','Marker3D',props='position = Vector3(0, 0, -34)')
- if a['id']=='fields_sabia':
+ if a['id']=='fields_pindorama':
   node('NpcPoints','Node3D')
   node('coronel_tobias','Marker3D','NpcPoints','position = Vector3(14, 0, 9)')
- if a['id']=='fields_sabia_crossroads':
+ if a['id']=='fields_pindorama_crossroads':
   node('ThreeRoads','Marker3D',props='position = Vector3(0, 0, 0)')
  if a['id']=='enchanted_forest_roots':
   node('NpcPoints','Node3D')
@@ -293,7 +293,7 @@ script = ExtResource("zone")
 map_id = &"{a['id']}"
 kind = 2
 name_key = "{a['key']}"
-region_id = &"sabia"
+region_id = &"pindorama"
 recommended_level_min = {a['levels'][0]}
 recommended_level_max = {a['levels'][1]}
 monster_stage_cap = {a['cap']}
@@ -628,7 +628,7 @@ script = ExtResource("zone")
 map_id = &"cave_reino_encoberto"
 kind = 2
 name_key = "WA_CAVE_REINO_ENCOBERTO"
-region_id = &"sabia"
+region_id = &"pindorama"
 recommended_level_min = 12
 recommended_level_max = 16
 monster_stage_cap = 1
@@ -666,7 +666,7 @@ if __name__=='__main__':
  for a in AREAS:write_scene(a)
  write_cave_scene()
  highland_monsters()
- from build_sabia_monsters import build
+ from build_pindorama_monsters import build
  build()
  write_names()
  print(f'Built {len(AREAS)} connected hunt maps, zones and minimaps.')

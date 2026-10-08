@@ -24,6 +24,6 @@ extra = Dictionary[StringName, Variant]({
 })
 vfx = &"guard"
 icon_text = "PF"
-tree_title = &"sabia_blade_aroeira"
+tree_title = &"pindorama_blade_aroeira"
 tree_order = 1
-exclusive_to_title = &"sabia_blade_machete"
+exclusive_to_title = &"pindorama_blade_machete"

@@ -69,7 +69,7 @@ script = ExtResource("1_quest")
 id = &"arc1_ch1_saci"
 name_key = "QUEST_ARC1_CH1_NAME"
 giver_npc = &"dona_jacinta"
-region_id = &"sabia"
+region_id = &"pindorama"
 steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4"), SubResource("step_5"), SubResource("step_6")])
 reward_items = Dictionary[StringName, int]({
 &"whirlwind_cap": 1

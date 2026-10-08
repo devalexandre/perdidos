@@ -55,7 +55,8 @@ static func load_slots(account: String = "") -> Array[Dictionary]:
 	var out: Array[Dictionary] = []
 	for i: int in slot_count():
 		var v: Variant = cfg.get_value(acc, "slot_%d" % i, {})
-		var d: Dictionary = v if v is Dictionary else {}
+		# Cache local de versões antigas pode ter ids renomeados (title_look, nationality): LegacyIds.
+		var d: Dictionary = LegacyIds.migrate(v) if v is Dictionary else {}
 		out.append(d if not str(d.get(KEY_NAME, "")).strip_edges().is_empty() else {})
 	return out
 

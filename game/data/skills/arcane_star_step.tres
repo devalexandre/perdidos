@@ -18,9 +18,9 @@ radius_cells = 0.5
 base_multiplier = 0.0
 multiplier_per_level = 0.0
 vfx = &"blink"
-exclusive_to_title = &"sabia_arcane_boitata"
+exclusive_to_title = &"pindorama_arcane_boitata"
 icon_text = "PE"
-tree_title = &"sabia_arcane_boitata"
+tree_title = &"pindorama_arcane_boitata"
 tree_order = 2
 required_skill_levels = Dictionary[StringName, int]({
 &"arcane_star_fall": 3

@@ -5,14 +5,14 @@ extends Node
 ##   Porto: fala com a Dona Ana (cidade conhecida), salva, "Viajar" sem outra cidade conhecida;
 ##   Serra Dourada (goto): fala com a Dona Ana de lá e viaja de volta ao Porto pela opção dela (chega ao lado dela);
 ##   Sumidouro (goto): fala com a Dona Ana (a lista tem Porto e Serra);
-##   Campos do Sabiá: Pergaminho de Retorno e morte levam ao lado da Dona Ana do Porto (cidade salva).
+##   Campos de Pindorama: Pergaminho de Retorno e morte levam ao lado da Dona Ana do Porto (cidade salva).
 ## Imprime "waystone_check {...}" e "waystone_done {...}"; código 0 = tudo passou.
 
 const ARG_SHOT: String = "shot-dir"
 const PORTO: StringName = &"city_awakening"
 const SERRA: StringName = &"city_serra_dourada"
 const SUMIDOURO: StringName = &"city_sumidouro"
-const HUNT: StringName = &"fields_sabia"
+const HUNT: StringName = &"fields_pindorama"
 const NPC_OF: Dictionary[StringName, StringName] = {PORTO: &"dona_ana_porto", SERRA: &"dona_ana_serra_dourada",
 		SUMIDOURO: &"dona_ana_sumidouro"}
 const ARRIVAL: String = "WaystoneArrival"

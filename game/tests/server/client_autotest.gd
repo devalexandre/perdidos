@@ -800,7 +800,7 @@ func _test_map_objects() -> void:
 	if _find_interactable(&"portal").is_empty():
 		_check("gate_exists", false)
 		return
-	# Portões com target_map (ex.: portal norte → fields_sabia) trocam de mapa; o aviso de nível
+	# Portões com target_map (ex.: portal norte → fields_pindorama) trocam de mapa; o aviso de nível
 	# recomendado só vale para os que continuam fechados. Sem nenhum fechado, não há o que checar aqui.
 	var gate: String = _find_closed_portal()
 	var c: int = _cursor()

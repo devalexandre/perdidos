@@ -3,7 +3,7 @@ extends Resource
 ## Todas as constantes [PROVISÓRIO] do GDD. Nunca usar número mágico no código: ler de Balance.cfg.
 
 @export_group("Network")
-@export var protocol_version: int = 4 # 4: companheiros e montarias (NetFollowers)
+@export var protocol_version: int = 6 # 4: companheiros e montarias (NetFollowers); 5: companheiros que lutam; 6: ids da nação renomeados para Pindorama (mapas, títulos; docs/mundo/renomeacao-pindorama.md)
 @export var default_port: int = 7777
 @export var server_tick_hz: int = 20 # GDD 15.3
 @export var client_interp_delay_ms: int = 100 # OBSOLETO (movimento por células, GDD §10.1)
@@ -213,3 +213,26 @@ extends Resource
 @export var mount_lockout_after_hit_sec: float = 5.0
 @export var companion_swap_cooldown_sec: float = 60.0
 @export var follower_teleport_cells: float = 8.0
+
+@export_group("Companheiros que lutam (PETS-E-MONTARIAS §0.1, 08/10/2026)")
+## Nível do companheiro: 1 até isto, com curva própria (XP para o próximo = base × nível ^ expoente).
+@export var companion_max_level: int = 50
+@export var companion_xp_curve_base: float = 4.0
+@export var companion_xp_curve_exponent: float = 1.5
+## XP bônus do companheiro: esta fração do XP do monstro, só para ele (não sai do XP do dono).
+@export var companion_xp_share: float = 0.20
+## Crítico = base + SOR do dono × por_SOR + nível do companheiro × por_nível (dano crítico = regra do jogo).
+@export var companion_crit_base: float = 0.01
+@export var companion_crit_per_luk: float = 0.003
+@export var companion_crit_per_level: float = 0.001
+## Níveis em que as magias automáticas se liberam (1ª, 2ª, 3ª da CompanionDef.spells).
+@export var companion_spell_levels: Array[int] = [1, 10, 25]
+## Marcos de evolução visual (só cosmético): cada marco alcançado soma isto à escala do bicho.
+@export var companion_milestones: Array[int] = [10, 25, 50]
+@export var companion_evolve_scale_step: float = 0.08
+## Na zona PVP (Arena da Queimada) o dano do companheiro vale isto.
+@export var companion_pvp_damage_mult: float = 0.5
+## Luz que Cura (Lume) só cura o dono abaixo desta fração da vida.
+@export var companion_heal_below_hp: float = 0.7
+## Garra do Alto / Mordida do Guará adiantam o golpe só se já passou esta fração do intervalo (sem golpe duplo).
+@export var companion_bond_min_gap: float = 0.5

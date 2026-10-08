@@ -1,6 +1,6 @@
 [gd_scene load_steps=146 format=3]
 
-[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_ground_sabia_forest.tres" id="ground_mat"]
+[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_ground_pindorama_forest.tres" id="ground_mat"]
 [ext_resource type="Script" path="res://scripts/shared/map.gd" id="map"]
 
 [sub_resource type="ProceduralSkyMaterial" id="sky_mat"]

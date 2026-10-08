@@ -17,5 +17,5 @@ multiplier_per_level = 0.1
 requires_bow = true
 vfx = &"arrow"
 icon_text = "TR"
-tree_title = &"sabia_bow_cerrado"
+tree_title = &"pindorama_bow_cerrado"
 tree_order = 1

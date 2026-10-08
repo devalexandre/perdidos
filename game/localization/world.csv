@@ -23,9 +23,9 @@ UI_MINIMAP_ROTATE,Gira com a câmera
 WA_CAVE_REINO_ENCOBERTO_2,Mata Encantada · Caverna do Reino Encoberto · Profundezas I
 WA_CAVE_REINO_ENCOBERTO_3,Mata Encantada · Caverna do Reino Encoberto · Profundezas II
 WA_CAVE_REINO_ENCOBERTO_4,Mata Encantada · Caverna do Reino Encoberto · Covil da Fera
-WA_FIELDS_ENTRANCE,Campos do Sabiá · Estrada dos Viajantes
-WA_FIELDS_BURITI,Campos do Sabiá · Veredas do Buriti
-WA_FIELDS_CROSSROADS,Campos do Sabiá · Passo dos Ipês
+WA_FIELDS_ENTRANCE,Campos de Pindorama · Estrada dos Viajantes
+WA_FIELDS_BURITI,Campos de Pindorama · Veredas do Buriti
+WA_FIELDS_CROSSROADS,Campos de Pindorama · Passo dos Ipês
 WA_HIGHLANDS_ASCENT,Chapada do Céu Partido · Subida Vermelha
 WA_HIGHLANDS_RIDGES,Chapada do Céu Partido · Cristas do Vento
 WA_HIGHLANDS_SUMMIT,Chapada do Céu Partido · Alto das Brasas
@@ -86,3 +86,6 @@ ZONE_RUINS_RATANABA_F4_NAME,Ruínas de Ratanabá · Sanctum do Arquiteto [F4]
 ZONE_SERRA_DOURADA_NAME,"Serra Dourada, a Serra Resplandecente"
 SYS_BOSS_ESCAPE_GATE,A saída rápida para a superfície só se abre após derrotar o chefe deste covil.
 SYS_BOSS_ESCAPE_OPEN,O chefe do covil foi derrotado. A saída rápida para a superfície está aberta!
+ZONE_SUMIDOURO_ABYSS_NAME,Abismo do Sumidouro
+ZONE_CAVE_REINO_ENCOBERTO_5_NAME,Caverna do Reino Encoberto - Câmara da Fogueira (F5)
+ZONE_HOLLOW_EARTH_CAULDRON_NAME,Túneis da Terra Oca - Gruta do Caldeirão

@@ -129,6 +129,9 @@ func apply_damage(attacker: NetEntity, target: NetEntity, kind: StringName = KIN
 func deal_damage(attacker: NetEntity, target: NetEntity, kind: StringName, multiplier: float,
 		source_id: StringName) -> Dictionary:
 	var why: String = attack_block_reason(attacker, target)
+	# O companheiro não usa as flechas do dono (PETS-E-MONTARIAS §0.1).
+	if why == "attack_no_ammo" and String(source_id).begins_with(CompanionService.SOURCE_PREFIX):
+		why = ""
 	if not why.is_empty():
 		return {"ok": false, "reason": why, "amount": 0, "crit": false, "killed": false}
 	var atk: Dictionary = get_combat_stats(attacker).duplicate()
@@ -136,7 +139,7 @@ func deal_damage(attacker: NetEntity, target: NetEntity, kind: StringName, multi
 	var def_mult: float = CombatBridges.def_multiplier(world, target)
 	dfn[&"def"] = roundi(float(dfn.get(&"def", 0)) * def_mult)
 	dfn[&"mdef"] = roundi(float(dfn.get(&"mdef", 0)) * def_mult)
-	# Q (Terra do Sabiá v0.4): reforços/enfraquecimentos, contragolpe, esquiva, crítico garantido.
+	# Q (Terra de Pindorama v0.4): reforços/enfraquecimentos, contragolpe, esquiva, crítico garantido.
 	var mods: Dictionary = CombatBridges.pre_hit(world, attacker, target, kind, source_id, atk, dfn)
 	if world.companions != null:
 		world.companions.pre_hit(attacker, source_id, mods, atk, dfn)
@@ -175,7 +178,7 @@ func deal_damage(attacker: NetEntity, target: NetEntity, kind: StringName, multi
 	# Contexto e Efeitos de Crendices Folclóricas (GDD §11)
 	var map_id: StringName = world.get_instance_map_id(attacker.instance_id) if world != null else &""
 	var is_night: bool = DayNight.is_night_on_map(map_id) if DayNight != null else false
-	var in_forest: bool = String(map_id).begins_with("enchanted_forest") or String(map_id).begins_with("fields_sabia")
+	var in_forest: bool = String(map_id).begins_with("enchanted_forest") or String(map_id).begins_with("fields_pindorama")
 	var target_session: PlayerSession = world.get_session(target.get_peer_id()) if target.is_player() else null
 
 	# Defensor: Crendices (ex: Moeda Furada, Figa de Madeira, Saquinho de Sal Grosso, Olho do Titã)
@@ -202,7 +205,9 @@ func deal_damage(attacker: NetEntity, target: NetEntity, kind: StringName, multi
 
 	# Atacante: Crendices (ex: Dente de Onça, Dente de Cascavel, Pedra de Raio, etc.)
 	var atk_sp: Dictionary = {}
-	if attacker_session != null and attacker_session.character != null and attacker_session.character.equipment != null:
+	# Golpe do companheiro (PETS-E-MONTARIAS §0.1): as Crendices do dono não valem para o bicho.
+	var from_companion: bool = String(source_id).begins_with(CompanionService.SOURCE_PREFIX)
+	if not from_companion and attacker_session != null and attacker_session.character != null and attacker_session.character.equipment != null:
 		var max_mp: int = int(attacker_session.character.compute_stats().get("max_mp", 100))
 		var atk_ctx: Dictionary = {
 			"hp_ratio": attacker.hp_ratio,
@@ -230,6 +235,11 @@ func deal_damage(attacker: NetEntity, target: NetEntity, kind: StringName, multi
 		var crit_override: float = CombatRules.MONSTER_CRIT_CHANCE if attacker.is_monster() \
 				else float(mods.get("crit_override", -1.0))
 		roll = DamageFormula.compute(atk, dfn, multiplier, dtype, _rng, crit_override)
+		# Magia do companheiro também critica (sorte do dono); as mágicas do jogador seguem sem crítico.
+		var magic_crit: float = float(mods.get("magic_crit", -1.0))
+		if dtype == CombatRules.DamageType.MAGIC and magic_crit > 0.0 and _rng.randf() < magic_crit:
+			roll["amount"] = maxi(CombatRules.MIN_DAMAGE, roundi(float(roll["amount"]) * CombatRules.CRIT_MULTIPLIER))
+			roll["crit"] = true
 	if bool(roll.get("miss", false)):
 		return _miss(attacker, target, kind, source_id)
 	var taken: int = maxi(CombatRules.MIN_DAMAGE, roundi(float(roll["amount"]) * float(mods.get("dmg_mult", 1.0))))
@@ -747,7 +757,7 @@ func register_monster(e: NetEntity) -> void:
 func monster_attack(brain: MonsterBrain, target: NetEntity) -> void:
 	if CombatBridges.is_stunned(world, brain.get_entity()):
 		return
-	deal_damage(brain.get_entity(), target, KIND_PHYSICAL, 1.0, SOURCE_BASIC_ATTACK)
+	deal_damage(brain.get_entity(), target, KIND_PHYSICAL, brain.damage_mult, SOURCE_BASIC_ATTACK)
 
 
 ## Alvo válido para o monstro (jogador vivo na mesma instância, zona com combate).

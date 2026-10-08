@@ -11,18 +11,14 @@ signal confirmed(skill_id: StringName, point: Vector3)
 signal cancelled
 
 const GROUND_OFFSET: float = 0.05
-const FLAT_HEIGHT: float = 0.02
 const RING_WIDTH: float = 0.08
 const CONE_SEGMENTS: int = 16
+const RUNE_SHADER: Shader = preload("res://assets/shaders/skill_aim_runes.gdshader")
 const PREVIEW_COLOR: Color = Color(1.0, 0.9, 0.45, 0.35)
 const RANGE_COLOR: Color = Color(1.0, 0.9, 0.45, 0.6)
-const WARNING_COLOR: Color = Color(0.95, 0.3, 0.2, 0.22)
 const FLASH_ALPHA: float = 0.45
 const FLASH_SEC: float = 0.45
 const MSEC_PER_SEC: float = 1000.0
-## Cor do efeito por escola.
-const SCHOOL_FLASH: Dictionary[StringName, Color] = {
-	&"blade": Color(1.0, 0.7, 0.35), &"arcane": Color(0.5, 0.75, 1.0)}
 
 var view: ClientView = null
 var player: Node3D = null
@@ -44,10 +40,13 @@ func begin(def: SkillDef, p_player: Node3D, use_mobile_drag: bool = false) -> vo
 	_mobile_direction = Vector2.ZERO
 	aiming_skill = def
 	player = p_player
-	_preview = make_shape(def, PREVIEW_COLOR)
+	var color: Color = SkillFx.charge_color_for(def)
+	color.a = PREVIEW_COLOR.a
+	_preview = make_shape(def, color)
 	add_child(_preview)
 	if def.target_type == SkillDef.TargetType.GROUND_AREA and def.range_cells > 0.0:
-		_range_ring = _ring(def.range_cells * Balance.cfg.cell_size, RANGE_COLOR)
+		var range_color := Color(color, RANGE_COLOR.a * 0.65)
+		_range_ring = _ring(def.range_cells * Balance.cfg.cell_size, range_color)
 		add_child(_range_ring)
 	_update_preview()
 
@@ -178,12 +177,12 @@ func _update_preview() -> void:
 func show_cast(def: SkillDef, caster: Node3D, point: Vector3, cast_ms: int) -> void:
 	# O efeito da skill vem do SkillFx (folhas de assets/fx/skills/). Desde 30/09/2026 o aviso antes do
 	# impacto (ground_warning_sec, Queda Estelar) também: a sombra da pedra-estrela com o chão rachando
-	# (arcane_star_fall_warning). O disco vermelho daqui só volta se a folha não existir.
+	# (arcane_star_fall_warning). A mira rúnica daqui é a alternativa quando a folha não existe.
 	if def == null or def.ground_warning_sec <= 0.0 or SkillFxSprite.has_piece(SkillFx.WARNING_PIECE):
 		return
-	var color: Color = SCHOOL_FLASH.get(def.school, PREVIEW_COLOR)
+	var color: Color = SkillFx.charge_color_for(def)
 	color.a = FLASH_ALPHA
-	var shape: Node3D = make_shape(def, color if def.ground_warning_sec <= 0.0 else WARNING_COLOR)
+	var shape: Node3D = make_shape(def, color)
 	add_child(shape)
 	var origin: Vector3 = caster.global_position if caster != null and is_instance_valid(caster) else point
 	match def.target_type:
@@ -229,12 +228,15 @@ static func make_shape(def: SkillDef, color: Color) -> Node3D:
 		_:
 			var r: float = def.radius_cells * cell if def.radius_cells > 0.0 else cell * 0.6
 			var mi3 := MeshInstance3D.new()
-			var cm := CylinderMesh.new()
-			cm.top_radius = r
-			cm.bottom_radius = r
-			cm.height = FLAT_HEIGHT
-			mi3.mesh = cm
-			mi3.material_override = _mat(color)
+			var plane := PlaneMesh.new()
+			plane.size = Vector2.ONE * r * 2.08
+			mi3.mesh = plane
+			var material := ShaderMaterial.new()
+			material.shader = RUNE_SHADER
+			material.set_shader_parameter(&"color", Color(color, 1.0))
+			material.set_shader_parameter(&"opacity", clampf(color.a * 2.5, 0.25, 1.0))
+			material.set_shader_parameter(&"rune_count", 12.0 if EnvQuality.current == EnvQuality.Preset.ALTA else 8.0)
+			mi3.material_override = material
 			root.add_child(mi3)
 	for c: Node in root.get_children():
 		(c as GeometryInstance3D).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF

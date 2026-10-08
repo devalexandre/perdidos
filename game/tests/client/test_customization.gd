@@ -69,15 +69,15 @@ func _test_data() -> void:
 	_check(not o.is_valid(bad), "aparência inválida recusada")
 	var fixed: Dictionary = o.sanitize(bad)
 	_check(fixed[&"skin"] == 0 and fixed[&"hair_style"] == &"spiky" and fixed[&"hair_color"] == 3 and fixed[&"earrings"] == &"", "sanitize corrige só o inválido")
-	# nacionalidade (GDD §4.0): padrão Terra do Sabiá, região válida aceita, inválida volta ao padrão
-	_check(d[&"nationality"] == &"sabia" and o.nationalities.size() == 10, "nacionalidade padrão = sabia, 10 regiões")
+	# nacionalidade (GDD §4.0): padrão Terra de Pindorama, região válida aceita, inválida volta ao padrão
+	_check(d[&"nationality"] == &"pindorama" and o.nationalities.size() == 10, "nacionalidade padrão = pindorama, 10 regiões")
 	_check(o.sanitize({&"body": &"male", &"nationality": &"jade"})[&"nationality"] == &"jade", "nacionalidade válida aceita")
-	_check(o.sanitize({&"body": &"male", &"nationality": &"atlantida"})[&"nationality"] == &"sabia", "nacionalidade inválida corrigida")
+	_check(o.sanitize({&"body": &"male", &"nationality": &"atlantida"})[&"nationality"] == &"pindorama", "nacionalidade inválida corrigida")
 	for nat: StringName in o.nationalities:
 		_check(TranslationServer.translate(o.nationality_key(nat)) != o.nationality_key(nat), "nacionalidade %s traduzida" % nat)
-	# roupa por nacionalidade: o tecido azul muda de cor; Sabiá e roupa de título ficam como estão
-	_check(CharacterLayers.cloth_for({&"nationality": &"sabia"}).is_empty(), "Sabiá mantém as cores do Viajante")
-	_check(CharacterLayers.cloth_for({&"nationality": &"jade", &"outfit": &"sabia_blade_machete"}).is_empty(), "roupa de título não recolore")
+	# roupa por nacionalidade: o tecido azul muda de cor; Pindorama e roupa de título ficam como estão
+	_check(CharacterLayers.cloth_for({&"nationality": &"pindorama"}).is_empty(), "Pindorama mantém as cores do Viajante")
+	_check(CharacterLayers.cloth_for({&"nationality": &"jade", &"outfit": &"pindorama_blade_machete"}).is_empty(), "roupa de título não recolore")
 	# arquétipos principais (Tanque, Ágil, Arcano, Xamânico): detecção e códigos de shader
 	_check(CharacterLayers.archetype_code_for({&"archetype": &"tank"}) == 1 and CharacterLayers.archetype_code_for({&"outfit": &"title_jabuti"}) == 1, "arquétipo Tanque mapeado (código 1)")
 	_check(CharacterLayers.archetype_code_for({&"archetype": &"blade"}) == 2 and CharacterLayers.archetype_code_for({&"outfit": &"title_machete"}) == 2, "arquétipo Ágil mapeado (código 2)")
@@ -108,7 +108,7 @@ func _test_data() -> void:
 	_check(jade_c.size() == 2 and absf(recol.h - jade_c[0].h) < 0.03, "tecido azul vira o tecido da região (%s)" % recol)
 	var base_img: Image = (load(CharacterLayers.base_sheet_path(&"male", &"idle")) as Texture2D).get_image()
 	var base_mask: Image = (load(CharacterLayers.mask_sheet_path(&"male", &"idle")) as Texture2D).get_image()
-	var plain: Image = CharacterLayers.bake_image(base_img, CharacterLayers.MODE_BASE, CharacterLayers.ramps_for({&"nationality": &"sabia"}), base_mask)
+	var plain: Image = CharacterLayers.bake_image(base_img, CharacterLayers.MODE_BASE, CharacterLayers.ramps_for({&"nationality": &"pindorama"}), base_mask)
 	var jade_img: Image = CharacterLayers.bake_image(base_img, CharacterLayers.MODE_BASE, CharacterLayers.ramps_for({&"nationality": &"jade"}), base_mask)
 	var changed: int = 0
 	var head_changed: int = 0
@@ -266,7 +266,7 @@ func _test_title(win: Vector2i) -> void:
 	title.set_fields("Iracema", &"female", "127.0.0.1", 7788)
 	title.set_appearance({&"hair_style": &"braid", &"hair_color": 6, &"skin": 4, &"eye_color": 2, &"earrings": &"seed"})
 	var a: Dictionary = title.get_appearance()
-	_check(a == {&"body": &"female", &"skin": 4, &"hair_style": &"braid", &"hair_color": 6, &"eye_color": 2, &"earrings": &"seed", &"nationality": &"sabia"}, "get_appearance %s" % a)
+	_check(a == {&"body": &"female", &"skin": 4, &"hair_style": &"braid", &"hair_color": 6, &"eye_color": 2, &"earrings": &"seed", &"nationality": &"pindorama"}, "get_appearance %s" % a)
 	title.set_fields("Iracema", &"male")
 	_check(title.get_appearance()[&"hair_style"] == &"spiky", "trocar de corpo corrige estilo inexistente")
 	title.set_fields("Iracema", &"female", "127.0.0.1", 7788)
@@ -295,7 +295,7 @@ func _test_touch_title(win: Vector2i) -> void:
 	add_child(title)
 	await _frames(SETTLE_FRAMES)
 	var panel := title.find_child("TravelerPanel", true, false) as Control
-	var origin := title.find_child("Origin_sabia", true, false) as Button
+	var origin := title.find_child("Origin_pindorama", true, false) as Button
 	var body := title.find_child("male", true, false) as Button
 	_check(title._touch_layout and title._wide_layout and title.ui_scale >= TitleScreen.TOUCH_WIDE_MIN_SCALE,
 			"layout touch paisagem usa escala ampliada")
@@ -338,7 +338,7 @@ func _test_slot_title(win: Vector2i, touch: bool) -> void:
 	await _frames(2)
 
 	var saved: Dictionary = {&"body": &"female", &"skin": 3, &"hair_style": &"braid", &"hair_color": 3,
-		&"eye_color": 3, &"earrings": &"seed", &"nationality": &"sabia"}
+		&"eye_color": 3, &"earrings": &"seed", &"nationality": &"pindorama"}
 	_check(CharacterSlots.remember({CharacterSlots.KEY_NAME: "Jaci", CharacterSlots.KEY_BODY: "female",
 		CharacterSlots.KEY_APPEARANCE: saved, CharacterSlots.KEY_LEVEL: 5}), "slot gravado no arquivo temporário")
 	var title: TitleScreen = TITLE_SCENE.instantiate() as TitleScreen

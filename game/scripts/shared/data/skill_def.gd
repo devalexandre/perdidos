@@ -3,7 +3,7 @@ extends Resource
 ## Skill em dados (GDD §8). data/skills/<id>.tres. Aprendida só por quest; sobe com pontos de skill.
 enum TargetType { SINGLE, GROUND_AREA, SELF_AREA, CONE, LINE, SELF, ALLY_OR_SELF }
 ## Efeitos. Os 7 primeiros são do MVP (valores fixos nos .tres existentes: só acrescentar no fim).
-## Terra do Sabiá v0.4 (TITULOS-E-SKILLS.md §3.5): efeitos genéricos, parâmetros em `extra`
+## Terra de Pindorama v0.4 (TITULOS-E-SKILLS.md §3.5): efeitos genéricos, parâmetros em `extra`
 ## (ver SkillCaster, constantes X_*). Todo efeito de dano aceita "riders" em extra (stun_sec,
 ## root_sec, knockback_cells, pull_cells, dash, dot_mult/dot_sec, crit_bonus, def_ignore...).
 enum Effect { PHYSICAL_DAMAGE, MAGIC_DAMAGE, DAMAGE_OVER_TIME, SHIELD, BUFF_DEF, DASH_STUN, SLOW,

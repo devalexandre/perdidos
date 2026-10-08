@@ -2,9 +2,16 @@ extends Node
 ## Captura dos portais no cliente real (PortalFx, 30/09/2026). Criado pelo main.gd com --autotest
 ## --autotest-script=res://tests/client/portal_capture.gd --shot-dir=DIR; servidor com --dev-commands
 ## (tests/client/run_portal_capture.sh). Começa no Porto e atravessa os próprios portais: Porto (portal da
-## cidade) → Campos do Sabiá → Mata Encantada → Chapada, de dia e de noite em cada um.
+## cidade) → Campos de Pindorama → Mata Encantada → Chapada, de dia e de noite em cada um.
+## Com --portal-approach=1 (08/10/2026): só a aproximação no Porto — longe, a meio caminho e na entrada, de dia e
+## de noite, para ver as runas acendendo, as fagulhas convergindo e a luz reagindo.
 
 const ARG_SHOT_DIR: String = "shot-dir"
+const ARG_APPROACH: String = "portal-approach"
+## Aproximação: [rótulo, distância (m) do centro do portal]. Espera o amortecimento assentar antes da foto.
+const APPROACH: Array = [["longe", 10.0], ["meio", 4.8], ["entrada", 2.0]]
+const APPROACH_PORTAL: String = "gate_north"
+const APPROACH_SETTLE_SEC: float = 2.5
 const INSTANCES: NodePath = ^"/root/Main/World/Instances"
 const SETTLE_SEC: float = 3.0
 const LIGHT_SEC: float = 4.0
@@ -30,6 +37,10 @@ func _on_spawned(_p: Node3D) -> void:
 	_started = true
 	await _wait(SETTLE_SEC * 2.0)
 	_hide_chat()
+	if args.get(ARG_APPROACH, "") == "1":
+		await _approach()
+		get_tree().quit(0)
+		return
 	for step: Array in ROUTE:
 		await _visit(step[0], step[1])
 		if String(step[2]).is_empty():
@@ -56,8 +67,23 @@ func _visit(label: String, portal: String) -> void:
 	await _cmd("/dia")
 
 
+func _approach() -> void:
+	for light: String in ["dia", "noite"]:
+		await _cmd("/" + light)
+		for step: Array in APPROACH:
+			await _go_near(APPROACH_PORTAL, float(step[1]))
+			await _wait(APPROACH_SETTLE_SEC)
+			var area: Area3D = _find_portal(APPROACH_PORTAL)
+			var fx: PortalFx = area.get_node_or_null(^"PortalFx") as PortalFx if area != null else null
+			Net.log_line("portal_capture_approach", {"step": step[0], "light": light,
+				"proximity": fx.proximity if fx != null else -1.0})
+			await _shot("aprox_%s_%s" % [step[0], light])
+	await _cmd("/hora normal")
+	Net.log_line("portal_capture_done", {})
+
+
 ## Teleporta para perto do portal (na direção do approach_position), com o portal à frente na tela.
-func _go_near(portal: String) -> void:
+func _go_near(portal: String, stand_off: float = STAND_OFF) -> void:
 	var area: Area3D = _find_portal(portal)
 	if area == null:
 		Net.log_line("portal_capture_missing", {"portal": portal})
@@ -70,7 +96,7 @@ func _go_near(portal: String) -> void:
 		v.y = 0.0
 		if v.length() > 0.2:
 			dir = v.normalized()
-	var stand: Vector3 = p + dir * STAND_OFF
+	var stand: Vector3 = p + dir * stand_off
 	NetProgress.send_debug(&"teleport", [stand.x, stand.z])
 	await _wait(SETTLE_SEC)
 	var fx: Node = area.get_node_or_null(^"PortalFx")

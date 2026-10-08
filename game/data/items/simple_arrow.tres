@@ -13,8 +13,8 @@ type = 2
 rarity = 0
 stackable = true
 max_stack = 99
-buy_price = 10
-sell_price = 3
+buy_price = 1
+sell_price = 0
 tradeable = true
 stats = Dictionary[StringName, int]({
 &"atk": 2

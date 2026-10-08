@@ -18,7 +18,7 @@ multiplier_per_level = 0.18
 requires_bow = true
 vfx = &"arrow"
 icon_text = "AT"
-tree_title = &"sabia_bow_cerrado"
+tree_title = &"pindorama_bow_cerrado"
 tree_order = 3
 required_skill_levels = Dictionary[StringName, int]({
 &"bow_low_shot": 3

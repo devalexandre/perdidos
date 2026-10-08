@@ -36,6 +36,10 @@ const CMD_DAWN: String = "amanhecer"
 const CMD_HELP: String = "ajuda"
 const CMD_KILL: String = "derrubar"
 const CMD_CLEAR: String = "limpar"
+## /vida <0-100>: põe o chefe mais perto nessa porcentagem da vida (fases da luta do Boitatá).
+const CMD_HP: String = "vida"
+## /imortal: 10 min sem cair (guarda contra o golpe fatal, a vida fica em 1), para testar lutas de chefe.
+const CMD_IMMORTAL: String = "imortal"
 const CLEAR_M: float = 40.0
 const SOURCE_DEBUG_KILL: StringName = &"debug_kill"
 const CLOCK_NORMAL: String = "normal"
@@ -48,7 +52,7 @@ const NEAR_M: float = 30.0
 const SPAWN_AHEAD_CELLS: float = 5.0
 ## /anoitecer e /amanhecer: segundos antes da virada.
 const TURN_LEAD_SEC: float = 15.0
-const HELP: String = "/chefe [espécie [dx dz]] · /covil [espécie] · /atroz [espécie [dx dz]] · /noite · /dia · /hora [normal] · /anoitecer · /amanhecer · /derrubar [chefe] · /limpar"
+const HELP: String = "/chefe [espécie [dx dz]] · /covil [espécie] · /atroz [espécie [dx dz]] · /noite · /dia · /hora [normal] · /anoitecer · /amanhecer · /derrubar [chefe] · /limpar · /vida <0-100> · /imortal"
 
 var spawner: MonsterSpawner = null
 
@@ -80,7 +84,7 @@ func handle_chat(session: PlayerSession, text: String) -> bool:
 	var cmd: String = parts[0].to_lower()
 	var args: PackedStringArray = parts.slice(1)
 	if cmd not in [CMD_BOSS, CMD_LAIR, CMD_ATROZ, CMD_NIGHT, CMD_DAY, CMD_CLOCK, CMD_DUSK, CMD_DAWN,
-			CMD_HELP, CMD_KILL, CMD_CLEAR]:
+			CMD_HELP, CMD_KILL, CMD_CLEAR, CMD_HP, CMD_IMMORTAL]:
 		return false
 	Net.log_line("monster_debug", {"peer": session.peer_id, "cmd": cmd, "args": str(args)})
 	run(session, cmd, args)
@@ -130,6 +134,22 @@ func run(session: PlayerSession, cmd: String, args: PackedStringArray) -> void:
 					spawner.world.despawn_entity(m)
 					n += 1
 			_say(session, "limpar: %d chefes/bandos removidos" % n)
+		CMD_IMMORTAL:
+			var prog: Progression = spawner.world.progression
+			if prog != null:
+				prog.statuses.add(me, StatusEffects.Kind.BUFF, 600.0, 0.0, &"debug_immortal", me, &"",
+						{StatusEffects.M_DEATH_WARD: 1.0})
+			_say(session, "imortal por 10 min")
+		CMD_HP:
+			var hb: MonsterBrain = _nearest_boss(me, false)
+			if hb == null or args.is_empty() or not args[0].is_valid_float():
+				_say(session, "vida: nenhum chefe por perto (uso: /vida 0-100)")
+				return
+			hb.hp = clampi(roundi(hb.max_hp() * clampf(args[0].to_float(), 1.0, 100.0) / 100.0), 1, hb.max_hp())
+			hb.apply_to_entity()
+			Net.log_line("debug_boss_hp", {"id": hb.get_entity().entity_id, "monster": String(hb.def.id), "hp": hb.hp,
+					"max_hp": hb.max_hp()})
+			_say(session, "vida de %s: %d/%d" % [hb.def.id, hb.hp, hb.max_hp()])
 		CMD_KILL:
 			var boss_only: bool = not args.is_empty() and args[0].to_lower() == CMD_BOSS
 			var nb: MonsterBrain = _nearest_boss(me, false) if boss_only else null

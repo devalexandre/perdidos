@@ -16,9 +16,9 @@ const ROWS: Array[Array] = [
 const DERIVED: Array[Array] = [["STAT_MAX_HP", &"max_hp"], ["STAT_MAX_MP", &"max_mp"],
 	["STAT_ATK", &"atk"], ["STAT_MATK", &"matk"], ["STAT_DEF", &"def"], ["STAT_MDEF", &"mdef"]]
 const DESC_WIDTH_PX: float = 330.0
-const CARD_BG: Color = UIKit.COLOR_CARD
-const CARD_BORDER: Color = UIKit.COLOR_CARD_BORDER
-const PENDING_INK: Color = UIKit.COLOR_INK_GOOD
+const CARD_BG: Color = UIKit.COLOR_DARK_CARD
+const CARD_BORDER: Color = UIKit.COLOR_SLOT_DARK_EDGE
+const PENDING_INK: Color = UIKit.COLOR_STAT_GOOD
 
 var _points_label: Label
 var _values: Dictionary[StringName, Label] = {}
@@ -68,7 +68,7 @@ func _init(p_scale: float = 1.0) -> void:
 		var attr: StringName = row[0]
 		if attr != ROWS[0][0]:
 			var rule := ColorRect.new()
-			rule.color = UIKit.COLOR_PARCHMENT_SHADE
+			rule.color = UIKit.COLOR_SLOT_DARK_EDGE
 			rule.custom_minimum_size.y = maxi(1, UIKit.px(1, ui_scale))
 			rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			attr_list.add_child(rule)
@@ -83,7 +83,7 @@ func _init(p_scale: float = 1.0) -> void:
 		n.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		n.add_theme_font_override(&"font", UIKit.read_font())
 		n.add_theme_font_size_override(&"font_size", UIKit.px(18, ui_scale))
-		n.add_theme_color_override(&"font_color", UIKit.COLOR_INK_TITLE)
+		n.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT)
 		line.add_child(n)
 
 		var minus := Button.new()
@@ -102,7 +102,7 @@ func _init(p_scale: float = 1.0) -> void:
 		v.custom_minimum_size.x = UIKit.px(76, ui_scale)
 		v.add_theme_font_override(&"font", UIKit.read_font())
 		v.add_theme_font_size_override(&"font_size", UIKit.px(18, ui_scale))
-		v.add_theme_color_override(&"font_color", UIKit.COLOR_INK)
+		v.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
 		line.add_child(v)
 
 		var plus := Button.new()
@@ -136,7 +136,7 @@ func _init(p_scale: float = 1.0) -> void:
 	_detail.custom_minimum_size = Vector2(UIKit.px(DESC_WIDTH_PX, ui_scale), UIKit.px(84, ui_scale))
 	_detail.add_theme_font_override(&"font", UIKit.read_font())
 	_detail.add_theme_font_size_override(&"font_size", UIKit.px(14, ui_scale))
-	_detail.add_theme_color_override(&"font_color", UIKit.COLOR_INK)
+	_detail.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
 	detail_card.add_child(_detail)
 
 	# Painel de valores derivados (Vida, Mana, ATQ, MATQ, DEF, MDEF)
@@ -156,13 +156,13 @@ func _init(p_scale: float = 1.0) -> void:
 		n2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		n2.add_theme_font_override(&"font", UIKit.read_font())
 		n2.add_theme_font_size_override(&"font_size", UIKit.px(13, ui_scale))
-		n2.add_theme_color_override(&"font_color", UIKit.COLOR_INK_DIM)
+		n2.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 		derived.add_child(n2)
 		var v2 := Label.new()
 		v2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		v2.add_theme_font_override(&"font", UIKit.read_font())
 		v2.add_theme_font_size_override(&"font_size", UIKit.px(15, ui_scale))
-		v2.add_theme_color_override(&"font_color", UIKit.COLOR_INK)
+		v2.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
 		derived.add_child(v2)
 		_derived[row[1]] = v2
 
@@ -198,7 +198,7 @@ func _init(p_scale: float = 1.0) -> void:
 	_confirm_label.custom_minimum_size.x = UIKit.px(DESC_WIDTH_PX, ui_scale)
 	_confirm_label.add_theme_font_override(&"font", UIKit.read_font())
 	_confirm_label.add_theme_font_size_override(&"font_size", UIKit.px(12, ui_scale))
-	_confirm_label.add_theme_color_override(&"font_color", UIKit.c_error())
+	_confirm_label.add_theme_color_override(&"font_color", UIKit.COLOR_ERROR)
 	_confirm_box.add_child(_confirm_label)
 
 	var yes := Button.new()
@@ -243,8 +243,8 @@ func _style_stat_button(b: Button) -> void:
 	var sb_press := sb.duplicate()
 	sb_press.bg_color = UIKit.COLOR_WOOD_DARK
 	var sb_dis := sb.duplicate()
-	sb_dis.bg_color = UIKit.COLOR_PARCHMENT_SHADE
-	sb_dis.border_color = UIKit.COLOR_PARCHMENT_EDGE
+	sb_dis.bg_color = UIKit.COLOR_SLOT_DARK_EMPTY
+	sb_dis.border_color = UIKit.COLOR_SLOT_DARK_EDGE
 
 	b.add_theme_stylebox_override(&"normal", sb)
 	b.add_theme_stylebox_override(&"hover", sb_hover)
@@ -252,7 +252,7 @@ func _style_stat_button(b: Button) -> void:
 	b.add_theme_stylebox_override(&"disabled", sb_dis)
 	b.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT)
 	b.add_theme_color_override(&"font_hover_color", UIKit.COLOR_NAME_PLAYER)
-	b.add_theme_color_override(&"font_disabled_color", UIKit.COLOR_PARCHMENT_EDGE)
+	b.add_theme_color_override(&"font_disabled_color", UIKit.COLOR_TEXT_DISABLED)
 
 
 func _style_action_button(b: Button, is_primary: bool) -> void:
@@ -280,8 +280,8 @@ func _style_action_button(b: Button, is_primary: bool) -> void:
 	sb_press.bg_color = sb.bg_color.darkened(0.2)
 
 	var sb_dis := sb.duplicate()
-	sb_dis.bg_color = UIKit.COLOR_PARCHMENT_SHADE
-	sb_dis.border_color = UIKit.COLOR_PARCHMENT_EDGE
+	sb_dis.bg_color = UIKit.COLOR_SLOT_DARK_EMPTY
+	sb_dis.border_color = UIKit.COLOR_SLOT_DARK_EDGE
 
 	b.add_theme_stylebox_override(&"normal", sb)
 	b.add_theme_stylebox_override(&"hover", sb_hover)
@@ -289,7 +289,7 @@ func _style_action_button(b: Button, is_primary: bool) -> void:
 	b.add_theme_stylebox_override(&"disabled", sb_dis)
 	b.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
 	b.add_theme_color_override(&"font_hover_color", UIKit.COLOR_GOLD_LIGHT)
-	b.add_theme_color_override(&"font_disabled_color", UIKit.COLOR_INK_DIM)
+	b.add_theme_color_override(&"font_disabled_color", UIKit.COLOR_TEXT_DIM)
 
 
 func _ready() -> void:
@@ -382,7 +382,7 @@ func _refresh() -> void:
 		var a: StringName = row[0]
 		var p: int = _pending[a]
 		_values[a].text = ("%d (+%d)" % [_stat(a), p]) if p > 0 else str(_stat(a))
-		_values[a].add_theme_color_override(&"font_color", PENDING_INK if p > 0 else UIKit.COLOR_INK)
+		_values[a].add_theme_color_override(&"font_color", PENDING_INK if p > 0 else UIKit.COLOR_TEXT)
 		_plus[a].disabled = left <= 0
 		_minus[a].disabled = p <= 0
 	for row: Array in DERIVED:

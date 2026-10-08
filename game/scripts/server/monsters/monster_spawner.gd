@@ -12,7 +12,7 @@ extends RefCounted
 ## faltam nascem. Só em zonas com bosses_allowed e teto 3 (nunca no Campo de Treino). Covis são independentes.
 ## Forma atroz (chefe à noite): MonsterBrain.update_atroz; aparência replicada em appearance["atroz"].
 ## Comandos de teste do dono (chat "/chefe", "/noite"...): MonsterDebug (debug; só com --dev-commands).
-## Chefes da história (ARCO-1-TERRA-DO-SABIA.md §1, regras 1, 5 e 6): cada Marker3D em StoryLairs/ é o covil de um
+## Chefes da história (ARCO-1-TERRA-DE-PINDORAMA.md §1, regras 1, 5 e 6): cada Marker3D em StoryLairs/ é o covil de um
 ## MonsterDef com story_boss. Nasce só à noite, já na forma atroz (fixa), com o bando da meta escort ({espécie:
 ## quantidade}, no mínimo STORY_ESCORT_MIN, no estágio escort_stage). Volta 1 h (STORY_RESPAWN_SEC) depois de
 ## derrotado; se amanhece com ele vivo e fora de luta, some com o bando e o próximo nasce na noite seguinte. No máximo

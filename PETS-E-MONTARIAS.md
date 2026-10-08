@@ -24,6 +24,80 @@
 
 ---
 
+## 0.1 Revisão de 08/10/2026 — companheiros que lutam e têm nível `[FECHADO — dono]`
+
+O dono decidiu que o companheiro **ataca**, alguns **usam magias**, **sorte aumenta a chance de crítico** e eles **têm nível**. Isso substitui, para os companheiros de título, o princípio "sem criatura de combate autônoma" (seção 1) e o "nível fixo 1" (seção 2.1). Decisões tomadas junto:
+
+- **XP do companheiro:** bônus de **+20% do XP do monstro**, só para ele, quando o monstro morre com o companheiro ativo e o dono participou. **Não sai do XP do dono.**
+- **Não pode ser alvo**, não segura monstro, não recebe dano nem pega drop (como antes). O aggro do que ele acerta vai para o dono.
+
+Desenho proposto `[PROVISÓRIO]` (números de partida, ajustáveis no `balance`):
+
+| Item | Regra |
+|---|---|
+| Ataque automático | O companheiro ataca o **alvo atual do dono** (o último que o dono atacou) sozinho, com intervalo próprio. Fora de combate, só segue. Alcance por espécie: Harpia 6 células (mergulho), Guará 1 célula (mordida). |
+| Quem ataca e quem lança magia | **Harpia:** ataque físico + magia. **Guará:** ataque físico + magia de controle. **Lume:** não ataca corpo a corpo; só **magias** (dano mágico de luz e suporte). |
+| Dano | Base do companheiro pelo nível + uma fração do atributo do dono ligado ao título: Harpia **DES**, Guará **FOR**, Lume **INT**. Teto de equilíbrio: o companheiro rende **15–25% do dano do dono** no mesmo nível de equipamento. |
+| Crítico | Chance = **1% + 0,3% × SOR do dono** (+ bônus por nível do companheiro), dano crítico pela regra de crítico do jogo. Quanto maior a sorte, mais crítico, como no Ragnarok. |
+| Magias | 1 magia automática por companheiro no nível 1, mais 1 no nível 10 e outra no 25, cada uma com recarga própria. Exemplos: Harpia — *Rajada de Penas* (área pequena) e *Grito do Alto* (o alvo perde esquiva); Guará — *Uivo do Cerrado* (lentidão em área) e *Bote* (dano + atordoamento curto); Lume — *Centelha* (dano mágico), *Luz que Cura* (cura pequena no dono) e *Enxame* (área). As skills de vínculo atuais (passiva e ativa do dono) continuam. |
+| Nível | **1 a 50**, com curva própria. Cada nível: + dano, + vida de referência para fórmulas, + crítico pequeno. Marcos **10 / 25 / 50**: magia nova e **evolução visual** (o companheiro cresce ou ganha detalhe, só cosmético). |
+| Onde vale | Em todo lugar, inclusive masmorra; na Arena da Queimada (PVP), dano pela metade. |
+| Interface | Nível e barra de XP do companheiro na janela de Seguidores e um medidor pequeno ao lado do retrato do dono. |
+| Pets domesticáveis (seção 4) | Continuam como planejado (fase 2, sem combate); a decisão de combate vale para os **companheiros de título**. Se o dono quiser os pets domesticáveis lutando também, reavaliar depois. |
+
+### 0.1.1 Implementado (08/10/2026) — números finais
+
+Código: `CompanionService` (servidor), `CompanionDef` (campos de combate), `data/companion_skills/` (magias, `SkillDef` fora das skills do jogador, como `data/monster_skills/`), `Balance` (grupo "Companheiros que lutam"), `CharacterData.companion_progress` (save), `NetFollowers` (golpe do bicho), `FollowerVisual`, `FollowersWindow`, `PlayerBars`, `CombatFx`/`SkillFx`. Teste: `tests/progression/test_companion_combat.tscn`.
+
+**Como funciona**
+
+| Item | Implementação |
+|---|---|
+| Alvo | O do ataque básico do dono; se não houver, o último que o dono acertou nos últimos 6 s (`out_of_combat_sec`). Só com o dono **em combate**; fora disso o bicho só segue. Valem as regras do ataque (mesma instância, zona com combate, hostil, vivo, provação só do dono e do grupo). Não há linha de visão no servidor (as skills também não têm): o limite é a distância. O bicho não gasta as flechas do dono. |
+| Alcance | Distância **dono → alvo** ≤ alcance do golpe + quanto o bicho se afasta do dono (+0,5 de folga). Harpia: 6 + 0 (mergulha do ombro). Guará: 1 + 5 (corre até o alvo e morde). Lume: 6 (só magias). |
+| Dano | Pipeline normal (`CombatService.deal_damage`) com o **dono como atacante** e fonte `companion_<id>[:<magia>|:bond]`: defesa, ±10%, acerto pela DES do dono, números para todos. O `CompanionService.pre_hit` troca o ATK/ATQM pelo **poder do bicho**. As Crendices do dono, o crítico garantido e a quebra de invisibilidade **não** valem para o golpe do bicho. |
+| Poder | `power_base + power_per_level × nível + attribute_frac × atributo do dono`. Harpia **3 + 1,0/nível + 0,4 × DES**; Guará **3 + 1,3/nível + 0,4 × FOR**; Lume **6 + 1,5/nível + 0,5 × INT**. |
+| Golpe automático | Harpia: a cada **2,0 s**, 100% do poder, ignora **50% da DEF** (mergulho). Guará: a cada **1,8 s**, 100%. Lume: não ataca. |
+| Crítico | **1% + 0,3% × SOR do dono + 0,1% × nível do bicho** (teto 100%), ×1,5 (`CombatRules.CRIT_MULTIPLIER`). Vale também para as magias de dano mágico do bicho (as mágicas do jogador seguem sem crítico). |
+| Não é alvo | O bicho não é entidade do servidor: não recebe dano, não segura monstro, não pega drop. Aggro, dano para a posse do drop, crédito de quest e "primeiro golpe" são do **dono**. |
+| PVP | Na zona `PVP` (Arena da Queimada) todo dano do bicho × **0,5** (`companion_pvp_damage_mult`). |
+| Nível | **1 a 50**. XP para o próximo = **4 × nível^1,5** (nível 1→2: 4; 10→11: 126; 49→50: 1372; total até 50 ≈ 27,5 mil). |
+| XP | Ao morrer um monstro, cada jogador creditado (dono do abate e grupo perto) **que bateu no monstro** e tem companheiro ativo dá ao bicho **20% do XP do monstro** (`companion_xp_share`), à parte. O XP do dono não muda (testado). |
+| Marcos | **10 / 25 / 50**: 2ª magia no 10, 3ª no 25; evolução visual em cada marco. Sem arte nova: o bicho cresce **+8% de escala por marco** (0,70 → 0,756 → 0,812 → 0,868). O nível vai no `appearance` (`companion_level`). |
+| Mensagens | "*Nome* subiu para o nível N!" e, no marco, "*Nome* cresceu!". |
+| Interface | Janela de Seguidores: nível, barra de XP (turquesa), magias liberadas (dica com a descrição) e o nível da próxima magia. Medidor fino sob as barras do retrato (nome · Nv N). Números de dano do bicho em **turquesa** (crítico mais claro); o dono não anima nem avança no golpe do bicho. O bicho corre/mergulha até o alvo com a folha `attack`, toca `cast` (ou `attack`) nas magias, mostra o nome da magia acima dele e o efeito vem do `SkillFxBook` (só peças que já existiam). Rótulo do bicho: "Nome Nv N". |
+| Protocolo | `protocol_version` 4 → **5** (o RPC do golpe do bicho mudou): cliente e servidor precisam ser atualizados juntos. |
+
+**Magias** (recarga própria; uma ação por tique; liberadas nos níveis 1 / 10 / 25)
+
+| Bicho | Nível 1 | Nível 10 | Nível 25 |
+|---|---|---|---|
+| Harpia | **Rajada de Penas**: 130% em área de 1,5 célula no alvo, recarga 9 s | **Grito do Alto**: 60% e −15% de esquiva por 6 s (= −15 DES no acerto), recarga 15 s | **Mergulho Real**: 220%, ignora toda a DEF, recarga 18 s |
+| Guará | **Uivo do Cerrado**: lentidão de 30% por 3 s em 3 células, sem dano, recarga 14 s | **Bote**: 160% e atordoamento de 0,8 s, recarga 12 s | **Dentada Funda**: 200%, recarga 16 s |
+| Lume | **Centelha**: 100% mágico, recarga 3 s (é o "ataque" da Lume) | **Luz que Cura**: cura 80% do poder no dono abaixo de 70% da vida, em combate, recarga 15 s | **Enxame**: 100% mágico em 2 células, recarga 12 s |
+
+A Harpia e o Guará tinham só 2 magias na proposta; a 3ª (Mergulho Real, Dentada Funda) é nova, para cumprir "1 magia no nível 1, mais 1 no 10 e outra no 25".
+
+**Skills de vínculo (sem duplicar com o golpe automático)**
+
+- **Garra do Alto**: os mergulhos ignoram metade da DEF. No ataque básico com arco, a chance pela DES (4% + DES × 0,2%, teto 20%, recarga interna 1,5 s) agora **adianta o próximo mergulho** em vez de criar um golpe extra; o relógio do golpe recomeça e o adiantamento só vale se já passou metade do intervalo desde o último mergulho (`companion_bond_min_gap = 0,5`). Assim a harpia nunca bate duas vezes seguidas.
+- **Mordida do Guará**: Tocaia e Armadilha de Cipó adiantam a próxima mordida (mesma regra), com lentidão de 20% por 2 s; recarga interna 4 s.
+- Olho no Céu, Faro do Guará, Luz que Acompanha e Lume Guia não mudaram.
+
+**Equilíbrio** (teste `_test_balance`: dono no nível L com 60% dos pontos no atributo principal e 10% em SOR/secundário, arma real da faixa; bicho no nível 2L − 1; dano do dono = ataque básico com crítico; 300 s simulados com o mesmo relógio do servidor, incluindo a Garra do Alto)
+
+| Dono / bicho | 1/1 | 5/9 | 10/19 | 15/29 | 20/39 | 25/49 |
+|---|---|---|---|---|---|---|
+| Harpia | 18% | 21% | 18% | 21% | 21% | 19% |
+| Guará | 15% | 17% | 17% | 19% | 20% | 17% |
+| Lume | 15% | 19% | 18% | 22% | 21% | 19% |
+
+Todos dentro de **15–25%**. Bicho com nível abaixo do "par" do dono rende menos (o poder cresce com o nível). O teto antigo de 10–15% (Princípio 1) vale só para pets.
+
+**Como testar no jogo** (servidor com `--dev-commands`): `/dev leave_training`, `/dev companion pindorama_companion_harpy 25` (dá o título, o bicho e o nível), equipar arco, `/dev spawn_dummy` (boneco de 100 mil de vida) e atacar: a harpia mergulha a cada 2 s, solta Rajada/Grito/Mergulho Real com números turquesa. `/dev companion pindorama_companion_lume 10` e `/dev set_hp 30` para ver a Luz que Cura. `/dev kill maned_wolf 100` dá 20 XP ao bicho (o dono recebe os 100 dele).
+
+**Limitações conhecidas**: sem linha de visão (só distância, como as skills); a posição do bicho é só do cliente (o servidor mede do dono); a evolução visual é escala (sem arte de estágio); os ícones das 6 skills de vínculo são cópias provisórias de ícones de skills parecidas (`assets/skills/`), e as magias do bicho não têm ícone (não vão para a barra); a Arena da Queimada ainda não existe nos dados, então o PVP só foi testado com uma zona de teste.
+
 ## 1. Referência: o que o Ragnarok tinha e por que funcionava
 
 | Sistema (RO) | Como era | Por que funcionava | O que levamos |
@@ -54,18 +128,18 @@
 | Sem dono | Se o dono morre, o companheiro some e volta quando ele ressuscitar. Ao trocar de mapa, o companheiro vai junto. |
 | Persistência | Fica salvo no personagem (seção 6.3). É **intransferível**: não entra em troca. |
 
-### 2.2 Quem tem companheiro (Terra do Sabiá)
+### 2.2 Quem tem companheiro (Terra de Pindorama)
 
 | Título (id) | Companheiro (id) | Folclore e fauna | Papel | Arte | Fase |
 |---|---|---|---|---|---|
-| **Gavião-Real** (`sabia_bow_gaviao`) | **Harpia** (`sabia_companion_harpy`) | A harpia (gavião-real) da Mata Atlântica e da Amazônia; a roupa do título já tem luva de falcoeiro (briefing de sprites) | Ataque automático e batedor aéreo | **Reaproveita** `harpy_eagle` s1 (Gavião da Mata), reduzida a 70% | **1** |
-| **Tocaia do Brejo** (`sabia_bow_brejo`) | **Guará** (`sabia_companion_guara`) | O lobo-guará do cerrado, que come lobeira (fruta-do-lobo) | Marca a presa e morde na emboscada | **Reaproveita** `maned_wolf` s1 | **1** |
-| **Luz de Vaga-lume** (`sabia_arcane_firefly`) | **Lume** (`sabia_companion_lume`) | O enxame que reacendeu a forja do Seu Zé (lenda do §3.2) | Utilidade: luz e coleta, **sem dano** | **Reaproveita** `enchanted_firefly` s1 | **1** |
-| **Olho do Boitatá** (`sabia_arcane_boitata`) | **Fagulha do Boitatá** (`sabia_companion_ember`) | A cobra de fogo que protege os campos | Disparo mágico automático | Reaproveita `cinder_serpent` s1 (Serpente-Fagulha) com recolor de brasa | 2 |
-| **Raiz do Cerrado** (`sabia_support_root`) e ramos | **Sabiá-laranjeira** (`sabia_companion_thrush`) | A ave que dá nome à região | Descanso do grupo e alerta | **Nova** (ave pequena, barata) | 2 |
-| **Assobio da Matinta** (`sabia_support_matinta`) | **Rasga-mortalha** (`sabia_companion_owl`) | A suindara, ave agourenta ligada à Matinta Pereira. **A Matinta nunca vira bicho de estimação.** | Prolonga o debuff e revela o alvo | **Nova** (coruja) | 2 |
-| **Garra da Onça** (`sabia_blade_jaguar`) | **Pintada** (`sabia_companion_jaguar`) | A onça-pintada | Golpe em dupla no Bote | Reaproveita a folha de `sabia_jaguar` (a mesma de `jaguar_cub`) | 2 |
-| **Couro de Anta** (`sabia_tank_anta`) | **Anta de Guerra** (montaria, `sabia_mount_tapir`) | A anta, o maior bicho da terra | Montaria de guerra (seção 3.6) | **Nova e grande** | 3 |
+| **Gavião-Real** (`pindorama_bow_gaviao`) | **Harpia** (`pindorama_companion_harpy`) | A harpia (gavião-real) da Mata Atlântica e da Amazônia; a roupa do título já tem luva de falcoeiro (briefing de sprites) | Ataque automático e batedor aéreo | Sprite próprio 2D `harpy_companion` (harpia humanoide chibi, 08/10/2026), 70% | **1** |
+| **Tocaia do Brejo** (`pindorama_bow_brejo`) | **Guará** (`pindorama_companion_guara`) | O lobo-guará do cerrado, que come lobeira (fruta-do-lobo) | Marca a presa e morde na emboscada | **Reaproveita** `maned_wolf` s1 | **1** |
+| **Luz de Vaga-lume** (`pindorama_arcane_firefly`) | **Lume** (`pindorama_companion_lume`) | O enxame que reacendeu a forja do Seu Zé (lenda do §3.2) | Utilidade: luz e coleta, **sem dano** | **Reaproveita** `enchanted_firefly` s1 | **1** |
+| **Olho do Boitatá** (`pindorama_arcane_boitata`) | **Fagulha do Boitatá** (`pindorama_companion_ember`) | A cobra de fogo que protege os campos | Disparo mágico automático | Reaproveita `cinder_serpent` s1 (Serpente-Fagulha) com recolor de brasa | 2 |
+| **Raiz do Cerrado** (`pindorama_support_root`) e ramos | **Sabiá-laranjeira** (`pindorama_companion_thrush`) | A ave que dá nome à região | Descanso do grupo e alerta | **Nova** (ave pequena, barata) | 2 |
+| **Assobio da Matinta** (`pindorama_support_matinta`) | **Rasga-mortalha** (`pindorama_companion_owl`) | A suindara, ave agourenta ligada à Matinta Pereira. **A Matinta nunca vira bicho de estimação.** | Prolonga o debuff e revela o alvo | **Nova** (coruja) | 2 |
+| **Garra da Onça** (`pindorama_blade_jaguar`) | **Pintada** (`pindorama_companion_jaguar`) | A onça-pintada | Golpe em dupla no Bote | Reaproveita a folha de `pindorama_jaguar` (a mesma de `jaguar_cub`) | 2 |
+| **Couro de Anta** (`pindorama_tank_anta`) | **Anta de Guerra** (montaria, `pindorama_mount_tapir`) | A anta, o maior bicho da terra | Montaria de guerra (seção 3.6) | **Nova e grande** | 3 |
 
 A Seiva do Buriti herda o sabiá. O ramo de cura não ganha um segundo bicho.
 
@@ -75,7 +149,7 @@ A Seiva do Buriti herda o sabiá. O ramo de cura não ganha um segundo bicho.
 
 | Item | Definição |
 |---|---|
-| Quest de vínculo | **"Ninho na Sumaúma"** (`quest_bond_harpy`): (1) achar o ninho caído (conversa e inspeção); (2) juntar 6 **Penas de Gavião** pegas do chão (drop do Gavião da Mata, `harpy_eagle` s1); (3) derrotar 3 **Harpias Caçadoras** (`harpy_eagle` s2) que disputam o ninho; (4) dar nome ao filhote. Renome ≥ 2. |
+| Quest de vínculo | **"Ninho na Sumaúma"** (`quest_bond_harpy`): (1) achar o ninho caído (conversa e inspeção); (2) juntar 6 **Penas de Gavião** pegas do chão (drop da Harpia Jovem, `harpy_eagle` s1); (3) derrotar 3 **Harpias Caçadoras** (`harpy_eagle` s2) que disputam o ninho; (4) dar nome ao filhote. Renome ≥ 2. |
 | Passiva | **Garra do Alto** (`bow_companion_hawk_strike`): no ataque básico com arco, há chance de a harpia descer e causar **80% ATK físico ignorando 50% da DEF**. Chance = 4% + DES × 0,2%, teto de **20%**, recarga interna de **1,5 s**. |
 | Ativa | **Olho no Céu** (`bow_companion_sky_eye`, mana 14, recarga 30 s): por 8 s revela, num raio de 12 células, monstros **raros** e alvos **invisíveis** (Lama no Corpo, Sumiço). O primeiro alvo atacado leva +10% de crítico contra ele. |
 | Sinergia com a árvore | O **Mergulho do Gavião** (`bow_hawk_dive`) passa a mostrar a harpia mergulhando, só no visual. Não ganha número. |
@@ -147,7 +221,7 @@ A Seiva do Buriti herda o sabiá. O ramo de cura não ganha um segundo bicho.
 | Morte | Desmonta. A montaria não entra no túmulo (Marca da Alma) e não se perde. |
 | Login | O personagem sempre entra **desmontado**. |
 
-### 3.2 Montaria básica da fase 1: **Jumento do Sertão** (`sabia_mount_donkey`)
+### 3.2 Montaria básica da fase 1: **Jumento do Sertão** (`pindorama_mount_donkey`)
 
 | Item | Definição |
 |---|---|
@@ -238,7 +312,7 @@ item de captura (no monstro, estágio 1) → Cesto com o bicho (item) → chamar
 | Comércio | **O Cesto é negociável pela troca existente** (`TradeService`), mas só com o pet **guardado** e com intimidade **reiniciada para Manso** ao trocar de dono. O nome se mantém, e o novo dono ganha 1 troca de nome. A loja de jogador e o leilão continuam fora (GDD §3.2). |
 | Proteção | Cesto com pet Chegado ou Fiel nasce `protected` (não cai no túmulo). |
 
-### 4.3 Pets da Terra do Sabiá (proposta inicial)
+### 4.3 Pets da Terra de Pindorama (proposta inicial)
 
 | Pet (espécie) | Monstro de origem | Captura | Comida | Bônus (Fiel) | Acessório |
 |---|---|---|---|---|---|
@@ -344,9 +418,9 @@ Segue o processo de `docs/cultural/revisao-cultural.md` e as cautelas do TITULOS
 ### 6.3 Save (`CharacterData.to_save`, com o `format` incrementado)
 
 ```json
-"companions": { "owned": ["sabia_companion_harpy"], "active": "sabia_companion_harpy",
-                "names": { "sabia_companion_harpy": "Ventania" } },
-"mounts":     { "owned": ["sabia_mount_donkey"] },
+"companions": { "owned": ["pindorama_companion_harpy"], "active": "pindorama_companion_harpy",
+                "names": { "pindorama_companion_harpy": "Ventania" } },
+"mounts":     { "owned": ["pindorama_mount_donkey"] },
 "active_pet": "<uid do cesto>"
 ```
 
@@ -361,7 +435,7 @@ Segue o processo de `docs/cultural/revisao-cultural.md` e as cautelas do TITULOS
 | Fase | Entrega | Dependências de arte | Esforço relativo |
 |---|---|---|---|
 | **1** | **Harpia** (Gavião-Real), **Guará** (Tocaia do Brejo), **Lume** (Luz de Vaga-lume) com as quests de vínculo e as skills de vínculo; **Jumento do Sertão** para todos; `CompanionService`, `MountService` e as camadas `mount_*` | Seguidores: **nenhuma arte nova** (reduzir `harpy_eagle`, `maned_wolf` e `enchanted_firefly` s1). Jumento: **1 montaria nova** em 144 px (idle 4, walk 6, 5 direções, `mount_back` + `mount_front`), a partir do modelo da Mula de Brasa. NPC Tropeiro. | **M** (código ~60%, arte ~40%) |
-| **2** | **Pets** (6 espécies do Sabiá, Cesto, fome, intimidade, acessório, troca); companheiros **Fagulha do Boitatá**, **Sabiá**, **Rasga-mortalha** e **Pintada**; **alforje** do jumento | Sabiá e coruja **novos** (pequenos). Capivara nova. 6 acessórios (camada pequena). 6 evoluções mini (reaproveitam s2 reduzidas). | **G** |
+| **2** | **Pets** (6 espécies de Pindorama, Cesto, fome, intimidade, acessório, troca); companheiros **Fagulha do Boitatá**, **Sabiá**, **Rasga-mortalha** e **Pintada**; **alforje** do jumento | Sabiá e coruja **novos** (pequenos). Capivara nova. 6 acessórios (camada pequena). 6 evoluções mini (reaproveitam s2 reduzidas). | **G** |
 | **3** | Montarias raras por nação e evento (mesma velocidade, só visual), **Anta de Guerra** (Couro de Anta), recolors de festa (São João, Carnaval), pets das outras nações depois da revisão cultural | Anta **nova e grande** (com attack). Cada montaria rara = 1 folha nova ou recolor. | **G** (cresce com cada nação) |
 
 **Ordem dentro da fase 1:** (1) o `MountService` com um retângulo de teste no lugar da arte; (2) a validação da opção B de camadas (seção 3.5) com o modelo do jumento; (3) a harpia (o pedido do dono); (4) o guará; (5) o Lume, se sobrar tempo.

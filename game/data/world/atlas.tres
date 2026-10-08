@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
 [ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
 [ext_resource type="Texture2D" path="res://assets/worldmap/world_map.png" id="map"]
-[ext_resource type="Resource" path="res://data/world/regions/sabia.tres" id="r_sabia"]
+[ext_resource type="Resource" path="res://data/world/regions/pindorama.tres" id="r_pindorama"]
 [ext_resource type="Resource" path="res://data/world/regions/mouras.tres" id="r_mouras"]
 [ext_resource type="Resource" path="res://data/world/regions/colunas.tres" id="r_colunas"]
 [ext_resource type="Resource" path="res://data/world/regions/areias.tres" id="r_areias"]
@@ -230,5 +230,5 @@ level_max = 0
 [resource]
 script = ExtResource("atlas")
 map_texture = ExtResource("map")
-regions = Array[ExtResource("region")]([ExtResource("r_sabia"), ExtResource("r_mouras"), ExtResource("r_colunas"), ExtResource("r_areias"), ExtResource("r_jade"), ExtResource("r_sol"), ExtResource("r_fiordes"), ExtResource("r_estepe"), ExtResource("r_brumas"), ExtResource("r_obsidiana")])
+regions = Array[ExtResource("region")]([ExtResource("r_pindorama"), ExtResource("r_mouras"), ExtResource("r_colunas"), ExtResource("r_areias"), ExtResource("r_jade"), ExtResource("r_sol"), ExtResource("r_fiordes"), ExtResource("r_estepe"), ExtResource("r_brumas"), ExtResource("r_obsidiana")])
 features = Array[ExtResource("place")]([SubResource("f0"), SubResource("f1"), SubResource("f2"), SubResource("f3"), SubResource("f4"), SubResource("f5"), SubResource("f6"), SubResource("f7"), SubResource("f8"), SubResource("f9"), SubResource("f10"), SubResource("f11"), SubResource("f12"), SubResource("f13"), SubResource("f14"), SubResource("f15"), SubResource("f16")])

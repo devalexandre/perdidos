@@ -4,7 +4,7 @@
     python3 tools/art/ai_guides/make_ai_guides.py <render> <guias> --fake <falsas>     (devolucao falsa)
     python3 tools/art/ai_guides/test_import.py <falsas> <pasta_temporaria>
 
-Importa a devolucao falsa como a roupa `student_sabia_test` numa pasta temporaria (nunca em assets/) e confere:
+Importa a devolucao falsa como a roupa `student_pindorama_test` numa pasta temporaria (nunca em assets/) e confere:
 tamanhos das folhas, alfa binario, <= 48 cores, nenhum quadro vazio, pes na linha do chao nas animacoes em pe
 (sem deslizar: base e centro dos pes), ancoras do pescoco (formato, e perto do pescoco da guia) e as recusas
 (quadro apagado e parte faltando). Sai com codigo 1 se algo falhar.
@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 import import_ai_sheet as IM  # noqa: E402
 
-OUTFIT = 'student_sabia_test'
+OUTFIT = 'student_pindorama_test'
 EXPECT = {'idle': 4, 'walk': 8, 'sit': 1, 'attack_unarmed': 6, 'cast': 6, 'hit': 4, 'death': 6}
 STANDING_GAME = ['idle', 'walk', 'attack_unarmed', 'cast', 'hit']
 

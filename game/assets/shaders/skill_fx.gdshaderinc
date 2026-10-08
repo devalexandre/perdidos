@@ -1,8 +1,15 @@
-// Efeitos de skill (SkillFx): folha em linha (hframes quadros), filtro nearest, sem luz.
+// Efeitos de skill (SkillFx): folha em linha (hframes quadros) ou em grade (hframes colunas x vframes
+// linhas, quadro a quadro da esquerda para a direita, de cima para baixo), filtro nearest, sem luz.
+// FX_SMOOTH (skill_fx_*_smooth.gdshader, efeitos "anime" de assets/fx/anime/): filtro linear com mipmaps.
 // billboard = vira para a camera (com giro "roll" na tela e deslocamento em profundidade);
 // senao, o quad fica como a malha foi montada (deitado no chao).
+#ifdef FX_SMOOTH
+uniform sampler2D sheet : source_color, filter_linear_mipmap, repeat_disable;
+#else
 uniform sampler2D sheet : source_color, filter_nearest, repeat_disable;
+#endif
 uniform int hframes = 1;
+uniform int vframes = 1;
 uniform int frame = 0;
 uniform vec4 tint : source_color = vec4(1.0);
 uniform float fade = 1.0;
@@ -10,9 +17,12 @@ uniform bool billboard = true;
 uniform float roll = 0.0;
 uniform float depth_bias = 0.0;
 uniform float flip = 1.0;
+uniform bool charge_recolor = false;
+uniform vec3 charge_color : source_color = vec3(0.18, 0.56, 1.0);
 
 void vertex() {
-	UV = vec2((UV.x + float(frame)) / float(max(hframes, 1)), UV.y);
+	int hf = max(hframes, 1);
+	UV = vec2((UV.x + float(frame % hf)) / float(hf), (UV.y + float(frame / hf)) / float(max(vframes, 1)));
 	if (billboard) {
 		vec2 sc = vec2(length(MODEL_MATRIX[0].xyz), length(MODEL_MATRIX[1].xyz));
 		vec2 v = VERTEX.xy * sc * vec2(flip, 1.0);
@@ -31,6 +41,7 @@ void vertex() {
 
 void fragment() {
 	vec4 t = texture(sheet, UV);
-	ALBEDO = t.rgb * tint.rgb;
+	vec3 rgb = charge_recolor ? charge_color * max(t.r, max(t.g, t.b)) : t.rgb;
+	ALBEDO = rgb * tint.rgb;
 	ALPHA = t.a * tint.a * fade;
 }

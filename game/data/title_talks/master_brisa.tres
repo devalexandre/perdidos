@@ -6,6 +6,6 @@
 script = ExtResource("1_tt")
 id = &"master_brisa"
 npc_id = &"master_brisa"
-title_id = &"sabia_blade_machete"
+title_id = &"pindorama_blade_machete"
 region_id = &"brasil"
-style_key = "RULES_TT_BLADE_SABIA_STYLE"
+style_key = "RULES_TT_BLADE_PINDORAMA_STYLE"

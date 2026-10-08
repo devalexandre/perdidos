@@ -1,7 +1,7 @@
 tour saved /tmp/perdidos-review/final-tour/00_spawn.png draw_calls=74 primitives=148746 fps=9
 tour saved /tmp/perdidos-review/final-tour/01_camp.png draw_calls=74 primitives=148746 fps=8
 tour saved /tmp/perdidos-review/final-tour/02_rancho.png draw_calls=90 primitives=158771 fps=8
-tour saved /tmp/perdidos-review/final-tour/03_sabia.png draw_calls=90 primitives=155003 fps=8
+tour saved /tmp/perdidos-review/final-tour/03_pindorama.png draw_calls=90 primitives=155003 fps=8
 tour saved /tmp/perdidos-review/final-tour/04_portugal.png draw_calls=124 primitives=162410 fps=8
 tour saved /tmp/perdidos-review/final-tour/05_grecia.png draw_calls=117 primitives=171548 fps=8
 tour saved /tmp/perdidos-review/final-tour/06_egito.png draw_calls=139 primitives=157760 fps=8

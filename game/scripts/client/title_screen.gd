@@ -96,12 +96,12 @@ const C_PARCHMENT_EDGE: Color = Color8(140, 116, 88)
 const C_INK_DIM: Color = Color8(107, 76, 50)
 const C_LEAF: Color = Color8(47, 107, 62)
 const C_OUTLINE: Color = Color8(22, 17, 15)
-## Cores da roupa original do Viajante (Terra do Sabiá) no quadro da nacionalidade.
+## Cores da roupa original do Viajante (Terra de Pindorama) no quadro da nacionalidade.
 const NAT_DEFAULT_CLOTH: Color = Color8(31, 110, 170)
 const NAT_DEFAULT_ACCENT: Color = Color8(160, 48, 40)
 const BACKGROUND_PATH: String = "res://assets/ui/title/title_bg_painted.png"
 const CREST_MAP: Dictionary[StringName, String] = {
-	&"sabia": "res://assets/ui/crests/crest_brasil.png",
+	&"pindorama": "res://assets/ui/crests/crest_brasil.png",
 	&"mouras": "res://assets/ui/crests/crest_portugal.png",
 	&"sol": "res://assets/ui/crests/crest_japao.png",
 	&"fiordes": "res://assets/ui/crests/crest_nordico.png",
@@ -1943,7 +1943,8 @@ func _load_appearance() -> Dictionary:
 		for k: String in cfg.get_section_keys(APPEARANCE_SECTION) if cfg.has_section(APPEARANCE_SECTION) else PackedStringArray():
 			var v: Variant = cfg.get_value(APPEARANCE_SECTION, k)
 			out[StringName(k)] = StringName(v) if v is String else v
-	return out
+	# appearance.cfg de versões antigas: nacionalidade com id antigo vira a atual (LegacyIds).
+	return LegacyIds.migrate(out)
 
 
 func _save_appearance() -> void:

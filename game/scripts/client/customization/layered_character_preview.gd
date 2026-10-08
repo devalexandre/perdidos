@@ -190,6 +190,14 @@ func _process(delta: float) -> void:
 	_update_frame()
 
 
+## Duração do quadro: folhas do Viajante com mais quadros (idle 12...) seguem o ciclo do jogo
+## (DirectionalSprite3D.TRAVELER_CYCLE_MS); as antigas, FRAME_SEC.
+static func frame_sec(shown: StringName, frames: int) -> float:
+	if frames > int(DirectionalSprite3D.TRAVELER_REF_FRAMES.get(shown, 1 << 30)):
+		return float(DirectionalSprite3D.TRAVELER_CYCLE_MS[shown]) / 1000.0 / frames
+	return FRAME_SEC.get(shown, 0.2)
+
+
 ## Olho fechado agora (piscar no idle).
 func is_blinking() -> bool:
 	return _blink_left > 0.0 and _blink_tex != null and anim == CharacterLayers.BLINK_ANIM
@@ -216,6 +224,6 @@ func _update_frame() -> void:
 			if mask != null:
 				(s.material as ShaderMaterial).set_shader_parameter(&"mask_tex", mask)
 		var frames: int = s.hframes
-		var col: int = int(_time / FRAME_SEC.get(shown, 0.2)) % frames
+		var col: int = int(_time / frame_sec(shown, frames)) % frames
 		s.frame = row * frames + col
 		s.flip_h = DirectionalSprite3D.traveler_frame_mirrored(shown, col, sector)

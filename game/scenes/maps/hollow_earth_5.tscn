@@ -386,6 +386,9 @@ size = Vector3(12.0, 3.0, 2.0)
 size = Vector3(12.0, 3.0, 2.0)
 
 
+[sub_resource type="BoxShape3D" id="story_portal_shape"]
+size = Vector3(4, 3, 4)
+
 [node name="hollow_earth_5" type="Node3D"]
 script = ExtResource("map")
 map_id = &"hollow_earth_5"
@@ -1269,5 +1272,30 @@ metadata/monster_id = &"deep_titan"
 metadata/radius_cells = 10
 metadata/respawn_sec = 600.0
 
-[node name="CauldronChamber" type="Marker3D" parent="."]
-position = Vector3(0, 0, -20)
+[node name="CauldronReturn" type="Marker3D" parent="."]
+position = Vector3(-22, 0, 0)
+
+[node name="CauldronPassage" type="Area3D" parent="Interactables"]
+position = Vector3(-28, 1, 0)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"hollow_earth_5_cauldron_passage"
+metadata/target_id = "m:hollow_earth_5_cauldron_passage"
+metadata/interact_type = &"portal"
+metadata/target_map = &"hollow_earth_cauldron"
+metadata/target_spawn = &"SpawnPoint"
+metadata/approach_position = Vector3(-28, 0.0, 0)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/CauldronPassage"]
+shape = SubResource("story_portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/CauldronPassage"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "Gruta do Caldeirão ←"

@@ -35,6 +35,10 @@ signal cast_cancelled(entity_id: int, skill_id: StringName)
 ## Para todos da instância (contrato: docs/contracts-city-walk.md, ADENDO 4).
 signal status_changed(entity_id: int, status_id: StringName, skill_id: StringName, active: bool,
 		duration_sec: float)
+## Vitória de história: cena da fala da lenda (StoryFragments.make_scene), só para quem ganhou o crédito.
+signal story_scene(scene: Dictionary)
+## Servidor: a cena foi mandada (testes e log).
+signal story_scene_pushed(peer_id: int, scene: Dictionary)
 
 ## Sem alvo de entidade em send_cast.
 const NO_TARGET: int = 0
@@ -209,6 +213,14 @@ func push_level_up(peer_ids: Array[int], entity_id: int, level: int) -> void:
 		_cli_level_up.rpc_id(p, entity_id, level)
 
 
+## Privado: cena da vitória de história para quem ganhou o crédito (StoryScene no cliente).
+func push_story_scene(peer_id: int, scene: Dictionary) -> void:
+	Net.log_line("story_scene", {"peer": peer_id, "quest": scene.get("quest", ""), "style": scene.get("style", "")})
+	story_scene_pushed.emit(peer_id, scene)
+	if multiplayer.multiplayer_peer != null and peer_id in multiplayer.get_peers():
+		_cli_story_scene.rpc_id(peer_id, scene)
+
+
 # ---------------------------------------------------------------- cliente
 
 func _connected() -> bool:
@@ -286,6 +298,11 @@ func _cli_status_changed(entity_id: int, status_id: String, skill_id: String, ac
 @rpc("authority", "call_remote", "reliable")
 func _cli_cast_cancelled(entity_id: int, skill_id: String) -> void:
 	cast_cancelled.emit(entity_id, StringName(skill_id))
+
+
+@rpc("authority", "call_remote", "reliable")
+func _cli_story_scene(scene: Dictionary) -> void:
+	story_scene.emit(scene)
 
 
 # ---------------------------------------------------------------- título sob o nome (cliente)

@@ -26,20 +26,20 @@ SKILL_ARCANE_WILL_O_WISP_NAME,Fogo-Fátuo
 SKILL_ARCANE_WILL_O_WISP_DESC,Uma chama azul acompanha você e dispara no alvo (até 10 un.): 110% do ATQM. Exclusiva da Luz de Vaga-lume.
 TITLE_TRAVELER_NAME,Viajante
 TITLE_TRAVELER_DESC,Quem acabou de chegar do Outro Lado.
-TITLE_SABIA_BLADE_MACHETE_NAME,Facão Firme
-TITLE_SABIA_BLADE_MACHETE_DESC,Lâmina de base da Terra do Sabiá. O facão é a arma típica da região.
-TITLE_SABIA_BLADE_AROEIRA_NAME,Tronco de Aroeira
-TITLE_SABIA_BLADE_AROEIRA_DESC,Defesa e contragolpe: a madeira dura que não racha.
-TITLE_SABIA_BLADE_JAGUAR_NAME,Garra da Onça
-TITLE_SABIA_BLADE_JAGUAR_DESC,Dano concentrado: o predador que dá o bote.
-TITLE_SABIA_ARCANE_FIREFLY_NAME,Luz de Vaga-lume
-TITLE_SABIA_ARCANE_FIREFLY_DESC,Magia de base da Terra do Sabiá: a primeira luz encantada.
-TITLE_SABIA_ARCANE_CRYSTAL_NAME,Guarda do Cristal
-TITLE_SABIA_ARCANE_CRYSTAL_DESC,"Proteção do grupo, como o cristal azul da praça."
-TITLE_SABIA_ARCANE_BOITATA_NAME,Olho do Boitatá
-TITLE_SABIA_ARCANE_BOITATA_DESC,"Destruição à distância: fogo que alcança de longe, em homenagem ao protetor dos campos."
-TITLE_SABIA_HYBRID_EMBER_NAME,Brasa no Facão
-TITLE_SABIA_HYBRID_EMBER_DESC,Lâmina e magia juntas: quem conhece os dois caminhos.
+TITLE_PINDORAMA_BLADE_MACHETE_NAME,Facão Firme
+TITLE_PINDORAMA_BLADE_MACHETE_DESC,Lâmina de base da Terra de Pindorama. O facão é a arma típica da região.
+TITLE_PINDORAMA_BLADE_AROEIRA_NAME,Tronco de Aroeira
+TITLE_PINDORAMA_BLADE_AROEIRA_DESC,Defesa e contragolpe: a madeira dura que não racha.
+TITLE_PINDORAMA_BLADE_JAGUAR_NAME,Garra da Onça
+TITLE_PINDORAMA_BLADE_JAGUAR_DESC,Dano concentrado: o predador que dá o bote.
+TITLE_PINDORAMA_ARCANE_FIREFLY_NAME,Luz de Vaga-lume
+TITLE_PINDORAMA_ARCANE_FIREFLY_DESC,Magia de base da Terra de Pindorama: a primeira luz encantada.
+TITLE_PINDORAMA_ARCANE_CRYSTAL_NAME,Guarda do Cristal
+TITLE_PINDORAMA_ARCANE_CRYSTAL_DESC,"Proteção do grupo, como o cristal azul da praça."
+TITLE_PINDORAMA_ARCANE_BOITATA_NAME,Olho do Boitatá
+TITLE_PINDORAMA_ARCANE_BOITATA_DESC,"Destruição à distância: fogo que alcança de longe, em homenagem ao protetor dos campos."
+TITLE_PINDORAMA_HYBRID_EMBER_NAME,Brasa no Facão
+TITLE_PINDORAMA_HYBRID_EMBER_DESC,Lâmina e magia juntas: quem conhece os dois caminhos.
 QUEST_TF_BLADE_TITLE_NAME,O Facão Firme
 QUEST_TF_BLADE_TITLE_DESC,O Mestre Jatobá quer ver você lutar antes de ensinar o Golpe Firme.
 QUEST_TF_BLADE_TITLE_OPTION,[Missão] Quero aprender a Lâmina.
@@ -330,24 +330,24 @@ SKILL_TANK_BATTLE_THIRST_NAME,Sede de Luta
 SKILL_TANK_BATTLE_THIRST_DESC,"20% do dano causado volta como vida por 10 s (+1,5% e +0,5 s por nível)."
 SKILL_TANK_LAST_BLOW_NAME,Última Pancada
 SKILL_TANK_LAST_BLOW_DESC,"150% do ATQ, e até +150% conforme a vida que falta (+10% por nível)."
-TITLE_SABIA_BOW_CERRADO_NAME,Flecha do Cerrado
-TITLE_SABIA_BOW_CERRADO_DESC,Arco de base: ataca de longe com flechas.
-TITLE_SABIA_BOW_BREJO_NAME,Tocaia do Brejo
-TITLE_SABIA_BOW_BREJO_DESC,Emboscada: fica escondido e ataca de surpresa.
-TITLE_SABIA_BOW_GAVIAO_NAME,Gavião-Real
-TITLE_SABIA_BOW_GAVIAO_DESC,Tiro certeiro: acerta de muito longe e com mais crítico.
-TITLE_SABIA_SUPPORT_ROOT_NAME,Raiz do Cerrado
-TITLE_SABIA_SUPPORT_ROOT_DESC,"Suporte: cura e protege os amigos, como a raiz que guarda água para o cerrado."
-TITLE_SABIA_SUPPORT_BURITI_NAME,Seiva do Buriti
-TITLE_SABIA_SUPPORT_BURITI_DESC,Cura: cura forte e rápida para quem está caindo.
-TITLE_SABIA_SUPPORT_MATINTA_NAME,Assobio da Matinta
-TITLE_SABIA_SUPPORT_MATINTA_DESC,"Enfraquecer: tira a força, a defesa e a cura dos inimigos."
-TITLE_SABIA_TANK_JABUTI_NAME,Casco de Jabuti
-TITLE_SABIA_TANK_JABUTI_DESC,Tanque: chama os monstros para si e aguenta os golpes pelo grupo.
-TITLE_SABIA_TANK_ANTA_NAME,Couro de Anta
-TITLE_SABIA_TANK_ANTA_DESC,"Guerreiro pesado: muita defesa, pisada forte e trombada."
-TITLE_SABIA_TANK_MAPINGUARI_NAME,Fúria do Mapinguari
-TITLE_SABIA_TANK_MAPINGUARI_DESC,Berserker: troca defesa por força e bate mais forte quando está ferido.
+TITLE_PINDORAMA_BOW_CERRADO_NAME,Flecha do Cerrado
+TITLE_PINDORAMA_BOW_CERRADO_DESC,Arco de base: ataca de longe com flechas.
+TITLE_PINDORAMA_BOW_BREJO_NAME,Tocaia do Brejo
+TITLE_PINDORAMA_BOW_BREJO_DESC,Emboscada: fica escondido e ataca de surpresa.
+TITLE_PINDORAMA_BOW_GAVIAO_NAME,Gavião-Real
+TITLE_PINDORAMA_BOW_GAVIAO_DESC,Tiro certeiro: acerta de muito longe e com mais crítico.
+TITLE_PINDORAMA_SUPPORT_ROOT_NAME,Raiz do Cerrado
+TITLE_PINDORAMA_SUPPORT_ROOT_DESC,"Suporte: cura e protege os amigos, como a raiz que guarda água para o cerrado."
+TITLE_PINDORAMA_SUPPORT_BURITI_NAME,Seiva do Buriti
+TITLE_PINDORAMA_SUPPORT_BURITI_DESC,Cura: cura forte e rápida para quem está caindo.
+TITLE_PINDORAMA_SUPPORT_MATINTA_NAME,Assobio da Matinta
+TITLE_PINDORAMA_SUPPORT_MATINTA_DESC,"Enfraquecer: tira a força, a defesa e a cura dos inimigos."
+TITLE_PINDORAMA_TANK_JABUTI_NAME,Casco de Jabuti
+TITLE_PINDORAMA_TANK_JABUTI_DESC,Tanque: chama os monstros para si e aguenta os golpes pelo grupo.
+TITLE_PINDORAMA_TANK_ANTA_NAME,Couro de Anta
+TITLE_PINDORAMA_TANK_ANTA_DESC,"Guerreiro pesado: muita defesa, pisada forte e trombada."
+TITLE_PINDORAMA_TANK_MAPINGUARI_NAME,Fúria do Mapinguari
+TITLE_PINDORAMA_TANK_MAPINGUARI_DESC,Berserker: troca defesa por força e bate mais forte quando está ferido.
 QUEST_LESSON_BLADE_SHARPEN_NAME,Lição: Amolar o Facão
 QUEST_LESSON_BLADE_SHARPEN_DESC,Mestra Brisa ensina Amolar o Facão a quem provar que está pronto.
 QUEST_LESSON_BLADE_SHARPEN_OPTION,[Lição] Quero aprender Amolar o Facão.
@@ -489,7 +489,7 @@ QUEST_LESSON_BOW_LOW_SHOT_DESC,Mestre Taquari ensina Tiro Rasante a quem provar 
 QUEST_LESSON_BOW_LOW_SHOT_OPTION,[Lição] Quero aprender Tiro Rasante.
 QUEST_LESSON_BOW_LOW_SHOT_OFFER,Quer aprender Tiro Rasante? Derrote 6 Redemoinhos Arteiros. Ataque de longe e não deixe chegarem perto.
 QUEST_LESSON_BOW_LOW_SHOT_PROGRESS,Ainda falta. Termine a caçada e volte.
-QUEST_LESSON_BOW_LOW_SHOT_COMPLETE,Isso! Agora você sabe usar Tiro Rasante. Mire com calma e solte. Você conquistou um novo caminho do Sabiá; agora pode continuar as lições comigo.
+QUEST_LESSON_BOW_LOW_SHOT_COMPLETE,Isso! Agora você sabe usar Tiro Rasante. Mire com calma e solte. Você conquistou um novo caminho de Pindorama; agora pode continuar as lições comigo.
 QUEST_LESSON_BOW_LOW_SHOT_STEP1,Derrote Redemoinhos Arteiros
 QUEST_LESSON_BOW_DOUBLE_ARROW_NAME,Lição: Flecha Dupla
 QUEST_LESSON_BOW_DOUBLE_ARROW_DESC,Mestre Taquari ensina Flecha Dupla a quem provar que está pronto.
@@ -932,14 +932,14 @@ QUEST_LESSON_BLADE_FIRM_STRIKE_DESC,Mestra Brisa ensina Golpe Firme a quem prova
 QUEST_LESSON_BLADE_FIRM_STRIKE_OPTION,[Lição] Quero aprender Golpe Firme.
 QUEST_LESSON_BLADE_FIRM_STRIKE_OFFER,"Quer aprender Golpe Firme? Primeiro, mostre que está pronto. Derrote 6 Redemoinhos Arteiros. Depois volte aqui."
 QUEST_LESSON_BLADE_FIRM_STRIKE_PROGRESS,Ainda falta um pouco. Termine o que eu pedi e volte.
-QUEST_LESSON_BLADE_FIRM_STRIKE_COMPLETE,Muito bem. Agora você sabe usar Golpe Firme. Treine bastante. Você conquistou um novo caminho do Sabiá; agora pode continuar as lições comigo.
+QUEST_LESSON_BLADE_FIRM_STRIKE_COMPLETE,Muito bem. Agora você sabe usar Golpe Firme. Treine bastante. Você conquistou um novo caminho de Pindorama; agora pode continuar as lições comigo.
 QUEST_LESSON_BLADE_FIRM_STRIKE_STEP1,Derrote Redemoinhos Arteiros
 QUEST_LESSON_ARCANE_SPARK_NAME,Lição: Faísca
 QUEST_LESSON_ARCANE_SPARK_DESC,Mestre Orvalho ensina Faísca a quem provar que está pronto.
 QUEST_LESSON_ARCANE_SPARK_OPTION,[Lição] Quero aprender Faísca.
 QUEST_LESSON_ARCANE_SPARK_OFFER,"Para aprender Faísca, preciso ver você lutar com calma. Derrote 6 Vaga-lumes Encantados. Depois venha falar comigo."
 QUEST_LESSON_ARCANE_SPARK_PROGRESS,Ainda não terminou. Volte quando fizer tudo.
-QUEST_LESSON_ARCANE_SPARK_COMPLETE,Pronto! Agora Faísca é sua. Use com cuidado. Você conquistou um novo caminho do Sabiá; agora pode continuar as lições comigo.
+QUEST_LESSON_ARCANE_SPARK_COMPLETE,Pronto! Agora Faísca é sua. Use com cuidado. Você conquistou um novo caminho de Pindorama; agora pode continuar as lições comigo.
 QUEST_LESSON_ARCANE_SPARK_STEP1,Derrote Vaga-lumes Encantados
 QUEST_ELDER_ZE_STEEL_SONG_NAME,Aço que Canta
 QUEST_ELDER_ZE_STEEL_SONG_DESC,"Sub-história de Seu Zé Ferreiro. O facão que cantava sumiu no brejo há muitos anos. Siga o causo, reúna as brasas, enfrente a Rainha-Lume e a fera atroz, e vença o fantoche de dois escudos."
@@ -978,7 +978,7 @@ DLG_MASTER_INHAMBU_START,O vento do cerrado não perdoa pressa. A flecha só voa
 DLG_MASTER_INHAMBU_START_OPT0,Conte-me sobre o caminho do arco.
 DLG_MASTER_INHAMBU_START_OPT1,Tem algum conselho para quem atira de longe?
 DLG_MASTER_INHAMBU_START_OPT2,Até logo.
-DLG_MASTER_INHAMBU_ABOUT,Aqui no Sabiá nós aprendemos com o gavião e a perdiz. Não adianta puxar a corda até quebrar se não souber ler a folhagem balançando.
+DLG_MASTER_INHAMBU_ABOUT,Aqui em Pindorama nós aprendemos com o gavião e a perdiz. Não adianta puxar a corda até quebrar se não souber ler a folhagem balançando.
 DLG_MASTER_INHAMBU_ABOUT_OPT0,Qual o segredo da pontaria?
 DLG_MASTER_INHAMBU_ABOUT_OPT1,Entendido.
 DLG_MASTER_INHAMBU_TIP,Fique atento à destreza. Ela firma o tiro e acelera o disparo. E nunca atire em linha reta se o capim estiver alto demais.
@@ -997,106 +997,106 @@ QUEST_TF_BLADE_TITLE_STEP_TALK,Converse com o Instrutor Bento sobre empunhadura 
 QUEST_TF_BLADE_TITLE_STEP_COLLECT,Colete 4 Folhas Giratórias para afiar seu corte
 QUEST_TF_ARCANE_TITLE_STEP_TALK,Converse com o Instrutor Bento sobre concentração e centelhas de mana
 QUEST_TF_ARCANE_TITLE_STEP_KILL,Derrote 5 Vaga-lumes Encantados
-QUEST_SABIA_BLADE_AROEIRA_NAME,Tronco Inabalável
-QUEST_SABIA_BLADE_AROEIRA_DESC,"Mestra Brisa ensina que a aroeira enverga mas não quebra. Consulte Seu Zé Ferreiro, colete carcaças de tatu, derrote tatus nos campos e domine a Postura de Ferro."
-QUEST_SABIA_BLADE_AROEIRA_OPTION,[Missão de Título] Quero aprender a resistência do Tronco de Aroeira.
-QUEST_SABIA_BLADE_AROEIRA_OFFER,"O facão corta, mas a aroeira suporta o machado sem lascar. Fale com Seu Zé Ferreiro sobre têmpera dura. Traga 4 carcaças duras de tatu, derrote 6 tatus nos campos e suporte o impacto pesado na provação!"
-QUEST_SABIA_BLADE_AROEIRA_PROGRESS,Ainda falta forjar sua resistência. Termine as tarefas e volte aqui.
-QUEST_SABIA_BLADE_AROEIRA_COMPLETE,Suas pernas firmaram no chão como raízes centenárias. Agora você é Tronco de Aroeira e aprendeu a Postura de Ferro!
-QUEST_SABIA_BLADE_AROEIRA_STEP_TALK,Fale com Seu Zé Ferreiro na forja da cidade
-QUEST_SABIA_BLADE_AROEIRA_STEP_COLLECT,Colete 4 Carcaças Duras de Tatu
-QUEST_SABIA_BLADE_AROEIRA_STEP_KILL,Derrote 6 Tatus-Pedra nos Campos do Sabiá
-QUEST_SABIA_BLADE_AROEIRA_STEP_TRIAL,Provação: enfrente a investida pesada sem recuar
-QUEST_SABIA_BLADE_JAGUAR_NAME,Bote da Mata
-QUEST_SABIA_BLADE_JAGUAR_DESC,"Mestra Brisa ensina o bote fulminante da fera. Converse com Coronel Tobias, obtenha couro resistente, derrote redemoinhos furiosos e realize a prova de velocidade."
-QUEST_SABIA_BLADE_JAGUAR_OPTION,[Missão de Título] Quero aprender a rapidez da Garra da Onça.
-QUEST_SABIA_BLADE_JAGUAR_OFFER,"A onça rasteja em silêncio e ataca num só relâmpago. Fale com o Coronel Tobias sobre os rastros da mata. Junte 3 tiras de couro grosso, elimine 6 redemoinhos nos campos e passe no teste do bote veloz!"
-QUEST_SABIA_BLADE_JAGUAR_PROGRESS,A fera não hesita. Conclua os passos para provar sua prontidão.
-QUEST_SABIA_BLADE_JAGUAR_COMPLETE,Seu corte foi mais rápido que o piscar de olhos. Agora você é Garra da Onça e aprendeu o Corte do Horizonte!
-QUEST_SABIA_BLADE_JAGUAR_STEP_TALK,Fale com o Coronel Tobias no posto dos campos
-QUEST_SABIA_BLADE_JAGUAR_STEP_COLLECT,Colete 3 Couros Grossos
-QUEST_SABIA_BLADE_JAGUAR_STEP_KILL,Derrote 6 Redemoinhos nos Campos
-QUEST_SABIA_BLADE_JAGUAR_STEP_TRIAL,Provação: finalize o combate em menos de 60 segundos
-QUEST_SABIA_ARCANE_CRYSTAL_NAME,Cúpula Prismática
-QUEST_SABIA_ARCANE_CRYSTAL_DESC,"Mestre Orvalho revela como as pedras brilhantes do brejo resguardam aliados. Fale com a criança curiosa, recolha fragmentos de quitina cristalina e erga a Barreira Arcana."
-QUEST_SABIA_ARCANE_CRYSTAL_OPTION,[Missão de Título] Ensine-me a proteção da Guarda do Cristal.
-QUEST_SABIA_ARCANE_CRYSTAL_OFFER,"A luz não serve apenas para queimar; ela protege quem está ao seu lado. Fale com a criança curiosa que corre nas docas sobre os reflexos na água. Junte 4 fragmentos brilhantes, vença 6 vaga-lumes e erga o escudo na provação."
-QUEST_SABIA_ARCANE_CRYSTAL_PROGRESS,A pedra ainda não ressoou com sua mana. Conclua as tarefas.
-QUEST_SABIA_ARCANE_CRYSTAL_COMPLETE,O cristal brilhou em volta de você e de quem te acompanha. Agora você é Guarda do Cristal e aprendeu a Barreira Arcana!
-QUEST_SABIA_ARCANE_CRYSTAL_STEP_TALK,Converse com a criança curiosa na cidade
-QUEST_SABIA_ARCANE_CRYSTAL_STEP_COLLECT,Colete 4 Fragmentos de Quitina Brilhante
-QUEST_SABIA_ARCANE_CRYSTAL_STEP_KILL,Derrote 6 Vaga-lumes Encantados
-QUEST_SABIA_ARCANE_CRYSTAL_STEP_TRIAL,Provação: resista ao choque mágico com seu escudo
-QUEST_SABIA_ARCANE_BOITATA_NAME,Fogo das Águas
-QUEST_SABIA_ARCANE_BOITATA_DESC,"Mestre Orvalho conta sobre a serpente incandescente que vigia a noite. Fale com Marcelina, colete presas afiadas, derrote serpentes de brasa e aprenda a Serpente Flamejante."
-QUEST_SABIA_ARCANE_BOITATA_OPTION,[Missão de Título] Desejo invocar o fogo do Olho do Boitatá.
-QUEST_SABIA_ARCANE_BOITATA_OFFER,"O Boitatá é a chama viva que corre sobre os rios sem se apagar. Fale com Marcelina sobre as visões na escuridão. Traga 4 presas de serpente, derrote 6 serpentes de brasa e domine o calor intenso na provação!"
-QUEST_SABIA_ARCANE_BOITATA_PROGRESS,O fogo ainda é fraco no seu olhar. Conclua os testes.
-QUEST_SABIA_ARCANE_BOITATA_COMPLETE,A chama azul e dourada acendeu nas suas mãos. Agora você carrega o Olho do Boitatá e domina a Serpente Flamejante!
-QUEST_SABIA_ARCANE_BOITATA_STEP_TALK,Fale com Marcelina sobre as visões noturnas
-QUEST_SABIA_ARCANE_BOITATA_STEP_COLLECT,Colete 4 Presas de Serpente
-QUEST_SABIA_ARCANE_BOITATA_STEP_KILL,Derrote 6 Serpentes de Brasa
-QUEST_SABIA_ARCANE_BOITATA_STEP_TRIAL,Provação: canalize o fogo contínuo sem perder a concentração
-QUEST_SABIA_BOW_BREJO_NAME,Sombra na Taboa
-QUEST_SABIA_BOW_BREJO_DESC,"Mestre Taquari ensina a arte de espreitar nas margens barrentas. Fale com o barqueiro, junte fios de seda, derrote queixadas e domine a Pele de Barro."
-QUEST_SABIA_BOW_BREJO_OPTION,[Missão de Título] Quero aprender a furtividade da Tocaia do Brejo.
-QUEST_SABIA_BOW_BREJO_OFFER,"No alagado, o bicho escuta até o bater dos cílios. Converse com o barqueiro no cais. Traga 4 fios de seda de aranha, cace 6 queixadas nas veredas e passe no teste de emboscada oculta!"
-QUEST_SABIA_BOW_BREJO_PROGRESS,Ainda está pisando pesado demais na lama. Vá com calma e termine os passos.
-QUEST_SABIA_BOW_BREJO_COMPLETE,Você se misturou ao capim como névoa da manhã. Agora você é Tocaia do Brejo e aprendeu a Pele de Barro!
-QUEST_SABIA_BOW_BREJO_STEP_TALK,Fale com o barqueiro sobre os canais da vereda
-QUEST_SABIA_BOW_BREJO_STEP_COLLECT,Colete 4 Fios de Seda de Aranha
-QUEST_SABIA_BOW_BREJO_STEP_KILL,Derrote 6 Queixadas nas veredas
-QUEST_SABIA_BOW_BREJO_STEP_TRIAL,Provação: realize um disparo surpresa sem que a presa perceba
-QUEST_SABIA_BOW_GAVIAO_NAME,Asa que Vigia
-QUEST_SABIA_BOW_GAVIAO_DESC,"Mestre Taquari ensina o olhar de longo alcance do gavião. Fale com o guarda do portão, junte ferrões pontiagudos, derrote redemoinhos e domine o Olho Parado."
-QUEST_SABIA_BOW_GAVIAO_OPTION,[Missão de Título] Quero a visão certeira do Gavião-Real.
-QUEST_SABIA_BOW_GAVIAO_OFFER,"O gavião não erra o bote porque não tem pressa no ar. Fale com o guarda do portão sobre vigiar os descampados. Colete 4 ferrões pontiagudos, abata 6 redemoinhos velozes e acerte os alvos distantes!"
-QUEST_SABIA_BOW_GAVIAO_PROGRESS,Sua mira ainda oscila com o vento. Termine o treinamento.
-QUEST_SABIA_BOW_GAVIAO_COMPLETE,Sua flecha encontrou o centro do alvo sem vacilar. Agora você é Gavião-Real e aprendeu o Olho Parado!
-QUEST_SABIA_BOW_GAVIAO_STEP_TALK,Fale com o guarda do portão sobre vigiar o horizonte
-QUEST_SABIA_BOW_GAVIAO_STEP_COLLECT,Colete 4 Ferrões Pontiagudos
-QUEST_SABIA_BOW_GAVIAO_STEP_KILL,Derrote 6 Redemoinhos nos descampados
-QUEST_SABIA_BOW_GAVIAO_STEP_TRIAL,Provação: acerte todos os alvos distantes dentro do tempo limite
-QUEST_SABIA_SUPPORT_BURITI_NAME,Água da Vereda
-QUEST_SABIA_SUPPORT_BURITI_DESC,"Vó Aninha ensina como o buriti guarda a água doce da vida. Fale com a vendedora de frutas, recolha favos de mel silvestre, purifique criaturas e aprenda o Chá de Folha Larga."
-QUEST_SABIA_SUPPORT_BURITI_OPTION,[Missão de Título] Quero curar os necessitados com a Seiva do Buriti.
-QUEST_SABIA_SUPPORT_BURITI_OFFER,"Onde tem buriti, tem cura debaixo da terra, meu bem. Fale com a vendedora de frutas na praça. Traga 4 favos de mel silvestre, derrote 8 queixadas furiosas e prepare o chá medicinal na provação!"
-QUEST_SABIA_SUPPORT_BURITI_PROGRESS,"A água ainda está turva, meu bem. Termine com carinho e volte."
-QUEST_SABIA_SUPPORT_BURITI_COMPLETE,A seiva pura curou as feridas e renovou o alento do grupo. Agora você é Seiva do Buriti e aprendeu o Chá de Folha Larga!
-QUEST_SABIA_SUPPORT_BURITI_STEP_TALK,Fale com a vendedora de frutas sobre ervas do brejo
-QUEST_SABIA_SUPPORT_BURITI_STEP_COLLECT,Colete 4 Favos de Mel Silvestre
-QUEST_SABIA_SUPPORT_BURITI_STEP_KILL,Derrote 8 Queixadas nas veredas
-QUEST_SABIA_SUPPORT_BURITI_STEP_TRIAL,Provação: mantenha a cura ativa enquanto sofre investidas
-QUEST_SABIA_SUPPORT_MATINTA_NAME,O Canto Noturno
-QUEST_SABIA_SUPPORT_MATINTA_DESC,"Vó Aninha conta do assobio misterioso que gela o sangue e desvia ataques. Converse com o Curupira, colha pelos urticantes, derrote serpentes e aprenda o Assobio Agourento."
-QUEST_SABIA_SUPPORT_MATINTA_OPTION,[Missão de Título] Desejo aprender o Assobio da Matinta.
-QUEST_SABIA_SUPPORT_MATINTA_OFFER,"A noite tem voz, e quem aprende a assobiar no tom certo faz a fera hesitar no salto. Fale com o amigo da floresta na mata. Junte 4 pelos urticantes, derrote 8 serpentes de brasa e assuste o bando na provação!"
-QUEST_SABIA_SUPPORT_MATINTA_PROGRESS,O vento ainda abafa seu assobio. Conclua os testes com calma.
-QUEST_SABIA_SUPPORT_MATINTA_COMPLETE,Seu assobio ecoou na mata e os inimigos recuaram de pavor. Agora você é Assobio da Matinta e aprendeu o Assobio Agourento!
-QUEST_SABIA_SUPPORT_MATINTA_STEP_TALK,Fale com o Curupira na entrada da mata
-QUEST_SABIA_SUPPORT_MATINTA_STEP_COLLECT,Colete 4 Espinhos Urticantes
-QUEST_SABIA_SUPPORT_MATINTA_STEP_KILL,Derrote 8 Serpentes nos campos
-QUEST_SABIA_SUPPORT_MATINTA_STEP_TRIAL,Provação: enfraqueça os atacantes com seu assobio
-QUEST_SABIA_TANK_ANTA_NAME,Pele de Couro Duro
-QUEST_SABIA_TANK_ANTA_DESC,"Velho Tião ensina como avançar no capoeirão como a anta: abrindo caminho sem desviar de espinho. Fale com Seu Zé, colha couro grosso, derrote tatus e domine o Couro Grosso."
-QUEST_SABIA_TANK_ANTA_OPTION,[Missão de Título] Quero a couraça pesada do Couro de Anta.
-QUEST_SABIA_TANK_ANTA_OFFER,"A anta passa por onde nada passa, atropelando graveto e espinheiro. Fale com Seu Zé Ferreiro sobre pregar rebite no couro. Traga 5 tiras de couro grosso, vença 8 tatus casca-dura e avance na provação!"
-QUEST_SABIA_TANK_ANTA_PROGRESS,Ainda falta firmeza no peito. Termine as tarefas e venha cá.
-QUEST_SABIA_TANK_ANTA_COMPLETE,Não tem galho que te pare nem investida que te derrube. Agora você carrega o Couro de Anta e aprendeu o Couro Grosso!
-QUEST_SABIA_TANK_ANTA_STEP_TALK,Fale com Seu Zé Ferreiro sobre rebites resistentes
-QUEST_SABIA_TANK_ANTA_STEP_COLLECT,Colete 5 Tiras de Couro Grosso
-QUEST_SABIA_TANK_ANTA_STEP_KILL,Derrote 8 Tatus nos campos
-QUEST_SABIA_TANK_ANTA_STEP_TRIAL,Provação: quebre a barreira com seu atropelo pesado
-QUEST_SABIA_TANK_MAPINGUARI_NAME,O Rugido da Terra
-QUEST_SABIA_TANK_MAPINGUARI_DESC,"Velho Tião conta do guardião das cavernas profundas cujo grito atrai todos os golpes. Fale com o vigia do portão, traga glândulas peçonhentas, derrote queixadas e domine a Fúria."
-QUEST_SABIA_TANK_MAPINGUARI_OPTION,[Missão de Título] Quero a coragem da Fúria do Mapinguari.
-QUEST_SABIA_TANK_MAPINGUARI_OFFER,"Quando o bicho brada, a caverna treme e tudo quanto é monstro corre para cima dele. Fale com o guarda do portão sobre os urros da serra. Junte 4 glândulas de veneno, derrote 8 queixadas e chame a atenção do bando na provação!"
-QUEST_SABIA_TANK_MAPINGUARI_PROGRESS,Seu urro ainda não ecoou forte. Termine as tarefas do cerrado.
-QUEST_SABIA_TANK_MAPINGUARI_COMPLETE,O chão tremeu sob suas botas e os monstros só enxergam você. Agora você é Fúria do Mapinguari e aprendeu a Fúria!
-QUEST_SABIA_TANK_MAPINGUARI_STEP_TALK,Fale com o guarda do portão sobre os urros da caverna
-QUEST_SABIA_TANK_MAPINGUARI_STEP_COLLECT,Colete 4 Glândulas de Veneno
-QUEST_SABIA_TANK_MAPINGUARI_STEP_KILL,Derrote 8 Queixadas
-QUEST_SABIA_TANK_MAPINGUARI_STEP_TRIAL,Provação: resista à fúria de múltiplos adversários
+QUEST_PINDORAMA_BLADE_AROEIRA_NAME,Tronco Inabalável
+QUEST_PINDORAMA_BLADE_AROEIRA_DESC,"Mestra Brisa ensina que a aroeira enverga mas não quebra. Consulte Seu Zé Ferreiro, colete carcaças de tatu, derrote tatus nos campos e domine a Postura de Ferro."
+QUEST_PINDORAMA_BLADE_AROEIRA_OPTION,[Missão de Título] Quero aprender a resistência do Tronco de Aroeira.
+QUEST_PINDORAMA_BLADE_AROEIRA_OFFER,"O facão corta, mas a aroeira suporta o machado sem lascar. Fale com Seu Zé Ferreiro sobre têmpera dura. Traga 4 carcaças duras de tatu, derrote 6 tatus nos campos e suporte o impacto pesado na provação!"
+QUEST_PINDORAMA_BLADE_AROEIRA_PROGRESS,Ainda falta forjar sua resistência. Termine as tarefas e volte aqui.
+QUEST_PINDORAMA_BLADE_AROEIRA_COMPLETE,Suas pernas firmaram no chão como raízes centenárias. Agora você é Tronco de Aroeira e aprendeu a Postura de Ferro!
+QUEST_PINDORAMA_BLADE_AROEIRA_STEP_TALK,Fale com Seu Zé Ferreiro na forja da cidade
+QUEST_PINDORAMA_BLADE_AROEIRA_STEP_COLLECT,Colete 4 Carcaças Duras de Tatu
+QUEST_PINDORAMA_BLADE_AROEIRA_STEP_KILL,Derrote 6 Tatus-Pedra nos Campos de Pindorama
+QUEST_PINDORAMA_BLADE_AROEIRA_STEP_TRIAL,Provação: enfrente a investida pesada sem recuar
+QUEST_PINDORAMA_BLADE_JAGUAR_NAME,Bote da Mata
+QUEST_PINDORAMA_BLADE_JAGUAR_DESC,"Mestra Brisa ensina o bote fulminante da fera. Converse com Coronel Tobias, obtenha couro resistente, derrote redemoinhos furiosos e realize a prova de velocidade."
+QUEST_PINDORAMA_BLADE_JAGUAR_OPTION,[Missão de Título] Quero aprender a rapidez da Garra da Onça.
+QUEST_PINDORAMA_BLADE_JAGUAR_OFFER,"A onça rasteja em silêncio e ataca num só relâmpago. Fale com o Coronel Tobias sobre os rastros da mata. Junte 3 tiras de couro grosso, elimine 6 redemoinhos nos campos e passe no teste do bote veloz!"
+QUEST_PINDORAMA_BLADE_JAGUAR_PROGRESS,A fera não hesita. Conclua os passos para provar sua prontidão.
+QUEST_PINDORAMA_BLADE_JAGUAR_COMPLETE,Seu corte foi mais rápido que o piscar de olhos. Agora você é Garra da Onça e aprendeu o Corte do Horizonte!
+QUEST_PINDORAMA_BLADE_JAGUAR_STEP_TALK,Fale com o Coronel Tobias no posto dos campos
+QUEST_PINDORAMA_BLADE_JAGUAR_STEP_COLLECT,Colete 3 Couros Grossos
+QUEST_PINDORAMA_BLADE_JAGUAR_STEP_KILL,Derrote 6 Redemoinhos nos Campos
+QUEST_PINDORAMA_BLADE_JAGUAR_STEP_TRIAL,Provação: finalize o combate em menos de 60 segundos
+QUEST_PINDORAMA_ARCANE_CRYSTAL_NAME,Cúpula Prismática
+QUEST_PINDORAMA_ARCANE_CRYSTAL_DESC,"Mestre Orvalho revela como as pedras brilhantes do brejo resguardam aliados. Fale com a criança curiosa, recolha fragmentos de quitina cristalina e erga a Barreira Arcana."
+QUEST_PINDORAMA_ARCANE_CRYSTAL_OPTION,[Missão de Título] Ensine-me a proteção da Guarda do Cristal.
+QUEST_PINDORAMA_ARCANE_CRYSTAL_OFFER,"A luz não serve apenas para queimar; ela protege quem está ao seu lado. Fale com a criança curiosa que corre nas docas sobre os reflexos na água. Junte 4 fragmentos brilhantes, vença 6 vaga-lumes e erga o escudo na provação."
+QUEST_PINDORAMA_ARCANE_CRYSTAL_PROGRESS,A pedra ainda não ressoou com sua mana. Conclua as tarefas.
+QUEST_PINDORAMA_ARCANE_CRYSTAL_COMPLETE,O cristal brilhou em volta de você e de quem te acompanha. Agora você é Guarda do Cristal e aprendeu a Barreira Arcana!
+QUEST_PINDORAMA_ARCANE_CRYSTAL_STEP_TALK,Converse com a criança curiosa na cidade
+QUEST_PINDORAMA_ARCANE_CRYSTAL_STEP_COLLECT,Colete 4 Fragmentos de Quitina Brilhante
+QUEST_PINDORAMA_ARCANE_CRYSTAL_STEP_KILL,Derrote 6 Vaga-lumes Encantados
+QUEST_PINDORAMA_ARCANE_CRYSTAL_STEP_TRIAL,Provação: resista ao choque mágico com seu escudo
+QUEST_PINDORAMA_ARCANE_BOITATA_NAME,Fogo das Águas
+QUEST_PINDORAMA_ARCANE_BOITATA_DESC,"Mestre Orvalho conta sobre a serpente incandescente que vigia a noite. Fale com Marcelina, colete presas afiadas, derrote serpentes de brasa e aprenda a Serpente Flamejante."
+QUEST_PINDORAMA_ARCANE_BOITATA_OPTION,[Missão de Título] Desejo invocar o fogo do Olho do Boitatá.
+QUEST_PINDORAMA_ARCANE_BOITATA_OFFER,"O Boitatá é a chama viva que corre sobre os rios sem se apagar. Fale com Marcelina sobre as visões na escuridão. Traga 4 presas de serpente, derrote 6 serpentes de brasa e domine o calor intenso na provação!"
+QUEST_PINDORAMA_ARCANE_BOITATA_PROGRESS,O fogo ainda é fraco no seu olhar. Conclua os testes.
+QUEST_PINDORAMA_ARCANE_BOITATA_COMPLETE,A chama azul e dourada acendeu nas suas mãos. Agora você carrega o Olho do Boitatá e domina a Serpente Flamejante!
+QUEST_PINDORAMA_ARCANE_BOITATA_STEP_TALK,Fale com Marcelina sobre as visões noturnas
+QUEST_PINDORAMA_ARCANE_BOITATA_STEP_COLLECT,Colete 4 Presas de Serpente
+QUEST_PINDORAMA_ARCANE_BOITATA_STEP_KILL,Derrote 6 Serpentes de Brasa
+QUEST_PINDORAMA_ARCANE_BOITATA_STEP_TRIAL,Provação: canalize o fogo contínuo sem perder a concentração
+QUEST_PINDORAMA_BOW_BREJO_NAME,Sombra na Taboa
+QUEST_PINDORAMA_BOW_BREJO_DESC,"Mestre Taquari ensina a arte de espreitar nas margens barrentas. Fale com o barqueiro, junte fios de seda, derrote queixadas e domine a Pele de Barro."
+QUEST_PINDORAMA_BOW_BREJO_OPTION,[Missão de Título] Quero aprender a furtividade da Tocaia do Brejo.
+QUEST_PINDORAMA_BOW_BREJO_OFFER,"No alagado, o bicho escuta até o bater dos cílios. Converse com o barqueiro no cais. Traga 4 fios de seda de aranha, cace 6 queixadas nas veredas e passe no teste de emboscada oculta!"
+QUEST_PINDORAMA_BOW_BREJO_PROGRESS,Ainda está pisando pesado demais na lama. Vá com calma e termine os passos.
+QUEST_PINDORAMA_BOW_BREJO_COMPLETE,Você se misturou ao capim como névoa da manhã. Agora você é Tocaia do Brejo e aprendeu a Pele de Barro!
+QUEST_PINDORAMA_BOW_BREJO_STEP_TALK,Fale com o barqueiro sobre os canais da vereda
+QUEST_PINDORAMA_BOW_BREJO_STEP_COLLECT,Colete 4 Fios de Seda de Aranha
+QUEST_PINDORAMA_BOW_BREJO_STEP_KILL,Derrote 6 Queixadas nas veredas
+QUEST_PINDORAMA_BOW_BREJO_STEP_TRIAL,Provação: realize um disparo surpresa sem que a presa perceba
+QUEST_PINDORAMA_BOW_GAVIAO_NAME,Asa que Vigia
+QUEST_PINDORAMA_BOW_GAVIAO_DESC,"Mestre Taquari ensina o olhar de longo alcance do gavião. Fale com o guarda do portão, junte ferrões pontiagudos, derrote redemoinhos e domine o Olho Parado."
+QUEST_PINDORAMA_BOW_GAVIAO_OPTION,[Missão de Título] Quero a visão certeira do Gavião-Real.
+QUEST_PINDORAMA_BOW_GAVIAO_OFFER,"O gavião não erra o bote porque não tem pressa no ar. Fale com o guarda do portão sobre vigiar os descampados. Colete 4 ferrões pontiagudos, abata 6 redemoinhos velozes e acerte os alvos distantes!"
+QUEST_PINDORAMA_BOW_GAVIAO_PROGRESS,Sua mira ainda oscila com o vento. Termine o treinamento.
+QUEST_PINDORAMA_BOW_GAVIAO_COMPLETE,Sua flecha encontrou o centro do alvo sem vacilar. Agora você é Gavião-Real e aprendeu o Olho Parado!
+QUEST_PINDORAMA_BOW_GAVIAO_STEP_TALK,Fale com o guarda do portão sobre vigiar o horizonte
+QUEST_PINDORAMA_BOW_GAVIAO_STEP_COLLECT,Colete 4 Ferrões Pontiagudos
+QUEST_PINDORAMA_BOW_GAVIAO_STEP_KILL,Derrote 6 Redemoinhos nos descampados
+QUEST_PINDORAMA_BOW_GAVIAO_STEP_TRIAL,Provação: acerte todos os alvos distantes dentro do tempo limite
+QUEST_PINDORAMA_SUPPORT_BURITI_NAME,Água da Vereda
+QUEST_PINDORAMA_SUPPORT_BURITI_DESC,"Vó Aninha ensina como o buriti guarda a água doce da vida. Fale com a vendedora de frutas, recolha favos de mel silvestre, purifique criaturas e aprenda o Chá de Folha Larga."
+QUEST_PINDORAMA_SUPPORT_BURITI_OPTION,[Missão de Título] Quero curar os necessitados com a Seiva do Buriti.
+QUEST_PINDORAMA_SUPPORT_BURITI_OFFER,"Onde tem buriti, tem cura debaixo da terra, meu bem. Fale com a vendedora de frutas na praça. Traga 4 favos de mel silvestre, derrote 8 queixadas furiosas e prepare o chá medicinal na provação!"
+QUEST_PINDORAMA_SUPPORT_BURITI_PROGRESS,"A água ainda está turva, meu bem. Termine com carinho e volte."
+QUEST_PINDORAMA_SUPPORT_BURITI_COMPLETE,A seiva pura curou as feridas e renovou o alento do grupo. Agora você é Seiva do Buriti e aprendeu o Chá de Folha Larga!
+QUEST_PINDORAMA_SUPPORT_BURITI_STEP_TALK,Fale com a vendedora de frutas sobre ervas do brejo
+QUEST_PINDORAMA_SUPPORT_BURITI_STEP_COLLECT,Colete 4 Favos de Mel Silvestre
+QUEST_PINDORAMA_SUPPORT_BURITI_STEP_KILL,Derrote 8 Queixadas nas veredas
+QUEST_PINDORAMA_SUPPORT_BURITI_STEP_TRIAL,Provação: mantenha a cura ativa enquanto sofre investidas
+QUEST_PINDORAMA_SUPPORT_MATINTA_NAME,O Canto Noturno
+QUEST_PINDORAMA_SUPPORT_MATINTA_DESC,"Vó Aninha conta do assobio misterioso que gela o sangue e desvia ataques. Converse com o Curupira, colha pelos urticantes, derrote serpentes e aprenda o Assobio Agourento."
+QUEST_PINDORAMA_SUPPORT_MATINTA_OPTION,[Missão de Título] Desejo aprender o Assobio da Matinta.
+QUEST_PINDORAMA_SUPPORT_MATINTA_OFFER,"A noite tem voz, e quem aprende a assobiar no tom certo faz a fera hesitar no salto. Fale com o amigo da floresta na mata. Junte 4 pelos urticantes, derrote 8 serpentes de brasa e assuste o bando na provação!"
+QUEST_PINDORAMA_SUPPORT_MATINTA_PROGRESS,O vento ainda abafa seu assobio. Conclua os testes com calma.
+QUEST_PINDORAMA_SUPPORT_MATINTA_COMPLETE,Seu assobio ecoou na mata e os inimigos recuaram de pavor. Agora você é Assobio da Matinta e aprendeu o Assobio Agourento!
+QUEST_PINDORAMA_SUPPORT_MATINTA_STEP_TALK,Fale com o Curupira na entrada da mata
+QUEST_PINDORAMA_SUPPORT_MATINTA_STEP_COLLECT,Colete 4 Espinhos Urticantes
+QUEST_PINDORAMA_SUPPORT_MATINTA_STEP_KILL,Derrote 8 Serpentes nos campos
+QUEST_PINDORAMA_SUPPORT_MATINTA_STEP_TRIAL,Provação: enfraqueça os atacantes com seu assobio
+QUEST_PINDORAMA_TANK_ANTA_NAME,Pele de Couro Duro
+QUEST_PINDORAMA_TANK_ANTA_DESC,"Velho Tião ensina como avançar no capoeirão como a anta: abrindo caminho sem desviar de espinho. Fale com Seu Zé, colha couro grosso, derrote tatus e domine o Couro Grosso."
+QUEST_PINDORAMA_TANK_ANTA_OPTION,[Missão de Título] Quero a couraça pesada do Couro de Anta.
+QUEST_PINDORAMA_TANK_ANTA_OFFER,"A anta passa por onde nada passa, atropelando graveto e espinheiro. Fale com Seu Zé Ferreiro sobre pregar rebite no couro. Traga 5 tiras de couro grosso, vença 8 tatus casca-dura e avance na provação!"
+QUEST_PINDORAMA_TANK_ANTA_PROGRESS,Ainda falta firmeza no peito. Termine as tarefas e venha cá.
+QUEST_PINDORAMA_TANK_ANTA_COMPLETE,Não tem galho que te pare nem investida que te derrube. Agora você carrega o Couro de Anta e aprendeu o Couro Grosso!
+QUEST_PINDORAMA_TANK_ANTA_STEP_TALK,Fale com Seu Zé Ferreiro sobre rebites resistentes
+QUEST_PINDORAMA_TANK_ANTA_STEP_COLLECT,Colete 5 Tiras de Couro Grosso
+QUEST_PINDORAMA_TANK_ANTA_STEP_KILL,Derrote 8 Tatus nos campos
+QUEST_PINDORAMA_TANK_ANTA_STEP_TRIAL,Provação: quebre a barreira com seu atropelo pesado
+QUEST_PINDORAMA_TANK_MAPINGUARI_NAME,O Rugido da Terra
+QUEST_PINDORAMA_TANK_MAPINGUARI_DESC,"Velho Tião conta do guardião das cavernas profundas cujo grito atrai todos os golpes. Fale com o vigia do portão, traga glândulas peçonhentas, derrote queixadas e domine a Fúria."
+QUEST_PINDORAMA_TANK_MAPINGUARI_OPTION,[Missão de Título] Quero a coragem da Fúria do Mapinguari.
+QUEST_PINDORAMA_TANK_MAPINGUARI_OFFER,"Quando o bicho brada, a caverna treme e tudo quanto é monstro corre para cima dele. Fale com o guarda do portão sobre os urros da serra. Junte 4 glândulas de veneno, derrote 8 queixadas e chame a atenção do bando na provação!"
+QUEST_PINDORAMA_TANK_MAPINGUARI_PROGRESS,Seu urro ainda não ecoou forte. Termine as tarefas do cerrado.
+QUEST_PINDORAMA_TANK_MAPINGUARI_COMPLETE,O chão tremeu sob suas botas e os monstros só enxergam você. Agora você é Fúria do Mapinguari e aprendeu a Fúria!
+QUEST_PINDORAMA_TANK_MAPINGUARI_STEP_TALK,Fale com o guarda do portão sobre os urros da caverna
+QUEST_PINDORAMA_TANK_MAPINGUARI_STEP_COLLECT,Colete 4 Glândulas de Veneno
+QUEST_PINDORAMA_TANK_MAPINGUARI_STEP_KILL,Derrote 8 Queixadas
+QUEST_PINDORAMA_TANK_MAPINGUARI_STEP_TRIAL,Provação: resista à fúria de múltiplos adversários
 QUEST_OPT_HEAR_LORE,[Causo] Me conte o que você sabe.
 QUEST_OPT_LORE_DONE,Vou lembrar disso.
 QUEST_ELDER_ZE_STEEL_SONG_STEP_LORE1,Ouça o causo do Barqueiro sobre o facão que cantava

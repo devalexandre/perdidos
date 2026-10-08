@@ -38,7 +38,7 @@ raiz aqui. O mundo "é feito de histórias" — por isso as criaturas dele são 
 Os moradores chamam o nosso mundo de **o Outro Lado**. Nomes próprios do mundo como um todo ficam
 `[EM ABERTO]` (ver perguntas no fim).
 
-**Terra do Sabiá** (região do MVP, inspirada no Brasil): rios largos, cerrado com ipês e buritis, mata
+**Terra de Pindorama** (região do MVP, inspirada no Brasil): rios largos, cerrado com ipês e buritis, mata
 fechada, chapadas vermelhas acima de um mar de nuvens. O saci ri nos redemoinhos, o Curupira guarda a
 mata, o Boitatá protege os campos do fogo. Regras (GDD §4.0, obrigatórias):
 
@@ -120,7 +120,7 @@ Duração: **52,5 s** (8 planos). Pulável (Esc ou botão "Pular"). Mostra o **c
 | 5 | A terra (`land`) | 7,0 s | Chapadas vermelhas sobre o mar de nuvens, cachoeiras, rio, a cidade sob o **ipê gigante com o cristal** | Fusão; câmera desce das chapadas até a cidade; pétalas ao vento | "Lá embaixo, uma terra antiga acordava em cores..." / "...rios largos e chapadas acima das nuvens." | — |
 | 6 | As lendas (`legends`) | 6,5 s | Cerrado ao crepúsculo, ipês roxos e amarelos, cupinzeiros, vaga-lumes e um **redemoinho com gorrinho vermelho** | Fusão; aproximação lenta do redemoinho; escurece para o preto | "Uma terra onde as lendas ainda andam, riem..." / "...e guardam seus segredos." | — |
 | 7 | Escuridão (`darkness`) | 4,0 s | Preto | Só texto | "Depois, só o som da água." | `sfx_wake_river` |
-| 8 | Margem do rio (`riverbank`) | 9,0 s | Amanhecer rosado; o Viajante dormindo na areia; no rio enevoado, a **silhueta do barqueiro** com a vara | Surge do preto devagar (2,5 s); zoom se abre do Viajante até o barco; fade final | "— Acorda, Viajante. O rio te trouxe." / "Bem-vindo à Terra do Sabiá." | — |
+| 8 | Margem do rio (`riverbank`) | 9,0 s | Amanhecer rosado; o Viajante dormindo na areia; no rio enevoado, a **silhueta do barqueiro** com a vara | Surge do preto devagar (2,5 s); zoom se abre do Viajante até o barco; fade final | "— Acorda, Viajante. O rio te trouxe." / "Bem-vindo à Terra de Pindorama." | — |
 
 Notas de direção:
 - A cinemática termina onde o **tutorial começa** (ver `docs/tutorial-design.md`): o barqueiro da

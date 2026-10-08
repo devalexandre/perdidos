@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Capturas das janelas da interface no cliente real (tests/client/ui_capture.gd): servidor local + um
 # cliente por resolução (desktop 1280x720 e 960x540; celular em paisagem 1600x720 com controles de toque).
-# Uso: GODOT=/caminho/godot [OUT=.work/ui] [PORT=8213] [SIZES="1280x720 960x540 m1600x720"] tests/client/run_ui_capture.sh
+# Uso: GODOT=/caminho/godot [OUT=.work/ui] [PORT=8213] [SIZES="1280x720 960x540 m1600x720"]
+#      [SCRIPT=res://tests/client/inventory_capture.gd] tests/client/run_ui_capture.sh
 # Tamanho com "m" na frente = modo celular (controles de toque ligados).
 set -uo pipefail
 GODOT="${GODOT:-godot}"
@@ -9,6 +10,7 @@ P="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 OUT="${OUT:-$P/../.work/ui}"
 PORT="${PORT:-8213}"
 SIZES="${SIZES:-1280x720 960x540 m1600x720}"
+SCRIPT="${SCRIPT:-res://tests/client/ui_capture.gd}"
 LOG_DIR="$(mktemp -d)"
 SAVES="$LOG_DIR/saves"
 mkdir -p "$OUT" "$SAVES"
@@ -24,8 +26,8 @@ for S in $SIZES; do
 	RES="$S"
 	if [[ "$S" == m* ]]; then EXTRA+=(--ui-mobile); RES="${S#m}"; fi
 	xvfb-run -a -s "-screen 0 2000x1200x24" "$GODOT" --path "$P" --resolution "$RES" -- --name=UiCap \
-		--body=female --port="$PORT" --autotest --autotest-script=res://tests/client/ui_capture.gd \
+		--body=female --port="$PORT" --autotest --autotest-script="$SCRIPT" \
 		--shot-dir="$OUT" "${EXTRA[@]}" >"$LOG_DIR/client_$S.log" 2>&1
 	echo "=== $S (log: $LOG_DIR/client_$S.log)"
-	grep -h "ui_capture\|SCRIPT ERROR" "$LOG_DIR/client_$S.log" | head -20
+	grep -h "_capture\|SCRIPT ERROR" "$LOG_DIR/client_$S.log" | head -20
 done

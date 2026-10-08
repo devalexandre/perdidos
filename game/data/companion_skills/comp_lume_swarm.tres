@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"comp_lume_swarm"
+name_key = "CSK_LUME_SWARM"
+desc_key = "CSK_LUME_SWARM_DESC"
+school = &"arcane"
+element = &"light"
+region_id = &"brasil"
+target_type = 1
+effect = 1
+mana_cost = 0
+cooldown_sec = 12.0
+range_cells = 6.0
+radius_cells = 2.0
+base_multiplier = 1.0
+multiplier_per_level = 0.0
+duration_sec = 0.0
+extra = Dictionary[StringName, Variant]({})
+counts_for_titles = false
+max_level = 1

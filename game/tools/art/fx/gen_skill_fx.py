@@ -984,7 +984,7 @@ def star_fall_burst():
     return frames
 
 
-# Runas do Sabia (30/09/2026): semente, broto e ziguezague de rio — nenhuma em forma de cruz ou estrela.
+# Runas de Pindorama (30/09/2026): semente, broto e ziguezague de rio — nenhuma em forma de cruz ou estrela.
 RUNES = [
     [".#.", "#.#", "#.#", ".#."],
     ["#.#", ".#.", ".#.", "##."],
@@ -1047,7 +1047,7 @@ def barrier():
 
 
 def cast_circle():
-    """Circulo de conjuracao: aros, runas douradas e a flor de ipe de 5 petalas girando (motivo do Sabia)."""
+    """Circulo de conjuracao: aros, runas douradas e a flor de ipe de 5 petalas girando (motivo de Pindorama)."""
     frames = []
     c = 48
     for f in range(8):
@@ -1161,7 +1161,7 @@ def main():
     ap.add_argument("--only", default="")
     a = ap.parse_args()
     os.makedirs(OUT, exist_ok=True)
-    # Arvores da Terra do Sabia (30/09/2026): um modulo por escola, todos registrando em fxdraw.PIECES.
+    # Arvores da Terra de Pindorama (30/09/2026): um modulo por escola, todos registrando em fxdraw.PIECES.
     import fx_status  # noqa: E402
     import fx_melee  # noqa: E402
     import fx_arcane2  # noqa: E402

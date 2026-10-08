@@ -1,7 +1,7 @@
 class_name DialogueBox
 extends PanelContainer
 ## Caixa de diálogo com NPC (embaixo, centralizada, acima da barra de atalhos): moldura de madeira com
-## miolo de pergaminho, placa com o nome de quem fala, fala em tinta escura e opções (já filtradas pelo
+## miolo escuro, placa com o nome de quem fala, fala clara e opções (já filtradas pelo
 ## servidor) como botões largos e numerados. Opção → choice_selected(índice); fechar → close_requested.
 ## Teclas 1..9 escolhem opções; Esc fecha (tratado pelo GameUI). No modo de toque fica entre o analógico
 ## e os botões de ação, com opções mais altas (GameUI.dialogue_area).
@@ -34,10 +34,12 @@ var _close: Button
 
 func _init(p_scale: float = 1.0) -> void:
 	ui_scale = p_scale
+	theme = UIKit.build_window_theme(ui_scale)
 	name = &"DialogueBox"
 	visible = false
+	add_theme_stylebox_override(&"panel", UIKit.dark_card_box(ui_scale, 12))
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	add_theme_stylebox_override(&"panel", UIKit.dialogue_box(ui_scale))
+	add_theme_stylebox_override(&"panel", UIKit.dark_card_box(ui_scale, 12))
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override(&"separation", UIKit.px(8, ui_scale))
 	add_child(box)
@@ -73,12 +75,12 @@ func _init(p_scale: float = 1.0) -> void:
 	_text.custom_minimum_size.x = UIKit.px(WIDTH_PX, ui_scale)
 	_text.add_theme_font_override(&"font", UIKit.read_font())
 	_text.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE + 1, ui_scale))
-	_text.add_theme_color_override(&"font_color", UIKit.COLOR_INK)
+	_text.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
 	_text.add_theme_color_override(&"font_outline_color", Color.TRANSPARENT)
 	_text.add_theme_constant_override(&"outline_size", 0)
 	box.add_child(_text)
 	var rule := ColorRect.new()
-	rule.color = UIKit.COLOR_PARCHMENT_EDGE
+	rule.color = UIKit.COLOR_SLOT_DARK_EDGE
 	rule.custom_minimum_size.y = maxi(1, UIKit.px(1, ui_scale))
 	rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	box.add_child(rule)
@@ -88,7 +90,7 @@ func _init(p_scale: float = 1.0) -> void:
 	box.add_child(_options)
 
 
-## Botão de opção: cartão de pergaminho com tinta escura; passa o mouse/toca = borda de ouro e tinta vermelha.
+## Botão de opção: cartão escuro com texto claro; passa o mouse/toca = borda de ouro e tinta vermelha.
 func _option_button(i: int, text: String) -> Button:
 	var b := Button.new()
 	b.name = "Option%d" % i
@@ -100,8 +102,8 @@ func _option_button(i: int, text: String) -> Button:
 	b.custom_minimum_size.y = UIKit.px(h, ui_scale)
 	var line: int = maxi(1, UIKit.px(1, ui_scale))
 	var pad: int = UIKit.px(6, ui_scale)
-	var normal: StyleBoxFlat = UIKit.flat_box(UIKit.COLOR_CARD, UIKit.COLOR_PARCHMENT_EDGE, line, pad)
-	var hover: StyleBoxFlat = UIKit.flat_box(UIKit.COLOR_PARCHMENT_SHADE, UIKit.COLOR_GOLD_AGED, maxi(1, UIKit.px(2, ui_scale)), pad)
+	var normal: StyleBoxFlat = UIKit.chamfer_box(UIKit.COLOR_SLOT_DARK_EMPTY, UIKit.COLOR_SLOT_DARK_EDGE, line, pad, UIKit.px(3, ui_scale))
+	var hover: StyleBoxFlat = UIKit.chamfer_box(UIKit.COLOR_SLOT_DARK_HOVER, UIKit.COLOR_GOLD_AGED, line, pad, UIKit.px(3, ui_scale))
 	var pressed: StyleBoxFlat = UIKit.flat_box(UIKit.COLOR_WOOD, UIKit.COLOR_GOLD, maxi(1, UIKit.px(2, ui_scale)), pad)
 	for sb: StyleBoxFlat in [normal, hover, pressed]:
 		sb.border_width_left = maxi(2, UIKit.px(4, ui_scale))
@@ -110,8 +112,8 @@ func _option_button(i: int, text: String) -> Button:
 	b.add_theme_stylebox_override(&"hover", hover)
 	b.add_theme_stylebox_override(&"pressed", pressed)
 	b.add_theme_stylebox_override(&"hover_pressed", pressed)
-	b.add_theme_color_override(&"font_color", UIKit.COLOR_INK)
-	b.add_theme_color_override(&"font_hover_color", UIKit.COLOR_INK_TITLE)
+	b.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
+	b.add_theme_color_override(&"font_hover_color", UIKit.COLOR_GOLD_LIGHT)
 	b.add_theme_color_override(&"font_pressed_color", UIKit.COLOR_TEXT)
 	b.add_theme_color_override(&"font_hover_pressed_color", UIKit.COLOR_TEXT)
 	b.add_theme_color_override(&"font_outline_color", Color.TRANSPARENT)

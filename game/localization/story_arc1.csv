@@ -12,6 +12,10 @@ PROG_MSG_STORY_VICTORY,%s: a lenda foi vencida. Isto vai virar causo.
 PROG_MSG_QUEST_ITEM_FOUND,Você encontrou: %s.
 PROG_MSG_QUEST_ITEM_GIVEN,Você recebeu: %s (x%d).
 SYS_STORY_BOSS_APPEARED,Uma lenda doente despertou com a noite: %s!
+SYS_STORY_PASSAGE_SEALED,A fenda está quente demais para passar. Alguma coisa lá embaixo ainda não quer você.
+SYS_BOITATA_PHASE_2,O Boitatá cospe três fogos-fátuos: eles caçam você e deixam rastro de fogo!
+SYS_BOITATA_PHASE_3,O Boitatá se enrosca mais rápido: anéis de fogo fecham partes da câmara!
+SYS_BOITATA_PHASE_4,A corrupção chega ao limite: as chamas do Boitatá ficam negras!
 SYS_STORY_BOSS_VANISHED,O dia nasceu e %s sumiu com a escuridão. Volta na próxima noite.
 MON_STORY_SACI_NAME,Saci Atroz
 MON_STORY_MULA_NAME,Mula-sem-Cabeça Atroz
@@ -51,7 +55,7 @@ QUEST_ARC1_PROLOGUE_COMPLETE,"Ouviu uma mulher? Cansada? ...Vixe. Meu avô conta
 QUEST_ARC1_PROLOGUE_COMPLETE_P2,"""As lendas estão doentes e só mostram a doença quando escurece."" Olha, isso explica muita coisa. O redemoinho dos Campos anda bravo, e é sempre depois do sol posto."
 QUEST_ARC1_PROLOGUE_COMPLETE_P3,"Se a voz chamou você, a conversa é sua. Mas não vai de cabeça quente, não. A Dona Jacinta, da feira, anda dizendo que o Saci perdeu o juízo. Começa por ela."
 QUEST_ARC1_CH1_NAME,A Peneira de Cruzeta
-QUEST_ARC1_CH1_DESC,"Dona Jacinta jura que o Saci perdeu o juízo nos Campos do Sabiá, e ela sabe trançar a única coisa que segura um Saci."
+QUEST_ARC1_CH1_DESC,"Dona Jacinta jura que o Saci perdeu o juízo nos Campos de Pindorama, e ela sabe trançar a única coisa que segura um Saci."
 QUEST_ARC1_CH1_OPTION,[História] A senhora acha mesmo que o Saci perdeu o juízo?
 QUEST_ARC1_CH1_OFFER,"Acho, não, meu filho: tenho certeza. Saci sempre foi arteiro. Some com dedal, azeda o leite, dá nó em crina de cavalo. Coisa de menino levado."
 QUEST_ARC1_CH1_OFFER_P2,"Mas esse ano ele derrubou a carroça do Seu Benedito com burro e tudo, e o burro ficou três dias andando de lado. E os redemoinhos do Passo dos Ipês, que antes só levantavam poeira, agora levantam gente."
@@ -68,7 +72,7 @@ QUEST_ARC1_CH1_LORE_2_OPT,[Causo] Dizem que o Saci derrubou sua carroça.
 QUEST_ARC1_CH1_LORE_2,"Derrubou, e não foi brincadeira. O Saci sempre trançou a crina dos meus burros de noite. De manhã eu desfazia o nó, resmungava um pouco e todo mundo seguia a vida."
 QUEST_ARC1_CH1_LORE_2_P2,"Mas na última lua o nó veio tão apertado que cortou o pelo. E a crina tinha cheiro de queimado, um cheiro azedo, de coisa que não é fogo de lenha. O Teimoso, meu burro mais velho, empacou e não quis passar no Passo dos Ipês nem por rapadura."
 QUEST_ARC1_CH1_LORE_2_P3,"Eu não sou homem de medo. Mas quando bicho velho de estrada não quer passar num lugar, o tropeiro escuta o bicho."
-QUEST_ARC1_CH1_STEP_3,Derrote Redemoinhos Arteiros nos Campos do Sabiá
+QUEST_ARC1_CH1_STEP_3,Derrote Redemoinhos Arteiros nos Campos de Pindorama
 QUEST_ARC1_CH1_STEP_4,Junte Fiapos de Redemoinho (caem dos Redemoinhos Arteiros enquanto a missão pede)
 QUEST_ARC1_CH1_STEP_5,Leve os fiapos para Dona Jacinta trançar a Peneira de Cruzeta
 QUEST_ARC1_CH1_LORE_5_OPT,[Peneira] Trouxe os fiapos de redemoinho.
@@ -217,9 +221,9 @@ QUEST_ARC1_CH8_LORE_1_OPT,"[Sonho] Tico, pra onde você vai de noite?"
 QUEST_ARC1_CH8_LORE_1,"Eu não vou, eu sou levado! Tem uma moça bonita que canta, e a cantiga puxa a gente que nem anzol. Ela tem o cabelo comprido, preto, e um sorriso que é bonito e dá medo junto."
 QUEST_ARC1_CH8_LORE_1_P2,"Ela mexe um caldeirão enorme lá embaixo, numa caverna que brilha. Me deu sopa. Era gostosa! Mas ela falou umas coisas tristes, de uma filha. Eu deixei meus brinquedos no caminho, igual o pai ensinou. Você vai lá? Traz meu pião de volta?"
 QUEST_ARC1_CH8_STEP_2,Siga os brinquedos do Tico nos Túneis da Terra Oca (as Tecelãs da Sombra guardam nas teias)
-QUEST_ARC1_CH8_STEP_3,Ache a câmara do caldeirão no andar 5 dos Túneis da Terra Oca
+QUEST_ARC1_CH8_STEP_3,"Ache a câmara do caldeirão na Gruta do Caldeirão, saindo do andar 5 dos Túneis da Terra Oca"
 QUEST_ARC1_CH8_DONE_3,"Um caldeirão maior que uma carroça borbulha sozinho no meio da gruta. Ninguém mexe nele, mas a colher gira."
-QUEST_ARC1_CH8_STEP_4,"À noite, cante a cantiga de ninar diante do caldeirão e vença a Cuca Atroz"
+QUEST_ARC1_CH8_STEP_4,"À noite, cante a cantiga de ninar diante do caldeirão (Gruta do Caldeirão) e vença a Cuca Atroz"
 QUEST_ARC1_CH8_DONE_4,"A Cuca cai de joelhos e ri, ainda jovem, ainda bonita: ""Que voz ruim a sua, Viajante. Mas cantou certinho."" Ajeita o cabelo e fala sem pressa: ""Conheço Erevos de outros tempos. Ele tinha uma filha. E os humanos a mataram. Por isso tudo isto. Por isso eu."" E some no vapor do caldeirão."
 QUEST_ARC1_CH8_COMPLETE,"Ele dormiu! Dormiu a noite inteira, na cama dele, de pé lavado. Que tudo de bom lhe aconteça, Viajante."
 QUEST_ARC1_CH8_COMPLETE_P2,"Acordou falando da moça bonita, que ela contou que os humanos mataram a filha de alguém. Eu não sei de filha de ninguém. Mas criança acredita em tudo que é dito bonito, e isso me preocupa."
@@ -232,7 +236,7 @@ QUEST_ARC1_CH9_DESC,"No Arraial do Sumidouro, os barcos são tragados por uma te
 QUEST_ARC1_CH9_OPTION,[História] Que tempestade é essa que só chove no abismo?
 QUEST_ARC1_CH9_OFFER,"Chove em cima do abismo e em mais lugar nenhum, Viajante. Céu limpo no arraial, estrela no céu, e lá no meio do rio uma nuvem preta parada, roncando. Três barcos foram tragados este mês."
 QUEST_ARC1_CH9_OFFER_P2,"Lá embaixo mora a Boiúna, a cobra-grande preta. Ela sempre foi dona do rio fundo, e quem respeitava o fundo passava. Agora não deixa ninguém nem chegar perto. É como se estivesse escondendo alguma coisa."
-QUEST_ARC1_CH9_OFFER_P3,"Pergunta pro Benedito Barqueiro e pro Lindolfo, lá no Porto, que eles conhecem rio. Depois junta umas escamas pretas que as cobras do rio andam soltando e joga no abismo, numa noite. Ela vai subir pra buscar o que é dela."
+QUEST_ARC1_CH9_OFFER_P3,"Pergunta pro Benedito Barqueiro e pro Lindolfo, lá no Porto, que eles conhecem rio. Depois desce no abismo, pela trilha atrás do arraial, junta as escamas pretas que as sucuris de lá andam soltando e joga tudo no poço, numa noite. Ela vai subir pra buscar o que é dela."
 QUEST_ARC1_CH9_PROGRESS,"Benedito, Lindolfo, as escamas e o abismo. De noite. E amarra bem a bota, que o barranco escorrega."
 QUEST_ARC1_CH9_STEP_1,Ouça o Barqueiro Benedito sobre os barcos tragados
 QUEST_ARC1_CH9_LORE_1_OPT,[Causo] A Dona Ana perguntou dos barcos tragados.
@@ -242,7 +246,7 @@ QUEST_ARC1_CH9_STEP_2,Ouça o pescador Lindolfo sobre a cobra-grande
 QUEST_ARC1_CH9_LORE_2_OPT,[Causo] O que o senhor sabe da Boiúna?
 QUEST_ARC1_CH9_LORE_2,"Sei que ela é mais velha que o rio. Meu pai dizia que, quando a Boiúna passa, o rio muda de lugar. E dizia que ela tem memória comprida: tudo que passou por cima dela, ela lembra."
 QUEST_ARC1_CH9_LORE_2_P2,"Se tem alguém nesta terra que viu o que ninguém viu, Viajante, é ela. Mas lembrança de cobra-grande é que nem rio na cheia: pra chegar nela, tem que atravessar a tempestade."
-QUEST_ARC1_CH9_STEP_3,Junte Escamas Negras das sucuris do rio (caem enquanto a missão pede)
+QUEST_ARC1_CH9_STEP_3,Junte Escamas Negras das Sucuris do Abismo do Sumidouro (caem enquanto a missão pede)
 QUEST_ARC1_CH9_STEP_4,"À noite, lance as escamas no abismo do Sumidouro e vença a Boiúna Atroz"
 QUEST_ARC1_CH9_DONE_4,"A tempestade se desfaz de uma vez e a Boiúna boia de lado, enorme e cansada. A voz dela é baixa como trovão longe: ""Ela subiu o rio. Não estava sozinha. Não estava com medo."" E afunda sem dizer de quem fala."
 QUEST_ARC1_CH9_COMPLETE,"Parou de chover no abismo. Os barqueiros já estão descendo o rio cantando. Cantando, Viajante! Fazia lua que ninguém cantava aqui."

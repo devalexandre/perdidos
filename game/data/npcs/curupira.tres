@@ -13,3 +13,4 @@ spawn_marker = &"curupira"
 move_speed = 1.0
 dialogue = ExtResource("1_dialogue")
 fallback_sprite_base = "res://assets/npcs/npc_curious_child"
+presence = 1

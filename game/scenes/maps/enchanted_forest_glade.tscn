@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/shared/map.gd" id="map"]
 
-[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_ground_sabia_forest.tres" id="groundmat"]
+[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_ground_pindorama_forest.tres" id="groundmat"]
 
 [ext_resource type="Script" path="res://scripts/shared/terrain_trail.gd" id="trail_script"]
 
@@ -427,7 +427,7 @@ metadata/respawn_sec = 35
 [node name="monsters_8" type="Marker3D" parent="Spawns"]
 
 position = Vector3(22, 0, -23)
-metadata/monster_id = &"sabia_jaguar"
+metadata/monster_id = &"pindorama_jaguar"
 metadata/stage = 1
 metadata/count = 2
 metadata/radius_cells = 7

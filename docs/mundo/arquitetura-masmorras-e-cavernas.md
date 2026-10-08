@@ -111,7 +111,7 @@ O jogo conta com duas famílias estéticas principais para interiores subterrân
 
 ## 4. Estrutura da Masmorra MVP: Caverna do Reino Encoberto
 
-A primeira masmorra completa da Terra do Sabiá implementa integralmente este padrão:
+A primeira masmorra completa da Terra de Pindorama implementa integralmente este padrão:
 
 | Andar | Nome Canônico | Nível | Tipo de Interior | Destaques de Topologia e Conteúdo |
 |---|---|---|---|---|
@@ -126,8 +126,8 @@ A primeira masmorra completa da Terra do Sabiá implementa integralmente este pa
 
 Seguindo este mesmo padrão de 4 andares e Chefe no F4:
 
-1. **Brejo do Corpo-Seco (Sabiá):** 4 andares subterrâneos sob as águas paradas; F4 abriga o Chefe Corpo-Seco Ancestral.
-2. **Remanso da Iara (Sabiá):** 4 andares de palácio submerso estilo Byalan; F4 abriga o Santuário da Iara no fundo do rio.
-3. **Toca do Mapinguari (Sabiá):** 4 andares de grutas de terra vermelha e ossadas; F4 abriga o Mapinguari Titânico.
+1. **Brejo do Corpo-Seco (Pindorama):** 4 andares subterrâneos sob as águas paradas; F4 abriga o Chefe Corpo-Seco Ancestral.
+2. **Remanso da Iara (Pindorama):** 4 andares de palácio submerso estilo Byalan; F4 abriga o Santuário da Iara no fundo do rio.
+3. **Toca do Mapinguari (Pindorama):** 4 andares de grutas de terra vermelha e ossadas; F4 abriga o Mapinguari Titânico.
 4. **Labirinto do Minotauro (Costa das Colunas):** 4 andares de masmorra clássica de alvenaria e pilares; F4 abriga o Minotauro Ancestral.
 5. **Galerias da Esfinge (Areias do Nilo):** 4 andares de cripta e corredores de arenito talhado; F4 abriga a Câmara da Esfinge.

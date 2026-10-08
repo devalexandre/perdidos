@@ -213,7 +213,7 @@ static func install_map(map_node: Node) -> void:
 	var center: Vector3 = _spawn_point(map_node)
 	_add_object(root, "test_bench", &"sit", center + BENCH_OFFSET, {"facing_yaw": BENCH_YAW})
 	_add_object(root, "test_gate", &"portal", center + GATE_OFFSET,
-			{"target_map": &"fields_sabia", "recommended_level": GATE_LEVEL})
+			{"target_map": &"fields_pindorama", "recommended_level": GATE_LEVEL})
 
 
 static func _add_object(root: Node, id: String, type: StringName, pos: Vector3,

@@ -260,7 +260,7 @@ h3 { margin: 0 0 6px; font-size: 20px; line-height: 1.3; color: var(--gold-brigh
 .region.featured h3 { font-size: 24px; }
 .region.featured p { font-size: 17px; }
 
-/* ---------- Terra do Sabiá ---------- */
+/* ---------- Terra de Pindorama ---------- */
 .places { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin: 0 0 36px; padding: 0; list-style: none; }
 .places li { padding: 14px 16px; }
 .places strong { display: block; color: var(--gold-bright); }
@@ -503,12 +503,12 @@ footer a:hover { color: var(--gold-bright); }
 .npc-art { flex: none; padding: 4px 6px; border-radius: 6px; background: radial-gradient(circle at 50% 75%, rgba(90,140,115,.35), transparent 70%); }
 .npc-art img { width: 76px; height: 92px; }
 
-/* ---------- Árvores da Terra do Sabiá (30/09/2026) ---------- */
-.sabia-trees { margin-top: 28px; }
-.sabia-trees > h3 { font-size: 22px; }
-.sabia-trees > p { font-size: 15px; margin: 0 0 14px; }
-.sabia-trees .c-blade { color: #d6a04a; } .sabia-trees .c-arcane { color: #5ccec4; } .sabia-trees .c-bow { color: #b0bc48; }
-.sabia-trees .c-support { color: #78c858; } .sabia-trees .c-tank { color: #c48840; } .sabia-trees .c-hybrid { color: #f47c32; }
+/* ---------- Árvores da Terra de Pindorama (30/09/2026) ---------- */
+.pindorama-trees { margin-top: 28px; }
+.pindorama-trees > h3 { font-size: 22px; }
+.pindorama-trees > p { font-size: 15px; margin: 0 0 14px; }
+.pindorama-trees .c-blade { color: #d6a04a; } .pindorama-trees .c-arcane { color: #5ccec4; } .pindorama-trees .c-bow { color: #b0bc48; }
+.pindorama-trees .c-support { color: #78c858; } .pindorama-trees .c-tank { color: #c48840; } .pindorama-trees .c-hybrid { color: #f47c32; }
 .trees { display: grid; gap: 14px; }
 .skilltree { padding: 16px 18px; }
 .skilltree h4 { margin: 0; font-size: 18px; color: var(--gold-bright); }
@@ -563,7 +563,7 @@ footer a:hover { color: var(--gold-bright); }
 .skilltree.traveler { --tab-c: #c9b08a; }
 .to-titles { margin: 18px 0 0; font-size: 15px; }
 
-/* Abas genéricas (O Mundo, Terra do Sabiá, Combate) */
+/* Abas genéricas (O Mundo, Terra de Pindorama, Combate) */
 .tabbed-group { display: block !important; }
 .tabbed-group > [data-tab][hidden] { display: none !important; }
 .tabbed-group > [data-tab] { width: 100%; max-width: none; }

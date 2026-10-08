@@ -1251,6 +1251,12 @@ metadata/monster_id = &"silence_crier"
 metadata/radius_cells = 9
 metadata/respawn_sec = 600.0
 
+[node name="StoryInn" type="Marker3D" parent="."]
+position = Vector3(-14, 0, -20)
+
+[node name="firmino_insone" type="Marker3D" parent="NpcPoints"]
+position = Vector3(4, 0, 19)
+
 [node name="StoryLairs" type="Node3D" parent="."]
 
 [node name="pisadeira" type="Marker3D" parent="StoryLairs"]
@@ -1259,9 +1265,3 @@ metadata/monster_id = &"story_pisadeira"
 metadata/radius_cells = 6
 metadata/escort = {"despair_possessed": 5, "whispering_shade": 5}
 metadata/escort_stage = 2
-
-[node name="StoryInn" type="Marker3D" parent="."]
-position = Vector3(-14, 0, -20)
-
-[node name="firmino_insone" type="Marker3D" parent="NpcPoints"]
-position = Vector3(4, 0, 19)

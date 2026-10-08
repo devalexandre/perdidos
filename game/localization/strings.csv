@@ -176,3 +176,23 @@ TITLE_SLOT_COUNT,%d/%d slot
 TITLE_SLOT_LEVEL,Nível %d
 TITLE_SLOT_LOCKED,Personagem salvo: a aparência não pode mais ser alterada.
 UI_HOTBAR_ALREADY_EQUIPPED,Esse equipamento já está vestido.
+UI_INV_TAB_ALL,Tudo
+UI_INV_TAB_EQUIP,Equipamento
+UI_INV_TAB_USE,Consumíveis
+UI_INV_TAB_MATERIAL,Materiais
+UI_INV_TAB_CRENDICE,Crendices
+UI_INV_SORT,Organizar
+UI_INV_SORT_HINT,"Arruma a mochila por tipo, raridade e nome"
+UI_INV_BAG,Mochila
+ITEM_TYPE_CRENDICE,Crendice
+RARITY_COMMON,Comum
+RARITY_UNCOMMON,Incomum
+RARITY_RARE,Raro
+RARITY_EPIC,Épico
+UI_ITEM_SELLS_FOR,Vende por %s
+UI_ITEM_BOUND,Não negociável
+UI_TARGET_SET,Alvo: %s
+UI_SETTINGS_VIDEO,Vídeo e interface
+UI_SETTINGS_AUDIO,Som
+UI_SETTINGS_CONTROLS,Controle
+UI_CRENDICE_ALTAR,Altar de Crendice

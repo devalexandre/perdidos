@@ -6,12 +6,15 @@ Uso: python3 game/tools/check_names.py [--strict-docs]
 - Documentos de conteúdo (TITULOS-E-SKILLS.md, docs/lore, docs/tutorial-design.md): "!" = aviso,
   ou erro com --strict-docs.
 - "?" e "~" são sempre avisos para revisão humana.
+- Exceções revisadas (game/data/cultural/sensitive_exceptions.txt): "<CHAVE_DA_TRADUÇÃO> <termo>  # motivo"
+  ignora aquele termo só naquela linha de tradução (ex.: a cantiga "Nana, nenê" não é a orixá Nanã).
 """
 import re, sys, unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 TERMS = ROOT / "game/data/cultural/sensitive_terms.txt"
+EXCEPTIONS = ROOT / "game/data/cultural/sensitive_exceptions.txt"
 SHIPPED = sorted((ROOT / "game/localization").glob("*.csv")) + sorted((ROOT / "game/data").rglob("*.tres"))
 DOCS = [ROOT / "TITULOS-E-SKILLS.md", ROOT / "docs/tutorial-design.md"] + sorted((ROOT / "docs/lore").glob("*.md")) + sorted((ROOT / "docs/mundo").glob("*.md"))
 LABEL = {"!": "PROIBIDO", "?": "sensível", "~": "Ragnarok"}
@@ -34,13 +37,27 @@ def load_terms():
         out.append((level, term, pat, False))
     return out
 
-def scan(path: Path, terms, shipped: bool, strict_docs: bool) -> int:
+def load_exceptions() -> set:
+    out = set()
+    if not EXCEPTIONS.exists():
+        return out
+    for line in EXCEPTIONS.read_text(encoding="utf-8").splitlines():
+        line = line.split("#", 1)[0].strip()
+        if line:
+            key, term = line.split(None, 1)
+            out.add((key, term.strip()))
+    return out
+
+def scan(path: Path, terms, shipped: bool, strict_docs: bool, exceptions: set = frozenset()) -> int:
     errors = 0
     for n, line in enumerate(path.read_text(encoding="utf-8", errors="replace").splitlines(), 1):
         if shipped and path.suffix == ".csv" and n == 1:
             continue
         nl = norm(line)
+        key = line.split(",", 1)[0] if path.suffix == ".csv" else ""
         for level, term, pat, raw in terms:
+            if (key, term) in exceptions:
+                continue
             if pat.search(line if raw else nl):
                 is_err = level == "!" and (shipped or strict_docs)
                 errors += is_err
@@ -50,7 +67,8 @@ def scan(path: Path, terms, shipped: bool, strict_docs: bool) -> int:
 def main():
     strict = "--strict-docs" in sys.argv
     terms = load_terms()
-    errors = sum(scan(p, terms, True, strict) for p in SHIPPED if p.exists())
+    exceptions = load_exceptions()
+    errors = sum(scan(p, terms, True, strict, exceptions) for p in SHIPPED if p.exists())
     errors += sum(scan(p, terms, False, strict) for p in DOCS if p.exists())
     print(f"\n{len(terms)} termos checados; {errors} erro(s).")
     sys.exit(1 if errors else 0)

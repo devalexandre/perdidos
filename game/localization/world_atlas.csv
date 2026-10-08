@@ -42,14 +42,14 @@ WA_KIND_SEA,Mar
 WA_KIND_ISLAND,Ilha
 WA_KIND_DOODLE,Desenho de monstro (lenda de marinheiro)
 WA_KIND_FRONTIER,Terra além do mapa
-WA_R_SABIA,Terra do Sabiá
-WA_R_SABIA_HOOK,"Rios largos, cerrado de ipês e chapadas acima das nuvens: onde os Viajantes acordam."
+WA_R_PINDORAMA,Terra de Pindorama
+WA_R_PINDORAMA_HOOK,"Rios largos, cerrado de ipês e chapadas acima das nuvens: onde os Viajantes acordam."
 WA_P_PORTO_DESPERTAR,Porto do Despertar
 WA_P_PORTO_DESPERTAR_HOOK,"Cidade do rio onde os Viajantes acordam, sob o ipê amarelo gigante e o cristal azul."
 WA_P_CAMPO_TREINO,Campo de Treino dos Viajantes
 WA_P_CAMPO_TREINO_HOOK,Planalto sobre o Mar do Meio onde Mestres de todas as nações recebem os recém-chegados.
-WA_P_CAMPOS_SABIA,Campos do Sabiá
-WA_P_CAMPOS_SABIA_HOOK,"Cerrado de ipês em flor, buritis e cupinzeiros: os primeiros passos longe da cidade."
+WA_P_CAMPOS_PINDORAMA,Campos de Pindorama
+WA_P_CAMPOS_PINDORAMA_HOOK,"Cerrado de ipês em flor, buritis e cupinzeiros: os primeiros passos longe da cidade."
 WA_P_MATA_ENCANTADA,Mata Encantada
 WA_P_MATA_ENCANTADA_HOOK,"Mata fechada de cipós e igarapés, com um velho forte engolido pelo musgo."
 WA_P_CHAPADA_CEU_PARTIDO,Chapada do Céu Partido
@@ -84,6 +84,8 @@ WA_P_SERRA_SUMIDOURO,Serra do Sumidouro
 WA_P_SERRA_SUMIDOURO_HOOK,"Trilhas de cristal à beira da Garganta do Abismo, até a boca que engole a montanha."
 WA_P_TERRA_OCA,Túneis da Terra Oca
 WA_P_TERRA_OCA_HOOK,"Galerias titânicas de cristal sob a serra, onde tecelãs de sombra fiam no escuro e um titã dorme."
+WA_P_ABISMO_SUMIDOURO,Abismo do Sumidouro
+WA_P_ABISMO_SUMIDOURO_HOOK,"Um poço de pedra molhada sob o arraial, onde uma nuvem preta chove sozinha e barcos somem."
 WA_P_BREJO_CORPO_SECO,Brejo do Corpo-Seco
 WA_P_BREJO_CORPO_SECO_HOOK,Charco de árvores mortas onde brasas frias vagam à noite.
 WA_P_REMANSO_IARA,Remanso da Iara

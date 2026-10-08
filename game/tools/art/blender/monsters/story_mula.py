@@ -1,4 +1,4 @@
-"""Mula-sem-Cabeca Atroz (story_mula) — chefe da historia, Arco 1 cap. 2 (ARCO-1-TERRA-DO-SABIA.md). So existe na
+"""Mula-sem-Cabeca Atroz (story_mula) — chefe da historia, Arco 1 cap. 2 (ARCO-1-TERRA-DE-PINDORAMA.md). So existe na
 forma atroz (estagio 4, quadro 240). Sem componente religioso (como a Mula de Brasa).
 v2 (07/10/2026, pedido do dono: ler como MULA em todas as direcoes, principalmente S e SE):
   - corpo de mula chibi bem visivel de frente: peito largo e claro, as duas patas dianteiras a mostra, pescoco

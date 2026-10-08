@@ -1,0 +1,108 @@
+{
+ "harpy_slate": {
+  "ramp": [
+   "Base 1",
+   "Pedra/metal 1",
+   "Pedra/metal 2",
+   "Pedra/metal 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "harpy_leg": {
+  "ramp": [
+   "Pedra/metal 1",
+   "Pedra/metal 2",
+   "Pedra/metal 3",
+   "Pedra/metal 4"
+  ],
+  "line": "Pedra/metal 1",
+  "out": "Base 1"
+ },
+ "harpy_brow": {
+  "flat": "Base 1",
+  "out": "Base 1"
+ },
+ "harpy_bar": {
+  "flat": "Pedra/metal 2",
+  "out": "Pedra/metal 1"
+ },
+ "harpy_skin": {
+  "ramp": [
+   "Pele escura 3",
+   "Pele escura 4",
+   "Pele clara 3",
+   "Pele clara 4"
+  ],
+  "line": "Pele escura 2",
+  "out": "Pele escura 1"
+ },
+ "harpy_hair": {
+  "ramp": [
+   "Azul ceu 1",
+   "Pedra/metal 1",
+   "Pedra/metal 2",
+   "Pedra/metal 3"
+  ],
+  "line": "Azul ceu 1",
+  "out": "Base 1"
+ },
+ "harpy_black": {
+  "ramp": [
+   "Base 1",
+   "Base 1",
+   "Pedra/metal 1",
+   "Pedra/metal 2"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "harpy_dirty": {
+  "ramp": [
+   "Pergaminho 1",
+   "Pergaminho 2",
+   "Pergaminho 3",
+   "Pergaminho 4"
+  ],
+  "line": "Pergaminho 1",
+  "out": "Base 1"
+ },
+ "harpy_grey": {
+  "ramp": [
+   "Pedra/metal 1",
+   "Pedra/metal 2",
+   "Pergaminho 2",
+   "Pedra/metal 3"
+  ],
+  "line": "Pedra/metal 1",
+  "out": "Base 1"
+ },
+ "harpy_bone": {
+  "ramp": [
+   "Pergaminho 1",
+   "Pergaminho 2",
+   "Pergaminho 3",
+   "Pergaminho 4"
+  ],
+  "line": "Pergaminho 1",
+  "out": "Base 1"
+ },
+ "harpy_talon": {
+  "ramp": [
+   "Base 1",
+   "Base 1",
+   "Pedra/metal 1",
+   "Pedra/metal 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "harpy_scar": {
+  "flat": "Vermelho 1",
+  "out": "Vermelho 1"
+ },
+ "harpy_shade": {
+  "flat": "Pele escura 2",
+  "out": "Pele escura 1"
+ }
+}

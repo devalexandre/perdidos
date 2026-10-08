@@ -452,6 +452,9 @@ size = Vector3(12.0, 3.0, 2.0)
 size = Vector3(12.0, 3.0, 2.0)
 
 
+[sub_resource type="BoxShape3D" id="story_portal_shape"]
+size = Vector3(4, 3, 4)
+
 [node name="city_sumidouro" type="Node3D"]
 script = ExtResource("map")
 map_id = &"city_sumidouro"
@@ -1493,3 +1496,31 @@ metadata/target_id = "m:altar_crendice"
 metadata/interact_type = &"altar"
 metadata/crendice_action = &"consecrate"
 metadata/approach_position = Vector3(0, 0, -14.0)
+
+[node name="AbyssReturn" type="Marker3D" parent="."]
+position = Vector3(10, 0, 26)
+
+[node name="GateAbyss" type="Area3D" parent="Interactables"]
+position = Vector3(14, 1, 28)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"city_sumidouro_gate_abyss"
+metadata/target_id = "m:city_sumidouro_gate_abyss"
+metadata/interact_type = &"portal"
+metadata/target_map = &"sumidouro_abyss"
+metadata/target_spawn = &"SpawnPoint"
+metadata/approach_position = Vector3(14, 0.0, 28)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/GateAbyss"]
+shape = SubResource("story_portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/GateAbyss"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "↓ Abismo do Sumidouro"

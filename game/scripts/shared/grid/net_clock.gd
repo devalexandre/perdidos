@@ -16,8 +16,16 @@ const INITIAL_PING_INTERVAL_MSEC: float = 100.0
 const RESYNC_INTERVAL_MSEC: float = 2000.0
 const USEC_PER_MSEC: float = 1000.0
 
-## offset (ms) somado ao relógio local para obter o do servidor.
+## Troca de offset (amostra melhor chegou): em vez de saltar (o personagem daria um tranco de alguns px), o offset
+## em uso desliza até o novo a no máximo OFFSET_SLEW_RATE ms por ms de relógio local (o tempo nunca volta);
+## diferenças acima de OFFSET_SNAP_MSEC (primeiro sync, relógio muito errado) entram na hora.
+const OFFSET_SLEW_RATE: float = 0.05
+const OFFSET_SNAP_MSEC: float = 250.0
+
+## offset (ms) somado ao relógio local para obter o do servidor (o em uso; desliza até _target_offset_msec).
 static var offset_msec: float = 0.0
+static var _target_offset_msec: float = 0.0
+static var _slew_last_msec: float = 0.0
 static var synced: bool = false
 ## RTT (ms) da amostra em uso.
 static var rtt_msec: float = 0.0
@@ -33,7 +41,12 @@ static func local_now_msec() -> float:
 
 ## Relógio do servidor estimado (ms, com fração).
 static func server_now_msec() -> float:
-	return local_now_msec() + offset_msec
+	var now: float = local_now_msec()
+	if offset_msec != _target_offset_msec:
+		var max_step: float = maxf(0.0, now - _slew_last_msec) * OFFSET_SLEW_RATE
+		offset_msec = move_toward(offset_msec, _target_offset_msec, max_step)
+	_slew_last_msec = now
+	return now + offset_msec
 
 
 ## Relógio do servidor em ms inteiros (para o estado replicado).
@@ -43,6 +56,7 @@ static func server_now_msec_int() -> int:
 
 static func reset() -> void:
 	offset_msec = 0.0
+	_target_offset_msec = 0.0
 	synced = false
 	rtt_msec = 0.0
 	_samples.clear()
@@ -75,5 +89,8 @@ static func add_sample(client_send_msec: float, server_msec: float) -> void:
 		if s.x < best.x:
 			best = s
 	rtt_msec = best.x
-	offset_msec = best.y
+	_target_offset_msec = best.y
+	if not synced or absf(best.y - offset_msec) > OFFSET_SNAP_MSEC:
+		offset_msec = best.y
+	_slew_last_msec = recv
 	synced = true

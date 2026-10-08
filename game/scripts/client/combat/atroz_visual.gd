@@ -10,6 +10,10 @@ const ATROZ_TINT: Color = Color(0.62, 0.06, 0.12, 1.0)
 const WIND_TINT: Color = Color(0.35, 0.85, 1.0, 1.0)
 const ATROZ_AURA_ALPHA: float = 0.4
 const ATROZ_PULSE_SEC: float = 2.2
+## Chama negra (fase 4 do Boitatá, appearance["black_flame"]): aura quase preta com borda roxa, mais forte e rápida.
+const BLACK_FLAME_TINT: Color = Color(0.16, 0.02, 0.22, 1.0)
+const BLACK_FLAME_ALPHA: float = 0.75
+const BLACK_FLAME_PULSE_SEC: float = 0.9
 
 
 static func apply_atroz(v: DirectionalSprite3D) -> AtrozVisual:
@@ -23,11 +27,20 @@ static func apply_atroz(v: DirectionalSprite3D) -> AtrozVisual:
 	var entity := v.get_parent() as NetEntity
 	if entity != null and MonsterDef.species_of(entity.def_id) == &"prank_whirlwind":
 		fx.tint = WIND_TINT
+	var black: bool = is_black_flame(entity)
+	if black:
+		fx.tint = BLACK_FLAME_TINT
 	fx._rebuild()
 	var mat: ShaderMaterial = fx._aura.material_override as ShaderMaterial
-	mat.set_shader_parameter(&"alpha", ATROZ_AURA_ALPHA)
-	mat.set_shader_parameter(&"pulse_sec", ATROZ_PULSE_SEC)
+	mat.set_shader_parameter(&"alpha", BLACK_FLAME_ALPHA if black else ATROZ_AURA_ALPHA)
+	mat.set_shader_parameter(&"pulse_sec", BLACK_FLAME_PULSE_SEC if black else ATROZ_PULSE_SEC)
 	return fx
+
+
+## Chama negra ligada no monstro? (NetEntity.appearance["black_flame"], BoitataFight fase 4.)
+static func is_black_flame(entity: Node) -> bool:
+	var app: Variant = entity.get(&"appearance") if entity != null and &"appearance" in entity else {}
+	return app is Dictionary and bool((app as Dictionary).get(&"black_flame", false))
 
 
 static func remove_atroz(v: Node) -> void:

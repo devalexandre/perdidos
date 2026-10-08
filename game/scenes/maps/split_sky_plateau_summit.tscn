@@ -621,3 +621,12 @@ mesh = ExtResource("one_pk_deadtree_3")
 
 [node name="BrasasCrossroads" type="Marker3D" parent="."]
 position = Vector3(0, 0, 0)
+
+[node name="StoryLairs" type="Node3D" parent="."]
+
+[node name="mula" type="Marker3D" parent="StoryLairs"]
+position = Vector3(0, 0, 0)
+metadata/monster_id = &"story_mula"
+metadata/radius_cells = 6
+metadata/escort = {"highland_ember_mule": 6, "highland_cinder_serpent": 4}
+metadata/escort_stage = 1

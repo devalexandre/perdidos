@@ -1,4 +1,4 @@
-"""Lobisomem Atroz (story_lobisomem) — chefe da historia, Arco 1 cap. 3 (ARCO-1-TERRA-DO-SABIA.md; ARCO-DO-LOBISOMEM.md).
+"""Lobisomem Atroz (story_lobisomem) — chefe da historia, Arco 1 cap. 3 (ARCO-1-TERRA-DE-PINDORAMA.md; ARCO-DO-LOBISOMEM.md).
 So existe na forma atroz (estagio 4, quadro 240). Substitui, para a historia, o werewolf s4 (bolha pequena).
 Lobisomem chibi FORTE, de pe e curvado: cabecona de lobo com focinho, orelhas altas, olhos de ouro aceso com fenda,
 sobrancelha brava e bocarra de presas; juba eriçada em volta do pescoco, peito largo com uma lua crescente de pelo

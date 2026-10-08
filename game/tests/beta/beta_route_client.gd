@@ -417,8 +417,8 @@ func _run() -> void:
 		await _dbg(&"skill_level", [req, Content.skill(&"blade_charge").required_skill_levels[req]])
 	var lesson_ok: bool = await _accept(&"master_brisa", &"lesson_blade_charge")
 	_check("licao_aceita_no_porto", lesson_ok, _opts)
-	# Campos do Sabiá
-	if not await _portal("gate_north", &"fields_sabia"):
+	# Campos de Pindorama
+	if not await _portal("gate_north", &"fields_pindorama"):
 		_finish()
 		return
 	await _shot("campos_chegada")
@@ -430,7 +430,7 @@ func _run() -> void:
 		await _sleep(0.5)
 	_check("licao_cumprida_cacando_nos_campos", bool(_quest(&"lesson_blade_charge").get("ready", false)), _quest(&"lesson_blade_charge"))
 	await _death("campos", "SpawnPoint")
-	for fields_map: StringName in [&"fields_sabia_buriti", &"fields_sabia_crossroads"]:
+	for fields_map: StringName in [&"fields_pindorama_buriti", &"fields_pindorama_crossroads"]:
 		if not await _portal("forward", fields_map):
 			_finish()
 			return
@@ -462,7 +462,7 @@ func _run() -> void:
 	await _death("chapada", "SpawnPoint")
 	await _bosses()
 	# Volta
-	for step: Array in [["back", &"enchanted_forest_heart"], ["back", &"enchanted_forest_roots"], ["back", &"enchanted_forest_glade"], ["back", &"enchanted_forest"], ["back", &"fields_sabia_crossroads"], ["back", &"fields_sabia_buriti"], ["back", &"fields_sabia"], ["back", &"city_awakening"]]:
+	for step: Array in [["back", &"enchanted_forest_heart"], ["back", &"enchanted_forest_roots"], ["back", &"enchanted_forest_glade"], ["back", &"enchanted_forest"], ["back", &"fields_pindorama_crossroads"], ["back", &"fields_pindorama_buriti"], ["back", &"fields_pindorama"], ["back", &"city_awakening"]]:
 		if not await _portal(step[0], step[1]):
 			_finish()
 			return
@@ -514,7 +514,7 @@ func _training() -> void:
 				await _sleep(3.0)
 	_check("treino_provacao_vencida", bool(_quest(Q).get("ready", false)), _quest(Q))
 	var done: bool = await _turn_in(&"master_jatoba", Q)
-	_check("treino_titulo_conquistado", done and "sabia_blade_machete" in _progress.get("titles", []), _progress.get("titles"))
+	_check("treino_titulo_conquistado", done and "pindorama_blade_machete" in _progress.get("titles", []), _progress.get("titles"))
 	await _shot("treino_titulo")
 	await _death("treino", "CampRespawn")
 
@@ -522,7 +522,7 @@ func _training() -> void:
 ## Chapada: chefes fixos dos covis (sem evolução nem contagem de abates), noite (forma atroz) e a quest do Seu Zé.
 func _bosses() -> void:
 	const ZE: StringName = &"elder_ze_steel_song"
-	await _dbg(&"grant_title", [&"sabia_arcane_firefly"])
+	await _dbg(&"grant_title", [&"pindorama_arcane_firefly"])
 	await _dbg(&"quest_accept", [ZE])
 	await _dbg(&"give_item", [&"eternal_ember", 2])
 	await _sleep(1.0)
@@ -612,7 +612,7 @@ func _duo() -> void:
 	_check("ws_grupo_formado", await _wait(func() -> bool:
 		return (NetParty.client_party.get(NetParty.K_MEMBERS, []) as Array).size() == 2, 20.0), NetParty.client_party)
 	await _sleep(4.0)
-	if not await _portal("gate_north", &"fields_sabia"):
+	if not await _portal("gate_north", &"fields_pindorama"):
 		return
 	_check("ws_ve_o_outro_nos_campos", await _wait(func() -> bool: return _player_named(other) != null, 30.0), other)
 	await _shot("ws_campos_%s" % me)

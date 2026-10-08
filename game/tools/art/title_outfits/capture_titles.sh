@@ -14,7 +14,7 @@ EQUIP="{}"
 [[ -n "${WEAPON:-}" ]] && EQUIP="{\"weapon\": {\"item\": \"$WEAPON\", \"qty\": 1, \"protected\": false}}"
 TITLES=("$@")
 if [[ ${#TITLES[@]} -eq 0 ]]; then
-	for f in "$P"/data/titles/sabia_*.tres; do TITLES+=("$(basename "$f" .tres)"); done
+	for f in "$P"/data/titles/pindorama_*.tres; do TITLES+=("$(basename "$f" .tres)"); done
 fi
 PIDS=()
 cleanup() { for p in "${PIDS[@]}"; do kill "$p" 2>/dev/null; done; wait 2>/dev/null; }
@@ -27,7 +27,7 @@ for t in "${TITLES[@]}"; do
 		cat >"$OUT/saves/$(echo "$name" | tr '[:upper:]' '[:lower:]').json" <<JSON
 {"format": 1, "name": "$name", "body": "$body", "level": 10, "attributes": {}, "hp": 200, "mp": 200, "stars": 0,
  "inventory": [], "equipment": $EQUIP, "once_flags": [], "left_training": true, "home_map": "city_awakening",
- "appearance": {"skin": 1, "hair_style": "$hair", "hair_color": 1, "eye_color": 0, "nationality": "sabia"},
+ "appearance": {"skin": 1, "hair_style": "$hair", "hair_color": 1, "eye_color": 0, "nationality": "pindorama"},
  "progression": {"titles": {"$t": 1}, "displayed_title": "$t"}}
 JSON
 	done

@@ -1,7 +1,7 @@
 class_name QuestStep
 extends Resource
 ## Etapa de quest (GDD §9.1).
-## RITUAL (Arco 1, ARCO-1-TERRA-DO-SABIA.md §1 regras 5–6 e §4): no covil do chefe da história (target_id = MonsterDef
+## RITUAL (Arco 1, ARCO-1-TERRA-DE-PINDORAMA.md §1 regras 5–6 e §4): no covil do chefe da história (target_id = MonsterDef
 ## com story_boss) e à noite, faz o chefe nascer na hora se ele não estiver vivo (nunca cria um segundo). A etapa conclui
 ## quando esse chefe cai com o jogador entre os participantes do combate, venha ele do ritual ou do nascimento natural.
 enum StepType { KILL, COLLECT, EXPLORE, TALK, TRIAL, WAIT, NAME_COMPANION, RITUAL }
@@ -38,7 +38,7 @@ enum StepType { KILL, COLLECT, EXPLORE, TALK, TRIAL, WAIT, NAME_COMPANION, RITUA
 ## TRIAL: só pode começar numa noite de lua cheia no mapa de destino.
 @export var trial_requires_full_moon: bool = false
 
-## --- Terra do Sabiá v0.4 (quests de combinação, TITULOS-E-SKILLS.md §3.3) ---
+## --- Terra de Pindorama v0.4 (quests de combinação, TITULOS-E-SKILLS.md §3.3) ---
 ## KILL: variante exigida do monstro. &"any" (padrão), &"rare" (variante rara), &"boss" (estágio 3,
 ## CombatRules.STAGE_BOSS) ou &"atroz" (chefe na forma atroz da noite: MonsterBrain.atroz).
 ## target_id vazio = qualquer espécie.
@@ -59,7 +59,7 @@ enum StepType { KILL, COLLECT, EXPLORE, TALK, TRIAL, WAIT, NAME_COMPANION, RITUA
 @export var protect_count: int = 3
 @export var protect_min_alive: int = 1
 
-## --- Arco 1 da história (ARCO-1-TERRA-DO-SABIA.md §4) ---
+## --- Arco 1 da história (ARCO-1-TERRA-DE-PINDORAMA.md §4) ---
 ## COLLECT: item de quest que só cai com a quest nesta etapa. Espécie que solta (variante regional conta) e chance
 ## por abate de quem tem crédito no abate (dono e grupo por perto). Vazio = item comum (drop, loja, ofício).
 @export var drop_from: StringName = &""

@@ -118,7 +118,7 @@ text_key = "DLG_ELDER_ZE_CRAFT_LONG_BLADE"
 action = &"craft_item"
 next_node = &"forge"
 action_args = Dictionary[StringName, Variant]({
-&"item_id": "sabia_long_blade",
+&"item_id": "pindorama_long_blade",
 &"qty": 1,
 &"causos_rank": 0,
 &"materials": Dictionary[StringName, int]({&"thick_leather": 2, &"pequi_root": 1})

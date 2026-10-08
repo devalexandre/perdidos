@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"comp_harpy_high_cry"
+name_key = "CSK_HARPY_HIGH_CRY"
+desc_key = "CSK_HARPY_HIGH_CRY_DESC"
+school = &"bow"
+element = &""
+region_id = &"brasil"
+target_type = 0
+effect = 10
+mana_cost = 0
+cooldown_sec = 15.0
+range_cells = 6.0
+radius_cells = 0.0
+base_multiplier = 0.6
+multiplier_per_level = 0.0
+duration_sec = 6.0
+extra = Dictionary[StringName, Variant]({&"evade": -0.15})
+counts_for_titles = false
+max_level = 1

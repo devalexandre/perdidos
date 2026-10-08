@@ -218,7 +218,7 @@ Cada NPC precisa ter visual próprio: idade, corpo, roupa medieval com sabor bra
 
 `NavMover` foi substituído por **`GridMover`** (`scripts/shared/entities/grid_mover.gd`) sobre `WalkGrid` + `GridPathfinder` + `MovePath` + `NetClock` (`scripts/shared/grid/`). O `NetEntity` replica `move_state` (caminho de células + horário de início no relógio do servidor + ms por célula) em vez de posições interpoladas; `net_position` só no spawn. `Balance.cfg.client_interp_delay_ms` e `player_move_speed` não são mais usados. Velocidade: `walk_ms_per_cell`; NPCs: `NpcDef.move_speed` (m/s) convertido em ms por célula.
 
-## ADENDO 4 (30/09/2026) — Terra do Sabiá: efeitos de status, cura e arco (Q → agente de efeitos)
+## ADENDO 4 (30/09/2026) — Terra de Pindorama: efeitos de status, cura e arco (Q → agente de efeitos)
 
 Desenho: `TITULOS-E-SKILLS.md` §3 (v0.4). O servidor (Q: `scripts/server/progression/`) aplica as mecânicas; o cliente só desenha. Nada muda em `skill_cast` e `cast_cancelled` (continuam como no Apêndice Q).
 

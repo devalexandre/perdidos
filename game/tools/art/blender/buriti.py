@@ -1,4 +1,4 @@
-"""Buriti (Mauritia flexuosa) estilizado — palmeira das veredas do cerrado (Terra do Sabiá). Original.
+"""Buriti (Mauritia flexuosa) estilizado — palmeira das veredas do cerrado (Terra de Pindorama). Original.
 Tronco reto cinza com anéis, coroa de folhas em LEQUE (costapalmadas, pregueadas, com pontas franjadas) em
 pecíolos longos, e 2–3 folhas secas penduradas. Gera buriti_a.glb e buriti_b.glb."""
 import sys, os

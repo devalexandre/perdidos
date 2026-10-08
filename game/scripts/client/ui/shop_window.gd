@@ -48,7 +48,7 @@ func _init(p_scale: float = 1.0) -> void:
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	footer.add_child(spacer)
 	_stars_label = Label.new()
-	_stars_label.add_theme_color_override(&"font_color", UIKit.c_stars())
+	_stars_label.add_theme_color_override(&"font_color", UIKit.COLOR_STARS)
 	footer.add_child(_stars_label)
 	_sell_area = PanelContainer.new()
 	_sell_area.name = &"SellArea"
@@ -102,18 +102,19 @@ func _make_row(id: StringName) -> Control:
 	var row := HBoxContainer.new()
 	row.name = String(id)
 	var slot := ItemSlot.new(ItemSlot.SOURCE_SHOP, -1, ui_scale)
+	slot.set_dark_style(true)
 	slot.set_item(id, 1)
 	row.add_child(slot)
 	var name_label := Label.new()
 	name_label.text = UIKit.item_name(def) if def != null else String(id)
-	name_label.add_theme_color_override(&"font_color", UIKit.rarity_color_on_panel(def))
+	name_label.add_theme_color_override(&"font_color", UIKit.rarity_color(def))
 	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	name_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	row.add_child(name_label)
 	var price := Label.new()
 	price.name = &"Price"
 	price.text = tr("UI_PRICE") % (def.buy_price if def != null else 0)
-	price.add_theme_color_override(&"font_color", UIKit.c_stars())
+	price.add_theme_color_override(&"font_color", UIKit.COLOR_STARS)
 	price.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	row.add_child(price)
 	var btn := Button.new()
@@ -133,7 +134,7 @@ func _refresh_affordable() -> void:
 		var price: Label = row.get_node_or_null(^"Price") as Label
 		if price != null and def != null:
 			price.add_theme_color_override(&"font_color",
-					UIKit.c_stars() if def.buy_price <= _stars else UIKit.c_error())
+					UIKit.COLOR_STARS if def.buy_price <= _stars else UIKit.COLOR_ERROR)
 
 
 func _can_drop_sell(_pos: Vector2, data: Variant) -> bool:

@@ -1,5 +1,5 @@
 """Pecas compartilhadas dos chefes da historia (Arco 1, lote 1): story_saci, story_mula, story_lobisomem,
-story_curupira e story_pisadeira (ARCO-1-TERRA-DO-SABIA.md). Os chefes da historia so existem na forma atroz
+story_curupira e story_pisadeira (ARCO-1-TERRA-DE-PINDORAMA.md). Os chefes da historia so existem na forma atroz
 (estagio 4, quadro 240), corrompidos por Erevos.
 
 Sinal comum da corrupcao: **fogo que escurece ate ficar preto nas pontas, com borda violeta** (o mesmo do Boitata,

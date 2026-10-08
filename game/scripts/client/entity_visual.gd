@@ -20,6 +20,8 @@ const NAMEPLATE_GAP_TEXELS: float = 2.0
 const BUBBLE_GAP_TEXELS: float = 12.0
 const EMOTE_DURATION_SEC: float = 3.0
 const CHAT_DURATION_SEC: float = 5.0
+## Duração (s) do apagar/acender do NPC que some fora do horário (NpcDef.presence).
+const PRESENCE_FADE_SEC: float = 1.6
 ## Largura máxima (texels) do texto do balão de chat antes de quebrar linha.
 const CHAT_WRAP_TEXELS: float = 140.0
 const CHAT_MAX_CHARS: int = 80
@@ -89,6 +91,8 @@ var _blink_left: float = 0.0
 ## Versão da escala de texel da tela já aplicada aos rótulos (DirectionalSprite3D._ui_version).
 var _ui_seen: int = -1
 var _follower: FollowerVisual
+## NPC com rotina por horário (NpcDef.presence != ALWAYS): some e volta em PRESENCE_FADE_SEC.
+var presence_def: NpcDef = null
 var _mount_visual: MountedVisual
 
 
@@ -267,7 +271,7 @@ const ATTACK_STYLE_BOW: String = "bow"
 static func weapon_attack_style(weapon_visual: StringName) -> StringName:
 	if weapon_visual.is_empty():
 		return ATTACK_STYLE_UNARMED
-	# Arcos (visual_id "simple_bow", "..._bow") usam o mesmo golpe: _attack_bow (Terra do Sabiá v0.4).
+	# Arcos (visual_id "simple_bow", "..._bow") usam o mesmo golpe: _attack_bow (Terra de Pindorama v0.4).
 	if String(weapon_visual).ends_with(ATTACK_STYLE_BOW):
 		return StringName(ATTACK_STYLE_BOW)
 	return weapon_visual
@@ -404,6 +408,26 @@ func _process(delta: float) -> void:
 		if _chat_left <= 0.0:
 			_hide_chat()
 	_update_blink(delta)
+	if presence_def != null:
+		_update_presence(delta)
+
+
+## NPC fora do horário: apaga em pontilhado (com nome e sombra) e deixa de ser clicável; volta igual.
+func _update_presence(delta: float, instant: bool = false) -> void:
+	var target: float = 1.0 if presence_def.is_present_now() else 0.0
+	presence = target if instant else move_toward(presence, target, delta / PRESENCE_FADE_SEC)
+	var shown: bool = presence > 0.001
+	if visible != shown:
+		visible = shown
+	_nameplate.modulate.a = presence
+	_pick_area.collision_layer = PICK_LAYER if presence >= 0.5 else 0
+
+
+## Liga a rotina por horário (fábrica, NPC com NpcDef.presence) já no estado certo, sem animar.
+func set_presence_def(def: NpcDef) -> void:
+	presence_def = def if def != null and def.presence != NpcDef.Presence.ALWAYS else null
+	if presence_def != null:
+		_update_presence(0.0, true)
 
 
 ## Piscar: a cada poucos segundos, por CharacterLayers.BLINK_SEC, a camada de olhos do idle usa a folha
@@ -567,7 +591,8 @@ func _update_followers() -> void:
 	var companion: CompanionDef = Content.companion(StringName(str(appearance.get(&"companion", ""))))
 	if companion != null:
 		_follower = FollowerVisual.new()
-		_follower.configure(self, companion, str(appearance.get(&"companion_name", "")))
+		_follower.configure(self, companion, str(appearance.get(&"companion_name", "")),
+				int(appearance.get(&"companion_level", 1)))
 		add_child(_follower)
 	var mount: MountDef = Content.mount(StringName(str(appearance.get(&"mount", ""))))
 	if mount != null:

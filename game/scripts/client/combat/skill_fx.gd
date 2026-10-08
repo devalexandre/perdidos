@@ -7,6 +7,14 @@ extends Node3D
 ## ponto/alvo, e laços (aura, escudo, chamas, geada) que duram duration_sec e somem quando o alvo morre.
 ## A receita vem do id da skill; sem receita, do SkillDef.vfx (e do tipo de alvo). Só visual: nada
 ## aqui fala com o servidor. O som continua no CombatAudio.
+## Finalização (08/10/2026): toda receita tem um CONTATO (_contact) — a peça que encosta no alvo (projétil
+## chegando, corte, onda, estouro no chão). Ele emite SkillPresentation.contact: o CombatAudio toca o
+## impacto nesse quadro e o CombatFx solta a reação do alvo (flash, recuo, número, hitstop) guardada desde
+## o hit da rede. No disparo o conjurador sai da pose de carga com um recuo curto; golpes corpo a corpo
+## seguram o conjurador (hitstop) no contato.
+## Piloto "anime" (07/10/2026, docs/fx-anime.md): a Faísca virou Lança de Fogo em alta resolução
+## (assets/fx/anime/: Blender toon + brilho aditivo + partículas + tremor de câmera). --classic-fx no
+## cliente volta para as folhas em pixel art (comparação).
 
 const MSEC_PER_SEC: float = 1000.0
 ## Folga depois do lançamento em que os golpes do conjurador ainda são "da skill" (impactos, geada).
@@ -41,8 +49,6 @@ const MIN_FLIGHT_SEC: float = 0.08
 const FLAME_TONGUES: int = 7
 const FLAME_FILL: float = 0.8
 # --- gelo
-const FROST_CRYSTALS: int = 6
-const FROST_WAVE_SPEED: float = 16.0
 # --- estrela
 const STAR_FALL_SEC: float = 0.7
 const STAR_FROM: Vector3 = Vector3(-2.2, 7.0, -1.2)
@@ -80,11 +86,14 @@ const RECIPE_BY_SKILL: Dictionary[StringName, StringName] = {
 	&"blade_field_dressing": &"craft", &"arcane_bottle_light": &"craft", &"bow_poison_tips": &"craft",
 	&"bow_feathering": &"craft", &"hybrid_ember_tips": &"craft", &"support_garrafada": &"craft",
 	&"tank_shell_salve": &"craft", &"blade_pilfer": &"steal"}
+## Piloto "anime": skills que trocam a receita antiga pela nova (com anime_fx ligado).
+const RECIPE_ANIME: Dictionary[StringName, StringName] = {&"arcane_spark": &"fire_lance"}
+const ARG_CLASSIC_FX: String = "--classic-fx"
 const RECIPE_BY_VFX: Dictionary[StringName, StringName] = {
 	&"slash": &"strike", &"spark": &"spark", &"wisp": &"wisp", &"flame": &"flame", &"frost": &"frost",
 	&"star": &"star", &"shield": &"barrier", &"guard": &"stance"}
 
-# --- Terra do Sabiá v0.4 (SkillFxBook): estados, cura, invisível, flecha do arco
+# --- Terra de Pindorama v0.4 (SkillFxBook): estados, cura, invisível, flecha do arco
 ## Altura (m) de onde caem os voos do céu (Mergulho do Gavião, Revoada).
 const DROP_HEIGHT: float = 6.5
 const ARROW_SPEED: float = 26.0
@@ -110,11 +119,71 @@ const WARNING_START_SCALE: float = 0.45
 ## Projétil que sai para fora / volta (burst / converge).
 const BURST_SPEED: float = 10.0
 
+# --- Lança de Fogo (piloto anime da Faísca)
+const LANCE_PIECE: StringName = &"arcane_spark_anime_lance"
+const LANCE_GLOW_PIECE: StringName = &"arcane_spark_anime_lance_glow"
+const LANCE_BLAST_PIECE: StringName = &"arcane_spark_anime_blast"
+const LANCE_BLAST_GLOW_PIECE: StringName = &"arcane_spark_anime_glow"
+const LANCE_CAST_PIECE: StringName = &"arcane_spark_anime_cast"
+const LANCE_DROP_HEIGHT: float = 7.5
+const LANCE_FALL_SEC: float = 0.16
+## A lança fica cravada no meio da explosão, encolhendo para o chão, e some.
+const LANCE_STUCK_SEC: float = 0.45
+## A explosão fica um pouco à frente do alvo (cobre o monstro, como na referência).
+const LANCE_BIAS: float = 0.75
+const LANCE_CAST_HEIGHT: float = 0.5
+## Escala no mundo (a folha foi renderizada em metros reais; maior lê melhor com a câmera do jogo).
+const LANCE_SCALE: float = 1.35
+const LANCE_BLAST_SCALE: float = 1.6
+const PARTICLE_DIR: String = "res://assets/fx/anime/particles/"
+## Tremor curto da câmera no impacto (só se a câmera estiver perto).
+const SHAKE_AMP: float = 0.07
+const SHAKE_SEC: float = 0.24
+const SHAKE_MAX_DIST: float = 45.0
+## Prazo (s, depois da liberação) para a peça encostar; vencido, as reações guardadas saem assim mesmo.
+const CONTACT_GRACE_SEC: float = 1.6
+## Segurada do conjurador no contato dos golpes corpo a corpo (hitstop curto).
+const MELEE_HOLD_SEC: float = 0.05
+const MELEE_RECIPES: Array[StringName] = [&"strike", &"charge", &"sweep", &"spin"]
+const MELEE_SCHOOLS: Array[StringName] = [&"blade", &"tank", &"hybrid"]
+## Passos do livro que não são o contato (preparação, laço no corpo, visual de estado).
+# --- investida no estilo "Lunge Step" (Samsara; vídeo de referência do dono, 08/10/2026)
+## Imagens residuais do sprite ao longo do avanço: quantas, quando (o avanço chega quase de uma vez
+## pela rede, então as cópias são postas no caminho percorrido logo depois) e quanto duram.
+const AFTERIMAGE_COUNT: int = 4
+const AFTERIMAGE_AT_SEC: float = 0.06
+const AFTERIMAGE_SEC: float = 0.3
+## Alfa inicial da cópia mais nova (as mais antigas começam mais fracas).
+const AFTERIMAGE_ALPHA: float = 0.6
+## Avanço menor que isto (m) não deixa cópias (o boneco já estava colado no alvo).
+const AFTERIMAGE_MIN_PATH: float = 0.6
+## Tinta branco-azulada das cópias (clareia o quadro: lê como "rastro de velocidade", não como outra pessoa).
+const AFTERIMAGE_TINT: Color = Color(0.82, 0.9, 1.0)
+## Anel de poeira/onda de choque no chão na partida.
+## Diâmetro (m) no começo e no fim: abre até ~1,4 m de raio em DUST_RING_SEC e some. Terra escura: o
+## bege some no chão de areia do Campo.
+const DUST_RING_SEC: float = 0.4
+const DUST_RING_FROM: float = 0.6
+const DUST_RING_TO: float = 2.8
+const DUST_RING_COLOR: Color = Color(0.5, 0.38, 0.24, 1.0)
+## Clarão quente no contato (reaproveita o brilho aditivo da Lança de Fogo, menor e curto).
+const WARM_FLASH_SCALE: float = 0.75
+const WARM_FLASH_SEC: float = 0.16
+const WARM_FLASH_H: float = 0.2
+## Segurada do conjurador no fim da investida (pose final por um instante).
+const CHARGE_HOLD_SEC: float = 0.08
+const BOOK_NOT_CONTACT: Array[String] = ["cast", "look", "loop_self", "dash_trail", "at_caster_pos", "converge",
+	"burst"]
+
+## Efeitos "anime" ligados (padrão). Desliga com --classic-fx (ou nos testes).
+static var anime_fx: bool = true
+
 ## Resolve entity_id -> Node3D (testes trocam por um dublê).
 var find_entity: Callable = Callable()
 ## Contadores para testes.
 var effects_started: int = 0
 var pieces_spawned: int = 0
+var primary_volumes_spawned: int = 0
 var last_recipe: StringName = &""
 var shouts_spawned: int = 0
 var last_shout_text: String = ""
@@ -127,6 +196,8 @@ var _flights: Array[Dictionary] = []
 ## Última skill por conjurador: {def, recipe, until}.
 var _recent: Dictionary[int, Dictionary] = {}
 var _cast_circles: Dictionary[int, SkillFxSprite] = {}
+var _charge_flows: Dictionary[int, Node3D] = {}
+var _presentation_serial: Dictionary[int, int] = {}
 ## Laços por entidade e chave (aura, escudo, geada): relançar reinicia.
 var _loops: Dictionary[String, Array] = {}
 ## Estados ativos por entidade: chave do laço -> {status_id|skill_id: true} (o laço some quando esvazia).
@@ -138,9 +209,21 @@ var _last_heal_fx: Dictionary[int, float] = {}
 var statuses_seen: int = 0
 var heals_seen: int = 0
 var bow_arrows: int = 0
+var shakes: int = 0
+var particle_bursts: int = 0
+var contacts: int = 0
+var afterimages: int = 0
+var dust_rings: int = 0
+var warm_flashes: int = 0
+var releases: int = 0
+static var _shake_tween: Tween = null
+static var _particle_tex: Dictionary[String, Texture2D] = {}
 
 
 func _ready() -> void:
+	SkillPresentation.visual_owners += 1
+	if ARG_CLASSIC_FX in OS.get_cmdline_user_args():
+		anime_fx = false
 	# Portais dos mapas (PortalFx): o cliente troca a malha antiga pelo redemoinho no chão.
 	var deco := PortalDecorator.new()
 	deco.name = &"PortalDecorator"
@@ -155,7 +238,7 @@ func _ready() -> void:
 			prog.connect(&"skill_cast", _on_skill_cast)
 		if prog.has_signal(&"cast_cancelled"):
 			prog.connect(&"cast_cancelled", _on_cast_cancelled)
-		# Contrato do servidor (Terra do Sabiá v0.4): conecta só se o sinal existir.
+		# Contrato do servidor (Terra de Pindorama v0.4): conecta só se o sinal existir.
 		if prog.has_signal(&"status_changed"):
 			prog.connect(&"status_changed", _on_status_changed)
 	var net2: Node = get_node_or_null(^"/root/NetCombat")
@@ -169,7 +252,7 @@ func _ready() -> void:
 func active_pieces() -> int:
 	var n: int = 0
 	for c: Node in get_children():
-		if c is SkillFxSprite and not c.is_queued_for_deletion():
+		if (c is SkillFxSprite or c.get_meta(&"primary_spell_effect", false)) and not c.is_queued_for_deletion():
 			n += 1
 	return n
 
@@ -177,6 +260,8 @@ func active_pieces() -> int:
 static func recipe_for(def: SkillDef) -> StringName:
 	if def == null:
 		return &""
+	if anime_fx and RECIPE_ANIME.has(def.id):
+		return RECIPE_ANIME[def.id]
 	if RECIPE_BY_SKILL.has(def.id):
 		return RECIPE_BY_SKILL[def.id]
 	if SkillFxBook.BOOK.has(def.id):
@@ -197,10 +282,16 @@ static func recipe_for(def: SkillDef) -> StringName:
 
 func _on_skill_cast(entity_id: int, skill_id: StringName, target_entity_id: int, pos: Vector3,
 		cast_ms: int) -> void:
-	play(Content.skill(skill_id), entity_id, target_entity_id, pos, cast_ms)
+	play(Content.any_skill(skill_id), entity_id, target_entity_id, pos, cast_ms)
 
 
 func _on_cast_cancelled(entity_id: int, _skill_id: StringName) -> void:
+	_presentation_serial[entity_id] = _presentation_serial.get(entity_id, 0) + 1
+	SkillPresentation.release(entity_id)
+	var flow: Variant = _charge_flows.get(entity_id)
+	if is_instance_valid(flow):
+		flow.call(&"stop", 0.15)
+	_charge_flows.erase(entity_id)
 	_queue = _queue.filter(func(q: Dictionary) -> bool: return q["caster"] != entity_id)
 	var c: Variant = _cast_circles.get(entity_id)
 	if is_instance_valid(c):
@@ -214,9 +305,23 @@ func _on_hit(source_id: int, target_id: int, amount: int, _crit: bool, _damage_t
 	var target: Node3D = _entity(target_id)
 	if target == null or amount < 0:
 		return
+	# Golpe do companheiro: o efeito sai do bicho (FollowerVisual), não do dono (sem flecha do arco).
+	var followers: Node = get_node_or_null(^"/root/NetFollowers")
+	if followers != null and bool(followers.get(&"last_hit_from_companion")):
+		return
 	var r: Dictionary = _recent.get(source_id, {})
 	if r.is_empty() or _clock > float(r["until"]):
 		_basic_hit(source_id, target_id, target)
+		return
+	# Peça do golpe sai no contato visual (projétil/onda ainda a caminho: espera).
+	if SkillPresentation.defer(source_id, _skill_hit_piece.bind(r, target_id)):
+		return
+	_skill_hit_piece(r, target_id)
+
+
+func _skill_hit_piece(r: Dictionary, target_id: int) -> void:
+	var target: Node3D = _entity(target_id)
+	if target == null:
 		return
 	var def: SkillDef = r["def"]
 	match r["recipe"]:
@@ -239,10 +344,14 @@ func _on_hit(source_id: int, target_id: int, amount: int, _crit: bool, _damage_t
 func play(def: SkillDef, caster_id: int, target_id: int, pos: Vector3, cast_ms: int) -> bool:
 	if def == null:
 		return false
+	_presentation_serial[caster_id] = _presentation_serial.get(caster_id, 0) + 1
 	var recipe: StringName = recipe_for(def)
 	if recipe == &"":
 		var c0: Node3D = _entity(caster_id)
 		if c0 != null:
+			var sec: float = maxf(float(cast_ms) / MSEC_PER_SEC - def.ground_warning_sec, 0.0)
+			if sec >= CAST_CIRCLE_MIN_SEC:
+				_start_charge_flow(caster_id, c0, def, sec)
 			shout(def, c0)
 		return false
 	effects_started += 1
@@ -250,14 +359,22 @@ func play(def: SkillDef, caster_id: int, target_id: int, pos: Vector3, cast_ms: 
 	var delay: float = maxf(cast_ms / MSEC_PER_SEC, 0.0)
 	var cast_part: float = maxf(delay - def.ground_warning_sec, 0.0)
 	var caster: Node3D = _entity(caster_id)
-	if caster != null:
+	if cast_part >= CAST_CIRCLE_MIN_SEC and caster != null:
+		_start_charge_flow(caster_id, caster, def, cast_part, _aim(caster, target_id, pos))
+	# Sem nome (rastro de fogo do Boitatá): só o efeito, sem o grito do nome.
+	if caster != null and not def.name_key.is_empty():
 		shout(def, caster)
 	var extra: float = def.duration_sec if def.effect == SkillDef.Effect.DAMAGE_OVER_TIME else 0.0
 	_recent[caster_id] = {"def": def, "recipe": recipe, "until": _clock + delay + HIT_WINDOW_SEC + extra}
-	if def.school == &"arcane" and cast_part >= CAST_CIRCLE_MIN_SEC and caster != null:
-		_cast_circle(caster_id, caster, cast_part)
+	if recipe == &"fire_lance":
+		if cast_part >= CAST_CIRCLE_MIN_SEC and caster != null:
+			_lance_cast_glow(caster_id, caster, cast_part, charge_color_for(def))
+	elif def.school == &"arcane" and cast_part >= CAST_CIRCLE_MIN_SEC and caster != null:
+		_cast_circle(caster_id, caster, cast_part, charge_color_for(def))
 	var ctx: Dictionary = {"def": def, "caster_id": caster_id, "target_id": target_id, "pos": pos,
-		"delay": delay, "cast_part": cast_part}
+		"delay": delay, "cast_part": cast_part, "generation": _presentation_serial[caster_id],
+		"recipe": recipe, "contacted": false}
+	SkillPresentation.await_contact(caster_id, delay + CONTACT_GRACE_SEC)
 	if def.ground_warning_sec > 0.0:
 		_later(cast_part, caster_id, _warning.bind(ctx))
 	match recipe:
@@ -278,6 +395,8 @@ func play(def: SkillDef, caster_id: int, target_id: int, pos: Vector3, cast_ms: 
 		&"spark":
 			_later(delay, caster_id, _projectile.bind(ctx, &"arcane_spark_projectile", &"arcane_spark_impact",
 					SPARK_SPEED, 0.0))
+		&"fire_lance":
+			_later(delay, caster_id, _fire_lance.bind(ctx))
 		&"craft":
 			# Ofícios: <skill>_sparks sobre o artesão (faíscas de bigorna ou folhas da cura recoloridas).
 			_later(delay, caster_id, _craft_sparks.bind(ctx))
@@ -299,6 +418,182 @@ func play(def: SkillDef, caster_id: int, target_id: int, pos: Vector3, cast_ms: 
 		&"barrier":
 			_later(delay, caster_id, _barrier.bind(ctx))
 	return true
+
+
+func _exit_tree() -> void:
+	SkillPresentation.visual_owners = maxi(0, SkillPresentation.visual_owners - 1)
+	SkillPresentation.release_all()
+
+
+## Contato da skill: uma vez por lançamento (flechas múltiplas: a primeira que chega). Som de impacto e
+## reação do alvo saem aqui (SkillPresentation.contact); golpe corpo a corpo segura o conjurador.
+func _contact(ctx: Dictionary, at: Vector3) -> void:
+	if bool(ctx.get("contacted", false)):
+		return
+	ctx["contacted"] = true
+	var caster_id: int = ctx["caster_id"]
+	if ctx.has("generation") and int(ctx["generation"]) != _presentation_serial.get(caster_id, 0):
+		return # chegada antiga não consome o áudio de uma nova conjuração
+	contacts += 1
+	if _is_melee(ctx):
+		var c: Node3D = _entity(caster_id)
+		var v: Node = c.get_node_or_null(^"Visual") if c != null else null
+		if v is DirectionalSprite3D:
+			(v as DirectionalSprite3D).play_hitstop(float(ctx.get("hold", MELEE_HOLD_SEC)))
+	var def: SkillDef = ctx["def"]
+	_add_spell_impact(ctx, at)
+	SkillPresentation.contact(caster_id, def.id, at)
+
+
+func _add_spell_impact(ctx: Dictionary, at: Vector3) -> void:
+	var def: SkillDef = ctx["def"]
+	if def.id == &"arcane_crystal_wall":
+		var owner: Node3D = _entity(ctx["caster_id"])
+		_add_contact_flash(&"ice", charge_color_for(def), owner.global_position if is_instance_valid(owner) else at, _radius(def), owner)
+		return # o anel de cristais recebe a própria onda de surgimento
+	var school: StringName = SkillFxBook.school_of(def)
+	if school not in [&"arcane", &"support", &"hybrid"]:
+		return
+	var layer: Node3D = (load("res://scripts/client/combat/spell_impact_layers.gd") as Script).new()
+	layer.name = &"SpellImpactLayers"
+	var style: StringName = spell_style_for(def)
+	layer.set(&"style", style)
+	layer.set(&"color", charge_color_for(def))
+	layer.set(&"radius", clampf(_radius(def) * 0.35, 0.85, 2.5))
+	layer.set(&"cone", def.target_type == SkillDef.TargetType.CONE)
+	if def.id == &"arcane_frost_burst":
+		layer.name = &"FrostBurstVolume"
+		layer.set(&"radius", maxf(_radius(def), _cell()))
+		layer.set(&"wave", true)
+		layer.set(&"cone_half_angle", deg_to_rad(maxf(def.cone_deg, 10.0)) * 0.5)
+		layer.set(&"duration", 1.25)
+		layer.set_meta(&"primary_spell_effect", true)
+		layer.set_meta(&"skill_id", def.id)
+		primary_volumes_spawned += 1
+	var target: Node3D = _entity(ctx["target_id"])
+	var caster: Node3D = _entity(ctx["caster_id"])
+	var ground_at: Vector3 = at
+	if is_instance_valid(target):
+		ground_at.y = target.global_position.y
+	elif is_instance_valid(caster):
+		ground_at.y = caster.global_position.y
+		if style == &"nature" and int(ctx["target_id"]) <= 0 and def.target_type in [SkillDef.TargetType.SELF, SkillDef.TargetType.SELF_AREA, SkillDef.TargetType.ALLY_OR_SELF]:
+			ground_at = caster.global_position
+	add_child(layer)
+	layer.global_position = ground_at
+	if def.target_type == SkillDef.TargetType.CONE and is_instance_valid(caster):
+		var direction: Vector3 = _dir(caster.global_position, ctx)
+		layer.rotation.y = atan2(-direction.x, -direction.z)
+	_add_contact_flash(style, layer.get(&"color"), ground_at, layer.get(&"radius"), target)
+
+
+func _add_contact_flash(style: StringName, color: Color, at: Vector3, radius: float, target: Node3D) -> void:
+	var flash: Node3D = (load("res://scripts/client/combat/spell_contact_flash.gd") as Script).new()
+	flash.set(&"color", color)
+	flash.set(&"style", style)
+	flash.set(&"radius", radius)
+	flash.set(&"duration", {&"electric": 0.16, &"fire": 0.28, &"ice": 0.32, &"nature": 0.7}.get(style, 0.24))
+	if is_instance_valid(target):
+		flash.set(&"height", _height(target) * CHEST_FRACTION)
+	add_child(flash)
+	flash.global_position = at
+
+
+## Compatível com as chamadas antigas (projétil chegou).
+func _arrived(ctx: Dictionary, at: Vector3) -> void:
+	_contact(ctx, at)
+
+
+## Ponto do contato quando a peça não diz: peito do alvo, senão o ponto da skill.
+func _target_point(ctx: Dictionary) -> Vector3:
+	var t: Node3D = _entity(ctx["target_id"])
+	if t != null:
+		return t.global_position + Vector3.UP * _height(t) * CHEST_FRACTION
+	return ctx["pos"]
+
+
+func _is_melee(ctx: Dictionary) -> bool:
+	var recipe: StringName = ctx.get("recipe", &"")
+	if recipe in MELEE_RECIPES:
+		return true
+	if recipe != &"book":
+		return false
+	var def: SkillDef = ctx["def"]
+	var step: Dictionary = ctx.get("contact_step", {})
+	return SkillFxBook.school_of(def) in MELEE_SCHOOLS and not step.is_empty() \
+			and String(step.get("do", "")) in ["on_target", "flat_dir", "flat_self", "self"]
+
+
+## Para onde o conjurador mira (alvo, senão o ponto); ZERO = para onde olha.
+func _aim(caster: Node3D, target_id: int, pos: Vector3) -> Vector3:
+	var t: Node3D = _entity(target_id)
+	var to: Vector3 = t.global_position if t != null else pos
+	var d: Vector3 = to - caster.global_position
+	return Vector3(d.x, 0.0, d.z) if Vector3(d.x, 0.0, d.z).length() > 0.05 else Vector3.ZERO
+
+
+func _release_visual(caster_id: int, aim: Vector3 = Vector3.ZERO) -> void:
+	var caster: Node3D = _entity(caster_id)
+	var visual: Node = caster.get_node_or_null(^"Visual") if is_instance_valid(caster) else null
+	if visual is DirectionalSprite3D:
+		(visual as DirectionalSprite3D).play_skill_release(aim)
+		releases += 1
+
+
+## Ritmo visual por elemento, sem alterar a aplicação do efeito no servidor.
+static func spell_style_for(def: SkillDef) -> StringName:
+	var tag: String = String(def.id) + " " + String(def.element)
+	if "frost" in tag or "crystal" in tag or "ice" in tag:
+		return &"ice"
+	if recipe_for(def) == &"fire_lance" or "flame" in tag or "ember" in tag or def.element == &"fire" or ("fire" in tag and not "firefly" in tag):
+		return &"fire"
+	if "lightning" in tag or "thunder" in tag or "electric" in tag or "steel_spark" in tag or def.id == &"hybrid_sparks":
+		return &"electric"
+	if def.effect in [SkillDef.Effect.HEAL, SkillDef.Effect.HOT, SkillDef.Effect.CLEANSE] or SkillFxBook.school_of(def) == &"support":
+		return &"nature"
+	return &"arcane"
+
+
+## Cor da preparação segue a identidade da skill; a escola cobre habilidades sem elemento explícito.
+static func charge_color_for(def: SkillDef) -> Color:
+	if def.element in [&"lightning", &"thunder", &"electric"]:
+		return Color8(151, 191, 255)
+	if def.element == &"fire":
+		return Color(1.0, 0.35, 0.08)
+	if def.element in [&"ice", &"frost"]:
+		return Color(0.23, 0.70, 1.0)
+	if def.element in [&"holy", &"light"]:
+		return Color8(244, 214, 128)
+	var id: String = String(def.id)
+	if recipe_for(def) == &"fire_lance":
+		return Color(1.0, 0.35, 0.08)
+	if "firefly" in id or "will_o_wisp" in id:
+		return Color8(190, 232, 90)
+	if "frost" in id or "crystal" in id or "chill" in id:
+		return Color(0.23, 0.70, 1.0)
+	if "fire" in id or "flame" in id or "ember" in id:
+		return Color(1.0, 0.35, 0.08)
+	if "blood" in id or "rage" in id:
+		return Color8(232, 72, 58)
+	if "root" in id or "bark" in id or "leaf" in id:
+		return Color8(150, 222, 110)
+	if "star" in id or "holy" in id:
+		return Color8(244, 194, 82)
+	return SHOUT_COLOR.get(SkillFxBook.school_of(def), SHOUT_COLOR_OTHER)
+
+
+func _start_charge_flow(caster_id: int, caster: Node3D, def: SkillDef, sec: float,
+		aim: Vector3 = Vector3.ZERO) -> void:
+	var old: Variant = _charge_flows.get(caster_id)
+	if is_instance_valid(old):
+		old.call(&"stop", 0.1)
+	var flow: Node3D = (load("res://scripts/client/combat/skill_charge_flow.gd") as Script).new()
+	flow.set(&"follow", caster)
+	flow.set(&"duration", sec)
+	flow.set(&"color", charge_color_for(def))
+	add_child(flow)
+	_charge_flows[caster_id] = flow
+	_later(sec, caster_id, _release_visual.bind(caster_id, aim))
 
 
 ## Nome traduzido da skill acima do conjurador: sobe um pouco e some (~1,2 s). Visto por todos da instância.
@@ -344,6 +639,7 @@ func _name_height(e: Node3D) -> float:
 func _strike(ctx: Dictionary) -> void:
 	var target: Node3D = _entity(ctx["target_id"])
 	if target == null:
+		_later(IMPACT_AFTER_SLASH_SEC, int(ctx["caster_id"]), func() -> void: _contact(ctx, ctx["pos"]))
 		return
 	var h: float = _height(target)
 	var slash: SkillFxSprite = _upright(&"blade_firm_strike_slash", target, h * CHEST_FRACTION, FRONT_BIAS)
@@ -352,11 +648,19 @@ func _strike(ctx: Dictionary) -> void:
 	_later(IMPACT_AFTER_SLASH_SEC, int(ctx["caster_id"]), func() -> void:
 		var t: Node3D = _entity(ctx["target_id"])
 		if t != null:
-			_upright(&"blade_firm_strike_impact", t, _height(t) * CHEST_FRACTION, FRONT_BIAS))
+			_upright(&"blade_firm_strike_impact", t, _height(t) * CHEST_FRACTION, FRONT_BIAS)
+			_warm_flash(t)
+		_contact(ctx, _target_point(ctx)))
 
 
 func _charge(ctx: Dictionary) -> void:
 	var caster_id: int = ctx["caster_id"]
+	ctx["hold"] = CHARGE_HOLD_SEC
+	var c0: Node3D = _entity(caster_id)
+	if c0 != null:
+		var start: Vector3 = c0.global_position
+		_dust_ring(start)
+		_later(AFTERIMAGE_AT_SEC, caster_id, func() -> void: _afterimage_trail(_entity(caster_id), start))
 	var n: int = int(CHARGE_DUST_SEC / CHARGE_DUST_EVERY_SEC) + 1
 	for i: int in n:
 		_later(i * CHARGE_DUST_EVERY_SEC, caster_id, func() -> void:
@@ -366,9 +670,11 @@ func _charge(ctx: Dictionary) -> void:
 	var def: SkillDef = ctx["def"]
 	var stun: float = float(def.extra.get(&"stun_sec", DEFAULT_STUN_SEC))
 	_later(CHARGE_IMPACT_SEC, caster_id, func() -> void:
+		_contact(ctx, _target_point(ctx))
 		var t: Node3D = _entity(ctx["target_id"])
 		if t == null:
 			return
+		_warm_flash(t)
 		var h: float = _height(t)
 		_upright(&"blade_charge_impact", t, h * CHEST_FRACTION, FRONT_BIAS)
 		_loop_on(int(ctx["target_id"]), &"stun", [&"blade_charge_stun"], t, stun, [h * HEAD_FRACTION], [FRONT_BIAS]))
@@ -380,6 +686,7 @@ func _sweep(ctx: Dictionary) -> void:
 	var s: SkillFxSprite = _flat(&"blade_clearing_sweep_arc", origin, _radius(ctx["def"]))
 	if s != null:
 		s.face_ground_dir(_dir(origin, ctx))
+	_contact(ctx, origin)
 
 
 func _horizon(ctx: Dictionary) -> void:
@@ -388,6 +695,12 @@ func _horizon(ctx: Dictionary) -> void:
 	var def: SkillDef = ctx["def"]
 	var dir: Vector3 = _dir(origin, ctx)
 	var length: float = maxf(def.line_length_cells, 1.0) * _cell()
+	# Contato quando a onda passa pelo alvo (sem alvo: logo na saída).
+	var reach: float = 0.0
+	var tgt: Node3D = _entity(ctx["target_id"])
+	if tgt != null:
+		reach = clampf((tgt.global_position - origin).dot(dir) / length, 0.0, 1.0) * WAVE_TRAVEL_SEC
+	_later(reach, int(ctx["caster_id"]), func() -> void: _contact(ctx, _target_point(ctx)))
 	var s: SkillFxSprite = _flat(&"blade_horizon_cut_wave", origin, 0.0)
 	if s == null:
 		return
@@ -414,6 +727,7 @@ func _horizon(ctx: Dictionary) -> void:
 
 func _spin(ctx: Dictionary) -> void:
 	var c: Node3D = _entity(ctx["caster_id"])
+	_contact(ctx, c.global_position if c != null else ctx["pos"])
 	if c == null:
 		_flat(&"blade_steel_spin_whirl", ctx["pos"], _radius(ctx["def"]))
 		return
@@ -425,12 +739,14 @@ func _spin(ctx: Dictionary) -> void:
 
 func _craft_sparks(ctx: Dictionary) -> void:
 	var c: Node3D = _entity(ctx["caster_id"])
+	_contact(ctx, c.global_position if c != null else ctx["pos"])
 	if c != null:
 		_upright(StringName(String((ctx["def"] as SkillDef).id) + CRAFT_PIECE_SUFFIX), c, 0.0, FRONT_BIAS)
 
 
 ## Surrupiar: brilho dourado no peito do monstro (a mão leve passou por ali).
 func _steal_glint(ctx: Dictionary) -> void:
+	_contact(ctx, _target_point(ctx))
 	var t: Node3D = _entity(ctx["target_id"])
 	if t != null:
 		_upright(STEAL_PIECE, t, _height(t) * CHEST_FRACTION, FRONT_BIAS)
@@ -440,6 +756,7 @@ func _steal_glint(ctx: Dictionary) -> void:
 
 func _stance(ctx: Dictionary) -> void:
 	var c: Node3D = _entity(ctx["caster_id"])
+	_contact(ctx, c.global_position if c != null else ctx["pos"])
 	if c == null:
 		return
 	var def: SkillDef = ctx["def"]
@@ -460,6 +777,7 @@ func _projectile(ctx: Dictionary, fly_piece: StringName, impact_piece: StringNam
 		from = c.global_position + Vector3.UP * _height(c) * CHEST_FRACTION
 	var s: SkillFxSprite = SkillFxSprite.create(fly_piece)
 	if s == null:
+		_contact(ctx, to)
 		return
 	_add(s, from)
 	s.set_depth_bias(FRONT_BIAS)
@@ -467,6 +785,7 @@ func _projectile(ctx: Dictionary, fly_piece: StringName, impact_piece: StringNam
 	var dur: float = maxf(from.distance_to(to) / speed, MIN_FLIGHT_SEC)
 	var target_id: int = ctx["target_id"]
 	_fly(s, from, t, to, dur, bob, func(at: Vector3) -> void:
+		_arrived(ctx, at)
 		var tt: Node3D = _entity(target_id)
 		if tt != null:
 			_upright(impact_piece, tt, _height(tt) * CHEST_FRACTION, FRONT_BIAS)
@@ -478,6 +797,7 @@ func _flame(ctx: Dictionary) -> void:
 	var def: SkillDef = ctx["def"]
 	var pos: Vector3 = ctx["pos"]
 	var r: float = _radius(def)
+	_contact(ctx, pos)
 	var g: SkillFxSprite = _flat(&"arcane_creeping_flame_ground", pos, r)
 	if g != null:
 		g.life_sec = def.duration_sec
@@ -502,21 +822,8 @@ func _flame(ctx: Dictionary) -> void:
 func _frost(ctx: Dictionary) -> void:
 	var c: Node3D = _entity(ctx["caster_id"])
 	var origin: Vector3 = c.global_position if c != null else ctx["pos"]
-	var def: SkillDef = ctx["def"]
-	var dir: Vector3 = _dir(origin, ctx)
-	var r: float = _radius(def)
-	var s: SkillFxSprite = _flat(&"arcane_frost_burst_cone", origin, r)
-	if s != null:
-		s.face_ground_dir(dir)
-	var half: float = deg_to_rad(maxf(def.cone_deg, 10.0)) * 0.5
-	for i: int in FROST_CRYSTALS:
-		var d: float = lerpf(r * 0.25, r * 0.85, float(i) / maxf(FROST_CRYSTALS - 1, 1))
-		var a: float = randf_range(-half * 0.75, half * 0.75)
-		var p: Vector3 = origin + dir.rotated(Vector3.UP, a) * d
-		_later(d / FROST_WAVE_SPEED, int(ctx["caster_id"]), func() -> void:
-			var cr: SkillFxSprite = _at(&"arcane_frost_burst_crystal", p, 0.0)
-			if cr != null and randf() < 0.5:
-				cr.set_flip(true))
+	# A peça principal agora é uma onda de cristais volumosos, criada no contato.
+	_contact(ctx, origin)
 
 
 func _star(ctx: Dictionary) -> void:
@@ -526,11 +833,13 @@ func _star(ctx: Dictionary) -> void:
 			if def.ground_warning_sec > 0.0 else MIN_FLIGHT_SEC * 3.0
 	var s: SkillFxSprite = SkillFxSprite.create(&"arcane_star_fall_star")
 	if s == null:
+		_later(fall, int(ctx["caster_id"]), func() -> void: _contact(ctx, pos))
 		return
 	var from: Vector3 = pos + STAR_FROM
 	_add(s, from)
 	s.orient_dir = pos - from
 	_fly(s, from, null, pos, fall, 0.0, func(_at_pos: Vector3) -> void:
+		_contact(ctx, pos)
 		_flat(&"arcane_star_fall_impact", pos, _radius(def))
 		_at(&"arcane_star_fall_burst", pos, 0.2))
 
@@ -538,6 +847,7 @@ func _star(ctx: Dictionary) -> void:
 func _barrier(ctx: Dictionary) -> void:
 	var tid: int = ctx["target_id"] if int(ctx["target_id"]) > 0 else ctx["caster_id"]
 	var t: Node3D = _entity(tid)
+	_contact(ctx, t.global_position if t != null else ctx["pos"])
 	if t == null:
 		return
 	var def: SkillDef = ctx["def"]
@@ -549,19 +859,346 @@ func _barrier(ctx: Dictionary) -> void:
 				.set_ease(Tween.EASE_OUT)
 
 
-func _cast_circle(caster_id: int, caster: Node3D, sec: float) -> void:
+func _cast_circle(caster_id: int, caster: Node3D, sec: float, color: Color) -> void:
 	var old: Variant = _cast_circles.get(caster_id)
 	if is_instance_valid(old):
 		(old as SkillFxSprite).stop(0.1)
 	var s: SkillFxSprite = _flat(&"arcane_cast_circle", caster.global_position, 0.0)
 	if s == null:
 		return
+	s.set_charge_color(color)
 	s.follow = caster
 	s.follow_offset = Vector3.UP * FLAT_LIFT
 	s.life_sec = sec
 	s.fade_in_sec = 0.12
 	s.fade_out_sec = 0.2
 	_cast_circles[caster_id] = s
+
+
+# ================================================================ finalização: residuais, poeira, clarão
+
+## Rastro do avanço: cópias do quadro atual espalhadas do ponto de partida até onde o personagem está,
+## as mais antigas (perto da partida) mais apagadas — como a referência "Lunge Step".
+func _afterimage_trail(e: Node3D, start: Vector3) -> int:
+	if e == null:
+		return 0
+	var path: Vector3 = e.global_position - start
+	path.y = 0.0
+	if path.length() < AFTERIMAGE_MIN_PATH:
+		return 0
+	var n: int = AFTERIMAGE_COUNT if EnvQuality.current != EnvQuality.Preset.BAIXA else AFTERIMAGE_COUNT / 2
+	var made: int = 0
+	for i: int in n:
+		var u: float = float(i + 1) / (n + 1) # 0 = partida, 1 = chegada (sem cópia em cima do personagem)
+		var g: Node3D = _afterimage(e, (0.45 + 0.55 * u))
+		if g != null:
+			g.global_position = e.global_position - path * (1.0 - u)
+			made += 1
+	return made
+
+
+## Cópia do quadro atual do personagem que fica para trás e some em pontilhado (avanço).
+func _afterimage(e: Node3D, strength: float = 1.0) -> Node3D:
+	var v: Node = e.get_node_or_null(^"Visual") if e != null else null
+	if not v is DirectionalSprite3D:
+		return null
+	var ds := v as DirectionalSprite3D
+	var g: Node3D = ds.make_afterimage()
+	add_child(g)
+	g.global_transform = ds.global_transform
+	var start := Color(AFTERIMAGE_TINT, AFTERIMAGE_ALPHA * strength)
+	var tw: Tween = g.create_tween().set_parallel(true)
+	for sp: Node in g.get_children():
+		(sp as Sprite3D).modulate = start
+		tw.tween_property(sp, ^"modulate:a", 0.0, AFTERIMAGE_SEC).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	tw.chain().tween_callback(g.queue_free)
+	afterimages += 1
+	return g
+
+
+## Anel de poeira deitado no chão que abre e some (partida da investida).
+func _dust_ring(at: Vector3) -> MeshInstance3D:
+	var mesh := MeshInstance3D.new()
+	mesh.name = &"DustRing"
+	var q := QuadMesh.new()
+	q.orientation = PlaneMesh.FACE_Y
+	q.size = Vector2.ONE
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.albedo_texture = _ring_texture()
+	m.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR # sem mipmap: o aro fino não vira névoa ao longe
+	m.albedo_color = DUST_RING_COLOR
+	m.render_priority = SkillFxSprite.PRIORITY_UPRIGHT
+	q.material = m
+	mesh.mesh = q
+	mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(mesh)
+	mesh.global_position = at + Vector3.UP * FLAT_LIFT
+	mesh.scale = Vector3.ONE * DUST_RING_FROM
+	dust_rings += 1
+	var tw: Tween = mesh.create_tween()
+	tw.tween_property(mesh, ^"scale", Vector3.ONE * DUST_RING_TO, DUST_RING_SEC).set_ease(Tween.EASE_OUT) \
+			.set_trans(Tween.TRANS_QUAD)
+	# Fica cheio na primeira metade e some na segunda.
+	tw.parallel().tween_property(m, ^"albedo_color:a", 0.0, DUST_RING_SEC * 0.55).set_delay(DUST_RING_SEC * 0.45)
+	tw.tween_callback(mesh.queue_free)
+	return mesh
+
+
+## Anel macio (gradiente radial: vazio no meio, aro cheio, borda suave) feito uma vez, sem arquivo. Imagem
+## montada na hora (o GradientTexture2D só gera a imagem no quadro seguinte e o primeiro anel saía vazio).
+const RING_TEX_PX: int = 128
+const RING_STOPS: Array[Vector2] = [Vector2(0.0, 0.0), Vector2(0.3, 0.3), Vector2(0.55, 1.0),
+	Vector2(0.85, 1.0), Vector2(1.0, 0.0)]
+static var _ring_tex: Texture2D = null
+static func _ring_texture() -> Texture2D:
+	if _ring_tex == null:
+		var img := Image.create(RING_TEX_PX, RING_TEX_PX, false, Image.FORMAT_RGBA8)
+		var half: float = RING_TEX_PX * 0.5
+		for y: int in RING_TEX_PX:
+			for x: int in RING_TEX_PX:
+				var r: float = Vector2(x + 0.5 - half, y + 0.5 - half).length() / half
+				var a: float = 0.0
+				for k: int in range(1, RING_STOPS.size()):
+					if r <= RING_STOPS[k].x:
+						var p0: Vector2 = RING_STOPS[k - 1]
+						var p1: Vector2 = RING_STOPS[k]
+						a = lerpf(p0.y, p1.y, (r - p0.x) / maxf(p1.x - p0.x, 0.0001))
+						break
+				img.set_pixel(x, y, Color(1, 1, 1, a))
+		_ring_tex = ImageTexture.create_from_image(img)
+	return _ring_tex
+
+
+## Clarão aditivo quente e faíscas no alvo, curto (~150 ms), no mesmo quadro do som de impacto.
+func _warm_flash(target: Node3D) -> SkillFxSprite:
+	var g: SkillFxSprite = _upright(LANCE_BLAST_GLOW_PIECE, target, _height(target) * WARM_FLASH_H, FRONT_BIAS + 0.1)
+	if g == null:
+		return null
+	g.scale = Vector3.ONE * WARM_FLASH_SCALE
+	g.frame_offset = 4 # começa já aberto (os primeiros quadros são só um ponto)
+	g.stop(WARM_FLASH_SEC)
+	warm_flashes += 1
+	if EnvQuality.current != EnvQuality.Preset.BAIXA:
+		var st: CPUParticles3D = _particles(&"kenney_star_07", true, 6, 0.3, true)
+		st.position = Vector3.UP * _height(target) * (CHEST_FRACTION - WARM_FLASH_H)
+		st.emission_shape = CPUParticles3D.EMISSION_SHAPE_SPHERE
+		st.emission_sphere_radius = 0.25
+		st.spread = 180.0
+		st.initial_velocity_min = 1.5
+		st.initial_velocity_max = 3.0
+		st.gravity = Vector3.ZERO
+		st.damping_min = 4.0
+		st.damping_max = 6.0
+		st.scale_amount_min = 0.12
+		st.scale_amount_max = 0.22
+		g.add_child(st)
+	return g
+
+
+# ================================================================ Lança de Fogo (piloto anime)
+
+## Conjuração: clarão na cor da magia pulsando no peito do mago e energia subindo em volta (some ao cancelar).
+func _lance_cast_glow(caster_id: int, caster: Node3D, sec: float, color: Color) -> void:
+	var old: Variant = _cast_circles.get(caster_id)
+	if is_instance_valid(old):
+		(old as SkillFxSprite).stop(0.1)
+	var s: SkillFxSprite = _upright(LANCE_CAST_PIECE, caster, _height(caster) * LANCE_CAST_HEIGHT, FRONT_BIAS)
+	if s == null:
+		return
+	s.set_charge_color(color)
+	s.life_sec = sec
+	s.fade_in_sec = 0.1
+	s.fade_out_sec = 0.2
+	var p: CPUParticles3D = _particles(&"kenney_circle_05", true, 14, 0.7, false)
+	p.emission_shape = CPUParticles3D.EMISSION_SHAPE_RING
+	p.emission_ring_axis = Vector3.UP
+	p.emission_ring_radius = 0.55
+	p.emission_ring_inner_radius = 0.3
+	p.emission_ring_height = 0.05
+	p.position = Vector3.DOWN * _height(caster) * LANCE_CAST_HEIGHT
+	p.direction = Vector3.UP
+	p.spread = 12.0
+	p.initial_velocity_min = 1.2
+	p.initial_velocity_max = 2.2
+	p.gravity = Vector3(0.0, 0.6, 0.0)
+	p.scale_amount_min = 0.06
+	p.scale_amount_max = 0.12
+	var ramp := Gradient.new()
+	ramp.offsets = PackedFloat32Array([0.0, 0.35, 1.0])
+	ramp.colors = PackedColorArray([color.lerp(Color.WHITE, 0.45), color, Color(color, 0.0)])
+	p.color_ramp = ramp
+	s.add_child(p)
+	_cast_circles[caster_id] = s
+
+
+## A lança cai do céu no alvo (raio), crava, e a explosão em cogumelo estoura com brilho aditivo,
+## fumaça, brasas, pedrinhas e um tremor curto da câmera.
+func _fire_lance(ctx: Dictionary) -> void:
+	var t: Node3D = _entity(ctx["target_id"])
+	var ground: Vector3 = t.global_position if t != null else ctx["pos"]
+	var s: SkillFxSprite = SkillFxSprite.create(LANCE_PIECE)
+	if s == null:
+		_contact(ctx, ground)
+		return
+	var from: Vector3 = ground + Vector3.UP * LANCE_DROP_HEIGHT
+	_add(s, from)
+	s.scale = Vector3.ONE * LANCE_SCALE
+	s.set_depth_bias(LANCE_BIAS)
+	_lance_glow(s)
+	_fly(s, from, t, ground, LANCE_FALL_SEC, 0.0, func(at_pos: Vector3) -> void:
+		_arrived(ctx, at_pos)
+		_lance_impact(at_pos))
+	_flights[-1]["ground"] = true # segue o alvo pelo chão (a ponta da lança crava nos pés dele)
+
+
+func _lance_glow(lance: SkillFxSprite) -> SkillFxSprite:
+	var g: SkillFxSprite = SkillFxSprite.create(LANCE_GLOW_PIECE)
+	if g == null:
+		return null
+	g.follow = lance
+	g.scale = lance.scale
+	_add(g, lance.global_position)
+	g.set_depth_bias(LANCE_BIAS + 0.05)
+	return g
+
+
+func _lance_impact(at: Vector3) -> void:
+	# a lança cravada: encolhe para dentro da explosão e some
+	var stuck: SkillFxSprite = _at(LANCE_PIECE, at, LANCE_BIAS - 0.05)
+	if stuck != null:
+		stuck.scale = Vector3.ONE * LANCE_SCALE
+		for p: SkillFxSprite in [stuck, _lance_glow(stuck)]:
+			if p == null:
+				continue
+			p.stop(LANCE_STUCK_SEC)
+			p.create_tween().tween_property(p, ^"scale", Vector3(0.75, 0.15, 1.0) * LANCE_SCALE, LANCE_STUCK_SEC) \
+					.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	var blast: SkillFxSprite = _at(LANCE_BLAST_PIECE, at, LANCE_BIAS)
+	var bg: SkillFxSprite = _at(LANCE_BLAST_GLOW_PIECE, at, LANCE_BIAS + 0.1)
+	if bg != null:
+		bg.scale = Vector3.ONE * LANCE_BLAST_SCALE
+	if blast != null:
+		blast.scale = Vector3.ONE * LANCE_BLAST_SCALE
+		_impact_particles(blast)
+	_shake(at)
+
+
+## Brasas (aditivo) e pedrinhas (normal) saindo do estouro; filhas da explosão (somem com ela).
+func _impact_particles(blast: SkillFxSprite) -> void:
+	particle_bursts += 1
+	var e: CPUParticles3D = _particles(&"kenney_circle_05", true, 34, 0.9, true)
+	e.position = Vector3.UP * 0.6
+	e.emission_shape = CPUParticles3D.EMISSION_SHAPE_SPHERE
+	e.emission_sphere_radius = 0.35
+	e.direction = Vector3.UP
+	e.spread = 75.0
+	e.initial_velocity_min = 2.5
+	e.initial_velocity_max = 6.0
+	e.gravity = Vector3(0.0, -5.0, 0.0)
+	e.damping_min = 1.5
+	e.damping_max = 3.0
+	e.scale_amount_min = 0.05
+	e.scale_amount_max = 0.13
+	blast.add_child(e)
+	var st: CPUParticles3D = _particles(&"kenney_star_07", true, 8, 0.6, true)
+	st.position = Vector3.UP * 0.7
+	st.emission_shape = CPUParticles3D.EMISSION_SHAPE_SPHERE
+	st.emission_sphere_radius = 0.7
+	st.direction = Vector3.UP
+	st.spread = 90.0
+	st.initial_velocity_min = 0.5
+	st.initial_velocity_max = 1.5
+	st.gravity = Vector3.ZERO
+	st.scale_amount_min = 0.25
+	st.scale_amount_max = 0.45
+	blast.add_child(st)
+	var r: CPUParticles3D = _particles(&"rock", false, 9, 0.85, true)
+	r.position = Vector3.UP * 0.3
+	r.direction = Vector3.UP
+	r.spread = 55.0
+	r.initial_velocity_min = 3.0
+	r.initial_velocity_max = 5.5
+	r.gravity = Vector3(0.0, -16.0, 0.0)
+	r.angular_velocity_min = -540.0
+	r.angular_velocity_max = 540.0
+	r.angle_min = 0.0
+	r.angle_max = 360.0
+	r.scale_amount_min = 0.1
+	r.scale_amount_max = 0.2
+	blast.add_child(r)
+
+
+## Partículas de quadradinho virado para a câmera com textura de assets/fx/anime/particles/.
+## glow = aditivo (brasas, cor quente esfriando); senão blend normal (pedrinhas).
+func _particles(tex_name: StringName, glow: bool, amount: int, life: float, burst: bool) -> CPUParticles3D:
+	var p := CPUParticles3D.new()
+	p.amount = amount
+	p.lifetime = life
+	p.one_shot = burst
+	p.explosiveness = 0.92 if burst else 0.0
+	p.randomness = 0.4
+	p.local_coords = false
+	p.lifetime_randomness = 0.35
+	var q := QuadMesh.new()
+	q.size = Vector2.ONE
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.blend_mode = BaseMaterial3D.BLEND_MODE_ADD if glow else BaseMaterial3D.BLEND_MODE_MIX
+	m.vertex_color_use_as_albedo = true
+	m.albedo_texture = _particle_texture(String(tex_name))
+	m.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	m.no_depth_test = false
+	m.render_priority = SkillFxSprite.PRIORITY_UPRIGHT + 2
+	m.shadow_to_opacity = false
+	q.material = m
+	p.mesh = q
+	p.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var g := Gradient.new()
+	if glow:
+		g.offsets = PackedFloat32Array([0.0, 0.35, 1.0])
+		g.colors = PackedColorArray([Color(1.0, 0.96, 0.75, 1.0), Color(1.0, 0.6, 0.18, 1.0),
+				Color(0.85, 0.18, 0.05, 0.0)])
+	else:
+		g.offsets = PackedFloat32Array([0.0, 0.8, 1.0])
+		g.colors = PackedColorArray([Color.WHITE, Color.WHITE, Color(1, 1, 1, 0)])
+	p.color_ramp = g
+	p.emitting = true
+	return p
+
+
+static func _particle_texture(tex_name: String) -> Texture2D:
+	if not _particle_tex.has(tex_name):
+		var path: String = PARTICLE_DIR + tex_name + ".png"
+		_particle_tex[tex_name] = load(path) as Texture2D if ResourceLoader.exists(path) else null
+	return _particle_tex[tex_name]
+
+
+## Tremor curto da câmera do jogo (h/v_offset, que ninguém mais usa); a câmera dos testes fica parada.
+func _shake(at: Vector3) -> void:
+	if shake_camera(get_tree(), at, SHAKE_AMP, SHAKE_SEC):
+		shakes += 1
+
+
+## Tremor da câmera reaproveitado pelo CombatFx (críticos). Um tremor novo substitui o anterior.
+static func shake_camera(tree: SceneTree, at: Vector3, amp: float, sec: float) -> bool:
+	var cam: Camera3D = tree.get_first_node_in_group(DirectionalSprite3D.CAMERA_GROUP) as Camera3D if tree != null \
+			else null
+	if cam == null or cam.global_position.distance_to(at) > SHAKE_MAX_DIST:
+		return false
+	if _shake_tween != null and _shake_tween.is_valid():
+		_shake_tween.kill()
+	_shake_tween = cam.create_tween()
+	_shake_tween.tween_method(func(k: float) -> void:
+		if not is_instance_valid(cam):
+			return
+		var a: float = amp * k * k
+		cam.h_offset = sin(k * 47.0) * a
+		cam.v_offset = cos(k * 31.0) * a * 0.7, 1.0, 0.0, sec)
+	return true
 
 
 # ================================================================ peças
@@ -639,6 +1276,12 @@ func _loop_on(entity_id: int, key: StringName, pieces: Array, target: Node3D, se
 
 func _fly(s: SkillFxSprite, from: Vector3, target: Node3D, to: Vector3, dur: float, bob: float,
 		arrive: Callable) -> void:
+	if String(s.piece).begins_with("arcane_") or String(s.piece).begins_with("holy_"):
+		var trail: MeshInstance3D = (load("res://scripts/client/combat/spell_trail.gd") as Script).new()
+		trail.set(&"follow", s)
+		var warm: bool = "lance" in String(s.piece) or "anime" in String(s.piece)
+		trail.set(&"color", Color(1.0, 0.4, 0.12) if warm else Color(0.20, 0.65, 1.0))
+		add_child(trail)
 	_flights.append({"sprite": s, "from": from, "target": target, "to": to, "t": 0.0, "dur": dur,
 		"bob": bob, "arrive": arrive})
 
@@ -654,6 +1297,10 @@ func _later(sec: float, caster_id: int, fn: Callable) -> void:
 
 func _process(delta: float) -> void:
 	_clock += delta
+	SkillPresentation.flush_expired()
+	for id: int in _charge_flows.keys():
+		if not is_instance_valid(_charge_flows[id]):
+			_charge_flows.erase(id)
 	for eid: int in _stealth.keys():
 		var e: Node3D = _entity(eid)
 		if e == null:
@@ -680,7 +1327,7 @@ func _process(delta: float) -> void:
 		var tgt: Node3D = f["target"]
 		var to: Vector3 = f["to"]
 		if tgt != null and is_instance_valid(tgt) and tgt.is_inside_tree():
-			to = tgt.global_position + Vector3.UP * _height(tgt) * CHEST_FRACTION
+			to = tgt.global_position + (Vector3.ZERO if f.get("ground", false) else Vector3.UP * _height(tgt) * CHEST_FRACTION)
 			f["to"] = to
 		f["t"] = float(f["t"]) + delta
 		var u: float = clampf(float(f["t"]) / float(f["dur"]), 0.0, 1.0)
@@ -742,7 +1389,7 @@ func _dir(origin: Vector3, ctx: Dictionary) -> Vector3:
 	return d.normalized()
 
 
-# ================================================================ Terra do Sabiá v0.4 (SkillFxBook)
+# ================================================================ Terra de Pindorama v0.4 (SkillFxBook)
 
 ## Aviso no chão antes do impacto (ground_warning_sec): a sombra cresce até o raio e some no impacto.
 func _warning(ctx: Dictionary) -> void:
@@ -765,6 +1412,10 @@ func _book(ctx: Dictionary) -> void:
 	var def: SkillDef = ctx["def"]
 	var caster_id: int = ctx["caster_id"]
 	var delay: float = ctx["delay"]
+	ctx["contact_step"] = contact_step(def)
+	if (ctx["contact_step"] as Dictionary).is_empty():
+		# Só estado/laço (buffs): o contato é a própria liberação.
+		_later(delay, caster_id, func() -> void: _contact(ctx, _target_point(ctx)))
 	for step: Dictionary in SkillFxBook.BOOK.get(def.id, []):
 		var kind: String = step.get("do", "")
 		if kind == "cast":
@@ -774,11 +1425,30 @@ func _book(ctx: Dictionary) -> void:
 		_later(delay + float(step.get("delay", 0.0)), caster_id, _step.bind(ctx, step))
 
 
+## Passo do livro que é o contato: projétil/queda (chegada), senão a última peça que encosta (a de maior
+## "delay"; empate = a primeira). {} = só estado/laço.
+static func contact_step(def: SkillDef) -> Dictionary:
+	var best: Dictionary = {}
+	for step: Dictionary in SkillFxBook.BOOK.get(def.id, []):
+		var kind: String = step.get("do", "")
+		if kind in ["shot", "drop"]:
+			return step
+		if kind in BOOK_NOT_CONTACT:
+			continue
+		if best.is_empty() or float(step.get("delay", 0.0)) > float(best.get("delay", 0.0)):
+			best = step
+	return best
+
+
 func _step(ctx: Dictionary, step: Dictionary) -> void:
 	var def: SkillDef = ctx["def"]
 	var caster_id: int = ctx["caster_id"]
 	var c: Node3D = _entity(caster_id)
 	var pos: Vector3 = ctx["pos"]
+	if is_same(step, ctx.get("contact_step")) and not String(step.get("do", "")) in ["shot", "drop"]:
+		# Chuva de flechas cai antes de fincar; o resto encosta já.
+		var land: float = 0.3 if step.has("fall") else 0.0
+		_later(land, caster_id, func() -> void: _contact(ctx, _target_point(ctx)))
 	var piece: StringName = step.get("piece", &"")
 	var bias: float = float(step.get("bias", FRONT_BIAS))
 	match String(step.get("do", "")):
@@ -842,6 +1512,21 @@ func _step(ctx: Dictionary, step: Dictionary) -> void:
 		"ring":
 			if c == null:
 				return
+			if def.id == &"arcane_crystal_wall":
+				var wall: Node3D = (load("res://scripts/client/combat/spell_impact_layers.gd") as Script).new()
+				wall.name = &"CrystalWallVolume"
+				wall.set(&"style", &"ice")
+				wall.set(&"persistent", true)
+				wall.set(&"follow", c)
+				wall.set(&"radius", maxf(_radius(def), _cell()))
+				wall.set(&"duration", maxf(def.duration_sec, 1.0))
+				wall.set(&"color", Color(0.13, 0.52, 0.82))
+				wall.set_meta(&"primary_spell_effect", true)
+				wall.set_meta(&"skill_id", def.id)
+				add_child(wall)
+				wall.global_position = c.global_position
+				primary_volumes_spawned += 1
+				return
 			var n2: int = int(step.get("n", 6))
 			var rr: float = maxf(_radius(def), _cell()) * float(step.get("r", 1.0))
 			var life: float = maxf(def.duration_sec, 1.0)
@@ -904,6 +1589,7 @@ func _step_cast(ctx: Dictionary, step: Dictionary) -> void:
 	var s: Array = _loop_on(caster_id, &"cast", [step["piece"]], c, float(ctx["cast_part"]), [0.0],
 			[float(step.get("bias", FRONT_BIAS))])
 	for sp: SkillFxSprite in s:
+		sp.set_charge_color(charge_color_for(ctx["def"]))
 		_cast_circles[caster_id] = sp # cancelar a conjuração também apaga
 
 
@@ -973,6 +1659,7 @@ func _step_shot(ctx: Dictionary, step: Dictionary, index: int) -> void:
 		from += Vector3(randf_range(-spread, spread), randf_range(0.0, spread), randf_range(-spread, spread))
 	var s: SkillFxSprite = SkillFxSprite.create(step["piece"])
 	if s == null:
+		_contact(ctx, to)
 		return
 	_add(s, from)
 	s.set_depth_bias(FRONT_BIAS)
@@ -991,6 +1678,7 @@ func _step_shot(ctx: Dictionary, step: Dictionary, index: int) -> void:
 				if is_instance_valid(s):
 					_at(trail, Vector3(s.global_position.x, ground_y, s.global_position.z), 0.0))
 	_fly(s, from, t, to, dur, float(step.get("arc", 0.0)), func(at: Vector3) -> void:
+		_arrived(ctx, at)
 		var tt: Node3D = _entity(target_id)
 		if impact != &"":
 			if tt != null:
@@ -1013,12 +1701,14 @@ func _step_drop(ctx: Dictionary, step: Dictionary) -> void:
 	var from: Vector3 = to + Vector3(-0.6, float(step.get("height", DROP_HEIGHT)), -0.4)
 	var s: SkillFxSprite = SkillFxSprite.create(step["piece"])
 	if s == null:
+		_contact(ctx, to)
 		return
 	_add(s, from)
 	s.set_depth_bias(FRONT_BIAS)
 	var impact: StringName = step.get("impact", &"")
 	var target_id: int = ctx["target_id"]
 	_fly(s, from, null, to + Vector3.UP * 0.4, float(step.get("fall", 0.45)), 0.0, func(at: Vector3) -> void:
+		_arrived(ctx, at)
 		var tt: Node3D = _entity(target_id)
 		if impact == &"":
 			return

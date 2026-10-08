@@ -219,7 +219,7 @@ Roteiro sugerido (`make run-dev`):
   - relógio (ciclo, viradas, rampa, força, Campo de Treino);
   - estágio 4 fora dos estágios comuns;
   - `set_atroz` e `update_atroz` (+100%, proporção da vida, luta ao amanhecer, fixo, treino);
-  - regra dos covis: zona, Campo de Treino, os 3 chefes do Sabiá na Subida Vermelha e nenhum `Spawns/` de chefe;
+  - regra dos covis: zona, Campo de Treino, os 3 chefes de Pindorama na Subida Vermelha e nenhum `Spawns/` de chefe;
   - dados reais das 3 espécies e dos itens raros.
 - `game/tests/monsters/run_night_test.sh` (integração em rede). O servidor tem drops garantidos e um covil de teste
   (`critter_lair`, renasce em 5 s). O cliente "HeroNight" confere:

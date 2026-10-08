@@ -44,7 +44,7 @@ ICONS = {
     'thick_leather': "a folded piece of thick brown tanned leather tied with a cord",
     # arco (agente das roupas de titulo): item simple_bow
     'simple_bow': "a simple short hunting bow made of light yellow bamboo cane with a brown leather grip wrap and a taut thin string, placed diagonally",
-    # Arco 1 da historia (ARCO-1-TERRA-DO-SABIA.md 6.1): itens de quest
+    # Arco 1 da historia (ARCO-1-TERRA-DE-PINDORAMA.md 6.1): itens de quest
     'whirlwind_wisp': "a small tuft of twisted golden straw fibers swirling inside a tiny grey whirlwind",
     'cross_sieve': "a round woven straw sieve with a wooden rim and a cross pattern woven across the middle, front view",
     'ember_horseshoe': "an iron horseshoe glowing bright orange and yellow hot like metal fresh from a forge, with small sparks",
@@ -74,7 +74,7 @@ ICONS = {
     'living_flame_machete': "a straight machete whose long straight blade is made of bright orange living fire, with a dark wooden handle, placed diagonally",
     'living_flame_bow': "a recurve bow whose limbs are made of bright orange living fire, with a glowing taut string, placed diagonally",
     'living_flame_staff': "a long dark wooden staff topped with a coiled serpent made of orange flames, placed diagonally",
-    # Arco 1: crendices (ARCO-1-TERRA-DO-SABIA.md 6.2)
+    # Arco 1: crendices (ARCO-1-TERRA-DE-PINDORAMA.md 6.2)
     'no_de_crina_trancada': "a single short braid of light brown horse hair tied into a loop knot with a small red ribbon bow",
     'ferradura_de_porta': "an old rusty iron horseshoe with a few nails, opening facing up",
     'restia_de_alho': "a braided string of white garlic bulbs with dry straw stems",

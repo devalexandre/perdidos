@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CompanionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/companion_def.gd" id="def"]
+
+[resource]
+script = ExtResource("def")
+id = &"pindorama_companion_lume"
+name_key = "COMPANION_LUME"
+title_id = &"pindorama_arcane_firefly"
+bond_quest_id = &"quest_bond_lume"
+sprite_base = "res://assets/companions/lume/pet_lume"
+visual_scale = 1.0
+flies = true
+fly_lift_m = 0.25
+idle_moves = Array[StringName]([&"drift", &"orbit", &"swap_side", &"life_spiral", &"life_split", &"life_pulse", &"life_orbit"])
+bond_skills = Array[StringName]([&"arcane_companion_lume_light", &"arcane_companion_lume_guide"])
+attack_interval_sec = 0.0
+attack_range_cells = 6.0
+chase_cells = 0.0
+attack_mult = 0.0
+damage_kind = &"magic"
+power_base = 6.0
+power_per_level = 1.5
+owner_attribute = &"int"
+attribute_frac = 0.5
+spells = Array[StringName]([&"comp_lume_spark", &"comp_lume_heal", &"comp_lume_swarm"])

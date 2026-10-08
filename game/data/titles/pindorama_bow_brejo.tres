@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_title"]
+
+[resource]
+script = ExtResource("1_title")
+id = &"pindorama_bow_brejo"
+name_key = "TITLE_PINDORAMA_BOW_BREJO_NAME"
+archetype = &"bow"
+tier = 2
+parent_title = &"pindorama_bow_cerrado"
+branch = &"a"
+required_skills = Array[StringName]([&"bow_mud_skin"])
+required_titles = Array[StringName]([&"pindorama_bow_cerrado"])
+color = Color(0.3529412, 0.5647059, 0.8784314, 1)
+desc_key = "TITLE_PINDORAMA_BOW_BREJO_DESC"
+sort_order = 41
+outfit_id = &"title_brejo"
+cloth_colors = PackedColorArray(0.3765, 0.2941, 0.2, 1, 0.3137, 0.4314, 0.2353, 1)
+master_npc = &"master_taquari"
+bonus_skills = Array[StringName]([&"bow_poison_tips"])

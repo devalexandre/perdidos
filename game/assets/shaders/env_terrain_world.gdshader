@@ -7,7 +7,11 @@ shader_type spatial;
 //  splat_a: R terra (trilha)   G calçamento   B areia      A rocha
 //  splat_b: R neve             G capim seco   B chão de mata  A cascalho
 //  splat_c: R terra vermelha   G grama viçosa B urze/prado  A (livre)
-render_mode diffuse_lambert_wrap, specular_disabled;
+// Chuva (08/10/2026): env_wetness (global) escurece o chão, dá brilho e abre poças nas partes planas/baixas
+// (env_weather.gdshaderinc). Seco = especular 0, igual ao chão antigo.
+render_mode diffuse_lambert_wrap, specular_schlick_ggx;
+
+#include "res://assets/shaders/env_weather.gdshaderinc"
 
 uniform sampler2D tex_grass : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D tex_lush : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
@@ -39,6 +43,8 @@ uniform float slope_rock_start = 0.86;
 uniform float slope_rock_end = 0.66;
 uniform vec3 heather_tint : source_color = vec3(0.86, 0.78, 0.95);
 uniform float wet_depth = 0.6;
+// Acampamento: chão mais rico e trilhas de terra quente, com mistura suave para os outros biomas.
+uniform float camp_surface_strength : hint_range(0.0, 1.0) = 0.0;
 
 varying vec3 wp;
 varying vec3 wn;
@@ -86,6 +92,8 @@ void fragment() {
 	vec3 h_tint = heather_tint.rgb;
 
 	vec3 grass = mix(tex2(tex_grass, p, tm), vec3(0.30, 0.47, 0.23), 0.24);
+	float camp = (1.0 - smoothstep(20.0, 38.0, length(p))) * camp_surface_strength;
+	grass = mix(grass, mix(tex2(tex_lush, p, tm * 0.85) * vec3(0.80, 0.93, 0.73), vec3(0.22, 0.39, 0.15), 0.28), camp);
 	grass *= mix(vec3(1.0), mix(m_cool, m_warm, smoothstep(0.25, 0.75, nm)), macro_strength);
 	vec3 col = grass;
 	col = mix(col, tex2(tex_lush, p, tm * 1.1) * vec3(0.92, 1.02, 0.9), hb(c.g, grass, en));
@@ -96,8 +104,12 @@ void fragment() {
 	col = mix(col, tex2(tex_sand, p, tm), hb(a.b, col, en));
 	col = mix(col, tex2(tex_gravel, p, 3.0), hb(b.a, col, en));
 	col = mix(col, tex2(tex_paving, p, 4.0), hb(a.g, col, en));
-	col = mix(col, tex2(tex_red, p, 5.0), hb(c.r, col, en));
-	col = mix(col, mix(tex2(tex_dirt, p, 3.2), vec3(0.66, 0.55, 0.39), 0.40), hb(a.r, col, en));
+	float red_w = hb(c.r, col, en);
+	col = mix(col, tex2(tex_red, p, 5.0), red_w);
+	vec3 dirt = mix(tex2(tex_dirt, p, 3.2), vec3(0.66, 0.55, 0.39), 0.40);
+	dirt = mix(dirt, mix(tex2(tex_dirt, p, 3.8) * 0.8, vec3(0.48, 0.34, 0.19), 0.35), camp);
+	float dirt_w = hb(a.r, col, en);
+	col = mix(col, dirt, dirt_w);
 	// rocha: pintada no mapa ou automática nas encostas (triplanar simples nas faces íngremes)
 	float s_end = min(slope_rock_end, slope_rock_start - 0.01);
 	float slope = 1.0 - smoothstep(s_end, slope_rock_start, wn.y);
@@ -113,7 +125,17 @@ void fragment() {
 	// pinceladas
 	float br = texture(tex_noise, rot(p, 0.6) * vec2(0.09, 0.35)).r * 0.6 + texture(tex_noise, rot(p, -0.9) * vec2(0.25, 0.8)).r * 0.4;
 	col *= 1.0 + (br - 0.5) * 2.0 * brush_strength;
+	// chuva: chão molhado e poças (trilha de terra empoça mais; encosta/rocha e fundo do rio não)
+	float level = smoothstep(0.93, 0.985, wn.y) * (1.0 - slope);
+	float low = 1.0 - smoothstep(-0.3, -0.02, wp.y); // margem abaixo do chão andável
+	// poças só na terra (trilha/terra vermelha), nunca na grama, no calçamento ou na rocha
+	float trail = max(dirt_w, red_w * 0.8) * (1.0 - clamp(a.a * 1.5, 0.0, 1.0));
+	vec4 wet_g = env_wet_ground(col, p, level, low, nmid, nf, trail, TIME);
+	col *= env_cloud_shade(p, TIME); // sombra de nuvem passando (cenário vivo)
 	ALBEDO = col;
-	ROUGHNESS = 1.0;
-	SPECULAR = 0.0;
+	ROUGHNESS = wet_g.x;
+	SPECULAR = wet_g.y;
+	if (wet_g.z != 0.0 || wet_g.w != 0.0) {
+		NORMAL = normalize(NORMAL + (VIEW_MATRIX * vec4(wet_g.z, 0.0, wet_g.w, 0.0)).xyz);
+	}
 }

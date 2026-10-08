@@ -1,4 +1,6 @@
 // Corpo comum de env_terrain.gdshader (opaco) e env_terrain_decal.gdshader (manchas com borda macia).
+// Chuva (08/10/2026): env_wetness (global) escurece, dá brilho e abre poças (env_weather.gdshaderinc).
+#include "res://assets/shaders/env_weather.gdshaderinc"
 
 uniform sampler2D tex_grass : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D tex_grass_alt : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
@@ -40,9 +42,11 @@ uniform float edge_noise = 0.35;
 
 varying vec3 world_pos;
 varying vec4 vcolor;
+varying float world_up;
 
 void vertex() {
 	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	world_up = normalize((MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz).y;
 	vcolor = COLOR;
 }
 
@@ -93,13 +97,23 @@ void fragment() {
 	float edge_n = mix(n_fine, n_mid, 0.5);
 	vec3 col = grass;
 	col = mix(col, sand, hblend(w.b, lum(sand), edge_n));
-	col = mix(col, dirt, hblend(w.r, lum(dirt), edge_n));
+	float dirt_w = hblend(w.r, lum(dirt), edge_n);
+	col = mix(col, dirt, dirt_w);
 	col = mix(col, cobble, hblend(w.g, lum(cobble), edge_n));
 	col = mix(col, rock, hblend(w.a, lum(rock), edge_n));
 
+	float level = smoothstep(0.93, 0.985, world_up);
+	float low = 1.0 - smoothstep(-0.3, -0.02, world_pos.y); // margem abaixo do chão andável
+	// poças só na terra/trilha (calçamento e rocha por cima tiram)
+	float trail = dirt_w * (1.0 - clamp(w.g * 1.5, 0.0, 1.0)) * (1.0 - clamp(w.a * 1.5, 0.0, 1.0));
+	vec4 wet_g = env_wet_ground(col, p, level, low, n_mid, n_fine, trail, TIME);
+	col *= env_cloud_shade(p, TIME); // sombra de nuvem passando (cenário vivo)
 	ALBEDO = col;
-	ROUGHNESS = 1.0;
-	SPECULAR = 0.0;
+	ROUGHNESS = wet_g.x;
+	SPECULAR = wet_g.y;
+	if (wet_g.z != 0.0 || wet_g.w != 0.0) {
+		NORMAL = normalize(NORMAL + (VIEW_MATRIX * vec4(wet_g.z, 0.0, wet_g.w, 0.0)).xyz);
+	}
 #ifdef DECAL
 	// Borda macia pintada: alfa da cor de vértice (0 na franja externa) "comido" por ruído.
 	ALPHA = clamp(smoothstep(0.0, 1.0, vcolor.a * 1.25 + (edge_n - 0.5) * 0.7), 0.0, 1.0);

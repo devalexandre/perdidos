@@ -55,7 +55,7 @@ script = ExtResource("1_quest")
 id = &"arc1_ch4_curupira"
 name_key = "QUEST_ARC1_CH4_NAME"
 giver_npc = &"curupira"
-region_id = &"sabia"
+region_id = &"pindorama"
 steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4")])
 reward_items = Dictionary[StringName, int]({
 &"forest_boy_bow": 1,

@@ -210,6 +210,18 @@ func _test_clock_sample() -> void:
 	# Amostra pior (RTT maior) não substitui a melhor.
 	NetClock.add_sample(NetClock.local_now_msec() - 300.0, 999999.0)
 	_check(absf(NetClock.offset_msec - expected) < 2.0, "amostra de menor RTT vence")
+	# Amostra melhor com offset 30 ms diferente: o relógio desliza (sem tranco) em vez de saltar.
+	var t0: float = NetClock.local_now_msec()
+	NetClock.add_sample(t0 - 2.0, 100000.0 + 49.0 + (t0 - now))
+	var before: float = NetClock.offset_msec
+	var s0: float = NetClock.server_now_msec()
+	_check(absf(before - expected) < 2.0 and absf(NetClock._target_offset_msec - (expected + 30.0)) < 3.0,
+			"offset novo desliza: em uso %.2f, alvo %.2f" % [before, NetClock._target_offset_msec])
+	OS.delay_msec(40)
+	var s1: float = NetClock.server_now_msec()
+	var moved: float = NetClock.offset_msec - before
+	_check(s1 > s0 and moved > 0.0 and moved <= 40.0 * NetClock.OFFSET_SLEW_RATE + 1.0,
+			"relógio anda para frente e o offset desliza devagar (%.2f ms)" % moved)
 	NetClock.reset()
 
 

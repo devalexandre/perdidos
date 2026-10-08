@@ -737,6 +737,13 @@ func on_story_boss_killed(monster_id: StringName, participants: Array[int]) -> i
 				_remove_items(session, s.ritual_item, session.character.inventory.count(s.ritual_item))
 			_ritual_state.erase("%d:%s" % [peer, id])
 			Net.push_system_message(peer, MSG_STORY_VICTORY, [q.name_key])
+			# Cena da fala da lenda (StoryScene no cliente), só para quem ganhou a vitória; a fala sai dela.
+			if not s.done_text_key.is_empty():
+				var pages: Array = []
+				for i: int in range(1, page_count(s.done_text_key) + 1):
+					pages.append(page_key(s.done_text_key, i))
+				NetProgress.push_story_scene(peer, StoryFragments.make_scene(id, monster_id, s.done_text_key, pages,
+						s.grant_items.keys()))
 			Net.log_line("story_victory", {"peer": peer, "quest": String(id), "monster": String(monster_id)})
 			_add_count(session, q, s, s.count)
 			credited += 1
@@ -875,7 +882,8 @@ func _advance(session: PlayerSession, q: QuestDef) -> void:
 
 ## Etapa concluída: entrega os itens dela (grant_items) e mostra a fala de conclusão (done_text_key).
 func _on_step_done(session: PlayerSession, q: QuestDef, s: QuestStep) -> void:
-	if not s.done_text_key.is_empty():
+	# A fala depois do chefe da história (RITUAL) vai na cena (on_story_boss_killed), não no chat.
+	if not s.done_text_key.is_empty() and s.type != QuestStep.StepType.RITUAL:
 		Net.push_system_message(session.peer_id, s.done_text_key)
 	if s.grant_items.is_empty():
 		return

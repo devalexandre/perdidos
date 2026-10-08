@@ -507,6 +507,9 @@ top_radius = 3
 bottom_radius = 4
 height = 1.5
 
+[sub_resource type="BoxShape3D" id="story_portal_shape"]
+size = Vector3(4, 3, 4)
+
 [node name="cave_reino_encoberto_4" type="Node3D"]
 script = ExtResource("cave")
 map_id = &"cave_reino_encoberto_4"
@@ -2181,6 +2184,41 @@ metadata/count = 3
 metadata/radius_cells = 3
 metadata/respawn_sec = 120.0
 
+[node name="DeepPassage" type="Marker3D" parent="."]
+position = Vector3(0, 0, -28)
+
+[node name="DeepPassageReturn" type="Marker3D" parent="."]
+position = Vector3(0, 0, -26)
+
+[node name="DeepPassagePortal" type="Area3D" parent="Interactables"]
+position = Vector3(0, 1, -30)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+metadata/interact_id = &"cave_reino_encoberto_4_deep_passage_portal"
+metadata/target_id = "m:cave_reino_encoberto_4_deep_passage_portal"
+metadata/interact_type = &"portal"
+metadata/target_map = &"cave_reino_encoberto_5"
+metadata/target_spawn = &"SpawnPoint"
+metadata/approach_position = Vector3(0, 0.0, -30)
+metadata/one_way = false
+metadata/requires_boss_victory = false
+metadata/requires_quest = &"arc1_final_boitata"
+metadata/hidden_waterfall_passage = true
+metadata/minimap_icon = &"none"
+
+[node name="Shape" type="CollisionShape3D" parent="Interactables/DeepPassagePortal"]
+shape = SubResource("story_portal_shape")
+
+[node name="Name" type="Label3D" parent="Interactables/DeepPassagePortal"]
+position = Vector3(0, 3, 0)
+billboard = 1
+font_size = 42
+pixel_size = 0.015
+text = "Passagem atrás da cachoeira ⇓"
+visible = false
+
 [node name="StoryLairs" type="Node3D" parent="."]
 
 [node name="lobisomem" type="Marker3D" parent="StoryLairs"]
@@ -2189,6 +2227,3 @@ metadata/monster_id = &"story_lobisomem"
 metadata/radius_cells = 6
 metadata/escort = {"cave_werewolf": 4, "cave_bat": 6}
 metadata/escort_stage = 2
-
-[node name="DeepPassage" type="Marker3D" parent="."]
-position = Vector3(0, 0, -28)

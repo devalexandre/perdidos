@@ -22,9 +22,9 @@ extra = Dictionary[StringName, Variant]({
 &"hot_max_hp_pct_per_level": 0.002
 })
 vfx = &"heal"
-exclusive_to_title = &"sabia_tank_jabuti"
+exclusive_to_title = &"pindorama_tank_jabuti"
 icon_text = "PJ"
-tree_title = &"sabia_tank_jabuti"
+tree_title = &"pindorama_tank_jabuti"
 tree_order = 4
 required_skill_levels = Dictionary[StringName, int]({
 &"tank_shell_retreat": 3

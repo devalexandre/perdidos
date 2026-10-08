@@ -9,7 +9,7 @@ import sys
 from PIL import Image, ImageDraw, ImageFont
 
 src, out = sys.argv[1], sys.argv[2]
-files = sorted(glob.glob(os.path.join(src, 'sabia_*_male.png')))
+files = sorted(glob.glob(os.path.join(src, 'pindorama_*_male.png')))
 CW, CH, Z = 220, 260, 2
 try:
     font = ImageFont.truetype('DejaVuSans.ttf', 16)

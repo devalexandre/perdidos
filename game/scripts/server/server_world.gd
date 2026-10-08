@@ -317,6 +317,9 @@ func refresh_appearance(session: PlayerSession) -> void:
 	app[&"mount"] = session.mounted_id
 	app[&"companion"] = session.character.companion_active if session.character.hp > 0 else &""
 	app[&"companion_name"] = session.character.companion_names.get(String(session.character.companion_active), "")
+	# Nível do bicho (rótulo e evolução visual nos marcos 10/25/50; PETS-E-MONTARIAS §0.1).
+	app[&"companion_level"] = companions.level_of(session.character, session.character.companion_active) \
+			if companions != null else 1
 	session.entity.appearance = app
 
 
@@ -865,7 +868,8 @@ func _tick_admin_state(delta: float) -> void:
 				event_xp_mult = max_xp
 				event_drop_mult = max_drop
 				active_decorations = parsed.get("active_decorations", {})
-				active_cosmetics = parsed.get("active_cosmetics", {})
+				# Painel antigo pode ter ids renomeados (ex. o broche da nação): LegacyIds.
+				active_cosmetics = LegacyIds.migrate(parsed.get("active_cosmetics", {}))
 
 				var bcast: String = str(parsed.get("broadcast_message", "")).strip_edges()
 				if not bcast.is_empty() and bcast != _last_broadcast_msg:

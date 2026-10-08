@@ -166,6 +166,6 @@ drops = Array[ExtResource("drop")]([SubResource("drop_mat_4"), SubResource("drop
 
 script = ExtResource("monster")
 id = &"black_caiman"
-region_id = &"sabia"
+region_id = &"pindorama"
 creature_type = &"beast"
 stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

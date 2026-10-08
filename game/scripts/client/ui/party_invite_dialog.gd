@@ -26,16 +26,18 @@ var _deadline_msec: int = 0
 func _init(p_scale: float = 1.0, p_title_key: String = "UI_PARTY_INVITE_TITLE",
 		p_text_key: String = "UI_PARTY_INVITE_TEXT", p_name: StringName = &"PartyInviteDialog") -> void:
 	ui_scale = p_scale
+	theme = UIKit.build_window_theme(ui_scale)
 	title_key = p_title_key
 	text_key = p_text_key
 	name = p_name
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	visible = false
+	add_theme_stylebox_override(&"panel", UIKit.dark_card_box(ui_scale, 12))
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override(&"separation", UIKit.px(6.0, ui_scale))
 	add_child(box)
 	title_label = Label.new()
-	title_label.add_theme_color_override(&"font_color", UIKit.c_title())
+	title_label.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT)
 	title_label.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_TITLE, ui_scale))
 	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(title_label)
@@ -45,12 +47,12 @@ func _init(p_scale: float = 1.0, p_title_key: String = "UI_PARTY_INVITE_TITLE",
 	text_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text_label.custom_minimum_size.x = UIKit.px(WIDTH_PX, ui_scale)
 	text_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	text_label.add_theme_color_override(&"font_color", UIKit.c_text())
+	text_label.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
 	box.add_child(text_label)
 	timer_label = Label.new()
 	timer_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	timer_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	timer_label.add_theme_color_override(&"font_color", UIKit.c_text_dim())
+	timer_label.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
 	timer_label.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	box.add_child(timer_label)
 	var buttons := HBoxContainer.new()

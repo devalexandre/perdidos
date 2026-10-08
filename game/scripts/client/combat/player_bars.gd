@@ -45,6 +45,11 @@ var _portrait_clip: Control
 var _portrait_preview: LayeredCharacterPreview
 var _portrait_key: String = ""
 var _portrait_poll: float = 0.0
+## Medidor do companheiro ativo (escondido sem companheiro).
+var companion_bar: ProgressBar
+var companion_label: Label
+const COMPANION_COLOR: Color = Color8(96, 214, 236)
+const COMPANION_BAR_HEIGHT_PX: float = 9.0
 
 
 func _init(p_scale: float = 1.0, p_net: Object = null) -> void:
@@ -98,6 +103,14 @@ func _init(p_scale: float = 1.0, p_net: Object = null) -> void:
 	_mp_label = mp[1]
 	col.add_child(mp_bar)
 
+	# Medidor do companheiro de título (PETS-E-MONTARIAS §0.1): nível e XP do bicho ativo.
+	companion_bar = _make_bar(COMPANION_COLOR, COMPANION_BAR_HEIGHT_PX)[0]
+	companion_label = companion_bar.get_child(0) as Label
+	companion_label.add_theme_font_size_override(&"font_size", maxi(8, UIKit.px(9, ui_scale)))
+	companion_bar.name = &"CompanionMeter"
+	companion_bar.visible = false
+	col.add_child(companion_bar)
+
 	# Valores iniciais agradáveis antes do primeiro pacote de rede
 	set_stats({"hp": 100, "max_hp": 100, "mp": 50, "max_mp": 50, "level": 1})
 
@@ -106,6 +119,32 @@ func _ready() -> void:
 	position = Vector2(UIKit.px(MARGIN_LEFT_PX, ui_scale), UIKit.px(MARGIN_TOP_PX, ui_scale))
 	var target_net: Object = net if net != null else get_node_or_null(^"/root/Net")
 	bind_net(target_net)
+	var prog: Node = get_node_or_null(^"/root/NetProgress")
+	if prog != null and prog.has_signal(&"progress_changed"):
+		prog.connect(&"progress_changed", set_companion_progress)
+		var cached: Variant = prog.get(&"client_progress")
+		if cached is Dictionary:
+			set_companion_progress(cached)
+
+
+## Nível e XP do companheiro ativo ao lado do retrato (progress = Progression.snapshot()).
+func set_companion_progress(progress: Dictionary) -> void:
+	if companion_bar == null:
+		return
+	var state: Dictionary = progress.get("companions", {})
+	var active: String = str(state.get("active", ""))
+	var def: CompanionDef = Content.companion(StringName(active)) if not active.is_empty() else null
+	companion_bar.visible = def != null
+	if def == null:
+		return
+	var entry: Dictionary = (state.get("progress", {}) as Dictionary).get(active, {})
+	var level: int = int(entry.get("level", 1))
+	var next: int = int(entry.get("xp_next", 0))
+	companion_bar.max_value = maxi(1, next)
+	companion_bar.value = companion_bar.max_value if next <= 0 else int(entry.get("xp", 0))
+	var nick: String = str((state.get("names", {}) as Dictionary).get(active, ""))
+	companion_label.text = "%s · %s" % [nick if not nick.is_empty() else tr(def.name_key),
+			tr("COMPANION_LEVEL_SHORT") % level]
 
 
 func bind_net(p_net: Object) -> void:

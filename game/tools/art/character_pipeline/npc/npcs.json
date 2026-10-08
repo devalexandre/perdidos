@@ -206,5 +206,40 @@
    "muscular"
   ],
   "prop": "tortoise shell plated vest, long white beard and gnarled wooden staff"
+ },
+ "dona_jacinta": {
+  "height": 79,
+  "neg_drop": [],
+  "build": "small plump build of a kind older woman, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "friendly woman in her sixties with an anime-style face, a few soft wrinkles, warm smiling eyes, rosy cheeks, gentle smile",
+  "desc": "riverside market lace-maker and stall keeper, warm tan skin, graying dark hair under a red and white checkered headscarf tied at the nape, a lilac blouse with puffed short sleeves, a long mustard-yellow skirt, a white lace-trimmed apron, brown sandals, holding a round woven straw sieve basket with a crossed straw pattern against her hip",
+  "prop": "checkered headscarf, white lace apron and round woven straw sieve basket"
+ },
+ "firmino_insone": {
+  "height": 84,
+  "neg_drop": [],
+  "build": "very thin gaunt lanky build with slightly hunched tired shoulders, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "exhausted middle-aged man with an anime-style face, very dark purple bags and deep circles under heavy-lidded tired eyes, thin face, short messy stubble, weary sad worried expression, clearly a living ordinary human",
+  "desc": "sleepless villager from a foggy village, fair light-peach skin with warm healthy undertone, messy unkempt dark brown hair, an old faded blue and white striped long-sleeved nightshirt pajama with a patched elbow, loose gray-blue pajama trousers, worn brown slippers, holding up a small old iron oil lantern with a bright warm orange flame glowing inside in one hand",
+  "prop": "striped old nightshirt pajama and glowing iron oil lantern"
+ },
+ "dona_celeste": {
+  "height": 81,
+  "neg_drop": [],
+  "build": "slim average build, proportions about 3.5 heads tall with a small head relative to the body",
+  "face": "worried woman in her early thirties with an anime-style face, medium-sized anxious eyes, furrowed eyebrows, small worried frown, small gold hoop earrings",
+  "desc": "riverside townswoman and mother looking for her son, light brown skin, long dark brown hair gathered in a loose low bun with loose strands, a plain light-blue blouse with rolled sleeves, a long dark navy skirt down to the ankles, a cream cloth shawl tied over the shoulders, simple brown sandals, one hand pressed against her chest and the other hand raised to her cheek in worry",
+  "prop": "light-blue blouse, navy long skirt, cream shawl and low bun"
+ },
+ "curupira": {
+  "height": 62,
+  "neg_drop": [
+   "short legs",
+   "chubby cheeks"
+  ],
+  "build": "child proportions, about 3 heads tall, skinny arms and legs",
+  "face": "mischievous playful boy about nine years old with an anime-style face, big bright amber eyes, sly cheeky grin",
+  "desc": "ordinary forest village boy, warm brown skin, wild spiky bright red-orange hair sticking up like flames, a sleeveless leaf-green tunic with a ragged hem, short brown shorts, a belt of twisted green jungle vine tied at the waist, simple brown leather sandals with both feet pointing forward normally, a small green leaf tucked in his hair",
+  "prop": "spiky red hair, leaf-green tunic, brown shorts and vine belt"
  }
 }

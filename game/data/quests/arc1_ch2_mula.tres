@@ -51,7 +51,7 @@ id = &"arc1_ch2_mula"
 name_key = "QUEST_ARC1_CH2_NAME"
 giver_npc = &"tropeiro"
 turn_in_npc = &"master_orvalho"
-region_id = &"sabia"
+region_id = &"pindorama"
 steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4")])
 reward_items = Dictionary[StringName, int]({
 &"crossroads_machete": 1,
@@ -66,4 +66,3 @@ option_text_key = "QUEST_ARC1_CH2_OPTION"
 desc_key = "QUEST_ARC1_CH2_DESC"
 required_quests = Array[StringName]([&"arc1_ch1_saci"])
 requires_left_training = true
-released = false

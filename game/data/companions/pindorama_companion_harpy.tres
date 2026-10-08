@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CompanionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/companion_def.gd" id="def"]
+
+[resource]
+script = ExtResource("def")
+id = &"pindorama_companion_harpy"
+name_key = "COMPANION_HARPY"
+title_id = &"pindorama_bow_gaviao"
+bond_quest_id = &"quest_bond_harpy"
+sprite_base = "res://assets/companions/harpy/pet_harpy"
+visual_scale = 0.7
+flies = true
+fly_lift_m = 0.9
+idle_moves = Array[StringName]([&"drift", &"orbit", &"swap_side", &"look", &"glide"])
+bond_skills = Array[StringName]([&"bow_companion_hawk_strike", &"bow_companion_sky_eye"])
+attack_interval_sec = 2.0
+attack_range_cells = 6.0
+chase_cells = 0.0
+attack_mult = 1.0
+damage_kind = &"physical"
+power_base = 3.0
+power_per_level = 1.0
+owner_attribute = &"dex"
+attribute_frac = 0.4
+spells = Array[StringName]([&"comp_harpy_feather_gust", &"comp_harpy_high_cry", &"comp_harpy_royal_dive"])
+def_ignore = 0.5

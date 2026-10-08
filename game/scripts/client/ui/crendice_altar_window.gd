@@ -33,7 +33,7 @@ func _init(p_scale: float = 1.0) -> void:
 
 	# Layout principal: 2 colunas
 	var main_hbox := HBoxContainer.new()
-	main_hbox.add_theme_constant_override(&"separation", UIKit.px(10, ui_scale))
+	main_hbox.add_theme_constant_override(&"separation", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	content.add_child(main_hbox)
 
 	# --- Coluna Esquerda: Equipamentos e Encaixes ---
@@ -96,25 +96,25 @@ func _init(p_scale: float = 1.0) -> void:
 	_details_lore = Label.new()
 	_details_lore.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_details_lore.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
-	_details_lore.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+	_details_lore.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	det_vbox.add_child(_details_lore)
 
 	_details_effect = Label.new()
 	_details_effect.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_details_effect.add_theme_color_override(&"font_color", UIKit.COLOR_LEAF_LIGHT)
-	_details_effect.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+	_details_effect.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	det_vbox.add_child(_details_effect)
 
 	_details_superstition = Label.new()
 	_details_superstition.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_details_superstition.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD)
-	_details_superstition.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+	_details_superstition.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	det_vbox.add_child(_details_superstition)
 
 	_details_synergy = Label.new()
 	_details_synergy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_details_synergy.add_theme_color_override(&"font_color", Color8(201, 168, 236))
-	_details_synergy.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+	_details_synergy.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	det_vbox.add_child(_details_synergy)
 
 	_clear_details()
@@ -138,7 +138,11 @@ func _init(p_scale: float = 1.0) -> void:
 
 
 func set_equipment_data(equip: Dictionary) -> void:
-	_equip = equip.duplicate(true)
+	_equip.clear()
+	for slot: Variant in equip:
+		var entry: Variant = equip[slot]
+		# O inventário manda IDs simples; dados ricos de encaixe também são aceitos.
+		_equip[slot] = entry.duplicate(true) if entry is Dictionary else {"item": str(entry)}
 	_refresh_equip_list()
 	_refresh_synergies()
 
@@ -194,7 +198,7 @@ func _refresh_equip_list() -> void:
 		empty_lbl.text = "Nenhum equipamento com encaixes vestido.\nEquipe armas, armaduras ou acessórios."
 		empty_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		empty_lbl.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
-		empty_lbl.add_theme_font_size_override(&"font_size", UIKit.px(12, ui_scale))
+		empty_lbl.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 		_equip_container.add_child(empty_lbl)
 
 
@@ -208,11 +212,11 @@ func _create_gear_card(slot_name: StringName, item_id: StringName, def: ItemDef,
 	panel.add_child(vbox)
 
 	# Cabeçalho do item
-	var item_name: String = def.get_display_name() if def != null else String(item_id)
+	var item_name: String = UIKit.item_name(def) if def != null else String(item_id)
 	var header_lbl := Label.new()
 	header_lbl.text = "%s (%s) - %d Encaixe(s)" % [item_name, _slot_display_name(slot_name), max_sockets]
 	header_lbl.add_theme_color_override(&"font_color", UIKit.COLOR_TITLE)
-	header_lbl.add_theme_font_size_override(&"font_size", UIKit.px(12, ui_scale))
+	header_lbl.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	vbox.add_child(header_lbl)
 
 	var crendices: Array = item_data.get("crendices", [])
@@ -227,12 +231,12 @@ func _create_gear_card(slot_name: StringName, item_id: StringName, def: ItemDef,
 			var c_id: StringName = StringName(str(crendices[i]))
 			var is_dormant: bool = bool(dormants[i]) if i < dormants.size() else false
 			var c_def: CrendiceDef = CrendiceDatabase.get_crendice(c_id)
-			var c_name: String = c_def.get_name() if c_def != null else String(c_id)
+			var c_name: String = _amulet_name(c_def) if c_def != null else String(c_id)
 
 			var c_lbl := Label.new()
 			c_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			c_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-			c_lbl.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+			c_lbl.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 
 			if is_dormant:
 				c_lbl.text = "• %s [ADORMECIDO]" % c_name
@@ -245,7 +249,7 @@ func _create_gear_card(slot_name: StringName, item_id: StringName, def: ItemDef,
 			if is_dormant:
 				var btn_consecrate := Button.new()
 				btn_consecrate.text = "Reconsagrar"
-				btn_consecrate.add_theme_font_size_override(&"font_size", UIKit.px(10, ui_scale))
+				btn_consecrate.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 				btn_consecrate.pressed.connect(func() -> void:
 					consecrate_requested.emit(slot_name, i)
 				)
@@ -253,7 +257,7 @@ func _create_gear_card(slot_name: StringName, item_id: StringName, def: ItemDef,
 
 			var btn_remove := Button.new()
 			btn_remove.text = "Desencaixar"
-			btn_remove.add_theme_font_size_override(&"font_size", UIKit.px(10, ui_scale))
+			btn_remove.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 			btn_remove.pressed.connect(func() -> void:
 				remove_requested.emit(slot_name, i)
 			)
@@ -263,12 +267,12 @@ func _create_gear_card(slot_name: StringName, item_id: StringName, def: ItemDef,
 			empty_lbl.text = "• [Vazio]"
 			empty_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			empty_lbl.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
-			empty_lbl.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+			empty_lbl.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 			socket_row.add_child(empty_lbl)
 
 			var btn_insert := Button.new()
 			btn_insert.text = "Encaixar"
-			btn_insert.add_theme_font_size_override(&"font_size", UIKit.px(10, ui_scale))
+			btn_insert.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 			btn_insert.disabled = (_selected_inv_idx < 0)
 			btn_insert.pressed.connect(func() -> void:
 				if _selected_inv_idx >= 0:
@@ -300,9 +304,9 @@ func _refresh_inv_list() -> void:
 		has_amulets = true
 		var qty: int = int(slot_data.get("qty", 1))
 		var btn := Button.new()
-		btn.text = "%s (x%d)" % [c_def.get_name(), qty]
+		btn.text = "%s (x%d)" % [_amulet_name(c_def), qty]
 		btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		btn.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+		btn.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 		if i == _selected_inv_idx:
 			btn.add_theme_color_override(&"font_color", UIKit.COLOR_TITLE)
 
@@ -320,7 +324,7 @@ func _refresh_inv_list() -> void:
 		empty_lbl.text = "Nenhum amuleto na mochila.\nDerrote criaturas sob condições de superstição para encontrá-los!"
 		empty_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		empty_lbl.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
-		empty_lbl.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+		empty_lbl.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 		_inv_container.add_child(empty_lbl)
 
 
@@ -329,19 +333,21 @@ func _show_amulet_details(c_def: CrendiceDef) -> void:
 		_clear_details()
 		return
 
-	_details_name.text = c_def.get_name()
-	_details_lore.text = '"%s"' % c_def.get_lore()
+	_details_name.text = _amulet_name(c_def)
+	_details_lore.text = '"%s"' % _amulet_phrase(c_def, "LORE", c_def.lore_key)
 
 	var eff_parts: Array[String] = []
-	for k: StringName in c_def.stat_bonuses:
-		eff_parts.append("+%d %s" % [c_def.stat_bonuses[k], String(k).to_upper()])
-	for k: String in c_def.special_effects:
-		eff_parts.append("%s: %s" % [k, str(c_def.special_effects[k])])
-	_details_effect.text = "Efeito Base: " + (", ".join(eff_parts) if not eff_parts.is_empty() else "Nenhum")
+	for k: StringName in c_def.stats:
+		eff_parts.append("%+d %s" % [c_def.stats[k], UIKit.stat_label(k)])
+	var description: String = _amulet_phrase(c_def, "DESC", c_def.desc_key)
+	if description.is_empty():
+		var item: ItemDef = Content.item(c_def.id)
+		description = tr(item.desc_key) if item != null else ""
+	_details_effect.text = "\n".join(eff_parts) + ("\n" + description if not description.is_empty() else "")
 
-	_details_superstition.text = "Superstição: " + c_def.get_superstition_text()
+	_details_superstition.text = _amulet_phrase(c_def, "SUP", c_def.superstition_desc_key)
 
-	var syn_name: String = c_def.get_synergy_name()
+	var syn_name: String = tr(str(CrendiceDatabase.get_synergies().get(c_def.synergy_group, {}).get("name_key", "")))
 	if not syn_name.is_empty():
 		_details_synergy.text = "Sinergia: %s" % syn_name
 	else:
@@ -371,16 +377,16 @@ func _refresh_synergies() -> void:
 		tip.text = "Nenhuma sinergia ativa.\nEquipe 2 ou 3 amuletos do mesmo tema para despertar poderes folclóricos!"
 		tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		tip.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DIM)
-		tip.add_theme_font_size_override(&"font_size", UIKit.px(10, ui_scale))
+		tip.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 		_synergies_container.add_child(tip)
 		return
 
 	for syn: Dictionary in active_synergies:
 		var s_lbl := Label.new()
-		s_lbl.text = "★ %s: %s" % [syn.get("name", ""), syn.get("desc", "")]
+		s_lbl.text = "★ %s: %s" % [tr(str(syn.get("name_key", ""))), tr(str(syn.get("desc_key", "")))]
 		s_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		s_lbl.add_theme_color_override(&"font_color", UIKit.COLOR_STARS)
-		s_lbl.add_theme_font_size_override(&"font_size", UIKit.px(11, ui_scale))
+		s_lbl.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 		_synergies_container.add_child(s_lbl)
 
 
@@ -395,3 +401,16 @@ func _slot_display_name(slot: StringName) -> String:
 		&"accessory_1": return "Acessório 1"
 		&"accessory_2": return "Acessório 2"
 	return String(slot).capitalize()
+
+func _amulet_name(def: CrendiceDef) -> String:
+	var item: ItemDef = Content.item(def.id)
+	return UIKit.item_name(item) if item != null else tr(def.name_key)
+
+func _amulet_phrase(def: CrendiceDef, suffix: String, fallback: String) -> String:
+	for key: String in ["CRENDICE_%s_%s" % [String(def.id).to_upper(), suffix], fallback]:
+		if key.is_empty():
+			continue
+		var text: String = tr(key)
+		if text != key:
+			return text
+	return ""

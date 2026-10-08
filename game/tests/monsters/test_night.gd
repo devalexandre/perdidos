@@ -3,13 +3,13 @@ extends Node
 ##  - WorldClock (ciclo, virada, rampa da luz, força, Campo de Treino sempre de dia);
 ##  - MonsterEvolution / MonsterDef com o estágio 4 (fora da evolução, multiplicador);
 ##  - MonsterBrain.set_atroz (atributos +100%, proporção da vida, estágio de evolução 3, volta);
-##  - covis fixos (regra de zona, 3 chefes do Sabiá na Subida Vermelha);
-##  - dados reais: forma atroz das espécies do Sabiá e itens raros só em raro/chefe/atroz.
+##  - covis fixos (regra de zona, 3 chefes de Pindorama na Subida Vermelha);
+##  - dados reais: forma atroz das espécies de Pindorama e itens raros só em raro/chefe/atroz.
 ## O fluxo em rede fica em tests/monsters/run_night_test.sh.
 ## Rodar: godot --headless --path game res://tests/monsters/test_night.tscn
 
 const EPS: float = 0.0001
-const SABIA_RARE_ITEMS: Dictionary[StringName, StringName] = {&"stone_armadillo": &"ancient_shell_shard",
+const PINDORAMA_RARE_ITEMS: Dictionary[StringName, StringName] = {&"stone_armadillo": &"ancient_shell_shard",
 		&"enchanted_firefly": &"eternal_ember", &"prank_whirlwind": &"pequi_root"}
 
 var _checks: int = 0
@@ -22,7 +22,7 @@ func _ready() -> void:
 	_test_brain_atroz()
 	_test_lair_rules()
 	_test_real_data()
-	_test_new_sabia_species()
+	_test_new_pindorama_species()
 	_test_special_weapon_drops()
 	print("test_monsters_night: %d checks, %d failures" % [_checks, _failures])
 	print("RESULT: %s" % ("PASS" if _failures == 0 else "FAIL"))
@@ -200,7 +200,7 @@ func _test_lair_rules() -> void:
 	_check(not MonsterSpawner.zone_allows_bosses(hunt, 2), "teto 2 não tem chefe")
 	_check(not MonsterSpawner.zone_allows_bosses(calm, 3), "bosses_allowed = false não tem chefe")
 	_check(not ResourceLoader.exists("res://scripts/server/monsters/boss_kill_tracker.gd"), "sem chefe por contagem de abates")
-	# Os 3 chefes do Sabiá têm covil fixo na Subida Vermelha (quests dos anciãos).
+	# Os 3 chefes de Pindorama têm covil fixo na Subida Vermelha (quests dos anciãos).
 	var map: Node = (load("res://scenes/maps/split_sky_plateau.tscn") as PackedScene).instantiate()
 	var lairs: Node = map.get_node_or_null(MonsterSpawner.LAIRS_NODE)
 	var found: Array[StringName] = []
@@ -234,7 +234,7 @@ func _chance_of(entries: Array[DropEntry], item: StringName) -> float:
 
 
 func _test_real_data() -> void:
-	for mid: StringName in SABIA_RARE_ITEMS:
+	for mid: StringName in PINDORAMA_RARE_ITEMS:
 		var d: MonsterDef = Content.monster(mid)
 		if not _check_bool(d != null, "espécie %s existe" % mid):
 			continue
@@ -242,7 +242,7 @@ func _test_real_data() -> void:
 		var at: MonsterStage = d.atroz_stage()
 		if not _check_bool(boss != null and at != null, "%s tem chefe e forma atroz" % mid):
 			continue
-		var item: StringName = SABIA_RARE_ITEMS[mid]
+		var item: StringName = PINDORAMA_RARE_ITEMS[mid]
 		_check(Content.item(item) != null, "item raro %s existe" % item)
 		_check(Content.item(item) != null and Content.item(item).rarity == ItemDef.Rarity.RARE, "%s é raro" % item)
 		_check(TranslationServer.translate(at.name_key) != at.name_key, "nome da forma atroz de %s traduzido" % mid)
@@ -273,7 +273,7 @@ func _check_bool(ok: bool, what: String) -> bool:
 	return ok
 
 
-func _test_new_sabia_species() -> void:
+func _test_new_pindorama_species() -> void:
 	for mid: String in ["buriti_boar", "cinder_serpent", "ember_mule", "highland_buriti_boar", "highland_cinder_serpent", "highland_ember_mule"]:
 		var d: MonsterDef = Content.monster(StringName(mid))
 		if not _check_bool(d != null, "%s registered" % mid):

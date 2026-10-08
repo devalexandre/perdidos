@@ -31,7 +31,7 @@ script = ExtResource("1_quest")
 id = &"arc1_final_boitata"
 name_key = "QUEST_ARC1_FINAL_NAME"
 giver_npc = &"curupira"
-region_id = &"sabia"
+region_id = &"pindorama"
 steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2")])
 reward_xp = 8000
 reward_causo_id = &"arc1_boitata"
@@ -42,7 +42,6 @@ option_text_key = "QUEST_ARC1_FINAL_OPTION"
 desc_key = "QUEST_ARC1_FINAL_DESC"
 required_quests = Array[StringName]([&"arc1_ch1_saci", &"arc1_ch2_mula", &"arc1_ch3_lobisomem", &"arc1_ch4_curupira", &"arc1_ch5_pisadeira", &"arc1_ch6_iara", &"arc1_ch7_mapinguari", &"arc1_ch8_cuca", &"arc1_ch9_boiuna"])
 requires_left_training = true
-released = false
 reward_by_archetype = Dictionary[StringName, StringName]({
 &"blade": &"living_flame_machete",
 &"tank": &"living_flame_machete",

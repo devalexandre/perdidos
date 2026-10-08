@@ -18,9 +18,80 @@ func _ready() -> void:
 	_test_traveler_gait()
 	await _test_sprite_feet_at_origin()
 	await _test_combat_anims()
+	_test_cast_duration()
+	_test_skill_finish()
+	_test_smooth_turn()
+	_test_walk_continuity()
 	print("test_direction: %d checks, %d failures" % [_checks, _failures])
 	print("RESULT: " + ("PASS" if _failures == 0 else "FAIL"))
 	get_tree().quit(0 if _failures == 0 else 1)
+
+
+func _test_cast_duration() -> void:
+	var visual := EntityVisual.new()
+	add_child(visual)
+	visual.set_appearance({&"body": &"female", &"outfit": &"traveler"})
+	visual.set_process(false)
+	_check(visual.play_cast_duration(2.0), "conjuração temporizada existe")
+	_check(is_equal_approx(visual.get_oneshot_left(), 2.0), "conjuração acompanha tempo da skill")
+	visual._process(1.0)
+	_check(visual.get_oneshot() == &"cast", "personagem não volta ao idle antes do fim da carga")
+	var frames: int = visual.get_frame_count(&"cast")
+	var frame_sec: float = visual.get_frame_sec(&"cast", frames)
+	var gathered: int = visual._timed_cast_frame(frames, frame_sec)
+	_check(gathered >= floori(frames * 0.35) and gathered <= floori(frames * 0.48), "carga longa sustenta mãos reunidas")
+	visual._process(frame_sec)
+	_check(visual._timed_cast_frame(frames, frame_sec) != gathered, "miolo da carga mantém cadência da folha")
+	visual._process(0.85)
+	_check(visual._timed_cast_frame(frames, frame_sec) >= floori(frames * 0.5), "liberação aparece perto do fim da carga")
+	visual.cancel_cast()
+	_check(visual.get_oneshot() == &"" and visual.get_oneshot_left() == 0.0, "cancelamento encerra a pose")
+	visual.play_cast_duration(2.0)
+	visual.play_oneshot(&"attack")
+	visual.cancel_cast()
+	_check(visual.get_oneshot() != &"", "cancelamento antigo não apaga outra animação")
+	visual.free()
+
+
+## Finalização das skills (08/10/2026): recuo no disparo, hitstop e imagem residual — só no sprite.
+func _test_skill_finish() -> void:
+	var v := EntityVisual.new()
+	add_child(v)
+	v.set_appearance({&"body": &"male", &"outfit": &"traveler", &"weapon": &"blade", &"head": &"straw_hat"})
+	v.set_process(false)
+	v.cull_offscreen = false
+	v.play_cast_duration(1.0)
+	v.play_skill_release(Vector3(1, 0, 0))
+	_check(v.get_oneshot() == &"", "disparo encerra a pose de carga")
+	v._process(DirectionalSprite3D.RECOIL_SEC * 0.3)
+	_check(v.get_motion_offset().x < -0.001 and v.position == Vector3.ZERO,
+			"recuo para longe do alvo, nó parado (%.3f)" % v.get_motion_offset().x)
+	v._process(DirectionalSprite3D.RECOIL_SEC)
+	_check(v.get_motion_offset().length() < 0.0001, "recuo volta ao lugar")
+	v.play_oneshot(&"attack")
+	var left: float = v.get_oneshot_left()
+	v.play_hitstop(0.06)
+	v._process(0.03)
+	_check(v.is_hitstopped() and is_equal_approx(v.get_oneshot_left(), left), "hitstop congela o golpe")
+	v._process(0.04)
+	v._process(0.02)
+	_check(not v.is_hitstopped() and v.get_oneshot_left() < left, "golpe segue depois do hitstop")
+	v.play_hitstop(1.0)
+	v._process(DirectionalSprite3D.HITSTOP_MAX_SEC + 0.01)
+	_check(not v.is_hitstopped(), "hitstop nunca passa de %.0f ms" % (DirectionalSprite3D.HITSTOP_MAX_SEC * 1000.0))
+	var ghost: Node3D = v.make_afterimage()
+	var sprites: Array[Node] = ghost.get_children()
+	var own: bool = not sprites.is_empty()
+	for sp: Node in sprites:
+		var g: Sprite3D = sp as Sprite3D
+		own = own and g.material_override == null and g.transparent \
+				and g.alpha_cut == SpriteBase3D.ALPHA_CUT_DISABLED and g.texture != null
+	var body: Sprite3D = sprites[0] as Sprite3D if not sprites.is_empty() else null
+	_check(sprites.size() >= 2 and own and body.frame == v.get_body_sprite().frame \
+			and body.flip_h == v.get_body_sprite().flip_h,
+			"imagem residual: corpo e camadas, mesmo quadro, alfa de verdade sem pontilhado (%d)" % sprites.size())
+	ghost.free()
+	v.free()
 
 
 func _check(cond: bool, msg: String) -> void:
@@ -191,3 +262,66 @@ func _test_traveler_gait() -> void:
 	visual.walk_cycle_ms = 600.0
 	_check(absf(visual._anim_time / 0.6 - 0.375) < EPS, "mudança de velocidade preserva fase do passo")
 	visual.free()
+
+
+## Virada suave (08/10/2026): passa pelos setores do meio, pelo lado mais curto, sem mexer em facing_yaw.
+func _test_smooth_turn() -> void:
+	_check(DirectionalSprite3D.sector_distance(D.E, D.W) == 4 and DirectionalSprite3D.sector_distance(D.SW, D.SE) == 2,
+			"distância entre setores pelo lado curto")
+	_check(DirectionalSprite3D.turn_step_toward(D.S, D.E) == D.SE and DirectionalSprite3D.turn_step_toward(D.S, D.W) == D.SW,
+			"90°: vai pelo lado mais curto")
+	_check(DirectionalSprite3D.turn_step_toward(D.E, D.W) == D.SE, "180° E→W passa pela frente (SE)")
+	_check(DirectionalSprite3D.turn_step_toward(D.W, D.E) == D.SW, "180° W→E passa pela frente (SW)")
+	_check(DirectionalSprite3D.turn_step_toward(D.SE, D.NW) == D.S, "180° SE→NW passa pela frente (S)")
+	DirectionalSprite3D.asset_dir = STUB_DIR
+	var v := DirectionalSprite3D.new()
+	v.setup(&"male")
+	var step: float = DirectionalSprite3D.TURN_STEP_MS / 1000.0
+	v._update_turn(D.S, 0.0)
+	_check(v.get_sector() == D.S, "primeiro quadro entra direto na direção")
+	v._update_turn(D.SE, 0.016)
+	_check(v.get_sector() == D.SE and not v.is_turning(), "1 setor de diferença: na hora")
+	v._update_turn(D.S, 0.016)
+	v._update_turn(D.N, 0.016)
+	var seen: Array[int] = [v.get_sector()]
+	var t: float = 0.0
+	while v.get_sector() != D.N and t < 1.0:
+		v._update_turn(D.N, 0.016)
+		t += 0.016
+		if seen[-1] != v.get_sector():
+			seen.append(v.get_sector())
+	_check(seen == [D.SE, D.E, D.NE, D.N], "180° S→N passa por SE, E, NE (%s)" % [seen])
+	_check(t >= step * 2.5 and t <= step * 3.0 + 0.05, "virada de 180° em ~3 passos de %.0f ms (%.0f ms)" % [step * 1000.0, t * 1000.0])
+	_check(v.get_target_sector() == D.N and not v.is_turning(), "chegou ao setor alvo")
+	v.turn_step_ms = 0.0
+	v._update_turn(D.S, 0.016)
+	_check(v.get_sector() == D.S, "turn_step_ms = 0 desliga a virada suave")
+	v.free()
+	DirectionalSprite3D.asset_dir = "res://assets/characters/"
+
+
+## Andar: novo clique logo depois de parar continua o ciclo; partida do zero começa no quadro de passagem;
+## parar assenta. Mesma velocidade de passada (walk_cycle_ms).
+func _test_walk_continuity() -> void:
+	DirectionalSprite3D.asset_dir = STUB_DIR
+	var v := DirectionalSprite3D.new()
+	v.setup(&"male")
+	v.walk_cycle_ms = 400.0
+	v.anim = &"walk"
+	var frames: int = v.get_frame_count(&"walk")
+	var col: int = int(v._anim_time / v.get_frame_sec(&"walk", frames))
+	_check(col == int(frames * DirectionalSprite3D.WALK_START_PHASE), "partida no quadro de passagem (%d)" % col)
+	v._anim_time = 0.23
+	v.anim = &"idle"
+	_check(v._settle_t == 0.0, "parar de andar começa o assentar")
+	v._life_t += 0.1
+	v.anim = &"walk"
+	_check(is_equal_approx(v._anim_time, 0.23), "novo clique logo depois: ciclo continua (%.3f)" % v._anim_time)
+	v.anim = &"idle"
+	v._life_t += DirectionalSprite3D.WALK_RESUME_SEC + 0.1
+	v.anim = &"walk"
+	_check(absf(v._anim_time - 0.4 * DirectionalSprite3D.WALK_START_PHASE) < 0.001, "parado há tempo: recomeça na passagem")
+	_check(is_equal_approx(v.get_frame_sec(&"walk", 12) * 12.0, 0.4) and is_equal_approx(v.get_frame_sec(&"walk", 8) * 8.0, 0.4),
+			"folha de 12 ou 8 quadros: mesma passada (walk_cycle_ms)")
+	v.free()
+	DirectionalSprite3D.asset_dir = "res://assets/characters/"

@@ -357,7 +357,7 @@ const taglineEl = $("tagline");
 const arcMark = $("arc-mark");
 let themeId = "";
 
-// Seal "Arco I • A Terra do Sabiá": arc and title around the <i> dot.
+// Seal "Arco I • A Terra de Pindorama": arc and title around the <i> dot.
 // Plain text only: textContent, never innerHTML.
 function setArcSeal(arc: string, title: string) {
   const [arcEl, titleEl] = arcMark.querySelectorAll<HTMLSpanElement>(":scope > span");

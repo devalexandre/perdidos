@@ -2,7 +2,7 @@
 """Acrescenta a forma atroz (MonsterStage stage = 4) e o item raro de combinacao a um data/monsters/<id>.tres
 (TITULOS-E-SKILLS 3.0 item 5 e 3.3; docs/chefes-dia-noite.md). Reexecutavel: nao duplica o que ja existe.
   python3 game/tools/art/content/add_atroz_stage.py stone_armadillo ancient_shell_shard
-  python3 game/tools/art/content/add_atroz_stage.py --all        (as 3 especies da Terra do Sabia)
+  python3 game/tools/art/content/add_atroz_stage.py --all        (as 3 especies da Terra de Pindorama)
 Regras aplicadas (numeros aqui, faceis de ajustar):
   - estagio 4: nome MON_<ID>_S4_NAME, folhas _s4 (se nao existirem, usa as _s3), nivel do chefe + 6, passo 20% mais
     rapido, golpe 35% mais rapido, aggro +4 e coleira +10 celulas, XP x2,5, Estrelas x2, drops do chefe com chance
@@ -13,7 +13,7 @@ Regras aplicadas (numeros aqui, faceis de ajustar):
 import os, re, sys
 
 GAME = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-SABIA = {"stone_armadillo": "ancient_shell_shard", "enchanted_firefly": "eternal_ember",
+PINDORAMA = {"stone_armadillo": "ancient_shell_shard", "enchanted_firefly": "eternal_ember",
          "prank_whirlwind": "pequi_root"}
 RARE_CHANCE = 0.12
 BOSS_RARE_CHANCE = 0.35
@@ -159,7 +159,7 @@ def apply(mid, rare_item):
 if __name__ == "__main__":
     args = sys.argv[1:]
     if args == ["--all"]:
-        for k, v in SABIA.items():
+        for k, v in PINDORAMA.items():
             apply(k, v)
     elif len(args) == 2:
         apply(args[0], args[1])

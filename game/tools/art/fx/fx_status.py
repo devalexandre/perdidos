@@ -10,7 +10,7 @@ from __future__ import annotations
 import math
 
 from fxdraw import Canvas, Frame, Spr, blit, ease_out, layer, lerp, piece, rng
-from fxsabia import (BLOOD, BLOOD_LINE, BRONZE, BRONZE_LINE, CRYSTAL_G, D, DUST, DUST_LINE, EMBER_G,
+from fxpindorama import (BLOOD, BLOOD_LINE, BRONZE, BRONZE_LINE, CRYSTAL_G, D, DUST, DUST_LINE, EMBER_G,
                      FEATHER_DARK, K, LEAF, LEAF_G, LEAF_LINE, LEAFLET_PAL, LEAFLET_TXT, MANA_G, MATINTA_G,
                      OLIVE_G, RAGE_G, SAP_G, TAU, TAUNT_PAL, TAUNT_TXT, W_GOLD, W_PALE, W_WHITE, WOOD, WOOD_LINE,
                      arrow, dither_alpha, drop, feather, leaf, leaf_poly, spr, spiral_vine, vine)
@@ -212,7 +212,7 @@ def aura_lifesteal():
 
 
 # bronze da aura (glow)
-from fxsabia import BRONZE_G as BRONZE_G_LOCAL  # noqa: E402
+from fxpindorama import BRONZE_G as BRONZE_G_LOCAL  # noqa: E402
 
 
 # ------------------------------------------------------------------ marcas de debuff (sobre a cabeca)
@@ -276,7 +276,7 @@ def mark_def_down():
 
 def mark_atk_down():
     """ATK reduzido: facao quebrado (ponta caindo) + divisas descendo."""
-    from fxsabia import MACHETE_PAL, MACHETE_TXT
+    from fxpindorama import MACHETE_PAL, MACHETE_TXT
     m = spr(MACHETE_TXT, MACHETE_PAL).rot(35)
     hilt = Spr(m.a[:, : m.w // 2].copy())
     tip = Spr(m.a[:, m.w // 2:].copy())

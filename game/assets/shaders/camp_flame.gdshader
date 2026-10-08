@@ -1,5 +1,7 @@
 shader_type spatial;
 render_mode unshaded, blend_mix, cull_disabled, depth_draw_never, shadows_disabled;
+// Chuva (env_fire_damp, global): menos brilho e chama mais rala.
+#include "res://assets/shaders/env_weather.gdshaderinc"
 void vertex() {
 	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);
 }
@@ -18,6 +20,6 @@ void fragment() {
 	float core = tongue(p, 0.0, 0.58, 0.13, 0.7);
 	vec3 amber = mix(vec3(1.0, 0.25, 0.035), vec3(1.0, 0.70, 0.15), 1.0 - p.y);
 	ALBEDO = mix(amber, vec3(1.0, 0.93, 0.56), core);
-	EMISSION = ALBEDO * 0.7;
-	ALPHA = silhouette * 0.9;
+	EMISSION = ALBEDO * 0.7 * (1.0 - env_fire_damp() * 0.55);
+	ALPHA = silhouette * 0.9 * (1.0 - env_fire_damp() * 0.3);
 }

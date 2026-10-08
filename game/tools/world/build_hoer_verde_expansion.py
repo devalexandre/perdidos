@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 build_hoer_verde_expansion.py
-Expands Nação Sabiá with:
+Expands Nação Pindorama with:
 1. City 3: Arraial do Sumidouro (city_sumidouro)
 2. Approach Region: Charneca da Névoa (3 maps: fog_moor_trail, fog_moor_swamp, fog_moor_gate)
 3. Dungeon 5: Vilarejo de Hoer Verde (4 floors: hoer_verde_1 .. hoer_verde_4)
@@ -520,7 +520,7 @@ script = ExtResource("zone")
 map_id = &"{map_id}"
 kind = {kind}
 name_key = "{name_key}"
-region_id = &"sabia"
+region_id = &"pindorama"
 recommended_level_min = {min_lvl}
 recommended_level_max = {max_lvl}
 combat_allowed = {str(combat).lower()}
@@ -878,7 +878,7 @@ def build_hoer_verde_maps():
             {"name": "Pack3", "pos": (-14, 0, -14), "mid": "maned_wolf", "stage": 2, "count": 2},
             {"name": "Pack4", "pos": (8, 0, 8), "mid": "whispering_shade", "stage": 1, "count": 2},
         ],
-        ground_mat="res://assets/environment/painted/materials/mat_ground_sabia_forest.tres",
+        ground_mat="res://assets/environment/painted/materials/mat_ground_pindorama_forest.tres",
         env_light_color="Color(0.60, 0.65, 0.75, 1)",
         env_light_energy=0.8,
     )
@@ -908,7 +908,7 @@ def build_hoer_verde_maps():
             {"name": "Pack3", "pos": (0, 0, -20), "mid": "whispering_shade", "stage": 2, "count": 3},
             {"name": "Pack4", "pos": (6, 0, 6), "mid": "river_anaconda", "stage": 2, "count": 2},
         ],
-        ground_mat="res://assets/environment/painted/materials/mat_ground_sabia_forest.tres",
+        ground_mat="res://assets/environment/painted/materials/mat_ground_pindorama_forest.tres",
         env_light_color="Color(0.55, 0.60, 0.70, 1)",
         env_light_energy=0.75,
     )
@@ -941,7 +941,7 @@ def build_hoer_verde_maps():
             "FromSwamp": (24, 0, 18),
             "HoerReturn": (0, 0, -22),
         },
-        ground_mat="res://assets/environment/painted/materials/mat_ground_sabia_forest.tres",
+        ground_mat="res://assets/environment/painted/materials/mat_ground_pindorama_forest.tres",
         env_light_color="Color(0.50, 0.55, 0.65, 1)",
         env_light_energy=0.75,
     )

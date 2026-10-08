@@ -32,7 +32,7 @@ STATUS_PT = {"open": "**aberto (existe no jogo)**", "soon": "em breve (MVP)", "f
 # todos). Níveis de um lugar com mapas = mín/máx das recomendações das zonas (game/data/zones/*.tres);
 # conferir_zonas() avisa se divergirem ou se algum mapa CITY/HUNT ficar sem lugar.
 REGIONS = [
-    dict(id="sabia", name="Terra do Sabiá", insp="Brasil", label=(0.325, 0.47), reached=True,
+    dict(id="pindorama", name="Terra de Pindorama", insp="Brasil", label=(0.325, 0.47), reached=True,
          hook="Rios largos, cerrado de ipês e chapadas acima das nuvens: onde os Viajantes acordam.",
          places=[
         ("porto_despertar", "capital", "Porto do Despertar",
@@ -41,9 +41,9 @@ REGIONS = [
         ("campo_treino", "training", "Campo de Treino dos Viajantes",
          "Planalto sobre o Mar do Meio onde Mestres de todas as nações recebem os recém-chegados.",
          0.405, 0.612, 1, 10, "open", "training_field"),
-        ("campos_sabia", "field", "Campos do Sabiá",
+        ("campos_pindorama", "field", "Campos de Pindorama",
          "Cerrado de ipês em flor, buritis e cupinzeiros: os primeiros passos longe da cidade.",
-         0.420, 0.690, 1, 10, "open", ("fields_sabia", "fields_sabia_buriti", "fields_sabia_crossroads")),
+         0.420, 0.690, 1, 10, "open", ("fields_pindorama", "fields_pindorama_buriti", "fields_pindorama_crossroads")),
         ("mata_encantada", "field", "Mata Encantada",
          "Mata fechada de cipós e igarapés, com um velho forte engolido pelo musgo.",
          0.350, 0.725, 6, 12, "open",
@@ -65,8 +65,9 @@ REGIONS = [
          0.245, 0.515, 0, 0, "far", ""),
         ("caverna_reino_encoberto", "dungeon", "Caverna do Reino Encoberto",
          "Sob as raízes da Mata, pegadas fundas levam a uma câmara de pedra de onde vem um uivo.",
-         0.335, 0.742, 12, 30, "open",
-         ("cave_reino_encoberto", "cave_reino_encoberto_2", "cave_reino_encoberto_3", "cave_reino_encoberto_4")),
+         0.335, 0.742, 12, 60, "open",
+         ("cave_reino_encoberto", "cave_reino_encoberto_2", "cave_reino_encoberto_3", "cave_reino_encoberto_4",
+          "cave_reino_encoberto_5")),
         # Além da Chapada (out/2026): a Serra Dourada no pico mais alto; Ratanabá e Z descem a encosta
         # oeste para a selva escura; o Arraial do Sumidouro fica no pico leste, entre a Charneca e a Serra.
         ("serra_dourada", "town", "Serra Dourada",
@@ -98,7 +99,11 @@ REGIONS = [
          0.352, 0.648, 40, 48, "open", ("hollow_mountain_trail", "hollow_mountain_gorge", "hollow_mountain_gate")),
         ("terra_oca", "dungeon", "Túneis da Terra Oca",
          "Galerias titânicas de cristal sob a serra, onde tecelãs de sombra fiam no escuro e um titã dorme.",
-         0.316, 0.674, 44, 60, "open", ("hollow_earth_1", "hollow_earth_2", "hollow_earth_3", "hollow_earth_4", "hollow_earth_5")),
+         0.316, 0.674, 44, 60, "open", ("hollow_earth_1", "hollow_earth_2", "hollow_earth_3", "hollow_earth_4", "hollow_earth_5",
+                                         "hollow_earth_cauldron")),
+        ("abismo_sumidouro", "dungeon", "Abismo do Sumidouro",
+         "Um poço de pedra molhada sob o arraial, onde uma nuvem preta chove sozinha e barcos somem.",
+         0.352, 0.505, 50, 56, "open", ("sumidouro_abyss",)),
         ("brejo_corpo_seco", "dungeon", "Brejo do Corpo-Seco",
          "Charco de árvores mortas onde brasas frias vagam à noite.",
          0.266, 0.702, 20, 30, "far", ""),

@@ -48,7 +48,7 @@ script = ExtResource("1_quest")
 id = &"arc1_ch8_cuca"
 name_key = "QUEST_ARC1_CH8_NAME"
 giver_npc = &"dona_celeste"
-region_id = &"sabia"
+region_id = &"pindorama"
 steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4")])
 reward_items = Dictionary[StringName, int]({
 &"lullaby_tome": 1
@@ -62,7 +62,6 @@ option_text_key = "QUEST_ARC1_CH8_OPTION"
 desc_key = "QUEST_ARC1_CH8_DESC"
 required_quests = Array[StringName]([&"arc1_ch4_curupira"])
 requires_left_training = true
-released = false
 complete_text_variants = Dictionary[String, String]({
 "item:mother_of_pearl_comb": "QUEST_ARC1_CH8_COMPLETE_COMB"
 })

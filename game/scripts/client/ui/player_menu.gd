@@ -26,15 +26,17 @@ var items_box: VBoxContainer
 
 func _init(p_scale: float = 1.0) -> void:
 	ui_scale = p_scale
+	theme = UIKit.build_window_theme(ui_scale)
 	name = &"PlayerMenu"
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	visible = false
+	add_theme_stylebox_override(&"panel", UIKit.dark_card_box(ui_scale, 12))
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override(&"separation", UIKit.px(4.0, ui_scale))
 	add_child(box)
 	title_label = Label.new()
 	title_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	title_label.add_theme_color_override(&"font_color", UIKit.c_title())
+	title_label.add_theme_color_override(&"font_color", UIKit.COLOR_GOLD_LIGHT)
 	title_label.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	box.add_child(title_label)
 	items_box = VBoxContainer.new()

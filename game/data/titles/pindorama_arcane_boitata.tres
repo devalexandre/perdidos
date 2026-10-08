@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_qk88c"]
+
+[resource]
+script = ExtResource("1_qk88c")
+id = &"pindorama_arcane_boitata"
+name_key = "TITLE_PINDORAMA_ARCANE_BOITATA_NAME"
+archetype = &"arcane"
+tier = 2
+parent_title = &"pindorama_arcane_firefly"
+branch = &"b"
+required_skills = Array[StringName]([&"arcane_star_fall"])
+required_titles = Array[StringName]([&"pindorama_arcane_firefly"])
+color = Color(0.3529412, 0.5647059, 0.8784314, 1)
+desc_key = "TITLE_PINDORAMA_ARCANE_BOITATA_DESC"
+sort_order = 22
+outfit_id = &"title_boitata"
+cloth_colors = PackedColorArray(0.1216, 0.1647, 0.2667, 1, 0.8784, 0.3843, 0.1176, 1)
+master_npc = &"master_orvalho"

@@ -3,7 +3,7 @@ extends Node3D
 ## mentira e confere que o efeito aparece e depois some (laços pelo duration_sec), que as folhas
 ## existem, que cone/linha viram para o ponto, que áreas usam o raio da skill, que o laço some quando
 ## o alvo morre e que a conjuração cancelada não solta o efeito.
-## Terra do Sabiá v0.4 (30/09/2026): também as 68 skills novas (SkillFxBook) — as que ainda não têm
+## Terra de Pindorama v0.4 (30/09/2026): também as 68 skills novas (SkillFxBook) — as que ainda não têm
 ## .tres em data/skills/ são montadas aqui com o tipo de alvo de TITULOS-E-SKILLS.md §3.4 — e os
 ## estados (NetProgress.status_changed: atordoar, prender, provocar, marcas, invisível), a cura
 ## (NetCombat.healed), a flecha do ataque básico com arco e o aviso novo da Queda Estelar.
@@ -168,6 +168,24 @@ func _pieces_named(prefix: String) -> Array[SkillFxSprite]:
 	return out
 
 
+## Receitas podem reutilizar folhas de outra skill; conferir as peças declaradas, além do prefixo.
+func _has_primary_effect(def: SkillDef) -> bool:
+	var declared: Array[StringName] = []
+	for step: Dictionary in SkillFxBook.BOOK.get(def.id, []):
+		if step.has("piece"):
+			declared.append(StringName(step["piece"]))
+	for child: Node in _fx.get_children():
+		if child.is_queued_for_deletion():
+			continue
+		if child is SkillFxSprite:
+			var piece: StringName = (child as SkillFxSprite).piece
+			if String(piece).begins_with(String(def.id)) or piece in declared:
+				return true
+		elif child.get_meta(&"primary_spell_effect", false) and child.get_meta(&"skill_id", &"") == def.id:
+			return true
+	return false
+
+
 ## Filhos do SkillFx que são efeito (o PortalDecorator fica sempre).
 func _fx_children() -> int:
 	var n: int = 0
@@ -237,8 +255,15 @@ func _run() -> void:
 		if not _check(recipe != &"", "%s tem receita de efeito" % def.id):
 			continue
 		var cast_ms: int = _cast_ms(def)
-		var before: int = _fx.pieces_spawned
+		var before: int = _fx.pieces_spawned + _fx.primary_volumes_spawned
 		var shouts_before: int = _fx.shouts_spawned
+		# Finalização (08/10/2026): toda receita emite um contato visual, uma vez, depois da liberação.
+		var contact_at: Array[float] = []
+		var on_impact: Callable = func(cid: int, sid: StringName, _at: Vector3) -> void:
+			if cid == CASTER_ID and sid == def.id:
+				contact_at.append(_fx._clock)
+		SkillPresentation.events.impact.connect(on_impact)
+		var t0: float = _fx._clock
 		_fx.play(def, CASTER_ID, TARGET_ID if def.target_type in [SkillDef.TargetType.SINGLE,
 				SkillDef.TargetType.ALLY_OR_SELF] else 0, _point(def), cast_ms)
 		var name_txt: String = tr(def.name_key)
@@ -247,17 +272,17 @@ func _run() -> void:
 				"%s: nome gritado acima do conjurador (\"%s\")" % [def.id, name_txt])
 		# o efeito principal (não só o círculo de conjuração) precisa surgir
 		var appeared: bool = await _wait(func() -> bool:
-			for c: Node in _fx.get_children():
-				if c is SkillFxSprite and String((c as SkillFxSprite).piece).begins_with(String(def.id)):
-					return true
-			return false, cast_ms / 1000.0 + APPEAR_SLACK_SEC)
-		_check(appeared and _fx.pieces_spawned > before, "%s: efeito aparece (%s, %d peças)" %
-				[def.id, recipe, _fx.pieces_spawned - before])
+			return _has_primary_effect(def), cast_ms / 1000.0 + APPEAR_SLACK_SEC)
+		_check(appeared and _fx.pieces_spawned + _fx.primary_volumes_spawned > before, "%s: efeito aparece (%s, %d peças)" %
+				[def.id, recipe, _fx.pieces_spawned + _fx.primary_volumes_spawned - before])
 		if def.target_type in [SkillDef.TargetType.CONE, SkillDef.TargetType.LINE]:
 			var flat: Array = [] # preenchido dentro do lambda (arrays passam por referência)
 			await _wait(func() -> bool:
 				flat.clear()
 				flat.append_array(_pieces_named(String(def.id)).filter(_is_flat))
+				for child: Node in _fx.get_children():
+					if child.get_meta(&"primary_spell_effect", false) and child.get_meta(&"skill_id", &"") == def.id and not child.is_queued_for_deletion():
+						flat.append(child)
 				return not flat.is_empty(), 1.0)
 			var ok: bool = not flat.is_empty() and absf(angle_difference(flat[0].rotation.y, -PI / 2.0)) < 0.05
 			_check(ok, "%s: forma virada do conjurador para o ponto (+X)" % def.id)
@@ -281,6 +306,9 @@ func _run() -> void:
 		_check(gone, "%s: efeito some (em até %.1f s)" % [def.id, vanish])
 		_check(await _wait(func() -> bool: return _fx_children() == 0, 1.5),
 				"%s: nome e peças saem da cena" % def.id)
+		SkillPresentation.events.impact.disconnect(on_impact)
+		_check(contact_at.size() == 1 and contact_at[0] >= t0 + cast_ms / 1000.0 - 0.03,
+				"%s: um contato visual (som + reação) após a liberação (%s)" % [def.id, contact_at])
 	# 3) laço some quando o alvo morre
 	var barrier: SkillDef = Content.skill(&"arcane_barrier")
 	_fx.play(barrier, CASTER_ID, TARGET_ID, _point(barrier), 0)
@@ -297,10 +325,12 @@ func _run() -> void:
 	await get_tree().process_frame
 	_check(not _pieces_named("arcane_frost_burst_chill").is_empty(), "geada presa ao alvo lento")
 	await _wait(func() -> bool: return _fx.active_pieces() == 0, frost.duration_sec + VANISH_SLACK_SEC)
-	# 5b) Terra do Sabiá v0.4: estados, cura, invisível, arco, aviso da Queda Estelar
+	# 5b) Terra de Pindorama v0.4: estados, cura, invisível, arco, aviso da Queda Estelar
 	await _run_v04()
-	# 5c) portais dos mapas: o Gate antigo some e cada portal ganha o PortalFx (redemoinho no chão + coluna)
+	# 5c) portais dos mapas: o Gate antigo some e cada portal ganha o PortalFx (coroa de chamas + disco de luz)
 	await _run_portals()
+	# 6) finalização: carga → disparo → contato
+	await _run_finish()
 	# 5) conjuração cancelada: o projétil não sai
 	var spark: SkillDef = Content.skill(&"arcane_spark")
 	_fx.play(spark, CASTER_ID, TARGET_ID, _point(spark), 400)
@@ -310,6 +340,59 @@ func _run() -> void:
 	Engine.time_scale = 1.0
 	print("RESULT: %s (%d/%d)" % ["PASS" if _fails == 0 else "FAIL", _checks - _fails, _checks])
 	get_tree().quit(0 if _fails == 0 else 1)
+
+
+func _run_finish() -> void:
+	var contact_at: Array[float] = []
+	var on_impact: Callable = func(cid: int, _sid: StringName, _at: Vector3) -> void:
+		if cid == CASTER_ID:
+			contact_at.append(_fx._clock)
+	SkillPresentation.events.impact.connect(on_impact)
+	# projétil: a reação do alvo guardada no hit da rede só sai quando a peça chega
+	var wisp: SkillDef = Content.skill(&"arcane_will_o_wisp")
+	var reacted: Array[float] = []
+	var t0: float = _fx._clock
+	_fx.play(wisp, CASTER_ID, TARGET_ID, _point(wisp), 0)
+	var held: bool = SkillPresentation.defer(CASTER_ID, func() -> void: reacted.append(_fx._clock))
+	_check(held and reacted.is_empty(), "hit da rede durante o voo fica guardado (sem flash/número antes)")
+	await _wait(func() -> bool: return not contact_at.is_empty(), 2.0)
+	_check(contact_at.size() == 1 and contact_at[0] - t0 >= 0.2,
+			"contato do projétil na chegada, não no disparo (%.2f s depois)" % (contact_at[0] - t0 if not contact_at.is_empty() else -1.0))
+	_check(reacted.size() == 1 and not contact_at.is_empty() and is_equal_approx(reacted[0], contact_at[0]),
+			"reação do alvo sai no mesmo quadro do impacto")
+	_check(not SkillPresentation.defer(CASTER_ID, func() -> void: pass), "depois do contato, hits seguem na hora")
+	await _wait(func() -> bool: return _fx.active_pieces() == 0, 3.0)
+	# corpo a corpo: o som/reação no corte, não no começo do lançamento; conjurador segura no contato
+	contact_at.clear()
+	var strike: SkillDef = Content.skill(&"blade_firm_strike")
+	t0 = _fx._clock
+	_fx.play(strike, CASTER_ID, TARGET_ID, _point(strike), 0)
+	_check(contact_at.is_empty(), "Golpe Firme não soa no início do lançamento")
+	await _wait(func() -> bool: return not contact_at.is_empty(), 1.5)
+	var dt: float = contact_at[0] - t0 if not contact_at.is_empty() else -1.0
+	_check(dt >= SkillFx.STRIKE_DELAY_SEC + SkillFx.IMPACT_AFTER_SLASH_SEC - 0.03,
+			"Golpe Firme: contato junto da peça de impacto (%.2f s)" % dt)
+	await _wait(func() -> bool: return _fx.active_pieces() == 0, 3.0)
+	# investida: imagens residuais, anel de poeira e clarão quente no contato
+	contact_at.clear()
+	var ghosts0: int = _fx.afterimages
+	var rings0: int = _fx.dust_rings
+	var flashes0: int = _fx.warm_flashes
+	var charge: SkillDef = Content.skill(&"blade_charge")
+	_fx.play(charge, CASTER_ID, TARGET_ID, _point(charge), 0)
+	await _wait(func() -> bool: return not contact_at.is_empty(), 1.5)
+	_check(_fx.dust_rings == rings0 + 1, "investida: anel de poeira na partida")
+	_check(_fx.warm_flashes == flashes0 + 1, "investida: clarão quente no contato")
+	_check(_fx.afterimages == ghosts0, "investida: sem DirectionalSprite3D (dublê), nenhuma cópia criada")
+	await _wait(func() -> bool: return _fx.active_pieces() == 0 and _fx.find_child("DustRing", false, false) == null, 3.0)
+	_check(_fx.find_child("DustRing", false, false) == null, "anel de poeira sai da cena")
+	# prazo vencido (peça nunca chega): as reações guardadas saem assim mesmo
+	SkillPresentation.await_contact(CASTER_ID, 0.05)
+	var late: Array[int] = []
+	SkillPresentation.defer(CASTER_ID, func() -> void: late.append(1))
+	await get_tree().create_timer(0.2 * TIME_SCALE).timeout
+	_check(late.size() == 1, "prazo vencido solta a reação guardada")
+	SkillPresentation.events.impact.disconnect(on_impact)
 
 
 func _run_v04() -> void:
@@ -369,7 +452,7 @@ func _run_v04() -> void:
 
 
 func _run_portals() -> void:
-	for map_id: String in ["fields_sabia", "enchanted_forest", "split_sky_plateau", "city_awakening", "training_field"]:
+	for map_id: String in ["fields_pindorama", "enchanted_forest", "split_sky_plateau", "city_awakening", "training_field"]:
 		var path: String = "res://scenes/maps/%s.tscn" % map_id
 		if not ResourceLoader.exists(path):
 			continue
@@ -385,7 +468,7 @@ func _run_portals() -> void:
 		var gates_hidden: bool = true
 		for a: Area3D in portals:
 			var fx: PortalFx = a.get_node_or_null(^"PortalFx") as PortalFx
-			ok = ok and fx != null and fx.ground != null and fx.column != null and fx.ground.loop
+			ok = ok and fx != null and fx.disc_material != null and not fx.flame_materials.is_empty()
 			var gate: Node = a.get_node_or_null(^"Gate")
 			if gate != null:
 				gates_hidden = gates_hidden and not (gate as MeshInstance3D).visible

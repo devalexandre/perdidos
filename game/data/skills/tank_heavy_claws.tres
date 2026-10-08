@@ -22,9 +22,9 @@ extra = Dictionary[StringName, Variant]({
 &"hits": 2
 })
 vfx = &"slash"
-exclusive_to_title = &"sabia_tank_mapinguari"
+exclusive_to_title = &"pindorama_tank_mapinguari"
 icon_text = "GP"
-tree_title = &"sabia_tank_mapinguari"
+tree_title = &"pindorama_tank_mapinguari"
 tree_order = 3
 required_skill_levels = Dictionary[StringName, int]({
 &"tank_fury": 1

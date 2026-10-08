@@ -18,6 +18,9 @@ const SAVE_FORMAT_VERSION: int = 3
 var companions_owned: Array[StringName] = []
 var companion_active: StringName = &""
 var companion_names: Dictionary = {}
+## Nível e XP de cada companheiro (PETS-E-MONTARIAS §0.1): String(id) -> {"level": int, "xp": int}.
+## Saves antigos sem a chave começam no nível 1 com 0 de XP.
+var companion_progress: Dictionary = {}
 var mounts_owned: Array[StringName] = []
 ## Causos = renome/fama pelos feitos (pontos). Limiares das molduras narrativas, em ordem de progressão.
 ## O renome libera itens nas lojas (ShopDef.causos_rank_N_items) e sub-histórias de título
@@ -96,6 +99,8 @@ var equipment: Equipment = Equipment.new()
 var once_flags: Dictionary[String, bool] = {}
 ## Migração pendente do kit; o store limpa esta marca depois de gravar o save alterado.
 var starting_kit_migration_pending: bool = false
+## true quando o save veio com ids antigos (LegacyIds, renomeação da nação para Pindorama): o store regrava já no formato novo.
+var legacy_ids_migration_pending: bool = false
 ## Fluxo (Agente N, GDD §9.3): já saiu do Campo de Treino? e cidade de origem (start_map_id do título
 ## inicial). Saves antigos sem a chave "left_training" = já saíram (entram direto na cidade).
 var left_training: bool = false
@@ -337,7 +342,8 @@ func to_save() -> Dictionary:
 		attrs[String(a)] = base_attributes[a]
 	return {
 		"format": SAVE_FORMAT_VERSION,
-		"companions": {"owned": Array(companions_owned), "active": String(companion_active), "names": companion_names.duplicate()},
+		"companions": {"owned": Array(companions_owned), "active": String(companion_active), "names": companion_names.duplicate(),
+				"progress": companion_progress.duplicate(true)},
 		"mounts": {"owned": Array(mounts_owned)},
 		"name": char_name,
 		"body": String(body_type),
@@ -397,7 +403,12 @@ func _appearance_to_save() -> Dictionary:
 static func from_save(d: Dictionary) -> CharacterData:
 	if typeof(d.get("name")) != TYPE_STRING:
 		return null
+	# Ids renomeados (mapa, nação, títulos, quests, itens, companheiros...): tabela única em LegacyIds.
+	var migrated: Dictionary = LegacyIds.migrate(d)
+	var had_legacy_ids: bool = migrated != d
+	d = migrated
 	var c := CharacterData.new()
+	c.legacy_ids_migration_pending = had_legacy_ids
 	c.char_name = d["name"]
 	c.body_type = StringName(str(d.get("body", "male")))
 	c.level = maxi(int(d.get("level", CharacterStats.START_LEVEL)), CharacterStats.START_LEVEL)
@@ -453,6 +464,14 @@ static func from_save(d: Dictionary) -> CharacterData:
 			for id: Variant in names:
 				if Content.companion(StringName(str(id))) != null and names[id] is String:
 					c.companion_names[str(id)] = str(names[id]).substr(0, 12)
+		var progress: Variant = companions.get("progress", {})
+		if progress is Dictionary:
+			for id: Variant in progress:
+				var entry: Variant = progress[id]
+				if Content.companion(StringName(str(id))) != null and entry is Dictionary:
+					c.companion_progress[str(id)] = {
+						"level": clampi(int(entry.get("level", 1)), 1, Balance.cfg.companion_max_level),
+						"xp": maxi(0, int(entry.get("xp", 0)))}
 	var mounts: Variant = d.get("mounts", {})
 	if mounts is Dictionary and mounts.get("owned", []) is Array:
 		for value: Variant in mounts.get("owned", []):

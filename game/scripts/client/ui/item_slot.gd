@@ -25,10 +25,16 @@ var ui_scale: float = 1.0
 ## Texto mostrado no espaço vazio (ex.: nome do espaço de equipamento).
 var empty_hint: String = ""
 
+## Estilo escuro do inventário (07/10/2026): ícone em 2x+, borda pela raridade, vazio discreto.
+## Desligado = estilo clássico (equipamento, loja, troca).
+var dark_style: bool = false
+
 var _icon: TextureRect
 var _qty_label: Label
 var _hint_label: Label
+var _corner: Control
 var _selected: bool = false
+var _hovered: bool = false
 
 
 func _init(p_source: StringName = SOURCE_INVENTORY, p_index: int = -1, p_scale: float = 1.0) -> void:
@@ -67,6 +73,34 @@ func _init(p_source: StringName = SOURCE_INVENTORY, p_index: int = -1, p_scale: 
 	add_child(_qty_label)
 	# Foco do controle seleciona (mostra o detalhe do item como o clique).
 	focus_entered.connect(func() -> void: selected.emit(self))
+	mouse_entered.connect(func() -> void: _set_hovered(true))
+	mouse_exited.connect(func() -> void: _set_hovered(false))
+
+
+## Liga o estilo escuro do inventário: ícone no tamanho de UIKit.inventory_icon_px, quantidade com contorno no canto
+## inferior direito, marca de raridade no canto superior esquerdo.
+func set_dark_style(value: bool) -> void:
+	dark_style = value
+	var icon_px: int = UIKit.inventory_icon_px(ui_scale) if value else UIKit.ICON_SIZE * UIKit.texture_scale(ui_scale)
+	_icon.custom_minimum_size = Vector2(icon_px, icon_px)
+	var s: int = dark_slot_pixels(ui_scale) if value else slot_pixels(ui_scale)
+	custom_minimum_size = Vector2(s, s)
+	if value:
+		_qty_label.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL - 1, ui_scale))
+		_qty_label.add_theme_color_override(&"font_color", UIKit.COLOR_PARCHMENT)
+		_qty_label.add_theme_color_override(&"font_outline_color", UIKit.COLOR_OUTLINE)
+		if _corner == null:
+			_corner = Control.new()
+			_corner.name = &"RarityCorner"
+			_corner.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			_corner.draw.connect(_draw_corner)
+			add_child(_corner)
+	_refresh_style()
+
+
+## Lado do espaço escuro em px: ícone (UIKit.inventory_icon_px) + respiro de 2 px de cada lado.
+static func dark_slot_pixels(p_scale: float) -> int:
+	return UIKit.inventory_icon_px(p_scale) + 2 * UIKit.px(2, p_scale)
 
 
 ## Lado do espaço em px: ícone ampliado por fator inteiro + bordas.
@@ -92,6 +126,7 @@ func set_item(p_item: StringName, p_qty: int = 1) -> void:
 	elif item_id == &"":
 		_hint_label.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT_DISABLED)
 	tooltip_text = UIKit.item_tooltip_text(def, qty) if def != null else ""
+	_refresh_style()
 
 
 func is_empty() -> bool:
@@ -100,7 +135,46 @@ func is_empty() -> bool:
 
 func set_selected(value: bool) -> void:
 	_selected = value
-	add_theme_stylebox_override(&"panel", UIKit.slot_box(ui_scale, value))
+	_refresh_style()
+
+
+## Esmaece o espaço (ex.: item que a loja não compra).
+func set_dimmed(value: bool) -> void:
+	_icon.modulate = Color(1, 1, 1, 0.35) if value else Color.WHITE
+
+
+func _set_hovered(value: bool) -> void:
+	_hovered = value
+	if dark_style:
+		_refresh_style()
+
+
+func _refresh_style() -> void:
+	if not dark_style:
+		add_theme_stylebox_override(&"panel", UIKit.slot_box(ui_scale, _selected))
+		return
+	var def: ItemDef = UIKit.item(item_id)
+	var sb: StyleBoxFlat = UIKit.dark_slot_box(ui_scale, def.rarity if def != null else -1, _selected,
+			_hovered and index >= 0)
+	var m: int = UIKit.px(3, ui_scale)
+	sb.content_margin_left = m
+	sb.content_margin_top = m
+	sb.content_margin_right = m + UIKit.px(1, ui_scale)
+	sb.content_margin_bottom = 0
+	add_theme_stylebox_override(&"panel", sb)
+	if _corner != null:
+		_corner.queue_redraw()
+
+
+## Triângulo da raridade no canto superior esquerdo (incomum para cima).
+func _draw_corner() -> void:
+	var def: ItemDef = UIKit.item(item_id)
+	if def == null or def.rarity <= 0:
+		return
+	var c: Color = UIKit.RARITY_EDGE_COLORS[clampi(def.rarity, 0, UIKit.RARITY_EDGE_COLORS.size() - 1)]
+	var o: float = float(UIKit.px(1, ui_scale))
+	var t: float = float(UIKit.px(10, ui_scale))
+	_corner.draw_colored_polygon(PackedVector2Array([Vector2(o, o), Vector2(o + t, o), Vector2(o, o + t)]), c)
 
 
 func is_selected() -> bool:
@@ -149,13 +223,20 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	dropped.emit(self, data as Dictionary)
 
 
+## Dica rica (07/10/2026): ficha do item em painel escuro chanfrado; o painel padrão da dica some.
 func _make_custom_tooltip(for_text: String) -> Object:
 	if for_text.is_empty():
 		return null
-	var l := Label.new()
-	l.text = for_text
-	l.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
 	var def: ItemDef = UIKit.item(item_id)
-	if def != null:
-		l.add_theme_color_override(&"font_color", UIKit.COLOR_TEXT)
-	return l
+	if def == null:
+		var l := Label.new()
+		l.text = for_text
+		l.add_theme_font_size_override(&"font_size", UIKit.px(UIKit.FONT_SIZE_SMALL, ui_scale))
+		return l
+	var panel: Control = UIKit.item_tooltip_panel(def, qty, ui_scale)
+	panel.tree_entered.connect(func() -> void:
+		var host: Node = panel.get_parent()
+		if host is Window:
+			(host as Window).add_theme_stylebox_override(&"panel", StyleBoxEmpty.new())
+			(host as Window).transparent_bg = true, CONNECT_ONE_SHOT)
+	return panel

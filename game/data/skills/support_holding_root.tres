@@ -22,9 +22,9 @@ extra = Dictionary[StringName, Variant]({
 &"duration_per_level": 0.2
 })
 vfx = &"shield"
-exclusive_to_title = &"sabia_support_buriti"
+exclusive_to_title = &"pindorama_support_buriti"
 icon_text = "RS"
-tree_title = &"sabia_support_buriti"
+tree_title = &"pindorama_support_buriti"
 tree_order = 4
 required_skill_levels = Dictionary[StringName, int]({
 &"support_coconut_water": 3

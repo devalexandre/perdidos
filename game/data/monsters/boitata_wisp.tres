@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="mdef"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_BOITATA_WISP_NAME"
+sprite_base = "res://assets/monsters/enchanted_firefly/mon_enchanted_firefly_s2"
+baked_life = true
+visual_scale = 1.2
+level = 58
+max_hp = 3800
+atk = 160
+matk = 160
+def = 60
+mdef = 90
+walk_ms_per_cell = 330
+attack_range_cells = 1.5
+attack_interval_ms = 1100
+aggressive = true
+aggro_range_cells = 14
+leash_cells = 30
+xp_reward = 0
+behaviors = Array[StringName]([&"fly_pattern"])
+
+[resource]
+script = ExtResource("mdef")
+id = &"boitata_wisp"
+region_id = &"brasil"
+stages = Array[ExtResource("stage")]([SubResource("stage1")])
+respawn_sec = 0.0
+can_be_rare = false

@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="mdef"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("drop")
+item_id = &"anaconda_scale"
+chance = 0.35
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="potion_1"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.08
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_ABYSS_WATER_SERPENT_S1_NAME"
+sprite_base = "res://assets/monsters/abyss_water_serpent/mon_abyss_water_serpent_s1"
+baked_life = true
+visual_scale = 1.1
+level = 49
+max_hp = 5665
+atk = 209
+matk = 209
+def = 101
+mdef = 102
+walk_ms_per_cell = 500
+attack_range_cells = 4.5
+attack_interval_ms = 1350
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 980
+stars_min = 24
+stars_max = 59
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_1"), SubResource("potion_1")])
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("drop")
+item_id = &"anaconda_scale"
+chance = 0.35
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="potion_2"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.08
+
+[sub_resource type="Resource" id="stage2"]
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_ABYSS_WATER_SERPENT_S2_NAME"
+sprite_base = "res://assets/monsters/abyss_water_serpent/mon_abyss_water_serpent_s2"
+baked_life = true
+visual_scale = 1.3
+level = 53
+max_hp = 8407
+atk = 222
+matk = 222
+def = 107
+mdef = 108
+walk_ms_per_cell = 470
+attack_range_cells = 4.5
+attack_interval_ms = 1200
+aggressive = true
+aggro_range_cells = 6
+leash_cells = 12
+xp_reward = 2120
+stars_min = 26
+stars_max = 63
+behaviors = Array[StringName]([&"ranged"])
+drops = Array[ExtResource("drop")]([SubResource("drop_2"), SubResource("potion_2")])
+
+[resource]
+script = ExtResource("mdef")
+id = &"abyss_water_serpent"
+region_id = &"brasil"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2")])
+respawn_sec = 45.0
+base_species = &"fountain_serpent"

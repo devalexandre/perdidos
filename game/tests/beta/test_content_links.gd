@@ -452,7 +452,7 @@ func _check_shops() -> void:
 		var rank_four: Array[StringName] = market.available_items(4)
 		var rank_five: Array[StringName] = market.available_items(5)
 		_ok(&"wooden_staff" in rank_zero and &"ipe_wand" in rank_zero, "lojas", "estoque inicial mantém as duas armas mágicas")
-		_ok(&"sabia_long_blade" not in rank_zero and &"sabia_long_blade" in rank_one,
+		_ok(&"pindorama_long_blade" not in rank_zero and &"pindorama_long_blade" in rank_one,
 				"lojas", "primeiro rank de Causos libera armas novas")
 		_ok(&"buriti_recurve" in rank_one and &"ember_machete" not in rank_one
 				and &"ember_machete" in rank_two and &"firefly_wand" in rank_two,
@@ -462,7 +462,7 @@ func _check_shops() -> void:
 				"lojas", "rank 3 libera coroa, luvas e anel, não o estoque do rank 4")
 		_ok(&"ipe_circlet" in rank_four and &"cinder_ring" in rank_four and &"mito_saber" not in rank_four,
 				"lojas", "rank 4 libera seus acessórios sem antecipar a arma final")
-		_ok(&"mito_saber" in rank_five and &"sabia_long_blade" in rank_five
+		_ok(&"mito_saber" in rank_five and &"pindorama_long_blade" in rank_five
 				and &"leather_gloves" in rank_five,
 				"lojas", "rank 5 mantém o estoque cumulativo e libera a arma final")
 
@@ -668,6 +668,12 @@ func _check_quests() -> void:
 				if not _skill_sources.has(q.reward_skill):
 					_skill_sources[q.reward_skill] = []
 				_skill_sources[q.reward_skill].append(q.id)
+		# Skills de vínculo vêm com o companheiro que a quest de vínculo concede (CompanionDef.bond_skills).
+		if not q.reward_companion.is_empty() and giver_ok and Content.companion(q.reward_companion) != null:
+			for bond: StringName in Content.companion(q.reward_companion).bond_skills:
+				if not _skill_sources.has(bond):
+					_skill_sources[bond] = []
+				_skill_sources[bond].append(q.id)
 		# Skills de ofício vêm com o título que a quest concede (TitleDef.bonus_skills).
 		if not q.reward_title.is_empty() and giver_ok:
 			for bonus: StringName in TitleService.bonus_skills_for_title(q.reward_title):
@@ -843,6 +849,18 @@ func _check_skills() -> void:
 				_ok(req != sk.id and sk.required_skill_levels[req] <= rd.max_level, cat,
 						"%s: pré-requisito %s nível %d impossível (máx %d)" % [id, req, sk.required_skill_levels[req], rd.max_level])
 		_ok(_skill_sources.has(sk.id), cat, "%s: nenhuma quest (com NPC posicionado) ensina esta skill" % id)
+	# Magias automáticas dos companheiros (data/companion_skills/): textos, efeito e dono.
+	var used: Dictionary = {}
+	for r: Resource in Content.all(&"companions").values():
+		for spell: StringName in (r as CompanionDef).spells:
+			used[spell] = true
+			_ok(Content.companion_skill(spell) != null, "skills", "%s: magia '%s' não existe" % [(r as CompanionDef).id, spell])
+	for r: Resource in Content.all(&"companion_skills").values():
+		var sk: SkillDef = r as SkillDef
+		_key(sk.name_key, "magia de companheiro %s (name_key)" % sk.id)
+		_key(sk.desc_key, "magia de companheiro %s (desc_key)" % sk.id)
+		_ok(SkillFx.recipe_for(sk) != &"", "skills", "%s: magia de companheiro sem efeito visual" % sk.id)
+		_ok(used.has(sk.id), "skills", "%s: nenhum companheiro usa esta magia" % sk.id)
 
 
 func _check_titles() -> void:

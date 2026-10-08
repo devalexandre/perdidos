@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # Capturas dos portais (PortalFx) no cliente real: Porto, Campos, Mata e Chapada, de dia e de noite.
-# Uso: GODOT=/caminho/godot [OUT=.work/portal] [PORT=8193] tests/client/run_portal_capture.sh
+# Uso: GODOT=/caminho/godot [OUT=.work/portal] [PORT=8193] [APPROACH=1] tests/client/run_portal_capture.sh
+# APPROACH=1: só a aproximação no Porto (longe, meio, entrada), de dia e de noite.
 set -uo pipefail
 GODOT="${GODOT:-godot}"
 P="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 OUT="${OUT:-$P/../.work/portal}"
 PORT="${PORT:-8193}"
+APPROACH="${APPROACH:-0}"
 LOG_DIR="$(mktemp -d)"
 SAVES="$LOG_DIR/saves"
 mkdir -p "$OUT" "$SAVES"
@@ -23,7 +25,7 @@ PIDS+=($!)
 sleep 3
 xvfb-run -a -s "-screen 0 1600x900x24" "$GODOT" --path "$P" --resolution 1280x720 -- --name=CapPortal \
 	--body=female --port="$PORT" --autotest --autotest-script=res://tests/client/portal_capture.gd \
-	--shot-dir="$OUT" >"$LOG_DIR/client.log" 2>&1
+	--shot-dir="$OUT" --portal-approach="$APPROACH" >"$LOG_DIR/client.log" 2>&1
 echo "=== logs em $LOG_DIR"
 grep -h "portal_capture\|SCRIPT ERROR\|entered_map\|portal" "$LOG_DIR/client.log" | head -40
 grep -h "player_entered_map\|portal_\|invalid" "$LOG_DIR/server.log" | head -20

@@ -51,6 +51,11 @@ var damage_by_peer: Dictionary[int, int] = {}
 ## Arco 1 (chefe da história): jogadores que entraram na luta — bateram nele ou foram atacados por ele. Junto com o
 ## dano, decide quem ganha a vitória de história (QuestService.on_story_boss_killed). Zera junto com o dano.
 var engaged_peers: Dictionary[int, bool] = {}
+## Luta por fases (Boitatá, BoitataFight) e os ajustes dela: passo, intervalo do golpe e dano do golpe.
+var fight: BoitataFight = null
+var step_factor: float = 1.0
+var attack_interval_factor: float = 1.0
+var damage_mult: float = 1.0
 ## Provação (QuestService): o peer dono. 0 = monstro comum. Monstro com dono só ataca e só pode ser atacado
 ## por esse jogador e pelo grupo dele (CombatService.attack_block_reason).
 var owner_peer: int = 0
@@ -87,6 +92,9 @@ func setup(p_combat: CombatService, p_def: MonsterDef, p_stage: MonsterStage, p_
 	if e != null and combat != null and combat.world != null:
 		_map_id = combat.world.get_instance_map_id(e.instance_id)
 	set_stage(p_stage)
+	for st: MonsterStage in p_def.stages:
+		if BoitataFight.wants(st):
+			fight = BoitataFight.new(self)
 	update_atroz()
 
 
@@ -221,6 +229,8 @@ func drop_target(entity: NetEntity) -> void:
 
 func mark_dead() -> void:
 	state = State.DEAD
+	if fight != null:
+		fight.on_death()
 	target = null
 	var e: NetEntity = get_entity()
 	e.target_id = 0
@@ -238,6 +248,8 @@ func tick(delta: float) -> void:
 	if charge_left_sec > 0.0:
 		charge_left_sec -= delta
 	update_atroz()
+	if fight != null:
+		fight.tick()
 	mover.ms_per_cell = MonsterBehaviors.ms_per_cell(self)
 	match state:
 		State.IDLE:
@@ -357,7 +369,7 @@ func _tick_attack(mover: GridMover) -> void:
 	var now: int = Time.get_ticks_msec()
 	if now < _next_attack_msec:
 		return
-	_next_attack_msec = now + stage.attack_interval_ms
+	_next_attack_msec = now + roundi(stage.attack_interval_ms * attack_interval_factor)
 	if target.is_player():
 		engaged_peers[target.get_peer_id()] = true
 	combat.monster_attack(self, target)
@@ -394,6 +406,8 @@ func _arrive_home() -> void:
 	hp = max_hp()
 	damage_by_peer.clear()
 	engaged_peers.clear()
+	if fight != null and fight.phase > 1:
+		fight.reset()
 	charged_once = false
 	charge_left_sec = 0.0
 	player_initiated = false

@@ -21,7 +21,7 @@ import worldgen as wg  # noqa: E402
 
 # Historical order (each step may rewrite what the previous ones produced).
 PIPELINE = [
-    "build_sabia_monsters.py",
+    "build_pindorama_monsters.py",
     "build_hunt_areas.py",
     "build_forest.py",
     "build_venom_monsters.py",
@@ -35,6 +35,8 @@ PIPELINE = [
     "build_city_of_z_expansion.py",
     "build_hoer_verde_expansion.py",
     "build_hollow_earth_expansion.py",
+    # Arco 1: mapas novos e remendos (covis da história, marcadores, portais) nos mapas acima; sempre por último.
+    "build_story_arc1.py",
 ]
 
 

@@ -3,12 +3,12 @@ extends Node
 ## de entrar no Campo de Treino, anda com o personagem de verdade (pedidos de movimento ao servidor) até cada ponto e
 ## salva a tela inteira (mundo + interface).
 ##   godot --path game --resolution 1920x1080 res://scenes/lookdev/real_tour.tscn -- --name=X --port=P \
-##       --tour-out=/dir [--tour=camp,sabia,japao,...]
+##       --tour-out=/dir [--tour=camp,pindorama,japao,...]
 ## Pontos: entradas das zonas (ao lado da trilha, fora dos grupos de monstros).
 
 const STEP_M: float = 18.0
 const SETTLE_SEC: float = 2.5
-const POINTS := {"camp": Vector3(0, 0, 4), "rancho": Vector3(2, 0, 30), "sabia": Vector3(1, 0, 50)}
+const POINTS := {"camp": Vector3(0, 0, 4), "rancho": Vector3(2, 0, 30), "pindorama": Vector3(1, 0, 50)}
 ## Zonas das nações: ângulo (graus) no anel; o personagem para a 58 m do centro e a câmera olha para fora
 ## (a vinheta fica à frente, o Mestre ao lado).
 const ZONES := {"portugal": 145.0, "grecia": 177.0, "egito": 208.0, "celta": 239.0, "nordico": 270.0,
@@ -16,7 +16,7 @@ const ZONES := {"portugal": 145.0, "grecia": 177.0, "egito": 208.0, "celta": 239
 const ZONE_STAND_R: float = 58.5
 
 var _out := "user://tour"
-var _list: PackedStringArray = ["camp", "sabia", "japao", "mexico", "egito", "grecia"]
+var _list: PackedStringArray = ["camp", "pindorama", "japao", "mexico", "egito", "grecia"]
 
 
 func _ready() -> void:

@@ -2,11 +2,12 @@
 A serpente de fogo que protegia os campos das queimadas, corrompida e enterrada por Erevos; so existe na forma atroz
 (estagio 4, a noite). O mais imponente dos chefes da historia, sem virar dragao generico (sem asas, sem patas, sem
 chifres de dragao): escamas negras, o corpo faz um arco alto por tras da cabeca (silhueta de "portal de fogo"),
-VARIOS OLHOS acesos ao longo do corpo (piscam em sequencia), e todo o fogo dele virou fogo negro com pontas violeta
-(juba de chamas na cabeca, crista de chamas no arco, ponta da cauda). Cabecona chibi expressiva: dois olhos grandes
+VARIOS OLHOS acesos ao longo do corpo (piscam em sequencia), o corpo todo envolto em fogo vivo (miolo amarelo-claro,
+amarelo, laranja-avermelhado) cujas PONTAS ficaram pretas com borda violeta (a corrupcao): coroa de labaredas por fora
+do arco, juba de fogo na cabeca, fogo nas costas do pescoco e na cauda; juntas das escamas em brasa, barriga quente. Cabecona chibi expressiva: dois olhos grandes
 de brasa com brilho, sobrancelhas de escama, focinho curto, presas.
   idle: o arco respira, os olhos do corpo piscam um de cada vez, a juba e a crista tremulam;
-  walk: as voltas deslizam em onda; attack: recua e cospe um jorro de fogo negro para a frente;
+  walk: as voltas deslizam em onda; attack: recua e sopra fogo em leque (3 jorros) para a frente;
   hit: recua, olhos apertados;
   death: ele NAO morre — adormece: as chamas negras apagam, os olhos do corpo fecham um a um, a cabeca deita sobre
   as voltas, e no fim acende uma chaminha laranja de verdade no alto da cabeca (o fogo dele de volta).
@@ -17,7 +18,7 @@ import mon_rig as R
 import sol_common as S
 import story_common_l2 as C
 
-SCALE = {4: 2.2}
+SCALE = {4: 2.1}
 FRAME = {4: 240}
 STAGES = (4,)
 ANIMS = [("idle", 8), ("walk", 8), ("attack", 8), ("hit", 4), ("death", 8)]
@@ -55,8 +56,9 @@ def build(stage):
     root = rig.root
     body = rig.empty("body", (0, 0.05, 0.1), root)
     # ---- corpo: voltas no chao que sobem num arco alto por tras e voltam pela esquerda ate a cauda
-    rig.coil = C.chain(rig, "coil", COIL, COIL_R, body, "scale_black_l2")
-    rig.neck = C.chain(rig, "neck", NECK, NECK_R, body, "scale_black_l2", belly=(0, -1, 0.1), belly_mat="obsidian_n")
+    rig.coil = C.chain(rig, "coil", COIL, COIL_R, body, "scale_black_l2", ring_mat="ember")
+    rig.neck = C.chain(rig, "neck", NECK, NECK_R, body, "scale_black_l2", belly=(0, -1, 0.1), belly_mat="leaf_o",
+                       ring_mat="ember")
     center = Vector((0, 0.1, 0.3))
     # placas da barriga (violeta) no lado de dentro/baixo do arco e listras de brasa apagada entre as escamas
     for i in range(len(COIL) - 1):
@@ -67,7 +69,7 @@ def build(stage):
         x = d.cross(o).normalized()
         M = Matrix((x, o, d)).transposed()
         rig.add_mesh(R.ellipsoid(f"cbelly{i}", m + o * rr * 0.72, (rr * 0.6, rr * 0.35, (b - a).length * 0.5),
-                                 rot=M.to_euler()), f"cbelly{i}", "obsidian_n", rig.n(rig.coil[i]))
+                                 rot=M.to_euler()), f"cbelly{i}", "leaf_o", rig.n(rig.coil[i]))
     # ---- olhos ao longo do corpo (por fora do arco), acesos, com palpebra de escama
     rig.beyes = []
     for k, (i, side) in enumerate(((2, 1), (4, 1), (5, 1), (7, -1), (8, -1), (3, 1), (6, -1))):
@@ -80,7 +82,7 @@ def build(stage):
         x = d.cross(o).normalized()
         M = Matrix((x, d, o)).transposed()   # z local = normal para fora
         rot = M.to_euler()
-        s = 0.075 if k < 5 else 0.06
+        s = 0.095 if k < 5 else 0.075
         rig.add_mesh(R.ellipsoid(f"beyeb{k}", p, (s * 1.25, s, s * 0.5), rot=rot), "beye_ball", "eye_ember", piv, unlit=True,
                      noline=True, prio=2.6)
         rig.add_mesh(R.ellipsoid(f"beyec{k}", p + o * s * 0.3, (s * 0.55, s * 0.6, s * 0.35), rot=rot), "beye_core",
@@ -94,30 +96,32 @@ def build(stage):
         rig.add_mesh(R.ellipsoid(f"beyel{k}", p + o * s * 0.15, (s * 1.4, s * 1.15, s * 0.6), rot=rot), "beye_lid",
                      "scale_black_l2", lid, prio=6.0)
         rig.beyes.append((f"beye{k}", f"beyelid{k}"))
-    # ---- crista de fogo negro pelo arco (por cima), na cauda e no pescoco
-    for j, i in enumerate((2, 4, 5, 7, 9)):
+    # ---- o corpo inteiro envolto em fogo vivo (pontas pretas com borda violeta = corrupcao): coroa de labaredas
+    # por fora do arco e das voltas, fogo na cauda e nas costas do pescoco
+    for j, i in enumerate(range(1, 11)):
         a, b = Vector(COIL[i]), Vector(COIL[i + 1])
         m = (a + b) * 0.5
-        d, o = _frame(a, b, m - center + Vector((0, 0.3, 0.9)))
-        up = (o * 0.45 + Vector((0, 0, 1.0))).normalized()
-        h = 0.38 + 0.1 * math.sin(j * 1.7) ** 2 + (0.14 if i in (4, 5) else 0.0)
-        C.black_flame(rig, f"afl{j}", m + o * COIL_R[i] * 0.75, up, h * 0.85, 0.13, rig.n(rig.coil[i]), phase=0.13 * j,
-                      bend=0.45 if m.x >= 0 else -0.45)
+        d, o = _frame(a, b, Vector((m.x, (m.y - center.y) * 0.5, m.z - center.z)) + Vector((0, 0.15, 0.25)))
+        up = (o * 0.55 + Vector((0, 0.1, 1.0))).normalized()
+        h = 0.3 + 0.08 * math.sin(j * 1.9) ** 2 + (0.1 if i in (4, 5, 6) else 0.0)
+        C.fire_flame(rig, f"afl{j}", m + o * COIL_R[i] * 0.55 + Vector((0, COIL_R[i] * 0.45, 0)), up, h, 0.11 + 0.02 * (i in (4, 5, 6)), rig.n(rig.coil[i]),
+                     phase=0.13 * j, bend=0.35 if m.x >= 0 else -0.35)
     tip = Vector(COIL[-1])
-    C.black_flame(rig, "tailfl", tip + Vector((0.0, -0.02, 0.02)), (-0.3, -0.5, 1.0), 0.3, 0.07, rig.n(rig.coil[-1]),
-                  phase=0.7, bend=-0.4)
-    for j, i in enumerate((1, 3)):
+    C.fire_flame(rig, "tailfl", tip + Vector((0.0, -0.02, 0.02)), (-0.3, -0.4, 1.0), 0.3, 0.08, rig.n(rig.coil[-1]),
+                 phase=0.7, bend=-0.4)
+    for j, i in enumerate((1, 2, 3)):
         a, b = Vector(NECK[i]), Vector(NECK[i + 1])
-        m = (a + b) * 0.5 + Vector((0, NECK_R[i] * 0.85, 0))
-        C.black_flame(rig, f"nfl{j}", m, (0, 1.0, 0.8), 0.3, 0.08, rig.n(rig.neck[i]), phase=0.3 + 0.2 * j, bend=0.3)
+        m = (a + b) * 0.5 + Vector((0, NECK_R[i] * 0.7, 0))
+        C.fire_flame(rig, f"nfl{j}", m, (0, 0.8, 1.0), 0.28, 0.1, rig.n(rig.neck[i]), phase=0.3 + 0.2 * j, bend=0.3)
     # ---- cabecona chibi
     top = rig.n(rig.neck[-1])
     head = rig.empty("head", Vector(NECK[-1]) + Vector((0, 0, 0.03)), top)
     rig.add_mesh(R.ellipsoid("head", HC, HR, seg=28, rings=16), "head", "scale_black_l2", head, group="head")
-    rig.add_mesh(R.ellipsoid("snout", HC + Vector((0, -0.2, -0.08)), (0.24, 0.15, 0.12)), "snout", "obsidian_n", head)
+    rig.add_mesh(R.ellipsoid("snout", HC + Vector((0, -0.2, -0.08)), (0.24, 0.15, 0.12)), "head", "scale_black_l2", head,
+                 group="head")
     jaw = rig.empty("jaw", HC + Vector((0, 0.05, -0.1)), head)
-    rig.add_mesh(R.ellipsoid("jawm", HC + Vector((0, -0.1, -0.13)), (0.23, 0.18, 0.07)), "jaw", "obsidian_n", jaw)
-    rig.add_mesh(R.ellipsoid("mouthin", HC + Vector((0, -0.13, -0.1)), (0.19, 0.13, 0.04)), "mouthin", "bfire_core_l2", jaw,
+    rig.add_mesh(R.ellipsoid("jawm", HC + Vector((0, -0.1, -0.13)), (0.23, 0.18, 0.07)), "jaw", "leaf_o", jaw)
+    rig.add_mesh(R.ellipsoid("mouthin", HC + Vector((0, -0.13, -0.1)), (0.19, 0.13, 0.04)), "mouthin", "ember", jaw,
                  noline=True, unlit=True, prio=0.9)
     for sx in (1, -1):  # presas
         b = HC + Vector((0.11 * sx, -0.31, -0.12))
@@ -128,10 +132,10 @@ def build(stage):
                      "bfire_core_l2", head, noline=True, unlit=True, prio=2.0)
     for sx, nm in ((1, "L"), (-1, "R")):
         ex, ez = 0.165 * sx, HC.z + 0.04
-        ep = Vector((ex, S.ysurf(HC, HR, ex, ez) + 0.006, ez))
+        ep = Vector((ex, S.ysurf(HC, HR, ex, ez) - 0.012, ez))
         # olho chibi aceso (no corpo preto o olho escuro do Tatu sumiria): globo de brasa clara, iris vermelha
         # embaixo, pupila em fenda, dois brilhos
-        rx, rz, rot = 0.135, 0.165, (0.3, 0, -0.45 * sx)
+        rx, rz, rot = 0.135, 0.165, (0.55, 0, -0.45 * sx)
         e = rig.empty(f"eye{nm}", ep, head)
         rig.add_mesh(R.ellipsoid(f"eyeb{nm}", ep, (rx, 0.05, rz), rot=rot), f"eyeb{nm}", "ember_hot", e, noline=True,
                      unlit=True, prio=1.8)
@@ -143,31 +147,35 @@ def build(stage):
                      "white", e, noline=True, unlit=True, prio=7.0)
         rig.add_mesh(R.ellipsoid(f"hl2{nm}", ep + Vector((0.04, -0.06, -0.06)), (0.02, 0.012, 0.02)), f"hl2{nm}", "white",
                      e, noline=True, unlit=True, prio=3.0)
-        a = ep + Vector((-0.11 * sx, -0.05, 0.09))
-        b = ep + Vector((0.13 * sx, 0.04, 0.17))
-        rig.add_mesh(R.cone(f"brow{nm}", a, b, 0.04, 0.03, seg=8, rings=1), f"brow{nm}", "obsidian_n", head, prio=3.2)
-    # juba de fogo negro em volta da cabeca (no lugar de chifres)
-    for j, (ang, h) in enumerate(((-1.0, 0.36), (0.0, 0.46), (1.0, 0.36))):
-        p = HC + Vector((math.sin(ang) * HR[0] * 0.85, math.cos(ang) * HR[1] * 0.5 + 0.06, HR[2] * 0.7))
-        up = Vector((math.sin(ang) * 0.6, 0.35, 1.0))
-        C.black_flame(rig, f"mfl{j}", p, up, h, 0.1, head, phase=0.21 * j + 0.05, bend=0.4 if ang > 0 else -0.4)
+        a = ep + Vector((-0.1 * sx, -0.04, 0.15))
+        b = ep + Vector((0.13 * sx, 0.04, 0.21))
+        rig.add_mesh(R.cone(f"brow{nm}", a, b, 0.026, 0.02, seg=8, rings=1), f"brow{nm}", "leaf_o", head, prio=3.2)
+    # juba de fogo em volta da cabeca (no lugar de chifres)
+    for j, (ang, h) in enumerate(((-1.25, 0.3), (-0.6, 0.38), (0.0, 0.44), (0.6, 0.38), (1.25, 0.3))):
+        p = HC + Vector((math.sin(ang) * HR[0] * 0.85, math.cos(ang) * HR[1] * 0.5 + 0.08, HR[2] * 0.6))
+        up = Vector((math.sin(ang) * 0.7, 0.4, 1.0))
+        C.fire_flame(rig, f"mfl{j}", p, up, h, 0.1, head, phase=0.21 * j + 0.05, bend=0.35 if ang > 0 else -0.35)
     # chaminha laranja de verdade (so acende no fim da morte: o fogo dele de volta)
     C.black_flame(rig, "truefire", HC + Vector((0, 0.0, HR[2] * 0.9)), (0, 0, 1), 0.22, 0.06, head, phase=0.0, bend=0.3,
                   mats=("ember", "ember_hot", "ember_core"))
     rig.flames = [f for f in rig.flames if f[0] != "truefire"]
     head.rotation_euler.x += HEAD_TILT
-    # ---- jorro de fogo negro (golpe): linguas em fila saindo da boca para a frente
+    # ---- sopro de fogo em leque (golpe): 3 jorros (esquerda, centro, direita) de linguas que acendem da boca
     rig.breath = []
     mouth = HC + Vector((0, -0.32, -0.12))
-    for j in range(5):
-        p = Vector((0, mouth.y + 0.03 - 0.05 * j, 0.95 - 0.19 * j))
-        pv = rig.empty(f"breath{j}", p, root)
-        C.black_flame(rig, f"brf{j}", p, (0, -1.0, 0.5), 0.24 + 0.03 * j, 0.08 + 0.02 * j, pv, phase=0.2 * j, bend=0.2)
-        rig.breath.append(f"breath{j}")
+    for r_, dx in enumerate((-0.5, 0.0, 0.5)):
+        d = Vector((dx, -1.0, -0.55)).normalized()
+        for j in range(3):
+            p = Vector((0, mouth.y + 0.04, 0.98)) + d * (0.07 + 0.09 * j)
+            nm = f"breath{r_}{j}"
+            pv = rig.empty(nm, p, root)
+            C.fire_flame(rig, f"brf{r_}{j}", p, d + Vector((0, 0, 0.35)), 0.22 + 0.05 * j, 0.08 + 0.025 * j, pv,
+                         phase=0.2 * j + r_ * 0.3, bend=0.25 * (1 if dx >= 0 else -1), tip=0.8)
+            rig.breath.append(nm)
     rig.flames = [f for f in rig.flames if not f[0].startswith("brf")]
     # ---- particulas: brasas violeta e fumaca preta subindo
     S.add_motes(rig, "rise", [(0.5 * math.cos(k * 1.9), 0.15 + 0.35 * math.sin(k * 1.9), 0.6 + 0.2 * (k % 3))
-                              for k in range(8)], ["wisp_v", "bfire_tip_l2", "ember_dim"], size=0.025, parent=root)
+                              for k in range(8)], ["ember", "ember_hot", "wisp_v"], size=0.025, parent=root)
     S.add_motes(rig, "smoke", [(0.35 * math.cos(k * 2.4), 0.35 + 0.1 * math.sin(k * 2.4), 1.1 + 0.05 * (k % 2))
                                for k in range(6)], ["bfire_l2", "bfire_core_l2"], size=0.05, parent=root)
     rig.save_rest()
@@ -200,7 +208,7 @@ def _breath(rig, u):
     """u 0..1: o jorro avanca (linguas acendem da boca para a frente)."""
     for j, nm in enumerate(rig.breath):
         o = rig.n(nm)
-        v = u * 5.0 - j
+        v = u * 3.2 - (j % 3)
         if v <= 0 or u <= 0:
             o.scale = (0.0001,) * 3
             continue

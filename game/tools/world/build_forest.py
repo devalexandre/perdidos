@@ -1,4 +1,4 @@
-"""Sabiá woodland: connected trails cut through dense native vegetation.
+"""Pindorama woodland: connected trails cut through dense native vegetation.
 Run this after changing build_hunt_areas; cave interiors are never overwritten.
 """
 import math
@@ -13,8 +13,8 @@ wg.install()  # writes go through worldgen (--check = dry run + validation)
 
 
 def build(a):
-    a = dict(a, ground='sabia_forest')
-    a['spawns'] = list(a['spawns']) + [('sabia_jaguar', 1 if a['variant'] < 2 else 2, 2, 22, -23)]
+    a = dict(a, ground='pindorama_forest')
+    a['spawns'] = list(a['spawns']) + [('pindorama_jaguar', 1 if a['variant'] < 2 else 2, 2, 22, -23)]
     write_scene(a)
     path = GAME/'scenes/maps'/f'{a["id"]}.tscn'
     source = path.read_text()
@@ -120,12 +120,12 @@ def build(a):
 
 if __name__=='__main__':
     # Regional variant preserves the original species in its existing nation.
-    text=(GAME/'data/monsters/jaguar_cub.tres').read_text().replace('MON_JAGUAR_CUB_', 'MON_SABIA_JAGUAR_').replace('id = &"jaguar_cub"','id = &"sabia_jaguar"').replace('region_id = &"mexico"','region_id = &"sabia"')
-    (GAME/'data/monsters/sabia_jaguar.tres').write_text(text)
+    text=(GAME/'data/monsters/jaguar_cub.tres').read_text().replace('MON_JAGUAR_CUB_', 'MON_PINDORAMA_JAGUAR_').replace('id = &"jaguar_cub"','id = &"pindorama_jaguar"').replace('region_id = &"mexico"','region_id = &"pindorama"')
+    (GAME/'data/monsters/pindorama_jaguar.tres').write_text(text)
     localization=GAME/'localization/monsters.csv'
     names=localization.read_text()
-    if 'MON_SABIA_JAGUAR_S1_NAME' not in names:
-        localization.write_text(names.rstrip()+'\nMON_SABIA_JAGUAR_S1_NAME,Onça-pintada Jovem\nMON_SABIA_JAGUAR_S2_NAME,Onça-pintada\n')
+    if 'MON_PINDORAMA_JAGUAR_S1_NAME' not in names:
+        localization.write_text(names.rstrip()+'\nMON_PINDORAMA_JAGUAR_S1_NAME,Onça-pintada Jovem\nMON_PINDORAMA_JAGUAR_S2_NAME,Onça-pintada\n')
     for area in AREAS:
         if area['scenery']=='forest': build(area)
     wg.finish([a['id'] for a in AREAS if a['scenery'] == 'forest'], 'forest')

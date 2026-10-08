@@ -1,0 +1,142 @@
+{
+	"appearance": {
+		"earrings": "",
+		"eye_color": 0,
+		"hair_color": 0,
+		"hair_style": "spiky",
+		"nationality": "sabia",
+		"skin": 0
+	},
+	"attributes": {
+		"dex": 5,
+		"int": 5,
+		"luk": 5,
+		"spi": 5,
+		"str": 5,
+		"vit": 5
+	},
+	"body": "male",
+	"causos": 0,
+	"companions": {
+		"active": "",
+		"names": {},
+		"owned": [],
+		"progress": {}
+	},
+	"equipment": {
+		"accessory_1": {},
+		"accessory_2": {},
+		"body": {},
+		"cosmetic_body": {},
+		"cosmetic_head": {},
+		"cosmetic_weapon": {},
+		"feet": {},
+		"gloves": {},
+		"head": {},
+		"offhand": {},
+		"weapon": {}
+	},
+	"format": 3,
+	"home_map": "",
+	"hp": 168,
+	"inventory": [
+		{
+			"item": "potion_hp_small",
+			"protected": false,
+			"qty": 99
+		},
+		{
+			"item": "potion_hp_small",
+			"protected": false,
+			"qty": 1
+		},
+		{
+			"item": "potion_mp_small",
+			"protected": false,
+			"qty": 99
+		},
+		{
+			"item": "potion_mp_small",
+			"protected": false,
+			"qty": 1
+		},
+		{
+			"item": "return_scroll",
+			"protected": false,
+			"qty": 3
+		},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
+	],
+	"last_city": "",
+	"left_training": false,
+	"level": 1,
+	"mounts": {
+		"owned": []
+	},
+	"mp": 94,
+	"name": "Movecap",
+	"once_flags": [
+		"starting_kit_v2",
+		"causos_fame_v1"
+	],
+	"progression": {
+		"attribute_points": 0,
+		"displayed_title": "traveler",
+		"hotbar": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"quests": {},
+		"quests_done": {},
+		"skill_points": 0,
+		"skills": {},
+		"titles": {
+			"traveler": 1791470885
+		},
+		"total_xp": 0,
+		"xp": 0
+	},
+	"stars": 100
+}

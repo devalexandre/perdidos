@@ -83,9 +83,14 @@ def import_parts(path, arm):
     out = []
     for o in objs:
         if o.type == 'MESH' and o.parent is not None and o.parent.type == 'ARMATURE':
-            mw = o.matrix_world.copy()
+            # Mantem a relacao LOCAL com o esqueleto (como as malhas do corpo), nao a posicao no mundo: o armature
+            # do corpo ja foi escalado para a altura (arm.scale = g); copiar matrix_world deixava a peca em tamanho
+            # cheio no espaco 1/g do esqueleto, e com g longe de 1 (crianca, height < 1) o modificador Armature
+            # deformava a peca pelos ossos errados (bracos em T, cabeca sumindo). Adulto: g ~ 1, diferenca minima.
+            pinv, basis = o.matrix_parent_inverse.copy(), o.matrix_basis.copy()
             o.parent = arm
-            o.matrix_world = mw
+            o.matrix_parent_inverse = pinv
+            o.matrix_basis = basis
             for m in o.modifiers:
                 if m.type == 'ARMATURE':
                     m.object = arm

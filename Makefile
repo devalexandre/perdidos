@@ -151,6 +151,7 @@ stop: ## Derruba um servidor local que ficou rodando
 test: import check-names ## Testes automáticos (nomes sensíveis, ligações de conteúdo, servidor + clientes headless e testes do cliente)
 	@$(GODOT) --headless --path $(GAME) res://tests/beta/test_content_links.tscn
 	@$(GODOT) --headless --path $(GAME) res://tests/auth/test_character_slots.tscn
+	@$(GODOT) --headless --path $(GAME) res://tests/server/test_legacy_ids.tscn
 	@$(GODOT) --headless --path $(GAME) res://tests/progression/test_fletching_and_ammo.tscn
 	@$(GODOT) --headless --path $(GAME) res://tests/waystone/test_waystone_service.tscn
 	@SHOTS=0 GODOT=$(GODOT) $(GAME)/tests/waystone/run_waystone_test.sh
@@ -159,6 +160,7 @@ test: import check-names ## Testes automáticos (nomes sensíveis, ligações de
 	@GODOT=$(GODOT) $(GAME)/tests/monsters/run_night_test.sh
 	@$(GODOT) --headless --path $(GAME) res://tests/client/test_direction.tscn
 	@$(GODOT) --headless --path $(GAME) res://tests/client/test_skill_fx.tscn
+	@$(GODOT) --headless --path $(GAME) res://tests/client/test_portal_proximity.tscn
 	@xvfb-run -a $(GODOT) --path $(GAME) --resolution 1280x720 res://tests/client/test_ui.tscn
 	@xvfb-run -a $(GODOT) --path $(GAME) --resolution 1280x720 res://tests/client/test_gamepad.tscn
 

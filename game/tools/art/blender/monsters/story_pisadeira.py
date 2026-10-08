@@ -1,4 +1,4 @@
-"""Pisadeira Atroz (story_pisadeira) — chefe da historia, Arco 1 cap. 5 (ARCO-1-TERRA-DO-SABIA.md). So existe na
+"""Pisadeira Atroz (story_pisadeira) — chefe da historia, Arco 1 cap. 5 (ARCO-1-TERRA-DE-PINDORAMA.md). So existe na
 forma atroz (estagio 4, quadro 240). Capitulo de terror, mas no estilo chibi e sem gore.
 Velha magra e corcunda, agachada na ponta dos pes (a que sobe no peito de quem dorme): cabeleira branca desgrenhada
 ate o chao, olhos ARREGALADOS (brancos, pupila pequena violeta, olheiras fundas), nariz comprido, sorriso fino de

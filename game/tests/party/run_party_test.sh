@@ -4,8 +4,8 @@
 #   fase training: personagens novos no Campo de Treino — se veem, convite por /grupo (recusado) e pelo menu
 #     (aceito na janela), painel com vida, erros (já tem grupo, não encontrado, sem grupo, não é líder), chat do
 #     grupo (/g e aba), /online, XP dividida, drop com posse, provação não roubável, líder/expulsar/sair.
-#   fase hunt: saves prontos no Porto — grupo pelo chat, painel com o mapa do outro, os três nos Campos do
-#     Sabiá, Ana e Bia lutam juntas (XP dividida), /online com o mapa.
+#   fase hunt: saves prontos no Porto — grupo pelo chat, painel com o mapa do outro, os três nos Campos de
+#     Pindorama, Ana e Bia lutam juntas (XP dividida), /online com o mapa.
 # Uso: GODOT=/caminho/godot [OUT=.work/grupo] [PORT=8461] [PHASES="training hunt"] [SHOTS=1] game/tests/party/run_party_test.sh
 set -uo pipefail
 GODOT="${GODOT:-godot}"

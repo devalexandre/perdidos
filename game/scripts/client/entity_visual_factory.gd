@@ -10,6 +10,8 @@ const TARGET_ENTITY_PREFIX: String = "e:"
 const TARGET_MAP_PREFIX: String = "m:"
 const VISUAL_NODE_NAME: StringName = &"Visual"
 const DEFAULT_BODY: StringName = &"male"
+## Gestos ocasionais de todo NPC (só visual, 08/10/2026).
+const NPC_GESTURES: Script = preload("res://scripts/client/npc_gestures.gd")
 
 ## Fornecedor de NpcDef (testes trocam por dados falsos). Vazio = autoload Content.
 static var npc_provider: Callable = Callable()
@@ -48,6 +50,9 @@ static func create(entity: Node) -> Node3D:
 	if entity != null and entity.has_method(&"is_local_player"):
 		local = bool(entity.call(&"is_local_player"))
 	v.setup_entity(entity_target_id(entity_id), shown_name, is_npc, local)
+	if is_npc:
+		v.set_presence_def(_npc_def(def_id))
+		v.add_child(NPC_GESTURES.new())
 	return v
 
 

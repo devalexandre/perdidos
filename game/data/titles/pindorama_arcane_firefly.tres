@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_8ptfm"]
+
+[resource]
+script = ExtResource("1_8ptfm")
+id = &"pindorama_arcane_firefly"
+name_key = "TITLE_PINDORAMA_ARCANE_FIREFLY_NAME"
+archetype = &"arcane"
+required_skills = Array[StringName]([&"arcane_spark", &"arcane_frost_burst", &"arcane_creeping_flame"])
+start_map_id = &"city_awakening"
+color = Color(0.30980393, 0.65882355, 0.627451, 1)
+desc_key = "TITLE_PINDORAMA_ARCANE_FIREFLY_DESC"
+sort_order = 20
+outfit_id = &"title_firefly"
+cloth_colors = PackedColorArray(0.1725, 0.1843, 0.3529, 1, 0.7843, 0.8784, 0.2902, 1)
+master_npc = &"master_orvalho"
+bonus_skills = Array[StringName]([&"arcane_bottle_light"])

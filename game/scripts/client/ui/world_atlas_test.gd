@@ -61,7 +61,7 @@ func _run() -> void:
 		atlas.hover_place(atlas_def.place(&"vagao_adormecido"))
 		await _frames(6)
 		_check_labels(atlas)
-		_shot("atlas_%d_zoom_sabia.png" % res.y)
+		_shot("atlas_%d_zoom_pindorama.png" % res.y)
 		atlas.focus_place(atlas_def.place(&"capsula_estrela"), 2.6)
 		atlas.hover_place(atlas_def.place(&"capsula_estrela"))
 		await _frames(6)
@@ -74,7 +74,7 @@ func _run() -> void:
 		_check(not atlas.visible, "fecha")
 		atlas.queue_free()
 		await _frames(2)
-	# Telas largas de celular e PC, com o jogador no Porto e na Serra Dourada (zoom na Terra do Sabiá).
+	# Telas largas de celular e PC, com o jogador no Porto e na Serra Dourada (zoom na Terra de Pindorama).
 	for res: Vector2i in [Vector2i(1280, 720), Vector2i(800, 360), Vector2i(1600, 720)]:
 		for map_id: StringName in [&"city_awakening", &"city_serra_dourada"]:
 			root.size = res
@@ -93,7 +93,7 @@ func _run() -> void:
 			atlas.focus_place(atlas_def.place(&"chapada_ceu_partido"), 2.4)
 			await _frames(4)
 			_check_labels(atlas)
-			_shot("atlas_%dx%d_%s_sabia.png" % [res.x, res.y, map_id])
+			_shot("atlas_%dx%d_%s_pindorama.png" % [res.x, res.y, map_id])
 			atlas.queue_free()
 			await _frames(2)
 	print("world_atlas_test: %s" % ("OK" if _fail == 0 else "%d falha(s)" % _fail))

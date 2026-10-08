@@ -2,6 +2,31 @@
 (function () {
   "use strict";
 
+  // Pausa tanto os GIFs dos títulos quanto os trechos da galeria pelo fallback estático.
+  var motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var motionPaused = motionPreference.matches;
+  var motionChosen = false;
+  function updateMotion() {
+    document.querySelectorAll('source[type="image/gif"]').forEach(function (source) {
+      source.media = motionPaused ? "not all" : "(min-width: 0px)";
+    });
+    document.querySelectorAll("[data-motion-toggle]").forEach(function (button) {
+      button.setAttribute("aria-pressed", String(motionPaused));
+      button.textContent = motionPaused ? "Reproduzir animações" : "Pausar animações";
+    });
+  }
+  document.querySelectorAll("[data-motion-toggle]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      motionChosen = true;
+      motionPaused = !motionPaused;
+      updateMotion();
+    });
+  });
+  motionPreference.addEventListener("change", function (event) {
+    if (!motionChosen) { motionPaused = event.matches; updateMotion(); }
+  });
+  updateMotion();
+
   // Menu fixo (celular)
   var nav = document.querySelector(".nav");
   var toggle = document.querySelector(".nav-toggle");
@@ -66,7 +91,7 @@
     var sw = stage.querySelector("[data-nat-swatches]");
     var natButtons = document.querySelectorAll(".nat-btn");
     var bodyButtons = document.querySelectorAll("[data-body]");
-    var state = { nat: "sabia", body: "both" };
+    var state = { nat: "pindorama", body: "both" };
 
     function render() {
       var btn = document.querySelector(".nat-btn[data-nat='" + state.nat + "']");
@@ -99,7 +124,7 @@
       mons.forEach(function (m) { m.hidden = !(f === "all" || m.dataset.region === f); });
     });
   });
-  // começa na aba marcada (Terra do Sabiá)
+  // começa na aba marcada (Terra de Pindorama)
   var firstChip = document.querySelector('.chip[data-filter][aria-pressed="true"]');
   if (firstChip) firstChip.click();
 
@@ -151,7 +176,7 @@
     document.querySelectorAll(".shot button, .fx button").forEach(function (b) {
       b.addEventListener("click", function () {
         var img = b.querySelector("img");
-        vImg.src = img.src;
+        vImg.src = img.currentSrc || img.src;
         vImg.alt = img.alt;
         var cap = b.parentElement.querySelector("figcaption");
         vCap.textContent = cap ? cap.textContent : "";

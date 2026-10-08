@@ -1,5 +1,5 @@
 extends Node
-## Arco 1 da história (ARCO-1-TERRA-DO-SABIA.md), headless e sem rede:
+## Arco 1 da história (ARCO-1-TERRA-DE-PINDORAMA.md), headless e sem rede:
 ##  - cadeia das quests (1→2→3→4; 5–9 depois do 4; final só com os 9) e a trava do final;
 ##  - capítulos ainda desligados (arte pendente) e o pulo do capítulo 2 no meio da cadeia;
 ##  - chefes da história como dados (só estágios 3 e 4, atroz fixo, níveis da §2, drops, crendices);
@@ -27,14 +27,22 @@ const BOSSES: Dictionary[StringName, Array] = {
 	&"arc1_final_boitata": [&"story_boitata", 60, []],
 }
 ## Arte instalada (aprovada pelo dono): o resto fica desligado.
-const INSTALLED: Array[StringName] = [&"story_saci", &"story_lobisomem", &"story_curupira", &"story_pisadeira"]
+const INSTALLED: Array[StringName] = [&"story_saci", &"story_lobisomem", &"story_curupira", &"story_pisadeira",
+		&"story_mula", &"story_mapinguari", &"story_cuca", &"story_boiuna", &"story_iara", &"story_boitata"]
 ## Fragmentos de Maria (§5): entregues na vitória do ritual.
 const FRAGMENTS: Dictionary[StringName, StringName] = {&"arc1_ch6_iara": &"mother_of_pearl_comb",
 		&"arc1_ch7_mapinguari": &"dolphin_rubbing", &"arc1_ch9_boiuna": &"boiuna_words", FINAL: &"river_memory"}
 ## Covis reais: mapa -> chefe.
-const LAIR_MAPS: Dictionary[StringName, StringName] = {&"fields_sabia_crossroads": &"story_saci",
+const LAIR_MAPS: Dictionary[StringName, StringName] = {&"fields_pindorama_crossroads": &"story_saci",
 		&"cave_reino_encoberto_4": &"story_lobisomem", &"enchanted_forest_heart": &"story_curupira",
-		&"hoer_verde_4": &"story_pisadeira"}
+		&"hoer_verde_4": &"story_pisadeira", &"split_sky_plateau_summit": &"story_mula",
+		&"ruins_ratanaba_4": &"story_mapinguari", &"hollow_earth_cauldron": &"story_cuca",
+		&"sumidouro_abyss": &"story_boiuna", &"jungle_z_river": &"story_iara",
+		&"cave_reino_encoberto_5": &"story_boitata"}
+## Mapas novos do arco: nível e mapa de onde se entra.
+const NEW_MAPS: Dictionary[StringName, Array] = {&"sumidouro_abyss": [50, 56, &"city_sumidouro"],
+		&"cave_reino_encoberto_5": [55, 60, &"cave_reino_encoberto_4"],
+		&"hollow_earth_cauldron": [54, 60, &"hollow_earth_5"]}
 const CRENDICES: Dictionary[StringName, StringName] = {&"no_de_crina_trancada": &"story_saci",
 		&"ferradura_de_porta": &"story_mula", &"restia_de_alho": &"story_lobisomem",
 		&"cipo_da_pegada_virada": &"story_curupira", &"travesseiro_de_macela": &"story_pisadeira",
@@ -63,6 +71,8 @@ func _ready() -> void:
 	_test_ritual_credit()
 	_test_quest_drop()
 	_test_texts_and_rewards()
+	_test_new_maps()
+	_test_boitata_fight()
 	for e: NetEntity in _entities:
 		e.free()
 	world.free()
@@ -213,33 +223,33 @@ func _test_chain_and_final_lock() -> void:
 	var data: ProgressionData = s.character.progression
 	_check(quests.is_available(s, Content.quest(&"arc1_ch1_saci")), "capítulo 1 disponível para quem saiu do treino")
 	_check(quests.is_available(s, Content.quest(PROLOGUE)), "prólogo disponível")
-	_check(QuestService.REQ_NOT_RELEASED in _missing_keys(s, &"arc1_ch2_mula"), "capítulo 2 desligado (Mula sem arte)")
+	_check(QuestService.REQ_QUEST in _missing_keys(s, &"arc1_ch2_mula"), "capítulo 2 trancado sem o 1")
 	var m3: Array[String] = _missing_keys(s, &"arc1_ch3_lobisomem")
 	_check(QuestService.REQ_QUEST in m3 and QuestService.REQ_STORY_COMPLETED in m3, "capítulo 3 trancado sem o 1 e sem o lobisomem", m3)
 	data.quests_done[&"arc1_ch1_saci"] = 1
-	_check(_missing_keys(s, &"arc1_ch3_lobisomem") == [QuestService.REQ_STORY_COMPLETED],
-			"com o capítulo 2 desligado, o 3 só espera o Arco do Lobisomem", _missing_keys(s, &"arc1_ch3_lobisomem"))
-	s.character.complete_story_arc(&"lobisomem_arc", &"killed")
-	_check(quests.is_available(s, Content.quest(&"arc1_ch3_lobisomem")), "capítulo 3 abre com qualquer rota concluída")
-	# Quando a Mula for liberada, o 3 volta a exigir o 2.
 	var ch2: QuestDef = Content.quest(&"arc1_ch2_mula")
-	ch2.released = true
-	_check(quests.is_available(s, ch2), "Mula liberada: capítulo 2 abre depois do 1")
-	_check(QuestService.REQ_QUEST in _missing_keys(s, &"arc1_ch3_lobisomem"), "Mula liberada: capítulo 3 exige o 2")
+	_check(quests.is_available(s, ch2), "capítulo 2 (Mula) abre depois do 1")
+	s.character.complete_story_arc(&"lobisomem_arc", &"killed")
+	_check(_missing_keys(s, &"arc1_ch3_lobisomem") == [QuestService.REQ_QUEST], "capítulo 3 exige o 2",
+			_missing_keys(s, &"arc1_ch3_lobisomem"))
+	# Capítulo do meio desligado (arte refeita): o 3 pula só quest com released = false.
 	ch2.released = false
+	_check(quests.is_available(s, Content.quest(&"arc1_ch3_lobisomem")), "com o 2 desligado, o 3 abre só com o 1 e o lobisomem")
+	ch2.released = true
+	data.quests_done[&"arc1_ch2_mula"] = 1
+	_check(quests.is_available(s, Content.quest(&"arc1_ch3_lobisomem")), "capítulo 3 abre com o 2 e qualquer rota concluída")
 	_check(QuestService.REQ_QUEST in _missing_keys(s, &"arc1_ch4_curupira"), "capítulo 4 trancado sem o 3")
 	data.quests_done[&"arc1_ch3_lobisomem"] = 1
 	_check(quests.is_available(s, Content.quest(&"arc1_ch4_curupira")), "capítulo 4 abre depois do 3")
 	for i: int in range(4, 9):
 		_check(QuestService.REQ_QUEST in _missing_keys(s, CHAPTERS[i]), "%s trancado antes do 4" % CHAPTERS[i])
 	data.quests_done[&"arc1_ch4_curupira"] = 1
-	_check(quests.is_available(s, Content.quest(&"arc1_ch5_pisadeira")), "capítulo 5 abre depois do 4")
-	for i: int in range(5, 9):
-		_check(_missing_keys(s, CHAPTERS[i]) == [QuestService.REQ_NOT_RELEASED], "%s só espera a arte" % CHAPTERS[i],
-				_missing_keys(s, CHAPTERS[i]))
+	for id: StringName in [&"arc1_ch5_pisadeira", &"arc1_ch7_mapinguari", &"arc1_ch8_cuca", &"arc1_ch9_boiuna"]:
+		_check(quests.is_available(s, Content.quest(id)), "%s abre depois do 4" % id, _missing_keys(s, id))
+	_check(quests.is_available(s, Content.quest(&"arc1_ch6_iara")), "arc1_ch6_iara abre depois do 4")
 	# Trava do final: com ele liberado, só abre com os 9 cumpridos (nunca pula capítulo desligado).
 	var fin: QuestDef = Content.quest(FINAL)
-	fin.released = true
+	_check(fin.released, "final liberado (Boitatá com arte e andar 5)")
 	for id: StringName in CHAPTERS:
 		data.quests_done[id] = 1
 	data.quests_done.erase(&"arc1_ch9_boiuna")
@@ -251,7 +261,8 @@ func _test_chain_and_final_lock() -> void:
 	data.quests_done[&"arc1_ch2_mula"] = 1
 	_check(quests.is_available(s, fin), "final abre com os 9 cumpridos")
 	fin.released = false
-	_check(QuestService.REQ_NOT_RELEASED in _missing_keys(s, FINAL), "final segue desligado até o Boitatá e o andar 5")
+	_check(QuestService.REQ_NOT_RELEASED in _missing_keys(s, FINAL), "final desligado não abre")
+	fin.released = true
 	var lone: PlayerSession = _session(102, "Treino")
 	lone.character.left_training = false
 	_check(not quests.is_available(lone, Content.quest(&"arc1_ch1_saci")), "não abre no Campo de Treino")
@@ -283,7 +294,9 @@ func _test_lair_rules() -> void:
 	var saci: MonsterDef = Content.monster(&"story_saci")
 	_check(MonsterSpawner.story_lair_problem(saci, {"prank_whirlwind": 12}).is_empty(), "covil válido")
 	_check(not MonsterSpawner.story_lair_problem(saci, {"prank_whirlwind": 9}).is_empty(), "bando de 9 recusado")
-	_check(not MonsterSpawner.story_lair_problem(Content.monster(&"story_mula"), {"ember_mule": 12}).is_empty(),
+	var pending: MonsterDef = Content.monster(&"story_iara").duplicate()
+	pending.art_pending = true
+	_check(not MonsterSpawner.story_lair_problem(pending, {"river_anaconda": 12}).is_empty(),
 			"chefe com arte pendente recusado")
 	_check(not MonsterSpawner.story_lair_problem(Content.monster(&"prank_whirlwind"), {"prank_whirlwind": 12}).is_empty(),
 			"monstro comum não é covil da história")
@@ -451,3 +464,82 @@ func _test_texts_and_rewards() -> void:
 func _check_bool(ok: bool, what: String) -> bool:
 	_check(ok, what)
 	return ok
+
+
+# ================================================================ mapas novos e passagem do andar 5
+
+func _test_new_maps() -> void:
+	for map_id: StringName in NEW_MAPS:
+		var z: ZoneDef = Content.zone(map_id)
+		var spec: Array = NEW_MAPS[map_id]
+		if not _check_bool(z != null and ResourceLoader.exists("res://scenes/maps/%s.tscn" % map_id), "%s existe" % map_id):
+			continue
+		_check(z.recommended_level_min == int(spec[0]) and z.recommended_level_max == int(spec[1]) and z.combat_allowed,
+				"%s: nível %d–%d" % [map_id, spec[0], spec[1]])
+		var from: ZoneDef = Content.zone(spec[2])
+		_check(spec[2] in z.connected_maps and from != null and map_id in from.connected_maps,
+				"%s liga com %s nos dois sentidos" % [map_id, spec[2]])
+	var abyss: Node = (load("res://scenes/maps/sumidouro_abyss.tscn") as PackedScene).instantiate()
+	var species: Array[StringName] = []
+	for m: Node in abyss.get_node(^"Spawns").get_children():
+		species.append(StringName(str(m.get_meta(&"monster_id"))))
+	_check(&"abyss_river_anaconda" in species and &"abyss_black_caiman" in species and &"abyss_water_serpent" in species,
+			"Abismo: jacarés, sucuris e serpentes do rio", species)
+	abyss.free()
+	var ch9: QuestDef = Content.quest(&"arc1_ch9_boiuna")
+	_check(ch9.steps[2].drop_from == &"abyss_river_anaconda", "Escamas Negras caem das Sucuris do Abismo")
+	var grotto: Node = (load("res://scenes/maps/hollow_earth_cauldron.tscn") as PackedScene).instantiate()
+	_check(grotto.find_child("CauldronChamber", true, false) != null, "câmara do caldeirão fica na Gruta do Caldeirão")
+	grotto.free()
+	var t5: Node = (load("res://scenes/maps/hollow_earth_5.tscn") as PackedScene).instantiate()
+	_check(t5.find_child("CauldronChamber", true, false) == null and t5.get_node_or_null(^"StoryLairs") == null,
+			"andar 5 da Terra Oca fica só com o Titã")
+	t5.free()
+	var cave: Node = (load("res://scenes/maps/cave_reino_encoberto_4.tscn") as PackedScene).instantiate()
+	var portal: Node = cave.get_node_or_null(^"Interactables/DeepPassagePortal")
+	_check(portal != null and StringName(str(portal.get_meta(&"target_map", ""))) == &"cave_reino_encoberto_5"
+			and StringName(str(portal.get_meta(&"requires_quest", ""))) == FINAL, "passagem do andar 4 exige o final")
+	cave.free()
+	var f5: Node = (load("res://scenes/maps/cave_reino_encoberto_5.tscn") as PackedScene).instantiate()
+	_check(f5.get_node_or_null(^"StoryLairs/boitata") != null, "andar 5 com o covil do Boitatá")
+	f5.free()
+	# Passagem: fechada enquanto o final não pode ser aceito; aberta com ele disponível, ativo ou feito.
+	var mt := MapTransfer.new(world)
+	var s: PlayerSession = _session(501, "Passagem")
+	_check(not mt.story_passage_open(s, FINAL), "passagem fechada sem os 9 capítulos")
+	var fin: QuestDef = Content.quest(FINAL)
+	fin.released = true
+	for id: StringName in CHAPTERS:
+		s.character.progression.quests_done[id] = 1
+	_check(mt.story_passage_open(s, FINAL), "passagem aberta com o final disponível")
+	fin.released = false
+	_check(not mt.story_passage_open(s, FINAL), "passagem fechada se o final for desligado")
+	fin.released = true
+	s.character.progression.quests_done[FINAL] = 1
+	_check(mt.story_passage_open(s, FINAL), "quem já fez o final volta para as revanches")
+
+
+# ================================================================ luta do Boitatá
+
+func _test_boitata_fight() -> void:
+	_check(BoitataFight.phase_for(1.0) == 1 and BoitataFight.phase_for(0.61) == 1, "fase 1 acima de 60%")
+	_check(BoitataFight.phase_for(0.6) == 2 and BoitataFight.phase_for(0.31) == 2, "fase 2 de 60% a 30%")
+	_check(BoitataFight.phase_for(0.3) == 3 and BoitataFight.phase_for(0.11) == 3, "fase 3 de 30% a 10%")
+	_check(BoitataFight.phase_for(0.1) == 4 and BoitataFight.phase_for(0.01) == 4, "chama negra abaixo de 10%")
+	var d: MonsterDef = Content.monster(&"story_boitata")
+	_check(BoitataFight.wants(d.atroz_stage()) and BoitataFight.BEHAVIOR in MonsterBehaviors.KNOWN,
+			"Boitatá luta por fases")
+	for id: StringName in [BoitataFight.BREATH, BoitataFight.TRAIL, BoitataFight.RING]:
+		_check(Content.monster_skill(id) != null and Content.skill(id) == null and Content.any_skill(id) != null,
+				"habilidade %s em data/monster_skills (fora das skills de jogador)" % id)
+	var breath: SkillDef = Content.monster_skill(BoitataFight.BREATH)
+	_check(breath.target_type == SkillDef.TargetType.CONE and is_equal_approx(breath.ground_warning_sec, 1.0),
+			"sopro em cone com aviso de 1 s")
+	_check(Content.monster(BoitataFight.WISP_ID) != null and not Content.monster(BoitataFight.WISP_ID).can_be_rare,
+			"fogo-fátuo existe")
+	# Cone: quem está na frente leva, quem está atrás não.
+	var origin := Vector3.ZERO
+	var dir := Vector3(0, 0, -1)
+	var point: Vector3 = origin + dir * 2.5
+	_check(SkillCaster.in_shape(breath, origin, point, dir, Vector3(0.5, 0, -3), 1.0)
+			and not SkillCaster.in_shape(breath, origin, point, dir, Vector3(0, 0, 3), 1.0), "acerto do cone")

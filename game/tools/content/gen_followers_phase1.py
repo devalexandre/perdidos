@@ -20,14 +20,14 @@ def names(values):
     return 'Array[StringName]([' + ', '.join('&"'+v+'"' for v in values) + '])'
 
 COMPANIONS = [
- ('harpy','Harpia','sabia_bow_gaviao','harpy_eagle','Garra do Alto','bow_companion_hawk_strike','Olho no Céu','bow_companion_sky_eye',True,14,30,8),
- ('guara','Guará','sabia_bow_brejo','maned_wolf','Mordida do Guará','bow_companion_guara_bite','Faro do Guará','bow_companion_guara_track',False,10,25,15),
- ('lume','Lume','sabia_arcane_firefly','enchanted_firefly','Luz que Acompanha','arcane_companion_lume_light','Lume Guia','arcane_companion_lume_guide',True,0,60,20),
+ ('harpy','Harpia','pindorama_bow_gaviao','harpy_eagle','Garra do Alto','bow_companion_hawk_strike','Olho no Céu','bow_companion_sky_eye',True,14,30,8),
+ ('guara','Guará','pindorama_bow_brejo','maned_wolf','Mordida do Guará','bow_companion_guara_bite','Faro do Guará','bow_companion_guara_track',False,10,25,15),
+ ('lume','Lume','pindorama_arcane_firefly','enchanted_firefly','Luz que Acompanha','arcane_companion_lume_light','Lume Guia','arcane_companion_lume_guide',True,0,60,20),
 ]
 
 def main():
     for short, label, title, monster, pname, passive, aname, active, flies, mana, cooldown, duration in COMPANIONS:
-        ident = 'sabia_companion_' + short
+        ident = 'pindorama_companion_' + short
         resource('companions', ident, 'CompanionDef', 'companion_def', [
             'id = &"'+ident+'"', 'name_key = '+text('COMPANION_'+short.upper(),label),
             'title_id = &"'+title+'"', 'bond_quest_id = &"quest_bond_'+short+'"',
@@ -51,9 +51,9 @@ def main():
                 'effect = 10', 'mana_cost = '+str(0 if is_passive else mana),
                 'cooldown_sec = '+str(0 if is_passive else cooldown), 'duration_sec = '+str(duration),
                 'range_cells = 12.0', 'icon_text = "'+sname[:3]+'"'])
-    resource('mounts','sabia_mount_donkey','MountDef','mount_def',[
-        'id = &"sabia_mount_donkey"','name_key = '+text('MOUNT_DONKEY','Jumento do Sertão'),
-        'sprite_base = "res://assets/mounts/sabia_mount_donkey/mount_donkey"', 'walk_ms_per_cell = 160'])
+    resource('mounts','pindorama_mount_donkey','MountDef','mount_def',[
+        'id = &"pindorama_mount_donkey"','name_key = '+text('MOUNT_DONKEY','Jumento do Sertão'),
+        'sprite_base = "res://assets/mounts/pindorama_mount_donkey/mount_donkey"', 'walk_ms_per_cell = 160'])
     for ident,label,desc,price in [
         ('lobeira','Lobeira','Fruta-do-lobo colhida no cerrado.',0),
         ('glass_jar','Pote de Vidro','Um pote para transportar luzinhas com cuidado.',20),
@@ -65,31 +65,31 @@ def main():
             'desc_key = '+text('ITEM_'+ident.upper()+'_DESC',desc), 'stackable = true', 'max_stack = 99',
             'buy_price = '+str(price)])
     quests = [
-      ('harpy','Ninho na Sumaúma','master_taquari','sabia_bow_gaviao',[
+      ('harpy','Ninho na Sumaúma','master_taquari','pindorama_bow_gaviao',[
           (2,'HarpyBondNest',1,'Inspecione o ninho caído na Clareira da Mata.',{}),
           (1,'harpy_feather',6,'Pegue 6 Penas de Gavião do chão após aceitar esta etapa.',{}),
           (0,'harpy_eagle',3,'Derrote 3 Harpias Caçadoras (estágio 2).',{'required_stage':2}),
-          (6,'sabia_companion_harpy',1,'Dê nome ao filhote em Companheiros e Montarias.',{})]),
-      ('guara','Fruta-do-Lobo','master_taquari','sabia_bow_brejo',[
+          (6,'pindorama_companion_harpy',1,'Dê nome ao filhote em Companheiros e Montarias.',{})]),
+      ('guara','Fruta-do-Lobo','master_taquari','pindorama_bow_brejo',[
           (1,'lobeira',8,'Colha 8 Lobeiras na Encruzilhada dos Campos.',{}),
           (2,'GuaraTrack1',1,'Siga o primeiro rastro na Encruzilhada, de dia.',{'requires_day':True}),
           (2,'GuaraTrack2',1,'Siga o segundo rastro, de dia.',{'requires_day':True}),
           (2,'GuaraTrack3',1,'Siga o terceiro rastro, de dia.',{'requires_day':True}),
           (0,'maned_wolf',5,'Espante 5 Guarás da Alta Mata (estágio 2).',{'required_stage':2}),
           (5,'GuaraBondRest',1,'Use Lama no Corpo e espere 10 s parado junto à lobeira.',{'requires_hidden':True,'wait_sec':10})]),
-      ('lume','Pote de Luz','master_orvalho','sabia_arcane_firefly',[
+      ('lume','Pote de Luz','master_orvalho','pindorama_arcane_firefly',[
           (1,'firefly_light',10,'À noite, pegue 10 Luzinhas de Vaga-lumes Encantados.',{'requires_night':True}),
           (1,'glass_jar',1,'Compre um Pote de Vidro no mercado.',{'allow_purchased':True}),
           (3,'elder_ze_ferreiro',1,'Leve o pote à forja do Seu Zé e ouça o causo.',{'lore_text_key':text('BOND_LUME_LORE','Você abre o pote. As luzinhas passeiam pela forja, e uma fica perto da sua mão. Seu Zé sorri: essa luz escolheu acompanhar sua viagem.')}),
           (3,'master_orvalho',1,'Conte a Mestre Orvalho como as luzinhas reacenderam a forja.',{})]),
     ]
     for short,label,npc,title,steps in quests:
-        write_quest('quest_bond_'+short,label,npc,title,steps,'reward_companion = &"sabia_companion_'+short+'"')
+        write_quest('quest_bond_'+short,label,npc,title,steps,'reward_companion = &"pindorama_companion_'+short+'"')
     write_quest('quest_mount_donkey','Um Amigo de Estrada','tropeiro','',[
         (1,'donkey_grass',4,'Colha 4 porções de capim junto ao Tropeiro.',{}),
         (1,'rapadura',2,'Pegue 2 rapaduras na banca da vila.',{}),
         (2,'DonkeyDelivery',1,'Leve a carga ao ponto de entrega perto do cais.',{}),
-    ], 'reward_mount = &"sabia_mount_donkey"\nturn_in_stars = 100')
+    ], 'reward_mount = &"pindorama_mount_donkey"\nturn_in_stars = 100')
     market = GAME/'data/shops/market.tres'
     source = market.read_text()
     if '&"glass_jar"' not in source:

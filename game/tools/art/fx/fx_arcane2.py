@@ -1,4 +1,4 @@
-"""Arcano da Terra do Sabia (30/09/2026): Enxame de Vaga-lumes, Guarda do Cristal e Olho do Boitata.
+"""Arcano da Terra de Pindorama (30/09/2026): Enxame de Vaga-lumes, Guarda do Cristal e Olho do Boitata.
 
 Pecas-chave: vaga-lume de verdade (asas batendo, lanterna acesa), cacos de cristal que orbitam o aliado,
 colunas de cristal que prendem, pontas de cristal brotando em volta, pedra de cristal que chove mana,
@@ -11,7 +11,7 @@ import math
 import numpy as np
 
 from fxdraw import Canvas, Frame, Spr, blit, ease_out, layer, lerp, piece, rng
-from fxsabia import (ARCANE_GROUND, CRYSTAL, CRYSTAL_G, CRYSTAL_LINE, D, EMBER_G, EMBER_GROUND, FIREFLY_A,
+from fxpindorama import (ARCANE_GROUND, CRYSTAL, CRYSTAL_G, CRYSTAL_LINE, D, EMBER_G, EMBER_GROUND, FIREFLY_A,
                      FIREFLY_B, FIREFLY_PAL, MANA_G, SERPENT_EYE_PAL, SERPENT_EYE_TXT, TAU, W_GOLD, W_PALE, W_WHITE,
                      dither_alpha, drop, glow_ramp, spr)
 

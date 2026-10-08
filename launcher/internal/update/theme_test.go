@@ -85,8 +85,8 @@ func TestManifestThemeArcTitle(t *testing.T) {
 			arc, title, imgSHA)
 	}
 	// valid
-	m, err := ParseManifest([]byte(fmt.Sprintf(baseManifest, zipSHA, seal(" Arco I ", "A Terra do Sabiá"))))
-	if err != nil || m.Theme == nil || m.Theme.Arc != "Arco I" || m.Theme.Title != "A Terra do Sabiá" {
+	m, err := ParseManifest([]byte(fmt.Sprintf(baseManifest, zipSHA, seal(" Arco I ", "A Terra de Pindorama"))))
+	if err != nil || m.Theme == nil || m.Theme.Arc != "Arco I" || m.Theme.Title != "A Terra de Pindorama" {
 		t.Fatalf("válido: %v %+v %v", err, m.Theme, m.ThemeErr)
 	}
 	// absent: optional
@@ -101,7 +101,7 @@ func TestManifestThemeArcTitle(t *testing.T) {
 	for name, th := range map[string]string{
 		"arco longo":   seal(strings.Repeat("á", 21), "x"),
 		"título longo": seal("Arco I", strings.Repeat("é", 61)),
-		"html":         seal("Arco I", "<b>Sabiá</b>"),
+		"html":         seal("Arco I", "<b>Pindorama</b>"),
 		"controle":     seal("Arco\nI", "x"),
 	} {
 		m, err := ParseManifest([]byte(fmt.Sprintf(baseManifest, zipSHA, th)))

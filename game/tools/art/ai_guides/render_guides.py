@@ -1,7 +1,7 @@
 """Guias de pose PROPRIAS (manequim do nosso rig, corpo sem cabeca) para o kit do ChatGPT.
 Baseado em .work/d/tools/guide_render.py; mesma camera/escala do render_chr.py (BODY_PX 78, pitch 35), canvas 208.
 
-blender -b --python render_guides.py -- male --out .work/guides_sabia/render [--ss 4] [--only walk:S]
+blender -b --python render_guides.py -- male --out .work/guides_pindorama/render [--ss 4] [--only walk:S]
 Saida: <out>/<body>.npz  (<anim>_id [D,F,H,W] uint16 em px do canvas 208*ss) e <body>.json
        (partes, juntas 2D por quadro, ponto do pescoco = base do cranio).
 

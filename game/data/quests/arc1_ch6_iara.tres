@@ -65,7 +65,7 @@ script = ExtResource("1_quest")
 id = &"arc1_ch6_iara"
 name_key = "QUEST_ARC1_CH6_NAME"
 giver_npc = &"fisherman"
-region_id = &"sabia"
+region_id = &"pindorama"
 steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4"), SubResource("step_5")])
 reward_items = Dictionary[StringName, int]({
 &"singing_waters_staff": 1
@@ -79,4 +79,3 @@ option_text_key = "QUEST_ARC1_CH6_OPTION"
 desc_key = "QUEST_ARC1_CH6_DESC"
 required_quests = Array[StringName]([&"arc1_ch4_curupira"])
 requires_left_training = true
-released = false

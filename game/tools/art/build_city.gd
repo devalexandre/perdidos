@@ -614,7 +614,7 @@ func _boat(c: Vector3, yaw: float, sail_mat: String, s: float = 1.0) -> void:
 
 
 func _build_walls_and_gates() -> void:
-	# muralha baixa em volta, com 3 portoes (N: Campos do Sabia, S: Mata/Chapada, O: Arena)
+	# muralha baixa em volta, com 3 portoes (N: Campos de Pindorama, S: Mata/Chapada, O: Arena)
 	var h := 3.0
 	var t := 1.6
 	var wz := HALF - 3.0
@@ -1566,8 +1566,8 @@ func _assemble() -> Node3D:
 	var pois := {
 		"RespawnCrystal": [CRYSTAL_POS, &""],
 		"MastersHouseDoor": [masters_door, &""],
-		"GateNorth": [Vector3(0, 0, -57), &"fields_sabia"],
-		"GateSouth": [Vector3(0, 0, 57), &"fields_sabia"],
+		"GateNorth": [Vector3(0, 0, -57), &"fields_pindorama"],
+		"GateSouth": [Vector3(0, 0, 57), &"fields_pindorama"],
 		"GateWest": [Vector3(-57, 0, 0), &"arena_burning"],
 		"DocksArrival": [Vector3(38, 0, 0), &""],
 		"Market": [Vector3(8, 0, 8), &""],
@@ -1787,8 +1787,8 @@ func _add_interactables(root: Node3D) -> void:
 		a.set_meta(&"seat_position", seat) # centro do assento (fora do navmesh)
 		a.set_meta(&"approach_position", v[0]) # ponto caminhavel ao lado do banco (= ViewpointN)
 	var gates := [
-		["gate_north", Vector3(0, 0, -HALF + 3.0), 0.0, &"fields_sabia", "1–10"],
-		["gate_south", Vector3(0, 0, HALF - 3.0), 0.0, &"fields_sabia", "1–10"],
+		["gate_north", Vector3(0, 0, -HALF + 3.0), 0.0, &"fields_pindorama", "1–10"],
+		["gate_south", Vector3(0, 0, HALF - 3.0), 0.0, &"fields_pindorama", "1–10"],
 		["gate_west", Vector3(LAND_MIN_X + 3.0, 0, 0), PI / 2.0, &"arena_burning", "PVP"],
 	]
 	for g: Array in gates:

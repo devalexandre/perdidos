@@ -31,7 +31,7 @@ func _ready() -> void:
 	if _slot:
 		CharacterSlots.remember({CharacterSlots.KEY_NAME: "Iracema", CharacterSlots.KEY_BODY: "female",
 			CharacterSlots.KEY_APPEARANCE: {"body": "female", "skin": 3, "hair_style": "braid", "hair_color": 3,
-				"eye_color": 3, "earrings": "seed", "nationality": "sabia"}, CharacterSlots.KEY_LEVEL: 7})
+				"eye_color": 3, "earrings": "seed", "nationality": "pindorama"}, CharacterSlots.KEY_LEVEL: 7})
 	var title: TitleScreen = TITLE_SCENE.instantiate() as TitleScreen
 	title.apply_video_settings = false
 	title.touch_layout_override = _touch

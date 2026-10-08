@@ -18,9 +18,9 @@ radius_cells = 3.0
 base_multiplier = 1.4
 multiplier_per_level = 0.1
 vfx = &"spark"
-exclusive_to_title = &"sabia_hybrid_ember"
+exclusive_to_title = &"pindorama_hybrid_ember"
 icon_text = "FG"
-tree_title = &"sabia_hybrid_ember"
+tree_title = &"pindorama_hybrid_ember"
 tree_order = 4
 required_skill_levels = Dictionary[StringName, int]({
 &"hybrid_ember_cut": 3

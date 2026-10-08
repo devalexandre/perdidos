@@ -35,8 +35,8 @@ MON_HIGHLAND_EMBER_MULE_S1_NAME,Mula de Brasa da Chapada
 MON_HIGHLAND_EMBER_MULE_S2_NAME,Mula de Brasa Veterana da Chapada
 MON_HIGHLAND_EMBER_MULE_S3_NAME,Mula da Queimada
 MON_HIGHLAND_EMBER_MULE_S4_NAME,Mula da Noite Ardente
-MON_SABIA_JAGUAR_S1_NAME,Onça-pintada Jovem
-MON_SABIA_JAGUAR_S2_NAME,Onça-pintada
+MON_PINDORAMA_JAGUAR_S1_NAME,Onça-pintada Jovem
+MON_PINDORAMA_JAGUAR_S2_NAME,Onça-pintada
 MON_YELLOW_SCORPION_S1_NAME,Escorpião-Amarelo
 MON_YELLOW_SCORPION_S2_NAME,Escorpião-Amarelo Veterano
 MON_YELLOW_SCORPION_S3_NAME,Ferrão-Dourado do Entulho
@@ -121,7 +121,7 @@ MON_BLACK_CAIMAN_S1_NAME,Jacaré do Pantanal
 MON_BLACK_CAIMAN_S2_NAME,Jacaré Blindado
 MON_BLACK_CAIMAN_S3_NAME,Couro-Negro dos Remansos
 MON_BLACK_CAIMAN_S4_NAME,Jacaré-Açu Atroz
-MON_HARPY_EAGLE_S1_NAME,Gavião da Mata
+MON_HARPY_EAGLE_S1_NAME,Harpia Jovem
 MON_HARPY_EAGLE_S2_NAME,Harpia Caçadora
 MON_HARPY_EAGLE_S3_NAME,Soberana das Alturas
 MON_HARPY_EAGLE_S4_NAME,Harpia-Real Atroz
@@ -171,3 +171,14 @@ MON_DEEP_TITAN_S3_NAME,O Titã das Profundezas
 MON_DEEP_TITAN_S4_NAME,Titã Tectônico Atroz
 MON_CAVE_FIREFLY_S1_NAME,Vaga-lume da Gruta
 MON_CAVE_FIREFLY_S2_NAME,Vaga-lume da Gruta Veterano
+MON_ABYSS_BLACK_CAIMAN_S1_NAME,Jacaré do Abismo
+MON_ABYSS_BLACK_CAIMAN_S2_NAME,Jacaré-Açu do Abismo
+MON_ABYSS_RIVER_ANACONDA_S1_NAME,Sucuri do Abismo
+MON_ABYSS_RIVER_ANACONDA_S2_NAME,Sucuri da Tempestade
+MON_ABYSS_WATER_SERPENT_S1_NAME,Serpente das Águas Negras
+MON_ABYSS_WATER_SERPENT_S2_NAME,Serpente do Redemoinho Negro
+MON_DEEP_CINDER_SERPENT_S1_NAME,Serpente-Fagulha Profunda
+MON_DEEP_CINDER_SERPENT_S2_NAME,Serpente de Brasa Negra
+MON_DEEP_EMBER_MULE_S1_NAME,Mula de Brasa Profunda
+MON_DEEP_EMBER_MULE_S2_NAME,Mula da Fogueira Negra
+MON_BOITATA_WISP_NAME,Fogo-Fátuo do Boitatá

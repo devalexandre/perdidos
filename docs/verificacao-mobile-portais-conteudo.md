@@ -7,7 +7,7 @@ Portais agora verificam a posição autoritativa após o movimento, no servidor.
 ## Conteúdo encontrado
 
 - 39 definições de itens em `game/data/items`.
-- Armas novas: Lâmina Longa do Sabiá, Arco de Buriti, Facão de Brasa, Varinha Vaga-lume, Sabre do Mito e Cajado Trama-Raiz. O mercado libera parte delas por graduação de Causos; o diálogo de Zé Ferreiro também tem concessões de armas.
+- Armas novas: Lâmina Longa de Pindorama, Arco de Buriti, Facão de Brasa, Varinha Vaga-lume, Sabre do Mito e Cajado Trama-Raiz. O mercado libera parte delas por graduação de Causos; o diálogo de Zé Ferreiro também tem concessões de armas.
 - Luvas de Couro, Coroa de Musgo, Diadema de Ipê e anéis de Buriti e Cinza Viva cadastrados e vinculados ao mercado por graduação.
 - Materiais raros `eternal_ember`, `pequi_root` e `ancient_shell_shard` têm vínculos com drops de monstros.
 - Lâmina do Vendaval e Cajado da Alma Atroz estão ligados ao serviço de drops de chefes (chances base de 2% e 5%, respectivamente).

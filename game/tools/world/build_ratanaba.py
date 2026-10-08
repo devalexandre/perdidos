@@ -423,7 +423,7 @@ def build_monster_defs():
 # ---------------------------------------------------------------------------
 # 4. Generate Map: ruins_ratanaba.tscn
 # ---------------------------------------------------------------------------
-# The single-map dungeon ruins_ratanaba (scene, zone and the link from fields_sabia_crossroads) was
+# The single-map dungeon ruins_ratanaba (scene, zone and the link from fields_pindorama_crossroads) was
 # replaced by the 4 floors of build_ratanaba_expansion.py (ruins_ratanaba_1..4) and is no longer built.
 # Its last version is in backup_removed_content/2026-10-05/ (project root).
 

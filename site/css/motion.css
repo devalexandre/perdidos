@@ -1,0 +1,22 @@
+/* Animações dos títulos e trechos do próprio jogo, compartilhados entre portal e guia. */
+.motion-section { padding: 54px 0; }
+.motion-section > .wrap { width: min(1200px, calc(100% - 80px)); margin: auto; }
+.motion-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 26px; }
+.motion-heading h3 { font: 36px/1.2 Georgia, serif; margin: 10px 0; }
+.motion-heading p { margin: 0; font-size: 14px; opacity: .8; }
+.motion-toggle { border: 1px solid currentColor; border-radius: 4px; padding: 10px 16px; color: inherit; background: transparent; font: inherit; cursor: pointer; flex-shrink: 0; }
+.motion-toggle:focus-visible { outline: 3px solid #ae7d31; outline-offset: 4px; }
+.motion-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.motion-grid .motion-card { grid-column: auto; grid-row: auto; margin: 0; overflow: hidden; border: 1px solid #ae7d3140; border-radius: 4px; }
+.motion-grid .motion-card button { display: block; position: relative; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.motion-grid .motion-card picture { display: block; }
+.motion-grid .motion-card img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; }
+.motion-grid .motion-card figcaption { position: static; display: block; padding: 16px 18px; background: transparent; color: inherit; font: 21px/1.4 Georgia, serif; }
+.motion-grid .motion-card figcaption small { display: block; margin-top: 6px; font: 12px/1.6 'Open Sans', sans-serif; letter-spacing: 0; opacity: .75; }
+.motion-grid .motion-card .motion-duration { position: absolute; top: auto; left: auto; right: 10px; bottom: 10px; width: auto; height: auto; padding: 4px 8px; border: 0; white-space: nowrap; color: #fff; background: #0e1d1ad9; border-radius: 3px; font: 11px/1.6 'Open Sans', sans-serif; }
+@media (max-width: 700px) {
+  .motion-section > .wrap { width: calc(100% - 36px); }
+  .motion-heading { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .motion-heading h3 { font-size: 30px; }
+  .motion-grid { grid-template-columns: 1fr; gap: 18px; }
+}

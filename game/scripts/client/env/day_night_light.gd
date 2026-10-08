@@ -8,7 +8,11 @@ extends Node
 ##  - luzes pontuais (fogueira, cristal, lampiões) -> mais fortes à noite.
 ## O Environment do mapa é duplicado na primeira vez (o recurso do disco não muda). O Campo de Treino fica
 ## sempre de dia (WorldClock.map_follows_clock), a menos que o dono force a noite pelo comando de teste.
+## Clima integrado (08/10/2026): aqui também anda a umidade do chão (WeatherWetness.advance) e ela vai para os
+## shaders pelos uniforms globais (WeatherWetness.publish) — o mapa em que o jogador está manda. Luzes com a meta
+## &"rain_dim" (fogueiras) enfraquecem com a chuva e com a lenha ainda molhada.
 
+const WeatherWetness = preload("res://scripts/client/env/weather_wetness.gd")
 const INSTANCES_PATH: NodePath = ^"/root/Main/World/Instances"
 const MAP_NODE: String = "Map"
 const META_BASE: StringName = &"day_night_base"
@@ -58,6 +62,10 @@ func _process(delta: float) -> void:
 		var shown: float = _shown.get(id, target)
 		shown = move_toward(shown, target, delta / SMOOTH_SEC) if absf(shown - target) > 0.02 else target
 		_shown[id] = shown
+		var wet: float = WeatherWetness.advance(map, delta)
+		if map.get(&"map_id") == NetWorld.client_map_id:
+			var weather: Vector2 = map.get_meta(&"weather_visual", Vector2.ZERO)
+			WeatherWetness.publish(weather.x, wet)
 		apply(map, shown)
 
 
@@ -65,14 +73,25 @@ func _process(delta: float) -> void:
 static func apply(map: Node, amount: float) -> void:
 	var base: Dictionary = _base_of(map)
 	var a: float = clampf(amount, 0.0, 1.0)
-	if int(base.get("last_q", -1)) == roundi(a * 1000.0):
+	var weather: Vector2 = map.get_meta(&"weather_visual", Vector2.ZERO)
+	var rain: float = clampf(weather.x, 0.0, 1.0)
+	var mist: float = clampf(weather.y, 0.0, 1.0)
+	var wet: float = clampf(float(map.get_meta(WeatherWetness.META_WETNESS, 0.0)), 0.0, 1.0)
+	var damp: float = WeatherWetness.fire_damp(rain, wet)
+	var visual_key := Vector4i(roundi(a * 1000.0), roundi(rain * 100.0) * 1000 + roundi(damp * 100.0),
+			roundi(mist * 100.0), EnvQuality.current)
+	if base.get("last_q") == visual_key:
 		return
-	base["last_q"] = roundi(a * 1000.0)
+	base["last_q"] = visual_key
 	var sun: DirectionalLight3D = base.get("sun") as DirectionalLight3D
 	if is_instance_valid(sun):
 		sun.light_color = (base["sun_color"] as Color).lerp(MOON_COLOR, a)
 		sun.light_energy = lerpf(base["sun_energy"], base["sun_energy"] * MOON_ENERGY_FACTOR, a)
 		sun.shadow_opacity = lerpf(base["sun_shadow"], base["sun_shadow"] * MOON_SHADOW_OPACITY_FACTOR, a)
+		sun.light_energy *= lerpf(1.0, 0.62, rain)
+		sun.light_color = sun.light_color.lerp(Color(0.73, 0.81, 0.94), rain * 0.3)
+		sun.shadow_opacity *= lerpf(1.0, 0.65, rain)
+		sun.shadow_blur = lerpf(float(base["sun_blur"]), 2.5, rain)
 	var env: Environment = base.get("env") as Environment
 	if env != null:
 		env.ambient_light_color = (base["amb_color"] as Color).lerp(NIGHT_AMBIENT_COLOR, a)
@@ -81,10 +100,19 @@ static func apply(map: Node, amount: float) -> void:
 		env.fog_light_energy = lerpf(base["fog_energy"], base["fog_energy"] * NIGHT_FOG_ENERGY_FACTOR, a)
 		env.adjustment_brightness = lerpf(base["brightness"], base["brightness"] * NIGHT_BRIGHTNESS_FACTOR, a)
 		env.adjustment_saturation = lerpf(base["saturation"], base["saturation"] * NIGHT_SATURATION_FACTOR, a)
+		env.ambient_light_energy *= lerpf(1.0, 0.90, rain)
+		env.fog_enabled = (bool(base["fog_enabled"]) or mist > 0.01 or rain > 0.01) and bool(EnvQuality.get_setting("fog"))
+		env.fog_mode = Environment.FOG_MODE_DEPTH if mist > 0.01 or rain > 0.01 else base["fog_mode"]
+		var haze: float = maxf(mist, rain * 0.45)
+		env.fog_depth_begin = lerpf(base["fog_begin"], 10.0, haze)
+		env.fog_depth_end = lerpf(base["fog_end"], 48.0, haze)
+		env.fog_density = lerpf(base["fog_density"], 0.72, haze)
+		env.fog_light_color = env.fog_light_color.lerp(Color(0.57, 0.66, 0.73).lerp(NIGHT_FOG_COLOR, a), haze * 0.75)
 		var sky_mat: Material = base.get("sky_mat") as Material
 		var sky_base: Dictionary = base.get("sky_base", {})
 		for key: StringName in sky_base:
 			var c: Color = (sky_base[key] as Color).lerp(NIGHT_SKY[key], a)
+			c = c.lerp(Color(0.46, 0.54, 0.63).lerp(NIGHT_FOG_COLOR, a), rain * 0.45)
 			if sky_mat is ShaderMaterial:
 				(sky_mat as ShaderMaterial).set_shader_parameter(key, Vector3(c.r, c.g, c.b))
 			else:
@@ -95,6 +123,7 @@ static func apply(map: Node, amount: float) -> void:
 		if not is_instance_valid(l):
 			continue
 		var e: float = float(p[1]) * (1.0 + NIGHT_POINT_LIGHT_BOOST * a)
+		e *= 1.0 - float(l.get_meta(&"rain_dim", 0.0)) * damp # fogueira na chuva
 		if FLICKER_BASE in l:
 			l.set(FLICKER_BASE, e) # FlickerLight tremula em volta da própria base
 		else:
@@ -115,6 +144,7 @@ static func _base_of(map: Node) -> Dictionary:
 		base["sun_color"] = sun.light_color
 		base["sun_energy"] = sun.light_energy
 		base["sun_shadow"] = sun.shadow_opacity
+		base["sun_blur"] = sun.shadow_blur
 	var we: WorldEnvironment = null
 	for n: Node in map.find_children("*", "WorldEnvironment", true, false):
 		we = n as WorldEnvironment
@@ -127,6 +157,11 @@ static func _base_of(map: Node) -> Dictionary:
 		base["amb_energy"] = env.ambient_light_energy
 		base["fog_color"] = env.fog_light_color
 		base["fog_energy"] = env.fog_light_energy
+		base["fog_enabled"] = env.fog_enabled
+		base["fog_mode"] = env.fog_mode
+		base["fog_begin"] = env.fog_depth_begin
+		base["fog_end"] = env.fog_depth_end
+		base["fog_density"] = env.fog_density
 		base["brightness"] = env.adjustment_brightness
 		base["saturation"] = env.adjustment_saturation
 		var sky_mat: Material = env.sky.sky_material if env.sky != null else null

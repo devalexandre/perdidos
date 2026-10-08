@@ -43,7 +43,7 @@ const MP_REGEN_PER_SPI: float = 0.6
 const BASIC_MELEE_RANGE_CELLS: float = 1.5
 ## Arma do Arcano: ataque básico mágico à distância [PROVISÓRIO — decisão de K, GDD não define].
 const BASIC_RANGED_RANGE_CELLS: float = 5.0
-## Arco (Terra do Sabiá v0.4, TITULOS-E-SKILLS.md §3.4 "Flecha do Cerrado"): ataque básico físico à distância.
+## Arco (Terra de Pindorama v0.4, TITULOS-E-SKILLS.md §3.4 "Flecha do Cerrado"): ataque básico físico à distância.
 const BASIC_BOW_RANGE_CELLS: float = 8.0
 ## Clique em alvo mais longe do que isto (células) é recusado ("fora de alcance").
 const ATTACK_MAX_ENGAGE_CELLS: float = 20.0

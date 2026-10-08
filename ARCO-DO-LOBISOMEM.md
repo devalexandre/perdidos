@@ -1,4 +1,4 @@
-# Arco do Lobisomem — Terra do Sabiá
+# Arco do Lobisomem — Terra de Pindorama
 
 > **Versão:** 1.0 — outubro de 2026
 > **Base:** GDD §4.0, §4.2, §8, §9; TITULOS-E-SKILLS §1–§3; regras culturais GDD §4.0.
@@ -29,7 +29,7 @@ A vila de Porto do Despertar fala baixo sobre os últimos meses: gado morto com 
 
 ### 1.2 O que é o Lobisomem neste mundo `[LORE]`
 
-O Lobisomem da Terra do Sabiá não é um monstro criado por experimento ou por bruxaria maligna de inimigo. Ele é **o produto de uma falha humana antiga** — um sacramento que não veio, uma sina herdada que ninguém soube quebrar. A criatura não tem consciência própria na forma animal: é o corpo de Eustáquio guiado por um instinto de fera que ele não controla. Quando volta a si, ele não sabe o que fez. Só sente dor.
+O Lobisomem da Terra de Pindorama não é um monstro criado por experimento ou por bruxaria maligna de inimigo. Ele é **o produto de uma falha humana antiga** — um sacramento que não veio, uma sina herdada que ninguém soube quebrar. A criatura não tem consciência própria na forma animal: é o corpo de Eustáquio guiado por um instinto de fera que ele não controla. Quando volta a si, ele não sabe o que fez. Só sente dor.
 
 Isso importa para as rotas: **o Lobisomem não é um vilão**. Mas também é perigoso de verdade.
 
@@ -57,10 +57,10 @@ O Viajante inicia o arco ao ouvir **qualquer** relato sobre o Lobisomem — não
 |---|---|---|
 | Seu Dorival, o ferreiro | Porto do Despertar, ferraria | "Gado morto com marca de dente que não é de cachorro nem de onça." |
 | Dona Jacinta, quitandeira | Feira de Porto do Despertar | "Vi uma sombra grande atravessar o campo antes do sol nascer. Andava em quatro, mas ficou em dois." |
-| Sebastião, o tropeiro | Estrada dos Campos do Sabiá | "Já perdi duas reses num mês. Meu pai falava em lobisomem, mas eu nunca acreditei. Tô começando." |
+| Sebastião, o tropeiro | Estrada dos Campos de Pindorama | "Já perdi duas reses num mês. Meu pai falava em lobisomem, mas eu nunca acreditei. Tô começando." |
 | Crispim, o pescador | Beira do rio, Porto do Despertar | "Pesquei às três da manhã e ouvi um uivo que partia pedra. Veio da direção do sítio do Eustáquio." |
 | Marcelina, a benzedeira | Casa nos fundos da vila | Só fala depois de o Viajante reunir três pistas. "Eu sei o que é. E sei o que pode ser feito. Mas é perigoso." |
-| Coronel Tobias, o fazendeiro | Sede da fazenda, Campos do Sabiá | "Pago bem quem trouxer a cabeça da fera. Ou prova de que ela não vai mais atacar." |
+| Coronel Tobias, o fazendeiro | Sede da fazenda, Campos de Pindorama | "Pago bem quem trouxer a cabeça da fera. Ou prova de que ela não vai mais atacar." |
 | Eustáquio Sete-Estrelas | Sítio na borda da Mata Encantada (dia) | Não fala sobre a fera. Mas o Viajante pode notar cicatrizes no braço dele, a gaiola trancada no quarto de fundo, a lua marcada no calendário. |
 
 ### 2.3 Verdades e exageros nos Causos `[MECÂNICA]`
@@ -110,7 +110,7 @@ O Viajante pode percorrer uma única rota ou começar uma e mudar de direção �
 
 **Premissa:** O Coronel Tobias está perdendo gado e dinheiro. Outros fazendeiros da região pressionam. O delegado da vila quer a "ameaça resolvida". Para eles, a solução mais simples é matar a fera.
 
-**Quem guia:** Coronel Tobias (Campos do Sabiá) e o Capitão Eugênio (delegado, Porto do Despertar).
+**Quem guia:** Coronel Tobias (Campos de Pindorama) e o Capitão Eugênio (delegado, Porto do Despertar).
 
 **Arco narrativo:**
 1. Coronel Tobias oferece recompensa em ouro.
@@ -358,7 +358,7 @@ Esta seção garante que o arco respeita as regras culturais do GDD §4.0.
 
 **Origens da lenda:**
 - O Lobisomem brasileiro é influência do folclore ibérico (Lobishomem português), mas ganhou características próprias no Brasil: é sempre o **sétimo filho homem**, a transformação ocorre em **noites de lua cheia** (especialmente sextas-feiras, na crença popular), e a cura envolve **sangue próprio** ou **bênção religiosa**.
-- A lenda varia por região: no sul, no sertão e no cerrado há diferenças. Este arco usa a versão do **cerrado e do Brasil Central**, compatível com a Terra do Sabiá.
+- A lenda varia por região: no sul, no sertão e no cerrado há diferenças. Este arco usa a versão do **cerrado e do Brasil Central**, compatível com a Terra de Pindorama.
 
 **Elementos folclóricos usados neste arco:**
 - Sétimo filho varão sem batismo → transformação involuntária ✅

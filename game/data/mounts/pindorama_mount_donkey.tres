@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MountDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/mount_def.gd" id="def"]
+
+[resource]
+script = ExtResource("def")
+id = &"pindorama_mount_donkey"
+name_key = "MOUNT_DONKEY"
+sprite_base = "res://assets/mounts/pindorama_mount_donkey/mount_donkey"
+walk_ms_per_cell = 160

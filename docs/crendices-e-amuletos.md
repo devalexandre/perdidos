@@ -66,7 +66,7 @@ Para reativar amuletos adormecidos ou engastar/desencaixar peças:
 
 ### Localização dos Altares no Mundo
 1. **Porto do Despertar**: Centro do vilarejo, próximo à praça central.
-2. **Campos do Sabiá**: Encruzilhada da Vereda Grande (`fields_sabia_crossroads.tscn`).
+2. **Campos de Pindorama**: Encruzilhada da Vereda Grande (`fields_pindorama_crossroads.tscn`).
 3. **Campo de Treinamento**: Ao lado da fogueira do acampamento inicial (`training_field.tscn`), próximo ao **Instrutor Bento**.
 
 ---

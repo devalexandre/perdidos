@@ -1,7 +1,7 @@
 # Monstros por nação — planejamento
 
 > **Versão:** 0.1 — 07/10/2026
-> **Status:** `[PLANEJADO]`. Decisão do dono (07/10/2026): **nenhuma nação nova entra em produção antes do Arco 1 da Terra do Sabiá terminar** (`ARCO-1-TERRA-DO-SABIA.md`). Este documento só guarda a lista para quando cada nação abrir.
+> **Status:** `[PLANEJADO]`. Decisão do dono (07/10/2026): **nenhuma nação nova entra em produção antes do Arco 1 da Terra de Pindorama terminar** (`ARCO-1-TERRA-DE-PINDORAMA.md`). Este documento só guarda a lista para quando cada nação abrir.
 > **Padrão de arte:** todo monstro novo ou refeito segue o padrão do Tatu-Pedra, aprovado no piloto das Ilhas do Sol Nascente (07/10/2026). As espécies da leva "reserve" ainda precisam ser remodeladas nesse padrão antes de entrar.
 > **Base:** GDD §4.0 (tabela de regiões e regras culturais), `nacoes_implementar.md`, `docs/novos-monstros-regionais.md`, lista de chefes enviada pelo dono em 07/10/2026.
 
@@ -9,7 +9,7 @@
 
 ## 1. Nações do atlas
 
-Cada nação terá, quando abrir: os 2 monstros que já existem no Campo de Treino, as 3 espécies regionais (normal, chefe e atroz) e um **chefe de arco** que fecha a história daquela nação, como o Boitatá fecha a Terra do Sabiá.
+Cada nação terá, quando abrir: os 2 monstros que já existem no Campo de Treino, as 3 espécies regionais (normal, chefe e atroz) e um **chefe de arco** que fecha a história daquela nação, como o Boitatá fecha a Terra de Pindorama.
 
 Os ranks seguem a escala da lore (C → SS). O Boitatá é SS no Arco 1; os chefes de nações abertas depois podem passar dele.
 

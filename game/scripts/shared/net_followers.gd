@@ -1,7 +1,8 @@
 extends Node
 ## RPCs da fase 1: comandos privados, efeitos apenas para quem vê o dono.
 signal command_intent(peer_id: int, command: StringName, id: StringName, text: String)
-signal companion_strike(owner_id: int, target_id: int, companion_id: StringName)
+## Golpe ou magia do companheiro (spell_id vazio = golpe). Vem ANTES dos NetCombat.hit do golpe.
+signal companion_strike(owner_id: int, target_id: int, companion_id: StringName, spell_id: StringName)
 signal revealed(entity_ids: Array, duration_sec: float, gathering: bool)
 
 func send_command(command: StringName, id: StringName = &"", text: String = "") -> void:
@@ -20,17 +21,51 @@ func req_command(command: Variant, id: Variant, text: Variant) -> void:
 		return
 	command_intent.emit(peer, StringName(command), StringName(id), text)
 
-func push_strike(peers: Array[int], owner: int, target: int, companion: StringName) -> void:
+## hits = quantos NetCombat.hit do dono a seguir são do bicho (número com cor própria, sem animar o dono).
+func push_strike(peers: Array[int], owner: int, target: int, companion: StringName, spell: StringName = &"",
+		hits: int = 1) -> void:
 	for peer: int in peers:
-		_cli_strike.rpc_id(peer, owner, target, String(companion))
+		_cli_strike.rpc_id(peer, owner, target, String(companion), String(spell), hits)
 
 func push_reveal(peer: int, ids: Array, duration: float, gathering: bool = false) -> void:
 	if Net.is_server and multiplayer.has_multiplayer_peer():
 		_cli_reveal.rpc_id(peer, ids, duration, gathering)
 
 @rpc("authority", "call_remote", "reliable")
-func _cli_strike(owner: int, target: int, companion: String) -> void:
-	companion_strike.emit(owner, target, StringName(companion))
+func _cli_strike(owner: int, target: int, companion: String, spell: String, hits: int) -> void:
+	if hits > 0:
+		_companion_hits[owner] = {"n": clampi(hits, 0, 32), "until": Time.get_ticks_msec() + COMPANION_HIT_WINDOW_MS}
+	companion_strike.emit(owner, target, StringName(companion), StringName(spell))
+
+
+## Golpes do bicho esperados por dono: {"n", "until"}. O NetCombat.hit seguinte do dono é do bicho.
+const COMPANION_HIT_WINDOW_MS: int = 1500
+var _companion_hits: Dictionary[int, Dictionary] = {}
+## Durante a emissão de NetCombat.hit: o golpe é do companheiro (CombatFx e SkillFx leem isto).
+var last_hit_from_companion: bool = false
+
+
+func _ready() -> void:
+	var net: Node = get_node_or_null(^"/root/NetCombat")
+	# Conecta antes do CombatFx/SkillFx (criados depois): marca o golpe antes de eles o desenharem.
+	if net != null and net.has_signal(&"hit"):
+		net.connect(&"hit", _on_any_hit)
+
+
+func _on_any_hit(source_id: int, _target_id: int, _amount: int, _crit: bool, _type: int, _ratio: float) -> void:
+	last_hit_from_companion = take_companion_hit(source_id)
+
+
+## true (e desconta) se o próximo golpe deste dono é do companheiro.
+func take_companion_hit(owner_id: int) -> bool:
+	var state: Dictionary = _companion_hits.get(owner_id, {})
+	if state.is_empty() or Time.get_ticks_msec() > int(state.until) or int(state.n) <= 0:
+		_companion_hits.erase(owner_id)
+		return false
+	state.n = int(state.n) - 1
+	if int(state.n) <= 0:
+		_companion_hits.erase(owner_id)
+	return true
 
 @rpc("authority", "call_remote", "reliable")
 func _cli_reveal(ids: Array, duration: float, gathering: bool) -> void:

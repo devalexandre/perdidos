@@ -2,7 +2,7 @@ class_name StatusEffects
 extends RefCounted
 ## Efeitos de status das skills (Q é o dono; ver Apêndice Q do contrato): escudo, reforço de DEF,
 ## lentidão, atordoamento, dano contínuo (em entidade) e áreas no chão que causam dano por segundo.
-## Terra do Sabiá v0.4 (TITULOS-E-SKILLS.md §3.5): prender, reforço e enfraquecimento genéricos
+## Terra de Pindorama v0.4 (TITULOS-E-SKILLS.md §3.5): prender, reforço e enfraquecimento genéricos
 ## (BUFF/DEBUFF com `mods`), provocar, cura e mana contínuas, contragolpe e invisibilidade.
 ## K consulta absorb_damage / def_multiplier / is_stunned / move_speed_multiplier / pre_hit /
 ## post_hit / lethal_guard / heal_multiplier / is_hidden / is_rooted no pipeline dele
@@ -305,8 +305,10 @@ func pre_hit(attacker: NetEntity, target: NetEntity, kind: StringName, source_id
 		atk: Dictionary, dfn: Dictionary) -> Dictionary:
 	var out: Dictionary = {"crit_override": -1.0, "force_miss": false, "countered": false,
 			"dmg_mult": NEUTRAL_MULTIPLIER}
+	# Golpe do companheiro de título: não tira o dono da invisibilidade nem gasta o crítico garantido dele.
+	var companion: bool = String(source_id).begins_with("companion_")
 	# Quem ataca sai da invisibilidade (Tocaia já leu o bônus antes).
-	if attacker.is_player() and is_hidden(attacker):
+	if attacker.is_player() and is_hidden(attacker) and not companion:
 		_remove_kind(attacker, Kind.STEALTH)
 		Net.log_line("status_stealth_broken", {"entity": attacker.entity_id, "source": String(source_id)})
 	# Contragolpe (Resposta da Aroeira): anula o próximo golpe corpo a corpo de monstro e revida.
@@ -326,7 +328,7 @@ func pre_hit(attacker: NetEntity, target: NetEntity, kind: StringName, source_id
 	if def_ignore > 0.0:
 		dfn[&"def"] = roundi(float(dfn.get(&"def", 0)) * (1.0 - clampf(def_ignore, 0.0, 1.0)))
 		dfn[&"mdef"] = roundi(float(dfn.get(&"mdef", 0)) * (1.0 - clampf(def_ignore, 0.0, 1.0)))
-	if kind == DAMAGE_PHYSICAL and attacker.is_player():
+	if kind == DAMAGE_PHYSICAL and attacker.is_player() and not companion:
 		var crit_add: float = mod(attacker, M_CRIT) + (float(sd.extra.get(&"crit_bonus", 0.0)) if sd != null else 0.0)
 		if _consume_crit_charge(attacker):
 			out["crit_override"] = MAX_CRIT_CHANCE
@@ -336,6 +338,9 @@ func pre_hit(attacker: NetEntity, target: NetEntity, kind: StringName, source_id
 	var evade: float = mod(target, M_EVADE)
 	if kind == DAMAGE_PHYSICAL and evade > 0.0 and _rng.randf() < evade:
 		out["force_miss"] = true
+	elif evade < 0.0:
+		# Esquiva negativa (Grito do Alto): cada 1% vira 1 ponto a menos de DES do alvo no acerto.
+		dfn[&"dex"] = int(dfn.get(&"dex", 0)) - roundi(-evade / maxf(0.0001, Balance.cfg.hit_chance_per_dex))
 	out["dmg_mult"] = maxf(MIN_DAMAGE_TAKEN_MULTIPLIER, NEUTRAL_MULTIPLIER + mod(target, M_DMG_TAKEN))
 	return out
 

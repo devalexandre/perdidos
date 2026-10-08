@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/skill_def.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+id = &"boitata_fire_ring"
+name_key = "MSKILL_BOITATA_FIRE_RING_NAME"
+school = &"monster"
+element = &"fire"
+target_type = 1
+effect = 2
+mana_cost = 0
+cooldown_sec = 0.0
+radius_cells = 3.0
+cone_deg = 0.0
+base_multiplier = 0.6
+multiplier_per_level = 0.0
+duration_sec = 5.0
+vfx = &"flame"
+ground_warning_sec = 1.5
+counts_for_titles = false
+max_level = 1

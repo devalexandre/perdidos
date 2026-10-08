@@ -51,7 +51,7 @@ func _ready() -> void:
 
 	# Recusas.
 	_check(svc.travel(s, SERRA, SUMIDOURO, 0) == WaystoneService.MSG_UNKNOWN, "recusa cidade desconhecida")
-	_check(svc.travel(s, SERRA, &"fields_sabia", 0) == WaystoneService.MSG_UNKNOWN, "recusa mapa que não é cidade da rede")
+	_check(svc.travel(s, SERRA, &"fields_pindorama", 0) == WaystoneService.MSG_UNKNOWN, "recusa mapa que não é cidade da rede")
 	_check(svc.travel(s, SERRA, SERRA, 0) == WaystoneService.MSG_SAME, "recusa viajar para a cidade onde já está")
 	c.hp = 0
 	_check(svc.travel(s, SERRA, PORTO, 0) == WaystoneService.MSG_DEAD, "caído não viaja")

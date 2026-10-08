@@ -23,9 +23,9 @@ extra = Dictionary[StringName, Variant]({
 &"lifesteal_per_level": 0.015
 })
 vfx = &"buff"
-exclusive_to_title = &"sabia_tank_mapinguari"
+exclusive_to_title = &"pindorama_tank_mapinguari"
 icon_text = "SL"
-tree_title = &"sabia_tank_mapinguari"
+tree_title = &"pindorama_tank_mapinguari"
 tree_order = 4
 required_skill_levels = Dictionary[StringName, int]({
 &"tank_heavy_claws": 3

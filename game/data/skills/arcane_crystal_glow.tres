@@ -23,9 +23,9 @@ extra = Dictionary[StringName, Variant]({
 &"mp_pct_per_level": 0.01
 })
 vfx = &"mana"
-exclusive_to_title = &"sabia_arcane_crystal"
+exclusive_to_title = &"pindorama_arcane_crystal"
 icon_text = "BC"
-tree_title = &"sabia_arcane_crystal"
+tree_title = &"pindorama_arcane_crystal"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"arcane_crystal_prison": 3

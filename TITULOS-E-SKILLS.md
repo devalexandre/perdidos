@@ -89,7 +89,7 @@ Monstros de provação não contam; o crédito é de quem causou mais dano. Mold
 
 ---
 
-## 3. Terra do Sabiá — árvores de skills (v0.4, 30/09/2026)
+## 3. Terra de Pindorama — árvores de skills (v0.4, 30/09/2026)
 
 ### 3.0 Regras novas do dono `[FECHADO em 30/09/2026]`
 
@@ -111,22 +111,22 @@ Monstros de provação não contam; o crédito é de quem causou mais dano. Mold
 | ID | Título | Estilo | Camada | Como se conquista | Mestre / ancião |
 |---|---|---|---|---|---|
 | `traveler` | **Viajante** | — | 0 | todos começam | — |
-| `sabia_blade_machete` | **Facão Firme** | lâmina de base | 1 | quest do Campo de Treino | Mestra Brisa |
-| `sabia_blade_aroeira` | **Tronco de Aroeira** | defesa e contragolpe | 2 — ramo A | Facão Firme + Postura de Ferro | Mestra Brisa |
-| `sabia_blade_jaguar` | **Garra da Onça** | dano concentrado | 2 — ramo B | Facão Firme + Corte do Horizonte | Mestra Brisa |
-| `sabia_arcane_firefly` | **Luz de Vaga-lume** | magia de base | 1 | quest do Campo de Treino | Mestre Orvalho |
-| `sabia_arcane_crystal` | **Guarda do Cristal** | proteção do grupo | 2 — ramo A | Luz de Vaga-lume + Barreira Arcana | Mestre Orvalho |
-| `sabia_arcane_boitata` | **Olho do Boitatá** | destruição à distância | 2 — ramo B | Luz de Vaga-lume + Queda Estelar | Mestre Orvalho |
-| `sabia_bow_cerrado` | **Flecha do Cerrado** | arco de base | 1 | Tiro Rasante + Flecha Dupla + Arco Tenso | Mestre Taquari (novo) |
-| `sabia_bow_brejo` | **Tocaia do Brejo** | emboscada e camuflagem | 2 — ramo A | Flecha do Cerrado + Pele de Barro | Mestre Taquari |
-| `sabia_bow_gaviao` | **Gavião-Real** | tiro certeiro | 2 — ramo B | Flecha do Cerrado + Olho Parado | Mestre Taquari |
-| `sabia_hybrid_ember` | **Brasa no Facão** | lâmina + magia | H | Facão Firme + Luz de Vaga-lume + quest do ancião | Seu Zé Ferreiro (ancião, novo) |
-| `sabia_support_root` | **Raiz do Cerrado** | suporte | C (combinação) | Luz de Vaga-lume + Guarda do Cristal + Flecha do Cerrado + quest do ancião | Vó Aninha, a raizeira (anciã, nova) |
-| `sabia_support_buriti` | **Seiva do Buriti** | cura | C — ramo A | Raiz do Cerrado + Chá de Folha Larga | Vó Aninha |
-| `sabia_support_matinta` | **Assobio da Matinta** | debuff | C — ramo B | Raiz do Cerrado + Assobio Agourento | Vó Aninha |
-| `sabia_tank_jabuti` | **Casco de Jabuti** | tanque | C (combinação) | Facão Firme + Tronco de Aroeira + Garra da Onça + quest do ancião | Velho Tião do Casco (ancião, novo) |
-| `sabia_tank_anta` | **Couro de Anta** | guerreiro pesado | C — ramo A | Casco de Jabuti + Couro Grosso | Velho Tião |
-| `sabia_tank_mapinguari` | **Fúria do Mapinguari** | berserker | C — ramo B | Casco de Jabuti + Fúria | Velho Tião |
+| `pindorama_blade_machete` | **Facão Firme** | lâmina de base | 1 | quest do Campo de Treino | Mestra Brisa |
+| `pindorama_blade_aroeira` | **Tronco de Aroeira** | defesa e contragolpe | 2 — ramo A | Facão Firme + Postura de Ferro | Mestra Brisa |
+| `pindorama_blade_jaguar` | **Garra da Onça** | dano concentrado | 2 — ramo B | Facão Firme + Corte do Horizonte | Mestra Brisa |
+| `pindorama_arcane_firefly` | **Luz de Vaga-lume** | magia de base | 1 | quest do Campo de Treino | Mestre Orvalho |
+| `pindorama_arcane_crystal` | **Guarda do Cristal** | proteção do grupo | 2 — ramo A | Luz de Vaga-lume + Barreira Arcana | Mestre Orvalho |
+| `pindorama_arcane_boitata` | **Olho do Boitatá** | destruição à distância | 2 — ramo B | Luz de Vaga-lume + Queda Estelar | Mestre Orvalho |
+| `pindorama_bow_cerrado` | **Flecha do Cerrado** | arco de base | 1 | Tiro Rasante + Flecha Dupla + Arco Tenso | Mestre Taquari (novo) |
+| `pindorama_bow_brejo` | **Tocaia do Brejo** | emboscada e camuflagem | 2 — ramo A | Flecha do Cerrado + Pele de Barro | Mestre Taquari |
+| `pindorama_bow_gaviao` | **Gavião-Real** | tiro certeiro | 2 — ramo B | Flecha do Cerrado + Olho Parado | Mestre Taquari |
+| `pindorama_hybrid_ember` | **Brasa no Facão** | lâmina + magia | H | Facão Firme + Luz de Vaga-lume + quest do ancião | Seu Zé Ferreiro (ancião, novo) |
+| `pindorama_support_root` | **Raiz do Cerrado** | suporte | C (combinação) | Luz de Vaga-lume + Guarda do Cristal + Flecha do Cerrado + quest do ancião | Vó Aninha, a raizeira (anciã, nova) |
+| `pindorama_support_buriti` | **Seiva do Buriti** | cura | C — ramo A | Raiz do Cerrado + Chá de Folha Larga | Vó Aninha |
+| `pindorama_support_matinta` | **Assobio da Matinta** | debuff | C — ramo B | Raiz do Cerrado + Assobio Agourento | Vó Aninha |
+| `pindorama_tank_jabuti` | **Casco de Jabuti** | tanque | C (combinação) | Facão Firme + Tronco de Aroeira + Garra da Onça + quest do ancião | Velho Tião do Casco (ancião, novo) |
+| `pindorama_tank_anta` | **Couro de Anta** | guerreiro pesado | C — ramo A | Casco de Jabuti + Couro Grosso | Velho Tião |
+| `pindorama_tank_mapinguari` | **Fúria do Mapinguari** | berserker | C — ramo B | Casco de Jabuti + Fúria | Velho Tião |
 
 Cores: combinação usa **roxo `#8e66c4`** com a borda da camada (§1.3).
 
@@ -158,7 +158,7 @@ Pistas: **Facão Firme**, **Tronco de Aroeira** e **Garra da Onça**.
 
 ### 3.3 Quests de combinação (difíceis)
 
-Todo "chefe" destas quests é um **chefe fixo de covil** (GDD §10.6.1). Os três do Sabiá moram na **Subida Vermelha**,
+Todo "chefe" destas quests é um **chefe fixo de covil** (GDD §10.6.1). Os três de Pindorama moram na **Subida Vermelha**,
 o primeiro setor da Chapada: Tatu-Montanha, Rainha-Lume do Brejo e Ventania do Gorro Vermelho. À noite cada um vira a
 sua forma atroz.
 
@@ -318,7 +318,7 @@ Legenda: **Tipo** (alvo), **Mana**, **Recarga (s)**, **Efeito no nível 1** e **
 | 4 | Sede de Luta (`tank_battle_thirst`) | si mesmo | 14 | 30 | 20% do dano causado volta como vida, por 10 s | Garras 3 |
 | 5 | Última Pancada (`tank_last_blow`) | alvo | 20 | 20 | 150% ATK, +até 150% conforme a vida que falta | Urro 3 |
 
-**Totais:** 16 títulos na Terra do Sabiá, 12 skills existentes e **68 skills novas**.
+**Totais:** 16 títulos na Terra de Pindorama, 12 skills existentes e **68 skills novas**.
 
 ### 3.5 Mecânicas novas que as árvores pedem (servidor)
 
@@ -361,11 +361,11 @@ Skills de ofício (`TitleDef.bonus_skills`), fora da árvore de 5, inspiradas no
 
 **Surrupiar** (efeito `STEAL`, o Steal do gatuno): alvo único, monstro vivo a até 1,5 célula, só onde há combate (é ofensivo e o monstro reage). Chance = 20% + 5% por nível + (DES + SOR) × 0,3%, até 95%. Se acertar, rola uma vez a tabela de drop do estágio atual do monstro (peso = chance de cada linha) e põe 1 unidade direto na mochila; conta para a coleta de quest como item pego. Um sucesso por monstro (falhar pode tentar de novo). Recusa chefe, forma atroz e monstro de provação.
 
-**Fontes:** Bolsa de Peçonha e Favo Selvagem ainda não caem de monstro posicionado em mapa nem são vendidos (as cobras/aranhas/abelhas que soltam não estão em nenhum mapa). Pena de Harpia vem do Gavião da Mata (Selva de Ratanabá · Igarapé dos Glifos); Brasa Eterna e Raiz de Pequi só do chefe (estágio 3+) do Vaga-lume Encantado e do Redemoinho Arteiro.
+**Fontes:** Bolsa de Peçonha e Favo Selvagem ainda não caem de monstro posicionado em mapa nem são vendidos (as cobras/aranhas/abelhas que soltam não estão em nenhum mapa). Pena de Harpia vem da Harpia Jovem (Selva de Ratanabá · Igarapé dos Glifos); Brasa Eterna e Raiz de Pequi só do chefe (estágio 3+) do Vaga-lume Encantado e do Redemoinho Arteiro.
 
 ---
 
-## 4. Pós-MVP — Terra do Sabiá (outros caminhos)
+## 4. Pós-MVP — Terra de Pindorama (outros caminhos)
 
 O arco, o suporte (antigo caminho das Ervas) e o tanque entraram na §3 em 30/09/2026.
 
@@ -375,7 +375,7 @@ O arco, o suporte (antigo caminho das Ervas) e o tanque entraram na §3 em 30/09
 - **Saci**, **Curupira** e **Caipora** ensinam e nunca são mortos.
 - Armas indígenas aparecem sem grafismos de povos específicos.
 
-### 4.2 Outros caminhos da Terra do Sabiá
+### 4.2 Outros caminhos da Terra de Pindorama
 
 | Caminho (arquétipo) | Primeiro título | Ramo A | Ramo B | Ápice |
 |---|---|---|---|---|
@@ -499,7 +499,7 @@ Os nomes usam termos que o público **já conhece** daquela cultura ou nomes des
 
 ### 5.10 Suporte e tanque em cada nação (v0.4) `[PROVISÓRIO — revisão cultural antes de cada região]`
 
-Mesma regra da Terra do Sabiá (§3.0): cada título é de **combinação de 3 títulos da nação**, contado por um **ancião** com uma lenda. O suporte abre **cura** e **debuff**. O tanque abre **guerreiro pesado** e **berserker**. As 5 skills de cada árvore são desenhadas quando a região entrar.
+Mesma regra da Terra de Pindorama (§3.0): cada título é de **combinação de 3 títulos da nação**, contado por um **ancião** com uma lenda. O suporte abre **cura** e **debuff**. O tanque abre **guerreiro pesado** e **berserker**. As 5 skills de cada árvore são desenhadas quando a região entrar.
 
 | Nação | Suporte → cura / debuff | Lenda do suporte | Tanque → pesado / berserker | Lenda do tanque |
 |---|---|---|---|---|
@@ -518,7 +518,7 @@ Cuidados (além dos de cada região em §5.1–5.9):
 - **Eslavos:** heróis como Ilya Muromets são também venerados como santos; por isso o título usa só o termo genérico *bogatyr*.
 - **Egito:** o leão não representa nenhuma divindade leoa.
 - **México:** nada de copal, nahualismo ou rituais vivos; o debuff usa só o espinho do agave.
-- **Assobio da Matinta (Sabiá):** a Matinta Pereira entra como figura do folclore, na mesma regra do Saci e do Curupira; revisar com gente do Norte antes do lançamento.
+- **Assobio da Matinta (Pindorama):** a Matinta Pereira entra como figura do folclore, na mesma regra do Saci e do Curupira; revisar com gente do Norte antes do lançamento.
 
 ---
 
@@ -526,19 +526,19 @@ Cuidados (além dos de cada região em §5.1–5.9):
 
 ### 6.1 `data/titles/<id>.tres` (`TitleDef`)
 
-| Campo | Tipo | Exemplo (`sabia_blade_jaguar`) |
+| Campo | Tipo | Exemplo (`pindorama_blade_jaguar`) |
 |---|---|---|
-| `id` | StringName | `&"sabia_blade_jaguar"` |
-| `name_key` / `name_key_f` | String | `"TITLE_SABIA_JAGUAR"` → "Garra da Onça" / vazio quando o nome é neutro |
+| `id` | StringName | `&"pindorama_blade_jaguar"` |
+| `name_key` / `name_key_f` | String | `"TITLE_PINDORAMA_JAGUAR"` → "Garra da Onça" / vazio quando o nome é neutro |
 | `desc_key` | String | descrição curta do estilo e da origem do nome |
-| **`region_id`** | StringName | `&"sabia"` |
+| **`region_id`** | StringName | `&"pindorama"` |
 | `archetype` | StringName | `&"blade"` |
 | `tier` | int | `2` (0 chegada, 1 primeiro, 2 ramo, 3 ápice) |
-| **`parent_title`** | StringName | `&"sabia_blade_machete"` (vazio no primeiro título) |
+| **`parent_title`** | StringName | `&"pindorama_blade_machete"` (vazio no primeiro título) |
 | **`branch`** | StringName | `&"b"` (`&""` no primeiro título e no ápice) |
 | `is_hybrid` | bool | `false` |
 | `required_skills` | Array[StringName] | `[&"blade_horizon_cut"]` |
-| `required_titles` | Array[StringName] | `[&"sabia_blade_machete"]` (inclui o `parent_title`) |
+| `required_titles` | Array[StringName] | `[&"pindorama_blade_machete"]` (inclui o `parent_title`) |
 | `unlocks_quests` | Array[StringName] | `[&"quest_jaguar_leap"]` |
 | `unlocks_flags` | Array[StringName] | diálogos e, no futuro, itens e cosméticos |
 | `display_color` | Color | cor da camada (§1.3) |
@@ -568,7 +568,7 @@ Cuidados (além dos de cada região em §5.1–5.9):
 |---|---|---|
 | 1 | Os ramos se **excluem** (A **ou** B)? | **Não.** Pode fazer os dois (pilar da liberdade); o custo é tempo, pontos e espaço na barra. Se o dono quiser escolha definitiva, é só uma regra no `TitleService` |
 | 2 | Aprovar o ajuste do §8.4 (L5/A5 sem exigir L4/A4) para os ramos serem independentes? | **Sim** (§3.2) |
-| 3 | O arco (Flecha do Cerrado) entra no MVP? | **Não.** Seria a 3ª escola (GDD §3.2). Entra na primeira atualização da Terra do Sabiá |
+| 3 | O arco (Flecha do Cerrado) entra no MVP? | **Não.** Seria a 3ª escola (GDD §3.2). Entra na primeira atualização da Terra de Pindorama |
 | 4 | Aprovar os nomes do MVP (Facão Firme, Tronco de Aroeira, Garra da Onça, Luz de Vaga-lume, Guarda do Cristal, Olho do Boitatá, Brasa no Facão)? | **Sim**, como nomes de trabalho. Dá para trocar a qualquer momento, porque ficam em chaves de tradução |
 | 5 | Títulos com nome de figura do folclore (Olho do Boitatá, Amigo do Curupira, Rastro do Saci) | **Sim**, sempre como homenagem, nunca como caricatura |
 | 6 | Títulos com forma masculina e feminina | **Nomes neutros** (todos os propostos são); `name_key_f` fica disponível para quando precisar |

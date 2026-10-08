@@ -4,15 +4,15 @@ extends Node
 ## --autotest-role=porto|campo. Servidor com --dev-commands (tests/monsters/run_night_capture.sh). Usa só os
 ## comandos de teste do chat (MonsterDebug) e o teleporte de teste da progressão.
 ##   porto — Porto do Despertar: dia, anoitecer (meio da transição), noite; chefe e atroz lado a lado.
-##   covis — Chapada, Subida Vermelha: os 3 covis fixos dos chefes do Sabiá, de dia (chefe + bando) e de noite (atroz).
-##   campo — Campo de Treino, Terra do Sabiá: dia (sempre de dia) e noite forçada; para cada espécie do Sabiá,
+##   covis — Chapada, Subida Vermelha: os 3 covis fixos dos chefes de Pindorama, de dia (chefe + bando) e de noite (atroz).
+##   campo — Campo de Treino, Terra de Pindorama: dia (sempre de dia) e noite forçada; para cada espécie de Pindorama,
 ##           chefe de dia, o mesmo chefe à noite (atroz) e os dois lado a lado na mesma luz.
 
 const ARG_SHOT_DIR: String = "shot-dir"
 const ARG_ROLE: String = "autotest-role"
 const SPECIES: Array[String] = ["tatu", "vagalume", "redemoinho"]
-## Terra do Sabiá no Campo de Treino (tools/art/build_training_field.gd: SABIA_C = (0, 0, 52)).
-const SABIA_SPOT: Vector2 = Vector2(0.0, 40.0)
+## Terra de Pindorama no Campo de Treino (tools/art/build_training_field.gd: PINDORAMA_C = (0, 0, 52)).
+const PINDORAMA_SPOT: Vector2 = Vector2(0.0, 40.0)
 ## Onde os chefes nascem em relação ao jogador (células): à esquerda e à direita.
 const LEFT: String = "-4 1"
 const RIGHT: String = "4 1"
@@ -71,7 +71,7 @@ func _porto() -> void:
 
 
 func _campo() -> void:
-	NetProgress.send_debug(&"teleport", [SABIA_SPOT.x, SABIA_SPOT.y])
+	NetProgress.send_debug(&"teleport", [PINDORAMA_SPOT.x, PINDORAMA_SPOT.y])
 	await _wait(SETTLE_SEC * 2.0)
 	await _cmd("/hora normal")
 	await _wait(LIGHT_SEC)

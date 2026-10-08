@@ -246,6 +246,15 @@ func tick_portals(session: PlayerSession) -> void:
 		var meta: Dictionary = (occupied[id] as Dictionary).get("meta", {})
 		Net.push_system_message(session.peer_id, SysMsg.PORTAL_CLOSED, [str(meta.get(&"recommended_level", ""))])
 
+## Portal com requires_quest: aberto se a quest já foi feita, está ativa ou pode ser aceita agora.
+func story_passage_open(session: PlayerSession, quest_id: StringName) -> bool:
+	var quests: QuestService = world.progression.quests if world.progression != null else null
+	var q: QuestDef = Content.quest(quest_id)
+	if quests == null or q == null:
+		return false
+	return quests.is_done(session, quest_id) or quests.is_active(session, quest_id) or quests.is_available(session, q)
+
+
 ## Leva o jogador a map_id (instância única do mapa, §5.1). false = mapa inexistente.
 func transfer(session: PlayerSession, map_id: StringName, arrival_marker: StringName = &"SpawnPoint") -> bool:
 	var instance_id: StringName = instance_id_for(map_id, session.character.char_name)
@@ -279,6 +288,11 @@ func handle_portal(session: PlayerSession, obj: Dictionary) -> bool:
 		var meta: Dictionary = obj.get("meta", {})
 		if bool(meta.get(&"requires_boss_victory", false)) and not _cleared_cave_instances.get(session.entity.instance_id, false):
 			Net.push_system_message(session.peer_id, "SYS_CAVE_BOSS_GATE" if map_id == CAVE_ESCAPE_MAP_ID else "SYS_BOSS_ESCAPE_GATE")
+			return true
+		# Passagem da história (Arco 1, andar 5 da Caverna): só para quem tem a quest disponível, ativa ou feita.
+		var needs_quest := StringName(str(meta.get(&"requires_quest", "")))
+		if not needs_quest.is_empty() and not story_passage_open(session, needs_quest):
+			Net.push_system_message(session.peer_id, "SYS_STORY_PASSAGE_SEALED")
 			return true
 		var dest := StringName(str(meta.get(&"target_map", "")))
 		var zone: ZoneDef = world.zone_rules.zone_for_map(map_id)

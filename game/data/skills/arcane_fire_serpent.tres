@@ -20,9 +20,9 @@ base_multiplier = 0.45
 multiplier_per_level = 0.04
 duration_sec = 5.0
 vfx = &"flame"
-exclusive_to_title = &"sabia_arcane_boitata"
+exclusive_to_title = &"pindorama_arcane_boitata"
 icon_text = "SF"
-tree_title = &"sabia_arcane_boitata"
+tree_title = &"pindorama_arcane_boitata"
 tree_order = 4
 required_skill_levels = Dictionary[StringName, int]({
 &"arcane_fire_gaze": 3

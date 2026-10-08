@@ -22,12 +22,12 @@
   "exits": [
     {
       "marker": "PointsOfInterest/GateNorth",
-      "target_map": "fields_sabia",
-      "note": "Campos do Sabia (nivel 1-10)"
+      "target_map": "fields_pindorama",
+      "note": "Campos de Pindorama (nivel 1-10)"
     },
     {
       "marker": "PointsOfInterest/GateSouth",
-      "target_map": "fields_sabia",
+      "target_map": "fields_pindorama",
       "note": "Mata Encantada / Chapada do Ceu Partido"
     },
     {

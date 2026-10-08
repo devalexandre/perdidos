@@ -21,9 +21,9 @@ extra = Dictionary[StringName, Variant]({
 })
 requires_bow = true
 vfx = &"poison"
-exclusive_to_title = &"sabia_bow_brejo"
+exclusive_to_title = &"pindorama_bow_brejo"
 icon_text = "FE"
-tree_title = &"sabia_bow_brejo"
+tree_title = &"pindorama_bow_brejo"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"bow_ambush_shot": 3

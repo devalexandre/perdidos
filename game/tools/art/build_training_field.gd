@@ -14,7 +14,7 @@ const TF_GEO := "res://scenes/maps/training_field"
 const FIELD_R := 92.0
 const CAMP_R := 15.0
 const ZONE_R := 62.0 # distancia do centro das zonas das nacoes
-const SABIA_C := Vector3(0, 0, 52) # centro da Terra do Sabia (setor sul, maior)
+const PINDORAMA_C := Vector3(0, 0, 52) # centro da Terra de Pindorama (setor sul, maior)
 const RANCHO := Vector3(0, 0, 36)
 const PORTAL_POS := Vector3(5.5, 0, -16.5)
 const SPR_DIR := "res://assets/environment/field"
@@ -38,7 +38,7 @@ var spawns: Array = [] # [nome, pos, monster_id, count, radius_cells, estágio i
 var pois: Array = [] # [nome, pos]
 var sprites: Array = [] # [textura, pos, escala]
 var ground_discs: Array = [] # [surface, centro, raio]
-var stream_pts: Array = [] # pontos do riacho da Terra do Sabia
+var stream_pts: Array = [] # pontos do riacho da Terra de Pindorama
 var tf_viewpoints: Array = []
 var keepout: Array = [] # [centro, raio] areas que a vegetacao espalhada evita (spawns, Mestres)
 ## Revisão 5 (relevo orgânico): o chão deixa de ser feito de discos/faixas; tudo vai para um terreno único com
@@ -591,7 +591,7 @@ func dummy(c: Vector3) -> void:
 func _build_field() -> void:
 	_build_field_ground()
 	_build_camp()
-	_build_sabia()
+	_build_pindorama()
 	for n: Array in NATIONS:
 		_build_nation(n)
 	_build_relief()
@@ -653,12 +653,12 @@ func _build_camp() -> void:
 	trail("red_earth", [pol(90.0, CAMP_R - 1.0), Vector3(1.0, 0, 24.0), RANCHO + Vector3(0, 0, -4.0)], 3.0, 0.026)
 
 
-# ---------------------------------------------------------------- Terra do Sabia
-func _build_sabia() -> void:
+# ---------------------------------------------------------------- Terra de Pindorama
+func _build_pindorama() -> void:
 	for sp: Vector3 in [Vector3(-17, 0, 42), Vector3(19, 0, 46), Vector3(-27, 0, 63), Vector3(26, 0, 64), Vector3(-12, 0, 79), Vector3(12, 0, 82)]:
 		keepout.append([sp, 4.0])
-	disc("cerrado", SABIA_C, 36.0, 0.015, 0.08, 40)
-	ground_discs.append(["grass", SABIA_C, 36.0])
+	disc("cerrado", PINDORAMA_C, 36.0, 0.015, 0.08, 40)
+	ground_discs.append(["grass", PINDORAMA_C, 36.0])
 	# riacho (vereda) atravessando de oeste a leste, com buritis nas margens
 	stream_pts = [Vector3(-44, 0, 60), Vector3(-30, 0, 55), Vector3(-16, 0, 59), Vector3(-4, 0, 56), Vector3(8, 0, 58),
 		Vector3(20, 0, 54), Vector3(32, 0, 58), Vector3(44, 0, 63)]
@@ -724,7 +724,7 @@ func _build_sabia() -> void:
 	npc_points.append(["master_inhambu", RANCHO + Vector3(5.5, 0, 1.8), _yaw_of(-RANCHO)])
 
 	pois.append(["Rancho", RANCHO])
-	pois.append(["Area_brasil", SABIA_C])
+	pois.append(["Area_brasil", PINDORAMA_C])
 	# ipes grandes (amarelos e roxos) e arvores tortas do cerrado
 	var ipes := [[Vector3(-14, 0, 34), "ipe_yellow", 1.3], [Vector3(15, 0, 31), "ipe_purple", 1.1], [Vector3(-26, 0, 46), "ipe_yellow", 1.0],
 		[Vector3(27, 0, 42), "ipe_yellow", 1.2], [Vector3(-12, 0, 70), "ipe_purple", 1.2], [Vector3(14, 0, 72), "ipe_yellow", 1.4],
@@ -736,13 +736,13 @@ func _build_sabia() -> void:
 			Vector3(20, 0, 80), Vector3(-5, 0, 75), Vector3(8, 0, 68), Vector3(-34, 0, 60), Vector3(35, 0, 52), Vector3(-24, 0, 84)]:
 		termite_mound(c, rng.randf_range(0.8, 1.3))
 	for i in 18:
-		var p := SABIA_C + pol(rng.randf() * 360.0, rng.randf_range(8.0, 33.0))
+		var p := PINDORAMA_C + pol(rng.randf() * 360.0, rng.randf_range(8.0, 33.0))
 		if _near_stream(p, 4.0) or p.distance_to(RANCHO) < 9.0 or _in_obstruction(p, 1.2) or _in_keepout(p):
 			continue
 		rock(p, rng.randf_range(0.5, 1.0), "rock_red")
 	# arvores tortas do cerrado (pequizeiros)
 	for i in 16:
-		var p := SABIA_C + pol(rng.randf() * 360.0, rng.randf_range(10.0, 35.0))
+		var p := PINDORAMA_C + pol(rng.randf() * 360.0, rng.randf_range(10.0, 35.0))
 		if _near_stream(p, 4.5) or p.distance_to(RANCHO) < 10.0 or _in_obstruction(p, 2.0) or _on_trail(p) or _in_keepout(p):
 			continue
 		if _spr_ok("fld_pequi_tree"):
@@ -761,15 +761,15 @@ func _build_sabia() -> void:
 	_viewpoint(RANCHO + Vector3(-2.8, 0, 5.8), PI * 0.9, "bench_rancho") # fogueira do rancho
 	# spawns (contrato: Spawns/ Marker3D com monster_id, count, radius_cells)
 	# Mais monstros + 1–2 médios por área (dono, 28/09/2026: progressão menos demorada).
-	spawns.append(["sabia_whirlwind_1", Vector3(-17, 0, 42), "prank_whirlwind", 8, 6])
-	spawns.append(["sabia_whirlwind_2", Vector3(19, 0, 46), "prank_whirlwind", 8, 6])
-	spawns.append(["sabia_whirlwind_med", Vector3(-30, 0, 50), "prank_whirlwind", 2, 5, 2])
-	spawns.append(["sabia_firefly_1", Vector3(-27, 0, 63), "enchanted_firefly", 7, 5])
-	spawns.append(["sabia_firefly_2", Vector3(26, 0, 64), "enchanted_firefly", 7, 5])
-	spawns.append(["sabia_firefly_med", Vector3(34, 0, 70), "enchanted_firefly", 1, 4, 2])
-	spawns.append(["sabia_armadillo_1", Vector3(-12, 0, 79), "stone_armadillo", 5, 5])
-	spawns.append(["sabia_armadillo_2", Vector3(12, 0, 82), "stone_armadillo", 5, 5])
-	spawns.append(["sabia_armadillo_med", Vector3(-24, 0, 88), "stone_armadillo", 1, 4, 2])
+	spawns.append(["pindorama_whirlwind_1", Vector3(-17, 0, 42), "prank_whirlwind", 8, 6])
+	spawns.append(["pindorama_whirlwind_2", Vector3(19, 0, 46), "prank_whirlwind", 8, 6])
+	spawns.append(["pindorama_whirlwind_med", Vector3(-30, 0, 50), "prank_whirlwind", 2, 5, 2])
+	spawns.append(["pindorama_firefly_1", Vector3(-27, 0, 63), "enchanted_firefly", 7, 5])
+	spawns.append(["pindorama_firefly_2", Vector3(26, 0, 64), "enchanted_firefly", 7, 5])
+	spawns.append(["pindorama_firefly_med", Vector3(34, 0, 70), "enchanted_firefly", 1, 4, 2])
+	spawns.append(["pindorama_armadillo_1", Vector3(-12, 0, 79), "stone_armadillo", 5, 5])
+	spawns.append(["pindorama_armadillo_2", Vector3(12, 0, 82), "stone_armadillo", 5, 5])
+	spawns.append(["pindorama_armadillo_med", Vector3(-24, 0, 88), "stone_armadillo", 1, 4, 2])
 
 
 func _near_stream(p: Vector3, d: float) -> bool:
@@ -1103,10 +1103,10 @@ func _build_sprinkles() -> void:
 	sprinkle("fld_grass_tuft", Vector3.ZERO, CAMP_R + 1.0, FIELD_R, 260)
 	sprinkle("fld_white_flowers", Vector3.ZERO, CAMP_R + 3.0, FIELD_R, 90)
 	sprinkle("fld_round_bush", Vector3.ZERO, CAMP_R + 4.0, FIELD_R + 4.0, 40, 0.9, 1.3, 0.4)
-	# Terra do Sabia: capim dourado, flores do cerrado, arbustos tortos, juncos no riacho
-	sprinkle("fld_golden_grass", SABIA_C, 0.0, 36.0, 320)
-	sprinkle("fld_cerrado_flowers", SABIA_C, 0.0, 36.0, 90)
-	sprinkle("fld_cerrado_shrub", SABIA_C, 4.0, 38.0, 30, 0.9, 1.3, 0.35)
+	# Terra de Pindorama: capim dourado, flores do cerrado, arbustos tortos, juncos no riacho
+	sprinkle("fld_golden_grass", PINDORAMA_C, 0.0, 36.0, 320)
+	sprinkle("fld_cerrado_flowers", PINDORAMA_C, 0.0, 36.0, 90)
+	sprinkle("fld_cerrado_shrub", PINDORAMA_C, 4.0, 38.0, 30, 0.9, 1.3, 0.35)
 	for i in stream_pts.size() - 1:
 		if i == 3:
 			continue # trecho da ponte
@@ -1169,7 +1169,7 @@ func _build_relief() -> void:
 		if spec[2]:
 			relief.stream_dry.append([Vector2(m.x, m.z), gap + 0.6])
 			relief.shapes.append(["sand", Vector2(m.x, m.z), gap + 1.2, 0.15])
-	# cristas nas fronteiras entre nações vizinhas (e duas nas pontas da Terra do Sabiá, mais longe)
+	# cristas nas fronteiras entre nações vizinhas (e duas nas pontas da Terra de Pindorama, mais longe)
 	var angs: Array = []
 	for n: Array in NATIONS:
 		angs.append(float(n[1]))
@@ -1179,7 +1179,7 @@ func _build_relief() -> void:
 		var a0: float = angs[i]
 		var a1: float = angs[(i + 1) % angs.size()] + (360.0 if i == angs.size() - 1 else 0.0)
 		if a1 - a0 > 60.0:
-			continue # a Terra do Sabiá fica entre México e Portugal
+			continue # a Terra de Pindorama fica entre México e Portugal
 		bounds.append([fmod((a0 + a1) * 0.5, 360.0), 50.0])
 	bounds.append([58.0, 80.0])
 	bounds.append([122.0, 80.0])
@@ -1292,6 +1292,11 @@ func _field_environment() -> Environment:
 	env.fog_depth_end = 110.0
 	env.glow_intensity = 0.22
 	env.ambient_light_color = Color(0.72, 0.8, 0.79)
+	env.ambient_light_energy = 0.64
+	env.ssao_intensity = 1.6
+	env.ssao_power = 1.35
+	env.adjustment_contrast = 1.10
+	env.adjustment_brightness = 1.0
 	var path := "%s/env_field.tres" % TF_GEO
 	ResourceSaver.save(env, path)
 	return load(path)
@@ -1329,6 +1334,7 @@ func _organic_terrain(parent: Node3D) -> void:
 	mat.set_shader_parameter(&"slope_rock_end", 0.66)
 	mat.set_shader_parameter(&"heather_tint", Color(0.86, 0.78, 0.95))
 	mat.set_shader_parameter(&"wet_depth", 0.6)
+	mat.set_shader_parameter(&"camp_surface_strength", 0.85)
 	ResourceSaver.save(mat, "%s/terrain_mat.tres" % TF_GEO)
 	mat = load("%s/terrain_mat.tres" % TF_GEO)
 	var inner: ArrayMesh = relief.build_mesh(TERRAIN_INNER, 1.0)
@@ -1499,7 +1505,7 @@ func _assemble_field() -> Node3D:
 	var spawn := Marker3D.new()
 	spawn.name = "SpawnPoint"
 	spawn.position = Vector3(0, 0, 4.0)
-	spawn.rotation.y = PI # olhando para o sul (Terra do Sabia)
+	spawn.rotation.y = PI # olhando para o sul (Terra de Pindorama)
 	_add(root, spawn)
 	var respawn := Marker3D.new()
 	respawn.name = "CampRespawn" # ZoneDef.respawn_marker: renasce no acampamento, sem Marca da Alma
@@ -1553,7 +1559,7 @@ func _assemble_field() -> Node3D:
 ## Layout do mapa em dados (para re-vestir o mapa com outro kit visual sem mexer na jogabilidade).
 func _write_layout() -> void:
 	var v := func(p: Vector3) -> Array: return [snappedf(p.x, 0.01), snappedf(p.y, 0.01), snappedf(p.z, 0.01)]
-	var zones := [{"id": "brasil", "center": v.call(SABIA_C), "radius": 36.0, "ground": "cerrado"}, {"id": "camp", "center": [0, 0, 0], "radius": CAMP_R, "ground": "dirt"}]
+	var zones := [{"id": "brasil", "center": v.call(PINDORAMA_C), "radius": 36.0, "ground": "cerrado"}, {"id": "camp", "center": [0, 0, 0], "radius": CAMP_R, "ground": "dirt"}]
 	for n: Array in NATIONS:
 		zones.append({"id": n[0], "angle_deg": n[1], "center": v.call(pol(n[1], ZONE_R)), "radius": n[3], "ground": n[2], "surface": n[7]})
 	var tr := []
@@ -1636,7 +1642,7 @@ func _add_field_audio_zones(root: Node3D) -> void:
 	_add(root, az)
 	var zones := [["default", Vector3(0, 5, 0), Vector3(400, 40, 400), "ZONE_TRAINING_FIELD_NAME"],
 		["camp", Vector3.ZERO + Vector3(0, 5, 0), Vector3(CAMP_R * 2, 40, CAMP_R * 2), "AREA_CAMP_NAME"],
-		["brasil", SABIA_C + Vector3(0, 5, 0), Vector3(72, 40, 72), "REGION_BRASIL_NAME"]]
+		["brasil", PINDORAMA_C + Vector3(0, 5, 0), Vector3(72, 40, 72), "REGION_BRASIL_NAME"]]
 	for n: Array in NATIONS:
 		zones.append([n[0], pol(n[1], ZONE_R) + Vector3(0, 5, 0), Vector3(n[3] * 2.2, 40, n[3] * 2.2), "REGION_%s_NAME" % String(n[0]).to_upper()])
 	for z: Array in zones:
@@ -1726,7 +1732,7 @@ func _geo_dir() -> String:
 	return TF_GEO
 
 
-## Vestir o chão (revisão 3): bordas de trilha e riacho, Terra do Sabiá densa, acampamento, Japão, México, Egito
+## Vestir o chão (revisão 3): bordas de trilha e riacho, Terra de Pindorama densa, acampamento, Japão, México, Egito
 ## e Grécia. Só enfeites baixos e atravessáveis (capim, flores, seixos, arbustinhos, juncos) ou peças junto de
 ## obstruções que já existem — o navmesh não muda.
 func _dress(krng: RandomNumberGenerator) -> void:
@@ -1776,11 +1782,11 @@ func _dress(krng: RandomNumberGenerator) -> void:
 						put.call("rock_moss_b", r, krng.randf_range(0.35, 0.6))
 					else:
 						put.call("pk_pebble_round_3", r, krng.randf_range(1.0, 1.8))
-	# --- Terra do Sabiá: capim dourado denso, flores do cerrado, arbustinhos, seixos
+	# --- Terra de Pindorama: capim dourado denso, flores do cerrado, arbustinhos, seixos
 	var sab := func(p: Vector3) -> bool:
 		return free.call(p, 0.2) and not _on_trail(p) and not _near_stream(p, 2.8)
 	for i in 3200:
-		var p := SABIA_C + pol(krng.randf() * 360.0, sqrt(krng.randf()) * 35.0)
+		var p := PINDORAMA_C + pol(krng.randf() * 360.0, sqrt(krng.randf()) * 35.0)
 		if not sab.call(p):
 			continue
 		var roll := krng.randf()
@@ -1801,7 +1807,7 @@ func _dress(krng: RandomNumberGenerator) -> void:
 		for q in pts:
 			cc += q
 		cc /= maxf(pts.size(), 1)
-		if cc.distance_to(SABIA_C) < 34.0 and krng.randf() < 0.5:
+		if cc.distance_to(PINDORAMA_C) < 34.0 and krng.randf() < 0.5:
 			var off := pol(krng.randf() * 360.0, krng.randf_range(0.6, 1.1))
 			put.call("rock_moss_b" if krng.randf() < 0.7 else "pk_mushroom", cc + off, krng.randf_range(0.35, 0.55))
 	# --- acampamento: bordas de capim, seixos, toras, sacos, barris, bancos e bonecos de treino
@@ -1974,6 +1980,7 @@ func _vignettes(krng: RandomNumberGenerator) -> void:
 ## cada nação, lampiões, poço e carroça de suprimentos, canteiros floridos e arbustos na borda. Tudo baixo/atravessável
 ## exceto poço e carroça (obstrução própria, pequena).
 func _dress_camp(krng: RandomNumberGenerator, put: Callable, free: Callable) -> void:
+	_camp_landscape()
 	var fire := Vector3(0, 0, -1.5)
 	# placas: uma por nação, na saída da trilha, seta apontando para fora
 	var dests := NATIONS.map(func(n: Array) -> Array: return [n[1], n[4]])
@@ -2035,6 +2042,77 @@ func _dress_camp(krng: RandomNumberGenerator, put: Callable, free: Callable) -> 
 						Vector3(size * 0.95, size * 0.4, size * 0.95)), p)])
 			else:
 				kit_items.append([mesh, Transform3D(Basis(Vector3.UP, yaw).scaled(Vector3(size, size * 0.85, size)), p)])
+
+
+## Bosques enquadram a clareira em vez de espalhar plantas isoladas. RNG próprio e troncos bloqueados.
+func _camp_landscape() -> void:
+	var garden := RandomNumberGenerator.new()
+	garden.seed = 8102026
+	var tree_count := 0
+	for angle: float in [113.0, 161.0, 192.0, 224.0, 254.0, 285.0, 316.0, 347.0, 18.0, 62.0]:
+		var center := pol(angle, 18.5)
+		for i: int in 3:
+			var p := center if i == 0 else pol(angle + (-4.0 if i == 1 else 5.0), 22.0 + i)
+			if not _camp_plantable(p, 0.9):
+				continue
+			var size := garden.randf_range(0.85, 1.12)
+			var mesh := "tree_broadleaf_a"
+			if i == 0 and angle in [113.0, 254.0, 347.0]:
+				mesh = "tree_ipe_yellow_a" if angle == 113.0 else "tree_ipe_purple_a"
+			kit_items.append([mesh, Transform3D(Basis(Vector3.UP, garden.randf() * TAU).scaled(Vector3.ONE * size), p)])
+			obstruct_circle(p, 0.55 * size, 4.0)
+			tree_count += 1
+		# Sub-bosque em massas: moitas sobrepostas e poucos pontos de flor.
+		for j: int in 24:
+			var p := center + pol(garden.randf() * 360.0, sqrt(garden.randf()) * 3.3)
+			if not _camp_plantable(p, 0.15):
+				continue
+			var size := garden.randf_range(0.6, 1.1)
+			var mesh := BUSH_LOW if j % 6 != 0 else "fern"
+			var scale := Vector3(size, size * 0.7, size)
+			kit_items.append([mesh, Transform3D(Basis(Vector3.UP, garden.randf() * TAU).scaled(scale), p)])
+			if j % 8 == 0:
+				kit_items.append(["flowers_b", Transform3D(Basis(Vector3.UP, garden.randf() * TAU).scaled(Vector3.ONE * 0.7), p)])
+	# Bordas internas de canteiros maiores, baixas para manter a vista da fogueira e dos NPCs.
+	for center: Vector3 in [Vector3(-10, 0, 5), Vector3(10, 0, 5), Vector3(-12, 0, -3), Vector3(12, 0, -3)]:
+		for j: int in 28:
+			var p := center + pol(garden.randf() * 360.0, sqrt(garden.randf()) * 2.2)
+			if not _camp_plantable(p, 0.1):
+				continue
+			var s := garden.randf_range(0.45, 0.72)
+			kit_items.append([BUSH_LOW, Transform3D(Basis(Vector3.UP, garden.randf() * TAU).scaled(Vector3(s, s * 0.5, s)), p)])
+	print("camp landscape: ", tree_count, " trees")
+
+
+func _camp_plantable(p: Vector3, clearance: float) -> bool:
+	if _in_obstruction(p, clearance) or _in_keepout(p) or _on_trail(p):
+		return false
+	for offset: Vector3 in [Vector3(clearance, 0, 0), Vector3(-clearance, 0, 0), Vector3(0, 0, clearance), Vector3(0, 0, -clearance)]:
+		if _on_trail(p + offset):
+			return false
+	return true
+
+
+## Cópias próprias do Campo: materiais novos não recolorem tendas usadas por outros mapas.
+func _camp_canvas_mesh(path: String) -> Mesh:
+	var mesh: ArrayMesh = (load(path) as ArrayMesh).duplicate() as ArrayMesh
+	var blue: bool = path.get_file().get_basename().ends_with("_b")
+	for i: int in mesh.get_surface_count():
+		var source: ShaderMaterial = mesh.surface_get_material(i) as ShaderMaterial
+		if source == null:
+			continue
+		var material := source.duplicate() as ShaderMaterial
+		if i == 0 or i == 5:
+			material.shader = load("res://assets/shaders/env_camp_canvas.gdshader")
+			var tint := Color(0.36, 0.57, 0.53) if blue else Color(0.74, 0.58, 0.36)
+			material.set_shader_parameter(&"tint", tint * (0.85 if i == 5 else 1.0))
+		else:
+			var tint: Color = source.get_shader_parameter(&"tint")
+			material.set_shader_parameter(&"tint", tint * 0.78)
+		mesh.surface_set_material(i, material)
+	var destination := "%s/canvas_%s.res" % [TF_GEO, path.get_file().get_basename()]
+	ResourceSaver.save(mesh, destination, ResourceSaver.FLAG_COMPRESS)
+	return load(destination)
 
 
 ## Decor/Kit: malhas do kit pintado em MultiMesh (pedacos de 24 m). Substitui a antiga camada de sprites.
@@ -2120,7 +2198,8 @@ func _sprite_layer(root: Node3D) -> void:
 				"bush_low"]:
 			if key in bn:
 				small = true
-		fs.add_instances(load(m), items[m], bn, krng, not small)
+		var mesh: Mesh = _camp_canvas_mesh(m) if bn.begins_with("camp_tent_v2") else load(m)
+		fs.add_instances(mesh, items[m], bn, krng, not small)
 	var root_node: Node = root
 	while root_node.get_parent() != null:
 		root_node = root_node.get_parent()
@@ -2246,7 +2325,7 @@ func _ground_hugging_pass(logical: Array, grassy: Callable) -> void:
 		var roll := prng.randf()
 		if roll < 0.7:
 			return ""
-		if p.distance_to(SABIA_C) < 36.0:
+		if p.distance_to(PINDORAMA_C) < 36.0:
 			return "flowers"
 		return "flowers_b" if roll < 0.85 else "flowers_purple"
 	var count := {"trail": 0, "patch": 0, "base": 0}
@@ -2403,4 +2482,3 @@ func _add_camp_flames(parent: Node3D) -> void:
 		flame.position = spec[0] + Vector3(0, 0.62 * float(spec[1]), 0)
 		flame.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		_add(parent, flame)
-

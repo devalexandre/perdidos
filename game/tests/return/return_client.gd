@@ -12,7 +12,7 @@ const ARG_PHASE: String = "return-phase"
 const ARG_SHOT: String = "shot-dir"
 const SCROLL: StringName = &"return_scroll"
 const CITY: StringName = &"city_awakening"
-const HUNTS: Array[StringName] = [&"fields_sabia", &"enchanted_forest", &"split_sky_plateau"]
+const HUNTS: Array[StringName] = [&"fields_pindorama", &"enchanted_forest", &"split_sky_plateau"]
 const ZE: StringName = &"elder_ze_steel_song"
 const WAIT_SEC: float = 12.0
 const SAFE_RADIUS_M: float = 3.5
@@ -179,7 +179,7 @@ func _volta() -> void:
 		await _sleep(Balance.cfg.item_default_cooldown_sec)
 		await _use_and_return(String(map_id))
 	# Em combate: leitura de 1 s; andar interrompe; parado, volta.
-	await _goto(&"fields_sabia")
+	await _goto(&"fields_pindorama")
 	await _dbg(&"set_hp", [99999])
 	await _sleep(10.0)
 	var fought: bool = await _enter_combat()
@@ -191,7 +191,7 @@ func _volta() -> void:
 	_check("em_combate_tem_leitura", _casts.size() > casts0 and _casts[-1] == SCROLL, _casts)
 	Net.send_move_request(_local.net_position + Vector3(3, 0, 0))
 	_check("andar_interrompe_a_leitura", await _wait(func() -> bool: return "PROG_MSG_CAST_INTERRUPTED" in _system.slice(mark), 4.0)
-			and NetWorld.client_map_id == &"fields_sabia")
+			and NetWorld.client_map_id == &"fields_pindorama")
 	var back: bool = false
 	for i: int in 4:
 		await _enter_combat()
@@ -207,12 +207,12 @@ func _volta() -> void:
 			break
 	_check("em_combate_volta_depois_da_leitura", back)
 	# Provação: não usa.
-	await _goto(&"fields_sabia")
+	await _goto(&"fields_pindorama")
 	await _dbg(&"set_hp", [99999])
-	await _dbg(&"grant_title", [&"sabia_blade_machete"])
-	await _dbg(&"grant_title", [&"sabia_arcane_firefly"])
+	await _dbg(&"grant_title", [&"pindorama_blade_machete"])
+	await _dbg(&"grant_title", [&"pindorama_arcane_firefly"])
 	# Sub-história do Seu Zé: renome 3 (cada título rende 1 Causo) e a provação é a 6ª etapa (índice 5).
-	await _dbg(&"grant_title", [&"sabia_bow_cerrado"])
+	await _dbg(&"grant_title", [&"pindorama_bow_cerrado"])
 	await _dbg(&"quest_accept", [ZE])
 	await _dbg(&"quest_step", [ZE, 5])
 	await _dbg(&"quest_trial", [ZE])

@@ -1,4 +1,4 @@
-"""Arco da Terra do Sabia (30/09/2026): Flecha do Cerrado, Tocaia do Brejo e Gaviao-Real.
+"""Arco da Terra de Pindorama (30/09/2026): Flecha do Cerrado, Tocaia do Brejo e Gaviao-Real.
 
 Flechas de taquara com penas (cada skill com a sua: dupla, pesada com vento, fita vermelha de aviso,
 espinhenta, reta de luz), revoada caindo do ceu e fincando no chao, lama que cobre o corpo e borbulha,
@@ -11,7 +11,7 @@ import math
 import numpy as np
 
 from fxdraw import Canvas, Frame, Spr, blit, ease_in, ease_out, layer, lerp, piece, rng
-from fxsabia import (D, DUST, DUST_LINE, FEATHER_GOLD, FEATHER_WHITE, HAWK_EYE_PAL, HAWK_EYE_TXT, HAWK_PAL,
+from fxpindorama import (D, DUST, DUST_LINE, FEATHER_GOLD, FEATHER_WHITE, HAWK_EYE_PAL, HAWK_EYE_TXT, HAWK_PAL,
                      HAWK_TXT, LEAF, LEAF_LINE, LEAFLET_PAL, LEAFLET_TXT, MATINTA_G, MUD, MUD_LINE, OLIVE_G,
                      OLIVE_GROUND, SAP_G, TAU, W_GOLD, W_PALE, W_WHITE, arrow, claw_marks, dither_alpha, drop,
                      feather, leaf_poly, puff, spr, spiral_vine, vine)
@@ -412,7 +412,7 @@ def true_pierce():
 
 
 def solid_steel():
-    from fxsabia import STEEL
+    from fxpindorama import STEEL
     return STEEL
 
 
@@ -530,7 +530,7 @@ def _wing(cv_dark, cv_light, sx, sy, side, spread, k):
 
 def short_flight():
     """Voo Curto: asas de gaviao-real abrem nas costas (pena a pena), batem uma vez e somem; penas caem."""
-    from fxsabia import solid_ramp
+    from fxpindorama import solid_ramp
     dark = solid_ramp(["#2a2430", "#4a4250", "#6e6676", "#9a92a2"])
     light = solid_ramp(["#5a5060", "#8a8494", "#b0aab8", "#d8d4e0"])
     frames = []

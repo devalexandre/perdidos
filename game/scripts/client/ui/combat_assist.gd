@@ -196,6 +196,11 @@ func find_nearest_interactable(from_pos: Vector3, max_range: float) -> Node3D:
 		var kind: Variant = e.get(&"kind")
 		if kind != NetEntity.KIND_DROP and kind != NetEntity.KIND_NPC:
 			continue
+		if kind == NetEntity.KIND_NPC:
+			# NPC fora do horário (NpcDef.presence) não está no mundo.
+			var npc_def: NpcDef = Content.npc(StringName(str(e.get(&"def_id"))))
+			if npc_def != null and not npc_def.is_present_now():
+				continue
 		var d: float = from_pos.distance_to(e.global_position)
 		if d < best_d:
 			best_d = d
@@ -236,7 +241,7 @@ func select_target(target_id: int, send_intent: bool = true) -> void:
 	if game_ui != null:
 		var dname: String = str(ent.get(&"display_name"))
 		if not dname.is_empty():
-			game_ui.show_system_message("Alvo: %s" % dname)
+			game_ui.show_system_message(tr("UI_TARGET_SET") % tr(dname))
 
 
 func clear_target() -> void:

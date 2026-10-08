@@ -20,12 +20,12 @@ import (
 // Theme is the optional "theme" of latest.json: the launcher background and tagline of the
 // current story arc, so a new arc changes the art without shipping a new launcher.
 //
-//	"theme": {"id": "arco1", "arc": "Arco I", "title": "A Terra do Sabiá", "tagline": "…",
+//	"theme": {"id": "arco1", "arc": "Arco I", "title": "A Terra de Pindorama", "tagline": "…",
 //	          "background": {"name": "theme-arco1.jpg", "sha256": "…", "size": 123, "url": "(opcional)"}}
 type Theme struct {
 	ID string `json:"id"`
 	// Arc and Title fill the arc seal of the login screen, around its dot:
-	// "Arco I" • "A Terra do Sabiá". Plain text only.
+	// "Arco I" • "A Terra de Pindorama". Plain text only.
 	Arc        string   `json:"arc,omitempty"`
 	Title      string   `json:"title,omitempty"`
 	Tagline    string   `json:"tagline,omitempty"`

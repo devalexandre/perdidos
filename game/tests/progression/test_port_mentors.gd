@@ -36,7 +36,7 @@ func _ready() -> void:
 				check(marker.position.distance_to(city.get_npc_point(other).position) > 15, "mentors spread apart")
 	for resource: Resource in Content.all(&"titles").values():
 		var title: TitleDef = resource as TitleDef
-		if title != null and String(title.id).begins_with("sabia_"):
+		if title != null and String(title.id).begins_with("pindorama_"):
 			check(title.master_npc in MENTORS, "%s has a local teacher" % title.id)
 	var world := ServerWorld.new()
 	var progression := Progression.new(world)

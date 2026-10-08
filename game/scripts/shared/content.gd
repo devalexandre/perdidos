@@ -8,6 +8,10 @@ const DIRS: Dictionary[StringName, String] = {
 	&"monsters": "res://data/monsters/", &"skills": "res://data/skills/", &"titles": "res://data/titles/",
 	&"quests": "res://data/quests/", &"zones": "res://data/zones/",
 	&"title_talks": "res://data/title_talks/", # Agente R (GDD §9.3)
+	# Habilidades de monstro (Arco 1, luta do Boitatá): SkillDef fora de data/skills (não se aprende por quest).
+	&"monster_skills": "res://data/monster_skills/",
+	# Magias automáticas dos companheiros de título (PETS-E-MONTARIAS §0.1): fora das skills do jogador.
+	&"companion_skills": "res://data/companion_skills/",
 }
 
 var _db: Dictionary[StringName, Dictionary] = {}
@@ -52,6 +56,13 @@ func shop(id: StringName) -> ShopDef: return _db[&"shops"].get(id)
 func audio_zone(id: StringName) -> AudioZoneDef: return _db[&"audio"].get(id)
 func monster(id: StringName) -> MonsterDef: return _db[&"monsters"].get(id)
 func skill(id: StringName) -> SkillDef: return _db[&"skills"].get(id)
+func monster_skill(id: StringName) -> SkillDef: return _db[&"monster_skills"].get(id)
+func companion_skill(id: StringName) -> SkillDef: return _db[&"companion_skills"].get(id)
+## Skill de jogador, de monstro ou de companheiro (efeitos e sons do cliente).
+func any_skill(id: StringName) -> SkillDef:
+	if _db[&"skills"].has(id):
+		return skill(id)
+	return monster_skill(id) if _db[&"monster_skills"].has(id) else companion_skill(id)
 func title(id: StringName) -> TitleDef: return _db[&"titles"].get(id)
 func quest(id: StringName) -> QuestDef: return _db[&"quests"].get(id)
 func zone(map_id: StringName) -> ZoneDef: return _db[&"zones"].get(map_id)

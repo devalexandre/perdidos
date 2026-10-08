@@ -10,7 +10,7 @@ extends RefCounted
 ##  - Combate permitido (N): world.zone_rules.combat_allowed(instance_id). Padrão:
 ##    ZoneDef.combat_allowed (mapa sem ZoneDef = permitido).
 ##  - Efeitos de status (Q): world.progression.statuses — absorb_damage, def_multiplier,
-##    is_stunned, move_speed_multiplier; Terra do Sabiá v0.4: pre_hit, post_hit, lethal_guard,
+##    is_stunned, move_speed_multiplier; Terra de Pindorama v0.4: pre_hit, post_hit, lethal_guard,
 ##    heal_multiplier, is_hidden, is_rooted, range_bonus_cells. Sem Q: sem efeito.
 ##  - Renascimento (N): world.zone_rules.on_player_killed existe -> N renasce o jogador.
 
@@ -125,7 +125,7 @@ static func move_speed_multiplier(world: Node, entity: NetEntity) -> float:
 	return NEUTRAL_MULTIPLIER
 
 
-## Terra do Sabiá v0.4 (Q): reforços/enfraquecimentos, contragolpe, esquiva e crítico antes do golpe.
+## Terra de Pindorama v0.4 (Q): reforços/enfraquecimentos, contragolpe, esquiva e crítico antes do golpe.
 ## atk/dfn são cópias que Q pode alterar. Sem Q: nada muda.
 static func pre_hit(world: Node, attacker: NetEntity, target: NetEntity, kind: StringName,
 		source_id: StringName, atk: Dictionary, dfn: Dictionary) -> Dictionary:

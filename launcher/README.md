@@ -170,12 +170,12 @@ Como funciona:
 - o `latest.json` pode ter um campo `theme` (sem ele, tudo continua como antes):
 
   ```json
-  "theme": {"id": "arco1", "arc": "Arco I", "title": "A Terra do Sabiá",
+  "theme": {"id": "arco1", "arc": "Arco I", "title": "A Terra de Pindorama",
             "tagline": "Aqui as lendas são reais, e algumas só acordam à noite.",
             "background": {"name": "theme-arco1.jpg", "sha256": "…64 hex…", "size": 337287}}
   ```
 
-  `arc` e `title` (opcionais) formam o selo acima de "Perdidos" ("ARCO I • A TERRA DO SABIÁ"; o
+  `arc` e `title` (opcionais) formam o selo acima de "Perdidos" ("ARCO I • A TERRA DE PINDORAMA"; o
   ponto entre eles é desenho da tela). Regras: `id` com `^[a-z0-9][a-z0-9_-]{0,31}$`; `arc` até 20,
   `title` até 60 e frase até 140 caracteres, só texto simples (sem `<`, `>` nem controle; a tela usa
   `textContent`); imagem `.jpg`, `.jpeg`,
@@ -190,7 +190,7 @@ Como funciona:
   API em `/api/theme/<nome>` (plano B);
 - quando termina de baixar, a tela troca o fundo com um esmaecimento e a frase sob o título, sem
   reiniciar (fundo, selo do arco e frase). Sem tema em cache, ficam o fundo embutido
-  (`frontend/public/bg_arco1.jpg`) e o selo "Arco I · A Terra do Sabiá".
+  (`frontend/public/bg_arco1.jpg`) e o selo "Arco I · A Terra de Pindorama".
 
 **Trocar o tema num arco novo:**
 

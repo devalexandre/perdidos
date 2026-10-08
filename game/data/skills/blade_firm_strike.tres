@@ -15,5 +15,5 @@ multiplier_per_level = 0.12
 requires_melee_weapon = true
 vfx = &"slash"
 icon_text = "GF"
-tree_title = &"sabia_blade_machete"
+tree_title = &"pindorama_blade_machete"
 tree_order = 1

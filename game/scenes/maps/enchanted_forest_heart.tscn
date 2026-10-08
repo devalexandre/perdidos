@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/shared/map.gd" id="map"]
 
-[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_ground_sabia_forest.tres" id="groundmat"]
+[ext_resource type="Material" path="res://assets/environment/painted/materials/mat_ground_pindorama_forest.tres" id="groundmat"]
 
 [ext_resource type="Script" path="res://scripts/shared/terrain_trail.gd" id="trail_script"]
 
@@ -427,7 +427,7 @@ metadata/respawn_sec = 35
 [node name="monsters_8" type="Marker3D" parent="Spawns"]
 
 position = Vector3(22, 0, -23)
-metadata/monster_id = &"sabia_jaguar"
+metadata/monster_id = &"pindorama_jaguar"
 metadata/stage = 2
 metadata/count = 2
 metadata/radius_cells = 7
@@ -463,14 +463,14 @@ multimesh = SubResource("mm_rock_moss_a")
 [node name="Woodland_prop_log" type="MultiMeshInstance3D" parent="Decor"]
 multimesh = SubResource("mm_prop_log")
 
+[node name="BackwardTracks" type="Marker3D" parent="."]
+position = Vector3(-6, 0, 10)
+
 [node name="StoryLairs" type="Node3D" parent="."]
 
 [node name="curupira" type="Marker3D" parent="StoryLairs"]
 position = Vector3(0, 0, -6)
 metadata/monster_id = &"story_curupira"
 metadata/radius_cells = 6
-metadata/escort = {"enchanted_firefly": 4, "sabia_jaguar": 3, "buriti_boar": 3}
+metadata/escort = {"enchanted_firefly": 4, "pindorama_jaguar": 3, "buriti_boar": 3}
 metadata/escort_stage = 2
-
-[node name="BackwardTracks" type="Marker3D" parent="."]
-position = Vector3(-6, 0, 10)

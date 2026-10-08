@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 build_hollow_earth_expansion.py
-Expands Nação Sabiá with:
+Expands Nação Pindorama with:
 1. Approach Region: Serra do Sumidouro (3 maps: hollow_mountain_trail, hollow_mountain_gorge, hollow_mountain_gate)
 2. Dungeon 6: Túneis da Terra Oca (5 floors: hollow_earth_1 .. hollow_earth_5)
 3. Thematic Monsters (4 stages each):
@@ -501,7 +501,7 @@ script = ExtResource("zone")
 map_id = &"{map_id}"
 kind = {kind}
 name_key = "{name_key}"
-region_id = &"sabia"
+region_id = &"pindorama"
 recommended_level_min = {min_lvl}
 recommended_level_max = {max_lvl}
 combat_allowed = {str(combat).lower()}

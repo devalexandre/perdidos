@@ -14,10 +14,10 @@ cooldown_sec = 6.0
 range_cells = 10.0
 base_multiplier = 1.1
 vfx = &"wisp"
-exclusive_to_title = &"sabia_arcane_firefly"
+exclusive_to_title = &"pindorama_arcane_firefly"
 icon_text = "FF"
 counts_for_titles = false
-tree_title = &"sabia_arcane_firefly"
+tree_title = &"pindorama_arcane_firefly"
 tree_order = 4
 required_skill_levels = Dictionary[StringName, int]({
 &"arcane_creeping_flame": 3

@@ -21,9 +21,9 @@ extra = Dictionary[StringName, Variant]({
 &"mp_pct_per_level": 0.01
 })
 vfx = &"mana"
-exclusive_to_title = &"sabia_support_buriti"
+exclusive_to_title = &"pindorama_support_buriti"
 icon_text = "FN"
-tree_title = &"sabia_support_buriti"
+tree_title = &"pindorama_support_buriti"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"support_running_sap": 3

@@ -11,7 +11,7 @@ Este documento descreve a organização e o refinamento dos mapas da primeira re
 
 ## 1. O Campo de Treinamento (`training_field.tscn`)
 
-O Campo de Treinamento é a zona onde os novos Viajantes aprendem as disciplinas fundamentais antes de desbravarem as rotas dos Campos do Sabiá e as matas profundas.
+O Campo de Treinamento é a zona onde os novos Viajantes aprendem as disciplinas fundamentais antes de desbravarem as rotas dos Campos de Pindorama e as matas profundas.
 
 ### O Instrutor Bento
 - **Arquivo de Dados**: `game/data/npcs/instructor_bento.tres`
@@ -32,9 +32,9 @@ O Campo de Treinamento é a zona onde os novos Viajantes aprendem as disciplinas
 
 ---
 
-## 2. Cavernas e Galerias Subterrâneas (`cave_sabia_mine.tscn`)
+## 2. Cavernas e Galerias Subterrâneas (`cave_pindorama_mine.tscn`)
 
-As cavernas e galerias de mineração abandonadas representam as primeiras masmorras da Terra do Sabiá.
+As cavernas e galerias de mineração abandonadas representam as primeiras masmorras da Terra de Pindorama.
 
 ### Ecologia e Habitantes Subterrâneos
 - **Esqueletos de Garimpeiros**: Antigos mineradores que empunham picaretas enferrujadas e realizam ataques em arremetida rápida.
@@ -52,6 +52,6 @@ As cavernas e galerias de mineração abandonadas representam as primeiras masmo
 - **Campos Abertos**: Gramíneas douradas, buritis altos e ipês com copas vibrantes (amarelas e roxas).
 - **Trilhas e Veredas**: Solo de terra batida avermelhada intercalado com vegetação rasteira nativa do cerrado.
 - **Transição de Dificuldade**:
-  - `Campos do Sabiá`: Monstros em forma comum (níveis 1 a 8).
+  - `Campos de Pindorama`: Monstros em forma comum (níveis 1 a 8).
   - `Mata Encantada`: Criaturas de porte médio e maior agressividade (níveis 8 a 16).
   - `Chapada do Céu Partido`: Covis de chefes e variantes atrozes noturnas (níveis 16 a 25).

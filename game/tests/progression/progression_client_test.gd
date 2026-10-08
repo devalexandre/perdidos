@@ -11,7 +11,7 @@ extends Node
 ## Agente H (GDD §8.1 "Tempo de uso na barra"): conjuração pelo nível da skill, DES/INT e itens;
 ## recarga por ESP/itens; poções instantâneas; usável com conjuração/recarga; andar interrompe;
 ## animação da barra (capturas h_anim_*: sombra da recarga, barra de conjuração, brilho "pronto").
-## Terra do Sabiá v0.4 (TITULOS-E-SKILLS.md §3): ATQ pela arma (FOR/DES), lição que ensina skill,
+## Terra de Pindorama v0.4 (TITULOS-E-SKILLS.md §3): ATQ pela arma (FOR/DES), lição que ensina skill,
 ## pré-requisito que esconde a lição, título de combinação só pela quest do ancião (variantes de verdade:
 ## chefe de dia não conta como atroz; chefe atroz derrubado conta) e sinais status_changed/healed.
 
@@ -59,7 +59,7 @@ func _ready() -> void:
 	NetProgress.skill_cast.connect(func(e: int, s: StringName, t: int, p: Vector3, ms: int) -> void:
 		_rec(&"cast", [e, s, t, p, ms]))
 	NetProgress.cast_cancelled.connect(func(e: int, s: StringName) -> void: _rec(&"cast_cancelled", [e, s]))
-	# Terra do Sabiá v0.4 (contrato ADENDO 4): efeitos de status e cura para a instância.
+	# Terra de Pindorama v0.4 (contrato ADENDO 4): efeitos de status e cura para a instância.
 	NetProgress.status_changed.connect(func(e: int, st: StringName, sk: StringName, on: bool, sec: float) -> void:
 		_rec(&"status", [e, st, sk, on, sec]))
 	NetCombat.healed.connect(func(src: int, dst: int, amount: int) -> void: _rec(&"healed", [src, dst, amount]))
@@ -250,7 +250,7 @@ func _run() -> void:
 	await _test_negatives()
 	await _test_screens()
 	await _test_cast_timing()
-	await _test_sabia()
+	await _test_pindorama()
 
 
 func _test_hotbar_ui() -> void:
@@ -341,29 +341,29 @@ func _test_title_quest() -> void:
 	ok = not d.is_empty() and await _choose("QUEST_OPT_REPORT") and await _choose("QUEST_OPT_TURN_IN")
 	await _wait_until(func() -> bool: return QUEST_BLADE in _progress.get("quests_done", []), WAIT_SEC)
 	var skills: Dictionary = _progress.get("skills", {})
-	var title_skill_bundle := TitleService.skills_for_title(&"sabia_blade_machete")
+	var title_skill_bundle := TitleService.skills_for_title(&"pindorama_blade_machete")
 	var bundle_learned := true
 	for skill_id: StringName in title_skill_bundle:
 		bundle_learned = bundle_learned and skills.has(String(skill_id))
 	_check("title_grants_all_tree_skills", ok and title_skill_bundle.size() == 5 and bundle_learned
 			and (_progress.get("hotbar", []) as Array).has("blade_firm_strike"), skills)
-	_check("title_earned_by_quest", "sabia_blade_machete" in _progress.get("titles", []) \
-			and _progress.get("displayed_title") == "sabia_blade_machete", _progress.get("titles"))
-	await _wait_until(func() -> bool: return _local.title_id == &"sabia_blade_machete", WAIT_SEC)
-	_check("title_replicated_on_entity", _local.title_id == &"sabia_blade_machete", String(_local.title_id))
+	_check("title_earned_by_quest", "pindorama_blade_machete" in _progress.get("titles", []) \
+			and _progress.get("displayed_title") == "pindorama_blade_machete", _progress.get("titles"))
+	await _wait_until(func() -> bool: return _local.title_id == &"pindorama_blade_machete", WAIT_SEC)
+	_check("title_replicated_on_entity", _local.title_id == &"pindorama_blade_machete", String(_local.title_id))
 	# C3 (GDD §17.0.B): o título exibido veste a roupa dele (Facão Firme -> aprendiz) para todos os clientes: a
 	# aparência replicada troca e o visual passa a usar a folha de corpo da roupa (com máscara, recolorível).
 	# A roupa do título vem de TitleDef.outfit_id; sem roupa definida (arte ainda não aprovada) fica o Viajante.
-	var title_def: TitleDef = Content.title(&"sabia_blade_machete")
+	var title_def: TitleDef = Content.title(&"pindorama_blade_machete")
 	var want_outfit: StringName = title_def.outfit_id if title_def != null and not String(title_def.outfit_id).is_empty() else &"traveler"
 	await _wait_until(func() -> bool: return StringName(str(_local.appearance.get(&"outfit", ""))) == want_outfit, WAIT_SEC)
 	_check("title_outfit_replicated", StringName(str(_local.appearance.get(&"outfit", ""))) == want_outfit, _local.appearance)
 	# Roupa do título por recolor (TitleDef.cloth_colors): o título exibido vai na aparência e muda as cores.
-	await _wait_until(func() -> bool: return StringName(str(_local.appearance.get(&"title_look", ""))) == &"sabia_blade_machete", WAIT_SEC)
+	await _wait_until(func() -> bool: return StringName(str(_local.appearance.get(&"title_look", ""))) == &"pindorama_blade_machete", WAIT_SEC)
 	# Com traje próprio (outfit_id) o recolor não vale: cloth_for fica vazio; sem traje, as cores do título.
 	var look: PackedColorArray = CharacterLayers.cloth_for(_local.appearance)
 	var want_look: PackedColorArray = title_def.cloth_colors if want_outfit == &"traveler" else PackedColorArray()
-	_check("title_look_replicated", StringName(str(_local.appearance.get(&"title_look", ""))) == &"sabia_blade_machete"
+	_check("title_look_replicated", StringName(str(_local.appearance.get(&"title_look", ""))) == &"pindorama_blade_machete"
 			and look == want_look, _local.appearance)
 	var vis: Node = _local.get_visual()
 	var base: String = str(vis.get(&"sprite_base")) if vis != null else ""
@@ -454,7 +454,7 @@ func _test_title_talk() -> void:
 	var d: Dictionary = await _talk(jatoba) if jatoba != null else {}
 	_check("title_talk_visible_at_10", not d.is_empty() and TitleTalk.OPTION_KEY in _dialogue_opts, _dialogue_opts)
 	var ok: bool = await _choose(TitleTalk.OPTION_KEY)
-	_check("title_talk_what", ok and _dialogue_text.begins_with(TitleTalk.K_WHAT + "|TITLE_SABIA_BLADE_MACHETE_NAME|"),
+	_check("title_talk_what", ok and _dialogue_text.begins_with(TitleTalk.K_WHAT + "|TITLE_PINDORAMA_BLADE_MACHETE_NAME|"),
 			_dialogue_text)
 	await _shot("title_talk")
 	ok = await _choose(TitleTalk.K_OPT_STYLE)
@@ -484,9 +484,9 @@ func _test_titles_by_skills() -> void:
 		if not (_progress.get("skills", {}) as Dictionary).has(String(s)):
 			await _dbg(&"learn", [s])
 	# Desde a v0.4 o título vem só da quest do Mestre (conhecer as skills não basta).
-	var want: Array[String] = ["sabia_arcane_firefly", "sabia_blade_aroeira", "sabia_blade_jaguar",
-			"sabia_arcane_crystal", "sabia_arcane_boitata"]
-	_check("titles_not_by_known_skills", not ("sabia_blade_jaguar" in _progress.get("titles", [])),
+	var want: Array[String] = ["pindorama_arcane_firefly", "pindorama_blade_aroeira", "pindorama_blade_jaguar",
+			"pindorama_arcane_crystal", "pindorama_arcane_boitata"]
+	_check("titles_not_by_known_skills", not ("pindorama_blade_jaguar" in _progress.get("titles", [])),
 			_progress.get("titles"))
 	for t: String in want:
 		await _dbg(&"grant_title", [StringName(t)])
@@ -496,17 +496,17 @@ func _test_titles_by_skills() -> void:
 		ok = ok and t in titles
 	_check("titles_granted_by_master_quests", ok, titles)
 	# TITULOS-E-SKILLS.md §3.0 regra 4: Brasa no Facão agora é da quest do ancião, nunca automática.
-	_check("combo_title_not_automatic", not ("sabia_hybrid_ember" in titles), titles)
+	_check("combo_title_not_automatic", not ("pindorama_hybrid_ember" in titles), titles)
 	var c: int = _cursor()
-	NetProgress.send_set_title(&"sabia_blade_jaguar")
+	NetProgress.send_set_title(&"pindorama_blade_jaguar")
 	await _wait_event(&"progress", c, WAIT_SEC)
-	await _wait_until(func() -> bool: return _local.title_id == &"sabia_blade_jaguar", WAIT_SEC)
-	_check("choose_displayed_title", _progress.get("displayed_title") == "sabia_blade_jaguar" \
-			and _local.title_id == &"sabia_blade_jaguar")
+	await _wait_until(func() -> bool: return _local.title_id == &"pindorama_blade_jaguar", WAIT_SEC)
+	_check("choose_displayed_title", _progress.get("displayed_title") == "pindorama_blade_jaguar" \
+			and _local.title_id == &"pindorama_blade_jaguar")
 	c = _cursor()
-	NetProgress.send_set_title(&"sabia_title_not_earned")
+	NetProgress.send_set_title(&"pindorama_title_not_earned")
 	await _wait_event(&"progress", c, WAIT_SEC)
-	_check("reject_unearned_title", _progress.get("displayed_title") == "sabia_blade_jaguar")
+	_check("reject_unearned_title", _progress.get("displayed_title") == "pindorama_blade_jaguar")
 
 
 ## Põe as skills na barra (fora de combate) e lança uma de cada tipo de alvo em bonecos.
@@ -1056,7 +1056,7 @@ func _finish() -> void:
 	get_tree().quit(0 if failed.is_empty() else 1)
 
 
-# ---------------------------------------------------------------- Terra do Sabiá v0.4
+# ---------------------------------------------------------------- Terra de Pindorama v0.4
 
 func _stats_now() -> Dictionary:
 	return Net.client_stats
@@ -1074,7 +1074,7 @@ func _quest_step(id: StringName) -> int:
 	return int(_quest(id).get("step", -1))
 
 
-func _test_sabia() -> void:
+func _test_pindorama() -> void:
 	await _wait_out_of_combat()
 	# ATQ pela arma (GDD §6.2, 30/09/2026): facão = FOR, arco = DES.
 	await _dbg(&"equip_item", [&"machete"])
@@ -1175,9 +1175,9 @@ func _test_sabia() -> void:
 	await _dbg(&"kill", [&"trial_twin_shield_puppet", 0])
 	await _wait_until(func() -> bool: return bool(_quest(&"elder_ze_steel_song").get("ready", false)), WAIT_SEC)
 	await _dbg(&"quest_turn_in", [&"elder_ze_steel_song"])
-	_check("combo_title_by_elder_quest", "sabia_hybrid_ember" in _progress.get("titles", [])
+	_check("combo_title_by_elder_quest", "pindorama_hybrid_ember" in _progress.get("titles", [])
 			and (_progress.get("skills", {}) as Dictionary).has("hybrid_spark_blade"), _progress.get("titles"))
-	await _test_sabia_signals()
+	await _test_pindorama_signals()
 	await _test_protect_trial()
 	await _test_title_crafts_and_pilfer()
 
@@ -1202,7 +1202,7 @@ func _test_title_crafts_and_pilfer() -> void:
 			{"knows": knows_dressing, "pots": [pots0, _inv_count(&"potion_hp_small")],
 			"leaves": [leaves0, _inv_count(&"spinning_leaf")]})
 	# Surrupiar: título da Onça (herda o Curativo), nível 10 para o teste não depender da sorte.
-	await _dbg(&"grant_title", [&"sabia_blade_jaguar"])
+	await _dbg(&"grant_title", [&"pindorama_blade_jaguar"])
 	await _wait_until(func() -> bool: return (_progress.get("skills", {}) as Dictionary).has("blade_pilfer"), WAIT_SEC)
 	var knows_pilfer: bool = (_progress.get("skills", {}) as Dictionary).has("blade_pilfer")
 	await _dbg(&"skill_level", [&"blade_pilfer", 10])
@@ -1263,7 +1263,7 @@ func _inv_total() -> int:
 
 
 ## Sinais para o agente de efeitos: status_changed (prender, provocar) e healed.
-func _test_sabia_signals() -> void:
+func _test_pindorama_signals() -> void:
 	await _wait_out_of_combat()
 	await _dbg(&"equip_item", [&"machete"])
 	for sk: StringName in [&"blade_root_grip", &"tank_shell_knock", &"support_herb_tea", &"arcane_star_step"]:
@@ -1275,7 +1275,7 @@ func _test_sabia_signals() -> void:
 	await _dbg(&"spawn_dummy", [DUMMY, 2.0, 0.0])
 	await _sleep(SETTLE_SEC)
 	var dummy: NetEntity = _find(DUMMY, _local.position + Vector3(2.0, 0.0, 0.0))
-	if not _check("sabia_dummy_spawned", dummy != null):
+	if not _check("pindorama_dummy_spawned", dummy != null):
 		return
 	await _prep_cast()
 	var c: int = _cursor()
@@ -1322,7 +1322,7 @@ func _test_protect_trial() -> void:
 	const Q: StringName = &"elder_aninha_root_fire"
 	await _wait_out_of_combat()
 	await _dbg(&"set_hp", [99999])
-	await _dbg(&"grant_title", [&"sabia_bow_cerrado"])
+	await _dbg(&"grant_title", [&"pindorama_bow_cerrado"])
 	await _dbg(&"quest_accept", [Q])
 	await _dbg(&"quest_step", [Q, 5])
 	await _dbg(&"quest_trial", [Q])

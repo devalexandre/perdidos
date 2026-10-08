@@ -1,7 +1,7 @@
 {
  "_doc": "Fonte unica do conteudo do Campo de Treino (marco 'Chegada do Viajante', agente W). build_training.py acrescenta/atualiza as chaves em localization/content.csv (sem apagar as outras); build_training.gd gera data/{monsters,npcs,dialogues,zones,items}/*.tres. Textos pt-BR provisorios. Nomes conferidos com make check-names (GDD 4.0 regra 3).",
  "regions": {
-  "brasil": "Terra do Sabiá", "portugal": "Reino das Mouras", "japao": "Ilhas do Sol Nascente", "nordico": "Fiordes de Gelo",
+  "brasil": "Terra de Pindorama", "portugal": "Reino das Mouras", "japao": "Ilhas do Sol Nascente", "nordico": "Fiordes de Gelo",
   "grecia": "Costa das Colunas", "egito": "Areias do Nilo", "celta": "Brumas Verdes", "eslavo": "Estepe de Ferro",
   "china": "Império de Jade", "mexico": "Selvas de Obsidiana"
  },

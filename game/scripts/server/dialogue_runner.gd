@@ -39,7 +39,7 @@ func _init(p_world: ServerWorld) -> void:
 ## Começa o diálogo do NPC (ou abre a loja direto, se o NPC só tiver loja).
 func start(session: PlayerSession, npc: NetEntity) -> void:
 	var def: NpcDef = Content.npc(npc.def_id)
-	if def == null:
+	if def == null or not def.is_present_now():
 		return
 	close(session, true)
 	close_shop(session, true)
@@ -205,6 +205,13 @@ func _give_item(session: PlayerSession, opt: DialogueOption) -> bool:
 		push_warning("give_item with invalid item '%s' in dialogue %s" % [item_id,
 				session.dialogue_def.id])
 		return false
+	# Suprimento pessoal de missão substitui a coleta dos ícones soltos no mapa.
+	# Registra antes de entrar na mochila, como uma coleta, apenas se houver espaço.
+	if bool(opt.action_args.get(&"quest_supply", false)):
+		if not session.character.inventory.can_add(item_id, qty):
+			Net.push_system_message(session.peer_id, SysMsg.INVENTORY_FULL)
+			return false
+		world.progression.quests.on_item_looted(session, item_id, qty)
 	if not session.character.inventory.add(item_id, qty):
 		Net.push_system_message(session.peer_id, SysMsg.INVENTORY_FULL)
 		return false
@@ -395,9 +402,15 @@ func check_range(session: PlayerSession) -> void:
 	var max_dist: float = world.session_range()
 	if session.has_dialogue():
 		var npc: NetEntity = world.get_entity(session.dialogue_npc_id)
-		if npc == null or npc.flat_distance_to(session.entity.net_position) > max_dist:
+		if npc == null or npc.flat_distance_to(session.entity.net_position) > max_dist or not _present(npc):
 			close(session, true)
 	if session.has_shop():
 		var npc2: NetEntity = world.get_entity(session.shop_npc_id)
-		if npc2 == null or npc2.flat_distance_to(session.entity.net_position) > max_dist:
+		if npc2 == null or npc2.flat_distance_to(session.entity.net_position) > max_dist or not _present(npc2):
 			close_shop(session, true)
+
+
+## O NPC está no mundo nesta hora (NpcDef.presence)? Ao sumir (ex.: anoiteceu), a conversa fecha.
+static func _present(npc: NetEntity) -> bool:
+	var def: NpcDef = Content.npc(npc.def_id)
+	return def == null or def.is_present_now()

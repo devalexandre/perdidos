@@ -20,9 +20,9 @@ extra = Dictionary[StringName, Variant]({
 &"knockback_cells": 3
 })
 vfx = &"knock"
-exclusive_to_title = &"sabia_tank_anta"
+exclusive_to_title = &"pindorama_tank_anta"
 icon_text = "TB"
-tree_title = &"sabia_tank_anta"
+tree_title = &"pindorama_tank_anta"
 tree_order = 3
 required_skill_levels = Dictionary[StringName, int]({
 &"tank_tapir_stomp": 1

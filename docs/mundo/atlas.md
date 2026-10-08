@@ -32,14 +32,14 @@ O mapa-múndi é um pergaminho ilustrado no estilo medieval fantasia (arte sem t
   Brumas Verdes    Fiordes de Gelo   Estepe de Ferro   Império de Jade   Ilhas do
   (ilhas de névoa) (geleiras)        (bétulas)         (terraços)        Sol Nascente
               Reino das Mouras ─── Costa das Colunas                      (vulcões)
-  Selvas de      Terra do Sabiá        ~~ Mar do Meio ~~              Areias do Nilo
+  Selvas de      Terra de Pindorama        ~~ Mar do Meio ~~              Areias do Nilo
   Obsidiana      (chapadas e rio)                                     (dunas)
       ~ Mar das Pétalas ~                   Areias Sem Fim (não alcançado)
 ```
 
 | Região | Onde fica no mapa | Clima que a arte mostra |
 |---|---|---|
-| Terra do Sabiá (MVP) | centro-sudoeste | chapadas vermelhas, cerrado verde, rio largo, mata escura, fumaça de queimada |
+| Terra de Pindorama (MVP) | centro-sudoeste | chapadas vermelhas, cerrado verde, rio largo, mata escura, fumaça de queimada |
 | Selvas de Obsidiana | extremo sudoeste | selva densa, vulcão fumegante |
 | Brumas Verdes | noroeste | ilhas de colinas verdes, névoa |
 | Fiordes de Gelo | norte | geleiras e gelo branco, pinheiros |
@@ -62,14 +62,14 @@ Nenhum mapa é bloqueado (GDD §4.3); a faixa é só indicação. Como o título
 
 | Faixa | O quê |
 |---|---|
-| 1–10 | Campo de Treino (todos) e, no Brasil, Campos do Sabiá |
+| 1–10 | Campo de Treino (todos) e, no Brasil, Campos de Pindorama |
 | 10–20 | primeiro campo de caça de cada região, perto da capital |
 | 20–30 | segundo campo de caça |
 | 25–45 | masmorras de folclore |
 | 40–55 | chefe da região (com bando, GDD §10.6) |
 | 40–65 | masmorras de mistério (Viajantes perdidos) |
 
-A Terra do Sabiá segue o GDD: Campos 1–10, Mata 8–18, Chapada 15–25 e Boitatá no 25.
+A Terra de Pindorama segue o GDD: Campos 1–10, Mata 8–18, Chapada 15–25 e Boitatá no 25.
 
 ### 2.2 O que já existe no jogo
 
@@ -77,7 +77,7 @@ A Terra do Sabiá segue o GDD: Campos 1–10, Mata 8–18, Chapada 15–25 e Boi
 |---|---|---|
 | **Campo de Treino dos Viajantes** | aberto | `training_field` |
 | **Porto do Despertar** | aberto | `city_awakening` |
-| Campos do Sabiá, Mata Encantada, Chapada do Céu Partido, Ninho do Boitatá, Arena da Queimada | em breve (MVP, GDD §4.2) | — |
+| Campos de Pindorama, Mata Encantada, Chapada do Céu Partido, Ninho do Boitatá, Arena da Queimada | em breve (MVP, GDD §4.2) | — |
 | Todo o resto | terra ainda não alcançada | — |
 
 O marcador "você está aqui" usa o `map_id` do mapa atual (ver seção 6).
@@ -89,7 +89,7 @@ O marcador "você está aqui" usa o `map_id` do mapa atual (ver seção 6).
 Estados: **aberto** = existe no jogo; **em breve** = previsto no MVP; **não alcançada** = aparece no mapa, mas ainda não se chega lá. Posições normalizadas (0 a 1) sobre `world_map.png`.
 
 Cuidados culturais por região (resumo; valem os de `TITULOS-E-SKILLS.md` §5 e do GDD §4.0):
-- **Sabiá:** o Curupira é guardião (NPC), não inimigo; o Saci não é morto (o monstro é o Redemoinho Arteiro); a Iara é tratada como encanto do rio, sem sexualização. A Mula sem Cabeça, se entrar, só como a mula de fogo, sem a parte religiosa da lenda.
+- **Pindorama:** o Curupira é guardião (NPC), não inimigo; o Saci não é morto (o monstro é o Redemoinho Arteiro); a Iara é tratada como encanto do rio, sem sexualização. A Mula sem Cabeça, se entrar, só como a mula de fogo, sem a parte religiosa da lenda.
 - **Mouras:** mouras encantadas são personagens de lenda (guardiãs que fiam ouro), nunca retrato de povos. A Coca só como dragoa, sem a procissão. Adamastor vem de Camões (domínio público).
 - **Colunas:** nenhum deus do Olimpo como inimigo ou fonte de poder. Medusa aparece como "ela" na Gruta das Estátuas.
 - **Areias:** Apep só como criatura (sensível: aviso no `check-names`). Nada de múmias como piada; pirâmides são obra do povo do rio e aparecem como marco, não como masmorra.
@@ -101,7 +101,7 @@ Cuidados culturais por região (resumo; valem os de `TITULOS-E-SKILLS.md` §5 e 
 - **Obsidiana:** **aluxes** são NPCs respeitados, nunca inimigos (crença maia atual); **nahuales** também ficam fora da lista de monstros pelo mesmo motivo. Nada de deuses astecas nem de sacrifício. Cipactli é sensível (aviso), mantido como no GDD; se a revisão pedir, trocar por "o Crocodilo da Terra".
 
 <!-- GERADO-INICIO -->
-#### Terra do Sabiá (Brasil) — `sabia`
+#### Terra de Pindorama (Brasil) — `pindorama`
 
 *Rios largos, cerrado de ipês e chapadas acima das nuvens: onde os Viajantes acordam.*
 
@@ -109,14 +109,14 @@ Cuidados culturais por região (resumo; valem os de `TITULOS-E-SKILLS.md` §5 e 
 |---|---|---|---|---|---|
 | **Porto do Despertar** | Capital | — | **aberto (existe no jogo)** | Cidade do rio onde os Viajantes acordam, sob o ipê amarelo gigante e o cristal azul. | 0.315, 0.790 |
 | Campo de Treino dos Viajantes | Área inicial | 1–10 | **aberto (existe no jogo)** | Planalto sobre o Mar do Meio onde Mestres de todas as nações recebem os recém-chegados. | 0.405, 0.612 |
-| Campos do Sabiá | Campo de caça | 1–10 | **aberto (existe no jogo)** | Cerrado de ipês em flor, buritis e cupinzeiros: os primeiros passos longe da cidade. | 0.420, 0.690 |
+| Campos de Pindorama | Campo de caça | 1–10 | **aberto (existe no jogo)** | Cerrado de ipês em flor, buritis e cupinzeiros: os primeiros passos longe da cidade. | 0.420, 0.690 |
 | Mata Encantada | Campo de caça | 6–12 | **aberto (existe no jogo)** | Mata fechada de cipós e igarapés, com um velho forte engolido pelo musgo. | 0.350, 0.725 |
 | Chapada do Céu Partido | Campo de caça | 12–25 | **aberto (existe no jogo)** | Chapadas vermelhas sobre um mar de nuvens; cachoeiras caem no vazio. | 0.318, 0.585 |
 | Ninho do Boitatá | Chefe | 25 | em breve (MVP) | A serpente de fogo, enfurecida pela fumaça das queimadas, guarda o alto da chapada. | 0.286, 0.648 |
 | Arena da Queimada | Arena PVP | — | em breve (MVP) | Clareira de cerrado queimado onde os Viajantes se enfrentam. | 0.245, 0.765 |
 | Vila do Buriti | Vila | — | não alcançada | Casas de palafita entre buritis, na foz do grande rio. | 0.360, 0.865 |
 | Mirante do Ipê Solitário | Marco | — | não alcançada | Um ipê roxo no topo das chapadas: dizem que dele se vê o mundo inteiro. | 0.245, 0.515 |
-| Caverna do Reino Encoberto | Masmorra | 12–30 | **aberto (existe no jogo)** | Sob as raízes da Mata, pegadas fundas levam a uma câmara de pedra de onde vem um uivo. | 0.335, 0.742 |
+| Caverna do Reino Encoberto | Masmorra | 12–60 | **aberto (existe no jogo)** | Sob as raízes da Mata, pegadas fundas levam a uma câmara de pedra de onde vem um uivo. | 0.335, 0.742 |
 | Serra Dourada | Vila | — | **aberto (existe no jogo)** | A Serra Resplandecente: casario de pedra no pico mais alto, acima do mar de nuvens da Chapada. | 0.292, 0.505 |
 | Selva de Ratanabá | Campo de caça | 20–30 | **aberto (existe no jogo)** | Trilhas de pirâmides engolidas pela selva e igarapés cheios de glifos que brilham. | 0.250, 0.565 |
 | Ruínas de Ratanabá | Masmorra | 24–38 | **aberto (existe no jogo)** | Uma escadaria submersa desce à cidade de pedra polida, onde sentinelas de obsidiana ainda montam guarda. | 0.218, 0.590 |
@@ -127,6 +127,7 @@ Cuidados culturais por região (resumo; valem os de `TITULOS-E-SKILLS.md` §5 e 
 | Charneca da Névoa | Campo de caça | 34–42 | **aberto (existe no jogo)** | Brejos e urzes cobertos de névoa leitosa; a Trilha dos Lamentos leva ao vilarejo esquecido. | 0.373, 0.610 |
 | Serra do Sumidouro | Campo de caça | 40–48 | **aberto (existe no jogo)** | Trilhas de cristal à beira da Garganta do Abismo, até a boca que engole a montanha. | 0.352, 0.648 |
 | Túneis da Terra Oca | Masmorra | 44–60 | **aberto (existe no jogo)** | Galerias titânicas de cristal sob a serra, onde tecelãs de sombra fiam no escuro e um titã dorme. | 0.316, 0.674 |
+| Abismo do Sumidouro | Masmorra | 50–56 | **aberto (existe no jogo)** | Um poço de pedra molhada sob o arraial, onde uma nuvem preta chove sozinha e barcos somem. | 0.352, 0.505 |
 | Brejo do Corpo-Seco | Masmorra | 20–30 | não alcançada | Charco de árvores mortas onde brasas frias vagam à noite. | 0.266, 0.702 |
 | Remanso da Iara | Masmorra | 25–35 | não alcançada | Um palácio afogado no fundo do rio; o canto que sobe dele confunde os barqueiros. | 0.283, 0.880 |
 | Toca do Mapinguari | Masmorra | 30–40 | não alcançada | Pegadas enormes levam a uma gruta no coração da mata. O cheiro chega antes do dono. | 0.395, 0.800 |
@@ -294,7 +295,7 @@ Cada masmorra de mistério traz um pedaço da pergunta que o jogo não responde 
 
 | Masmorra | Região | Níveis | Quem caiu aqui | A história | O que tem lá dentro |
 |---|---|---|---|---|---|
-| **Vagão Adormecido** | Terra do Sabiá | 40–55 | Os passageiros do **Noturno das 18h40**, um trem de passageiros do Outro Lado de uns noventa anos atrás, e o maquinista **Seu Aristides**. | O vagão atravessou a Florada inteiro e parou no meio da mata. Os barqueiros do Porto do Despertar resgataram os passageiros, que viraram gente da cidade: por isso o povo do porto sabe receber Viajantes e usa a palavra. O relógio do vagão parou na hora da travessia. | Corredores de vagão tomados por raízes; malas e lanternas que "lembram" os donos (monstros de memória); o apito do trem chama o chefe: o **Maquinista de Brasa**, a caldeira que bebeu Eco demais. |
+| **Vagão Adormecido** | Terra de Pindorama | 40–55 | Os passageiros do **Noturno das 18h40**, um trem de passageiros do Outro Lado de uns noventa anos atrás, e o maquinista **Seu Aristides**. | O vagão atravessou a Florada inteiro e parou no meio da mata. Os barqueiros do Porto do Despertar resgataram os passageiros, que viraram gente da cidade: por isso o povo do porto sabe receber Viajantes e usa a palavra. O relógio do vagão parou na hora da travessia. | Corredores de vagão tomados por raízes; malas e lanternas que "lembram" os donos (monstros de memória); o apito do trem chama o chefe: o **Maquinista de Brasa**, a caldeira que bebeu Eco demais. |
 | **Oficina das Horas Tortas** | Brumas Verdes | 50–65 | **Professor Honório Valença**, relojoeiro e inventor de uma época de lampiões a gás. | Construiu uma máquina para ver o futuro; no meio do salto, a Florada a puxou para cá. Caiu no meio de um **círculo de pedras erguido pelos antepassados do povo das Brumas**, cujo calendário de pedra ele passou anos estudando e admirando (os cadernos dele elogiam a precisão). A máquina ainda vaza tempo. | Salas em que o tempo anda para trás ou repete; inimigos que voltam alguns segundos; cópias atrasadas do próprio grupo. Chefe: **O Pêndulo**, a máquina desperta. |
 | **Casco Preso no Gelo** | Fiordes de Gelo | 50–65 | A tripulação do **Narval**, um navio que anda debaixo d'água, de um Outro Lado de uns sessenta invernos atrás. | Emergiu debaixo da geleira e ficou preso. O povo de Lumefiorde abrigou os doze tripulantes nos salões; alguns ficaram e ensinaram a consertar motores, outros aprenderam as sagas. O diário de bordo está em Lumefiorde. | Corredores de metal congelados, portas estanques, luzes vermelhas; o frio e o Eco criaram criaturas de gelo no casco. Chefe: o **Polvo Branco** abraçado ao casco. |
 | **A Antena que Escuta** | Estepe de Ferro | 50–65 | **Doutora Vera Lune**, astrônoma que estudava sinais do céu num observatório do Outro Lado. | A grande concha de metal do observatório atravessou junto com ela. As tecelãs e os marceneiros de Zharogrado a ajudaram a firmar a antena no bosque. Ela descobriu que a Florada tem um "som" e passou a vida anotando-o: **os cadernos dela são a melhor pista sobre a origem da Florada** (gancho de temporada; não responder no MVP). | A antena ainda escuta e atrai criaturas que seguem o som; andaimes viram trilhas no alto; sala de máquinas que zumbe. Chefe: **Coro de Estática**, uma revoada de pássaros de fogo presa no sinal. |
@@ -302,7 +303,7 @@ Cada masmorra de mistério traz um pedaço da pergunta que o jogo não responde 
 | **Cápsula da Estrela Caída** | Areias do Nilo | 50–65 | **Comandante Dalva Siqueira**, astronauta de um Outro Lado de um futuro próximo. | Na volta para casa, a cápsula entrou na Florada e caiu nas dunas. Os escribas de Sesháris a acolheram; ela se espantou ao ver que **os mapas do céu dos escribas eram mais precisos que os dela** e passou a estudar com eles. A voz de bordo da cápsula, **CORA**, continua ligada e tenta "consertar" o deserto. | Corredores de metal meio enterrados; robôs de areia montados por CORA; tempestades de areia dentro da masmorra. Chefe: **CORA desperta** (resolver em vez de destruir pode ser uma quest). |
 | **Nave Albatroz** | Selvas de Obsidiana | 50–65 | **Capitã Rosália Ventania** e sua tripulação, de **outro mundo** (não da Terra) onde navios voavam com balões de gás e relâmpago preso em garrafas. | A nave rasgou o céu na Florada e encalhou na copa da selva. O povo de Itzcalli resgatou a tripulação, que aprendeu a viver na selva e ensinou a remendar velas. O motor ainda solta raios. | Conveses pendurados entre as árvores; pontes de corda; criaturas feitas de relâmpago. Chefe: o **Motor Trovejante**. |
 
-Todas começam como "terra ainda não alcançada". Ordem sugerida de abertura: a do Brasil (Vagão Adormecido) junto com a expansão pós-MVP da Terra do Sabiá; as outras junto com cada região.
+Todas começam como "terra ainda não alcançada". Ordem sugerida de abertura: a do Brasil (Vagão Adormecido) junto com a expansão pós-MVP da Terra de Pindorama; as outras junto com cada região.
 
 ---
 
@@ -322,7 +323,7 @@ As tabelas geradas no fim da seção 3 listam posições e textos. Resumo:
 |---|---|---|
 | **Baleia-Ilha** | Mar das Pétalas | Sim: **chefe de evento** mundial (a "ilha" acorda); ótimo para temporada. |
 | **Serpente-Pato** | costa oeste da Selva | Sim: monstro raro e engraçado de praia (fofo + ameaçador, GDD §17.0.1). |
-| **Sapo-Gigante do Mar** | sudoeste | Sim: elite de manguezal (Selvas ou Sabiá). |
+| **Sapo-Gigante do Mar** | sudoeste | Sim: elite de manguezal (Selvas ou Pindorama). |
 | **Baleia-Velha e a Enguia de Tinta** | Mar do Meio | A enguia sim (monstro de navegação); a baleia fica como NPC/paisagem. |
 | **Serpente das Brumas** | ilha da Oficina das Horas Tortas | Sim: monstro de campo das Brumas (aparece com a névoa azul). |
 | **Fera da Charneca** | Reino das Mouras | Sim: filhote da Coca (estágio Normal da espécie da dragoa, GDD §10.6). |

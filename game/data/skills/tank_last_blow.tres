@@ -18,9 +18,9 @@ extra = Dictionary[StringName, Variant]({
 &"missing_hp_bonus": 1.5
 })
 vfx = &"slash"
-exclusive_to_title = &"sabia_tank_mapinguari"
+exclusive_to_title = &"pindorama_tank_mapinguari"
 icon_text = "UP"
-tree_title = &"sabia_tank_mapinguari"
+tree_title = &"pindorama_tank_mapinguari"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"tank_mapinguari_howl": 3

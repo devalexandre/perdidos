@@ -41,7 +41,7 @@ leash_cells = 20
 xp_reward = 14000
 stars_min = 400
 stars_max = 720
-behaviors = Array[StringName]([&"boss"])
+behaviors = Array[StringName]([&"boss", &"boitata_phases"])
 
 [sub_resource type="Resource" id="stage_atroz"]
 script = ExtResource("2_stage")
@@ -61,7 +61,7 @@ xp_reward = 14000
 stars_min = 400
 stars_max = 720
 drops = Array[ExtResource("3_drop")]([SubResource("drop_0"), SubResource("drop_1"), SubResource("drop_2")])
-behaviors = Array[StringName]([&"boss"])
+behaviors = Array[StringName]([&"boss", &"boitata_phases"])
 
 [resource]
 script = ExtResource("1_monster")
@@ -72,4 +72,3 @@ respawn_sec = 3600.0
 can_be_rare = false
 atroz_stat_multiplier = 1.0
 story_boss = true
-art_pending = true

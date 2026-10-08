@@ -54,6 +54,9 @@ func _ready() -> void:
 	_view = CLIENT_VIEW_SCENE.instantiate() as ClientView
 	add_child(_view)
 	_ui = _view.get_game_ui()
+	var settings_label: Label = _ui.settings.find_child("PadStatus", true, false) as Label
+	_check(settings_label.get_theme_color(&"font_color") == UIKit.COLOR_TEXT,
+			"janela escura mantém texto legível sem override local")
 	_ui.bind_net(_net)
 	_view.interact_requested.connect(func(t: String) -> void: _interacts.append(t))
 	_view.set_follow_target(_player)
@@ -83,6 +86,16 @@ func _shot(file: String) -> void:
 func _run() -> void:
 	await _frames(SETTLE_FRAMES)
 	_check(_ui != null, "ClientView criou o GameUI")
+	_ui.crendice_altar.set_equipment_data({&"weapon": &"machete"})
+	_check(_ui.crendice_altar.get("_equip")[&"weapon"].item == "machete",
+			"altar aceita os IDs de equipamento enviados pelo cliente")
+	_ui.crendice_altar.set_equipment_data({&"weapon": {"item": "machete", "crendices": ["figa_de_madeira"]}})
+	_check(_ui.crendice_altar.get("_equip")[&"weapon"].crendices == ["figa_de_madeira"],
+			"altar preserva dados ricos de encaixe")
+	_ui.crendice_altar._show_amulet_details(CrendiceDatabase.get_crendice(&"figa_de_madeira"))
+	_check(_ui.crendice_altar.get("_details_name").text == UIKit.item_name(Content.item(&"figa_de_madeira")),
+			"altar mostra nome legível do amuleto selecionado")
+	_check(not _ui.crendice_altar.get("_details_superstition").text.is_empty(), "altar mostra superstição traduzida")
 	_check(_view.get_audio_director() != null and AudioDirector.instance != null, "AudioDirector ativo")
 	_check(AudioServer.get_bus_index(&"Music") >= 0 and AudioServer.get_bus_index(&"UI") >= 0,
 			"barramentos Music/UI existem")
@@ -296,7 +309,7 @@ func _test_party() -> void:
 	var state: Dictionary = {"leader": my_name, "max": 5, "xp_mode": "split", "members": [
 		{"name": my_name, "level": 3, "hp": 50, "max_hp": 100, "mp": 10, "max_mp": 20, "map": "city_awakening",
 				"online": true, "is_leader": true, "entity_id": 1},
-		{"name": "Amiga", "level": 4, "hp": 80, "max_hp": 100, "mp": 5, "max_mp": 20, "map": "fields_sabia",
+		{"name": "Amiga", "level": 4, "hp": 80, "max_hp": 100, "mp": 5, "max_mp": 20, "map": "fields_pindorama",
 				"online": true, "is_leader": false, "entity_id": 2},
 		{"name": "Sumido", "level": 2, "hp": 0, "max_hp": 1, "mp": 0, "max_mp": 1, "map": "",
 				"online": false, "is_leader": false, "entity_id": 0}]}
@@ -379,19 +392,25 @@ func _test_paper_doll_order() -> void:
 	var cam: Camera3D = _view.get_camera()
 	var cases: Array[Array] = [[PI, [&"Body", &"Head", &"WeaponFront"]], [0.0, [&"WeaponBack", &"Body", &"Head"]],
 			[PI * 0.25, [&"WeaponBack", &"Body", &"Head"]]]
+	# Ordem das camadas por setor: sem a virada suave (passaria pelos setores do meio).
+	var saved_turn: float = _player.turn_step_ms
+	_player.turn_step_ms = 0.0
 	for c: Array in cases:
 		_player.facing_yaw = c[0]
 		_player._process(0.0)
 		var got: Array[StringName] = _player.get_visible_layer_order()
 		_check(str(got) == str(c[1]), "camadas yaw %.2f: %s" % [c[0], got])
 		var hat: Sprite3D = _player.get_overlay_sprite(&"Head")
-		_check(hat.flip_h == _player.get_body_sprite().flip_h and hat.frame % hat.hframes
-				== _player.get_body_sprite().frame % _player.get_body_sprite().hframes,
+		# Camada com outra contagem de quadros acompanha o corpo pelo tempo (overlay_column).
+		var body: Sprite3D = _player.get_body_sprite()
+		var want_col: int = DirectionalSprite3D.overlay_column(body.frame % body.hframes, body.hframes, hat.hframes)
+		_check(hat.flip_h == body.flip_h and hat.frame % hat.hframes == want_col,
 				"chapéu no mesmo quadro/espelho do corpo (yaw %.2f)" % c[0])
 		# Ordem de profundidade: camada da frente mais perto da câmera.
 		var body_d: float = cam.global_position.distance_to(_player.get_body_sprite().global_position)
 		var hat_d: float = cam.global_position.distance_to(hat.global_position)
 		_check(hat_d < body_d, "chapéu mais perto da câmera que o corpo")
+	_player.turn_step_ms = saved_turn
 	_player.facing_yaw = PI
 
 
@@ -428,7 +447,8 @@ func _test_audio() -> void:
 	map.add_child(deck)
 	$World.add_child(map)
 	audio.set_map(map)
-	await _frames(SETTLE_FRAMES)
+	# A zona é atualizada por tempo, não por número de quadros.
+	await get_tree().create_timer(AudioDirector.ZONE_CHECK_SEC * 2.0).timeout
 	_check(audio.current_zone == AudioDirector.DEFAULT_ZONE, "zona padrão fora das docas (%s)" % audio.current_zone)
 	_player.position = ZONE_POS
 	await get_tree().create_timer(AudioDirector.ZONE_CHECK_SEC * 2.0).timeout

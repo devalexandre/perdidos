@@ -15,13 +15,13 @@ RULES_TT_STYLE,"%s
 Para conquistá-lo, você aprende: %s."
 RULES_TT_NO_SKILLS,as skills que eu ensino na minha terra
 RULES_TT_CITY_OPEN,"Quem conquista este título começa a jornada em %s, quando sair do Campo de Treino. Se este é o seu caminho, peça a quest do título."
-RULES_TT_CITY_CLOSED,"Este título começa na minha terra, %s, mas a travessia para lá ainda não está aberta. Por enquanto, escolha um Mestre da Terra do Sabiá."
+RULES_TT_CITY_CLOSED,"Este título começa na minha terra, %s, mas a travessia para lá ainda não está aberta. Por enquanto, escolha um Mestre da Terra de Pindorama."
 RULES_TT_OPT_STYLE,E como se luta com ele?
 RULES_TT_OPT_CITY,Onde eu começaria com ele?
 RULES_TT_OPT_BACK,Quero falar de outra coisa.
 RULES_TT_OPT_THANKS,"Obrigado, vou pensar."
-RULES_TT_BLADE_SABIA_STYLE,"É o caminho de quem luta de perto: facão na mão, pé firme no chão. Você aguenta pancada, avança no bicho e derruba grupos com golpes em volta. Força e Vitalidade são os seus melhores amigos."
-RULES_TT_ARCANE_SABIA_STYLE,"É o caminho de quem luta de longe: faísca, gelo e chama. Você controla a distância, gela quem chega perto e queima áreas inteiras. Intelecto e Espírito sustentam a sua mana."
+RULES_TT_BLADE_PINDORAMA_STYLE,"É o caminho de quem luta de perto: facão na mão, pé firme no chão. Você aguenta pancada, avança no bicho e derruba grupos com golpes em volta. Força e Vitalidade são os seus melhores amigos."
+RULES_TT_ARCANE_PINDORAMA_STYLE,"É o caminho de quem luta de longe: faísca, gelo e chama. Você controla a distância, gela quem chega perto e queima áreas inteiras. Intelecto e Espírito sustentam a sua mana."
 RULES_TT_GUIOMAR_TITLE,Alabarda da Muralha
 RULES_TT_GUIOMAR_DESC,A haste longa que guarda as muralhas do Reino das Mouras.
 RULES_TT_GUIOMAR_STYLE,"Você luta a três células de distância: varre em arco, segura a fila e não deixa ninguém passar."

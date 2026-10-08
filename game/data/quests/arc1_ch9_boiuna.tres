@@ -30,7 +30,7 @@ target_id = &"black_scale"
 count = 5
 text_key = "QUEST_ARC1_CH9_STEP_3"
 scale_with_titles = false
-drop_from = &"river_anaconda"
+drop_from = &"abyss_river_anaconda"
 drop_chance = 0.3
 collect_keep = true
 
@@ -53,7 +53,7 @@ script = ExtResource("1_quest")
 id = &"arc1_ch9_boiuna"
 name_key = "QUEST_ARC1_CH9_NAME"
 giver_npc = &"dona_ana_sumidouro"
-region_id = &"sabia"
+region_id = &"pindorama"
 steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4")])
 reward_items = Dictionary[StringName, int]({
 &"black_storm_bow": 1
@@ -67,4 +67,3 @@ option_text_key = "QUEST_ARC1_CH9_OPTION"
 desc_key = "QUEST_ARC1_CH9_DESC"
 required_quests = Array[StringName]([&"arc1_ch4_curupira"])
 requires_left_training = true
-released = false

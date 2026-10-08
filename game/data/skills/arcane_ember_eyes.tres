@@ -23,9 +23,9 @@ extra = Dictionary[StringName, Variant]({
 &"matk_pct_per_level": 0.02
 })
 vfx = &"buff"
-exclusive_to_title = &"sabia_arcane_boitata"
+exclusive_to_title = &"pindorama_arcane_boitata"
 icon_text = "OB"
-tree_title = &"sabia_arcane_boitata"
+tree_title = &"pindorama_arcane_boitata"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"arcane_star_step": 3

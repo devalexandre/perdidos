@@ -255,7 +255,7 @@ drops = Array[ExtResource("drop")]([{", ".join(drops_list)}])"""
             "[resource]",
             f"""script = ExtResource("monster")
 id = &"{mid}"
-region_id = &"sabia"
+region_id = &"pindorama"
 creature_type = &"beast"
 stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])""",
         ]
@@ -880,7 +880,7 @@ def build_dossel_de_z():
         map_id="jungle_z_trail",
         name_key="ZONE_JUNGLE_Z_TRAIL_NAME",
         kind=2,
-        region_id="sabia",
+        region_id="pindorama",
         lvl_min=30,
         lvl_max=34,
         connected_maps=["city_serra_dourada", "jungle_z_river", "jungle_z_gate", "jungle_ratanaba_trail"],
@@ -929,7 +929,7 @@ def build_dossel_de_z():
         map_id="jungle_z_river",
         name_key="ZONE_JUNGLE_Z_RIVER_NAME",
         kind=2,
-        region_id="sabia",
+        region_id="pindorama",
         lvl_min=32,
         lvl_max=36,
         connected_maps=["jungle_z_trail", "jungle_z_gate"],
@@ -988,7 +988,7 @@ def build_dossel_de_z():
         map_id="jungle_z_gate",
         name_key="ZONE_JUNGLE_Z_GATE_NAME",
         kind=2,
-        region_id="sabia",
+        region_id="pindorama",
         lvl_min=34,
         lvl_max=38,
         connected_maps=["jungle_z_trail", "jungle_z_river", "city_of_z_1"],
@@ -1047,7 +1047,7 @@ def build_city_of_z_floors():
         map_id="city_of_z_1",
         name_key="ZONE_CITY_OF_Z_F1_NAME",
         kind=2,
-        region_id="sabia",
+        region_id="pindorama",
         lvl_min=35,
         lvl_max=38,
         connected_maps=["jungle_z_gate", "city_of_z_2"],
@@ -1102,7 +1102,7 @@ def build_city_of_z_floors():
         map_id="city_of_z_2",
         name_key="ZONE_CITY_OF_Z_F2_NAME",
         kind=2,
-        region_id="sabia",
+        region_id="pindorama",
         lvl_min=37,
         lvl_max=40,
         connected_maps=["city_of_z_1", "city_of_z_3"],
@@ -1158,7 +1158,7 @@ def build_city_of_z_floors():
         map_id="city_of_z_3",
         name_key="ZONE_CITY_OF_Z_F3_NAME",
         kind=2,
-        region_id="sabia",
+        region_id="pindorama",
         lvl_min=39,
         lvl_max=42,
         connected_maps=["city_of_z_2", "city_of_z_4"],
@@ -1225,7 +1225,7 @@ def build_city_of_z_floors():
         map_id="city_of_z_4",
         name_key="ZONE_CITY_OF_Z_F4_NAME",
         kind=2,
-        region_id="sabia",
+        region_id="pindorama",
         lvl_min=41,
         lvl_max=44,
         connected_maps=["city_of_z_3", "jungle_z_gate"],

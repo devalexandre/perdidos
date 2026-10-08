@@ -112,6 +112,7 @@ var _hover_node: Node = null
 var _game_ui: GameUI = null
 var _audio: AudioDirector = null
 var _listener: AudioListener3D = null
+var _rain: RainOverlay = null
 
 ## Cria a interface do jogo (GameUI) e o AudioDirector. Testes de render podem desligar.
 @export var create_game_ui: bool = true
@@ -152,9 +153,9 @@ func _ready() -> void:
 	_game_view.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_game_view.stretch_mode = TextureRect.STRETCH_SCALE
 	_game_view.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var rain := RainOverlay.new()
-	rain.name = &"RainOverlay"
-	_game_view.add_child(rain)
+	_rain = RainOverlay.new()
+	_rain.name = &"RainOverlay"
+	_game_view.add_child(_rain)
 	if _native:
 		_screen_mat = ShaderMaterial.new()
 		_screen_mat.shader = SCREEN_POST_SHADER
@@ -430,6 +431,7 @@ func _process(delta: float) -> void:
 	if rotate_axis != 0.0:
 		camera_yaw += rotate_axis * deg_to_rad(Balance.cfg.camera_rotate_speed_deg) * delta
 	_update_camera(delta)
+	_rain.focus_position = _focus
 	_update_env_quality()
 	_update_scene_sun()
 	_update_hold_walk()

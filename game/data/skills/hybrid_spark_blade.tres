@@ -24,7 +24,7 @@ extra = Dictionary[StringName, Variant]({
 })
 requires_melee_weapon = true
 vfx = &"spark"
-exclusive_to_title = &"sabia_hybrid_ember"
+exclusive_to_title = &"pindorama_hybrid_ember"
 icon_text = "LF"
-tree_title = &"sabia_hybrid_ember"
+tree_title = &"pindorama_hybrid_ember"
 tree_order = 1

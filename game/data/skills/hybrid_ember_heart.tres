@@ -25,9 +25,9 @@ extra = Dictionary[StringName, Variant]({
 &"matk_pct_per_level": 0.01
 })
 vfx = &"buff"
-exclusive_to_title = &"sabia_hybrid_ember"
+exclusive_to_title = &"pindorama_hybrid_ember"
 icon_text = "CO"
-tree_title = &"sabia_hybrid_ember"
+tree_title = &"pindorama_hybrid_ember"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"hybrid_steel_spark": 3

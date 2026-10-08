@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_title"]
+
+[resource]
+script = ExtResource("1_title")
+id = &"pindorama_bow_cerrado"
+name_key = "TITLE_PINDORAMA_BOW_CERRADO_NAME"
+archetype = &"bow"
+tier = 1
+required_skills = Array[StringName]([&"bow_low_shot", &"bow_double_arrow", &"bow_taut_draw"])
+color = Color(0.30980393, 0.65882355, 0.627451, 1)
+desc_key = "TITLE_PINDORAMA_BOW_CERRADO_DESC"
+sort_order = 40
+outfit_id = &"title_cerrado"
+cloth_colors = PackedColorArray(0.4196, 0.4588, 0.2471, 1, 0.8784, 0.6667, 0.1647, 1)
+master_npc = &"master_taquari"
+bonus_skills = Array[StringName]([&"bow_fletching"])

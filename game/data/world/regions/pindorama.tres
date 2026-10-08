@@ -1,0 +1,343 @@
+[gd_resource type="Resource" script_class="WorldRegionDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/world_region_def.gd" id="region"]
+[ext_resource type="Script" path="res://scripts/shared/data/world_place_def.gd" id="place"]
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("place")
+id = &"porto_despertar"
+region_id = &"pindorama"
+kind = 0
+status = 0
+name_key = "WA_P_PORTO_DESPERTAR"
+hook_key = "WA_P_PORTO_DESPERTAR_HOOK"
+pos = Vector2(0.315, 0.79)
+level_min = 0
+level_max = 0
+map_id = &"city_awakening"
+
+[sub_resource type="Resource" id="p1"]
+script = ExtResource("place")
+id = &"campo_treino"
+region_id = &"pindorama"
+kind = 9
+status = 0
+name_key = "WA_P_CAMPO_TREINO"
+hook_key = "WA_P_CAMPO_TREINO_HOOK"
+pos = Vector2(0.405, 0.612)
+level_min = 1
+level_max = 10
+map_id = &"training_field"
+
+[sub_resource type="Resource" id="p2"]
+script = ExtResource("place")
+id = &"campos_pindorama"
+region_id = &"pindorama"
+kind = 2
+status = 0
+name_key = "WA_P_CAMPOS_PINDORAMA"
+hook_key = "WA_P_CAMPOS_PINDORAMA_HOOK"
+pos = Vector2(0.42, 0.69)
+level_min = 1
+level_max = 10
+map_ids = Array[StringName]([&"fields_pindorama_buriti", &"fields_pindorama_crossroads"])
+map_id = &"fields_pindorama"
+
+[sub_resource type="Resource" id="p3"]
+script = ExtResource("place")
+id = &"mata_encantada"
+region_id = &"pindorama"
+kind = 2
+status = 0
+name_key = "WA_P_MATA_ENCANTADA"
+hook_key = "WA_P_MATA_ENCANTADA_HOOK"
+pos = Vector2(0.35, 0.725)
+level_min = 6
+level_max = 12
+map_ids = Array[StringName]([&"enchanted_forest_glade", &"enchanted_forest_roots", &"enchanted_forest_heart"])
+map_id = &"enchanted_forest"
+
+[sub_resource type="Resource" id="p4"]
+script = ExtResource("place")
+id = &"chapada_ceu_partido"
+region_id = &"pindorama"
+kind = 2
+status = 0
+name_key = "WA_P_CHAPADA_CEU_PARTIDO"
+hook_key = "WA_P_CHAPADA_CEU_PARTIDO_HOOK"
+pos = Vector2(0.318, 0.585)
+level_min = 12
+level_max = 25
+map_ids = Array[StringName]([&"split_sky_plateau_ridges", &"split_sky_plateau_summit"])
+map_id = &"split_sky_plateau"
+
+[sub_resource type="Resource" id="p5"]
+script = ExtResource("place")
+id = &"ninho_boitata"
+region_id = &"pindorama"
+kind = 5
+status = 1
+name_key = "WA_P_NINHO_BOITATA"
+hook_key = "WA_P_NINHO_BOITATA_HOOK"
+pos = Vector2(0.286, 0.648)
+level_min = 25
+level_max = 25
+
+[sub_resource type="Resource" id="p6"]
+script = ExtResource("place")
+id = &"arena_queimada"
+region_id = &"pindorama"
+kind = 8
+status = 1
+name_key = "WA_P_ARENA_QUEIMADA"
+hook_key = "WA_P_ARENA_QUEIMADA_HOOK"
+pos = Vector2(0.245, 0.765)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p7"]
+script = ExtResource("place")
+id = &"vila_buriti"
+region_id = &"pindorama"
+kind = 1
+status = 2
+name_key = "WA_P_VILA_BURITI"
+hook_key = "WA_P_VILA_BURITI_HOOK"
+pos = Vector2(0.36, 0.865)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p8"]
+script = ExtResource("place")
+id = &"mirante_ipe"
+region_id = &"pindorama"
+kind = 6
+status = 2
+name_key = "WA_P_MIRANTE_IPE"
+hook_key = "WA_P_MIRANTE_IPE_HOOK"
+pos = Vector2(0.245, 0.515)
+level_min = 0
+level_max = 0
+
+[sub_resource type="Resource" id="p9"]
+script = ExtResource("place")
+id = &"caverna_reino_encoberto"
+region_id = &"pindorama"
+kind = 3
+status = 0
+name_key = "WA_P_CAVERNA_REINO_ENCOBERTO"
+hook_key = "WA_P_CAVERNA_REINO_ENCOBERTO_HOOK"
+pos = Vector2(0.335, 0.742)
+level_min = 12
+level_max = 60
+map_ids = Array[StringName]([&"cave_reino_encoberto_2", &"cave_reino_encoberto_3", &"cave_reino_encoberto_4", &"cave_reino_encoberto_5"])
+map_id = &"cave_reino_encoberto"
+
+[sub_resource type="Resource" id="p10"]
+script = ExtResource("place")
+id = &"serra_dourada"
+region_id = &"pindorama"
+kind = 1
+status = 0
+name_key = "WA_P_SERRA_DOURADA"
+hook_key = "WA_P_SERRA_DOURADA_HOOK"
+pos = Vector2(0.292, 0.505)
+level_min = 0
+level_max = 0
+map_id = &"city_serra_dourada"
+
+[sub_resource type="Resource" id="p11"]
+script = ExtResource("place")
+id = &"selva_ratanaba"
+region_id = &"pindorama"
+kind = 2
+status = 0
+name_key = "WA_P_SELVA_RATANABA"
+hook_key = "WA_P_SELVA_RATANABA_HOOK"
+pos = Vector2(0.25, 0.565)
+level_min = 20
+level_max = 30
+map_ids = Array[StringName]([&"jungle_ratanaba_waterfall", &"jungle_ratanaba_gate"])
+map_id = &"jungle_ratanaba_trail"
+
+[sub_resource type="Resource" id="p12"]
+script = ExtResource("place")
+id = &"ruinas_ratanaba"
+region_id = &"pindorama"
+kind = 3
+status = 0
+name_key = "WA_P_RUINAS_RATANABA"
+hook_key = "WA_P_RUINAS_RATANABA_HOOK"
+pos = Vector2(0.218, 0.59)
+level_min = 24
+level_max = 38
+map_ids = Array[StringName]([&"ruins_ratanaba_2", &"ruins_ratanaba_3", &"ruins_ratanaba_4"])
+map_id = &"ruins_ratanaba_1"
+
+[sub_resource type="Resource" id="p13"]
+script = ExtResource("place")
+id = &"dossel_z"
+region_id = &"pindorama"
+kind = 2
+status = 0
+name_key = "WA_P_DOSSEL_Z"
+hook_key = "WA_P_DOSSEL_Z_HOOK"
+pos = Vector2(0.268, 0.608)
+level_min = 30
+level_max = 38
+map_ids = Array[StringName]([&"jungle_z_river", &"jungle_z_gate"])
+map_id = &"jungle_z_trail"
+
+[sub_resource type="Resource" id="p14"]
+script = ExtResource("place")
+id = &"cidade_perdida_z"
+region_id = &"pindorama"
+kind = 3
+status = 0
+name_key = "WA_P_CIDADE_PERDIDA_Z"
+hook_key = "WA_P_CIDADE_PERDIDA_Z_HOOK"
+pos = Vector2(0.236, 0.667)
+level_min = 35
+level_max = 44
+map_ids = Array[StringName]([&"city_of_z_2", &"city_of_z_3", &"city_of_z_4"])
+map_id = &"city_of_z_1"
+
+[sub_resource type="Resource" id="p15"]
+script = ExtResource("place")
+id = &"arraial_sumidouro"
+region_id = &"pindorama"
+kind = 1
+status = 0
+name_key = "WA_P_ARRAIAL_SUMIDOURO"
+hook_key = "WA_P_ARRAIAL_SUMIDOURO_HOOK"
+pos = Vector2(0.34, 0.53)
+level_min = 0
+level_max = 0
+map_id = &"city_sumidouro"
+
+[sub_resource type="Resource" id="p16"]
+script = ExtResource("place")
+id = &"vilarejo_hoer_verde"
+region_id = &"pindorama"
+kind = 3
+status = 0
+name_key = "WA_P_VILAREJO_HOER_VERDE"
+hook_key = "WA_P_VILAREJO_HOER_VERDE_HOOK"
+pos = Vector2(0.378, 0.543)
+level_min = 38
+level_max = 52
+map_ids = Array[StringName]([&"hoer_verde_2", &"hoer_verde_3", &"hoer_verde_4"])
+map_id = &"hoer_verde_1"
+
+[sub_resource type="Resource" id="p17"]
+script = ExtResource("place")
+id = &"charneca_nevoa"
+region_id = &"pindorama"
+kind = 2
+status = 0
+name_key = "WA_P_CHARNECA_NEVOA"
+hook_key = "WA_P_CHARNECA_NEVOA_HOOK"
+pos = Vector2(0.373, 0.61)
+level_min = 34
+level_max = 42
+map_ids = Array[StringName]([&"fog_moor_swamp", &"fog_moor_gate"])
+map_id = &"fog_moor_trail"
+
+[sub_resource type="Resource" id="p18"]
+script = ExtResource("place")
+id = &"serra_sumidouro"
+region_id = &"pindorama"
+kind = 2
+status = 0
+name_key = "WA_P_SERRA_SUMIDOURO"
+hook_key = "WA_P_SERRA_SUMIDOURO_HOOK"
+pos = Vector2(0.352, 0.648)
+level_min = 40
+level_max = 48
+map_ids = Array[StringName]([&"hollow_mountain_gorge", &"hollow_mountain_gate"])
+map_id = &"hollow_mountain_trail"
+
+[sub_resource type="Resource" id="p19"]
+script = ExtResource("place")
+id = &"terra_oca"
+region_id = &"pindorama"
+kind = 3
+status = 0
+name_key = "WA_P_TERRA_OCA"
+hook_key = "WA_P_TERRA_OCA_HOOK"
+pos = Vector2(0.316, 0.674)
+level_min = 44
+level_max = 60
+map_ids = Array[StringName]([&"hollow_earth_2", &"hollow_earth_3", &"hollow_earth_4", &"hollow_earth_5", &"hollow_earth_cauldron"])
+map_id = &"hollow_earth_1"
+
+[sub_resource type="Resource" id="p20"]
+script = ExtResource("place")
+id = &"abismo_sumidouro"
+region_id = &"pindorama"
+kind = 3
+status = 0
+name_key = "WA_P_ABISMO_SUMIDOURO"
+hook_key = "WA_P_ABISMO_SUMIDOURO_HOOK"
+pos = Vector2(0.352, 0.505)
+level_min = 50
+level_max = 56
+map_id = &"sumidouro_abyss"
+
+[sub_resource type="Resource" id="p21"]
+script = ExtResource("place")
+id = &"brejo_corpo_seco"
+region_id = &"pindorama"
+kind = 3
+status = 2
+name_key = "WA_P_BREJO_CORPO_SECO"
+hook_key = "WA_P_BREJO_CORPO_SECO_HOOK"
+pos = Vector2(0.266, 0.702)
+level_min = 20
+level_max = 30
+
+[sub_resource type="Resource" id="p22"]
+script = ExtResource("place")
+id = &"remanso_iara"
+region_id = &"pindorama"
+kind = 3
+status = 2
+name_key = "WA_P_REMANSO_IARA"
+hook_key = "WA_P_REMANSO_IARA_HOOK"
+pos = Vector2(0.283, 0.88)
+level_min = 25
+level_max = 35
+
+[sub_resource type="Resource" id="p23"]
+script = ExtResource("place")
+id = &"toca_mapinguari"
+region_id = &"pindorama"
+kind = 3
+status = 2
+name_key = "WA_P_TOCA_MAPINGUARI"
+hook_key = "WA_P_TOCA_MAPINGUARI_HOOK"
+pos = Vector2(0.395, 0.8)
+level_min = 30
+level_max = 40
+
+[sub_resource type="Resource" id="p24"]
+script = ExtResource("place")
+id = &"vagao_adormecido"
+region_id = &"pindorama"
+kind = 4
+status = 2
+name_key = "WA_P_VAGAO_ADORMECIDO"
+hook_key = "WA_P_VAGAO_ADORMECIDO_HOOK"
+pos = Vector2(0.42, 0.748)
+level_min = 40
+level_max = 55
+
+[resource]
+script = ExtResource("region")
+id = &"pindorama"
+name_key = "WA_R_PINDORAMA"
+hook_key = "WA_R_PINDORAMA_HOOK"
+inspiration = "Brasil"
+label_pos = Vector2(0.325, 0.47)
+reached = true
+places = Array[ExtResource("place")]([SubResource("p0"), SubResource("p1"), SubResource("p2"), SubResource("p3"), SubResource("p4"), SubResource("p5"), SubResource("p6"), SubResource("p7"), SubResource("p8"), SubResource("p9"), SubResource("p10"), SubResource("p11"), SubResource("p12"), SubResource("p13"), SubResource("p14"), SubResource("p15"), SubResource("p16"), SubResource("p17"), SubResource("p18"), SubResource("p19"), SubResource("p20"), SubResource("p21"), SubResource("p22"), SubResource("p23"), SubResource("p24")])

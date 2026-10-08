@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="mdef"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.35
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="potion_1"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.08
+
+[sub_resource type="Resource" id="stage1"]
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_DEEP_CINDER_SERPENT_S1_NAME"
+sprite_base = "res://assets/monsters/deep_cinder_serpent/mon_deep_cinder_serpent_s1"
+baked_life = true
+visual_scale = 1.1
+level = 55
+max_hp = 6175
+atk = 228
+matk = 0
+def = 110
+mdef = 112
+walk_ms_per_cell = 500
+attack_range_cells = 1.6
+attack_interval_ms = 1350
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 1100
+stars_min = 27
+stars_max = 65
+behaviors = Array[StringName]([])
+drops = Array[ExtResource("drop")]([SubResource("drop_1"), SubResource("potion_1")])
+
+[sub_resource type="Resource" id="drop_2"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.35
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="potion_2"]
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.08
+
+[sub_resource type="Resource" id="stage2"]
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_DEEP_CINDER_SERPENT_S2_NAME"
+sprite_base = "res://assets/monsters/deep_cinder_serpent/mon_deep_cinder_serpent_s2"
+baked_life = true
+visual_scale = 1.3
+level = 58
+max_hp = 9002
+atk = 237
+matk = 0
+def = 115
+mdef = 116
+walk_ms_per_cell = 470
+attack_range_cells = 1.6
+attack_interval_ms = 1200
+aggressive = true
+aggro_range_cells = 6
+leash_cells = 12
+xp_reward = 2320
+stars_min = 29
+stars_max = 68
+behaviors = Array[StringName]([])
+drops = Array[ExtResource("drop")]([SubResource("drop_2"), SubResource("potion_2")])
+
+[resource]
+script = ExtResource("mdef")
+id = &"deep_cinder_serpent"
+region_id = &"brasil"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2")])
+respawn_sec = 45.0
+base_species = &"cinder_serpent"

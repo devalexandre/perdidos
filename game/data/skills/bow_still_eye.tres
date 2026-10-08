@@ -25,7 +25,7 @@ extra = Dictionary[StringName, Variant]({
 })
 requires_bow = true
 vfx = &"buff"
-exclusive_to_title = &"sabia_bow_cerrado"
+exclusive_to_title = &"pindorama_bow_cerrado"
 icon_text = "OP"
-tree_title = &"sabia_bow_gaviao"
+tree_title = &"pindorama_bow_gaviao"
 tree_order = 1

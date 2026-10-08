@@ -1,4 +1,4 @@
-"""Lamina da Terra do Sabia (30/09/2026): Amolar o Facao, Tronco de Aroeira e Garra da Onca.
+"""Lamina da Terra de Pindorama (30/09/2026): Amolar o Facao, Tronco de Aroeira e Garra da Onca.
 
 Cada skill tem uma peca-chave propria: pedra de amolar no facao, escudo de casca de aroeira com cachos de
 aroeira-vermelha, raizes rasgando o chao, casca grossa nas laterais do corpo, tronco que bate no chao,
@@ -10,7 +10,7 @@ import math
 import numpy as np
 
 from fxdraw import Canvas, Frame, Spr, blit, ease_in, ease_out, layer, lerp, piece, rng
-from fxsabia import (D, DUST, DUST_LINE, EMBER_G, JAG_EYES_PAL, JAG_EYES_TXT, JAGUAR_PAL, JAGUAR_TXT, LEAF,
+from fxpindorama import (D, DUST, DUST_LINE, EMBER_G, JAG_EYES_PAL, JAG_EYES_TXT, JAGUAR_PAL, JAGUAR_TXT, LEAF,
                      LEAF_LINE, LEAFLET_PAL, LEAFLET_TXT, RAGE_G, SAP_G, STEEL, STEEL_LINE, TAU, W_GOLD, W_PALE,
                      W_WHITE, WHET_PAL, WHET_TXT, WOOD, WOOD_LINE, claw_marks, dither_alpha, glow_ramp, leaf_poly,
                      puff, solid_ramp, spr)

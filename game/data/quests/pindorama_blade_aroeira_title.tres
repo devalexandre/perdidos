@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_qdef"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_qstep"]
+
+[sub_resource type="Resource" id="step_talk"]
+script = ExtResource("2_qstep")
+type = 3
+target_id = &"elder_ze_ferreiro"
+count = 1
+text_key = "QUEST_PINDORAMA_BLADE_AROEIRA_STEP_TALK"
+
+[sub_resource type="Resource" id="step_collect"]
+script = ExtResource("2_qstep")
+type = 1
+target_id = &"armadillo_shell"
+count = 4
+text_key = "QUEST_PINDORAMA_BLADE_AROEIRA_STEP_COLLECT"
+scale_with_titles = true
+
+[sub_resource type="Resource" id="step_kill"]
+script = ExtResource("2_qstep")
+type = 0
+target_id = &"stone_armadillo"
+count = 6
+text_key = "QUEST_PINDORAMA_BLADE_AROEIRA_STEP_KILL"
+scale_with_titles = true
+
+[sub_resource type="Resource" id="step_trial"]
+script = ExtResource("2_qstep")
+type = 4
+target_id = &"stone_armadillo"
+count = 1
+text_key = "QUEST_PINDORAMA_BLADE_AROEIRA_STEP_TRIAL"
+time_limit_sec = 90.0
+
+[sub_resource type="Resource" id="step_vet_relic"]
+script = ExtResource("2_qstep")
+type = 1
+target_id = &"ancient_shell_shard"
+count = 2
+text_key = "QUEST_VETERAN_RELIC_ANCIENT_SHELL_SHARD"
+scale_with_titles = false
+min_prior_titles = 1
+
+[sub_resource type="Resource" id="step_vet_boss"]
+script = ExtResource("2_qstep")
+target_id = &"stone_armadillo"
+count = 1
+text_key = "QUEST_VETERAN_BOSS_STONE_ARMADILLO"
+variant = &"boss"
+scale_with_titles = false
+min_prior_titles = 2
+
+[sub_resource type="Resource" id="step_vet_atroz"]
+script = ExtResource("2_qstep")
+target_id = &""
+count = 1
+text_key = "QUEST_VETERAN_ATROZ"
+variant = &"atroz"
+scale_with_titles = false
+min_prior_titles = 3
+
+[resource]
+script = ExtResource("1_qdef")
+id = &"pindorama_blade_aroeira_title"
+name_key = "QUEST_PINDORAMA_BLADE_AROEIRA_NAME"
+giver_npc = &"master_brisa"
+steps = Array[ExtResource("2_qstep")]([SubResource("step_talk"), SubResource("step_collect"), SubResource("step_vet_relic"), SubResource("step_kill"), SubResource("step_vet_boss"), SubResource("step_vet_atroz"), SubResource("step_trial")])
+training_title_quest = false
+required_titles = Array[StringName]([&"pindorama_blade_machete"])
+reward_skill = &"blade_iron_stance"
+reward_xp = 350
+hidden_until_eligible = false
+reward_title = &"pindorama_blade_aroeira"
+offer_text_key = "QUEST_PINDORAMA_BLADE_AROEIRA_OFFER"
+progress_text_key = "QUEST_PINDORAMA_BLADE_AROEIRA_PROGRESS"
+complete_text_key = "QUEST_PINDORAMA_BLADE_AROEIRA_COMPLETE"
+option_text_key = "QUEST_PINDORAMA_BLADE_AROEIRA_OPTION"
+desc_key = "QUEST_PINDORAMA_BLADE_AROEIRA_DESC"

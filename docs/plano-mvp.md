@@ -51,12 +51,12 @@ Arte roda em paralelo a todas as fases (trilha própria abaixo), sempre um passo
 | Grupos: convidar, aceitar, sair, expulsar, liderança; regra de reconexão de 3 min | 12 h |
 | Instâncias de caça por líder, ciclo de vida (5 min), troca de mapa por portal | 10 h |
 | Chat (local, grupo, sussurro), filtro, 1 msg/s; amigos e bloqueio | 12 h |
-| Mapa de caça 1 (Campos do Sabiá) em graybox para testar instâncias | 3 h |
+| Mapa de caça 1 (Campos de Pindorama) em graybox para testar instâncias | 3 h |
 
 ### F3 — Combate e mundo (≈ 120 h)
 | Tarefa | Esforço |
 |---|---|
-| Mapas: Campos do Sabiá (12 h), Mata Encantada (14 h), Chapada do Céu Partido — vitrine (20 h), Arena da Queimada (6 h) | 52 h |
+| Mapas: Campos de Pindorama (12 h), Mata Encantada (14 h), Chapada do Céu Partido — vitrine (20 h), Arena da Queimada (6 h) | 52 h |
 | IA de monstros (ocioso → patrulha → perseguição → ataque → retorno), spawn e respawn | 12 h |
 | Ataque básico, fórmulas §10.2, alvo, números de dano | 10 h |
 | Tabelas de drop, itens no chão, moeda Estrelas | 8 h |
@@ -137,11 +137,11 @@ O Blender 5.2.2 já está no projeto (`.tools/blender`), rodando sem janela, com
 | Etapa | O que fazer | Quando |
 |---|---|---|
 | 1. Critérios | Checklist do que é "atende a especificação": GDD §17.0.1 (DNA visual), §17.0.A (cenário pintado, obrigatório), §17.2 (tamanhos), §10.2.1 (combate vivo e tamanhos relativos), §10.6 (3 estágios distintos) | depois da entrega do Agente V |
-| 2. Auditoria | Prancha de cada monstro (9 estágios do Sabiá + 18 das outras nações) e de cada zona/mapa, comparada às referências do dono; nota por item: **mantém / ajusta / redesenha** | 1 dia |
+| 2. Auditoria | Prancha de cada monstro (9 estágios de Pindorama + 18 das outras nações) e de cada zona/mapa, comparada às referências do dono; nota por item: **mantém / ajusta / redesenha** | 1 dia |
 | 3. Protótipo de monstro em Blender | Pegar 1 monstro (Tatu-Pedra, os 3 estágios) e fazer em 3D estilizado no Blender, renderizado **para sprite pixel art** nas 5 direções e com todas as animações (câmera no ângulo do jogo, redução e quantização iguais às do Viajante). Comparar lado a lado com o sprite atual feito pela IA de imagem | 2–3 dias |
 | 4. Protótipo de cenário | Peças que os pacotes CC0 não têm (ipê, buriti, cupinzeiro, casario colonial, cristal, marcos das nações) feitas em Blender com as texturas pintadas | junto com o Agente V |
 | 5. Decisão do dono | Se o 3D→sprite for melhor: consistência entre direções e animações, estágios de evolução (mesmo modelo, maior e mais ameaçador), custo por monstro. Senão, seguir com a IA de imagem e só corrigir o que a auditoria apontar | depois do protótipo |
-| 6. Aplicação | Redesenhar só o que for marcado "redesenha", começando pelos monstros do Campo de Treino e da Terra do Sabiá | a estimar após a decisão |
+| 6. Aplicação | Redesenhar só o que for marcado "redesenha", começando pelos monstros do Campo de Treino e da Terra de Pindorama | a estimar após a decisão |
 
 **Por que avaliar:** com a IA de imagem, cada direção e cada quadro é gerado separado, e isso já causou problemas de consistência (direções trocadas, poses diferentes entre animações). Com um modelo 3D no Blender, todas as direções e animações saem do mesmo modelo, sempre coerentes, e os 3 estágios podem ser variações do mesmo modelo. O risco é perder o traço "desenhado à mão"; o protótipo serve para medir isso antes de decidir.
 

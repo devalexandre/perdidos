@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TitleDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/title_def.gd" id="1_title"]
+
+[resource]
+script = ExtResource("1_title")
+id = &"pindorama_tank_anta"
+name_key = "TITLE_PINDORAMA_TANK_ANTA_NAME"
+archetype = &"tank"
+tier = 2
+parent_title = &"pindorama_tank_jabuti"
+branch = &"a"
+required_skills = Array[StringName]([&"tank_thick_hide"])
+required_titles = Array[StringName]([&"pindorama_tank_jabuti"])
+color = Color(0.5568628, 0.4, 0.76862746, 1)
+desc_key = "TITLE_PINDORAMA_TANK_ANTA_DESC"
+sort_order = 61
+outfit_id = &"title_anta"
+cloth_colors = PackedColorArray(0.3529, 0.3216, 0.3059, 1, 0.5412, 0.3804, 0.2275, 1)
+master_npc = &"elder_tiao"

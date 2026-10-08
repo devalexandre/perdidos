@@ -66,6 +66,7 @@ func set_progress(value: Dictionary) -> void:
 		button.text = tr(def.name_key) + (" · " + tr("FOLLOWER_ACTIVE") if id == active else "")
 		button.pressed.connect(func() -> void: NetFollowers.send_command(&"companion", id))
 		_collection.add_child(button)
+		_add_level(def, (state.get("progress", {}) as Dictionary).get(String(id), {}), id == active)
 		if id == active:
 			for skill: StringName in def.bond_skills:
 				_add_skill(skill)
@@ -94,6 +95,54 @@ func set_progress(value: Dictionary) -> void:
 		button.text = tr("MOUNT_DISMOUNT" if mounted else "MOUNT_RIDE") + ": " + tr(def.name_key)
 		button.pressed.connect(func() -> void: NetFollowers.send_command(&"dismount" if mounted else &"mount", id))
 		_collection.add_child(button)
+
+## Nível, barra de XP e magias do companheiro (PETS-E-MONTARIAS §0.1).
+func _add_level(def: CompanionDef, entry: Dictionary, active: bool) -> void:
+	var level: int = int(entry.get("level", 1))
+	var xp: int = int(entry.get("xp", 0))
+	var next: int = int(entry.get("xp_next", 0))
+	var label := Label.new()
+	label.text = tr("FOLLOWER_LEVEL_MAX") % level if next <= 0 else tr("FOLLOWER_LEVEL") % [level, xp, next]
+	_collection.add_child(label)
+	var bar := ProgressBar.new()
+	bar.name = &"CompanionXp_" + String(def.id)
+	bar.show_percentage = false
+	bar.custom_minimum_size = Vector2(UIKit.px(340, ui_scale), UIKit.px(8, ui_scale))
+	bar.max_value = maxi(1, next)
+	bar.value = bar.max_value if next <= 0 else xp
+	var fill := StyleBoxFlat.new()
+	fill.bg_color = CombatFx.COLOR_COMPANION
+	bar.add_theme_stylebox_override(&"fill", fill)
+	_collection.add_child(bar)
+	if not active:
+		return
+	var names: Array[String] = []
+	for raw: Variant in entry.get("spells", []):
+		var sd: SkillDef = Content.companion_skill(StringName(str(raw)))
+		if sd != null:
+			names.append(tr(sd.name_key))
+	var spells := Label.new()
+	spells.text = tr("FOLLOWER_SPELLS") % (", ".join(names) if not names.is_empty() else "—")
+	spells.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	var tips: Array[String] = []
+	for spell: StringName in def.spells:
+		var sd: SkillDef = Content.companion_skill(spell)
+		if sd != null:
+			tips.append(tr(sd.name_key) + ": " + tr(sd.desc_key))
+	spells.tooltip_text = "\n".join(tips)
+	spells.mouse_filter = Control.MOUSE_FILTER_PASS
+	_collection.add_child(spells)
+	for gate: int in Balance.cfg.companion_spell_levels:
+		if gate > level and Balance.cfg.companion_spell_levels.find(gate) < def.spells.size():
+			var next_label := Label.new()
+			next_label.text = tr("FOLLOWER_NEXT_SPELL") % gate
+			_collection.add_child(next_label)
+			break
+	var hint := Label.new()
+	hint.text = tr("FOLLOWER_COMBAT_HINT")
+	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_collection.add_child(hint)
+
 
 func _add_name(id: StringName, def: CompanionDef) -> void:
 	if def != null:

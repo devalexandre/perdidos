@@ -5,11 +5,13 @@ extends Node
 ## (NetProgress cria este nó). No Campo de Treino, perto do ponto de nascimento: aprende as skills,
 ## põe bonecos ao lado e lança uma por uma, salvando quadros seguidos (DIR/<skill>_NN.png) para a
 ## prancha e os GIFs (tools/art/fx/fx_board.py). Termina com "fx_capture_done".
-## 30/09/2026: também as skills da Terra do Sabiá v0.4 que já têm .tres (SkillFxBook), com a arma
+## 30/09/2026: também as skills da Terra de Pindorama v0.4 que já têm .tres (SkillFxBook), com a arma
 ## certa (facão para as de lâmina, arco para as de arco) e o ataque básico com arco (bow_basic_attack).
 
 const ARG_SHOTS: String = "--fx-shots="
 const ARG_ONLY: String = "--fx-only="
+## 07/10/2026 (piloto anime): --fx-monster=<monstro> faz a Faísca cair num monstro de verdade (não no boneco).
+const ARG_MONSTER: String = "--fx-monster="
 const WAIT_SEC: float = 8.0
 const DUMMY: StringName = &"q_test_dummy"
 const SHOT_EVERY_SEC: float = 0.08
@@ -30,7 +32,7 @@ const CAPTURE_SEC: Dictionary[StringName, float] = {
 	&"blade_iron_stance": 1.6, &"arcane_barrier": 1.6, &"arcane_creeping_flame": 2.0,
 	&"arcane_frost_burst": 1.4, &"blade_charge": 1.2, &"bow_arrow_flock": 1.6, &"support_bottle_brew": 1.6,
 	&"arcane_fire_serpent": 1.6, &"support_bitter_smoke": 1.6, &"tank_living_wall": 1.4,
-	&"arcane_crystal_wall": 1.4, &"support_coconut_water": 1.4}
+	&"arcane_crystal_wall": 1.4, &"support_coconut_water": 1.4, &"arcane_spark": 2.4}
 const DEFAULT_CAPTURE_SEC: float = 1.2
 ## Espera máxima entre uma skill e outra (laços longos não precisam acabar por inteiro).
 const MAX_SETTLE_SEC: float = 3.0
@@ -40,6 +42,7 @@ var _only: PackedStringArray = []
 var _local: NetEntity = null
 var _progress_seen: int = 0
 var _weapon: StringName = &""
+var _monster: StringName = &""
 
 
 func _ready() -> void:
@@ -48,6 +51,8 @@ func _ready() -> void:
 			_shots = a.trim_prefix(ARG_SHOTS)
 		elif a.begins_with(ARG_ONLY):
 			_only = a.trim_prefix(ARG_ONLY).split(",", false)
+		elif a.begins_with(ARG_MONSTER):
+			_monster = StringName(a.trim_prefix(ARG_MONSTER))
 	if _shots.is_empty():
 		_shots = OS.get_user_data_dir() + "/fx_shots"
 	DirAccess.make_dir_recursive_absolute(_shots)
@@ -81,11 +86,11 @@ func _dbg(cmd: StringName, args: Array = []) -> void:
 		await get_tree().process_frame
 
 
-func _find(near: Vector3) -> NetEntity:
+func _find(near: Vector3, def_id: StringName = DUMMY) -> NetEntity:
 	var best: NetEntity = null
 	var best_d: float = INF
 	for n: Node in _local.get_parent().get_children():
-		if n is NetEntity and (n as NetEntity).def_id == DUMMY and (n as NetEntity).hp_ratio > 0.0:
+		if n is NetEntity and (n as NetEntity).def_id == def_id and (n as NetEntity).hp_ratio > 0.0:
 			var v: Node = n.get_node_or_null(^"Visual")
 			if v is EntityVisual and (v as EntityVisual).get_nameplate() != null:
 				(v as EntityVisual).get_nameplate().visible = false # sem nome de teste nas capturas
@@ -167,6 +172,14 @@ func _run() -> void:
 			print("fx_capture_no_dummy %s" % s)
 			continue
 		var def: SkillDef = Content.skill(s)
+		if s == &"arcane_spark" and _monster != &"":
+			var m: NetEntity = _find(home + Vector3(3.5, 0, -2.5), _monster)
+			if m == null:
+				await _dbg(&"spawn_dummy", [_monster, 3.5, -2.5])
+				await _sleep(1.0)
+				m = _find(home + Vector3(3.5, 0, -2.5), _monster)
+			if m != null:
+				b = m
 		await _equip_for(def)
 		NetProgress.send_hotbar_set(slot, s)
 		slot = (slot + 1) % 10

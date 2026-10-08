@@ -6,7 +6,7 @@ Este documento acompanha as nações previstas no atlas, as referências cultura
 
 | Nação | Países e referências principais | Estado | O que existe hoje |
 |---|---|---|---|
-| Terra do Sabiá | Brasil | **Implementada / jogável** | Porto do Despertar, Campo de Treino, Campos do Sabiá, Mata Encantada, Chapada do Céu Partido, cavernas e outras rotas brasileiras. Ainda pode receber polimento e conteúdo. |
+| Terra de Pindorama | Brasil | **Implementada / jogável** | Porto do Despertar, Campo de Treino, Campos de Pindorama, Mata Encantada, Chapada do Céu Partido, cavernas e outras rotas brasileiras. Ainda pode receber polimento e conteúdo. |
 | Reino das Mouras | Portugal | **Planejada** | Região, lugares e progressão definidos no atlas; evento e cosméticos preparados no painel, porém inativos. Não há rota regional completa jogável. |
 | Ilhas do Sol Nascente | Japão | **Planejada** | Região e lugares definidos no atlas; evento e cosméticos preparados no painel, porém inativos. |
 | Fiordes de Gelo | Noruega e Islândia | **Planejada** | Região e lugares definidos no atlas; evento e cosméticos preparados no painel, porém inativos. |
@@ -34,4 +34,4 @@ Ao ativar um evento, confirme antes que seus cenários e cosméticos já possuem
 
 ## Monstros planejados por nação
 
-A lista de monstros, espécies regionais e chefes de arco de cada nação está em `docs/mundo/monstros-por-nacao.md`. Decisão do dono (07/10/2026): nenhuma nação nova entra em produção antes do Arco 1 da Terra do Sabiá terminar.
+A lista de monstros, espécies regionais e chefes de arco de cada nação está em `docs/mundo/monstros-por-nacao.md`. Decisão do dono (07/10/2026): nenhuma nação nova entra em produção antes do Arco 1 da Terra de Pindorama terminar.

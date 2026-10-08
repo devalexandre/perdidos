@@ -128,7 +128,7 @@ Playtest fechado com a comunidade (Discord e canal do YouTube do autor). Métric
 
 | Região | Inspiração | Lendas e elementos | Chefe possível | Armas típicas |
 |---|---|---|---|---|
-| **Terra do Sabiá (MVP)** | Brasil | Saci, Curupira, Boitatá, Iara, Mula sem Cabeça, Lobisomem, Corpo-Seco, Mapinguari | Boitatá | facão, borduna, bodoque |
+| **Terra de Pindorama (MVP)** | Brasil | Saci, Curupira, Boitatá, Iara, Mula sem Cabeça, Lobisomem, Corpo-Seco, Mapinguari | Boitatá | facão, borduna, bodoque |
 | Reino das Mouras | Portugal | mouras encantadas, Coca, gigante Adamastor | Adamastor | alabarda, espada de marinheiro |
 | Ilhas do Sol Nascente | Japão | kappa, tengu, kitsune, oni | Yamata no Orochi | katana, naginata |
 | Fiordes de Gelo | Noruega/Islândia | trolls, draugr, lindworm, Fenrir | Fenrir | machado, escudo redondo |
@@ -147,7 +147,7 @@ Cada região deve ter várias áreas conectadas: saída da cidade com monstros d
 
 As faixas de nível são recomendações, não travas. Portais de ida e volta, chegada segura e dificuldade reconhecível por área. Chefes e formas atrozes ficam nas áreas avançadas; áreas iniciais limitam evolução e não acumulam abates para invocar chefes. O Campo de Treino continua separado e sua saída exige título.
 
-Primeiro incremento: Porto do Despertar ↔ Campos do Sabiá (1–10; monstros 2–7) ↔ Mata Encantada (6–12; monstros 6–10) ↔ Chapada do Céu Partido (12–25; comuns 12–16, veteranos 16–20 e chefes 20–22; atrozes 26–28 à noite). As faixas sobrepõem-se para permitir exploração. Os cenários novos começam como mapas de protótipo jogáveis e recebem acabamento artístico depois. Demais regiões seguem planejadas no atlas e receberão cadeias próprias; setores culturais do treino não contam como regiões jogáveis completas.
+Primeiro incremento: Porto do Despertar ↔ Campos de Pindorama (1–10; monstros 2–7) ↔ Mata Encantada (6–12; monstros 6–10) ↔ Chapada do Céu Partido (12–25; comuns 12–16, veteranos 16–20 e chefes 20–22; atrozes 26–28 à noite). As faixas sobrepõem-se para permitir exploração. Os cenários novos começam como mapas de protótipo jogáveis e recebem acabamento artístico depois. Demais regiões seguem planejadas no atlas e receberão cadeias próprias; setores culturais do treino não contam como regiões jogáveis completas.
 
 Detalhamento e estado: `docs/mundo/progressao-areas.md`.
 
@@ -161,14 +161,14 @@ Detalhamento e estado: `docs/mundo/progressao-areas.md`.
 
 Jogador sem grupo = grupo de uma pessoa, com instância própria.
 
-### 4.2 Mapas do MVP — região Terra do Sabiá (Brasil) `[PROVISÓRIO — nomes podem mudar]`
+### 4.2 Mapas do MVP — região Terra de Pindorama (Brasil) `[PROVISÓRIO — nomes podem mudar]`
 
 Fantasia medieval com alma brasileira: muros caiados, telhados de telha, azulejos, janelas coloridas, feiras cheias de frutas, ipês floridos, rios largos e matas densas.
 
 **Cidade — "Porto do Despertar"**
 Cidade portuária à beira de um grande rio, onde os Viajantes costumam aparecer. Praça central com um grande cristal (ponto de renascimento) sob um ipê amarelo gigante, casario colonial-medieval colorido, feira de frutas e ervas, docas com barcos de vela, casa dos Mestres, portões para os mapas de caça e para a arena. Tamanho aproximado: 120 x 120 unidades.
 
-**Caça 1 — "Campos do Sabiá"** (nível 1 a 10)
+**Caça 1 — "Campos de Pindorama"** (nível 1 a 10)
 Campos abertos de cerrado, com ipês amarelos e roxos em flor, buritis, riachos claros e cupinzeiros. Monstros fracos e passivos. Mestres das quests iniciais mandam o jogador para cá.
 
 **Caça 2 — "Mata Encantada"** (nível 8 a 18)

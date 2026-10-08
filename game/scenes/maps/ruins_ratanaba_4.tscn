@@ -1633,3 +1633,12 @@ position = Vector3(0, 0, -24)
 metadata/monster_id = &"ratanaba_architect"
 metadata/radius_cells = 8
 metadata/respawn_sec = 600.0
+
+[node name="StoryLairs" type="Node3D" parent="."]
+
+[node name="mapinguari" type="Marker3D" parent="StoryLairs"]
+position = Vector3(-12, 0, -24)
+metadata/monster_id = &"story_mapinguari"
+metadata/radius_cells = 6
+metadata/escort = {"ratanaba_sentinel": 6, "crystal_serpent": 4}
+metadata/escort_stage = 2

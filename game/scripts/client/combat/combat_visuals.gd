@@ -18,6 +18,7 @@ const STAGE_COLORS: Dictionary[int, Color] = {
 }
 const ATROZ_STAGE: int = 4
 const META_ATROZ: StringName = &"combat_atroz"
+const META_BLACK_FLAME: StringName = &"combat_black_flame"
 const DEFAULT_STAGE_COLOR: Color = Color8(252, 250, 245)
 ## Agente R: "%s Raro" (localization/rules.csv).
 const RARE_NAME_FORMAT: String = "MON_RARE_NAME_FORMAT"
@@ -79,6 +80,7 @@ static func refresh_monster(v: EntityVisual, entity: Node) -> void:
 		AtrozVisual.remove_atroz(v)
 	v.set_meta(META_STAGE, stage_number)
 	v.set_meta(META_ATROZ, atroz)
+	v.set_meta(META_BLACK_FLAME, AtrozVisual.is_black_flame(entity))
 
 
 ## Forma atroz? (NetEntity.appearance["atroz"], replicado pelo MonsterSpawner enquanto dura.)

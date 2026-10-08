@@ -20,9 +20,9 @@ extra = Dictionary[StringName, Variant]({
 &"duration_per_level": 0.1
 })
 vfx = &"stun"
-exclusive_to_title = &"sabia_arcane_crystal"
+exclusive_to_title = &"pindorama_arcane_crystal"
 icon_text = "PC"
-tree_title = &"sabia_arcane_crystal"
+tree_title = &"pindorama_arcane_crystal"
 tree_order = 3
 required_skill_levels = Dictionary[StringName, int]({
 &"arcane_barrier": 3

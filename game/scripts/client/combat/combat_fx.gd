@@ -29,6 +29,10 @@ const NUMBER_LIFETIME_SEC: float = 0.9
 const NUMBER_JITTER: float = 0.25
 const NUMBER_HEIGHT_FRACTION: float = 0.8
 const NUMBER_PRIORITY: int = 20
+## Números seguidos no mesmo alvo empilham (o novo nasce acima do anterior em vez de cobri-lo).
+const NUMBER_STACK_MSEC: int = 600
+const NUMBER_STACK_STEP: float = 0.3
+const NUMBER_STACK_MAX: int = 4
 const CRIT_SUFFIX: String = "!"
 const COLOR_DEALT: Color = Color8(252, 250, 245)
 const COLOR_CRIT: Color = Color8(250, 190, 60)
@@ -37,8 +41,11 @@ const COLOR_OTHER: Color = Color8(200, 196, 210)
 ## Agente R: golpe errado.
 const MISS_TEXT_KEY: String = "COMBAT_MISS"
 const COLOR_MISS: Color = Color8(170, 200, 235)
-## Terra do Sabiá v0.4: cura (NetCombat.healed) em número verde com "+".
+## Terra de Pindorama v0.4: cura (NetCombat.healed) em número verde com "+".
 const COLOR_HEAL: Color = Color8(126, 226, 96)
+## Companheiro de título (PETS-E-MONTARIAS §0.1): números do bicho em turquesa (crítico mais claro).
+const COLOR_COMPANION: Color = Color8(96, 214, 236)
+const COLOR_COMPANION_CRIT: Color = Color8(170, 246, 255)
 const HEAL_PREFIX: String = "+"
 # --- anel do alvo
 const RING_INNER: float = 0.38
@@ -63,12 +70,20 @@ const FADE_SEC: float = 1.2
 ## Com folha _death: tempo parado no último quadro antes de achatar e sumir.
 const DEATH_HOLD_SEC: float = 0.5
 const DOWNED_TINT: Color = Color(0.55, 0.55, 0.6, 0.8)
+# --- finalização das skills (08/10/2026): reação no contato visual (SkillPresentation)
+## Pausa de impacto no alvo: golpe de skill / crítico (s).
+const HITSTOP_SKILL_SEC: float = 0.05
+const HITSTOP_CRIT_SEC: float = 0.07
+## Tremor curto da câmera só no crítico que envolve o jogador local.
+const CRIT_SHAKE_AMP: float = 0.035
+const CRIT_SHAKE_SEC: float = 0.16
 
 ## Contadores para testes (autoteste do combate).
 var numbers_spawned: int = 0
 var crit_numbers_spawned: int = 0
 var misses_spawned: int = 0
 var heal_numbers_spawned: int = 0
+var companion_numbers_spawned: int = 0
 var last_number_text: String = ""
 var bars_visible: int = 0
 
@@ -77,11 +92,17 @@ var _bars: Dictionary[int, Sprite3D] = {}
 var _bar_ratio: Dictionary[int, float] = {}
 var _fading: Dictionary[int, float] = {}
 var _last_cast_ms: Dictionary[int, int] = {}
+var _cast_end_ms: Dictionary[int, int] = {}
+## Pilha de números por alvo (instance id): [msec do último, posição na pilha].
+var _number_stack: Dictionary[int, Array] = {}
 ## Contadores para testes (combate vivo).
 var lunges_played: int = 0
 var knockbacks_played: int = 0
 var casts_played: int = 0
 var flinches_played: int = 0
+var hitstops_played: int = 0
+var deferred_reactions: int = 0
+var crit_shakes: int = 0
 
 
 func _ready() -> void:
@@ -92,6 +113,7 @@ func _ready() -> void:
 	var prog: Node = get_node_or_null(^"/root/NetProgress")
 	if prog != null and prog.has_signal(&"skill_cast"):
 		prog.connect(&"skill_cast", _on_skill_cast)
+		prog.connect(&"cast_cancelled", _on_cast_cancelled)
 	_ring = _make_ring()
 	add_child(_ring)
 
@@ -143,15 +165,34 @@ func _process(delta: float) -> void:
 
 func _on_hit(source_id: int, target_id: int, amount: int, crit: bool, _damage_type: int,
 		_target_hp_ratio: float) -> void:
-	var local_id: int = multiplayer.get_unique_id() if multiplayer.has_multiplayer_peer() else 0
 	var target: Node3D = NetCombat.find_entity(target_id)
 	var source: Node3D = NetCombat.find_entity(source_id)
 	var strike_delay: float = 0.0
-	if source != null and not _casting(source_id):
+	# Golpe do companheiro: o dono não anima nem avança; o número sai na cor do bicho.
+	var from_companion: bool = bool(NetFollowers.get(&"last_hit_from_companion"))
+	if source != null and not from_companion and not _casting(source_id):
 		_play(source, ANIM_ATTACK)
 		strike_delay = _lunge(source, target)
 	if target == null:
 		return
+	# Skill: a reação do alvo (flash, recuo, número) espera a peça encostar (SkillFx -> SkillPresentation).
+	var skill_hit: bool = not from_companion and SkillPresentation.is_skill_hit(source_id)
+	if not from_companion and SkillPresentation.defer(source_id,
+			_react.bind(0.0, source_id, target_id, amount, crit, from_companion, skill_hit)):
+		deferred_reactions += 1
+		return
+	_react(strike_delay, source_id, target_id, amount, crit, from_companion, skill_hit)
+
+
+## Reação do alvo ao golpe (após delay s, no impacto). Chamada já no contato visual quando é de skill.
+func _react(delay: float, source_id: int, target_id: int, amount: int, crit: bool, from_companion: bool,
+		skill_hit: bool) -> void:
+	var local_id: int = multiplayer.get_unique_id() if multiplayer.has_multiplayer_peer() else 0
+	var target: Node3D = NetCombat.find_entity(target_id)
+	var source: Node3D = NetCombat.find_entity(source_id)
+	if target == null:
+		return
+	var strike_delay: float = delay
 	# Agente R (GDD §10.2): golpe errado (esquiva) = "Errou", sem animação de dano no alvo.
 	if amount == NetCombat.MISS_AMOUNT:
 		misses_spawned += 1
@@ -160,9 +201,16 @@ func _on_hit(source_id: int, target_id: int, amount: int, crit: bool, _damage_ty
 	_play(target, ANIM_HIT)
 	_knockback(target, source, strike_delay)
 	_flinch(target, strike_delay)
+	if skill_hit or crit:
+		_hitstop(target, HITSTOP_CRIT_SEC if crit else HITSTOP_SKILL_SEC, strike_delay)
+	if crit and local_id != 0 and (source_id == local_id or target_id == local_id):
+		_crit_shake(target.global_position, strike_delay)
 	var color: Color = COLOR_OTHER
 	if target_id == local_id:
 		color = COLOR_TAKEN
+	elif from_companion:
+		companion_numbers_spawned += 1
+		color = COLOR_COMPANION_CRIT if crit else COLOR_COMPANION
 	elif crit:
 		color = COLOR_CRIT
 	elif source_id == local_id:
@@ -183,21 +231,31 @@ func _on_healed(_source_id: int, target_id: int, amount: int) -> void:
 
 ## Skill lançada: mágicas (não físicas) tocam "cast" no conjurador; físicas, o golpe com avanço.
 func _on_skill_cast(entity_id: int, skill_id: StringName, _target_entity_id: int, _pos: Vector3,
-		_cast_ms: int) -> void:
+		cast_ms: int) -> void:
 	var caster: Node3D = NetCombat.find_entity(entity_id)
 	if caster == null:
 		return
-	var def: SkillDef = Content.skill(skill_id)
-	if def != null and def.effect == SkillDef.Effect.PHYSICAL_DAMAGE:
+	var def: SkillDef = Content.any_skill(skill_id)
+	if def != null and def.effect == SkillDef.Effect.PHYSICAL_DAMAGE and cast_ms <= 0:
 		return # o golpe (e o avanço) vem com o hit
 	var v: Node3D = caster.get_node_or_null(^"Visual") as Node3D
-	if v is DirectionalSprite3D and (v as DirectionalSprite3D).play_oneshot(ANIM_CAST):
+	var charge_sec: float = maxf(0.0, float(cast_ms) / 1000.0 - (def.ground_warning_sec if def != null else 0.0))
+	if v is DirectionalSprite3D and (v as DirectionalSprite3D).play_cast_duration(charge_sec):
 		_last_cast_ms[entity_id] = Time.get_ticks_msec()
+		_cast_end_ms[entity_id] = Time.get_ticks_msec() + maxi(CAST_HOLD_MS, cast_ms + 250)
 		casts_played += 1
 
 
 func _casting(entity_id: int) -> bool:
-	return Time.get_ticks_msec() - _last_cast_ms.get(entity_id, -CAST_HOLD_MS) < CAST_HOLD_MS
+	return Time.get_ticks_msec() < _cast_end_ms.get(entity_id, 0)
+
+
+func _on_cast_cancelled(entity_id: int, _skill_id: StringName) -> void:
+	_cast_end_ms.erase(entity_id)
+	var caster: Node3D = NetCombat.find_entity(entity_id)
+	var visual: Node = caster.get_node_or_null(^"Visual") if caster != null else null
+	if visual is DirectionalSprite3D:
+		(visual as DirectionalSprite3D).cancel_cast()
 
 
 ## Avanço do atacante na direção do alvo. Devolve o atraso até o impacto (s) para o empurrão do alvo.
@@ -233,6 +291,26 @@ func _flinch(target: Node3D, delay: float) -> void:
 		flinches_played += 1
 
 
+func _hitstop(target: Node3D, sec: float, delay: float = 0.0) -> void:
+	if delay > 0.01:
+		get_tree().create_timer(delay).timeout.connect(func() -> void:
+			if is_instance_valid(target):
+				_hitstop(target, sec))
+		return
+	var v: Node3D = target.get_node_or_null(^"Visual") as Node3D
+	if v is DirectionalSprite3D:
+		(v as DirectionalSprite3D).play_hitstop(sec)
+		hitstops_played += 1
+
+
+func _crit_shake(at: Vector3, delay: float) -> void:
+	if delay > 0.01:
+		get_tree().create_timer(delay).timeout.connect(_crit_shake.bind(at, 0.0))
+		return
+	if SkillFx.shake_camera(get_tree(), at, CRIT_SHAKE_AMP, CRIT_SHAKE_SEC):
+		crit_shakes += 1
+
+
 func _on_died(_entity_id: int) -> void:
 	pass # a animação de morte vem do anim replicado; o sumiço sem folha é feito em _check_fade.
 
@@ -258,7 +336,7 @@ func spawn_number(target: Node3D, text: String, color: Color, crit: bool) -> Lab
 	add_child(l)
 	var h: float = _visual_height(target)
 	var start: Vector3 = target.global_position + Vector3(randf_range(-NUMBER_JITTER, NUMBER_JITTER),
-			h * NUMBER_HEIGHT_FRACTION, 0.0)
+			h * NUMBER_HEIGHT_FRACTION + _stack_slot(target) * NUMBER_STACK_STEP, 0.0)
 	l.global_position = start
 	var tw: Tween = l.create_tween()
 	tw.set_parallel(true)
@@ -270,6 +348,17 @@ func spawn_number(target: Node3D, text: String, color: Color, crit: bool) -> Lab
 		crit_numbers_spawned += 1
 	last_number_text = text
 	return l
+
+
+func _stack_slot(target: Node3D) -> int:
+	var key: int = target.get_instance_id()
+	var now: int = Time.get_ticks_msec()
+	var st: Array = _number_stack.get(key, [-NUMBER_STACK_MSEC, -1])
+	var slot: int = mini(int(st[1]) + 1, NUMBER_STACK_MAX) if now - int(st[0]) < NUMBER_STACK_MSEC else 0
+	if _number_stack.size() > 64:
+		_number_stack.clear()
+	_number_stack[key] = [now, slot]
+	return slot
 
 
 # ---------------------------------------------------------------- barras
@@ -328,8 +417,10 @@ func _play(entity: Node3D, anim_name: StringName) -> void:
 func _check_stage(e: Node3D, v: EntityVisual) -> void:
 	var st: int = int(e.get(&"stage"))
 	var atroz: bool = CombatVisuals.is_atroz(e) or st == CombatVisuals.ATROZ_STAGE
+	var black: bool = AtrozVisual.is_black_flame(e)
 	if int(v.get_meta(CombatVisuals.META_STAGE, st)) != st \
-			or bool(v.get_meta(CombatVisuals.META_ATROZ, atroz)) != atroz:
+			or bool(v.get_meta(CombatVisuals.META_ATROZ, atroz)) != atroz \
+			or bool(v.get_meta(CombatVisuals.META_BLACK_FLAME, black)) != black:
 		CombatVisuals.refresh_monster(v, e)
 
 

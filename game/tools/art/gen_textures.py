@@ -412,7 +412,7 @@ def magic_circle() -> Image.Image:
             elif 59.5 <= d < 60.6:
                 px[x, y] = (*OURO[2], 255)
     # 30/09/2026: sem hexagrama (GDD §4.0 regra 3). Mesma linguagem do circulo de conjuracao das skills
-    # (tools/art/fx/gen_skill_fx.py, cast_circle): flor de ipe de 5 petalas e runas do Sabia (semente,
+    # (tools/art/fx/gen_skill_fx.py, cast_circle): flor de ipe de 5 petalas e runas de Pindorama (semente,
     # broto e ziguezague de rio) entre os aneis externos.
     runes = [[".#.", "#.#", "#.#", ".#."], ["#.#", ".#.", ".#.", "##."], ["##.", ".#.", ".##", "..#"]]
     for i in range(20):

@@ -25,9 +25,9 @@ extra = Dictionary[StringName, Variant]({
 &"duration_per_level": 0.3
 })
 vfx = &"debuff"
-exclusive_to_title = &"sabia_blade_jaguar"
+exclusive_to_title = &"pindorama_blade_jaguar"
 icon_text = "RO"
-tree_title = &"sabia_blade_jaguar"
+tree_title = &"pindorama_blade_jaguar"
 tree_order = 5
 required_skill_levels = Dictionary[StringName, int]({
 &"blade_jaguar_leap": 3

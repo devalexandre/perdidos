@@ -3,7 +3,7 @@ var checks: int = 0
 var failures: int = 0
 var world: ServerWorld
 var session: PlayerSession
-const DONKEY: StringName = &"sabia_mount_donkey"
+const DONKEY: StringName = &"pindorama_mount_donkey"
 
 func check(ok: bool, message: String) -> void:
 	checks += 1
@@ -32,10 +32,40 @@ func _ready() -> void:
 	_test_mount()
 	_test_companions()
 	_test_probability()
+	_test_quest_supplies()
 	entity.free()
 	world.free()
 	print("test_followers: %d checks, %d failures" % [checks, failures])
 	get_tree().quit(0 if failures == 0 else 1)
+
+func _test_quest_supplies() -> void:
+	# Sem cliente conectado: notificações usam broadcast vazio no dublê offline.
+	var saved_peer: int = session.peer_id
+	session.peer_id = 0
+	var runner := DialogueRunner.new(world)
+	var quests: QuestService = world.progression.quests
+	session.character.left_training = true
+	session.character.causos = 2
+	for quest_id: StringName in [&"quest_mount_donkey", &"quest_bond_guara"]:
+		var quest: QuestDef = Content.quest(quest_id)
+		for title: StringName in quest.required_titles:
+			session.character.progression.titles[title] = 1
+		var npc: NpcDef = Content.npc(quest.giver_npc)
+		session.dialogue_def = npc.dialogue
+		var options: Array[DialogueOption] = []
+		for option: DialogueOption in npc.dialogue.get_node_by_id(&"start").options:
+			if option.action == &"give_item":
+				options.append(option)
+				check(not runner.is_option_visible(session, option), "supplies hidden before accepting mission")
+		check(quests.accept(session, quest_id), "supply mission accepted")
+		for option: DialogueOption in options:
+			check(runner.is_option_visible(session, option), "mission supplies offered by NPC")
+			check(runner.call("_give_item", session, option), "NPC supplies received")
+			quests.on_inventory_changed(session)
+			check(not runner.is_option_visible(session, option), "received supply cannot be duplicated")
+		check(int(session.character.progression.quests[quest_id][ProgressionData.Q_STEP]) == options.size(),
+			"NPC supplies complete collection steps, including personal Guará collection")
+	session.peer_id = saved_peer
 
 func _test_save() -> void:
 	var c: CharacterData = session.character

@@ -10,7 +10,7 @@ import math
 import numpy as np
 
 from fxdraw import Canvas, Frame, blit, ease_in, ease_out, layer, lerp, piece, rng
-from fxsabia import (ANVIL_PAL, ANVIL_TXT, D, EMBER_G, EMBER_GROUND, HAMMER_PAL, HAMMER_TXT, STEEL, STEEL_LINE,
+from fxpindorama import (ANVIL_PAL, ANVIL_TXT, D, EMBER_G, EMBER_GROUND, HAMMER_PAL, HAMMER_TXT, STEEL, STEEL_LINE,
                      TAU, W_GOLD, W_PALE, W_WHITE, WOOD, WOOD_LINE, dither_alpha, solid_ramp, spr)
 from fx_melee import machete_polys
 

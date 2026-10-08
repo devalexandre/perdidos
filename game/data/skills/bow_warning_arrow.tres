@@ -23,9 +23,9 @@ extra = Dictionary[StringName, Variant]({
 })
 requires_bow = true
 vfx = &"debuff"
-exclusive_to_title = &"sabia_bow_cerrado"
+exclusive_to_title = &"pindorama_bow_cerrado"
 icon_text = "FA"
-tree_title = &"sabia_bow_cerrado"
+tree_title = &"pindorama_bow_cerrado"
 tree_order = 4
 required_skill_levels = Dictionary[StringName, int]({
 &"bow_double_arrow": 3
