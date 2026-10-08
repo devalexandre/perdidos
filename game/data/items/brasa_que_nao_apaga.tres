@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_brasa_que_nao_apaga.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"brasa_que_nao_apaga"
+name_key = "ITEM_BRASA_QUE_NAO_APAGA_NAME"
+desc_key = "ITEM_BRASA_QUE_NAO_APAGA_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 1400
+tradeable = true
+crendice_id = &"brasa_que_nao_apaga"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"atk": 16,
+&"matk": 16
+})

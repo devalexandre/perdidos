@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/dona_jacinta.tres" id="1_dialogue"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_npc"]
+
+[resource]
+script = ExtResource("2_npc")
+id = &"dona_jacinta"
+name_key = "NPC_DONA_JACINTA_NAME"
+sprite_base = "res://assets/npcs/npc_dona_jacinta"
+map_id = &"city_awakening"
+spawn_marker = &"dona_jacinta"
+move_speed = 1.0
+dialogue = ExtResource("1_dialogue")
+fallback_sprite_base = "res://assets/npcs/npc_master_candeia"

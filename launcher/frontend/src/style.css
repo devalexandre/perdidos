@@ -783,8 +783,21 @@ button.link:hover {
 }
 
 .bg {
-  background-image: url("/bg_lobisomem.png");
+  background-image: url("/bg_arco1.jpg");
   filter: brightness(0.9) saturate(0.92);
+}
+
+/* Fundo do arco baixado com a atualização: entra por cima do embutido. */
+.bg-theme {
+  position: absolute;
+  inset: 0;
+  background: center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.bg-theme.shown {
+  opacity: 1;
 }
 
 .bg::after {

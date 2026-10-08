@@ -618,3 +618,6 @@ position = Vector3(4, 0, -14)
 rotation_degrees = Vector3(0, 30, 0)
 scale = Vector3(1.1, 1.1, 1.1)
 mesh = ExtResource("one_pk_deadtree_3")
+
+[node name="BrasasCrossroads" type="Marker3D" parent="."]
+position = Vector3(0, 0, 0)

@@ -45,3 +45,18 @@ extends Resource
 @export var reward_companion: StringName = &""
 @export var reward_mount: StringName = &""
 @export var turn_in_stars: int = 0
+
+## --- Arco 1 da história (ARCO-1-TERRA-DO-SABIA.md) ---
+## false = conteúdo pronto mas ainda desligado (arte do chefe aguardando aprovação do dono): nunca é oferecida.
+@export var released: bool = true
+## Histórias (story_id) que precisam estar concluídas, por qualquer desfecho (ex.: &"lobisomem_arc").
+@export var required_story_completed: Array[StringName] = []
+## Recompensa por caminho: arquétipo do título exibido (TitleDef.archetype) -> item. Sem arquétipo na lista,
+## vale &"default". Entregue além de reward_items (ex.: Facão, Arco ou Cajado Chama-Viva do Boitatá).
+@export var reward_by_archetype: Dictionary[StringName, StringName] = {}
+## required_quests que ainda não estão liberadas (released = false) não travam esta quest. Só para capítulos do meio
+## da história enquanto a arte de um chefe espera aprovação; o final nunca usa (só abre com todos cumpridos de verdade).
+@export var skip_unreleased_requirements: bool = false
+## Fala de conclusão alternativa: condição -> chave. Condições: "ending:<desfecho>" (desfecho da 1ª história de
+## required_story_completed) e "item:<item_id>" (item na mochila). A primeira que valer substitui complete_text_key.
+@export var complete_text_variants: Dictionary[String, String] = {}

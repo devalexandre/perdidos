@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="1_monster"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="2_stage"]
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="3_drop"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("3_drop")
+item_id = &"whirlwind_cap"
+chance = 0.08
+
+[sub_resource type="Resource" id="stage_boss"]
+script = ExtResource("2_stage")
+stage = 3
+name_key = "MON_STORY_SACI_NAME"
+sprite_base = "res://assets/monsters/story_saci/mon_story_saci_s4"
+visual_scale = 1.0
+baked_life = true
+level = 12
+max_hp = 6000
+atk = 70
+matk = 40
+def = 20
+mdef = 24
+walk_ms_per_cell = 300
+attack_range_cells = 2.0
+attack_interval_ms = 1100
+aggressive = true
+aggro_range_cells = 10
+leash_cells = 20
+xp_reward = 2400
+stars_min = 80
+stars_max = 150
+behaviors = Array[StringName]([&"boss", &"hop_teleport"])
+
+[sub_resource type="Resource" id="stage_atroz"]
+script = ExtResource("2_stage")
+stage = 4
+name_key = "MON_STORY_SACI_NAME"
+sprite_base = "res://assets/monsters/story_saci/mon_story_saci_s4"
+visual_scale = 1.0
+baked_life = true
+level = 12
+walk_ms_per_cell = 300
+attack_range_cells = 2.0
+attack_interval_ms = 1100
+aggressive = true
+aggro_range_cells = 12
+leash_cells = 24
+xp_reward = 2400
+stars_min = 80
+stars_max = 150
+drops = Array[ExtResource("3_drop")]([SubResource("drop_0")])
+behaviors = Array[StringName]([&"boss", &"hop_teleport"])
+
+[resource]
+script = ExtResource("1_monster")
+id = &"story_saci"
+region_id = &"brasil"
+stages = Array[ExtResource("2_stage")]([SubResource("stage_boss"), SubResource("stage_atroz")])
+respawn_sec = 3600.0
+can_be_rare = false
+atroz_stat_multiplier = 1.0
+story_boss = true

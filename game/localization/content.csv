@@ -188,6 +188,18 @@ MON_KASA_OBAKE_S1_NAME,Kasa-obake
 MON_KASA_OBAKE_S2_NAME,Kasa-obake Centenário
 MON_TRICKSTER_TANUKI_S1_NAME,Tanuki Trapaceiro
 MON_TRICKSTER_TANUKI_S2_NAME,Tanuki Barrigudo
+MON_POND_KAPPA_S1_NAME,Kappa da Lagoa
+MON_POND_KAPPA_S2_NAME,Kappa da Lagoa Veterano
+MON_POND_KAPPA_S3_NAME,Kappa do Remanso
+MON_POND_KAPPA_S4_NAME,Kappa do Poço Escuro
+MON_MOUNTAIN_TENGU_S1_NAME,Corvo da Montanha
+MON_MOUNTAIN_TENGU_S2_NAME,Corvo da Montanha Veterano
+MON_MOUNTAIN_TENGU_S3_NAME,Tengu do Vendaval
+MON_MOUNTAIN_TENGU_S4_NAME,Tengu da Asa Noturna
+MON_PAPER_LANTERN_S1_NAME,Lanterna Travessa
+MON_PAPER_LANTERN_S2_NAME,Lanterna Travessa Veterana
+MON_PAPER_LANTERN_S3_NAME,Lanterna do Desfile
+MON_PAPER_LANTERN_S4_NAME,Lanterna da Chama Violeta
 MON_MOSS_TROLL_S1_NAME,Trollzinho de Musgo
 MON_MOSS_TROLL_S2_NAME,Troll de Musgo
 MON_LINDWORM_HATCHLING_S1_NAME,Lindworm Filhote
@@ -742,3 +754,137 @@ DLG_DONA_ANA_TRAVEL_NONE,"Ainda não conheço outra cidade sua, Viajante. Quando
 DLG_DONA_ANA_OPT_BACK,Deixa para lá
 ITEM_SHELL_SALVE_NAME,Unguento de Casco
 ITEM_SHELL_SALVE_DESC,"Pasta grossa de casco de tatu ralado e sebo, receita do Velho Tião. Passada na pele, endurece feito casco: +20% de defesa por 90 s."
+ITEM_WHIRLWIND_WISP_NAME,Fiapo de Redemoinho
+ITEM_WHIRLWIND_WISP_DESC,Fiapo de palha torcida que ainda gira na palma da mão. Só se solta dos redemoinhos para quem anda atrás do Saci.
+ITEM_CROSS_SIEVE_NAME,Peneira de Cruzeta
+ITEM_CROSS_SIEVE_DESC,"Peneira de palha trançada com uma cruzeta no meio. Diz o povo que, jogada num redemoinho, prende o que roda lá dentro."
+ITEM_EMBER_HORSESHOE_NAME,Ferradura em Brasa
+ITEM_EMBER_HORSESHOE_DESC,Ferradura arrancada de uma Mula de Brasa. Continua quente como se tivesse saído agora da forja.
+ITEM_JATAI_HONEY_NAME,Mel de Jataí
+ITEM_JATAI_HONEY_DESC,"Mel ralo e perfumado da abelhinha jataí, colhido sem judiar da colmeia. Oferenda que a mata aceita."
+ITEM_HEAVY_FEAST_NAME,Banquete Pesado
+ITEM_HEAVY_FEAST_DESC,"Tigela transbordando de feijão, torresmo e mandioca. Quem come tudo isso antes de dormir não dorme sossegado."
+ITEM_SINGING_SHELL_NAME,Concha que Canta
+ITEM_SINGING_SHELL_DESC,"Concha de rio que, encostada no ouvido, cantarola uma melodia que ninguém lembra de ter ensinado."
+ITEM_OBSIDIAN_SEAL_NAME,Selo de Obsidiana
+ITEM_OBSIDIAN_SEAL_DESC,Disco de pedra negra com um glifo que brilha fraquinho. As Sentinelas de Ratanabá carregam isto como se fosse uma chave.
+ITEM_LOST_TOY_NAME,Brinquedo Perdido
+ITEM_LOST_TOY_DESC,"Pião de madeira com a tinta gasta. Alguém deixou cair de propósito, como quem marca o caminho de volta."
+ITEM_BLACK_SCALE_NAME,Escama Negra
+ITEM_BLACK_SCALE_DESC,"Escama escura e lisa, maior que a mão aberta. Cheira a chuva grossa e a rio fundo."
+ITEM_MOTHER_OF_PEARL_COMB_NAME,Pente de Madrepérola
+ITEM_MOTHER_OF_PEARL_COMB_DESC,"Pente de madrepérola com um golfinho entalhado no topo. Fino demais para ser de gente do rio, e bem cuidado demais para ter sido esquecido."
+ITEM_DOLPHIN_RUBBING_NAME,Decalque do Golfinho
+ITEM_DOLPHIN_RUBBING_DESC,"Decalque em carvão de um golfinho gravado na pedra de Ratanabá. O mesmo desenho, traço por traço, de um pente achado no rio."
+ITEM_BOIUNA_WORDS_NAME,Palavras da Boiúna
+ITEM_BOIUNA_WORDS_DESC,"O que a grande cobra do rio contou, guardado de cabeça para não se perder. Fala de alguém que subiu o rio sem medo."
+ITEM_RIVER_MEMORY_NAME,Memória do Rio
+ITEM_RIVER_MEMORY_DESC,Uma lembrança que não é sua: uma margem de rio larga e alguém sorrindo. Fica mais nítida quando você fecha os olhos.
+ITEM_WHIRLWIND_CAP_NAME,Gorro do Redemoinho
+ITEM_WHIRLWIND_CAP_DESC,Gorro vermelho que nunca para quieto na cabeça. Quem usa sente o vento empurrar os pés para o lado certo.
+ITEM_CROSSROADS_MACHETE_NAME,Facão da Encruzilhada
+ITEM_CROSSROADS_MACHETE_DESC,"Facão reto de lâmina escura, com o fio em brasa. Esquenta na mão quando passa por uma encruzilhada."
+ITEM_BLACK_FIRE_HORSESHOE_NAME,Ferradura de Fogo Negro
+ITEM_BLACK_FIRE_HORSESHOE_DESC,"Ferradura presa num cordão, com um fogo escuro nas pontas que não queima quem a carrega."
+ITEM_FULL_MOON_CLAWS_NAME,Garras da Lua Cheia
+ITEM_FULL_MOON_CLAWS_DESC,Manopla de couro com garras de lobo nas pontas dos dedos. Pesa mais nas noites de lua cheia.
+ITEM_FOREST_BOY_BOW_NAME,Arco do Menino da Mata
+ITEM_FOREST_BOY_BOW_DESC,Arco de cipó vivo que ainda solta folhas novas. A mata não deixa a flecha errar quem a respeita.
+ITEM_BACKWARD_FOOTPRINTS_NAME,Pegadas Viradas
+ITEM_BACKWARD_FOOTPRINTS_DESC,Sandálias de cipó trançado. Quem segue o rastro de quem as calça acaba andando para o lado errado.
+ITEM_SINGING_WATERS_STAFF_NAME,Cajado das Águas Cantantes
+ITEM_SINGING_WATERS_STAFF_DESC,"Cajado com uma onda de água presa no topo, que canta baixinho quando a magia passa por ela."
+ITEM_RATANABA_GUARDIAN_SHIELD_NAME,Escudo do Guardião de Ratanabá
+ITEM_RATANABA_GUARDIAN_SHIELD_DESC,"Escudo de pedra lavrada com glifos antigos. Pesado como uma porta, firme como quem a guardava."
+ITEM_LIGHT_SLEEP_CLOAK_NAME,Manto do Sono Leve
+ITEM_LIGHT_SLEEP_CLOAK_DESC,"Manto macio com cheiro de macela. Quem dorme enrolado nele acorda sozinho, sem peso nenhum no peito."
+ITEM_LULLABY_TOME_NAME,Tomo da Cantiga de Ninar
+ITEM_LULLABY_TOME_DESC,"Livro bordado com lua e estrelas. As páginas trazem cantigas de ninar, e nem todas são para fazer dormir."
+ITEM_BLACK_STORM_BOW_NAME,Arco da Tempestade Negra
+ITEM_BLACK_STORM_BOW_DESC,Arco escuro que estala como trovão longe. A corda fica úmida mesmo no sol.
+ITEM_LIVING_FLAME_MACHETE_NAME,Facão Chama-Viva
+ITEM_LIVING_FLAME_MACHETE_DESC,Facão reto de fogo que não apaga nem na chuva. Protegia os campos das queimadas; agora corta por você.
+ITEM_LIVING_FLAME_BOW_NAME,Arco Chama-Viva
+ITEM_LIVING_FLAME_BOW_DESC,Arco de fogo vivo. Cada flecha sai acesa e deixa um risco de luz no ar.
+ITEM_LIVING_FLAME_STAFF_NAME,Cajado Chama-Viva
+ITEM_LIVING_FLAME_STAFF_DESC,"Cajado com uma serpente de fogo enrolada no topo. A chama se mexe sozinha, atenta."
+ITEM_NO_DE_CRINA_TRANCADA_NAME,Nó de Crina Trançada
+ITEM_NO_DE_CRINA_TRANCADA_DESC,Amuleto de crina de cavalo trançada. Desvia o primeiro golpe de quem chega de surpresa.
+CRENDICE_NO_DE_CRINA_TRANCADA_NAME,Nó de Crina Trançada
+CRENDICE_NO_DE_CRINA_TRANCADA_DESC,Amuleto de crina de cavalo trançada. Desvia o primeiro golpe de quem chega de surpresa.
+CRENDICE_NO_DE_CRINA_TRANCADA_LORE,"Diz o povo que o Saci dá nó na crina dos cavalos durante a noite. Quem guarda o nó deixa o arteiro confuso, e ele erra o caminho."
+CRENDICE_NO_DE_CRINA_TRANCADA_SUP,Superstição: só funciona se o inimigo atacar primeiro.
+ITEM_FERRADURA_DE_PORTA_NAME,Ferradura de Porta
+ITEM_FERRADURA_DE_PORTA_DESC,Ferradura velha de pendurar atrás da porta. Traz sorte e golpes certeiros.
+CRENDICE_FERRADURA_DE_PORTA_NAME,Ferradura de Porta
+CRENDICE_FERRADURA_DE_PORTA_DESC,Ferradura velha de pendurar atrás da porta. Traz sorte e golpes certeiros.
+CRENDICE_FERRADURA_DE_PORTA_LORE,"Ferradura atrás da porta, de pontas para cima, segura a sorte dentro de casa. Esta caiu de uma mula que corria pegando fogo."
+CRENDICE_FERRADURA_DE_PORTA_SUP,Superstição: só ativa com a vida acima de 50%.
+ITEM_RESTIA_DE_ALHO_NAME,Réstia de Alho
+ITEM_RESTIA_DE_ALHO_DESC,Réstia de alho trançada. Diminui o dano mágico sofrido à noite.
+CRENDICE_RESTIA_DE_ALHO_NAME,Réstia de Alho
+CRENDICE_RESTIA_DE_ALHO_DESC,Réstia de alho trançada. Diminui o dano mágico sofrido à noite.
+CRENDICE_RESTIA_DE_ALHO_LORE,"Pendurada na janela, a réstia de alho afasta o que anda de noite. Os velhos do Porto juram que lobisomem não passa por ela."
+CRENDICE_RESTIA_DE_ALHO_SUP,Superstição: só ativa durante a noite.
+ITEM_CIPO_DA_PEGADA_VIRADA_NAME,Cipó da Pegada Virada
+ITEM_CIPO_DA_PEGADA_VIRADA_DESC,Cipó amarrado em laço. Dá golpes mais certeiros e mais fortes na mata ou à noite.
+CRENDICE_CIPO_DA_PEGADA_VIRADA_NAME,Cipó da Pegada Virada
+CRENDICE_CIPO_DA_PEGADA_VIRADA_DESC,Cipó amarrado em laço. Dá golpes mais certeiros e mais fortes na mata ou à noite.
+CRENDICE_CIPO_DA_PEGADA_VIRADA_LORE,Cipó tirado de uma trilha onde as pegadas apontavam para trás. Quem amarra no tornozelo anda pela mata sem se perder.
+CRENDICE_CIPO_DA_PEGADA_VIRADA_SUP,Superstição: só ativa à noite ou em mapas de mata.
+ITEM_TRAVESSEIRO_DE_MACELA_NAME,Travesseiro de Macela
+ITEM_TRAVESSEIRO_DE_MACELA_DESC,Travesseirinho recheado de macela seca. Protege contra magia sombria; a proteção dobra quando a vida está baixa.
+CRENDICE_TRAVESSEIRO_DE_MACELA_NAME,Travesseiro de Macela
+CRENDICE_TRAVESSEIRO_DE_MACELA_DESC,Travesseirinho recheado de macela seca. Protege contra magia sombria; a proteção dobra quando a vida está baixa.
+CRENDICE_TRAVESSEIRO_DE_MACELA_LORE,Travesseiro de macela garante sono leve e sonho bom. Nenhum peso sobe no peito de quem dorme sobre ele.
+CRENDICE_TRAVESSEIRO_DE_MACELA_SUP,Superstição: o bônus dobra se a vida estiver abaixo de 30%.
+ITEM_ESCAMA_DOURADA_DO_RIO_NAME,Escama Dourada do Rio
+ITEM_ESCAMA_DOURADA_DO_RIO_DESC,"Escama de peixe dourada, sempre molhada. Aumenta o dano mágico enquanto há mana no corpo."
+CRENDICE_ESCAMA_DOURADA_DO_RIO_NAME,Escama Dourada do Rio
+CRENDICE_ESCAMA_DOURADA_DO_RIO_DESC,"Escama de peixe dourada, sempre molhada. Aumenta o dano mágico enquanto há mana no corpo."
+CRENDICE_ESCAMA_DOURADA_DO_RIO_LORE,Pescador que acha escama dourada guarda no bolso e não conta a ninguém: é presente de quem mora no fundo do rio.
+CRENDICE_ESCAMA_DOURADA_DO_RIO_SUP,Superstição: só ativa com a mana acima de 20%.
+ITEM_UNHA_DO_GUARDIAO_NAME,Unha do Guardião
+ITEM_UNHA_DO_GUARDIAO_DESC,Garra enorme presa num cordão. Aumenta toda a defesa de quem fica firme no lugar.
+CRENDICE_UNHA_DO_GUARDIAO_NAME,Unha do Guardião
+CRENDICE_UNHA_DO_GUARDIAO_DESC,Garra enorme presa num cordão. Aumenta toda a defesa de quem fica firme no lugar.
+CRENDICE_UNHA_DO_GUARDIAO_LORE,Unha de um bicho grande demais para caber na mata. Contam que o dono dela não dava um passo atrás.
+CRENDICE_UNHA_DO_GUARDIAO_SUP,Superstição: só ativa enquanto o portador está parado.
+ITEM_CANTIGA_BORDADA_NAME,Cantiga Bordada
+ITEM_CANTIGA_BORDADA_DESC,Pano bordado com lua e flores. Protege contra magia sombria enquanto a mana está alta.
+CRENDICE_CANTIGA_BORDADA_NAME,Cantiga Bordada
+CRENDICE_CANTIGA_BORDADA_DESC,Pano bordado com lua e flores. Protege contra magia sombria enquanto a mana está alta.
+CRENDICE_CANTIGA_BORDADA_LORE,"Avó que borda a cantiga de ninar num paninho guarda o sono da criança, mesmo de longe."
+CRENDICE_CANTIGA_BORDADA_SUP,Superstição: só ativa com a mana acima de 40%.
+ITEM_ESCAMA_DA_TEMPESTADE_NAME,Escama da Tempestade
+ITEM_ESCAMA_DA_TEMPESTADE_DESC,"Escama negra marcada por um raio. À noite, os golpes atravessam a defesa e a magia bate mais forte."
+CRENDICE_ESCAMA_DA_TEMPESTADE_NAME,Escama da Tempestade
+CRENDICE_ESCAMA_DA_TEMPESTADE_DESC,"Escama negra marcada por um raio. À noite, os golpes atravessam a defesa e a magia bate mais forte."
+CRENDICE_ESCAMA_DA_TEMPESTADE_LORE,"Quando o trovão ronca em cima do rio, os barqueiros dizem que é a cobra grande se virando no fundo."
+CRENDICE_ESCAMA_DA_TEMPESTADE_SUP,Superstição: só ativa durante a noite.
+ITEM_BRASA_QUE_NAO_APAGA_NAME,Brasa que Não Apaga
+ITEM_BRASA_QUE_NAO_APAGA_DESC,"Brasa viva que não esfria nunca. À noite, aumenta o dano físico e mágico."
+CRENDICE_BRASA_QUE_NAO_APAGA_NAME,Brasa que Não Apaga
+CRENDICE_BRASA_QUE_NAO_APAGA_DESC,"Brasa viva que não esfria nunca. À noite, aumenta o dano físico e mágico."
+CRENDICE_BRASA_QUE_NAO_APAGA_LORE,Fogo que corre no campo à noite e não queima o capim. Quem guarda uma brasa dele nunca fica no escuro.
+CRENDICE_BRASA_QUE_NAO_APAGA_SUP,Superstição: só ativa durante a noite.
+ITEM_VASO_DE_PIMENTA_NAME,Vaso de Pimenta
+ITEM_VASO_DE_PIMENTA_DESC,Vasinho de pimenteira. Diminui o dano mágico sofrido.
+CRENDICE_VASO_DE_PIMENTA_NAME,Vaso de Pimenta
+CRENDICE_VASO_DE_PIMENTA_DESC,Vasinho de pimenteira. Diminui o dano mágico sofrido.
+CRENDICE_VASO_DE_PIMENTA_LORE,"Pimenteira na porta seca quando alguém bota mau-olhado na casa. Se murchou, cumpriu o serviço."
+CRENDICE_VASO_DE_PIMENTA_SUP,Superstição: ativo enquanto o portador não estiver amaldiçoado.
+ITEM_COMIGO_NINGUEM_PODE_NAME,Comigo-Ninguém-Pode
+ITEM_COMIGO_NINGUEM_PODE_DESC,Vasinho de comigo-ninguém-pode. Aumenta a defesa; o bônus dobra quando a vida está baixa.
+CRENDICE_COMIGO_NINGUEM_PODE_NAME,Comigo-Ninguém-Pode
+CRENDICE_COMIGO_NINGUEM_PODE_DESC,Vasinho de comigo-ninguém-pode. Aumenta a defesa; o bônus dobra quando a vida está baixa.
+CRENDICE_COMIGO_NINGUEM_PODE_LORE,"Planta de folha pintada que se põe na entrada de casa para barrar inveja. Diz o nome: com ela, ninguém pode."
+CRENDICE_COMIGO_NINGUEM_PODE_SUP,Superstição: o bônus dobra se a vida estiver abaixo de 30%.
+ITEM_TREVO_DE_QUATRO_FOLHAS_NAME,Trevo de Quatro Folhas
+ITEM_TREVO_DE_QUATRO_FOLHAS_DESC,Trevo raro de quatro folhas. Aumenta a sorte e a chance de golpe crítico.
+CRENDICE_TREVO_DE_QUATRO_FOLHAS_NAME,Trevo de Quatro Folhas
+CRENDICE_TREVO_DE_QUATRO_FOLHAS_DESC,Trevo raro de quatro folhas. Aumenta a sorte e a chance de golpe crítico.
+CRENDICE_TREVO_DE_QUATRO_FOLHAS_LORE,"Quem acha trevo de quatro folhas no campo, de dia, guarda dentro de um livro. Perdê-lo é perder a sorte junto."
+CRENDICE_TREVO_DE_QUATRO_FOLHAS_SUP,Superstição: adormece se o portador morrer (reconsagre no Altar).
+SYNERGY_LENDAS_LIBERTAS_NAME,Lendas Libertas
+SYNERGY_LENDAS_LIBERTAS_DESC,"+5% Defesa Geral, +5% de dano físico, +5% de dano mágico e +3% de chance de crítico."

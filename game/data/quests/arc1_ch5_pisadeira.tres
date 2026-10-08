@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"firmino_insone"
+count = 1
+text_key = "QUEST_ARC1_CH5_STEP_1"
+scale_with_titles = false
+lore_text_key = "QUEST_ARC1_CH5_LORE_1"
+lore_option_key = "QUEST_ARC1_CH5_LORE_1_OPT"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+target_id = &"despair_possessed"
+count = 8
+text_key = "QUEST_ARC1_CH5_STEP_2"
+scale_with_titles = false
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("2_step")
+type = 2
+target_id = &"StoryInn"
+count = 1
+text_key = "QUEST_ARC1_CH5_STEP_3"
+scale_with_titles = false
+radius_cells = 4.0
+done_text_key = "QUEST_ARC1_CH5_DONE_3"
+
+[sub_resource type="Resource" id="step_4"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"firmino_insone"
+count = 1
+text_key = "QUEST_ARC1_CH5_STEP_4"
+scale_with_titles = false
+lore_text_key = "QUEST_ARC1_CH5_LORE_4"
+lore_option_key = "QUEST_ARC1_CH5_LORE_4_OPT"
+grant_items = Dictionary[StringName, int]({
+&"heavy_feast": 1
+})
+
+[sub_resource type="Resource" id="step_5"]
+script = ExtResource("2_step")
+type = 5
+target_id = &"StoryInn"
+count = 1
+requires_night = true
+wait_sec = 8.0
+text_key = "QUEST_ARC1_CH5_STEP_5"
+scale_with_titles = false
+radius_cells = 4.0
+done_text_key = "QUEST_ARC1_CH5_DONE_5"
+
+[sub_resource type="Resource" id="step_6"]
+script = ExtResource("2_step")
+type = 7
+target_id = &"story_pisadeira"
+count = 1
+text_key = "QUEST_ARC1_CH5_STEP_6"
+scale_with_titles = false
+radius_cells = 6.0
+done_text_key = "QUEST_ARC1_CH5_DONE_6"
+ritual_item = &"heavy_feast"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"arc1_ch5_pisadeira"
+name_key = "QUEST_ARC1_CH5_NAME"
+giver_npc = &"firmino_insone"
+region_id = &"sabia"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4"), SubResource("step_5"), SubResource("step_6")])
+reward_items = Dictionary[StringName, int]({
+&"light_sleep_cloak": 1
+})
+reward_xp = 4200
+reward_causo_id = &"arc1_pisadeira"
+offer_text_key = "QUEST_ARC1_CH5_OFFER"
+progress_text_key = "QUEST_ARC1_CH5_PROGRESS"
+complete_text_key = "QUEST_ARC1_CH5_COMPLETE"
+option_text_key = "QUEST_ARC1_CH5_OPTION"
+desc_key = "QUEST_ARC1_CH5_DESC"
+required_quests = Array[StringName]([&"arc1_ch4_curupira"])
+requires_left_training = true

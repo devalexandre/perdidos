@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_escama_da_tempestade.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"escama_da_tempestade"
+name_key = "ITEM_ESCAMA_DA_TEMPESTADE_NAME"
+desc_key = "ITEM_ESCAMA_DA_TEMPESTADE_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 1100
+tradeable = true
+crendice_id = &"escama_da_tempestade"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"atk": 12,
+&"matk": 12
+})

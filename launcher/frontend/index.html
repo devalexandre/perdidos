@@ -7,16 +7,16 @@
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
-  <div class="bg" aria-hidden="true"></div>
+  <div class="bg" id="bg" aria-hidden="true"></div>
   <audio id="launcher-music" src="/mus_title.ogg" loop preload="auto"></audio>
   <button type="button" class="music-toggle" id="music-toggle" aria-label="Desativar música" title="Desativar música">♫</button>
   <main class="shell">
     <!-- Entrar / Criar conta -->
     <section class="panel" id="auth">
       <header class="brand">
-        <span class="arc-mark">Arco I <i aria-hidden="true"></i> O Lobisomem</span>
+        <span class="arc-mark" id="arc-mark"><span>Arco I</span> <i aria-hidden="true"></i> <span>A Terra do Sabiá</span></span>
         <h1>Perdidos</h1>
-        <p>A Mata guarda um causo antigo.</p>
+        <p id="tagline">A Mata guarda um causo antigo.</p>
       </header>
       <div class="tabs" role="tablist">
         <button type="button" role="tab" data-mode="login" class="tab active" aria-selected="true">Entrar</button>

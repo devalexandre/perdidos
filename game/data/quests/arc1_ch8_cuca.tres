@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"curious_child"
+count = 1
+text_key = "QUEST_ARC1_CH8_STEP_1"
+scale_with_titles = false
+lore_text_key = "QUEST_ARC1_CH8_LORE_1"
+lore_option_key = "QUEST_ARC1_CH8_LORE_1_OPT"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+type = 1
+target_id = &"lost_toy"
+count = 3
+text_key = "QUEST_ARC1_CH8_STEP_2"
+scale_with_titles = false
+drop_from = &"shadow_weaver"
+drop_chance = 0.35
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("2_step")
+type = 2
+target_id = &"CauldronChamber"
+count = 1
+text_key = "QUEST_ARC1_CH8_STEP_3"
+scale_with_titles = false
+radius_cells = 4.0
+done_text_key = "QUEST_ARC1_CH8_DONE_3"
+
+[sub_resource type="Resource" id="step_4"]
+script = ExtResource("2_step")
+type = 7
+target_id = &"story_cuca"
+count = 1
+text_key = "QUEST_ARC1_CH8_STEP_4"
+scale_with_titles = false
+radius_cells = 6.0
+done_text_key = "QUEST_ARC1_CH8_DONE_4"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"arc1_ch8_cuca"
+name_key = "QUEST_ARC1_CH8_NAME"
+giver_npc = &"dona_celeste"
+region_id = &"sabia"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4")])
+reward_items = Dictionary[StringName, int]({
+&"lullaby_tome": 1
+})
+reward_xp = 4600
+reward_causo_id = &"arc1_cuca"
+offer_text_key = "QUEST_ARC1_CH8_OFFER"
+progress_text_key = "QUEST_ARC1_CH8_PROGRESS"
+complete_text_key = "QUEST_ARC1_CH8_COMPLETE"
+option_text_key = "QUEST_ARC1_CH8_OPTION"
+desc_key = "QUEST_ARC1_CH8_DESC"
+required_quests = Array[StringName]([&"arc1_ch4_curupira"])
+requires_left_training = true
+released = false
+complete_text_variants = Dictionary[String, String]({
+"item:mother_of_pearl_comb": "QUEST_ARC1_CH8_COMPLETE_COMB"
+})

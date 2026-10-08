@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_lullaby_tome.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"lullaby_tome"
+name_key = "ITEM_LULLABY_TOME_NAME"
+desc_key = "ITEM_LULLABY_TOME_DESC"
+icon = ExtResource("icon")
+type = 2
+scaling_attribute = &"int"
+rarity = 3
+sell_price = 1050
+stats = Dictionary[StringName, int]({
+&"matk": 32,
+&"int": 8,
+&"spi": 5,
+&"mdef": 14,
+&"cast_reduction": 14
+})

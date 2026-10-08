@@ -1,0 +1,265 @@
+keys,pt_BR
+QUEST_OPT_CONTINUE,Continue...
+PROG_REQ_NOT_RELEASED,— esta história ainda não chegou por aqui
+PROG_REQ_STORY_COMPLETED,— terminar o causo: %s
+STORY_NAME_LOBISOMEM_ARC,O Causo do Lobisomem (qualquer desfecho)
+PROG_MSG_RITUAL_SPAWNED,"%s: o ritual foi feito. A noite responde, e alguma coisa acorda."
+PROG_MSG_RITUAL_ALIVE,%s: ele já está acordado por aqui. O ritual só marca o lugar.
+PROG_MSG_RITUAL_DAY,Aqui não acontece nada enquanto há sol. Volte quando escurecer.
+PROG_MSG_RITUAL_NEEDS_ITEM,"Sem %s, o ritual não tem com o que começar."
+PROG_MSG_RITUAL_BLOCKED,Outra lenda doente já anda por este mapa. Espere ela cair.
+PROG_MSG_STORY_VICTORY,%s: a lenda foi vencida. Isto vai virar causo.
+PROG_MSG_QUEST_ITEM_FOUND,Você encontrou: %s.
+PROG_MSG_QUEST_ITEM_GIVEN,Você recebeu: %s (x%d).
+SYS_STORY_BOSS_APPEARED,Uma lenda doente despertou com a noite: %s!
+SYS_STORY_BOSS_VANISHED,O dia nasceu e %s sumiu com a escuridão. Volta na próxima noite.
+MON_STORY_SACI_NAME,Saci Atroz
+MON_STORY_MULA_NAME,Mula-sem-Cabeça Atroz
+MON_STORY_LOBISOMEM_NAME,Lobisomem Atroz
+MON_STORY_CURUPIRA_NAME,Curupira Atroz
+MON_STORY_PISADEIRA_NAME,Pisadeira Atroz
+MON_STORY_IARA_NAME,Iara Atroz
+MON_STORY_MAPINGUARI_NAME,Mapinguari Atroz
+MON_STORY_CUCA_NAME,Cuca Atroz
+MON_STORY_BOIUNA_NAME,Boiúna Atroz
+MON_STORY_BOITATA_NAME,Boitatá Atroz
+NPC_DONA_JACINTA_NAME,"Dona Jacinta, a peneireira"
+DLG_DONA_JACINTA_START,"Peneira de taquara, balaio, cesto de roupa! Tudo trançado por estas mãos, que já trançaram mais que cabelo de noiva. Vai levar alguma coisa ou veio só prosear?"
+DLG_DONA_JACINTA_OPT_TALK,"Por que tanta peneira, Dona Jacinta?"
+DLG_DONA_JACINTA_TALK,"Porque peneira serve pra tudo, meu filho. Peneira o arroz, peneira o fubá, peneira a conversa dos outros... e, se for de cruzeta, peneira até Saci. Mas essa última eu só faço pra quem precisa."
+DLG_DONA_JACINTA_OPT_BYE,"Até mais, Dona Jacinta."
+NPC_FIRMINO_INSONE_NAME,"Seu Firmino, o que não dorme"
+DLG_FIRMINO_INSONE_START,"Boa noite... ou bom dia? Perdi a conta. Quem não dorme vive num dia só, comprido que nem estrada de terra. Senta, se tiver coragem de ficar acordado comigo."
+DLG_FIRMINO_INSONE_OPT_TALK,"O senhor mora aqui embaixo, no meio desses bichos?"
+DLG_FIRMINO_INSONE_TALK,"Moro onde o sono não me acha. Lá em cima, na vila, eu cochilo e acordo gritando. Aqui embaixo, com os possuídos rondando, pelo menos eu tenho motivo pra ficar de olho aberto."
+DLG_FIRMINO_INSONE_OPT_BYE,"Descanse... quando puder, Seu Firmino."
+NPC_DONA_CELESTE_NAME,"Dona Celeste, mãe do Tico"
+DLG_DONA_CELESTE_START,"Viu o Tico por aí? Aquele menino não para quieto. Se ele te pedir pra brincar de pega-pega, diz que não, que ele trapaceia."
+DLG_DONA_CELESTE_OPT_TALK,Ele é um bom menino.
+DLG_DONA_CELESTE_TALK,"É, sim. Puxou o pai: curioso, conversador e com o joelho sempre ralado. O pai dele era barqueiro e ensinou a deixar brinquedo pelo caminho pra achar a volta. Eu achava bobagem. Hoje acho que é a coisa mais sabida que alguém já ensinou pra ele."
+DLG_DONA_CELESTE_OPT_BYE,"Até logo, Dona Celeste."
+QUEST_ARC1_PROLOGUE_NAME,As Pétalas Douradas
+QUEST_ARC1_PROLOGUE_DESC,"O Barqueiro conta que quem chega pelo rio escuta alguém no cristal da praça, de noite."
+QUEST_ARC1_PROLOGUE_OPTION,[História] O rio só traz pétalas quando chega um Viajante. Por quê?
+QUEST_ARC1_PROLOGUE_OFFER,"Por quê, eu não sei. Sei o que meu avô dizia: que o ipê da praça é mais velho que o Porto, e que o cristal debaixo dele não foi ninguém daqui que pôs."
+QUEST_ARC1_PROLOGUE_OFFER_P2,"Dizia também que, de noite, quem é de fora encosta a mão no cristal e escuta alguém. Eu já encostei. Escutei foi mosquito. Mas eu sou daqui, né?"
+QUEST_ARC1_PROLOGUE_OFFER_P3,"Faz o seguinte: espera escurecer, vai lá na praça e põe a mão no cristal. Se ouvir alguma coisa, volta e me conta. Se não ouvir, volta do mesmo jeito, que eu pago um café pela viagem perdida."
+QUEST_ARC1_PROLOGUE_PROGRESS,Ainda não escureceu? O cristal é mais conversador de noite. De dia ele só zumbe.
+QUEST_ARC1_PROLOGUE_STEP_1,"À noite, toque o cristal debaixo do ipê da praça do Porto"
+QUEST_ARC1_PROLOGUE_DONE_1,"Uma voz cansada sai do cristal, baixinha, como quem fala de muito longe: ""Você veio. Que bom. Os poucos que ainda lembram me chamam de Eleonor. As lendas desta terra estão doentes, Viajante, e elas só mostram a doença quando escurece. Eu não posso tocar o mundo... por isso chamei você."""
+QUEST_ARC1_PROLOGUE_COMPLETE,"Ouviu uma mulher? Cansada? ...Vixe. Meu avô contava igualzinho, e a família toda achava que era a cachaça."
+QUEST_ARC1_PROLOGUE_COMPLETE_P2,"""As lendas estão doentes e só mostram a doença quando escurece."" Olha, isso explica muita coisa. O redemoinho dos Campos anda bravo, e é sempre depois do sol posto."
+QUEST_ARC1_PROLOGUE_COMPLETE_P3,"Se a voz chamou você, a conversa é sua. Mas não vai de cabeça quente, não. A Dona Jacinta, da feira, anda dizendo que o Saci perdeu o juízo. Começa por ela."
+QUEST_ARC1_CH1_NAME,A Peneira de Cruzeta
+QUEST_ARC1_CH1_DESC,"Dona Jacinta jura que o Saci perdeu o juízo nos Campos do Sabiá, e ela sabe trançar a única coisa que segura um Saci."
+QUEST_ARC1_CH1_OPTION,[História] A senhora acha mesmo que o Saci perdeu o juízo?
+QUEST_ARC1_CH1_OFFER,"Acho, não, meu filho: tenho certeza. Saci sempre foi arteiro. Some com dedal, azeda o leite, dá nó em crina de cavalo. Coisa de menino levado."
+QUEST_ARC1_CH1_OFFER_P2,"Mas esse ano ele derrubou a carroça do Seu Benedito com burro e tudo, e o burro ficou três dias andando de lado. E os redemoinhos do Passo dos Ipês, que antes só levantavam poeira, agora levantam gente."
+QUEST_ARC1_CH1_OFFER_P3,"A Jandira, da banca de frutas, viu de perto. O Seu Benedito, o tropeiro, também. Vai ouvir os dois, que eu não gosto de contar causo dos outros."
+QUEST_ARC1_CH1_OFFER_P4,"Depois me traz uns fiapos daqueles redemoinhos. Com fiapo de redemoinho eu tranço uma peneira de cruzeta, e Saci que fica debaixo de peneira de cruzeta não sai. Não sou eu que digo: é a minha avó, e a avó dela."
+QUEST_ARC1_CH1_PROGRESS,"Ainda sem a peneira na mão? O Passo dos Ipês fica pra lá da encruzilhada. E se ouvir assobio no mato, não responde."
+QUEST_ARC1_CH1_STEP_1,"Ouça o causo de Dona Jandira, na banca de frutas do Porto"
+QUEST_ARC1_CH1_LORE_1_OPT,[Causo] A Dona Jacinta disse que a senhora viu o Saci.
+QUEST_ARC1_CH1_LORE_1,"Vi, sim senhor. Eu estava estendendo roupa no varal, lá pros lados dos Campos, quando veio um redemoinho rodando bonitinho, que nem dança de quadrilha."
+QUEST_ARC1_CH1_LORE_1_P2,"Levou três lençóis, uma ceroula do meu falecido e um pé de chinelo. Até aí, tudo bem: é o Saci, sempre levou. Mas aí o redemoinho parou bem na minha frente. Parou, Viajante. Redemoinho não para."
+QUEST_ARC1_CH1_LORE_1_P3,"E de dentro dele, em vez daquela risadinha fina de sempre, saiu um chiado, que nem gordura no fogo. O gorro não era vermelho, não. Era brasa. Desde esse dia eu não estendo mais roupa pra aqueles lados."
+QUEST_ARC1_CH1_STEP_2,"Ouça o causo de Seu Benedito, o tropeiro"
+QUEST_ARC1_CH1_LORE_2_OPT,[Causo] Dizem que o Saci derrubou sua carroça.
+QUEST_ARC1_CH1_LORE_2,"Derrubou, e não foi brincadeira. O Saci sempre trançou a crina dos meus burros de noite. De manhã eu desfazia o nó, resmungava um pouco e todo mundo seguia a vida."
+QUEST_ARC1_CH1_LORE_2_P2,"Mas na última lua o nó veio tão apertado que cortou o pelo. E a crina tinha cheiro de queimado, um cheiro azedo, de coisa que não é fogo de lenha. O Teimoso, meu burro mais velho, empacou e não quis passar no Passo dos Ipês nem por rapadura."
+QUEST_ARC1_CH1_LORE_2_P3,"Eu não sou homem de medo. Mas quando bicho velho de estrada não quer passar num lugar, o tropeiro escuta o bicho."
+QUEST_ARC1_CH1_STEP_3,Derrote Redemoinhos Arteiros nos Campos do Sabiá
+QUEST_ARC1_CH1_STEP_4,Junte Fiapos de Redemoinho (caem dos Redemoinhos Arteiros enquanto a missão pede)
+QUEST_ARC1_CH1_STEP_5,Leve os fiapos para Dona Jacinta trançar a Peneira de Cruzeta
+QUEST_ARC1_CH1_LORE_5_OPT,[Peneira] Trouxe os fiapos de redemoinho.
+QUEST_ARC1_CH1_LORE_5,"Deixa eu ver... Ô, que fiapo bom! Ainda está quentinho. Senta aí enquanto eu tranço, que peneira de cruzeta não se faz com pressa."
+QUEST_ARC1_CH1_LORE_5_P2,"Olha bem: uma tira por cima, outra por baixo, e no meio a cruz. Saci não atravessa cruzamento de caminho sem parar pra pensar, e enquanto ele pensa, a peneira cai. Pronto."
+QUEST_ARC1_CH1_LORE_5_P3,"Agora presta atenção: só funciona de noite, que é quando ele sai. Vai ao Passo dos Ipês, acha o redemoinho que não para e joga a peneira em cima dele. E não encara o bicho, que ele adora uma encarada."
+QUEST_ARC1_CH1_STEP_6,"À noite, jogue a Peneira de Cruzeta no redemoinho do Passo dos Ipês e vença o Saci Atroz"
+QUEST_ARC1_CH1_DONE_6,"O redemoinho se desmancha. No chão, sem o gorro e coçando a perna, o Saci ri baixinho: ""Ai, ai, que dor de cabeça... Uma fumaça preta subiu da terra, Viajante, e deixou todo mundo azedo. Eu só queria fazer arte. Machucar gente, nunca quis."""
+QUEST_ARC1_CH1_COMPLETE,"Voltou inteiro! E com a peneira vazia... então ele caiu, né? Conta, conta tudo."
+QUEST_ARC1_CH1_COMPLETE_P2,"Uma fumaça preta subiu da terra e deixou todo mundo azedo? Hum. Saci mente muito, meu filho, mas mente pra rir. Isso aí ele não disse rindo."
+QUEST_ARC1_CH1_COMPLETE_P3,"Toma, isso caiu do gorro dele quando eu sacudi a peneira. Pode usar sem medo: gorro de Saci a gente acha, não devolve. E fica de olho nessa fumaça. O que azeda Saci azeda o resto também."
+QUEST_ARC1_CH2_NAME,Ferraduras em Brasa
+QUEST_ARC1_CH2_DESC,"Seu Benedito não passa mais pela encruzilhada do Alto das Brasas à noite. Ele quer saber por quê, e quer de volta as ferraduras que as mulas andam levando."
+QUEST_ARC1_CH2_OPTION,[História] O que tem a encruzilhada do Alto das Brasas?
+QUEST_ARC1_CH2_OFFER,"Tem que lá em cima, na Chapada, as Mulas de Brasa sempre andaram de lá pra cá. Bicho bravo, mas de fogo honesto: queima por igual, de dentro pra fora. Tropeiro respeita e desvia."
+QUEST_ARC1_CH2_OFFER_P2,"Só que agora, à meia-noite, aparece uma maior. Sem cabeça. O fogo dela é vermelho no meio e preto nas pontas, que nem pavio que apagou e continuou queimando. Três companheiros meus viram. Um não falou mais desde então."
+QUEST_ARC1_CH2_OFFER_P3,"As mulas de lá andam arrancando ferradura dos cavalos da estrada, ainda em brasa, e levando sabe-se lá pra onde. Me traz cinco dessas ferraduras e mostra pro Mestre Orvalho, aquele das luzinhas. Ele entende de fogo que não é fogo."
+QUEST_ARC1_CH2_PROGRESS,"As ferraduras, Viajante. Cinco. Depois o Mestre Orvalho. Nessa ordem."
+QUEST_ARC1_CH2_STEP_1,"Suba ao Alto das Brasas, na Chapada do Céu Partido, até a encruzilhada"
+QUEST_ARC1_CH2_DONE_1,"Na encruzilhada, a terra está quente demais para a hora. Marcas de casco cruzam os três caminhos, e algumas ainda fumegam."
+QUEST_ARC1_CH2_STEP_2,Tome Ferraduras em Brasa das Mulas de Brasa (caem enquanto a missão pede)
+QUEST_ARC1_CH2_STEP_3,"Mostre as ferraduras ao Mestre Orvalho, no Porto"
+QUEST_ARC1_CH2_LORE_3_OPT,[Ferraduras] O Seu Benedito pediu para o senhor ver estas ferraduras.
+QUEST_ARC1_CH2_LORE_3,"Oh! Ponha aqui, ponha aqui na mesa, longe das luzinhas, que elas são curiosas e se queimam... Vejamos."
+QUEST_ARC1_CH2_LORE_3_P2,Brasa comum esfria de fora pra dentro. Estas esfriam no meio e continuam ardendo nas pontas. Está vendo esse preto na borda? Não é fuligem. É fogo. Um fogo que não dá luz.
+QUEST_ARC1_CH2_LORE_3_P3,"Passei a vida estudando o Arcano desta terra, Viajante, e isto não é daqui. Leve as ferraduras de volta e deixe na encruzilhada à meia-noite. Quem levou vai vir buscar. E, quando vier, traga para mim o que sobrar."
+QUEST_ARC1_CH2_STEP_4,"À meia-noite, deixe as ferraduras na encruzilhada do Alto das Brasas e vença a Mula-sem-Cabeça Atroz"
+QUEST_ARC1_CH2_DONE_4,"A Mula cai de joelhos e o fogo se apaga de uma vez, como vela soprada. Onde estaria o pescoço sobra uma brasa negra, que não esfria e não se apaga."
+QUEST_ARC1_CH2_COMPLETE,"Isto... deixe-me segurar. Não, não esquenta a mão. Fria. Uma brasa fria que continua queimando."
+QUEST_ARC1_CH2_COMPLETE_P2,"Já li sobre fogo que vem de cima, do raio, e fogo que vem de baixo, da terra. Este não vem de lugar nenhum desta terra, Viajante. É fogo de fora. Alguém está pondo fogo de fora dentro das nossas lendas."
+QUEST_ARC1_CH2_COMPLETE_P3,"Fique com o facão que o Seu Benedito mandou e com esta ferradura: ela guardou um pouco do fogo preto, e fogo preso a gente aprende a usar. A brasa eu guardo. E vou dormir de luz acesa."
+QUEST_ARC1_CH3_NAME,O Causo do Lobisomem
+QUEST_ARC1_CH3_DESC,"Marcelina garante que a sina dos Sete-Estrelas é velha, mas a fúria que ficou na Caverna do Reino Encoberto é nova."
+QUEST_ARC1_CH3_OPTION,[História] O uivo da caverna voltou.
+QUEST_ARC1_CH3_OFFER,"Voltou. Eu escuto daqui, de madrugada, quando o vento vira. E não é o Eustáquio, disso eu tenho certeza."
+QUEST_ARC1_CH3_OFFER_P2,"A sina dos Sete-Estrelas é velha, Viajante. É coisa de gente, de batismo que não veio, de avô pra neto. Essa eu conheço e sei benzer. Mas o que está lá embaixo agora não tem dono. É fúria solta, sem homem dentro."
+QUEST_ARC1_CH3_OFFER_P3,"Pergunta pro Guarda Tomé o que ele ouviu no portão, e pro Lindolfo o que ele viu no rio. Depois desce ao covil do andar quatro numa noite e encara. Se for o que eu penso, ela vai estar te esperando."
+QUEST_ARC1_CH3_PROGRESS,"Ainda não desceu? Vai de noite e leva remédio. A fúria não tem pressa, mas tem dente."
+QUEST_ARC1_CH3_STEP_1,Ouça o que o Guarda Tomé ouviu no portão do Porto
+QUEST_ARC1_CH3_LORE_1_OPT,[Causo] A Marcelina quer saber o que você ouviu.
+QUEST_ARC1_CH3_LORE_1,"Ouvi o uivo de novo, três noites seguidas. Mas tem uma coisa que eu não contei pra ninguém, porque guarda que conta assombração vira piada na venda."
+QUEST_ARC1_CH3_LORE_1_P2,"Na terceira noite o uivo veio junto com um cheiro. Cheiro de lenha verde queimando, que não acende direito. E do lado da Mata, bem onde fica a boca da caverna, subia uma fumaça mais preta que a própria noite. Preta de tapar estrela."
+QUEST_ARC1_CH3_STEP_2,Ouça o que o pescador Lindolfo viu no rio
+QUEST_ARC1_CH3_LORE_2_OPT,[Causo] O Guarda Tomé falou de uma fumaça preta.
+QUEST_ARC1_CH3_LORE_2,"Fumaça? Ah, a fumaça. Pois eu vi foi no reflexo. Rio de madrugada é espelho, sabe? E no espelho do rio a fumaça descia da caverna até a água, devagarinho, como quem procura alguma coisa."
+QUEST_ARC1_CH3_LORE_2_P2,"Os peixes sumiram três dias. Lambari não some à toa, Viajante. E o uivo que vinha junto não era de bicho com fome. Era de bicho com raiva. Raiva de gente."
+QUEST_ARC1_CH3_STEP_3,"À noite, desça ao covil do andar 4 da Caverna do Reino Encoberto e vença o Lobisomem Atroz"
+QUEST_ARC1_CH3_DONE_3,"A fera tomba no fundo do covil e a fúria escorre dela como água suja. Por um instante, lá embaixo, você ouve um som que não é uivo: uma respiração funda e quente, como uma fogueira grande respirando."
+QUEST_ARC1_CH3_COMPLETE,"Acabou? Então senta, que agora eu te conto o que o Eustáquio me contou ontem, aqui neste banquinho."
+QUEST_ARC1_CH3_COMPLETE_P2,"Ele disse que a sina sempre doeu, mas nunca daquele jeito. Que piorou desde que a fumaça subiu da caverna. A maldição é antiga e é de gente, Viajante. A fúria nova, não."
+QUEST_ARC1_CH3_COMPLETE_P3,"E disse mais uma coisa, que me arrepiou até o dedão: nas noites piores, deitado no fundo do covil, ele ouvia algo mais embaixo. Como uma fogueira respirando. Debaixo do covil não tem nada, Viajante. Ou não tinha."
+QUEST_ARC1_CH3_COMPLETE_KILLED,"Acabou? ...Senta. Não gosto de você, e você sabe por quê. Mas isto é maior que nós dois."
+QUEST_ARC1_CH3_COMPLETE_KILLED_P2,"O Eustáquio me contou, da última vez que veio aqui, antes daquela noite: a sina piorou desde que a fumaça subiu da caverna. A maldição era antiga e era de gente. A fúria nova, não. Você matou o homem, e a fúria ficou. Agora você sabe."
+QUEST_ARC1_CH3_COMPLETE_KILLED_P3,"E ele ouvia, nas noites piores, algo mais embaixo do covil. Como uma fogueira respirando. Debaixo do covil não tem nada, Viajante. Ou não tinha."
+QUEST_ARC1_CH3_COMPLETE_PACTED,"Acabou? O Curupira me mandou recado por um sanhaço, acredita? Disse que a fera da vereda dormiu em paz esta noite, pela primeira vez."
+QUEST_ARC1_CH3_COMPLETE_PACTED_P2,"O Eustáquio sempre me disse que a sina piorou desde que a fumaça subiu da caverna. A maldição é antiga e é de gente, e o pacto de vocês acalma ela. A fúria nova, não: essa você teve que encarar no osso."
+QUEST_ARC1_CH3_COMPLETE_PACTED_P3,"E ele ouvia, nas noites piores, algo mais embaixo do covil. Como uma fogueira respirando. Debaixo do covil não tem nada, Viajante. Ou não tinha."
+QUEST_ARC1_CH4_NAME,Pegadas ao Contrário
+QUEST_ARC1_CH4_DESC,O menino da mata desconfia de você. Prove que não veio queimar nada e siga as pegadas viradas até o Coração da Mata.
+QUEST_ARC1_CH4_OPTION,[História] Você sabe de onde vem a fumaça preta?
+QUEST_ARC1_CH4_OFFER,"Sei de muita coisa. Mas por que eu ia contar pra você? Gente de fora entra na mata, corta, queima, e depois pergunta por que os bichos estão bravos."
+QUEST_ARC1_CH4_OFFER_P2,"Os vaga-lumes ficaram doidos. Estão comendo as mudas novas, que é a mesma coisa que comer o amanhã. Fica aqui e defende as mudas deles. Se sobrar alguma de pé, eu converso."
+QUEST_ARC1_CH4_PROGRESS,"Você ainda está aqui? A raiz grande fica no Coração da Mata. E não pisa em formigueiro, que elas contam tudo pra mim."
+QUEST_ARC1_CH4_STEP_1,Defenda as mudas de pequi dos vaga-lumes enlouquecidos (fale com o menino para começar)
+QUEST_ARC1_CH4_STEP_2,Siga as pegadas viradas até o Coração da Mata
+QUEST_ARC1_CH4_DONE_2,"As pegadas apontam para trás, mas levam para a frente. Quem anda assim não quer ser seguido. Ou quer ser seguido só por quem presta atenção."
+QUEST_ARC1_CH4_STEP_3,Pegue um favo de Mel de Jataí dos porcos-do-mato que fuçam os ocos de pau (cai enquanto a missão pede)
+QUEST_ARC1_CH4_STEP_4,"À noite, deixe o Mel de Jataí na raiz grande do Coração da Mata e espere"
+QUEST_ARC1_CH4_DONE_4,"O caçador de forasteiros cai de joelhos e as folhas da cabeça dele param de arder. Quando você pisca, é só um menino sujo de terra, olhando as próprias mãos: ""Era eu? ...Fui eu, de novo. Desculpa. Ela entra pela raiz quando escurece."""
+QUEST_ARC1_CH4_COMPLETE,"Você não me matou. Podia, e não matou. Gente de fora sempre mata."
+QUEST_ARC1_CH4_COMPLETE_P2,"Então escuta, que eu só vou falar uma vez, e baixinho, porque a mata tem ouvido. Desde que a fumaça começou, os bichos sussurram um nome. Eles não gostam de falar, porque falar chama."
+QUEST_ARC1_CH4_COMPLETE_P3,"Erevos. O Devorador de Lendas. É ele que sopra a fumaça pela raiz, pelo rio, pela pedra. Ele não está com fome de gente, Viajante. Está com raiva. E raiva grande assim sempre tem uma história embaixo."
+QUEST_ARC1_CH4_COMPLETE_P4,"Vai atrás dessa história. Tem lenda doente em Hoer Verde, no rio de Z, nas Ruínas de Ratanabá, nos Túneis da Terra Oca e no abismo do Sumidouro. Leva este arco, que eu fiz pra caçar quem não presta, e estas pegadas, que é pra ninguém te seguir."
+QUEST_ARC1_CH5_NAME,"Barriga Cheia, Sono Pesado"
+QUEST_ARC1_CH5_DESC,Em Hoer Verde ninguém dorme. Seu Firmino diz que é porque a velha da estalagem ainda sobe no peito de quem janta demais.
+QUEST_ARC1_CH5_OPTION,[História] O senhor está com cara de quem não dorme há dias.
+QUEST_ARC1_CH5_OFFER,"Dias? Faz é lua. Desde que a estalagem deste andar fechou, ninguém em Hoer Verde prega o olho. Quem dorme acorda gritando, com o peito amassado e a boca seca."
+QUEST_ARC1_CH5_OFFER_P2,"Minha avó dizia: não deita de barriga cheia, senão a Pisadeira desce do telhado e senta no teu peito. Unha comprida, dedo fino, risada que não faz barulho. Eu achava que era história pra criança não comer escondido."
+QUEST_ARC1_CH5_OFFER_P3,"Não é. E pra pegar ela, alguém tem que fazer justamente o que não deve: comer demais e deitar na estalagem. Eu cozinho. Você deita. Mas antes tem que limpar o caminho, que os possuídos tomaram conta da cozinha."
+QUEST_ARC1_CH5_PROGRESS,"Já foi? Não esquece: barriga cheia, de noite, quarto do fundo. Eu ia junto, mas eu não durmo, e ela só vem pra quem dorme."
+QUEST_ARC1_CH5_STEP_1,Ouça o causo de Seu Firmino sobre a estalagem
+QUEST_ARC1_CH5_LORE_1_OPT,[Causo] O que aconteceu na estalagem?
+QUEST_ARC1_CH5_LORE_1,"Era a melhor estalagem da serra. Dona Aurora fazia um tutu de feijão que levantava defunto, e o povo comia até afrouxar o cinto. Depois subia pro quarto e deitava de barriga pra cima."
+QUEST_ARC1_CH5_LORE_1_P2,"Uma noite, o hóspede do quarto do fundo acordou e não conseguiu se mexer. Disse que tinha uma velha magra sentada no peito dele, rindo sem som, e que ela repetia uma coisa só, que nem reza errada."
+QUEST_ARC1_CH5_LORE_1_P3,"No outro dia ele foi embora sem pagar e sem chapéu. E a frase que ele contou eu ouço até hoje, quando cochilo na cadeira: ""Mataram a filha dele."" Que filha, Viajante? De quem? Ninguém aqui sabe."
+QUEST_ARC1_CH5_STEP_2,Derrote os Possuídos que tomaram conta da estalagem
+QUEST_ARC1_CH5_STEP_3,"Ache a cozinha da estalagem abandonada, no andar 4 de Hoer Verde"
+QUEST_ARC1_CH5_DONE_3,"O fogão de lenha está frio há meses, mas a panela em cima dele ainda cheira a feijão. No quarto do fundo, a cama está arrumada. Arrumada demais."
+QUEST_ARC1_CH5_STEP_4,Volte ao Seu Firmino para ele cozinhar o Banquete Pesado
+QUEST_ARC1_CH5_LORE_4_OPT,[Banquete] A cozinha está livre.
+QUEST_ARC1_CH5_LORE_4,"Então vamos cozinhar, que eu não faço isso desde o enterro da Dona Aurora. Feijão gordo, linguiça, torresmo, angu mole, couve, farofa de ovo e doce de leite de sobremesa. Sem economia."
+QUEST_ARC1_CH5_LORE_4_P2,"Leva quentinho, come tudo lá na estalagem e deita no quarto do fundo, de barriga pra cima. Quando sentir o peso no peito, não abre o olho de uma vez: mexe primeiro o dedinho do pé. Quem consegue mexer o dedinho consegue levantar."
+QUEST_ARC1_CH5_STEP_5,"À noite, coma o Banquete Pesado na estalagem e deite quieto no quarto do fundo"
+QUEST_ARC1_CH5_DONE_5,"O sono vem pesado como a barriga. Antes de o olho fechar, alguma coisa magra sobe pelo pé da cama."
+QUEST_ARC1_CH5_STEP_6,Mexa o dedinho do pé e vença a Pisadeira Atroz
+QUEST_ARC1_CH5_DONE_6,"A Pisadeira se desfaz como fumaça em quarto fechado. Mas a voz dela fica, rente ao seu ouvido, repetindo a mesma frase: ""Mataram a filha dele. Mataram a filha dele. Mataram..."""
+QUEST_ARC1_CH5_COMPLETE,"Você está com olheira até o queixo, mas está vivo. E eu... eu cochilei agora há pouco, Viajante. Cochilei e acordei sozinho no meu peito."
+QUEST_ARC1_CH5_COMPLETE_P2,"Ela repetiu a frase? ""Mataram a filha dele""? Hum. A Pisadeira não inventa nada, sabia? Ela só repete o que ouviu alguém dizer no escuro. Alguém disse isso pra ela primeiro."
+QUEST_ARC1_CH5_COMPLETE_P3,Leva este manto. Era da Dona Aurora; ela dizia que quem dorme com ele dorme leve. Agora eu acredito.
+QUEST_ARC1_CH6_NAME,O Canto no Rio
+QUEST_ARC1_CH6_DESC,"Barqueiros somem no rio da Cidade Perdida de Z. Lindolfo ouviu dizer que quem escuta o canto não volta, e quer saber de quem é a voz."
+QUEST_ARC1_CH6_OPTION,"[História] O senhor anda calado demais, Lindolfo."
+QUEST_ARC1_CH6_OFFER,"Pescador é calado por ofício, Viajante. Mas hoje é outra coisa. Meu compadre Zeca levava gente de barco no rio grande, lá na mata de Z. Sumiu faz duas luas. O barco voltou sozinho, rodando devagar, com a rede arrumadinha."
+QUEST_ARC1_CH6_OFFER_P2,"Os outros barqueiros dizem que ouviram um canto. Bonito de doer. Quem para o remo pra escutar, some. É a Iara, a moça do rio. A Iara sempre cantou, mas nunca levou quem não quisesse ir."
+QUEST_ARC1_CH6_OFFER_P3,"Vai lá. Acha as coisas dos barqueiros que sumiram: o chapéu do Zeca, um remo e uma rede. Com o que achar, eu faço uma coisa que meu pai fazia pra conversar com o rio."
+QUEST_ARC1_CH6_PROGRESS,"Chapéu, remo e rede. Depois a concha. Rio não tem pressa, mas barqueiro sumido tem."
+QUEST_ARC1_CH6_STEP_1,Ache o chapéu de palha do Zeca na margem do rio de Z
+QUEST_ARC1_CH6_DONE_1,"Um chapéu de palha preso nas raízes, ainda seco por dentro, como se o dono o tivesse tirado com calma."
+QUEST_ARC1_CH6_STEP_2,Ache o remo partido rio abaixo
+QUEST_ARC1_CH6_DONE_2,"O remo foi partido ao meio, não por pancada, mas como se alguém tivesse segurado as duas pontas e esperado."
+QUEST_ARC1_CH6_STEP_3,Ache a rede de pesca enroscada nas pedras
+QUEST_ARC1_CH6_DONE_3,"A rede está cheia de escamas douradas, grandes demais para qualquer peixe deste rio."
+QUEST_ARC1_CH6_STEP_4,Volte ao Lindolfo com o que achou
+QUEST_ARC1_CH6_LORE_4_OPT,"[Rio] Achei o chapéu, o remo e a rede."
+QUEST_ARC1_CH6_LORE_4,"O chapéu do Zeca... ele nunca tirava. Nem pra dormir. Senta aqui, que eu vou fazer a concha."
+QUEST_ARC1_CH6_LORE_4_P2,"Meu pai pegava uma concha do fundo, enchia de areia da margem onde a pessoa sumiu, e soprava. Se a concha cantasse de volta, era porque o rio queria conversar. Toma. Encosta no ouvido. Escuta?"
+QUEST_ARC1_CH6_LORE_4_P3,"Isso é o canto dela. Doente, Viajante. A Iara cantava como quem chama; essa aí canta como quem prende. Leva a concha até a margem, de noite, e toca. Ela vai vir. E não para o remo, viu? Nem pra ouvir o refrão."
+QUEST_ARC1_CH6_STEP_5,"À noite, toque a Concha que Canta na margem do rio de Z e vença a Iara Atroz"
+QUEST_ARC1_CH6_DONE_5,"O canto quebra numa nota só. A Iara afunda devagar e, quando a água se acalma, está na beira, de cabelo molhado e olhar limpo: ""Eu cantava com a voz de outro... Os seus barqueiros dormem no remanso, vivos. Pegue isto. Não é meu. Alguém deixou cair no meu rio, faz muito tempo, e eu guardei."""
+QUEST_ARC1_CH6_COMPLETE,"O Zeca voltou! Apareceu na prainha de manhã, todo molhado, dizendo que sonhou que era peixe. Você é bom, Viajante."
+QUEST_ARC1_CH6_COMPLETE_P2,"E isso na sua mão? Um pente de madrepérola... olha o entalhe: um golfinho. Golfinho, aqui? Isso não é coisa da Iara. É coisa de gente. Coisa de moça."
+QUEST_ARC1_CH6_COMPLETE_P3,"Guarda bem guardado. Pente que rio devolve não é pente comum. E leva este cajado: os barqueiros fizeram de gratidão, com madeira que boia."
+QUEST_ARC1_CH7_NAME,Os Selos do Arquiteto
+QUEST_ARC1_CH7_DESC,"Velho Tião do Casco diz que o Mapinguari guarda a sala dos registros de Ratanabá, e que ninguém nunca leu o que está escrito lá dentro."
+QUEST_ARC1_CH7_OPTION,[História] O senhor já esteve na sala dos registros de Ratanabá?
+QUEST_ARC1_CH7_OFFER,"Na porta, menino. Só na porta. Eu era moço e tinha o casco mais duro que o juízo. Lá no fundo das Ruínas tem uma sala selada, e na frente dela dorme o Mapinguari: um olho só, boca na barriga e um cheiro que derruba urubu."
+QUEST_ARC1_CH7_OFFER_P2,"Ele sempre foi guardião. Guardava, não caçava. Agora dizem que acordou e não dorme mais, e que urra pra quem chega perto até das escadas. Guardião que não dorme vira carcereiro."
+QUEST_ARC1_CH7_OFFER_P3,"A porta tem quatro selos de obsidiana, e quem manda nos selos é o Arquiteto, aquele monte de pedra que comanda as Sentinelas. Derruba o Arquiteto, toma os selos das Sentinelas e encaixa na porta, de noite. O Mapinguari vai acordar. Aí é com você."
+QUEST_ARC1_CH7_PROGRESS,"O Arquiteto primeiro, depois os selos, depois a porta. Nessa ordem, que pedra não perdoa pressa."
+QUEST_ARC1_CH7_STEP_1,Derrote o Arquiteto de Ratanabá no covil dele
+QUEST_ARC1_CH7_STEP_2,Tome Selos de Obsidiana das Sentinelas de Ratanabá (caem enquanto a missão pede)
+QUEST_ARC1_CH7_STEP_3,"À noite, encaixe os selos na porta da sala dos registros (Ruínas de Ratanabá, andar 4) e vença o Mapinguari Atroz"
+QUEST_ARC1_CH7_DONE_3,"O Mapinguari cai sentado, como um velho cansado, e fica olhando a porta aberta. Você entra. Nas paredes, desenhos na pedra contam de uma mulher que andava de vilarejo em vilarejo ouvindo histórias e dançando nas festas, sempre ao lado de um homem do rio. Em todos, o mesmo símbolo: um golfinho. Você o copia num pedaço de papel."
+QUEST_ARC1_CH7_COMPLETE,Você entrou? ...Entrou. Deixa eu ver esse papel. Uma moça que andava ouvindo histórias. E um homem do rio.
+QUEST_ARC1_CH7_COMPLETE_P2,"Esse golfinho... já vi igual, não lembro onde. Na minha idade a memória é que nem rede velha: segura o peixe grande e deixa passar o miúdo. Guarda esse decalque, que alguém vai reconhecer."
+QUEST_ARC1_CH7_COMPLETE_P3,"Toma este escudo. Foi do primeiro guardião de Ratanabá, antes de existir Mapinguari. Quem guarda porta precisa saber também a hora de abrir."
+QUEST_ARC1_CH8_NAME,"Nana, Nenê"
+QUEST_ARC1_CH8_DESC,"O Tico anda sumindo de noite e voltando de manhã com barro da Terra Oca nos pés, cantando uma cantiga que ninguém ensinou."
+QUEST_ARC1_CH8_OPTION,[História] A senhora está preocupada com o Tico?
+QUEST_ARC1_CH8_OFFER,"Preocupada? Estou é sem chão. Três noites que eu acordo e a cama dele está vazia. De manhã ele aparece no portão, com o pé vermelho de um barro que não tem aqui no Porto, cantando baixinho."
+QUEST_ARC1_CH8_OFFER_P2,"""Nana, nenê, que a Cuca vem pegar..."" Eu nunca cantei isso pra ele, Viajante. Minha mãe cantava pra mim, e eu jurei que não ia assustar filho meu com Cuca."
+QUEST_ARC1_CH8_OFFER_P3,"Conversa com ele, que comigo ele desconversa. E segue os brinquedos que ele deixa pelo caminho: foi o pai dele que ensinou, pra achar a volta. Traz meu menino pra dormir em casa."
+QUEST_ARC1_CH8_PROGRESS,"Os brinquedos, Viajante. O Tico disse que deixou um pião, um carrinho de lata e uma boneca de pano. Segue os três."
+QUEST_ARC1_CH8_STEP_1,Converse com o Tico sobre o sonho dele
+QUEST_ARC1_CH8_LORE_1_OPT,"[Sonho] Tico, pra onde você vai de noite?"
+QUEST_ARC1_CH8_LORE_1,"Eu não vou, eu sou levado! Tem uma moça bonita que canta, e a cantiga puxa a gente que nem anzol. Ela tem o cabelo comprido, preto, e um sorriso que é bonito e dá medo junto."
+QUEST_ARC1_CH8_LORE_1_P2,"Ela mexe um caldeirão enorme lá embaixo, numa caverna que brilha. Me deu sopa. Era gostosa! Mas ela falou umas coisas tristes, de uma filha. Eu deixei meus brinquedos no caminho, igual o pai ensinou. Você vai lá? Traz meu pião de volta?"
+QUEST_ARC1_CH8_STEP_2,Siga os brinquedos do Tico nos Túneis da Terra Oca (as Tecelãs da Sombra guardam nas teias)
+QUEST_ARC1_CH8_STEP_3,Ache a câmara do caldeirão no andar 5 dos Túneis da Terra Oca
+QUEST_ARC1_CH8_DONE_3,"Um caldeirão maior que uma carroça borbulha sozinho no meio da gruta. Ninguém mexe nele, mas a colher gira."
+QUEST_ARC1_CH8_STEP_4,"À noite, cante a cantiga de ninar diante do caldeirão e vença a Cuca Atroz"
+QUEST_ARC1_CH8_DONE_4,"A Cuca cai de joelhos e ri, ainda jovem, ainda bonita: ""Que voz ruim a sua, Viajante. Mas cantou certinho."" Ajeita o cabelo e fala sem pressa: ""Conheço Erevos de outros tempos. Ele tinha uma filha. E os humanos a mataram. Por isso tudo isto. Por isso eu."" E some no vapor do caldeirão."
+QUEST_ARC1_CH8_COMPLETE,"Ele dormiu! Dormiu a noite inteira, na cama dele, de pé lavado. Que tudo de bom lhe aconteça, Viajante."
+QUEST_ARC1_CH8_COMPLETE_P2,"Acordou falando da moça bonita, que ela contou que os humanos mataram a filha de alguém. Eu não sei de filha de ninguém. Mas criança acredita em tudo que é dito bonito, e isso me preocupa."
+QUEST_ARC1_CH8_COMPLETE_P3,"Este livro estava na mochila do Tico quando ele voltou. Tem cantiga escrita em todas as páginas. Não quero isso em casa. Fica com você, que você sabe se defender."
+QUEST_ARC1_CH8_COMPLETE_COMB,"Ele dormiu! Dormiu a noite inteira, na cama dele, de pé lavado. Que tudo de bom lhe aconteça, Viajante."
+QUEST_ARC1_CH8_COMPLETE_COMB_P2,"E ele me contou uma coisa esquisita. Disse que, quando você caiu e aquele pente de madrepérola escapou da sua mochila, a moça parou de cantar. Ficou olhando o pente que nem quem vê assombração, e mudou de assunto rapidinho."
+QUEST_ARC1_CH8_COMPLETE_COMB_P3,"Ela conhece aquele pente, Viajante. E se conhece o pente, sabe de quem era. Moça bonita que mente um pouquinho é a pior espécie de mentirosa. Fica com este livro, que estava na mochila do Tico. Não quero isso em casa."
+QUEST_ARC1_CH9_NAME,A Tempestade Negra
+QUEST_ARC1_CH9_DESC,"No Arraial do Sumidouro, os barcos são tragados por uma tempestade que só chove em cima do abismo. Dona Ana sabe quem mora lá embaixo."
+QUEST_ARC1_CH9_OPTION,[História] Que tempestade é essa que só chove no abismo?
+QUEST_ARC1_CH9_OFFER,"Chove em cima do abismo e em mais lugar nenhum, Viajante. Céu limpo no arraial, estrela no céu, e lá no meio do rio uma nuvem preta parada, roncando. Três barcos foram tragados este mês."
+QUEST_ARC1_CH9_OFFER_P2,"Lá embaixo mora a Boiúna, a cobra-grande preta. Ela sempre foi dona do rio fundo, e quem respeitava o fundo passava. Agora não deixa ninguém nem chegar perto. É como se estivesse escondendo alguma coisa."
+QUEST_ARC1_CH9_OFFER_P3,"Pergunta pro Benedito Barqueiro e pro Lindolfo, lá no Porto, que eles conhecem rio. Depois junta umas escamas pretas que as cobras do rio andam soltando e joga no abismo, numa noite. Ela vai subir pra buscar o que é dela."
+QUEST_ARC1_CH9_PROGRESS,"Benedito, Lindolfo, as escamas e o abismo. De noite. E amarra bem a bota, que o barranco escorrega."
+QUEST_ARC1_CH9_STEP_1,Ouça o Barqueiro Benedito sobre os barcos tragados
+QUEST_ARC1_CH9_LORE_1_OPT,[Causo] A Dona Ana perguntou dos barcos tragados.
+QUEST_ARC1_CH9_LORE_1,"Tragados é a palavra certa. Não afundaram: foram engolidos. Um primo meu estava num deles e saiu nadando. Disse que viu um olho do tamanho de uma porta, e que o olho não estava com fome. Estava vigiando."
+QUEST_ARC1_CH9_LORE_1_P2,"Vigiando o quê, eu perguntei. Ele disse: o rio acima. Como quem guarda uma passagem."
+QUEST_ARC1_CH9_STEP_2,Ouça o pescador Lindolfo sobre a cobra-grande
+QUEST_ARC1_CH9_LORE_2_OPT,[Causo] O que o senhor sabe da Boiúna?
+QUEST_ARC1_CH9_LORE_2,"Sei que ela é mais velha que o rio. Meu pai dizia que, quando a Boiúna passa, o rio muda de lugar. E dizia que ela tem memória comprida: tudo que passou por cima dela, ela lembra."
+QUEST_ARC1_CH9_LORE_2_P2,"Se tem alguém nesta terra que viu o que ninguém viu, Viajante, é ela. Mas lembrança de cobra-grande é que nem rio na cheia: pra chegar nela, tem que atravessar a tempestade."
+QUEST_ARC1_CH9_STEP_3,Junte Escamas Negras das sucuris do rio (caem enquanto a missão pede)
+QUEST_ARC1_CH9_STEP_4,"À noite, lance as escamas no abismo do Sumidouro e vença a Boiúna Atroz"
+QUEST_ARC1_CH9_DONE_4,"A tempestade se desfaz de uma vez e a Boiúna boia de lado, enorme e cansada. A voz dela é baixa como trovão longe: ""Ela subiu o rio. Não estava sozinha. Não estava com medo."" E afunda sem dizer de quem fala."
+QUEST_ARC1_CH9_COMPLETE,"Parou de chover no abismo. Os barqueiros já estão descendo o rio cantando. Cantando, Viajante! Fazia lua que ninguém cantava aqui."
+QUEST_ARC1_CH9_COMPLETE_P2,"Ela falou com você? ""Ela subiu o rio. Não estava sozinha. Não estava com medo."" ...Ela quem? Isso parece lembrança de alguém que fugiu. Fugiu feliz."
+QUEST_ARC1_CH9_COMPLETE_P3,"Toma este arco. Foi feito com a madeira de um barco tragado que o rio devolveu hoje cedo, inteirinho. Acho que é presente dela."
+QUEST_ARC1_FINAL_NAME,Debaixo do Covil
+QUEST_ARC1_FINAL_DESC,"Com as nove lendas libertas, o menino da mata sabe de onde sai a fumaça: de debaixo do covil do lobisomem."
+QUEST_ARC1_FINAL_OPTION,[História] As lendas estão livres. E agora?
+QUEST_ARC1_FINAL_OFFER,"Agora a mata respira. Escuta só... ouviu? Nenhum galho quebrando de raiva. Mas a fumaça não parou, Viajante. Ela só ficou com menos lugar pra entrar."
+QUEST_ARC1_FINAL_OFFER_P2,Os bichos me mostraram de onde ela sai. Lembra do que o homem-lobo ouvia embaixo do covil? A fogueira que respira? Ela existe. Tem uma passagem debaixo do covil do andar quatro que antes não estava lá.
+QUEST_ARC1_FINAL_OFFER_P3,"Lá embaixo dorme o Boitatá. Ele cuidava dos campos, apagava queimada com o próprio corpo. Erevos enterrou ele ali e soprou fumaça até ele virar fogo preto. Vai. Eu vou junto até a beira. Da beira pra baixo é com você."
+QUEST_ARC1_FINAL_PROGRESS,"A passagem fica atrás do covil, no andar quatro. De noite. E não olha muito tempo pro fogo dele: fogo preto engana a vista."
+QUEST_ARC1_FINAL_STEP_1,Desça ao covil do andar 4 da Caverna do Reino Encoberto e ache a passagem que antes não existia
+QUEST_ARC1_FINAL_DONE_1,"Atrás do covil, onde antes havia pedra, há uma fenda quente. Lá de baixo vem uma respiração lenta e um cheiro de capim queimado."
+QUEST_ARC1_FINAL_STEP_2,"À noite, abra a passagem para o andar 5 e vença o Boitatá Atroz"
+QUEST_ARC1_FINAL_DONE_2,"O fogo negro se apaga, escama por escama. O Boitatá não morre: os olhos dele clareiam, um por um, e ele lhe mostra uma lembrança. Uma mulher caminha junto a um grande rio, sorrindo. Ao lado dela, um homem desconhecido; por alguns segundos, os olhos dele brilham em rosa. A voz do Boitatá enche a câmara: ""A filha do Devorador nunca morreu."" ""Ela escolheu desaparecer."""
+QUEST_ARC1_FINAL_COMPLETE,Você voltou com cheiro de capim queimado e olho de quem viu coisa. O Boitatá está bem? Eu senti a mata inteira suspirar ao mesmo tempo.
+QUEST_ARC1_FINAL_COMPLETE_P2,"Uma mulher junto ao rio, sorrindo, e um homem de olhos cor-de-rosa. ""A filha do Devorador nunca morreu. Ela escolheu desaparecer."" ...Então foi tudo por uma mentira. A raiva de Erevos, a fumaça, as lendas doentes. Tudo."
+QUEST_ARC1_FINAL_COMPLETE_P3,"Os bichos mais velhos lembram de uma moça que andava entre os vilarejos, ouvindo causo e dançando nas festas, com um pente de golfinho no cabelo. Chamavam ela de Maria."
+QUEST_ARC1_FINAL_COMPLETE_P4,"Se ela está viva, Viajante, é a única que pode acabar com essa guerra. Então a pergunta agora é outra: onde está Maria?"

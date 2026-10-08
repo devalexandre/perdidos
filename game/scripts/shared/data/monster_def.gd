@@ -42,6 +42,14 @@ const CREATURE_BEAST: StringName = &"beast"
 ## stone_armadillo). Vazio = a própria espécie. Quests (lições e anciãos) contam a variante como a espécie original.
 @export var base_species: StringName = &""
 
+## --- Chefe da história (ARCO-1-TERRA-DO-SABIA.md §1, regras 1, 5 e 6) ---
+## Só existe na forma atroz e só à noite: nasce em StoryLairs/ do mapa (MonsterSpawner), sem estágios 1 e 2. O estágio 3
+## guarda os atributos (use atroz_stat_multiplier = 1.0) e o 4 a aparência, o nível e os drops.
+@export var story_boss: bool = false
+## Folhas ainda não instaladas (arte aguardando aprovação do dono): os dados existem, mas o chefe não pode estar em
+## nenhum mapa nem em quest liberada. Ao instalar a arte: false (ver "o que falta para ligar" no documento do arco).
+@export var art_pending: bool = false
+
 
 ## Espécie para as quests: base_species, ou o próprio id.
 func species_id() -> StringName:

@@ -1,0 +1,90 @@
+{
+ "cf_black": {
+  "flat": "Base 1",
+  "out": "Roxo 3"
+ },
+ "cf_tip": {
+  "flat": "Roxo 4",
+  "out": "Roxo 3"
+ },
+ "cf_dark": {
+  "flat": "Roxo 1",
+  "out": "Roxo 2"
+ },
+ "cf_smoke": {
+  "flat": "Base 1",
+  "out": "Roxo 2"
+ },
+ "cf_smoke2": {
+  "flat": "Roxo 1",
+  "out": "Roxo 3"
+ },
+ "wolf_fur_n": {
+  "ramp": [
+   "Roxo 1",
+   "Pedra/metal 2",
+   "Pedra/metal 3",
+   "Pedra/metal 4"
+  ],
+  "line": "Roxo 1",
+  "out": "Base 1"
+ },
+ "wolf_dark_n": {
+  "ramp": [
+   "Base 1",
+   "Roxo 1",
+   "Azul ceu 1",
+   "Pedra/metal 2"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "wolf_pale_n": {
+  "ramp": [
+   "Pedra/metal 2",
+   "Pedra/metal 3",
+   "Pergaminho 3",
+   "Pergaminho 4"
+  ],
+  "line": "Pedra/metal 1",
+  "out": "Base 1"
+ },
+ "wolf_inner_n": {
+  "ramp": [
+   "Rosa 1",
+   "Rosa 1",
+   "Rosa 2",
+   "Rosa 3"
+  ],
+  "line": "Rosa 1",
+  "out": "Base 1"
+ },
+ "moon_mark": {
+  "flat": "Pergaminho 4",
+  "out": "Roxo 3"
+ },
+ "moon_glow": {
+  "flat": "Ouro/amarelo 4",
+  "out": "Roxo 3"
+ },
+ "eye_gold_n": {
+  "flat": "Ouro/amarelo 4",
+  "out": "Ouro/amarelo 2"
+ },
+ "eye_gold_c": {
+  "flat": "Ouro/amarelo 3",
+  "out": "Ouro/amarelo 2"
+ },
+ "mist_n": {
+  "flat": "Roxo 3",
+  "out": "Roxo 2"
+ },
+ "mist2_n": {
+  "flat": "Roxo 2",
+  "out": "Roxo 1"
+ },
+ "cf_glow": {
+  "flat": "Roxo 3",
+  "out": "Roxo 2"
+ }
+}

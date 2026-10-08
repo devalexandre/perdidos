@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_unha_do_guardiao.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"unha_do_guardiao"
+name_key = "ITEM_UNHA_DO_GUARDIAO_NAME"
+desc_key = "ITEM_UNHA_DO_GUARDIAO_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 800
+tradeable = true
+crendice_id = &"unha_do_guardiao"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"def": 22,
+&"vit": 5
+})

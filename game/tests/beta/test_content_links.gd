@@ -61,6 +61,7 @@ func _ready() -> void:
 	_check_title_talks()
 	_check_quests()
 	_check_werewolf_beta_routes()
+	_check_story_bosses()
 	_check_skills()
 	_check_titles()
 	_check_material_sources()
@@ -163,7 +164,7 @@ func _load_maps() -> void:
 				if grid != null:
 					break
 		var info: Dictionary = {"node": map, "grid": grid, "zone": Content.zone(map_id), "spawns": [],
-				"lairs": [], "portals": [], "npc_points": {}}
+				"lairs": [], "story_lairs": [], "portals": [], "npc_points": {}}
 		_maps[map_id] = info
 		_scan_map(map_id, info)
 
@@ -230,6 +231,20 @@ func _scan_map(map_id: StringName, info: Dictionary) -> void:
 			if grid != null:
 				_check_walk(grid, (m as Node3D).global_position, cat, "covil BossLairs/%s" % m.name)
 			(info["lairs"] as Array).append({"monster": mid, "marker": String(m.name)})
+	# Chefes da história (Arco 1): covil só de chefe story_boss já liberado, bando >= 10, no máximo 1 por mapa.
+	var story_lairs: Node = map.get_node_or_null(NodePath(MonsterSpawner.STORY_LAIRS_NODE))
+	if story_lairs != null:
+		_ok(MonsterSpawner.story_lairs_allowed(zone), cat, "StoryLairs/ em zona que não aceita chefe da história")
+		for m: Node in story_lairs.get_children():
+			if not (m is Node3D):
+				continue
+			var smid := StringName(str(m.get_meta(&"monster_id", "")))
+			var problem: String = MonsterSpawner.story_lair_problem(Content.monster(smid), m.get_meta(&"escort", {}))
+			_ok(problem.is_empty(), cat, "StoryLairs/%s ('%s'): %s" % [m.name, smid, problem])
+			if grid != null:
+				_check_walk(grid, (m as Node3D).global_position, cat, "covil da história StoryLairs/%s" % m.name)
+			(info["story_lairs"] as Array).append({"monster": smid, "marker": String(m.name)})
+		_ok((info["story_lairs"] as Array).size() <= 1, cat, "mais de um chefe da história no mesmo mapa (regra 5)")
 	var points: Node = map.get_node_or_null(^"NpcPoints")
 	if points != null:
 		for p: Node in points.get_children():
@@ -381,6 +396,12 @@ func _check_monsters() -> void:
 				_drop_ok(d, where)
 			for anim: String in MONSTER_COLS:
 				var path: String = "%s_%s.png" % [st.sprite_base, anim]
+				# Chefe da história com a arte esperando aprovação: só aviso (ele não pode estar em mapa nem em quest
+				# liberada; ver _check_story_bosses e _check_step).
+				if def.art_pending and not _res_exists(path):
+					if anim == "idle":
+						_warn(cat, "%s: arte pendente (folhas %s_* ainda não instaladas)" % [where, st.sprite_base.get_file()])
+					continue
 				if not _ok(_res_exists(path), cat, "%s: falta folha %s" % [where, path.get_file()]):
 					continue
 				var tex: Texture2D = load(path) as Texture2D
@@ -393,7 +414,13 @@ func _check_monsters() -> void:
 				_ok(h % 5 == 0 and frame > 0 and w % frame == 0 and (prop or cols in MONSTER_COLS[anim]), cat,
 						"%s: folha %s com tamanho %dx%d (quadro %d, %d colunas; esperado %s)" % [where, path.get_file(),
 						w, h, frame, cols, str(MONSTER_COLS[anim])])
-		_ok(1 in numbers, cat, "%s: sem estágio 1" % def.id)
+		if def.story_boss:
+			# Arco 1: só a forma atroz (o 3 guarda os atributos, o 4 a aparência), sem estágios 1 e 2.
+			_ok(3 in numbers and MonsterDef.ATROZ_STAGE in numbers and not 1 in numbers and not 2 in numbers, cat,
+					"%s: chefe da história deve ter só os estágios 3 e 4" % def.id)
+			_ok(not def.can_be_rare, cat, "%s: chefe da história não nasce raro" % def.id)
+		else:
+			_ok(1 in numbers, cat, "%s: sem estágio 1" % def.id)
 		if MonsterDef.ATROZ_STAGE in numbers:
 			_ok(3 in numbers, cat, "%s: forma atroz (4) sem chefe (3)" % def.id)
 		for d: DropEntry in def.rare_extra_drops:
@@ -564,6 +591,34 @@ func _boss_maps(species: StringName) -> Array[String]:
 	return out
 
 
+## Mapas com covil da história (StoryLairs/) desse chefe.
+func _story_lair_maps(monster_id: StringName) -> Array[StringName]:
+	var out: Array[StringName] = []
+	for map_id: StringName in _maps:
+		for l: Dictionary in _maps[map_id]["story_lairs"]:
+			if l["monster"] == monster_id:
+				out.append(map_id)
+	return out
+
+
+## Chefe da história: só em StoryLairs/; com arte pendente, em nenhum mapa.
+func _check_story_bosses() -> void:
+	for r: Resource in Content.all(&"monsters").values():
+		var def: MonsterDef = r as MonsterDef
+		if def == null or not def.story_boss:
+			continue
+		var placed: Array[String] = []
+		for map_id: StringName in _maps:
+			for key: String in ["spawns", "lairs", "story_lairs"]:
+				for e: Dictionary in _maps[map_id][key]:
+					if StringName(str(e["monster"])) == def.id:
+						placed.append("%s/%s" % [map_id, key])
+		if def.art_pending:
+			_ok(placed.is_empty(), "monstros", "%s: arte pendente mas posicionado em %s" % [def.id, str(placed)])
+		for p: String in placed:
+			_ok(p.ends_with("story_lairs"), "monstros", "%s: chefe da história fora de StoryLairs/ (%s)" % [def.id, p])
+
+
 func _atroz_maps(species: StringName) -> Array[String]:
 	var out: Array[String] = []
 	for tag: String in _boss_maps(species):
@@ -677,6 +732,12 @@ func _check_step(q: QuestDef, s: QuestStep, n: int) -> void:
 		QuestStep.StepType.COLLECT:
 			if not _ok(Content.item(s.target_id) != null, cat, "%s: item '%s' não existe" % [where, s.target_id]):
 				return
+			if not s.drop_from.is_empty():
+				_ok(Content.monster(s.drop_from) != null and s.drop_chance > 0.0, cat,
+						"%s: drop_from '%s' inexistente ou sem chance" % [where, s.drop_from])
+				if q.released:
+					_ok(not _spawns_of(_species(s.drop_from)).is_empty(), cat,
+							"%s: '%s' (que solta %s) não nasce fora do treino" % [where, s.drop_from, s.target_id])
 			if is_lesson or is_elder:
 				var src: Array[String] = _drops_from_spawn(s.target_id)
 				_ok(not src.is_empty() or _sold(s.target_id), "lições" if is_lesson else "anciãos",
@@ -690,6 +751,16 @@ func _check_step(q: QuestDef, s: QuestStep, n: int) -> void:
 			for map_id: StringName in _maps:
 				found = found or (_maps[map_id]["node"] as Node).find_child(String(s.target_id), true, false) != null
 			_ok(found, cat, "%s: marcador '%s' não existe em nenhum mapa" % [where, s.target_id])
+		QuestStep.StepType.RITUAL:
+			var rd: MonsterDef = Content.monster(s.target_id)
+			if not _ok(rd != null and rd.story_boss, cat, "%s: ritual de '%s', que não é chefe da história" % [where, s.target_id]):
+				return
+			if not s.ritual_item.is_empty():
+				_ok(Content.item(s.ritual_item) != null, cat, "%s: ritual_item '%s' não existe" % [where, s.ritual_item])
+			if q.released:
+				_ok(not rd.art_pending, cat, "%s: quest liberada com chefe de arte pendente '%s'" % [where, s.target_id])
+				_ok(not _story_lair_maps(s.target_id).is_empty(), cat,
+						"%s: '%s' não tem covil (StoryLairs/) em nenhum mapa" % [where, s.target_id])
 		QuestStep.StepType.TRIAL:
 			_ok(Content.monster(s.target_id) != null, cat, "%s: provação com monstro '%s' inexistente" % [where, s.target_id])
 			if s.trial_mode == &"protect":

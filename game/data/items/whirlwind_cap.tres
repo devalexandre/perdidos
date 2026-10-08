@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_whirlwind_cap.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"whirlwind_cap"
+name_key = "ITEM_WHIRLWIND_CAP_NAME"
+desc_key = "ITEM_WHIRLWIND_CAP_DESC"
+icon = ExtResource("icon")
+type = 3
+rarity = 3
+sell_price = 300
+stats = Dictionary[StringName, int]({
+&"def": 6,
+&"mdef": 4,
+&"dex": 4,
+&"luk": 3
+})

@@ -2117,6 +2117,7 @@ position = Vector3(0, 0, -24)
 metadata/monster_id = &"cave_werewolf"
 metadata/radius_cells = 7
 metadata/respawn_sec = 600.0
+metadata/day_only = true
 
 [node name="SurfaceEscapePortal" type="Area3D" parent="Interactables"]
 position = Vector3(34, 1, -22)
@@ -2179,3 +2180,15 @@ metadata/stage = 2
 metadata/count = 3
 metadata/radius_cells = 3
 metadata/respawn_sec = 120.0
+
+[node name="StoryLairs" type="Node3D" parent="."]
+
+[node name="lobisomem" type="Marker3D" parent="StoryLairs"]
+position = Vector3(0, 0, -24)
+metadata/monster_id = &"story_lobisomem"
+metadata/radius_cells = 6
+metadata/escort = {"cave_werewolf": 4, "cave_bat": 6}
+metadata/escort_stage = 2
+
+[node name="DeepPassage" type="Marker3D" parent="."]
+position = Vector3(0, 0, -28)

@@ -1,0 +1,174 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="monster"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="stage"]
+
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="drop"]
+
+[sub_resource type="Resource" id="drop1"]
+
+script = ExtResource("drop")
+item_id = &"spinning_leaf"
+chance = 0.3
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="potion1"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_small"
+chance = 0.08
+
+[sub_resource type="Resource" id="stage1"]
+
+script = ExtResource("stage")
+stage = 1
+name_key = "MON_MOUNTAIN_TENGU_S1_NAME"
+sprite_base = "res://assets/monsters/mountain_tengu/mon_mountain_tengu_s1"
+baked_life = true
+visual_scale = 1.0
+level = 5
+max_hp = 140
+atk = 15
+matk = 0
+def = 2
+mdef = 2
+walk_ms_per_cell = 380
+attack_range_cells = 1.5
+attack_interval_ms = 1800
+aggressive = false
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 50
+stars_min = 2
+stars_max = 8
+behaviors = Array[StringName]([&"fly_pattern"])
+drops = Array[ExtResource("drop")]([SubResource("drop1"), SubResource("potion1")])
+
+[sub_resource type="Resource" id="drop2"]
+
+script = ExtResource("drop")
+item_id = &"spinning_leaf"
+chance = 0.3
+min_qty = 1
+max_qty = 2
+
+[sub_resource type="Resource" id="potion2"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.08
+
+[sub_resource type="Resource" id="stage2"]
+
+script = ExtResource("stage")
+stage = 2
+name_key = "MON_MOUNTAIN_TENGU_S2_NAME"
+sprite_base = "res://assets/monsters/mountain_tengu/mon_mountain_tengu_s1"
+baked_life = true
+visual_scale = 1.15
+level = 10
+max_hp = 355
+atk = 25
+matk = 0
+def = 5
+mdef = 3
+walk_ms_per_cell = 380
+attack_range_cells = 1.5
+attack_interval_ms = 1800
+aggressive = true
+aggro_range_cells = 5
+leash_cells = 12
+xp_reward = 100
+stars_min = 5
+stars_max = 13
+behaviors = Array[StringName]([&"fly_pattern"])
+drops = Array[ExtResource("drop")]([SubResource("drop2"), SubResource("potion2")])
+
+[sub_resource type="Resource" id="drop3"]
+
+script = ExtResource("drop")
+item_id = &"spinning_leaf"
+chance = 1.0
+min_qty = 3
+max_qty = 8
+
+[sub_resource type="Resource" id="potion3"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.5
+
+[sub_resource type="Resource" id="stage3"]
+
+script = ExtResource("stage")
+stage = 3
+name_key = "MON_MOUNTAIN_TENGU_S3_NAME"
+sprite_base = "res://assets/monsters/mountain_tengu/mon_mountain_tengu_s3"
+baked_life = true
+visual_scale = 1.0
+level = 24
+max_hp = 6100
+atk = 73
+matk = 0
+def = 35
+mdef = 20
+walk_ms_per_cell = 440
+attack_range_cells = 2.0
+attack_interval_ms = 1800
+aggressive = true
+aggro_range_cells = 7
+leash_cells = 16
+xp_reward = 1750
+stars_min = 70
+stars_max = 140
+behaviors = Array[StringName]([&"fly_pattern", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop3"), SubResource("potion3")])
+
+[sub_resource type="Resource" id="drop4"]
+
+script = ExtResource("drop")
+item_id = &"spinning_leaf"
+chance = 1.0
+min_qty = 3
+max_qty = 8
+
+[sub_resource type="Resource" id="potion4"]
+
+script = ExtResource("drop")
+item_id = &"potion_hp_medium"
+chance = 0.5
+
+[sub_resource type="Resource" id="stage4"]
+
+script = ExtResource("stage")
+stage = 4
+name_key = "MON_MOUNTAIN_TENGU_S4_NAME"
+sprite_base = "res://assets/monsters/mountain_tengu/mon_mountain_tengu_s4"
+baked_life = true
+visual_scale = 1.0
+level = 30
+max_hp = 6100
+atk = 73
+matk = 0
+def = 35
+mdef = 20
+walk_ms_per_cell = 380
+attack_range_cells = 2.0
+attack_interval_ms = 1400
+aggressive = true
+aggro_range_cells = 9
+leash_cells = 20
+xp_reward = 3500
+stars_min = 140
+stars_max = 280
+behaviors = Array[StringName]([&"fly_pattern", &"boss"])
+drops = Array[ExtResource("drop")]([SubResource("drop4"), SubResource("potion4")])
+
+[resource]
+
+script = ExtResource("monster")
+id = &"mountain_tengu"
+region_id = &"japao"
+stages = Array[ExtResource("stage")]([SubResource("stage1"), SubResource("stage2"), SubResource("stage3"), SubResource("stage4")])

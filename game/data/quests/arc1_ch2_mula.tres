@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+type = 2
+target_id = &"BrasasCrossroads"
+count = 1
+text_key = "QUEST_ARC1_CH2_STEP_1"
+scale_with_titles = false
+radius_cells = 4.0
+done_text_key = "QUEST_ARC1_CH2_DONE_1"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+type = 1
+target_id = &"ember_horseshoe"
+count = 5
+text_key = "QUEST_ARC1_CH2_STEP_2"
+scale_with_titles = false
+drop_from = &"ember_mule"
+drop_chance = 0.3
+collect_keep = true
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"master_orvalho"
+count = 1
+text_key = "QUEST_ARC1_CH2_STEP_3"
+scale_with_titles = false
+lore_text_key = "QUEST_ARC1_CH2_LORE_3"
+lore_option_key = "QUEST_ARC1_CH2_LORE_3_OPT"
+
+[sub_resource type="Resource" id="step_4"]
+script = ExtResource("2_step")
+type = 7
+target_id = &"story_mula"
+count = 1
+text_key = "QUEST_ARC1_CH2_STEP_4"
+scale_with_titles = false
+radius_cells = 6.0
+done_text_key = "QUEST_ARC1_CH2_DONE_4"
+ritual_item = &"ember_horseshoe"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"arc1_ch2_mula"
+name_key = "QUEST_ARC1_CH2_NAME"
+giver_npc = &"tropeiro"
+turn_in_npc = &"master_orvalho"
+region_id = &"sabia"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4")])
+reward_items = Dictionary[StringName, int]({
+&"crossroads_machete": 1,
+&"black_fire_horseshoe": 1
+})
+reward_xp = 1600
+reward_causo_id = &"arc1_mula"
+offer_text_key = "QUEST_ARC1_CH2_OFFER"
+progress_text_key = "QUEST_ARC1_CH2_PROGRESS"
+complete_text_key = "QUEST_ARC1_CH2_COMPLETE"
+option_text_key = "QUEST_ARC1_CH2_OPTION"
+desc_key = "QUEST_ARC1_CH2_DESC"
+required_quests = Array[StringName]([&"arc1_ch1_saci"])
+requires_left_training = true
+released = false

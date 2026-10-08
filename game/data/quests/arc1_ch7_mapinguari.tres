@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+target_id = &"ratanaba_architect"
+count = 1
+text_key = "QUEST_ARC1_CH7_STEP_1"
+scale_with_titles = false
+variant = &"boss"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+type = 1
+target_id = &"obsidian_seal"
+count = 4
+text_key = "QUEST_ARC1_CH7_STEP_2"
+scale_with_titles = false
+drop_from = &"ratanaba_sentinel"
+drop_chance = 0.3
+collect_keep = true
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("2_step")
+type = 7
+target_id = &"story_mapinguari"
+count = 1
+text_key = "QUEST_ARC1_CH7_STEP_3"
+scale_with_titles = false
+radius_cells = 6.0
+grant_items = Dictionary[StringName, int]({
+&"dolphin_rubbing": 1
+})
+done_text_key = "QUEST_ARC1_CH7_DONE_3"
+ritual_item = &"obsidian_seal"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"arc1_ch7_mapinguari"
+name_key = "QUEST_ARC1_CH7_NAME"
+giver_npc = &"elder_tiao"
+region_id = &"sabia"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3")])
+reward_items = Dictionary[StringName, int]({
+&"ratanaba_guardian_shield": 1
+})
+reward_xp = 3600
+reward_causo_id = &"arc1_mapinguari"
+offer_text_key = "QUEST_ARC1_CH7_OFFER"
+progress_text_key = "QUEST_ARC1_CH7_PROGRESS"
+complete_text_key = "QUEST_ARC1_CH7_COMPLETE"
+option_text_key = "QUEST_ARC1_CH7_OPTION"
+desc_key = "QUEST_ARC1_CH7_DESC"
+required_quests = Array[StringName]([&"arc1_ch4_curupira"])
+requires_left_training = true
+released = false

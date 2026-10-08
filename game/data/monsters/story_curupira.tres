@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="1_monster"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="2_stage"]
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="3_drop"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("3_drop")
+item_id = &"forest_boy_bow"
+chance = 0.06
+
+[sub_resource type="Resource" id="drop_1"]
+script = ExtResource("3_drop")
+item_id = &"backward_footprints"
+chance = 0.06
+
+[sub_resource type="Resource" id="stage_boss"]
+script = ExtResource("2_stage")
+stage = 3
+name_key = "MON_STORY_CURUPIRA_NAME"
+sprite_base = "res://assets/monsters/story_curupira/mon_story_curupira_s4"
+visual_scale = 1.0
+baked_life = true
+level = 32
+max_hp = 26000
+atk = 230
+matk = 120
+def = 90
+mdef = 90
+walk_ms_per_cell = 300
+attack_range_cells = 2.5
+attack_interval_ms = 1150
+aggressive = true
+aggro_range_cells = 10
+leash_cells = 20
+xp_reward = 5600
+stars_min = 220
+stars_max = 380
+behaviors = Array[StringName]([&"boss"])
+
+[sub_resource type="Resource" id="stage_atroz"]
+script = ExtResource("2_stage")
+stage = 4
+name_key = "MON_STORY_CURUPIRA_NAME"
+sprite_base = "res://assets/monsters/story_curupira/mon_story_curupira_s4"
+visual_scale = 1.0
+baked_life = true
+level = 32
+walk_ms_per_cell = 300
+attack_range_cells = 2.5
+attack_interval_ms = 1150
+aggressive = true
+aggro_range_cells = 12
+leash_cells = 24
+xp_reward = 5600
+stars_min = 220
+stars_max = 380
+drops = Array[ExtResource("3_drop")]([SubResource("drop_0"), SubResource("drop_1")])
+behaviors = Array[StringName]([&"boss"])
+
+[resource]
+script = ExtResource("1_monster")
+id = &"story_curupira"
+region_id = &"brasil"
+stages = Array[ExtResource("2_stage")]([SubResource("stage_boss"), SubResource("stage_atroz")])
+respawn_sec = 3600.0
+can_be_rare = false
+atroz_stat_multiplier = 1.0
+story_boss = true

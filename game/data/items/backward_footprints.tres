@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_backward_footprints.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"backward_footprints"
+name_key = "ITEM_BACKWARD_FOOTPRINTS_NAME"
+desc_key = "ITEM_BACKWARD_FOOTPRINTS_DESC"
+icon = ExtResource("icon")
+type = 5
+rarity = 3
+sell_price = 500
+stats = Dictionary[StringName, int]({
+&"def": 12,
+&"mdef": 12,
+&"dex": 6,
+&"luk": 3
+})

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_living_flame_bow.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"living_flame_bow"
+name_key = "ITEM_LIVING_FLAME_BOW_NAME"
+desc_key = "ITEM_LIVING_FLAME_BOW_DESC"
+icon = ExtResource("icon")
+type = 1
+scaling_attribute = &"dex"
+weapon_kind = 3
+rarity = 3
+sell_price = 1400
+stats = Dictionary[StringName, int]({
+&"atk": 74,
+&"matk": 12,
+&"dex": 11
+})
+visual_id = &"simple_bow"
+two_handed = true

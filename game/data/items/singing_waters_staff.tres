@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_singing_waters_staff.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"singing_waters_staff"
+name_key = "ITEM_SINGING_WATERS_STAFF_NAME"
+desc_key = "ITEM_SINGING_WATERS_STAFF_DESC"
+icon = ExtResource("icon")
+type = 1
+scaling_attribute = &"int"
+weapon_kind = 2
+rarity = 3
+sell_price = 800
+stats = Dictionary[StringName, int]({
+&"atk": 6,
+&"matk": 52,
+&"int": 7,
+&"spi": 4,
+&"cast_reduction": 10
+})
+visual_id = &"staff"

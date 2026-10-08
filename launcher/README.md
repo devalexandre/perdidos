@@ -18,6 +18,7 @@ launcher/
   server/                    API de contas + porteiro (módulo Go separado, sem CGO)
   tests/auth_integration.sh  teste ponta a ponta: API + porteiro + servidor Godot + clientes
   release.sh                 empacota uma versão (chamado por `make release`)
+  themes/<id>/               tema do launcher por arco (background.jpg + theme.json), publicado no release
 ```
 
 ## Compilar
@@ -49,7 +50,8 @@ amigos. Eles não precisam mais do zip do jogo: o launcher baixa sozinho.
 | Linux | `~/.local/share/perdidos` (ou `$XDG_DATA_HOME/perdidos`) |
 
 Dentro dela: `installed.json` (versão ativa), `versions/<versão>/` (o jogo), `downloads/` (zip e `.part`
-para retomar), `launcher.json` (configuração), `session.json` (sessão, só o usuário lê) e `launcher.log`.
+para retomar), `launcher.json` (configuração), `session.json` (sessão, só o usuário lê), `launcher.log` e
+`theme/` (tema do launcher baixado: `theme/<id>/<imagem>` e `theme/current.json`).
 
 **Troca atômica:** o zip é extraído em `versions/.staging-*`; só depois de completo ele vira
 `versions/<versão>` e o `installed.json` é regravado (arquivo temporário + rename). Se o PC desligar no
@@ -141,7 +143,8 @@ Formato do `latest.json`:
 }
 ```
 
-Opcional por arquivo: `"url"` (baixa de outro lugar em vez do Drive).
+Opcional por arquivo: `"url"` (baixa de outro lugar em vez do Drive). Opcional no manifesto:
+`"theme"` (veja **Tema do launcher** abaixo).
 
 **Plano B:** o `make serve-ngrok` serve `build/release/latest.json` em `/api/latest`. Se o Drive mudar o
 HTML ou estiver fora, o launcher lê a versão da API e ainda procura os zips no Drive pelo nome (ou na
@@ -157,6 +160,56 @@ HTML ou estiver fora, o launcher lê a versão da API e ainda procura os zips no
 - Isso **não é uma API oficial**: o Google pode mudar o HTML ou limitar downloads de arquivos muito
   baixados (cota diária). Por isso existe o plano B.
 
+## Tema do launcher
+
+O fundo e a frase da tela de entrada vêm **junto com a atualização do jogo**: a cada arco novo da
+história, troque a arte sem distribuir um launcher novo.
+
+Como funciona:
+
+- o `latest.json` pode ter um campo `theme` (sem ele, tudo continua como antes):
+
+  ```json
+  "theme": {"id": "arco1", "arc": "Arco I", "title": "A Terra do Sabiá",
+            "tagline": "Aqui as lendas são reais, e algumas só acordam à noite.",
+            "background": {"name": "theme-arco1.jpg", "sha256": "…64 hex…", "size": 337287}}
+  ```
+
+  `arc` e `title` (opcionais) formam o selo acima de "Perdidos" ("ARCO I • A TERRA DO SABIÁ"; o
+  ponto entre eles é desenho da tela). Regras: `id` com `^[a-z0-9][a-z0-9_-]{0,31}$`; `arc` até 20,
+  `title` até 60 e frase até 140 caracteres, só texto simples (sem `<`, `>` nem controle; a tela usa
+  `textContent`); imagem `.jpg`, `.jpeg`,
+  `.png` ou `.webp` de até 8 MB, com `sha256` e `size` obrigatórios; `url` opcional (http/https).
+  Um `theme` inválido é **ignorado** (fica no `launcher.log` como `theme_invalid`) e a atualização do
+  jogo segue normal;
+- depois de cada verificação de versão, o launcher baixa a imagem em segundo plano (se ainda não tiver),
+  confere o SHA-256 e grava em `theme/<id>/<nome>` (baixa como `.tmp`, só renomeia depois de conferida)
+  e em `theme/current.json`. Guarda só o tema atual e o anterior. Falha de rede só vai para o log
+  (`theme_download_failed`): o tema nunca atrapalha o jogo;
+- a imagem é procurada nesta ordem: `url` do manifesto → pasta do Drive (raiz ou subpasta `theme/`) →
+  API em `/api/theme/<nome>` (plano B);
+- quando termina de baixar, a tela troca o fundo com um esmaecimento e a frase sob o título, sem
+  reiniciar (fundo, selo do arco e frase). Sem tema em cache, ficam o fundo embutido
+  (`frontend/public/bg_arco1.jpg`) e o selo "Arco I · A Terra do Sabiá".
+
+**Trocar o tema num arco novo:**
+
+1. Crie `launcher/themes/arco2/` com `background.jpg` (ou `.png`/`.webp`, até 8 MB; ~1920×1080) e
+   `theme.json`: `{"id": "arco2", "arc": "Arco II", "title": "Nome do arco", "tagline": "Frase curta."}`
+   (o `id` é o nome da pasta).
+2. `make release VERSION=0.3.0 NOTES="…"`: o release usa o tema **mais recente** de `launcher/themes/`
+   (ordem de `sort -V`: `arco10` vem depois de `arco9`) e cria `build/release/theme-arco2.jpg` + o
+   `theme` no `latest.json`.
+3. Suba a imagem `theme-arco2.jpg` no Drive **antes** do `latest.json` (como os zips; o
+   `COMO-PUBLICAR.txt` lembra).
+
+Para escolher outro tema: `make release … THEME_ID=arco1` (uma pasta de `launcher/themes/`), ou uma
+imagem qualquer com `THEME_IMAGE=caminho/arte.png THEME_ID=evento-natal THEME_TAGLINE="…"`.
+`THEME_TAGLINE`, `THEME_ARC` e `THEME_TITLE` trocam só a frase / o selo. `THEME_ID=-` publica sem tema (quem já tem um em cache
+continua com ele). Trocar só o tema sem versão nova do jogo ainda passa por um `latest.json` novo:
+dá para editar o `theme` do `latest.json` publicado e subir a imagem nova (calcule com `sha256sum` e
+`stat -c%s`).
+
 ## API de contas e porteiro (`launcher/server`)
 
 Um binário só (`perdidos-auth`), porta 8080:
@@ -166,6 +219,7 @@ Um binário só (`perdidos-auth`), porta 8080:
 | `POST /api/register` `{"email","password"}` | cria a conta (senha ≥ 8, e-mail validado) e devolve `{"token","account_id","email","expires_at"}` |
 | `POST /api/login` | mesmo retorno; senha errada → 401 "E-mail ou senha incorretos." |
 | `GET /api/latest` | o `latest.json` de `build/release/` (404 = nenhuma versão publicada) |
+| `GET /api/theme/<nome>` | a imagem do tema do launcher da mesma pasta (só `theme-<id>.jpg/jpeg/png/webp`; aceita `Range`) |
 | `GET /api/health` | `{"ok":true}` |
 | qualquer outra | **proxy reverso WebSocket** para o servidor Godot (`127.0.0.1:7777`) |
 

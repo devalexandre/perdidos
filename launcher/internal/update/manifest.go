@@ -36,6 +36,11 @@ type Manifest struct {
 	Notes     string              `json:"notes,omitempty"`
 	Server    string              `json:"server,omitempty"`
 	Published string              `json:"published,omitempty"`
+	// Optional launcher theme (background art + tagline of the current story arc).
+	Theme *Theme `json:"theme,omitempty"`
+	// ThemeErr is set when "theme" was present but invalid; Theme is then nil and the rest of the
+	// manifest still works (the launcher only logs it).
+	ThemeErr error `json:"-"`
 }
 
 // ManifestName is the file the launcher looks for in the Drive folder.
@@ -80,6 +85,14 @@ func ParseManifest(data []byte) (Manifest, error) {
 			return m, fmt.Errorf("latest.json: exe inválido em %s", k)
 		}
 		m.Files[k] = f
+	}
+	if m.Theme != nil {
+		t, err := validateTheme(*m.Theme)
+		if err != nil {
+			m.Theme, m.ThemeErr = nil, err
+		} else {
+			m.Theme = &t
+		}
 	}
 	return m, nil
 }

@@ -1,0 +1,88 @@
+{
+ "cf_black": {
+  "flat": "Base 1",
+  "out": "Roxo 3"
+ },
+ "cf_tip": {
+  "flat": "Roxo 4",
+  "out": "Roxo 3"
+ },
+ "cf_dark": {
+  "flat": "Roxo 1",
+  "out": "Roxo 2"
+ },
+ "cf_smoke": {
+  "flat": "Base 1",
+  "out": "Roxo 2"
+ },
+ "cf_smoke2": {
+  "flat": "Roxo 1",
+  "out": "Roxo 3"
+ },
+ "cur_skin_n": {
+  "ramp": [
+   "Pele escura 2",
+   "Pele escura 3",
+   "Pele escura 4",
+   "Pele escura 4"
+  ],
+  "line": "Pele escura 1",
+  "out": "Base 1"
+ },
+ "cur_hair_n": {
+  "ramp": [
+   "Vermelho 1",
+   "Vermelho 2",
+   "Vermelho 3",
+   "Vermelho 4"
+  ],
+  "line": "Vermelho 1",
+  "out": "Vermelho 1"
+ },
+ "hair_fire": {
+  "flat": "Vermelho 3",
+  "out": "Vermelho 1"
+ },
+ "hair_fire_hot": {
+  "flat": "Vermelho 4",
+  "out": "Vermelho 2"
+ },
+ "vine_n": {
+  "ramp": [
+   "Base 1",
+   "Verde folha 1",
+   "Verde folha 2",
+   "Verde folha 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "leaf_n": {
+  "ramp": [
+   "Verde folha 1",
+   "Verde folha 2",
+   "Verde folha 3",
+   "Verde folha 4"
+  ],
+  "line": "Verde folha 1",
+  "out": "Base 1"
+ },
+ "leaf_dark_n": {
+  "ramp": [
+   "Base 1",
+   "Verde agua 1",
+   "Verde folha 1",
+   "Verde folha 2"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "eye_leaf": {
+  "flat": "Verde folha 4",
+  "out": "Verde folha 2"
+ },
+ "eye_leaf_c": {
+  "flat": "Ouro/amarelo 4",
+  "out": "Verde folha 3"
+ }
+}

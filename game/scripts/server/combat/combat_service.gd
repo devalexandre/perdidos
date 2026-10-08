@@ -841,7 +841,7 @@ func _kill_monster(brain: MonsterBrain, killer: NetEntity, is_crit: bool = false
 			"killer_hp_ratio": killer_session.entity.hp_ratio,
 			"killer_poisoned": killer_session.character.has_status(&"poison") if killer_session.character.has_method("has_status") else false,
 			"is_night": is_night,
-			"is_rain": is_rain,
+			"is_raining": is_rain,
 			"in_forest": in_forest,
 			"is_crit": is_crit or brain.last_hit_was_crit,
 			"killer_surprised": not brain.player_initiated,

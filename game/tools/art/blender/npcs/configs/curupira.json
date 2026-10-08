@@ -1,0 +1,104 @@
+{
+ "_doc": "Curupira de dia (ARCO-1-TERRA-DO-SABIA.md, cap. 4): um menino comum da Mata Encantada, sem nada de monstruoso. Pele morena, cabelo ruivo espetado, tunica verde-folha, calcao marrom com cinto de cipo, sandalia. Os pes virados NAO aparecem de dia. PREVIA: o corpo de crianca ainda nao funciona neste pipeline (props.q.height < 1 ou kind 'child' soltam as roupas Quaternius do esqueleto: bracos em T e cabeca some), entao saiu na proporcao padrao (rapazote). Chefe atroz a noite: monsters/story_curupira.py.",
+ "kind": "adult",
+ "body": "male",
+ "props": {
+  "q": {}
+ },
+ "pose": {
+  "chest": [
+   0.02,
+   0,
+   0
+  ]
+ },
+ "parts": [
+  {
+   "type": "hair",
+   "style": "spiky"
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Body",
+   "cmap": {
+    "*": "leaf_tunic"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Arms",
+   "cmap": {
+    "*": "leaf_tunic"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Legs",
+   "cmap": {
+    "*": "brown_pants"
+   }
+  },
+  {
+   "type": "q",
+   "part": "Peasant_Feet",
+   "cmap": {
+    "*": "leather"
+   }
+  },
+  {
+   "type": "belt",
+   "mat": "vine",
+   "buckle": "vine",
+   "grow": 0.05
+  }
+ ],
+ "colors": {
+  "skin": [
+   "6e4130",
+   "a0674a",
+   "c98f6b",
+   "e0a386"
+  ],
+  "hair": [
+   "3b1010",
+   "7a1e1a",
+   "9c2a26",
+   "c8402e",
+   "d9553a"
+  ],
+  "eyes": [
+   "1e1210",
+   "3e2418",
+   "6a3e24",
+   "9a6038"
+  ],
+  "mats": {
+   "leaf_tunic": [
+    "1f3b2c",
+    "2f6b3e",
+    "5aa048",
+    "a6d86a",
+    "121e16"
+   ],
+   "brown_pants": [
+    "3e2a1c",
+    "56402a",
+    "6e5438",
+    "886c4a",
+    "1c120c"
+   ],
+   "vine": [
+    "1f3b2c",
+    "2f6b3e",
+    "5aa048",
+    "5aa048",
+    "121e16"
+   ]
+  }
+ },
+ "anims": [
+  "idle:8",
+  "walk:8"
+ ],
+ "base": "q"
+}

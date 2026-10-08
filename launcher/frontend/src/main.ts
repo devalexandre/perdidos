@@ -25,6 +25,7 @@ interface UpdateInfo {
 }
 interface Progress { phase: string; done: number; total: number; speed: number; eta: number; attempt: number; message?: string; }
 interface Finished { ok: boolean; message: string; installed: string; }
+interface Theme { id: string; arc: string; title: string; tagline: string; image: string; }
 
 const call = <T>(method: string, ...args: unknown[]): Promise<T> =>
   Call.ByName(`main.LauncherService.${method}`, ...args) as Promise<T>;
@@ -349,6 +350,54 @@ $("logout").addEventListener("click", async () => {
   await loadPublicNews();
 });
 
+// ------------------------------------------------------------------ arc theme (comes with the game update)
+// Without a cached theme the built-in background (bg_arco1.jpg) and tagline stay.
+const bgEl = $("bg");
+const taglineEl = $("tagline");
+const arcMark = $("arc-mark");
+let themeId = "";
+
+// Seal "Arco I • A Terra do Sabiá": arc and title around the <i> dot.
+// Plain text only: textContent, never innerHTML.
+function setArcSeal(arc: string, title: string) {
+  const [arcEl, titleEl] = arcMark.querySelectorAll<HTMLSpanElement>(":scope > span");
+  const dot = arcMark.querySelector<HTMLElement>(":scope > i")!;
+  arcEl.textContent = arc;
+  titleEl.textContent = title;
+  arcEl.hidden = !arc;
+  titleEl.hidden = !title;
+  dot.hidden = !arc || !title;
+}
+
+function applyTheme(t: Theme | null) {
+  if (!t || !t.image) return;
+  if (t.tagline) taglineEl.textContent = t.tagline;
+  if (t.arc || t.title) setArcSeal(t.arc, t.title);
+  if (t.id === themeId) return;
+  themeId = t.id;
+  const img = new Image();
+  img.onload = () => {
+    // A new layer fades in over the current background, then replaces it.
+    const layer = document.createElement("div");
+    layer.className = "bg-theme";
+    layer.style.backgroundImage = `url("${img.src}")`;
+    bgEl.appendChild(layer);
+    requestAnimationFrame(() => requestAnimationFrame(() => layer.classList.add("shown")));
+    layer.addEventListener("transitionend", () => {
+      bgEl.querySelectorAll(".bg-theme").forEach((old) => { if (old !== layer) old.remove(); });
+    }, { once: true });
+  };
+  img.src = t.image;
+}
+
+async function loadTheme() {
+  try {
+    applyTheme(await call<Theme>("GetTheme"));
+  } catch {
+    // keep the built-in background
+  }
+}
+
 // ------------------------------------------------------------------ events from Go
 const unwrap = <T>(ev: { data: unknown }): T =>
   (Array.isArray(ev.data) && ev.data.length === 1 ? ev.data[0] : ev.data) as T;
@@ -395,6 +444,8 @@ Events.On("update:finished", async (ev) => {
   }
 });
 
+Events.On("theme:changed", (ev) => applyTheme(unwrap<Theme>(ev)));
+
 Events.On("game:exited", async () => {
   state = await call<State>("GetState");
   if (!state.loggedIn) return showAuth("Sua sessão expirou. Entre de novo.");
@@ -403,6 +454,7 @@ Events.On("game:exited", async () => {
 
 // ------------------------------------------------------------------ start
 (async () => {
+  void loadTheme();
   state = await call<State>("GetState");
   $("foot-version").textContent = `Launcher ${state.launcherVersion} · ${state.platform === "windows" ? "Windows" : "Linux"}`;
   $("foot-dir").textContent = `Instalado em ${state.installDir}`;

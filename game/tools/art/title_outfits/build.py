@@ -39,6 +39,8 @@ CHIN_MAX = 10
 # AI chin this many rows under the base chin: drop the AI head and stretch the AI body to the base chin
 STRETCH_MIN = 3
 STRETCH_MAX = 16
+# rows without skin allowed inside the AI face when finding its chin (eyes, mouth, glasses)
+FACE_GAP = 4
 # penalty per row of AI chin below the base chin when choosing among seeds
 CHIN_W = 0.02
 # body_layer: AI pixels allowed outside the base silhouette; poses under IOU_SNAP get snapped to it.
@@ -207,14 +209,15 @@ def ai_chin(ai96, b, m, hb=None, body=None):
         body = ai96[..., 3] > 0
     skin = _skin_like(ai96, b, m, 30) & body
     cols = skin[:, max(0, x0 - 1):x1 + 2].sum(axis=1)
-    # the AI face goes on while rows under the base chin still hold skin (gaps of up to 2 rows: eyes, mouth)
+    # the AI face goes on while rows under the base chin still hold skin (gaps of up to FACE_GAP rows: eyes,
+    # mouth, glasses the AI sometimes adds)
     chin, gap = y1, 0
     for r in range(y1 + 1, min(FR, y1 + 16)):
         if cols[r] >= 3:
             chin, gap = r, 0
         else:
             gap += 1
-            if gap > 2:
+            if gap > FACE_GAP:
                 break
     return chin
 

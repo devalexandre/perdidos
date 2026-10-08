@@ -462,3 +462,15 @@ multimesh = SubResource("mm_rock_moss_a")
 
 [node name="Woodland_prop_log" type="MultiMeshInstance3D" parent="Decor"]
 multimesh = SubResource("mm_prop_log")
+
+[node name="StoryLairs" type="Node3D" parent="."]
+
+[node name="curupira" type="Marker3D" parent="StoryLairs"]
+position = Vector3(0, 0, -6)
+metadata/monster_id = &"story_curupira"
+metadata/radius_cells = 6
+metadata/escort = {"enchanted_firefly": 4, "sabia_jaguar": 3, "buriti_boar": 3}
+metadata/escort_stage = 2
+
+[node name="BackwardTracks" type="Marker3D" parent="."]
+position = Vector3(-6, 0, 10)

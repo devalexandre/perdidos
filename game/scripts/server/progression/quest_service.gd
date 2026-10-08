@@ -18,8 +18,13 @@ const ACTION_SHOW_COMPLETE: StringName = &"quest_show_complete"
 const ACTION_MISSING: StringName = &"quest_missing"
 ## Sub-história: ouvir o causo do NPC (QuestStep.lore_text_key) conclui a etapa TALK.
 const ACTION_HEAR_LORE: StringName = &"quest_hear_lore"
+## Fala longa em páginas (Arco 1): a chave KEY continua em KEY_P2, KEY_P3... (até MAX_PAGES); "Continuar" mostra a próxima.
+const ACTION_PAGE: StringName = &"quest_page"
 const ACTIONS: Array[StringName] = [ACTION_ACCEPT, ACTION_TURN_IN, ACTION_START_TRIAL, ACTION_OFFER,
-		ACTION_SHOW_PROGRESS, ACTION_SHOW_COMPLETE, ACTION_MISSING, ACTION_HEAR_LORE]
+		ACTION_SHOW_PROGRESS, ACTION_SHOW_COMPLETE, ACTION_MISSING, ACTION_HEAR_LORE, ACTION_PAGE]
+const PAGE_SUFFIX: String = "_P%d"
+const MAX_PAGES: int = 8
+const OPT_CONTINUE: String = "QUEST_OPT_CONTINUE"
 const ARG_QUEST_ID: StringName = &"quest_id"
 ## Condições de diálogo (DialogueOption.conditions) tratadas aqui; valor = id.
 const COND_QUEST_AVAILABLE: StringName = &"quest_available"
@@ -70,6 +75,22 @@ const REQ_TRAINING_TITLE: String = "PROG_REQ_TRAINING_TITLE_DONE"
 const REQ_SKILL_KNOWN: String = "PROG_REQ_SKILL_KNOWN"
 const REQ_CAUSOS: String = "PROG_REQ_CAUSOS"
 const REQ_LEAVE_TRAINING: String = "PROG_REQ_LEAVE_TRAINING"
+## Arco 1: quest ainda desligada (arte do chefe aguardando aprovação) e causo anterior que precisa estar concluído.
+const REQ_NOT_RELEASED: String = "PROG_REQ_NOT_RELEASED"
+const REQ_STORY_COMPLETED: String = "PROG_REQ_STORY_COMPLETED"
+## Prefixo do nome de uma história no texto do requisito (STORY_NAME_<STORY_ID>).
+const STORY_NAME_PREFIX: String = "STORY_NAME_"
+## Ritual (etapa RITUAL, Arco 1): avisos no ponto do covil.
+const MSG_RITUAL_SPAWNED: String = "PROG_MSG_RITUAL_SPAWNED"
+const MSG_RITUAL_ALIVE: String = "PROG_MSG_RITUAL_ALIVE"
+const MSG_RITUAL_DAY: String = "PROG_MSG_RITUAL_DAY"
+const MSG_RITUAL_NEEDS_ITEM: String = "PROG_MSG_RITUAL_NEEDS_ITEM"
+const MSG_RITUAL_BLOCKED: String = "PROG_MSG_RITUAL_BLOCKED"
+const MSG_STORY_VICTORY: String = "PROG_MSG_STORY_VICTORY"
+## Item de quest achado (COLLECT com drop_from).
+const MSG_QUEST_ITEM_FOUND: String = "PROG_MSG_QUEST_ITEM_FOUND"
+const MSG_STEP_ITEM_GIVEN: String = "PROG_MSG_QUEST_ITEM_GIVEN"
+const RITUAL_NEED_ITEM: StringName = &"need_item"
 ## Renome (Causos) ganho por feitos: [pontos, motivo...].
 const MSG_FAME_TITLE: String = "PROG_MSG_FAME_TITLE"
 const MSG_FAME_BOSS: String = "PROG_MSG_FAME_BOSS"
@@ -129,6 +150,11 @@ var _next_explore_msec: int = 0
 ## map_id -> {marker_name -> posição} (cache dos pontos de explorar).
 var _marker_cache: Dictionary[StringName, Dictionary] = {}
 var _waits: Dictionary[String, Dictionary] = {}
+## "peer:quest" -> último resultado do ritual mostrado (só avisa quando muda; sai do ponto = zera).
+var _ritual_state: Dictionary[String, StringName] = {}
+## peer -> {"key", "page", "node", "options"}: fala em páginas em andamento.
+var _pages: Dictionary[int, Dictionary] = {}
+var _rng := RandomNumberGenerator.new()
 
 
 func _init(p_progression: Progression) -> void:
@@ -299,6 +325,11 @@ func training_title_done(session: PlayerSession) -> bool:
 func missing_requirements(session: PlayerSession, q: QuestDef) -> Array:
 	var data: ProgressionData = session.character.progression
 	var out: Array = []
+	if not q.released:
+		out.append([REQ_NOT_RELEASED, []])
+	for sid: StringName in q.required_story_completed:
+		if not session.character.story_arc_completed(sid):
+			out.append([REQ_STORY_COMPLETED, [STORY_NAME_PREFIX + String(sid).to_upper()]])
 	if q.requires_left_training and not session.character.left_training:
 		out.append([REQ_LEAVE_TRAINING, []])
 	if q.training_title_quest and training_title_done(session):
@@ -347,6 +378,8 @@ func missing_requirements(session: PlayerSession, q: QuestDef) -> Array:
 	for r: StringName in q.required_quests:
 		if not data.quests_done.has(r):
 			var rq: QuestDef = Content.quest(r)
+			if q.skip_unreleased_requirements and rq != null and not rq.released:
+				continue
 			out.append([REQ_QUEST, [rq.name_key if rq != null else String(r)]])
 	if not q.required_story_id.is_empty() and q.required_story_clues > 0:
 		var clue_count: int = session.character.story_clue_count(q.required_story_id)
@@ -487,7 +520,8 @@ func turn_in(session: PlayerSession, quest_id: StringName, npc_def_id: StringNam
 		Net.log_invalid(session.peer_id, "quest_turn_in_requirements", {"quest": String(quest_id)})
 		return false
 	var inv: Inventory = session.character.inventory
-	if not inv.can_add_all(q.reward_items):
+	var rewards: Dictionary[StringName, int] = reward_items_for(session, q)
+	if not inv.can_add_all(rewards):
 		Net.push_system_message(session.peer_id, SysMsg.INVENTORY_FULL)
 		return false
 	var data: ProgressionData = session.character.progression
@@ -509,8 +543,8 @@ func turn_in(session: PlayerSession, quest_id: StringName, npc_def_id: StringNam
 			if new_rank > old_rank:
 				Net.push_system_message(session.peer_id, MSG_CAUSO_RANK_UP, [
 						CharacterData.CAUSOS_RANK_KEYS[old_rank], CharacterData.CAUSOS_RANK_KEYS[new_rank]])
-	for item_id: StringName in q.reward_items:
-		inv.add(item_id, q.reward_items[item_id])
+	for item_id: StringName in rewards:
+		inv.add(item_id, rewards[item_id])
 	Net.push_system_message(session.peer_id, MSG_COMPLETED, [q.name_key])
 	Net.log_line("quest_completed", {"peer": session.peer_id, "quest": String(quest_id),
 			"skill": String(q.reward_skill), "title": String(q.reward_title),
@@ -531,6 +565,26 @@ func turn_in(session: PlayerSession, quest_id: StringName, npc_def_id: StringNam
 		progression.grant_xp(session.peer_id, q.reward_xp, &"quest")
 	progression.mark_dirty(session)
 	return true
+
+
+## Itens da entrega: reward_items mais o do caminho do jogador (reward_by_archetype, pelo título exibido).
+func reward_items_for(session: PlayerSession, q: QuestDef) -> Dictionary[StringName, int]:
+	var out: Dictionary[StringName, int] = q.reward_items.duplicate()
+	var extra: StringName = archetype_reward(q, session.character.progression.displayed_title)
+	if not extra.is_empty():
+		out[extra] = int(out.get(extra, 0)) + 1
+	return out
+
+
+## Item do caminho: arquétipo do título (TitleDef.archetype) -> item; senão &"default"; &"" = nenhum.
+static func archetype_reward(q: QuestDef, title_id: StringName) -> StringName:
+	if q == null or q.reward_by_archetype.is_empty():
+		return &""
+	var td: TitleDef = Content.title(title_id)
+	var arch: StringName = td.archetype if td != null else &""
+	if q.reward_by_archetype.has(arch):
+		return q.reward_by_archetype[arch]
+	return q.reward_by_archetype.get(&"default", &"")
 
 
 ## Renome por um feito (uma vez por deed_id): soma os pontos, avisa o motivo e a subida de renome.
@@ -630,6 +684,9 @@ func on_monster_killed(peer_id: int, monster_id: StringName, info: Dictionary = 
 				seen.append(species)
 				st[ProgressionData.Q_SEEN] = seen
 			_add_count(session, q, s, 1)
+		elif s.type == QuestStep.StepType.COLLECT and quest_drop_matches(s, monster_id) \
+				and not bool(info.get(Progression.INFO_TRIAL, false)) and _rng.randf() < s.drop_chance:
+			_give_quest_drop(session, q, s)
 		elif s.type == QuestStep.StepType.TRIAL and s.target_id == monster_id \
 				and not trial.is_empty() and trial["quest"] == id \
 				and StringName(str(trial.get("mode", TRIAL_KILL))) == TRIAL_KILL \
@@ -637,6 +694,53 @@ func on_monster_killed(peer_id: int, monster_id: StringName, info: Dictionary = 
 			_trials.erase(peer_id)
 			_clear_trial_entities(trial)
 			_add_count(session, q, s, s.count)
+
+
+## COLLECT com item de quest (Arco 1): o monstro abatido é da espécie que solta o item?
+static func quest_drop_matches(s: QuestStep, monster_id: StringName) -> bool:
+	return s != null and s.type == QuestStep.StepType.COLLECT and not s.drop_from.is_empty() and s.drop_chance > 0.0 \
+			and (s.drop_from == monster_id or s.drop_from == MonsterDef.species_of(monster_id))
+
+
+## Item de quest vai direto para a mochila de quem tem crédito no abate (e conta pela etapa de coletar).
+func _give_quest_drop(session: PlayerSession, q: QuestDef, s: QuestStep) -> void:
+	var inv: Inventory = session.character.inventory
+	if inv.count(s.target_id) >= required_count(session, q):
+		return
+	if not inv.can_add(s.target_id, 1):
+		Net.push_system_message(session.peer_id, SysMsg.INVENTORY_FULL)
+		return
+	inv.add(s.target_id, 1)
+	var it: ItemDef = Content.item(s.target_id)
+	Net.push_system_message(session.peer_id, MSG_QUEST_ITEM_FOUND, [it.name_key if it != null else String(s.target_id)])
+	Net.log_line("quest_drop", {"peer": session.peer_id, "quest": String(q.id), "item": String(s.target_id)})
+	# Sem o sinal da mochila (testes), confere a etapa aqui.
+	if is_active(session, q.id) and current_step(session, q) == s:
+		_update_collect(session, q, s)
+
+
+## Chefe da história caiu (Progression, Arco 1): a vitória conta para todos os participantes do combate que estão com
+## uma quest na etapa RITUAL desse chefe — tenha ele nascido pelo ritual ou sozinho. Devolve quantos ganharam.
+func on_story_boss_killed(monster_id: StringName, participants: Array[int]) -> int:
+	var species: StringName = MonsterDef.species_of(monster_id)
+	var credited: int = 0
+	for peer: int in participants:
+		var session: PlayerSession = world.get_session(peer)
+		if session == null:
+			continue
+		for id: StringName in session.character.progression.quests.keys():
+			var q: QuestDef = Content.quest(id)
+			var s: QuestStep = current_step(session, q) if q != null else null
+			if s == null or s.type != QuestStep.StepType.RITUAL or (s.target_id != monster_id and s.target_id != species):
+				continue
+			if not s.ritual_item.is_empty():
+				_remove_items(session, s.ritual_item, session.character.inventory.count(s.ritual_item))
+			_ritual_state.erase("%d:%s" % [peer, id])
+			Net.push_system_message(peer, MSG_STORY_VICTORY, [q.name_key])
+			Net.log_line("story_victory", {"peer": peer, "quest": String(id), "monster": String(monster_id)})
+			_add_count(session, q, s, s.count)
+			credited += 1
+	return credited
 
 
 ## Provação em andamento (Pergaminho de Retorno não funciona nela).
@@ -725,7 +829,8 @@ func _update_collect(session: PlayerSession, q: QuestDef, s: QuestStep) -> void:
 	if gained:
 		Net.push_system_message(session.peer_id, MSG_PROGRESS, [q.name_key, have, need])
 	if have >= need:
-		_remove_items(session, s.target_id, need)
+		if not s.collect_keep:
+			_remove_items(session, s.target_id, need)
 		_advance(session, q)
 	progression.mark_dirty(session)
 
@@ -752,6 +857,9 @@ func _add_count(session: PlayerSession, q: QuestDef, s: QuestStep, n: int) -> vo
 
 func _advance(session: PlayerSession, q: QuestDef) -> void:
 	var st: Dictionary = session.character.progression.quests[q.id]
+	var done_i: int = int(st[ProgressionData.Q_STEP])
+	if done_i >= 0 and done_i < q.steps.size():
+		_on_step_done(session, q, q.steps[done_i])
 	st[ProgressionData.Q_STEP] = int(st[ProgressionData.Q_STEP]) + 1
 	st[ProgressionData.Q_COUNT] = 0
 	st.erase(ProgressionData.Q_SEEN)
@@ -763,6 +871,24 @@ func _advance(session: PlayerSession, q: QuestDef) -> void:
 	else:
 		Net.push_system_message(session.peer_id, MSG_STEP_DONE, [q.name_key])
 		_enter_step(session, q)
+
+
+## Etapa concluída: entrega os itens dela (grant_items) e mostra a fala de conclusão (done_text_key).
+func _on_step_done(session: PlayerSession, q: QuestDef, s: QuestStep) -> void:
+	if not s.done_text_key.is_empty():
+		Net.push_system_message(session.peer_id, s.done_text_key)
+	if s.grant_items.is_empty():
+		return
+	var inv: Inventory = session.character.inventory
+	for item_id: StringName in s.grant_items:
+		var it: ItemDef = Content.item(item_id)
+		if it == null:
+			continue
+		if not inv.add(item_id, s.grant_items[item_id]):
+			Net.push_system_message(session.peer_id, SysMsg.INVENTORY_FULL)
+			Net.log_line("quest_step_item_failed", {"peer": session.peer_id, "quest": String(q.id), "item": String(item_id)})
+			continue
+		Net.push_system_message(session.peer_id, MSG_STEP_ITEM_GIVEN, [it.name_key, s.grant_items[item_id]])
 
 
 ## Etapa nova: coletar já conta o que está na mochila.
@@ -821,6 +947,9 @@ func tick() -> void:
 			if s.type == QuestStep.StepType.WAIT:
 				_tick_wait(session, q, s, now)
 				continue
+			if s.type == QuestStep.StepType.RITUAL:
+				_tick_ritual(session, q, s)
+				continue
 			if s.type != QuestStep.StepType.EXPLORE or not step_time_allowed(session, s):
 				continue
 			if s.requires_full_moon \
@@ -854,6 +983,47 @@ func _tick_wait(session: PlayerSession, q: QuestDef, step: QuestStep, now: int) 
 	elif now - int(previous.start) >= roundi(step.wait_sec * 1000):
 		_waits.erase(key)
 		_add_count(session, q, step, 1)
+
+
+## Ritual (Arco 1): no covil do chefe da história, à noite, faz o chefe nascer se ele não estiver vivo (o MonsterSpawner
+## nunca cria um segundo). De dia o ponto só responde "aqui não acontece nada enquanto há sol". Avisa quando o resultado
+## muda; sair do ponto zera.
+func _tick_ritual(session: PlayerSession, q: QuestDef, s: QuestStep) -> void:
+	var key: String = "%d:%s" % [session.peer_id, q.id]
+	var spawner: MonsterSpawner = _spawner()
+	if spawner == null or session.character.hp <= 0:
+		return
+	var center: Vector3 = spawner.story_lair_center(session.entity.instance_id, s.target_id)
+	if center == Vector3.INF \
+			or session.entity.flat_distance_to(center) > s.radius_cells * Balance.cfg.cell_size:
+		_ritual_state.erase(key)
+		return
+	var result: StringName = RITUAL_NEED_ITEM
+	if s.ritual_item.is_empty() or session.character.inventory.count(s.ritual_item) > 0:
+		result = StringName(str(spawner.summon_story_boss(session.entity.instance_id, s.target_id).get("result", "")))
+	var prev: StringName = _ritual_state.get(key, &"")
+	if prev == result or (prev == MonsterSpawner.SUMMON_SPAWNED and result == MonsterSpawner.SUMMON_ALIVE):
+		return
+	_ritual_state[key] = result
+	match result:
+		MonsterSpawner.SUMMON_SPAWNED:
+			Net.push_system_message(session.peer_id, MSG_RITUAL_SPAWNED, [q.name_key])
+		MonsterSpawner.SUMMON_ALIVE:
+			Net.push_system_message(session.peer_id, MSG_RITUAL_ALIVE, [q.name_key])
+		MonsterSpawner.SUMMON_DAY:
+			Net.push_system_message(session.peer_id, MSG_RITUAL_DAY)
+		MonsterSpawner.SUMMON_BLOCKED:
+			Net.push_system_message(session.peer_id, MSG_RITUAL_BLOCKED)
+		RITUAL_NEED_ITEM:
+			var it: ItemDef = Content.item(s.ritual_item)
+			Net.push_system_message(session.peer_id, MSG_RITUAL_NEEDS_ITEM, [it.name_key if it != null else String(s.ritual_item)])
+	Net.log_line("quest_ritual", {"peer": session.peer_id, "quest": String(q.id), "result": String(result)})
+
+
+func _spawner() -> MonsterSpawner:
+	var k: Object = progression.bridge.k_service()
+	var sp: Variant = k.get(&"spawner") if k != null else null
+	return sp as MonsterSpawner if sp is MonsterSpawner else null
 
 
 ## Ponto de explorar: Marker3D/Node3D com esse nome no mapa, ou "x,z" literal.
@@ -1242,6 +1412,9 @@ func handles_action(action: StringName) -> bool:
 
 ## Executa a ação. true = tratada (o DialogueRunner não segue para next_node).
 func run_dialogue_action(session: PlayerSession, opt: DialogueOption) -> bool:
+	if opt.action == ACTION_PAGE:
+		_next_page(session)
+		return true
 	var quest_id := StringName(str(opt.action_args.get(ARG_QUEST_ID, "")))
 	var q: QuestDef = Content.quest(quest_id)
 	var npc_def: StringName = _dialogue_npc_def(session)
@@ -1258,7 +1431,7 @@ func run_dialogue_action(session: PlayerSession, opt: DialogueOption) -> bool:
 					[_opt(OPT_BYE, DialogueRunner.ACTION_CLOSE)])
 			return true
 		ACTION_SHOW_COMPLETE:
-			_show(session, NODE_PREFIX + "complete", q.complete_text_key,
+			_show(session, NODE_PREFIX + "complete", complete_text_for(session, q),
 					[_opt(OPT_TURN_IN, ACTION_TURN_IN, quest_id)])
 			return true
 		ACTION_MISSING:
@@ -1278,6 +1451,21 @@ func run_dialogue_action(session: PlayerSession, opt: DialogueOption) -> bool:
 		world.dialogue.close(session, true)
 		return true
 	return false
+
+
+## Fala de conclusão: a primeira variante cuja condição vale (complete_text_variants), senão complete_text_key.
+func complete_text_for(session: PlayerSession, q: QuestDef) -> String:
+	for cond: String in q.complete_text_variants:
+		var value: String = cond.get_slice(":", 1)
+		match cond.get_slice(":", 0):
+			"ending":
+				if not q.required_story_completed.is_empty() \
+						and session.character.story_arc_ending(q.required_story_completed[0]) == StringName(value):
+					return q.complete_text_variants[cond]
+			"item":
+				if session.character.inventory.count(StringName(value)) > 0:
+					return q.complete_text_variants[cond]
+	return q.complete_text_key
 
 
 func _dialogue_npc_def(session: PlayerSession) -> StringName:
@@ -1376,11 +1564,63 @@ static func _opt(text_key: String, action: StringName, quest_id: StringName = &"
 
 func _show(session: PlayerSession, node_id: String, text_key: String,
 		options: Array[DialogueOption]) -> void:
+	_pages.erase(session.peer_id)
+	if page_count(text_key) > 1:
+		_pages[session.peer_id] = {"key": text_key, "page": 1, "node": node_id, "options": options}
+		_show_page(session)
+		return
+	_show_raw(session, node_id, text_key, options)
+
+
+func _show_raw(session: PlayerSession, node_id: String, text_key: String, options: Array[DialogueOption]) -> void:
 	var n := DialogueNode.new()
 	n.id = StringName(node_id)
 	n.text_key = text_key
 	n.options = options
 	world.dialogue.show_node(session, n)
+
+
+## Quantas páginas tem a fala: KEY, KEY_P2, KEY_P3... (a tradução existe).
+static func page_count(text_key: String) -> int:
+	if text_key.is_empty():
+		return 0
+	var n: int = 1
+	while n < MAX_PAGES:
+		var k: String = page_key(text_key, n + 1)
+		if TranslationServer.translate(k) == k:
+			break
+		n += 1
+	return n
+
+
+## Chave da página (1 = a própria chave).
+static func page_key(text_key: String, page: int) -> String:
+	return text_key if page <= 1 else text_key + (PAGE_SUFFIX % page)
+
+
+func _show_page(session: PlayerSession) -> void:
+	var p: Dictionary = _pages.get(session.peer_id, {})
+	if p.is_empty():
+		return
+	var key: String = p["key"]
+	var page: int = int(p["page"])
+	var last: bool = page >= page_count(key)
+	var opts: Array[DialogueOption] = []
+	if last:
+		opts = p["options"]
+		_pages.erase(session.peer_id)
+	else:
+		opts.append(_opt(OPT_CONTINUE, ACTION_PAGE))
+	_show_raw(session, "%s_p%d" % [p["node"], page], page_key(key, page), opts)
+
+
+func _next_page(session: PlayerSession) -> void:
+	var p: Dictionary = _pages.get(session.peer_id, {})
+	if p.is_empty():
+		world.dialogue.close(session, true)
+		return
+	p["page"] = int(p["page"]) + 1
+	_show_page(session)
 
 
 func interrupt_wait(peer: int) -> void:

@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+type = 2
+target_id = &"BoatmanHat"
+count = 1
+text_key = "QUEST_ARC1_CH6_STEP_1"
+scale_with_titles = false
+radius_cells = 3.0
+done_text_key = "QUEST_ARC1_CH6_DONE_1"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+type = 2
+target_id = &"BoatmanOar"
+count = 1
+text_key = "QUEST_ARC1_CH6_STEP_2"
+scale_with_titles = false
+radius_cells = 3.0
+done_text_key = "QUEST_ARC1_CH6_DONE_2"
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("2_step")
+type = 2
+target_id = &"BoatmanNet"
+count = 1
+text_key = "QUEST_ARC1_CH6_STEP_3"
+scale_with_titles = false
+radius_cells = 3.0
+done_text_key = "QUEST_ARC1_CH6_DONE_3"
+
+[sub_resource type="Resource" id="step_4"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"fisherman"
+count = 1
+text_key = "QUEST_ARC1_CH6_STEP_4"
+scale_with_titles = false
+lore_text_key = "QUEST_ARC1_CH6_LORE_4"
+lore_option_key = "QUEST_ARC1_CH6_LORE_4_OPT"
+grant_items = Dictionary[StringName, int]({
+&"singing_shell": 1
+})
+
+[sub_resource type="Resource" id="step_5"]
+script = ExtResource("2_step")
+type = 7
+target_id = &"story_iara"
+count = 1
+text_key = "QUEST_ARC1_CH6_STEP_5"
+scale_with_titles = false
+radius_cells = 6.0
+grant_items = Dictionary[StringName, int]({
+&"mother_of_pearl_comb": 1
+})
+done_text_key = "QUEST_ARC1_CH6_DONE_5"
+ritual_item = &"singing_shell"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"arc1_ch6_iara"
+name_key = "QUEST_ARC1_CH6_NAME"
+giver_npc = &"fisherman"
+region_id = &"sabia"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4"), SubResource("step_5")])
+reward_items = Dictionary[StringName, int]({
+&"singing_waters_staff": 1
+})
+reward_xp = 3200
+reward_causo_id = &"arc1_iara"
+offer_text_key = "QUEST_ARC1_CH6_OFFER"
+progress_text_key = "QUEST_ARC1_CH6_PROGRESS"
+complete_text_key = "QUEST_ARC1_CH6_COMPLETE"
+option_text_key = "QUEST_ARC1_CH6_OPTION"
+desc_key = "QUEST_ARC1_CH6_DESC"
+required_quests = Array[StringName]([&"arc1_ch4_curupira"])
+requires_left_training = true
+released = false

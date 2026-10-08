@@ -2300,3 +2300,12 @@ position = Vector3(0, 0, 16)
 
 [node name="tropeiro" type="Marker3D" parent="NpcPoints"]
 position = Vector3(-10, 0, 10)
+
+[node name="EleonorCrystal" type="Marker3D" parent="."]
+position = Vector3(0.3, 0, 1.9)
+
+[node name="dona_jacinta" type="Marker3D" parent="NpcPoints"]
+position = Vector3(-14, 0, 4)
+
+[node name="dona_celeste" type="Marker3D" parent="NpcPoints"]
+position = Vector3(9, 0, -12)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NpcDef" format=3]
+
+[ext_resource type="Resource" path="res://data/dialogues/firmino_insone.tres" id="1_dialogue"]
+[ext_resource type="Script" path="res://scripts/shared/data/npc_def.gd" id="2_npc"]
+
+[resource]
+script = ExtResource("2_npc")
+id = &"firmino_insone"
+name_key = "NPC_FIRMINO_INSONE_NAME"
+sprite_base = "res://assets/npcs/npc_firmino_insone"
+map_id = &"hoer_verde_4"
+spawn_marker = &"firmino_insone"
+move_speed = 1.0
+dialogue = ExtResource("1_dialogue")
+fallback_sprite_base = "res://assets/npcs/npc_elder_ze_ferreiro"

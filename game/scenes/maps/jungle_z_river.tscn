@@ -1727,3 +1727,12 @@ metadata/stage = 2
 metadata/count = 2
 metadata/radius_cells = 3
 metadata/respawn_sec = 100.0
+
+[node name="BoatmanHat" type="Marker3D" parent="."]
+position = Vector3(-20, 0, 10)
+
+[node name="BoatmanOar" type="Marker3D" parent="."]
+position = Vector3(0, 0, -10)
+
+[node name="BoatmanNet" type="Marker3D" parent="."]
+position = Vector3(20, 0, 5)

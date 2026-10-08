@@ -242,6 +242,43 @@ func TestLatestAndHealth(t *testing.T) {
 	}
 }
 
+// /api/theme/<name> serves the launcher theme image from the release folder (plan B), and only
+// theme-<id>.<ext> files from there.
+func TestThemeImage(t *testing.T) {
+	s, ts, _ := newTestServer(t, nil)
+	dir := filepath.Dir(s.cfg.LatestPath)
+	os.WriteFile(filepath.Join(dir, "theme-arco1.jpg"), []byte("jpeg-bytes"), 0o644)
+	os.WriteFile(filepath.Join(dir, "latest.json"), []byte(`{}`), 0o644)
+	os.WriteFile(filepath.Join(filepath.Dir(dir), "theme-secret.jpg"), []byte("fora"), 0o644)
+
+	resp, err := http.Get(ts.URL + "/api/theme/theme-arco1.jpg")
+	if err != nil {
+		t.Fatal(err)
+	}
+	body, _ := io.ReadAll(resp.Body)
+	if resp.StatusCode != 200 || string(body) != "jpeg-bytes" || resp.Header.Get("Content-Type") != "image/jpeg" {
+		t.Fatalf("theme: %d %q %s", resp.StatusCode, body, resp.Header.Get("Content-Type"))
+	}
+	req, _ := http.NewRequest(http.MethodGet, ts.URL+"/api/theme/theme-arco1.jpg", nil)
+	req.Header.Set("Range", "bytes=5-")
+	resp, _ = http.DefaultClient.Do(req)
+	body, _ = io.ReadAll(resp.Body)
+	if resp.StatusCode != http.StatusPartialContent || string(body) != "bytes" {
+		t.Fatalf("range: %d %q", resp.StatusCode, body)
+	}
+	for _, p := range []string{"latest.json", "theme-missing.jpg", "theme-arco1.exe", "..%2Ftheme-secret.jpg",
+		"%2E%2E%2Ftheme-secret.jpg", "theme-..%2F..%2Fx.jpg", "Theme-arco1.jpg"} {
+		resp, err := http.Get(ts.URL + "/api/theme/" + p)
+		if err != nil {
+			t.Fatal(err)
+		}
+		body, _ := io.ReadAll(resp.Body)
+		if resp.StatusCode == 200 {
+			t.Errorf("%s deveria ser recusado: %q", p, body)
+		}
+	}
+}
+
 // The gatekeeper forwards a WebSocket upgrade (any non-/api path) to the game server.
 func TestGameProxyWebSocketUpgrade(t *testing.T) {
 	backend := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

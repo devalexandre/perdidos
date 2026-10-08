@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"errors"
 	"fmt"
 	"log/slog"
@@ -33,6 +34,7 @@ const (
 	evProgress      = "update:progress"
 	evFinished      = "update:finished"
 	evGameExited    = "game:exited"
+	evTheme         = "theme:changed"
 )
 
 // LauncherService is bound to the frontend (Call.ByName("main.LauncherService.<Method>")).
@@ -50,6 +52,8 @@ type LauncherService struct {
 	updating bool
 	cancel   context.CancelFunc
 	playing  bool
+
+	themeBusy bool // a theme download is running (only one at a time)
 }
 
 // State is the snapshot the UI renders.
@@ -84,6 +88,16 @@ type UpdateInfo struct {
 	Size      int64  `json:"size"`
 	Origin    string `json:"origin"`
 	Message   string `json:"message"`
+}
+
+// ThemeView is the cached launcher theme (GetTheme and the theme:changed event).
+// Image is a data URL ("" = no cached theme: the screen keeps the built-in background).
+type ThemeView struct {
+	ID      string `json:"id"`
+	Arc     string `json:"arc"`
+	Title   string `json:"title"`
+	Tagline string `json:"tagline"`
+	Image   string `json:"image"`
 }
 
 // Finished is sent with the update:finished event.
@@ -320,6 +334,12 @@ func (s *LauncherService) CheckUpdate() UpdateInfo {
 	s.mu.Lock()
 	s.latest = &m
 	s.mu.Unlock()
+	if m.ThemeErr != nil {
+		s.log.Warn("theme_invalid", "err", m.ThemeErr.Error())
+	}
+	if m.Theme != nil {
+		go s.syncTheme(*m.Theme)
+	}
 	info.Latest, info.Notes, info.Origin = m.Version, m.Notes, origin
 	f, ok := m.For(update.Platform())
 	if !ok {
@@ -434,6 +454,55 @@ func (s *LauncherService) emit(name string, data any) {
 	if s.app != nil {
 		s.app.Event.Emit(name, data)
 	}
+}
+
+// ---------------------------------------------------------------- theme
+
+// GetTheme returns the cached theme of the current arc (empty when none was downloaded yet).
+func (s *LauncherService) GetTheme() ThemeView {
+	c, ok := update.ReadCurrentTheme(s.root)
+	if !ok {
+		return ThemeView{}
+	}
+	mime := update.ThemeMIME(c.File)
+	data, err := os.ReadFile(c.ImagePath(s.root))
+	if err != nil || mime == "" || len(data) == 0 || len(data) > update.MaxThemeImage {
+		return ThemeView{}
+	}
+	return ThemeView{ID: c.ID, Arc: c.Arc, Title: c.Title, Tagline: c.Tagline,
+		Image: "data:" + mime + ";base64," + base64.StdEncoding.EncodeToString(data)}
+}
+
+// syncTheme downloads the manifest's theme in the background (after CheckUpdate) and emits
+// theme:changed when a new one is ready. Errors only go to the log: the theme never blocks the game.
+func (s *LauncherService) syncTheme(t update.Theme) {
+	if update.ThemeCached(s.root, t) {
+		return
+	}
+	s.mu.Lock()
+	if s.themeBusy {
+		s.mu.Unlock()
+		return
+	}
+	s.themeBusy = true
+	s.mu.Unlock()
+	defer func() {
+		s.mu.Lock()
+		s.themeBusy = false
+		s.mu.Unlock()
+	}()
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+	defer cancel()
+	open, err := s.source.ThemeOpener(ctx, t.Background)
+	if err == nil {
+		_, err = update.FetchTheme(ctx, s.root, t, open)
+	}
+	if err != nil {
+		s.log.Warn("theme_download_failed", "theme", t.ID, "file", t.Background.Name, "err", err.Error())
+		return
+	}
+	s.log.Info("theme_updated", "theme", t.ID, "file", t.Background.Name)
+	s.emit(evTheme, s.GetTheme())
 }
 
 // ---------------------------------------------------------------- play

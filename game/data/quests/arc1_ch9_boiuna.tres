@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"boatman"
+count = 1
+text_key = "QUEST_ARC1_CH9_STEP_1"
+scale_with_titles = false
+lore_text_key = "QUEST_ARC1_CH9_LORE_1"
+lore_option_key = "QUEST_ARC1_CH9_LORE_1_OPT"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+type = 3
+target_id = &"fisherman"
+count = 1
+text_key = "QUEST_ARC1_CH9_STEP_2"
+scale_with_titles = false
+lore_text_key = "QUEST_ARC1_CH9_LORE_2"
+lore_option_key = "QUEST_ARC1_CH9_LORE_2_OPT"
+
+[sub_resource type="Resource" id="step_3"]
+script = ExtResource("2_step")
+type = 1
+target_id = &"black_scale"
+count = 5
+text_key = "QUEST_ARC1_CH9_STEP_3"
+scale_with_titles = false
+drop_from = &"river_anaconda"
+drop_chance = 0.3
+collect_keep = true
+
+[sub_resource type="Resource" id="step_4"]
+script = ExtResource("2_step")
+type = 7
+target_id = &"story_boiuna"
+count = 1
+text_key = "QUEST_ARC1_CH9_STEP_4"
+scale_with_titles = false
+radius_cells = 6.0
+grant_items = Dictionary[StringName, int]({
+&"boiuna_words": 1
+})
+done_text_key = "QUEST_ARC1_CH9_DONE_4"
+ritual_item = &"black_scale"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"arc1_ch9_boiuna"
+name_key = "QUEST_ARC1_CH9_NAME"
+giver_npc = &"dona_ana_sumidouro"
+region_id = &"sabia"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2"), SubResource("step_3"), SubResource("step_4")])
+reward_items = Dictionary[StringName, int]({
+&"black_storm_bow": 1
+})
+reward_xp = 5000
+reward_causo_id = &"arc1_boiuna"
+offer_text_key = "QUEST_ARC1_CH9_OFFER"
+progress_text_key = "QUEST_ARC1_CH9_PROGRESS"
+complete_text_key = "QUEST_ARC1_CH9_COMPLETE"
+option_text_key = "QUEST_ARC1_CH9_OPTION"
+desc_key = "QUEST_ARC1_CH9_DESC"
+required_quests = Array[StringName]([&"arc1_ch4_curupira"])
+requires_left_training = true
+released = false

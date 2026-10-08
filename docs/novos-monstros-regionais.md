@@ -1,6 +1,6 @@
 # Novos monstros regionais — 30 espécies / 90 modelos
 
-Três espécies novas por área cultural, cada uma com Normal, Boss e Atroz. Os arquivos Blender ficam **junto dos modelos nativos**, em `game/tools/art/blender/monsters/blend/`. As três espécies da Terra do Sabiá estão ativas nos dez mapas de caça, com sprites normal/chefe/atroz, dados e drops. As outras 27 permanecem preparadas para integração futura.
+Três espécies novas por área cultural, cada uma com Normal, Boss e Atroz. Os arquivos Blender ficam **junto dos modelos nativos**, em `game/tools/art/blender/monsters/blend/`. As três espécies da Terra do Sabiá estão ativas nos dez mapas de caça, com sprites normal/chefe/atroz, dados e drops. As três das Ilhas do Sol Nascente (`pond_kappa`, `mountain_tengu`, `paper_lantern`) foram refeitas no padrão do Tatu-Pedra (módulos `<id>.py` + `sol_common.py`, folhas aprovadas pelo dono em 07/10) e integradas **só como dados**: sprites s1/s3/s4 em `game/assets/monsters/<id>/`, `game/data/monsters/<id>.tres` (região `japao`, estágios 1–4, s2 veterano reaproveita a arte s1 com escala 1,15), nomes em `localization/content.csv` e entrada no bestiário do site. **Não nascem em nenhum mapa** até a nação abrir. As outras 24 permanecem preparadas para integração futura.
 
 [Abrir galeria visual](../game/tools/art/blender/monsters/reserve/index.html) · [Instruções, animações e procedência](../game/tools/art/blender/monsters/reserve/README.md)
 
@@ -45,4 +45,4 @@ Três espécies novas por área cultural, cada uma com Normal, Boss e Atroz. Os 
 - Verificação dos modelos salvos registrada em `reserve/validation.json`.
 - Teste de exportação completa: Kappa Atroz, cinco animações × cinco direções, sem cortes nos quadros. Saída de teste em `.work/regional-reserve-check`, sem instalação.
 
-As prévias da galeria são renders de modelagem 3D. As espécies do Sabiá já têm sprites pixel art e integração de dados, drops e spawns; as demais aguardam uso. Consulte [progressão por áreas](mundo/progressao-areas.md).
+As prévias da galeria são renders de modelagem 3D. As espécies do Sabiá já têm sprites pixel art e integração de dados, drops e spawns; as do Sol Nascente têm sprites e dados, sem spawn; as demais aguardam uso. Consulte [progressão por áreas](mundo/progressao-areas.md).

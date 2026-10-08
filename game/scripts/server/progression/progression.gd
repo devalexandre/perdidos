@@ -309,7 +309,27 @@ func _on_monster_killed(killer_peer: int, monster_id: StringName, stage: int, xp
 	# Renome: só o dono do abate (quem causou mais dano), e nunca monstro de provação.
 	if not bool(info.get(INFO_TRIAL, false)):
 		quests.on_fame_kill(killer_peer, monster_id, info)
+	# Arco 1: chefe da história conta para todos que participaram do combate (dano, golpes recebidos, grupo por perto).
+	var mdef: MonsterDef = Content.monster(monster_id)
+	if mdef != null and mdef.story_boss:
+		quests.on_story_boss_killed(monster_id, story_participants(eid, peers))
 	_first_hit.erase(eid)
+
+
+## Participantes do combate contra um chefe da história: quem já tem crédito (dono e grupo), quem bateu
+## (_first_hit) e quem o MonsterBrain registrou na luta (dano e golpes recebidos).
+func story_participants(eid: int, credited: Array[int]) -> Array[int]:
+	var out: Array[int] = credited.duplicate()
+	for p: Variant in (_first_hit.get(eid, {}) as Dictionary):
+		if int(p) not in out:
+			out.append(int(p))
+	var e: NetEntity = world.get_entity(eid) if eid != 0 else null
+	var b: Node = e.get_node_or_null(BRAIN_NODE) if e != null else null
+	if b != null and b.has_method(&"participant_peers"):
+		for p: int in b.call(&"participant_peers"):
+			if p not in out:
+				out.append(p)
+	return out
 
 
 ## Variante do monstro que acabou de morrer (filtro das quests, §3.3), lida do MonsterBrain: o corpo

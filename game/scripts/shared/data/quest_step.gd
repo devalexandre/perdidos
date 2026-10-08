@@ -1,7 +1,10 @@
 class_name QuestStep
 extends Resource
 ## Etapa de quest (GDD §9.1).
-enum StepType { KILL, COLLECT, EXPLORE, TALK, TRIAL, WAIT, NAME_COMPANION }
+## RITUAL (Arco 1, ARCO-1-TERRA-DO-SABIA.md §1 regras 5–6 e §4): no covil do chefe da história (target_id = MonsterDef
+## com story_boss) e à noite, faz o chefe nascer na hora se ele não estiver vivo (nunca cria um segundo). A etapa conclui
+## quando esse chefe cai com o jogador entre os participantes do combate, venha ele do ritual ou do nascimento natural.
+enum StepType { KILL, COLLECT, EXPLORE, TALK, TRIAL, WAIT, NAME_COMPANION, RITUAL }
 @export var type: StepType = StepType.KILL
 @export var target_id: StringName = &""        # monster id / item id / marker name / npc id / trial id
 @export var count: int = 1
@@ -55,3 +58,17 @@ enum StepType { KILL, COLLECT, EXPLORE, TALK, TRIAL, WAIT, NAME_COMPANION }
 @export var protect_target: StringName = &""
 @export var protect_count: int = 3
 @export var protect_min_alive: int = 1
+
+## --- Arco 1 da história (ARCO-1-TERRA-DO-SABIA.md §4) ---
+## COLLECT: item de quest que só cai com a quest nesta etapa. Espécie que solta (variante regional conta) e chance
+## por abate de quem tem crédito no abate (dono e grupo por perto). Vazio = item comum (drop, loja, ofício).
+@export var drop_from: StringName = &""
+@export var drop_chance: float = 0.0
+## Itens entregues ao concluir esta etapa (ex.: Dona Jacinta trança a Peneira de Cruzeta).
+@export var grant_items: Dictionary[StringName, int] = {}
+## Mensagem de sistema (chave) mostrada ao concluir a etapa (ex.: a voz de Eleonor no cristal).
+@export var done_text_key: String = ""
+## RITUAL: item que precisa estar na mochila para o ritual (não é gasto se o grupo perder; some na vitória).
+@export var ritual_item: StringName = &""
+## COLLECT: guarda os itens na mochila ao concluir (o ritual da etapa seguinte os usa). Padrão: a etapa leva os itens.
+@export var collect_keep: bool = false

@@ -643,3 +643,12 @@ metadata/stage = 2
 metadata/count = 4
 metadata/radius_cells = 5
 metadata/respawn_sec = 35
+
+[node name="StoryLairs" type="Node3D" parent="."]
+
+[node name="saci" type="Marker3D" parent="StoryLairs"]
+position = Vector3(8, 0, 16)
+metadata/monster_id = &"story_saci"
+metadata/radius_cells = 6
+metadata/escort = {"prank_whirlwind": 12}
+metadata/escort_stage = 1

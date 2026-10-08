@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="QuestDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/quest_def.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/shared/data/quest_step.gd" id="2_step"]
+
+[sub_resource type="Resource" id="step_1"]
+script = ExtResource("2_step")
+type = 2
+target_id = &"DeepPassage"
+count = 1
+text_key = "QUEST_ARC1_FINAL_STEP_1"
+scale_with_titles = false
+radius_cells = 4.0
+done_text_key = "QUEST_ARC1_FINAL_DONE_1"
+
+[sub_resource type="Resource" id="step_2"]
+script = ExtResource("2_step")
+type = 7
+target_id = &"story_boitata"
+count = 1
+text_key = "QUEST_ARC1_FINAL_STEP_2"
+scale_with_titles = false
+radius_cells = 6.0
+grant_items = Dictionary[StringName, int]({
+&"river_memory": 1
+})
+done_text_key = "QUEST_ARC1_FINAL_DONE_2"
+
+[resource]
+script = ExtResource("1_quest")
+id = &"arc1_final_boitata"
+name_key = "QUEST_ARC1_FINAL_NAME"
+giver_npc = &"curupira"
+region_id = &"sabia"
+steps = Array[ExtResource("2_step")]([SubResource("step_1"), SubResource("step_2")])
+reward_xp = 8000
+reward_causo_id = &"arc1_boitata"
+offer_text_key = "QUEST_ARC1_FINAL_OFFER"
+progress_text_key = "QUEST_ARC1_FINAL_PROGRESS"
+complete_text_key = "QUEST_ARC1_FINAL_COMPLETE"
+option_text_key = "QUEST_ARC1_FINAL_OPTION"
+desc_key = "QUEST_ARC1_FINAL_DESC"
+required_quests = Array[StringName]([&"arc1_ch1_saci", &"arc1_ch2_mula", &"arc1_ch3_lobisomem", &"arc1_ch4_curupira", &"arc1_ch5_pisadeira", &"arc1_ch6_iara", &"arc1_ch7_mapinguari", &"arc1_ch8_cuca", &"arc1_ch9_boiuna"])
+requires_left_training = true
+released = false
+reward_by_archetype = Dictionary[StringName, StringName]({
+&"blade": &"living_flame_machete",
+&"tank": &"living_flame_machete",
+&"hybrid": &"living_flame_machete",
+&"bow": &"living_flame_bow",
+&"arcane": &"living_flame_staff",
+&"support": &"living_flame_staff",
+&"default": &"living_flame_machete"
+})

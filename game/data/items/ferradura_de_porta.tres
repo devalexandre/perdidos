@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ferradura_de_porta.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"ferradura_de_porta"
+name_key = "ITEM_FERRADURA_DE_PORTA_NAME"
+desc_key = "ITEM_FERRADURA_DE_PORTA_DESC"
+icon = ExtResource("icon")
+type = 9
+rarity = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 600
+tradeable = true
+crendice_id = &"ferradura_de_porta"
+crendice_sockets = 0
+stats = Dictionary[StringName, int]({
+&"luk": 6,
+&"def": 6
+})

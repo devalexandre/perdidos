@@ -1,0 +1,110 @@
+{
+ "cf_black": {
+  "flat": "Base 1",
+  "out": "Roxo 3"
+ },
+ "cf_tip": {
+  "flat": "Roxo 4",
+  "out": "Roxo 3"
+ },
+ "cf_dark": {
+  "flat": "Roxo 1",
+  "out": "Roxo 2"
+ },
+ "cf_smoke": {
+  "flat": "Base 1",
+  "out": "Roxo 2"
+ },
+ "cf_smoke2": {
+  "flat": "Roxo 1",
+  "out": "Roxo 3"
+ },
+ "mula_fur_n": {
+  "ramp": [
+   "Roxo 1",
+   "Pele escura 1",
+   "Pele escura 2",
+   "Pele escura 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "mula_dark_n": {
+  "ramp": [
+   "Base 1",
+   "Base 1",
+   "Roxo 1",
+   "Pele escura 1"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "mula_blanket_n": {
+  "ramp": [
+   "Base 1",
+   "Azul ceu 1",
+   "Azul ceu 2",
+   "Azul ceu 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "mula_char_n": {
+  "ramp": [
+   "Base 1",
+   "Base 1",
+   "Pedra/metal 1",
+   "Pedra/metal 2"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "shoe_ember": {
+  "flat": "Ouro/amarelo 3",
+  "out": "Vermelho 2"
+ },
+ "fire_mouth": {
+  "flat": "Base 1",
+  "out": "Vermelho 1"
+ },
+ "mula_stripe_n": {
+  "ramp": [
+   "Ouro/amarelo 1",
+   "Ouro/amarelo 2",
+   "Ouro/amarelo 3",
+   "Ouro/amarelo 4"
+  ],
+  "line": "Ouro/amarelo 1",
+  "out": "Base 1"
+ },
+ "mula_pale_n": {
+  "ramp": [
+   "Pele escura 1",
+   "Pele escura 2",
+   "Pele escura 3",
+   "Pele escura 4"
+  ],
+  "line": "Pele escura 1",
+  "out": "Base 1"
+ },
+ "mula_strap_n": {
+  "ramp": [
+   "Base 1",
+   "Madeira/cabelo 1",
+   "Madeira/cabelo 2",
+   "Madeira/cabelo 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "mula_rope_n": {
+  "ramp": [
+   "Madeira/cabelo 1",
+   "Madeira/cabelo 2",
+   "Madeira/cabelo 3",
+   "Madeira/cabelo 4"
+  ],
+  "line": "Madeira/cabelo 1",
+  "out": "Base 1"
+ }
+}

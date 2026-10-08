@@ -13,6 +13,9 @@ PORT          ?= 7777
 # Servidor público pelo ngrok (túnel HTTP → o jogo usa WebSocket). Os clientes exportados já vêm com ele.
 NGROK_URL     ?= poetic-calculably-nayeli.ngrok-free.dev
 SERVER_URL    ?= $(NGROK_URL)
+# Servidor público pelo Cloudflare Tunnel (túnel nomeado; config em ~/.cloudflared/config.yml).
+CF_TUNNEL     ?= perdidos-dev
+CF_HOST       ?= perdidos-dev.dev2learn.com
 PLAYIT_URL    ?= perdidos.auto.playit.gg
 PLAYIT_PORT   ?= 7777
 GOOGLE_CLIENT_JSON ?= $(CURDIR)/client_secret_910576501627-8s6eumk2efoin2454cnd5l1hcf5g9hm6.apps.googleusercontent.com.json
@@ -32,7 +35,7 @@ SECRETS       ?= $(HOME)/.config/perdidos/secrets.env
 RELEASE_DIR   := $(BUILD)/release
 
 .DEFAULT_GOAL := help
-.PHONY: launcher launcher-windows launcher-frontend launcher-test auth release serve-ngrok run-ngrok-client serve-playit run-playit-client client-config clients check-names help godot import run run-dev run-server run-client run-duo stop test build build-windows \
+.PHONY: launcher launcher-windows launcher-frontend launcher-test auth release serve-ngrok run-ngrok-client serve-cloudflare serve-cloudflare-quick run-cloudflare-client serve-playit run-playit-client client-config clients check-names help godot import run run-dev run-server run-client run-duo stop test build build-windows \
         build-linux build-server build-apk apk templates up down logs ps db-shell db-reset clean site site-deploy
 
 help: ## Lista os comandos
@@ -79,13 +82,31 @@ run-duo: import ## Servidor + 2 jogos lado a lado (Ana e Bia) para testar multip
 	 wait
 
 serve-ngrok: import auth ## Servidor na internet pelo ngrok: jogo (WebSocket, exige login do launcher) + API de contas/porteiro. NO_AUTH=1 desliga o login
-	@command -v ngrok >/dev/null || { echo "ngrok não encontrado: instale e rode 'ngrok config add-authtoken <token>'"; exit 1; }
+serve-ngrok: PUBLIC_HOST = $(NGROK_URL)
+serve-ngrok: TUNNEL_CHECK = command -v ngrok >/dev/null || { echo "ngrok não encontrado: instale e rode 'ngrok config add-authtoken <token>'"; exit 1; }
+serve-ngrok: TUNNEL_CMD = ngrok http --url=$(NGROK_URL) $(AUTH_PORT) --log=stdout --log-level=warn
+
+serve-cloudflare: import auth ## Servidor na internet pelo Cloudflare Tunnel (CF_TUNNEL/CF_HOST, config em ~/.cloudflared/config.yml). NO_AUTH=1 desliga o login
+serve-cloudflare: PUBLIC_HOST = $(CF_HOST)
+serve-cloudflare: TUNNEL_CHECK = command -v cloudflared >/dev/null || { echo "cloudflared não encontrado: instale e rode 'cloudflared tunnel login'"; exit 1; }; \
+	test -f $(HOME)/.cloudflared/config.yml || { echo "falta ~/.cloudflared/config.yml (ver docs/servidor-cloudflare.md)"; exit 1; }; \
+	! pgrep -f "cloudflared tunnel.* run $(CF_TUNNEL)" >/dev/null || { echo ">> o túnel $(CF_TUNNEL) já está rodando em outro terminal: pare-o antes"; exit 1; }
+serve-cloudflare: TUNNEL_CMD = cloudflared tunnel --no-autoupdate run $(CF_TUNNEL)
+
+serve-cloudflare-quick: import auth ## Servidor na internet por um Quick Tunnel da Cloudflare (sem domínio; endereço *.trycloudflare.com muda a cada vez). NO_AUTH=1 desliga o login
+serve-cloudflare-quick: PUBLIC_HOST = endereco-trycloudflare-mostrado-abaixo
+serve-cloudflare-quick: TUNNEL_CHECK = command -v cloudflared >/dev/null || { echo "cloudflared não encontrado"; exit 1; }
+serve-cloudflare-quick: TUNNEL_CMD = cloudflared tunnel --no-autoupdate --url http://127.0.0.1:$(AUTH_PORT)
+
+# Receita comum aos túneis: sobe o jogo e a API em segundo plano e o túnel em primeiro plano (Ctrl+C derruba tudo).
+serve-ngrok serve-cloudflare serve-cloudflare-quick:
+	@$(TUNNEL_CHECK)
 	@mkdir -p $(RUN_DIR)
 	@$(AUTH_BIN) ensure-secret -secrets=$(SECRETS)
 	@$(GODOT) --headless --path $(GAME) -- --server --transport=ws --port=$(PORT) $(if $(DEV),--dev-commands,) \
 	   $(if $(NO_AUTH),,--require-auth --auth-secrets=$(SECRETS)) > $(RUN_DIR)/server.log 2>&1 & \
 	 echo $$! > $(RUN_DIR)/server.pid; \
-	 PERDIDOS_GOOGLE_CLIENT_ID="$(GOOGLE_CLIENT_ID)" PERDIDOS_PUBLIC_URL="https://$(NGROK_URL)" \
+	 PERDIDOS_GOOGLE_CLIENT_ID="$(GOOGLE_CLIENT_ID)" PERDIDOS_PUBLIC_URL="https://$(PUBLIC_HOST)" \
 	 $(AUTH_BIN) -addr=127.0.0.1:$(AUTH_PORT) -game=127.0.0.1:$(PORT) -db=$(RUN_DIR)/accounts.db \
 	   -latest=$(RELEASE_DIR)/latest.json -secrets=$(SECRETS) > $(RUN_DIR)/auth.log 2>&1 & \
 	 echo $$! > $(RUN_DIR)/auth.pid; \
@@ -95,11 +116,14 @@ serve-ngrok: import auth ## Servidor na internet pelo ngrok: jogo (WebSocket, ex
 	 kill -0 $$(cat $(RUN_DIR)/auth.pid) 2>/dev/null || { echo ">> API não iniciou; confira .run/auth.log"; exit 1; }; \
 	 echo ">> jogo (WebSocket) na porta $(PORT) $(if $(NO_AUTH),SEM login,com login obrigatório) (log: .run/server.log)"; \
 	 echo ">> API de contas + porteiro na porta $(AUTH_PORT) (log: .run/auth.log; contas em .run/accounts.db)"; \
-	 echo ">> endereço público: https://$(NGROK_URL)   (Ctrl+C derruba o túnel, a API e o servidor)"; \
-	 ngrok http --url=$(NGROK_URL) $(AUTH_PORT) --log=stdout --log-level=warn
+	 echo ">> endereço público: https://$(PUBLIC_HOST)   (Ctrl+C derruba o túnel, a API e o servidor)"; \
+	 $(TUNNEL_CMD)
 
 run-ngrok-client: import ## Abre o jogo local já apontando para o servidor do ngrok (para conferir o túnel)
 	@$(GODOT) --path $(GAME) -- --host=wss://$(NGROK_URL)
+
+run-cloudflare-client: import ## Abre o jogo local já apontando para o servidor do Cloudflare (para conferir o túnel)
+	@$(GODOT) --path $(GAME) -- --host=wss://$(CF_HOST)
 
 serve-playit: import ## Servidor na internet pelo playit.gg (ENet/UDP nativo na porta 7777)
 	@command -v playit >/dev/null || { echo "playit não encontrado. Instale com: curl -SsL https://playit-cloud.github.io/ppa/key.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/playit.gpg >/dev/null && echo 'deb [signed-by=/etc/apt/trusted.gpg.d/playit.gpg] https://playit-cloud.github.io/ppa/data ./' | sudo tee /etc/apt/sources.list.d/playit.list && sudo apt update && sudo apt install playit"; exit 1; }
@@ -212,13 +236,15 @@ launcher-test: ## Testes Go do launcher e da API (Drive, download/troca atômica
 	@cd $(LAUNCHER) && $(GO) test ./internal/...
 	@GODOT=$(GODOT) GO=$(GO) $(LAUNCHER)/tests/auth_integration.sh
 
-release: ## Publica uma versão: make release VERSION=0.1.3 [NOTES="o que mudou"] → build/release/ (zips + latest.json)
+release: ## Publica uma versão: make release VERSION=0.1.3 [NOTES="o que mudou"] [THEME_ID=arco2] → build/release/ (zips + tema + latest.json)
 	@test -n "$(VERSION)" || { echo "use: make release VERSION=x.y.z"; exit 1; }
 	@echo "$(VERSION)" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$$' || { echo "VERSION precisa ser x.y.z (ex.: 0.1.3)"; exit 1; }
 	@sed -i 's/^config\/version=".*"/config\/version="$(VERSION)"/' $(GAME)/project.godot
 	@echo ">> versão do jogo: $(VERSION) (game/project.godot)"
 	@$(MAKE) --no-print-directory build-windows build-linux build-apk
 	@VERSION=$(VERSION) NOTES="$(NOTES)" SERVER_URL="$(SERVER_URL)" BUILD="$(BUILD)" \
+	   THEME_ID="$(THEME_ID)" THEME_IMAGE="$(THEME_IMAGE)" THEME_TAGLINE="$(THEME_TAGLINE)" \
+	   THEME_ARC="$(THEME_ARC)" THEME_TITLE="$(THEME_TITLE)" \
 	   DRIVE_URL="https://drive.google.com/drive/folders/178ylieiRtCYsOtrr-8wTmd2hB3oymsNW" $(LAUNCHER)/release.sh
 
 # ---------------------------------------------------------------- site (GitHub Pages)

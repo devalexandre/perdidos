@@ -48,6 +48,9 @@ var last_hitter_peer: int = 0
 ## mais é o dono do monstro: leva o crédito do abate, a XP (dividida com o grupo dele) e a posse do drop.
 ## Zera quando o monstro volta para casa e recupera a vida.
 var damage_by_peer: Dictionary[int, int] = {}
+## Arco 1 (chefe da história): jogadores que entraram na luta — bateram nele ou foram atacados por ele. Junto com o
+## dano, decide quem ganha a vitória de história (QuestService.on_story_boss_killed). Zera junto com o dano.
+var engaged_peers: Dictionary[int, bool] = {}
 ## Provação (QuestService): o peer dono. 0 = monstro comum. Monstro com dono só ataca e só pode ser atacado
 ## por esse jogador e pelo grupo dele (CombatService.attack_block_reason).
 var owner_peer: int = 0
@@ -181,6 +184,7 @@ func attack_range_world() -> float:
 func on_damaged(attacker: NetEntity) -> void:
 	if attacker != null and attacker.is_player():
 		last_hitter_peer = attacker.get_peer_id()
+		engaged_peers[last_hitter_peer] = true
 		if not player_initiated and state in [State.IDLE, State.PATROL]:
 			player_initiated = true
 	MonsterBehaviors.on_damaged(self)
@@ -354,6 +358,8 @@ func _tick_attack(mover: GridMover) -> void:
 	if now < _next_attack_msec:
 		return
 	_next_attack_msec = now + stage.attack_interval_ms
+	if target.is_player():
+		engaged_peers[target.get_peer_id()] = true
 	combat.monster_attack(self, target)
 
 
@@ -387,6 +393,7 @@ func _tick_return(mover: GridMover) -> void:
 func _arrive_home() -> void:
 	hp = max_hp()
 	damage_by_peer.clear()
+	engaged_peers.clear()
 	charged_once = false
 	charge_left_sec = 0.0
 	player_initiated = false
@@ -444,10 +451,23 @@ func set_atroz(on: bool) -> bool:
 	Net.log_line("monster_atroz", {"id": e.entity_id, "monster": String(def.id), "atroz": atroz,
 			"stage": stage.stage, "hp": hp, "max_hp": max_hp(), "atk": int(combat_stats().get(&"atk", 0)),
 			"instance": String(e.instance_id), "clock": DayNight.clock_text(), "pinned": atroz_pinned})
-	if atroz:
+	# Chefe da história já nasce atroz (o covil avisa que ele apareceu): sem o aviso de "ficou atroz".
+	if atroz and not def.story_boss:
 		for p: int in Net.get_instance_peer_ids(e.instance_id):
 			Net.push_system_message(p, MonsterSpawner.MSG_ATROZ, [stage.name_key])
 	return true
+
+
+## Arco 1: peers que participaram do combate (dano + engajados).
+func participant_peers() -> Array[int]:
+	var out: Array[int] = []
+	for p: int in damage_by_peer:
+		if p != 0 and p not in out:
+			out.append(p)
+	for p: int in engaged_peers:
+		if p != 0 and p not in out:
+			out.append(p)
+	return out
 
 
 ## Jogador vivo com menos vida a até radius (m); empate = menor nível; null = ninguém.

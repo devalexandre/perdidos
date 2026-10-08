@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="MonsterDef" format=3]
+
+[ext_resource type="Script" path="res://scripts/shared/data/monster_def.gd" id="1_monster"]
+[ext_resource type="Script" path="res://scripts/shared/data/monster_stage.gd" id="2_stage"]
+[ext_resource type="Script" path="res://scripts/shared/data/drop_entry.gd" id="3_drop"]
+
+[sub_resource type="Resource" id="drop_0"]
+script = ExtResource("3_drop")
+item_id = &"black_storm_bow"
+chance = 0.08
+
+[sub_resource type="Resource" id="stage_boss"]
+script = ExtResource("2_stage")
+stage = 3
+name_key = "MON_STORY_BOIUNA_NAME"
+sprite_base = "res://assets/monsters/story_boiuna/mon_story_boiuna_s4"
+visual_scale = 1.0
+baked_life = true
+level = 56
+max_hp = 125000
+atk = 800
+matk = 500
+def = 230
+mdef = 230
+walk_ms_per_cell = 400
+attack_range_cells = 3.0
+attack_interval_ms = 1350
+aggressive = true
+aggro_range_cells = 10
+leash_cells = 20
+xp_reward = 11000
+stars_min = 340
+stars_max = 600
+behaviors = Array[StringName]([&"boss"])
+
+[sub_resource type="Resource" id="stage_atroz"]
+script = ExtResource("2_stage")
+stage = 4
+name_key = "MON_STORY_BOIUNA_NAME"
+sprite_base = "res://assets/monsters/story_boiuna/mon_story_boiuna_s4"
+visual_scale = 1.0
+baked_life = true
+level = 56
+walk_ms_per_cell = 400
+attack_range_cells = 3.0
+attack_interval_ms = 1350
+aggressive = true
+aggro_range_cells = 12
+leash_cells = 24
+xp_reward = 11000
+stars_min = 340
+stars_max = 600
+drops = Array[ExtResource("3_drop")]([SubResource("drop_0")])
+behaviors = Array[StringName]([&"boss"])
+
+[resource]
+script = ExtResource("1_monster")
+id = &"story_boiuna"
+region_id = &"brasil"
+stages = Array[ExtResource("2_stage")]([SubResource("stage_boss"), SubResource("stage_atroz")])
+respawn_sec = 3600.0
+can_be_rare = false
+atroz_stat_multiplier = 1.0
+story_boss = true
+art_pending = true

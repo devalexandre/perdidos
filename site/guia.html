@@ -9,8 +9,8 @@
   <meta name="theme-color" content="#0e1d1a">
   <link rel="preload" href="img/hero.webp" as="image">
   <link rel="icon" href="img/crests/crest_brasil.webp" type="image/webp">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/portal.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/portal.css?v=3">
 </head>
 <body class="guide">
 
@@ -188,7 +188,7 @@
         <div class="story-arc-intro">
           <span class="tag">Arco narrativo · em produção</span>
           <h3 id="lobisomem-title">O Causo do Lobisomem</h3>
-          <p>Relatos de gado ferido e pegadas na lama que começam humanas e se transformam em garras levam o Viajante à história de Eustáquio Sete-Estrelas. Neto do sétimo filho de uma linhagem de tropeiros, Eustáquio carrega uma sina antiga nascida de um batismo que nunca aconteceu. Homem simples e prestativo à luz do dia, ele desaparece na borda da Mata Encantada a cada lua cheia, prisioneiro de uma fera que não controla.</p>
+          <p>Gado ferido no Porto do Despertar e pegadas na lama que começam humanas e terminam em garras. Converse com os moradores: cada relato é uma pista. Reúna três e decida como o causo termina — caçar a fera, quebrar a maldição ou observá-la antes de escolher.</p>
           <p style="margin-top: 12px; color: var(--dim);">Na Terra do Sabiá, as histórias não são simples missões de mural — são Causos contados na beira da fogueira, onde cada rumor revela um fragmento da verdade e o mistério se aprofunda a cada lua.</p>
         </div>
       </section>
@@ -910,7 +910,7 @@
       <span class="kicker">Bestiário</span>
       <h2>Criaturas de lenda</h2>
       <p class="lead">21 espécies já andam pelo Campo de Treino. Nos campos de caça do Sabiá, as formas e os níveis mudam conforme a área: normais nos Campos, médias na Mata e variantes mais fortes e bosses na Chapada.</p>
-      <p class="bestiary-reserve"><strong>Mais variedade em preparação:</strong> 30 espécies adicionais, três por região cultural, já têm modelos normal, boss e atroz preparados — 90 modelos ao todo. Esse novo catálogo ainda não está nos mapas.</p>
+      <p class="bestiary-reserve"><strong>Mais variedade em preparação:</strong> cada nação ganhará criaturas próprias. As primeiras, das Ilhas do Sol Nascente (Kappa da Lagoa, Corvo da Montanha e Lanterna Travessa), já estão no bestiário abaixo e aparecem quando a nação abrir.</p>
       <div class="filters" role="group" aria-label="Filtrar por região">
         <button type="button" class="chip" data-filter="sabia" aria-pressed="true">Terra do Sabiá</button>
         <button type="button" class="chip" data-filter="mouras" aria-pressed="false">Reino das Mouras</button>
@@ -995,6 +995,24 @@
         <div class="sprite"><img class="pixel" src="img/monsters/trickster_tanuki.png" alt="Tanuki Trapaceiro" width="28" height="48" style="--w:28px;--h:48px" loading="lazy"></div>
         <h3>Tanuki Trapaceiro</h3>
         <p class="evo">Evolui: Tanuki Barrigudo</p>
+        <span class="where"><img src="img/crests/crest_japao.webp" alt="" width="22" height="22" loading="lazy">Ilhas do Sol Nascente</span>
+      </article>
+      <article class="mon panel" data-region="sol">
+        <div class="sprite"><img class="pixel" src="img/monsters/pond_kappa.png" alt="Kappa da Lagoa" width="40" height="51" style="--w:40px;--h:51px" loading="lazy"></div>
+        <h3>Kappa da Lagoa</h3>
+        <p class="evo">Evolui: Kappa do Remanso → Kappa do Poço Escuro</p>
+        <span class="where"><img src="img/crests/crest_japao.webp" alt="" width="22" height="22" loading="lazy">Ilhas do Sol Nascente</span>
+      </article>
+      <article class="mon panel" data-region="sol">
+        <div class="sprite"><img class="pixel" src="img/monsters/mountain_tengu.png" alt="Corvo da Montanha" width="34" height="50" style="--w:34px;--h:50px" loading="lazy"></div>
+        <h3>Corvo da Montanha</h3>
+        <p class="evo">Evolui: Tengu do Vendaval → Tengu da Asa Noturna</p>
+        <span class="where"><img src="img/crests/crest_japao.webp" alt="" width="22" height="22" loading="lazy">Ilhas do Sol Nascente</span>
+      </article>
+      <article class="mon panel" data-region="sol">
+        <div class="sprite"><img class="pixel" src="img/monsters/paper_lantern.png" alt="Lanterna Travessa" width="36" height="60" style="--w:36px;--h:60px" loading="lazy"></div>
+        <h3>Lanterna Travessa</h3>
+        <p class="evo">Evolui: Lanterna do Desfile → Lanterna da Chama Violeta</p>
         <span class="where"><img src="img/crests/crest_japao.webp" alt="" width="22" height="22" loading="lazy">Ilhas do Sol Nascente</span>
       </article>
       <article class="mon panel" data-region="fiordes">
@@ -1376,8 +1394,8 @@
         </li>
         <li>
           <span class="when">Depois</span>
-          <h3>Polimento e o Boitatá</h3>
-          <p>O chefe Boitatá, servidores e muitos ajustes para receber os primeiros testadores.</p>
+          <h3>Polimento e primeiros testes</h3>
+          <p>Servidores, chefes e muitos ajustes para receber os primeiros testadores.</p>
         </li>
         <li>
           <span class="when">Meta</span>

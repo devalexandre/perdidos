@@ -330,8 +330,11 @@ func _bosses_of_lairs(map_id: StringName) -> Array:
 	var path: String = MAP_SCENE_DIR + String(map_id) + MAP_SCENE_EXT
 	var packed := load(path) as PackedScene if ResourceLoader.exists(path) else null
 	var map: Node = packed.instantiate() if packed != null else null
-	var lairs: Node = map.get_node_or_null(^"BossLairs") if map != null else null
-	if lairs != null:
+	# Covis de espécie e, à noite, o do chefe da história (andar 4 da Caverna: o Lobisomem da história também abre a fuga).
+	for node_path: NodePath in [^"BossLairs", ^"StoryLairs"]:
+		var lairs: Node = map.get_node_or_null(node_path) if map != null else null
+		if lairs == null:
+			continue
 		for m: Node in lairs.get_children():
 			var mid := StringName(str(m.get_meta(&"monster_id", "")))
 			if not mid.is_empty():

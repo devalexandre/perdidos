@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_mother_of_pearl_comb.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"mother_of_pearl_comb"
+name_key = "ITEM_MOTHER_OF_PEARL_COMB_NAME"
+desc_key = "ITEM_MOTHER_OF_PEARL_COMB_DESC"
+icon = ExtResource("icon")
+type = 7
+rarity = 3
+sell_price = 0
+tradeable = false

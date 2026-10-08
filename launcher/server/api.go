@@ -13,6 +13,8 @@ import (
 	"net/mail"
 	"net/url"
 	"os"
+	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"sync"
@@ -108,6 +110,7 @@ func (s *Server) Handler() http.Handler {
 	mux.HandleFunc("POST /api/google/complete", s.handleGoogleComplete)
 	mux.HandleFunc("GET /auth/google", s.handleGooglePage)
 	mux.HandleFunc("GET /api/latest", s.handleLatest)
+	mux.HandleFunc("GET /api/theme/{name}", s.handleTheme)
 	mux.HandleFunc("GET /api/health", s.handleHealth)
 	mux.HandleFunc("/api/", func(w http.ResponseWriter, r *http.Request) {
 		writeError(w, http.StatusNotFound, "not_found", "Rota não encontrada.")
@@ -271,6 +274,33 @@ func (s *Server) handleLatest(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Cache-Control", "no-store")
 	w.Write(data)
+}
+
+// reThemeImage: only the files release.sh writes (theme-<id>.<ext>); no path separators, no "..".
+var reThemeImage = regexp.MustCompile(`^theme-[a-z0-9][a-z0-9_-]{0,31}\.(jpg|jpeg|png|webp)$`)
+
+// handleTheme serves the launcher theme image from the release folder (next to latest.json),
+// the plan B when the Drive is down.
+func (s *Server) handleTheme(w http.ResponseWriter, r *http.Request) {
+	name := r.PathValue("name")
+	if s.cfg.LatestPath == "" || !reThemeImage.MatchString(name) {
+		writeError(w, http.StatusNotFound, "not_found", "Tema não encontrado.")
+		return
+	}
+	f, err := os.Open(filepath.Join(filepath.Dir(s.cfg.LatestPath), name))
+	if err != nil {
+		writeError(w, http.StatusNotFound, "not_found", "Tema não encontrado.")
+		return
+	}
+	defer f.Close()
+	st, err := f.Stat()
+	if err != nil || !st.Mode().IsRegular() {
+		writeError(w, http.StatusNotFound, "not_found", "Tema não encontrado.")
+		return
+	}
+	w.Header().Set("Cache-Control", "public, max-age=300")
+	w.Header().Set("X-Content-Type-Options", "nosniff")
+	http.ServeContent(w, r, name, st.ModTime(), f)
 }
 
 func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {

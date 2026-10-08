@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_crossroads_machete.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"crossroads_machete"
+name_key = "ITEM_CROSSROADS_MACHETE_NAME"
+desc_key = "ITEM_CROSSROADS_MACHETE_DESC"
+icon = ExtResource("icon")
+type = 1
+scaling_attribute = &"str"
+weapon_kind = 1
+rarity = 3
+sell_price = 600
+stats = Dictionary[StringName, int]({
+&"atk": 42,
+&"matk": 10,
+&"str": 5,
+&"int": 2
+})
+visual_id = &"blade"

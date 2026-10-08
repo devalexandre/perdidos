@@ -545,6 +545,312 @@ static func _init_database() -> void:
 	olho_cobra.synergy_group = &"ancestralidade_mistica"
 	_cache[olho_cobra.id] = olho_cobra
 
+	# --- Arco 1 da história (ARCO-1-TERRA-DO-SABIA.md 6.2) ---
+	# 25. Nó de Crina Trançada (Saci Atroz, Arco 1)
+	var no_crina := CrendiceDef.new()
+	no_crina.id = &"no_de_crina_trancada"
+	no_crina.name_key = "CRENDICE_NO_DE_CRINA_TRANCADA_NAME"
+	no_crina.desc_key = "CRENDICE_NO_DE_CRINA_TRANCADA_DESC"
+	no_crina.lore_key = "CRENDICE_NO_DE_CRINA_TRANCADA_LORE"
+	no_crina.superstition_desc_key = "CRENDICE_NO_DE_CRINA_TRANCADA_SUP"
+	no_crina.valid_slots = [&"accessory_1", &"accessory_2", &"accessory", &"feet"]
+	no_crina.stats = {&"dex": 3, &"luk": 3}
+	no_crina.special_effects = {
+		"first_strike_flee": true
+	}
+	no_crina.superstition_rule = &"enemy_first_strike"
+	no_crina.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_saci"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	no_crina.synergy_group = &"lendas_libertas"
+	_cache[no_crina.id] = no_crina
+
+	# 26. Ferradura de Porta (Mula-sem-Cabeça Atroz, Arco 1)
+	var ferradura := CrendiceDef.new()
+	ferradura.id = &"ferradura_de_porta"
+	ferradura.name_key = "CRENDICE_FERRADURA_DE_PORTA_NAME"
+	ferradura.desc_key = "CRENDICE_FERRADURA_DE_PORTA_DESC"
+	ferradura.lore_key = "CRENDICE_FERRADURA_DE_PORTA_LORE"
+	ferradura.superstition_desc_key = "CRENDICE_FERRADURA_DE_PORTA_SUP"
+	ferradura.valid_slots = [&"accessory_1", &"accessory_2", &"accessory", &"body"]
+	ferradura.stats = {&"luk": 6, &"def": 6}
+	ferradura.special_effects = {
+		"crit_chance_pct": 5
+	}
+	ferradura.superstition_rule = &"hp_above_50"
+	ferradura.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_mula"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	ferradura.synergy_group = &"lendas_libertas"
+	_cache[ferradura.id] = ferradura
+
+	# 27. Réstia de Alho (Lobisomem Atroz, Arco 1)
+	var alho := CrendiceDef.new()
+	alho.id = &"restia_de_alho"
+	alho.name_key = "CRENDICE_RESTIA_DE_ALHO_NAME"
+	alho.desc_key = "CRENDICE_RESTIA_DE_ALHO_DESC"
+	alho.lore_key = "CRENDICE_RESTIA_DE_ALHO_LORE"
+	alho.superstition_desc_key = "CRENDICE_RESTIA_DE_ALHO_SUP"
+	alho.valid_slots = [&"head", &"body", &"accessory_1", &"accessory_2", &"accessory"]
+	alho.stats = {&"mdef": 14, &"spi": 4}
+	alho.special_effects = {
+		"shadow_resist_pct": 20
+	}
+	alho.superstition_rule = &"night_only"
+	alho.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_lobisomem"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	alho.synergy_group = &"lendas_libertas"
+	_cache[alho.id] = alho
+
+	# 28. Cipó da Pegada Virada (Curupira Atroz, Arco 1)
+	var cipo_virado := CrendiceDef.new()
+	cipo_virado.id = &"cipo_da_pegada_virada"
+	cipo_virado.name_key = "CRENDICE_CIPO_DA_PEGADA_VIRADA_NAME"
+	cipo_virado.desc_key = "CRENDICE_CIPO_DA_PEGADA_VIRADA_DESC"
+	cipo_virado.lore_key = "CRENDICE_CIPO_DA_PEGADA_VIRADA_LORE"
+	cipo_virado.superstition_desc_key = "CRENDICE_CIPO_DA_PEGADA_VIRADA_SUP"
+	cipo_virado.valid_slots = [&"feet"]
+	cipo_virado.stats = {&"dex": 5, &"luk": 2}
+	cipo_virado.special_effects = {
+		"crit_chance_pct": 6,
+		"phys_dmg_pct": 6
+	}
+	cipo_virado.superstition_rule = &"night_or_forest"
+	cipo_virado.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_curupira"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	cipo_virado.synergy_group = &"lendas_libertas"
+	_cache[cipo_virado.id] = cipo_virado
+
+	# 29. Travesseiro de Macela (Pisadeira Atroz, Arco 1)
+	var macela := CrendiceDef.new()
+	macela.id = &"travesseiro_de_macela"
+	macela.name_key = "CRENDICE_TRAVESSEIRO_DE_MACELA_NAME"
+	macela.desc_key = "CRENDICE_TRAVESSEIRO_DE_MACELA_DESC"
+	macela.lore_key = "CRENDICE_TRAVESSEIRO_DE_MACELA_LORE"
+	macela.superstition_desc_key = "CRENDICE_TRAVESSEIRO_DE_MACELA_SUP"
+	macela.valid_slots = [&"head", &"body"]
+	macela.stats = {&"mdef": 16, &"vit": 4}
+	macela.special_effects = {
+		"shadow_resist_pct": 12
+	}
+	macela.superstition_rule = &"low_hp_double"
+	macela.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_pisadeira"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	macela.synergy_group = &"lendas_libertas"
+	_cache[macela.id] = macela
+
+	# 30. Escama Dourada do Rio (Iara Atroz, Arco 1)
+	var escama_rio := CrendiceDef.new()
+	escama_rio.id = &"escama_dourada_do_rio"
+	escama_rio.name_key = "CRENDICE_ESCAMA_DOURADA_DO_RIO_NAME"
+	escama_rio.desc_key = "CRENDICE_ESCAMA_DOURADA_DO_RIO_DESC"
+	escama_rio.lore_key = "CRENDICE_ESCAMA_DOURADA_DO_RIO_LORE"
+	escama_rio.superstition_desc_key = "CRENDICE_ESCAMA_DOURADA_DO_RIO_SUP"
+	escama_rio.valid_slots = [&"weapon", &"offhand", &"accessory_1", &"accessory_2", &"accessory"]
+	escama_rio.stats = {&"spi": 6, &"int": 4}
+	escama_rio.special_effects = {
+		"magic_dmg_pct": 8
+	}
+	escama_rio.superstition_rule = &"mana_above_20"
+	escama_rio.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_iara"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	escama_rio.synergy_group = &"lendas_libertas"
+	_cache[escama_rio.id] = escama_rio
+
+	# 31. Unha do Guardião (Mapinguari Atroz, Arco 1)
+	var unha_guardiao := CrendiceDef.new()
+	unha_guardiao.id = &"unha_do_guardiao"
+	unha_guardiao.name_key = "CRENDICE_UNHA_DO_GUARDIAO_NAME"
+	unha_guardiao.desc_key = "CRENDICE_UNHA_DO_GUARDIAO_DESC"
+	unha_guardiao.lore_key = "CRENDICE_UNHA_DO_GUARDIAO_LORE"
+	unha_guardiao.superstition_desc_key = "CRENDICE_UNHA_DO_GUARDIAO_SUP"
+	unha_guardiao.valid_slots = [&"offhand", &"body"]
+	unha_guardiao.stats = {&"def": 22, &"vit": 5}
+	unha_guardiao.special_effects = {
+		"all_def_pct": 8
+	}
+	unha_guardiao.superstition_rule = &"still_position"
+	unha_guardiao.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_mapinguari"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	unha_guardiao.synergy_group = &"lendas_libertas"
+	_cache[unha_guardiao.id] = unha_guardiao
+
+	# 32. Cantiga Bordada (Cuca Atroz, Arco 1)
+	var cantiga := CrendiceDef.new()
+	cantiga.id = &"cantiga_bordada"
+	cantiga.name_key = "CRENDICE_CANTIGA_BORDADA_NAME"
+	cantiga.desc_key = "CRENDICE_CANTIGA_BORDADA_DESC"
+	cantiga.lore_key = "CRENDICE_CANTIGA_BORDADA_LORE"
+	cantiga.superstition_desc_key = "CRENDICE_CANTIGA_BORDADA_SUP"
+	cantiga.valid_slots = [&"head", &"offhand", &"accessory_1", &"accessory_2", &"accessory"]
+	cantiga.stats = {&"mdef": 24, &"spi": 6}
+	cantiga.special_effects = {
+		"shadow_resist_pct": 18
+	}
+	cantiga.superstition_rule = &"mana_above_40"
+	cantiga.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_cuca"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	cantiga.synergy_group = &"lendas_libertas"
+	_cache[cantiga.id] = cantiga
+
+	# 33. Escama da Tempestade (Boiúna Atroz, Arco 1)
+	var escama_tempestade := CrendiceDef.new()
+	escama_tempestade.id = &"escama_da_tempestade"
+	escama_tempestade.name_key = "CRENDICE_ESCAMA_DA_TEMPESTADE_NAME"
+	escama_tempestade.desc_key = "CRENDICE_ESCAMA_DA_TEMPESTADE_DESC"
+	escama_tempestade.lore_key = "CRENDICE_ESCAMA_DA_TEMPESTADE_LORE"
+	escama_tempestade.superstition_desc_key = "CRENDICE_ESCAMA_DA_TEMPESTADE_SUP"
+	escama_tempestade.valid_slots = [&"weapon"]
+	escama_tempestade.stats = {&"atk": 12, &"matk": 12}
+	escama_tempestade.special_effects = {
+		"ignore_def_pct": 12,
+		"magic_dmg_pct": 8
+	}
+	escama_tempestade.superstition_rule = &"night_only"
+	escama_tempestade.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_boiuna"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	escama_tempestade.synergy_group = &"lendas_libertas"
+	_cache[escama_tempestade.id] = escama_tempestade
+
+	# 34. Brasa que Não Apaga (Boitatá Atroz, Arco 1)
+	var brasa_viva := CrendiceDef.new()
+	brasa_viva.id = &"brasa_que_nao_apaga"
+	brasa_viva.name_key = "CRENDICE_BRASA_QUE_NAO_APAGA_NAME"
+	brasa_viva.desc_key = "CRENDICE_BRASA_QUE_NAO_APAGA_DESC"
+	brasa_viva.lore_key = "CRENDICE_BRASA_QUE_NAO_APAGA_LORE"
+	brasa_viva.superstition_desc_key = "CRENDICE_BRASA_QUE_NAO_APAGA_SUP"
+	brasa_viva.valid_slots = [&"weapon"]
+	brasa_viva.stats = {&"atk": 16, &"matk": 16}
+	brasa_viva.special_effects = {
+		"phys_dmg_pct": 12,
+		"magic_dmg_pct": 12
+	}
+	brasa_viva.superstition_rule = &"night_only"
+	brasa_viva.drop_rules = {
+		# Chefe da história do Arco 1 (forma atroz, só à noite). Chefes ainda sem arte ficam com art_pending e
+		# não nascem em mapa, então o drop só acontece quando forem ligados.
+		"monster_ids": [&"story_boitata"],
+		"chance": 0.05,
+		"atroz_only": true,
+		"night_only": true
+	}
+	brasa_viva.synergy_group = &"lendas_libertas"
+	_cache[brasa_viva.id] = brasa_viva
+
+	# 35. Vaso de Pimenta (popular, Mata Encantada)
+	var pimenta := CrendiceDef.new()
+	pimenta.id = &"vaso_de_pimenta"
+	pimenta.name_key = "CRENDICE_VASO_DE_PIMENTA_NAME"
+	pimenta.desc_key = "CRENDICE_VASO_DE_PIMENTA_DESC"
+	pimenta.lore_key = "CRENDICE_VASO_DE_PIMENTA_LORE"
+	pimenta.superstition_desc_key = "CRENDICE_VASO_DE_PIMENTA_SUP"
+	pimenta.valid_slots = [&"body", &"accessory_1", &"accessory_2", &"accessory"]
+	pimenta.stats = {&"mdef": 8}
+	pimenta.special_effects = {
+		"shadow_resist_pct": 10
+	}
+	pimenta.superstition_rule = &"no_curse"
+	pimenta.drop_rules = {
+		"monster_ids": [&"strangler_vine", &"wandering_spider", &"brown_recluse"],
+		"chance": 0.03
+	}
+	pimenta.synergy_group = &"protecao_total"
+	_cache[pimenta.id] = pimenta
+
+	# 36. Comigo-Ninguém-Pode (popular, Mata Encantada)
+	var comigo := CrendiceDef.new()
+	comigo.id = &"comigo_ninguem_pode"
+	comigo.name_key = "CRENDICE_COMIGO_NINGUEM_PODE_NAME"
+	comigo.desc_key = "CRENDICE_COMIGO_NINGUEM_PODE_DESC"
+	comigo.lore_key = "CRENDICE_COMIGO_NINGUEM_PODE_LORE"
+	comigo.superstition_desc_key = "CRENDICE_COMIGO_NINGUEM_PODE_SUP"
+	comigo.valid_slots = [&"body", &"offhand"]
+	comigo.stats = {&"def": 10, &"vit": 2}
+	comigo.special_effects = {
+		"all_def_pct": 5
+	}
+	comigo.superstition_rule = &"low_hp_double"
+	comigo.drop_rules = {
+		"monster_ids": [&"strangler_vine", &"coral_snake", &"harpy_eagle", &"sabia_jaguar"],
+		"chance": 0.03
+	}
+	comigo.synergy_group = &"protecao_total"
+	_cache[comigo.id] = comigo
+
+	# 37. Trevo de Quatro Folhas (popular, Campos do Sabiá)
+	var trevo := CrendiceDef.new()
+	trevo.id = &"trevo_de_quatro_folhas"
+	trevo.name_key = "CRENDICE_TREVO_DE_QUATRO_FOLHAS_NAME"
+	trevo.desc_key = "CRENDICE_TREVO_DE_QUATRO_FOLHAS_DESC"
+	trevo.lore_key = "CRENDICE_TREVO_DE_QUATRO_FOLHAS_LORE"
+	trevo.superstition_desc_key = "CRENDICE_TREVO_DE_QUATRO_FOLHAS_SUP"
+	trevo.valid_slots = [&"accessory_1", &"accessory_2", &"accessory", &"feet"]
+	trevo.stats = {&"luk": 4}
+	trevo.special_effects = {
+		"crit_chance_pct": 3
+	}
+	trevo.superstition_rule = &"lucky_paw_death"
+	trevo.drop_rules = {
+		"monster_ids": [&"prank_whirlwind", &"enchanted_firefly", &"buriti_boar"],
+		"chance": 0.03,
+		"day_only": true
+	}
+	trevo.synergy_group = &"espirito_da_caca"
+	_cache[trevo.id] = trevo
+
+
 	_init_synergies()
 
 
@@ -555,7 +861,7 @@ static func _init_synergies() -> void:
 		"name_key": "SYNERGY_PROTECAO_TOTAL_NAME",
 		"desc_key": "SYNERGY_PROTECAO_TOTAL_DESC",
 		"required_count": 3,
-		"crendices": [&"figa_de_madeira", &"guia_de_arruda", &"saquinho_sal_grosso", &"moeda_furada", &"cera_abelha_mandacaia", &"lenco_do_pregoeiro"],
+		"crendices": [&"figa_de_madeira", &"guia_de_arruda", &"saquinho_sal_grosso", &"moeda_furada", &"cera_abelha_mandacaia", &"lenco_do_pregoeiro", &"vaso_de_pimenta", &"comigo_ninguem_pode"],
 		"bonuses": {
 			"all_def_pct": 15,
 			"curse_resist_pct": 30,
@@ -567,7 +873,7 @@ static func _init_synergies() -> void:
 		"name_key": "SYNERGY_ESPIRITO_CACA_NAME",
 		"desc_key": "SYNERGY_ESPIRITO_CACA_DESC",
 		"required_count": 3,
-		"crendices": [&"dente_de_onca", &"pata_de_quati", &"dente_de_cascavel", &"teia_armadeira_rainha", &"veneno_surucucu_chuva", &"casulo_lonomia_urticante", &"teia_matriarca_golias"],
+		"crendices": [&"dente_de_onca", &"pata_de_quati", &"dente_de_cascavel", &"teia_armadeira_rainha", &"veneno_surucucu_chuva", &"casulo_lonomia_urticante", &"teia_matriarca_golias", &"trevo_de_quatro_folhas"],
 		"bonuses": {
 			"crit_damage_pct": 10,
 			"drop_rate_pct": 10,
@@ -595,5 +901,20 @@ static func _init_synergies() -> void:
 		"bonuses": {
 			"life_steal_pct": 10,
 			"night_move_speed_pct": 10
+		}
+	}
+
+	# Arco 1 (ARCO-1-TERRA-DO-SABIA.md 6.2): 3 crendices dos chefes da história ao mesmo tempo.
+	# Sinergias só dão special_effects; "todos os atributos" virou defesa + dano físico/mágico + crítico.
+	_synergies[&"lendas_libertas"] = {
+		"name_key": "SYNERGY_LENDAS_LIBERTAS_NAME",
+		"desc_key": "SYNERGY_LENDAS_LIBERTAS_DESC",
+		"required_count": 3,
+		"crendices": [&"no_de_crina_trancada", &"ferradura_de_porta", &"restia_de_alho", &"cipo_da_pegada_virada", &"travesseiro_de_macela", &"escama_dourada_do_rio", &"unha_do_guardiao", &"cantiga_bordada", &"escama_da_tempestade", &"brasa_que_nao_apaga"],
+		"bonuses": {
+			"all_def_pct": 5,
+			"phys_dmg_pct": 5,
+			"magic_dmg_pct": 5,
+			"crit_chance_pct": 3
 		}
 	}

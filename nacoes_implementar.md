@@ -31,3 +31,7 @@ Este documento acompanha as nações previstas no atlas, as referências cultura
 Todos os novos modelos entram **inativos**. O catálogo inclui celebrações brasileiras — Festa Junina, Folclore, Florada dos Ipês, Carnaval das Águas, Semana dos Caminhos Livres, Dia das Brincadeiras, Natal e Virada das Estrelas — e um evento inicial para cada uma das demais nações. Cada registro informa região, países de referência, período, bônus, cosméticos e a mudança visual planejada.
 
 Ao ativar um evento, confirme antes que seus cenários e cosméticos já possuem recursos no cliente. Os multiplicadores de XP e drop já são lidos pelo servidor; decoração e cosmético dependem de seus recursos e pontos de aplicação existirem no jogo.
+
+## Monstros planejados por nação
+
+A lista de monstros, espécies regionais e chefes de arco de cada nação está em `docs/mundo/monstros-por-nacao.md`. Decisão do dono (07/10/2026): nenhuma nação nova entra em produção antes do Arco 1 da Terra do Sabiá terminar.

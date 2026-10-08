@@ -1,0 +1,92 @@
+{
+ "cf_black": {
+  "flat": "Base 1",
+  "out": "Roxo 3"
+ },
+ "cf_tip": {
+  "flat": "Roxo 4",
+  "out": "Roxo 3"
+ },
+ "cf_dark": {
+  "flat": "Roxo 1",
+  "out": "Roxo 2"
+ },
+ "cf_smoke": {
+  "flat": "Base 1",
+  "out": "Roxo 2"
+ },
+ "cf_smoke2": {
+  "flat": "Roxo 1",
+  "out": "Roxo 3"
+ },
+ "saci_skin_n": {
+  "ramp": [
+   "Pele escura 2",
+   "Pele escura 3",
+   "Pele escura 4",
+   "Pele escura 4"
+  ],
+  "line": "Pele escura 1",
+  "out": "Base 1"
+ },
+ "saci_cap_n": {
+  "ramp": [
+   "Vermelho 1",
+   "Vermelho 2",
+   "Vermelho 3",
+   "Vermelho 4"
+  ],
+  "line": "Vermelho 1",
+  "out": "Vermelho 1"
+ },
+ "saci_short_n": {
+  "ramp": [
+   "Base 1",
+   "Roxo 1",
+   "Roxo 2",
+   "Roxo 3"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ },
+ "whirl_n": {
+  "ramp": [
+   "Base 1",
+   "Roxo 1",
+   "Roxo 2",
+   "Roxo 3"
+  ],
+  "line": "Base 1",
+  "out": "Roxo 2"
+ },
+ "whirl_d_n": {
+  "ramp": [
+   "Base 1",
+   "Base 1",
+   "Azul ceu 1",
+   "Roxo 1"
+  ],
+  "line": "Base 1",
+  "out": "Roxo 2"
+ },
+ "straw_n": {
+  "ramp": [
+   "Madeira/cabelo 1",
+   "Ouro/amarelo 1",
+   "Ouro/amarelo 2",
+   "Ouro/amarelo 3"
+  ],
+  "line": "Madeira/cabelo 1",
+  "out": "Base 1"
+ },
+ "saci_hair_n": {
+  "ramp": [
+   "Base 1",
+   "Pele escura 1",
+   "Madeira/cabelo 1",
+   "Madeira/cabelo 2"
+  ],
+  "line": "Base 1",
+  "out": "Base 1"
+ }
+}

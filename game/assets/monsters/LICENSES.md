@@ -18,6 +18,9 @@ Downloads ficam em `.work/b3/packs/<pack>/` (fora do jogo); aqui fica só o regi
 | Tatu-Montanha Atroz (`stone_armadillo`, estágio 4 — forma atroz, noite) | `.../stone_armadillo.py` (`build(4)`, `_atroz_*`) | Projeto (agente de arte, 30/09/2026) | do projeto |
 | Ventania Atroz (`prank_whirlwind`, estágio 4 — forma atroz, noite) | `.../prank_whirlwind.py` (`build(4)`, `_atroz_*`) | Projeto (agente de arte, 30/09/2026) | do projeto |
 | Rainha-Lume Atroz (`enchanted_firefly`, estágio 4 — forma atroz, noite) | `.../enchanted_firefly.py` (`build(4)`, `_atroz_*`) | Projeto (agente de arte, 30/09/2026) | do projeto |
+| Kappa da Lagoa / Kappa do Remanso / Kappa do Poço Escuro (`pond_kappa`, s1/s3/s4 — Sol Nascente, aprovado e instalado em 07/10 (sem spawn)) | `.../pond_kappa.py` + `sol_common.py` | Projeto (agente de arte, 07/10/2026) | do projeto |
+| Corvo da Montanha / Tengu do Vendaval / Tengu da Asa Noturna (`mountain_tengu`, s1/s3/s4 — aprovado e instalado em 07/10 (sem spawn)) | `.../mountain_tengu.py` + `sol_common.py` | Projeto (agente de arte, 07/10/2026) | do projeto |
+| Lanterna Travessa / Lanterna do Desfile / Lanterna da Chama Violeta (`paper_lantern`, s1/s3/s4 — aprovado e instalado em 07/10 (sem spawn)) | `.../paper_lantern.py` + `sol_common.py` | Projeto (agente de arte, 07/10/2026) | do projeto |
 
 As formas atrozes são o modelo do chefe (s3) com peças novas feitas por script (nenhuma peça de pack) e as rampas
 noturnas de `post.py`. Ícones dos drops noturnos (`assets/items/icons/icon_item_eternal_ember.png`,
@@ -82,3 +85,19 @@ quadro 240, cada um com modelo e silhueta próprios). Os packs CC0 extraídos (`
 | Aranha-Armadeira (`wandering_spider`, s1–s4) | `game/tools/art/blender/monsters/wandering_spider.py` + `venom_common.py` + `wandering_spider_mats.json` | Projeto (agente de arte, 07/10/2026) | do projeto |
 | Aranha-Marrom (`brown_recluse`, s1–s4) | `.../brown_recluse.py` + `venom_common.py` + `brown_recluse_mats.json` | Projeto (agente de arte, 07/10/2026) | do projeto |
 | Taturana Lonomia (`lonomia_caterpillar`, s1–s4) | `.../lonomia_caterpillar.py` + `venom_common.py` + `lonomia_caterpillar_mats.json` | Projeto (agente de arte, 07/10/2026) | do projeto |
+
+## Chefes da história — Arco 1 (forma atroz única, modelo próprio por script, sem pack)
+
+| Chefe | Fonte | Autor | Licença |
+|---|---|---|---|
+| Saci Atroz (`story_saci`) | `game/tools/art/blender/monsters/story_saci.py` + `story_lote1.py` | Projeto (07/10/2026) | do projeto |
+| Lobisomem Atroz (`story_lobisomem`) | `.../story_lobisomem.py` + `story_lote1.py` | Projeto (07/10/2026) | do projeto |
+| Curupira Atroz (`story_curupira`) | `.../story_curupira.py` + `story_lote1.py` | Projeto (07/10/2026) | do projeto |
+| Pisadeira Atroz (`story_pisadeira`) | `.../story_pisadeira.py` + `story_lote1.py` | Projeto (07/10/2026) | do projeto |
+| Iara Atroz (`story_iara`, lote 2) | `.../story_iara.py` + `story_common_l2.py` + `sol_common.py` | Projeto (07/10/2026) | do projeto |
+| Mapinguari Atroz (`story_mapinguari`, lote 2) | `.../story_mapinguari.py` + `story_common_l2.py` + `sol_common.py` | Projeto (07/10/2026) | do projeto |
+| Cuca Atroz (`story_cuca`, lote 2; bruxa jovem, design original — nada da Cuca do Sítio nem de série/atriz) | `.../story_cuca.py` + `story_common_l2.py` + `sol_common.py` | Projeto (07/10/2026) | do projeto |
+| Boiúna Atroz (`story_boiuna`, lote 2) | `.../story_boiuna.py` + `story_common_l2.py` + `sol_common.py` | Projeto (07/10/2026) | do projeto |
+| Boitatá Atroz (`story_boitata`, lote 2, chefe final) | `.../story_boitata.py` + `story_common_l2.py` + `sol_common.py` | Projeto (07/10/2026) | do projeto |
+
+Aprovados pelo dono em 07/10/2026 e instalados sem dados de jogo (ainda não nascem em mapa). A Mula-sem-Cabeça Atroz (`story_mula`) foi refeita e aguarda aprovação.

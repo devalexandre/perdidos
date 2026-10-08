@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/icons/icon_item_ratanaba_guardian_shield.png" id="icon"]
+[ext_resource type="Script" path="res://scripts/shared/data/item_def.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"ratanaba_guardian_shield"
+name_key = "ITEM_RATANABA_GUARDIAN_SHIELD_NAME"
+desc_key = "ITEM_RATANABA_GUARDIAN_SHIELD_DESC"
+icon = ExtResource("icon")
+type = 2
+rarity = 3
+sell_price = 800
+stats = Dictionary[StringName, int]({
+&"def": 34,
+&"mdef": 24,
+&"vit": 6
+})

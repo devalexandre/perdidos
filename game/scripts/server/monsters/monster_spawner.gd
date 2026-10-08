@@ -12,10 +12,43 @@ extends RefCounted
 ## faltam nascem. Só em zonas com bosses_allowed e teto 3 (nunca no Campo de Treino). Covis são independentes.
 ## Forma atroz (chefe à noite): MonsterBrain.update_atroz; aparência replicada em appearance["atroz"].
 ## Comandos de teste do dono (chat "/chefe", "/noite"...): MonsterDebug (debug; só com --dev-commands).
+## Chefes da história (ARCO-1-TERRA-DO-SABIA.md §1, regras 1, 5 e 6): cada Marker3D em StoryLairs/ é o covil de um
+## MonsterDef com story_boss. Nasce só à noite, já na forma atroz (fixa), com o bando da meta escort ({espécie:
+## quantidade}, no mínimo STORY_ESCORT_MIN, no estágio escort_stage). Volta 1 h (STORY_RESPAWN_SEC) depois de
+## derrotado; se amanhece com ele vivo e fora de luta, some com o bando e o próximo nasce na noite seguinte. No máximo
+## 1 chefe da história vivo por mapa. Vale em qualquer zona de caça (o chefe forte em mapa fraco é a regra 6), mas
+## nunca no Campo de Treino nem em zona sem combate. O ritual da quest (summon_story_boss) antecipa o nascimento.
+## Covil de espécie com a meta day_only só existe de dia (o do andar 4 da Caverna cede a noite ao Lobisomem da história).
 
 const SPAWNS_NODE: String = "Spawns"
 ## Covis fixos dos chefes (um Marker3D por chefe).
 const LAIRS_NODE: String = "BossLairs"
+## Covis dos chefes da história (Arco 1).
+const STORY_LAIRS_NODE: String = "StoryLairs"
+## Bando do covil da história: {monster_id: quantidade} e estágio (1 normal, 2 médio; padrão 1).
+const META_ESCORT: StringName = &"escort"
+const META_ESCORT_STAGE: StringName = &"escort_stage"
+## Covil de espécie que só existe de dia.
+const META_DAY_ONLY: StringName = &"day_only"
+## Regra 5 (dono, 07/10/2026): 1 h para o chefe da história voltar; bando de no mínimo 10 (regra 6).
+const STORY_RESPAWN_SEC: float = 3600.0
+const STORY_ESCORT_MIN: int = 10
+## Hora em que o covil existe ("" = sempre).
+const TIME_NIGHT: StringName = &"night"
+const TIME_DAY: StringName = &"day"
+## Ação do covil com hora (timed_lair_action).
+const LAIR_SPAWN: StringName = &"spawn"
+const LAIR_VANISH: StringName = &"vanish"
+## Resultado do ritual (summon_story_boss).
+const SUMMON_SPAWNED: StringName = &"spawned"
+const SUMMON_ALIVE: StringName = &"alive"
+const SUMMON_DAY: StringName = &"day"
+const SUMMON_NO_LAIR: StringName = &"no_lair"
+const SUMMON_BLOCKED: StringName = &"blocked"
+const MSG_STORY_APPEARED: String = "SYS_STORY_BOSS_APPEARED"
+const MSG_STORY_VANISHED: String = "SYS_STORY_BOSS_VANISHED"
+## Conferência dos covis com hora (não precisa ser todo tick).
+const TIMED_CHECK_MSEC: int = 1000
 const MSG_LAIR: String = "SYS_BOSS_LAIR_APPEARED"
 const META_MONSTER_ID: StringName = &"monster_id"
 const META_COUNT: StringName = &"count"
@@ -55,6 +88,11 @@ var _lair_escort: Dictionary[String, Array] = {}
 var debug: MonsterDebug = null
 ## Multiplicador de chance de drop só para testes (--drop-chance-mult); 1 = normal.
 var test_drop_chance_mult: float = 1.0
+## Covil -> entity_id do chefe vivo dele.
+var _lair_alive: Dictionary[String, int] = {}
+## Covis com hora (chefes da história e covis day_only).
+var _timed_slots: Array[String] = []
+var _next_timed_msec: int = 0
 
 
 func _init(p_combat: CombatService) -> void:
@@ -78,14 +116,18 @@ func tick() -> void:
 			continue
 		_done_instances[instance_id] = true
 		_spawn_instance(instance_id)
-	if _respawn_at.is_empty():
-		return
 	var now: int = Time.get_ticks_msec()
 	for slot: String in _respawn_at.keys():
 		if now < _respawn_at[slot]:
 			continue
 		_respawn_at.erase(slot)
+		# Covil com hora: a espera acabou fora da hora dele; nasce quando a hora chegar (_tick_timed).
+		if not _slot_time_allowed(slot):
+			continue
 		_spawn_slot(slot)
+	if not _timed_slots.is_empty() and now >= _next_timed_msec:
+		_next_timed_msec = now + TIMED_CHECK_MSEC
+		_tick_timed()
 
 
 func _spawn_instance(instance_id: StringName) -> void:
@@ -125,6 +167,7 @@ func _spawn_instance(instance_id: StringName) -> void:
 
 ## Covis fixos (BossLairs/): uma vaga de chefe por marcador.
 func _install_lairs(instance_id: StringName, map_node: Node) -> void:
+	_install_story_lairs(instance_id, map_node)
 	var lairs: Node = map_node.get_node_or_null(LAIRS_NODE)
 	if lairs == null or not bosses_allowed(instance_id):
 		return
@@ -142,9 +185,228 @@ func _install_lairs(instance_id: StringName, map_node: Node) -> void:
 				"radius": float(m.get_meta(META_RADIUS, CombatRules.DEFAULT_ROAM_CELLS)),
 				"respawn_sec": float(m.get_meta(META_RESPAWN, Balance.cfg.boss_respawn_sec)),
 				"stage": CombatRules.STAGE_BOSS, "lair": String(m.name)}
+		if bool(m.get_meta(META_DAY_ONLY, false)):
+			_slots[slot]["time"] = TIME_DAY
+			_timed_slots.append(slot)
+			if not _slot_time_allowed(slot):
+				continue
 		if _spawn_slot(slot) != null:
 			n += 1
 	Net.log_line("boss_lairs_ready", {"instance": String(instance_id), "bosses": n})
+
+
+## Covis dos chefes da história (StoryLairs/): registra as vagas; quem nasce é o _tick_timed (só à noite).
+func _install_story_lairs(instance_id: StringName, map_node: Node) -> void:
+	var lairs: Node = map_node.get_node_or_null(STORY_LAIRS_NODE)
+	if lairs == null:
+		return
+	if not story_lairs_allowed(CombatBridges.zone_for_instance(world, instance_id)):
+		Net.log_line("story_lairs_skipped", {"instance": String(instance_id), "reason": "zone"})
+		return
+	var n: int = 0
+	for m: Node in lairs.get_children():
+		if not (m is Marker3D) or not m.has_meta(META_MONSTER_ID):
+			continue
+		var def: MonsterDef = Content.monster(StringName(str(m.get_meta(META_MONSTER_ID))))
+		var reason: String = story_lair_problem(def, m.get_meta(META_ESCORT, {}))
+		if not reason.is_empty():
+			push_warning("MonsterSpawner: story lair %s: %s." % [m.name, reason])
+			Net.log_line("story_lair_invalid", {"instance": String(instance_id), "lair": String(m.name), "reason": reason})
+			continue
+		var slot: String = SLOT_SEPARATOR.join([String(instance_id), STORY_LAIRS_NODE + "/" + String(m.name), "0"])
+		_slots[slot] = {"instance": instance_id, "def": def, "center": (m as Node3D).global_position,
+				"radius": float(m.get_meta(META_RADIUS, CombatRules.DEFAULT_ROAM_CELLS)),
+				"respawn_sec": float(m.get_meta(META_RESPAWN, STORY_RESPAWN_SEC)),
+				"stage": CombatRules.STAGE_BOSS, "lair": String(m.name), "story": true, "time": TIME_NIGHT,
+				"escort": m.get_meta(META_ESCORT, {}), "escort_stage": int(m.get_meta(META_ESCORT_STAGE, 1))}
+		_timed_slots.append(slot)
+		n += 1
+	Net.log_line("story_lairs_ready", {"instance": String(instance_id), "lairs": n})
+	_tick_timed()
+
+
+## Regra pura: covil da história vale em zona de caça com combate (mesmo de teto baixo: regra 6), nunca no Campo de
+## Treino nem em cidade sem combate.
+static func story_lairs_allowed(zone: ZoneDef) -> bool:
+	return zone != null and zone.kind != ZoneDef.Kind.TRAINING and zone.combat_allowed
+
+
+## Regra pura: o que impede este covil da história ("" = nada). escort = meta {monster_id: quantidade}.
+static func story_lair_problem(def: MonsterDef, escort: Variant) -> String:
+	if def == null:
+		return "monster not found"
+	if not def.story_boss:
+		return "not a story boss"
+	if def.art_pending:
+		return "art pending (not released)"
+	if MonsterEvolution.stage_by_number(def, CombatRules.STAGE_BOSS) == null or def.atroz_stage() == null:
+		return "needs stages 3 and 4"
+	if escort_size(escort) < STORY_ESCORT_MIN:
+		return "escort below %d" % STORY_ESCORT_MIN
+	for mid: Variant in (escort as Dictionary):
+		var ed: MonsterDef = Content.monster(StringName(str(mid)))
+		if ed == null or ed.stages.is_empty() or ed.story_boss:
+			return "escort monster '%s' invalid" % mid
+	return ""
+
+
+## Tamanho do bando da meta escort (0 se não for dicionário).
+static func escort_size(escort: Variant) -> int:
+	if not escort is Dictionary:
+		return 0
+	var n: int = 0
+	for k: Variant in (escort as Dictionary):
+		n += maxi(0, int((escort as Dictionary)[k]))
+	return n
+
+
+## Regra pura da hora do covil.
+static func lair_time_allowed(time_rule: StringName, is_night: bool) -> bool:
+	match time_rule:
+		TIME_NIGHT:
+			return is_night
+		TIME_DAY:
+			return not is_night
+	return true
+
+
+## Regra pura do covil com hora (regra 5): LAIR_SPAWN (nasce agora), LAIR_VANISH (some agora) ou &"" (nada).
+## Fora da hora, o chefe vivo some só fora de luta (em luta, termina a luta). Morto, espera a volta (respawn_pending)
+## e a hora certa. other_story_alive = já há outro chefe da história vivo no mapa (só vale para covil da história).
+static func timed_lair_action(time_rule: StringName, is_night: bool, alive: bool, in_combat: bool,
+		respawn_pending: bool, other_story_alive: bool = false) -> StringName:
+	var allowed: bool = lair_time_allowed(time_rule, is_night)
+	if alive:
+		return LAIR_VANISH if not allowed and not in_combat else &""
+	if allowed and not respawn_pending and not other_story_alive:
+		return LAIR_SPAWN
+	return &""
+
+
+## Regra pura do ritual: nunca cria um segundo chefe; de dia não acontece nada.
+static func summon_decision(has_lair: bool, alive: bool, is_night: bool, other_story_alive: bool) -> StringName:
+	if not has_lair:
+		return SUMMON_NO_LAIR
+	if alive:
+		return SUMMON_ALIVE
+	if not is_night:
+		return SUMMON_DAY
+	if other_story_alive:
+		return SUMMON_BLOCKED
+	return SUMMON_SPAWNED
+
+
+func _slot_is_night(slot: String) -> bool:
+	var info: Dictionary = _slots.get(slot, {})
+	if info.is_empty():
+		return false
+	return DayNight.is_night_on_map(world.get_instance_map_id(info["instance"]))
+
+
+func _slot_time_allowed(slot: String) -> bool:
+	var info: Dictionary = _slots.get(slot, {})
+	return lair_time_allowed(StringName(str(info.get("time", ""))), _slot_is_night(slot))
+
+
+## Chefe vivo deste covil (null = nenhum).
+func lair_entity(slot: String) -> NetEntity:
+	var id: int = int(_lair_alive.get(slot, 0))
+	if id == 0:
+		return null
+	var e: NetEntity = world.get_entity(id)
+	var b: MonsterBrain = combat.get_brain(e) if e != null and is_instance_valid(e) else null
+	if b == null or b.is_dead() or e.is_queued_for_deletion():
+		_lair_alive.erase(slot)
+		return null
+	return e
+
+
+## Já há chefe da história vivo nesta instância (fora o covil except_slot)?
+func story_boss_alive(instance_id: StringName, except_slot: String = "") -> bool:
+	for slot: String in _timed_slots:
+		var info: Dictionary = _slots.get(slot, {})
+		if slot != except_slot and info.get("instance") == instance_id and bool(info.get("story", false)) \
+				and lair_entity(slot) != null:
+			return true
+	return false
+
+
+## Nascer/sumir dos covis com hora (chefes da história à noite; covis day_only de dia).
+func _tick_timed() -> void:
+	for slot: String in _timed_slots:
+		var info: Dictionary = _slots.get(slot, {})
+		if info.is_empty():
+			continue
+		var e: NetEntity = lair_entity(slot)
+		var b: MonsterBrain = combat.get_brain(e) if e != null else null
+		var story: bool = bool(info.get("story", false))
+		var action: StringName = timed_lair_action(StringName(str(info.get("time", ""))), _slot_is_night(slot),
+				e != null, b != null and b.state in [MonsterBrain.State.CHASE, MonsterBrain.State.ATTACK],
+				_respawn_at.has(slot), story and story_boss_alive(info["instance"], slot))
+		if action == LAIR_SPAWN:
+			_spawn_slot(slot)
+		elif action == LAIR_VANISH:
+			_vanish_lair(slot, e)
+
+
+## Amanheceu (ou anoiteceu, no covil day_only) com o chefe vivo: ele some. O da história leva o bando junto.
+func _vanish_lair(slot: String, e: NetEntity) -> void:
+	var info: Dictionary = _slots.get(slot, {})
+	var b: MonsterBrain = combat.get_brain(e)
+	var name_key: String = b.stage.name_key if b != null and b.stage != null else ""
+	_lair_alive.erase(slot)
+	var gone: int = 0
+	if bool(info.get("story", false)):
+		for id: Variant in _lair_escort.get(slot, []):
+			var m: NetEntity = world.get_entity(int(id))
+			if m != null and is_instance_valid(m) and not m.is_queued_for_deletion():
+				world.despawn_entity(m)
+				gone += 1
+		_lair_escort.erase(slot)
+	world.despawn_entity(e)
+	Net.log_line("lair_vanished", {"slot": slot, "monster": String((info["def"] as MonsterDef).id),
+			"escort_gone": gone, "clock": DayNight.clock_text(), "story": bool(info.get("story", false))})
+	if bool(info.get("story", false)):
+		for p: int in Net.get_instance_peer_ids(info["instance"]):
+			Net.push_system_message(p, MSG_STORY_VANISHED, [name_key])
+
+
+## Ritual da quest (Arco 1): o chefe da história `monster_id` nasce já no covil dele nesta instância, se não estiver
+## vivo e for noite (zera a espera de 1 h). Nunca cria um segundo. {"result": SUMMON_*, "entity": NetEntity|null,
+## "position": centro do covil}.
+func summon_story_boss(instance_id: StringName, monster_id: StringName) -> Dictionary:
+	var slot: String = story_slot_of(instance_id, monster_id)
+	var alive: NetEntity = lair_entity(slot) if not slot.is_empty() else null
+	var result: StringName = summon_decision(not slot.is_empty(), alive != null,
+			_slot_is_night(slot) if not slot.is_empty() else false,
+			story_boss_alive(instance_id, slot) if not slot.is_empty() else false)
+	var out: Dictionary = {"result": result, "entity": alive,
+			"position": _slots[slot]["center"] if not slot.is_empty() else Vector3.INF}
+	if result == SUMMON_SPAWNED:
+		_respawn_at.erase(slot)
+		out["entity"] = _spawn_slot(slot)
+		if out["entity"] == null:
+			out["result"] = SUMMON_BLOCKED
+	if out["result"] in [SUMMON_SPAWNED, SUMMON_BLOCKED]:
+		Net.log_line("story_ritual", {"instance": String(instance_id), "monster": String(monster_id),
+				"result": String(out["result"]), "clock": DayNight.clock_text()})
+	return out
+
+
+## Vaga do covil da história desse chefe nesta instância ("" = o mapa não tem).
+func story_slot_of(instance_id: StringName, monster_id: StringName) -> String:
+	for slot: String in _timed_slots:
+		var info: Dictionary = _slots.get(slot, {})
+		if info.get("instance") == instance_id and bool(info.get("story", false)) \
+				and (info["def"] as MonsterDef).id == monster_id:
+			return slot
+	return ""
+
+
+## Centro do covil da história desse chefe nesta instância (Vector3.INF se não houver).
+func story_lair_center(instance_id: StringName, monster_id: StringName) -> Vector3:
+	var slot: String = story_slot_of(instance_id, monster_id)
+	return _slots[slot]["center"] if not slot.is_empty() else Vector3.INF
 
 
 ## A zona aceita chefe? (bosses_allowed, teto 3; nunca no Campo de Treino)
@@ -180,12 +442,18 @@ func _spawn_slot(slot: String) -> NetEntity:
 	var brain: MonsterBrain = combat.get_brain(e)
 	brain.spawn_slot = slot
 	if lair:
+		_lair_alive[slot] = e.entity_id
+		var story: bool = bool(info.get("story", false))
+		if story:
+			# Regra 1: só existe na forma atroz (fixa até sumir ao amanhecer).
+			brain.atroz_pinned = true
+			brain.update_atroz()
 		var escort: int = _lair_escort_for(slot, brain)
 		Net.log_line("boss_lair_spawned", {"id": e.entity_id, "monster": String(def.id),
 				"instance": String(instance_id), "lair": info["lair"], "escort": escort, "atroz": brain.atroz,
-				"respawn_sec": info["respawn_sec"], "clock": DayNight.clock_text()})
+				"respawn_sec": info["respawn_sec"], "clock": DayNight.clock_text(), "story": story})
 		for p: int in Net.get_instance_peer_ids(instance_id):
-			Net.push_system_message(p, MSG_LAIR, [brain.stage.name_key])
+			Net.push_system_message(p, MSG_STORY_APPEARED if story else MSG_LAIR, [brain.stage.name_key])
 	return e
 
 
@@ -194,6 +462,7 @@ func _lair_escort_for(slot: String, boss: MonsterBrain) -> int:
 	var be: NetEntity = boss.get_entity()
 	var kept: Array[NetEntity] = []
 	var have: Dictionary[int, int] = {}
+	var have_species: Dictionary[StringName, int] = {}
 	for id: Variant in _lair_escort.get(slot, []):
 		var m: NetEntity = world.get_entity(int(id))
 		var mb: MonsterBrain = combat.get_brain(m) if m != null else null
@@ -203,7 +472,13 @@ func _lair_escort_for(slot: String, boss: MonsterBrain) -> int:
 		mb.origin = boss.origin
 		kept.append(m)
 		have[mb.stage.stage] = int(have.get(mb.stage.stage, 0)) + 1
-	var made: Array[NetEntity] = spawn_escort(boss, have)
+		have_species[mb.def.id] = int(have_species.get(mb.def.id, 0)) + 1
+	var info: Dictionary = _slots.get(slot, {})
+	var made: Array[NetEntity] = []
+	if escort_size(info.get("escort", {})) > 0:
+		made = spawn_planned_escort(boss, info["escort"], int(info.get("escort_stage", 1)), have_species)
+	else:
+		made = spawn_escort(boss, have)
 	var ids: Array = []
 	for m: NetEntity in kept + made:
 		ids.append(m.entity_id)
@@ -275,6 +550,7 @@ func schedule_respawn(slot: String) -> void:
 	var info: Dictionary = _slots.get(slot, {})
 	if info.is_empty():
 		return
+	_lair_alive.erase(slot)
 	_respawn_at[slot] = Time.get_ticks_msec() + int(float(info["respawn_sec"]) * CombatRules.MSEC_PER_SEC)
 
 
@@ -364,6 +640,47 @@ func spawn_escort(boss: MonsterBrain, have: Dictionary[int, int] = {}) -> Array[
 			"count": made.size(), "kept": have, "instance": String(e.instance_id)})
 	return made
 
+
+## Bando do covil da história (regra 6): outras espécies, do nível do mapa, em volta do chefe. plan = {monster_id:
+## quantidade}; have = quantos de cada espécie já existem (sobraram da vida anterior). Devolve os que nasceram.
+func spawn_planned_escort(boss: MonsterBrain, plan: Dictionary, stage_number: int,
+		have: Dictionary[StringName, int] = {}) -> Array[NetEntity]:
+	var e: NetEntity = boss.get_entity()
+	var grid: WalkGrid = world.get_grid_for_instance(e.instance_id)
+	var made: Array[NetEntity] = []
+	var total: int = escort_size(plan)
+	if grid == null or total <= 0:
+		return made
+	var k: int = 0
+	var keys: Array = plan.keys()
+	keys.sort()
+	for raw: Variant in keys:
+		var mid := StringName(str(raw))
+		var def: MonsterDef = Content.monster(mid)
+		var st: MonsterStage = MonsterEvolution.stage_by_number(def, clampi(stage_number, 1, CombatRules.STAGE_MEDIUM))
+		if st == null and def != null and not def.stages.is_empty():
+			st = def.stages[0]
+		for i: int in range(int(plan[raw])):
+			# Dois anéis: metade perto do chefe, metade um pouco mais longe (cabe o bando todo).
+			var ring: float = CombatRules.ESCORT_RING_CELLS * (1.0 if k % 2 == 0 else 1.8)
+			var angle: float = TAU * float(k) / float(total)
+			k += 1
+			if st == null or i < int(have.get(mid, 0)):
+				continue
+			var p: Vector3 = e.net_position + Vector3(cos(angle), 0.0, sin(angle)) * ring * grid.cell_size
+			var c: Vector2i = grid.nearest_walkable(grid.world_to_cell(p), CombatRules.SPAWN_SNAP_CELLS)
+			if c.x < 0:
+				continue
+			var m: NetEntity = spawn(e.instance_id, def, st, grid.cell_to_world(c), boss.roam_radius_cells)
+			if m == null:
+				continue
+			var mb: MonsterBrain = combat.get_brain(m)
+			mb.boss_entity_id = e.entity_id
+			mb.origin = boss.origin
+			made.append(m)
+	Net.log_line("boss_escort_spawned", {"boss": e.entity_id, "monster": String(boss.def.id),
+			"count": made.size(), "kept": have, "instance": String(e.instance_id), "planned": true})
+	return made
 
 
 ## Centro do Spawns/ dessa espécie na instância (Vector3.INF se não houver).

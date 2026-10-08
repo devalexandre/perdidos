@@ -1268,3 +1268,6 @@ position = Vector3(0, 0, -22)
 metadata/monster_id = &"deep_titan"
 metadata/radius_cells = 10
 metadata/respawn_sec = 600.0
+
+[node name="CauldronChamber" type="Marker3D" parent="."]
+position = Vector3(0, 0, -20)
